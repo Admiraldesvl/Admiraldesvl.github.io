@@ -6,6 +6,7 @@
     <description>Recent content on Desvl&#39;s Personal Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
+    <copyright>Desvl</copyright>
     <lastBuildDate>Sun, 04 Aug 2019 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="http://admiraldesvl.github.io/index.xml" rel="self" type="application/rss+xml" />
@@ -24,6 +25,14 @@
 
 &lt;p&gt;This website is Desvl&amp;rsquo;s personal site. Everything is under construction currently. Don&amp;rsquo;t except any cool stuff LoL.&lt;/p&gt;
 
+&lt;p&gt;Ask me questions anoymously: &lt;a href=&#34;https://peing.net/en/admiraldesvl&#34;&gt;Desvl on Peing&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;link-exchange&#34;&gt;Link Exchange&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.zhangwp.com&#34;&gt;ZHANGWP&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;h2 id=&#34;about-hugo&#34;&gt;About Hugo&lt;/h2&gt;
 
 &lt;p&gt;Hugo is a static site engine written in Go.&lt;/p&gt;
@@ -38,12 +47,6 @@
 &lt;/ul&gt;
 
 &lt;p&gt;Learn more and contribute on &lt;a href=&#34;https://github.com/gohugoio&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&#34;link-exchange&#34;&gt;Link Exchange&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.zhangwp.com&#34;&gt;ZHANGWP&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
 </description>
       
     </item>
