@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>收缩定理和其应用 - Desvl&#39;s Personal Site</title>
+  <title>优美的Fourier级数（一） - Desvl&#39;s Personal Site</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -23,7 +23,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Desvl" />
-  <meta name="description" content="什么是收缩 收缩的准确描述是这样的： 取度量空间$X$，度量$d$，函数$\varphi$是$X$到本身的映射，且满足$$d(\varphi(x" />
+  <meta name="description" content="前言 Fourier级数是相当优美的一类级数，但它涉及到的问题绝对不仅仅是通过各种运算技巧求表达式. 相反，它是一个很复杂、很困难的大话题. 我在" />
 
   <meta name="keywords" content="Hugo, theme, jane" />
 
@@ -35,7 +35,7 @@
 <meta name="generator" content="Hugo 0.56.3" />
 
 
-<link rel="canonical" href="http://admiraldesvl.github.io/post/2019-08-04-contraction-application/" />
+<link rel="canonical" href="http://admiraldesvl.github.io/post/2019-08-05-beautiful-fourier-001/" />
 
 
 
@@ -57,26 +57,26 @@
 
 
 
-<meta property="og:title" content="收缩定理和其应用" />
-<meta property="og:description" content="什么是收缩 收缩的准确描述是这样的： 取度量空间$X$，度量$d$，函数$\varphi$是$X$到本身的映射，且满足$$d(\varphi(x" />
+<meta property="og:title" content="优美的Fourier级数（一）" />
+<meta property="og:description" content="前言 Fourier级数是相当优美的一类级数，但它涉及到的问题绝对不仅仅是通过各种运算技巧求表达式. 相反，它是一个很复杂、很困难的大话题. 我在" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://admiraldesvl.github.io/post/2019-08-04-contraction-application/" />
-<meta property="article:published_time" content="2019-08-04T00:00:00+00:00" />
-<meta property="article:modified_time" content="2019-08-04T00:00:00+00:00" />
-<meta itemprop="name" content="收缩定理和其应用">
-<meta itemprop="description" content="什么是收缩 收缩的准确描述是这样的： 取度量空间$X$，度量$d$，函数$\varphi$是$X$到本身的映射，且满足$$d(\varphi(x">
+<meta property="og:url" content="http://admiraldesvl.github.io/post/2019-08-05-beautiful-fourier-001/" />
+<meta property="article:published_time" content="2019-08-05T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-08-05T00:00:00+00:00" />
+<meta itemprop="name" content="优美的Fourier级数（一）">
+<meta itemprop="description" content="前言 Fourier级数是相当优美的一类级数，但它涉及到的问题绝对不仅仅是通过各种运算技巧求表达式. 相反，它是一个很复杂、很困难的大话题. 我在">
 
 
-<meta itemprop="datePublished" content="2019-08-04T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2019-08-04T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="1558">
+<meta itemprop="datePublished" content="2019-08-05T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-08-05T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="2692">
 
 
 
-<meta itemprop="keywords" content="数学分析," />
+<meta itemprop="keywords" content="数学分析,Fourier分析," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="收缩定理和其应用"/>
-<meta name="twitter:description" content="什么是收缩 收缩的准确描述是这样的： 取度量空间$X$，度量$d$，函数$\varphi$是$X$到本身的映射，且满足$$d(\varphi(x"/>
+<meta name="twitter:title" content="优美的Fourier级数（一）"/>
+<meta name="twitter:description" content="前言 Fourier级数是相当优美的一类级数，但它涉及到的问题绝对不仅仅是通过各种运算技巧求表达式. 相反，它是一个很复杂、很困难的大话题. 我在"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -349,11 +349,11 @@ if (!doNotTrack) {
           <article class="post bg-white">
     
     <header class="post-header">
-      <h1 class="post-title">收缩定理和其应用</h1>
+      <h1 class="post-title">优美的Fourier级数（一）</h1>
       
       <div class="post-meta">
-        <time datetime="2019-08-04" class="post-time">
-          2019-08-04
+        <time datetime="2019-08-05" class="post-time">
+          2019-08-05
         </time>
         <div class="post-category">
             <a href="http://admiraldesvl.github.io/categories/%E6%95%B0%E5%AD%A6/"> 数学 </a>
@@ -378,11 +378,25 @@ if (!doNotTrack) {
 <ul>
 <li>
 <ul>
-<li><a href="#什么是收缩">什么是收缩</a></li>
-<li><a href="#收缩的证明">收缩的证明</a></li>
-<li><a href="#简单应用">简单应用</a></li>
-<li><a href="#总结">总结</a></li>
-<li><a href="#关于度量">关于度量</a></li>
+<li><a href="#前言">前言</a></li>
+<li><a href="#fourier级数">Fourier级数</a>
+<ul>
+<li><a href="#级数的表达">级数的表达</a></li>
+<li><a href="#关于级数的系数-即函数的-坐标">关于级数的系数，即函数的“坐标”</a>
+<ul>
+<li><a href="#单位正交系">单位正交系</a></li>
+<li><a href="#再看fourier级数">再看Fourier级数</a></li>
+</ul></li>
+<li><a href="#内积运算的法则">内积运算的法则</a></li>
+</ul></li>
+<li><a href="#dirichlet核">Dirichlet核</a>
+<ul>
+<li><a href="#定义式">定义式</a></li>
+<li><a href="#搭建起dirichlet核和原函数的桥梁">搭建起Dirichlet核和原函数的桥梁</a></li>
+<li><a href="#bessel不等式以及其重要推论">Bessel不等式以及其重要推论</a></li>
+<li><a href="#收敛证明">收敛证明</a></li>
+</ul></li>
+<li><a href="#总结-我接下来想写的">总结&amp;我接下来想写的</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -393,102 +407,183 @@ if (!doNotTrack) {
     <div class="post-content">
       
 
-<h2 id="什么是收缩">什么是收缩</h2>
+<h2 id="前言">前言</h2>
 
-<p>收缩的准确描述是这样的：</p>
+<p>Fourier级数是相当优美的一类级数，但它涉及到的问题绝对不仅仅是通过各种运算技巧求表达式. 相反，它是一个很复杂、很困难的大话题. 我在这里会把一些基本内容和一系列严格的证明整理下来. 从Fourier级数出发，我们能看到很多重要的基本技巧的应用，也会涉及和实际应用息息相关的问题. 当然这些内容里不会包括如何求表达式，我觉得计算机做得比我会好多了.</p>
 
-<blockquote>
-<p>取度量空间$X$，度量$d$，函数$\varphi$是$X$到本身的映射，且满足$$d(\varphi(x),\varphi(y))\leq cd(x,y)$$. 其中$x,y\in{X}$, $c&lt;1$. 那么$\varphi$就是一个从$X$到本身的收缩.</p>
-</blockquote>
+<h2 id="fourier级数">Fourier级数</h2>
 
-<p>一个最简单的例子是， $y=\frac{x}{2}$. 这是一个“平缓”的函数。平缓的程度是怎样呢？斜率小于1.</p>
+<h3 id="级数的表达">级数的表达</h3>
 
-<p>而收缩定理指出，对于这个函数，有且仅有一个$x$使得$\varphi(x)=x$. 例如上面的例子，只有$0=0$这一个点. 接下来要给出证明. 这个证明方法在求极限时也非常实用，只要能构建出这样的收缩.</p>
-
-<h2 id="收缩的证明">收缩的证明</h2>
-
-<p>任取$x_0\in{X}$, 按照如下方法定义数列$x_n$:</p>
-
-<p>$$x_{n+1}=\varphi(x_n)$$</p>
-
-<p>从而会有</p>
-
-<p>[d(x_2,x_1)=d(\varphi(x_1),\varphi(x_0))\leq cd(x_1,x_0)]</p>
-
-<p>推广下去，就有</p>
-
-<p>[d(x_{n+1},x_n)\leq c^nd(x_1,x_0)]</p>
-
-<p>对于$n&lt;m$, 就有
-\begin{equation}
-    \begin{aligned}
-        d(x_n,x_m)\leq\sum_{i=n+1}^m d(x_i,x_{i+1})\leq(c^n+c^{n+1}+\cdots+c_{m-1})d(x_1,x_0)\leq\frac{c^n}{1-c}d(x_1,x_0)
-    \end{aligned}
-\end{equation}
-这说明，$x_n$是一个Cauthy数列，又考虑到$X$是完备空间，因此$x_n$收敛. 设$x_n$的极限为$x$. 由收缩的定义可知，$\varphi$为一致连续的函数，从而有
+<p>最常见的Fourier级数是这种形式：
 [
-    \varphi(x)=\lim\limits_{n\to\infty}\varphi(x_n)=\lim\limits_{n\to\infty}x_{n+1}=x
-]
-至于唯一性的证明，可设$\varphi(x)=x$, $\varphi(y)=y$. 从而有$d(\varphi(x),\varphi(y))=d(x,y)\leq cd(x,y)$ 这只有在$d(x,y)=0$时成立. 唯一性得到证明.</p>
-
-<h2 id="简单应用">简单应用</h2>
-
-<p>下面是一道数学专业研究生入学考试题。可以发现，利用“压缩”这个工具，问题的解决变得非常简单.</p>
-
-<blockquote>
-<p>已知$0\leq a\leq 1, b \geq2$, 有数列${x_n}$ 满足x_0=0, 且有递推关系[x_{n+1}=x_n-\frac{1}{b}(x_n^2-a),]求证此数列收敛，并求出极限.</p>
-</blockquote>
-
-<p><em>在这里设$\phi(x)=x-\frac{1}{b}(x^2-a)$， 那么有$x_{n+1}=\varphi(x_n)$. 如果能证出$\varphi$为一个压缩，极限的问题就迎刃而解了.</em></p>
-
-<p><strong>证明</strong></p>
-
-<p>设$\varphi(x)=x-\frac{1}{b}(x^2-a)$. 则$x_{n+1}=\varphi(x_n)$. 在这里$x_1=\varphi(x_0)=\frac{a}{b}$. 现证明对所有$n&gt;0$ 有$\frac{a}{b}\leq x_n\leq 1$, 对$n$进行归纳.</p>
-
-<p>$n=1$时，不等式已成立.</p>
-
-<p>假设$n=k$时成立，则$n=k+1$时，有
-[
-    x_{k+1}=\frac{a}{b}-\frac{bx_k-x_k^2}{b}
-]
-考虑到$y=bx-x^2$在$[\frac{a}{b},\frac{b}{2}]$单调递减，而$\frac{b}{2}\geq1$, 故有
-[
-    x_{n+1}\leq\frac{a}{b} +\frac{b-1}{b}\leq 1
-]
-而$y(\frac{a}{b})\geq y(0)=0$, 故$x_{n+1}\geq\frac{a}{b}$.</p>
-
-<p>因此不等式对所有$n&gt;0$成立.</p>
-
-<p>利用这个不等式，得到
-[
-    |f(x)-f(y)|=|x-y||1-\frac{x+y}{b}|\leq|x-y||1-\frac{2a}{b^2}|, \quad \frac{a}{b}\leq x,y \leq 1
+    f(x)=a_0+\sum_{n=1}^{\infty}(a_n\cos nx+b_n\sin nx)\quad x\in\mathbb{R}
 ]</p>
 
-<p>$a=0$时，得到$x_1=x_2=\cdots=0$, 故极限存在且为0.</p>
+<p>这里的$a_n$和$b_n$既可以是实数又可以是复数(但我们接下来主要讨论实数函数$f$). 有的地方把第一项写成$\frac{a_0}{2}$, 这是考虑到积分时会多出来的一个$\frac{1}{2}$. 两种写法单纯是如何统一表达，在后面会解释. 考虑到$e^{ix}=\cos x+i\sin x$, 上面的式子可以写成
+[
+    f(x)= \sum_{-\infty}^{\infty}c_ne^{inx}\quad x\in\mathbb{R}
+]</p>
 
-<p>$a\neq 0$时，令$c=|1-\frac{2a}{b^2}|$, 则始终有$c&lt;1$. 此时就是上文中所提到的压缩. 收敛的证明略去.</p>
+<p>用这种表达方式时不用考虑$c_n$的细节. 注意到$a_0$可以写成$a_0\cos 0x + b_0\sin 0x$.</p>
 
-<p>设$\lim\limits_{n\to\infty}x_n=x$, 则$x=\varphi(x)$. 解得$x=\sqrt{a}$. 这在$a=0$时也成立.</p>
+<h3 id="关于级数的系数-即函数的-坐标">关于级数的系数，即函数的“坐标”</h3>
 
-<p>综上，$\lim\limits_{n\to\infty}x_n$存在，且值为$\sqrt{a}$.</p>
+<h4 id="单位正交系">单位正交系</h4>
 
-<h2 id="总结">总结</h2>
+<p>我们先回忆线性代数里的知识. 一个行向量和一个列向量的乘积是这样的：</p>
 
-<p>压缩是非常有实用价值的工具. 利用它我们可以解决这种函数、数列的极限问题，但它的用途并不局限一元实数函数. 这也是为什么在定义的时候指出是度量空间和指定的度量. 例如，在$\mathbb{R}^n$中证明隐函数定理，就涉及到它的直接利用.</p>
+<p>\begin{equation}
+    \begin{bmatrix}a&amp;b\end{bmatrix}\begin{bmatrix}c\\d\end{bmatrix}=ac+bd
+\end{equation}
+进一步，第一个行向量可以看成列向量的转置. 那么这个$ac+bd$就是两个2维平面内列向量的内积. 这即高中数学中所讲的“向量乘法”. 这涉及到经典欧基里德空间的内积定义. 而谈到向量，单位正交向量肯定是非常有探讨价值的. 因为一般情况下其他向量可以用单位正交向量比较简单地表示出来. 但是向量内积不仅仅存在于经典的欧氏空间. 我们可以定义一系列定义域相同的函数，例如函数$f$和$g$的内积可以定义成
+[
+    (f,g)=\int_a^b f(x)\overline{g}(x)dx
+]
+其中$\overline{g}$表示$g$的共轭复数. 一个共轭一个不共轭可以和经典欧氏空间里一个转置一个不转置相类比.</p>
 
-<h2 id="关于度量">关于度量</h2>
+<p>在任何欧基里德空间里（对函数的定义也是欧基里德空间，区分于经典欧基里德空间），两个向量的内积为0, 说明两个向量正交，夹角为$\frac{\pi}{2}$. 而向量的模的平方即自身和自身的内积. 根据以上结果，我们可以定义函数的“单位正交系”. 若定义在$[a,b]$上的一系列函数${\varphi_n(x)}$满足$(\varphi_n,\varphi_n)=1$而$(\varphi_n,\varphi_m)=0(m\neq n)$, 则称为单位正交系.</p>
 
-<p>度量函数$d(x,y)$即表示两点之间的距离，满足以下三个条件：</p>
+<h4 id="再看fourier级数">再看Fourier级数</h4>
+
+<p>可以验证，在$[-\pi,\pi]$上，下列两组函数是单位正交的：
+[
+    \frac{e^{ix}}{\sqrt{2\pi}},\frac{e^{2ix}}{\sqrt{2\pi}},\frac{e^{3ix}}{\sqrt{2\pi}},\cdots
+]
+[
+    \frac{1}{\sqrt{2\pi}},\frac{\cos x}{\sqrt{\pi}},\frac{\sin x}{\sqrt{\pi}}, \frac{\cos 2x}{\sqrt{\pi}},\cdots
+]</p>
+
+<p>读到这里可以发现，$a_0$和$\frac{a_0}{2}$的表示应该和$\frac{1}{\sqrt{2\pi}}$或者$\frac{1}{\sqrt{\pi}}$有关.</p>
+
+<p>在$\mathbb{R}^n$里，如果知道单位正交向量$\mathbf{e_1},\cdots,\mathbf{e_n}$, 那么任意向量都可以唯一表示成$x_1\mathbf{e_1}+\cdots+x_n\mathbf{e_n}$. 这在其他欧氏空间里也是一样的. 向量$\mathbf{\alpha}$在的第$k$坐标分量为$(\mathbf{\alpha},\mathbf{e_k})$. 通过这个角度看Fourier级数，就会发现，各项的系数就是函数的坐标：
+[
+    c_m=\int_a^b f(x)\overline{\varphi_m}(x)dx
+]
+如果我们再看第二个复变函数形式的表达式，就有
+[
+    c_m=\frac{1}{2\pi}\int_{-\pi}^{\pi} f(x)e^{-imx}dx
+]
+若进行验证，得到的结果也确实如此.(提示：将$e^{inx}$展开为三角函数，再在$[-\pi,\pi]$积分.)</p>
+
+<h3 id="内积运算的法则">内积运算的法则</h3>
+
+<p>下列内积运算的法则会在接下来用到，事实上，若内积能满足下列几个条件，就称为欧基里德空间：</p>
 
 <ul>
-<li><p>$d(x,y)=0$当且仅当$x=y$.</p></li>
+<li><p>$(a+c,b)=(a,b)+(c,b)$</p></li>
 
-<li><p>$d(x,y)=d(y,x)$.</p></li>
+<li><p>$(a,b+c)=(a,b)+(a,c)$</p></li>
 
-<li><p>$d(x,y) + d(y,z) \leq d(x,z)$ (三角形不等式)</p></li>
+<li><p>$(ka,b)=k(a,b)$</p></li>
+
+<li><p>$(a,kb)=k(a,b)$</p></li>
+
+<li><p>$(a,b)=(b,a)$</p></li>
 </ul>
 
-<p>而度量空间即一个有度量函数的集合. 一个简单的例子是，全体实数$\mathbb{R}$, 度量函数$d(x,y)=|x-y|$.</p>
+<h2 id="dirichlet核">Dirichlet核</h2>
+
+<h3 id="定义式">定义式</h3>
+
+<p>Dirichlet核的定义是这样的：
+[
+    D_N(x)=\sum_{-N}^N e^{inx} = \frac{\sin(N+\frac{1}{2})x}{\sin\frac{x}{2}}
+]</p>
+
+<p>第二个等号既可以直接合并$e^{inx}$和$e^{-inx}$得到$\cos nx$的式子从而进行积化和差，又可以利用等比数列的性质得到.</p>
+
+<h3 id="搭建起dirichlet核和原函数的桥梁">搭建起Dirichlet核和原函数的桥梁</h3>
+
+<p>针对文章开头提到的第二种定义，可以定义函数数列
+[
+    s_N(x)=\sum_{-N}^N c_ne^{inx}
+]
+将$c_n$展开，有
+\begin{equation}
+    \begin{aligned}
+        s_N(x)&amp;=\sum_{-N}^N\left(\frac{1}{2\pi}\int_{-\pi}^{\pi} f(t)e^{-int}dt\right)e^{inx}\\<br />
+        &amp;=\int_{-\pi}^{\pi} \frac{1}{2\pi}f(t)\sum_{-N}^Ne^{in(x-t)}dt\\<br />
+        &amp;=\frac{1}{2\pi}\int_{-\pi}^{\pi} f(t)D_N(x-t)dt\\<br />
+        &amp;=\frac{1}{2\pi}\int_{-\pi}^{\pi} f(x-t)D_N(t)dt
+    \end{aligned}
+\end{equation}
+最后一个等号通过函数的周期性和简单的换元运算得到. 至此，Dirichlet核和原函数的桥梁就被搭建起来了. 接下来，需要证明，以这个函数核构建的函数收敛于$f$.</p>
+
+<h3 id="bessel不等式以及其重要推论">Bessel不等式以及其重要推论</h3>
+
+<blockquote>
+<p>设$f(x)$在正交函数系${\varphi_n(x)}$下的系数为${c_n}$, 则有$\sum_{n=1}^{\infty}|c_n|^2\leq(f,f)$.</p>
+</blockquote>
+
+<p>设$s_n(x)=\sum_{m=1}^n c_m\varphi_m(x)$, 其中$c_m=\int_a^b f(x)\overline{\varphi_m}(x)dx$. 下面通过讨论$s_n(x)$到$f(x)$的误差得到这个不等式和一个重要的推论.</p>
+
+<p>注意到$(f,s_n)=\int_a^b f(x)\sum\overline{c_m}\overline{\varphi_m(x)}dx=\sum\overline{c_m}\int_a^b f(x)\overline{\varphi_m(x)}dx=\sum|c_m^2|$</p>
+
+<p>以及$(s_n,s_n)=\sum|c_m^2|$
+\begin{equation}
+    \begin{aligned}
+        (f-s_n,f-s_n)&amp;=(f,f-s_n)-(s_n,f-s_n)\\<br />
+        &amp;=(f,f)-(f,s_n)-(s_n,f)+(s_n,s_n)\\<br />
+        &amp;=(f,f)-(s_n,s_n)\\<br />
+        &amp;\geq 0
+    \end{aligned}
+\end{equation}
+也就是说，
+[
+    (s_n,s_n)=\sum_1^n|c_m|^2\leq(f,f)
+]
+$n\to\infty$时，就是所谓的Bessel不等式. 也可以发现，函数的Fourier系数$c_m$满足$\lim\limits_{n\to\infty}c_m=0$. 这个推论会在下面Dirichlet核收敛的证明中用到.</p>
+
+<h3 id="收敛证明">收敛证明</h3>
+
+<blockquote>
+<p>若对一些$x$有常数$\delta&gt;0$和$M&lt;\infty$使得[|f(x+t)-f(x)|\leq M|t|]对所有$t\in(-\delta,\delta)$成立，那么有[\lim\limits_{n\to\infty}s_N(x)=f(x)]</p>
+</blockquote>
+
+<p><em>要注意的是，我们在这里只讨论逐点收敛.</em></p>
+
+<p>定义函数
+[
+    g(t)=\begin{cases}
+    \frac{f(x-t)-f(t)}{\sin(t/2)},0&lt;|t|&lt;\pi\\<br />
+    0,t=0
+    \end{cases}
+]
+考虑到
+[
+    \frac{1}{2\pi}\int_{-\pi}^{\pi}D_N(x)dx=1
+]
+因此有
+[
+    \frac{1}{2\pi}\int_{-\pi}^{\pi}D_N(t)f(x)dt=f(x)
+]
+所求函数和原函数做差，就有
+\begin{equation}
+    \begin{aligned}
+    s_N(x)-f(x)&amp;=\frac{1}{2\pi}\int_{-\pi}^{\pi}g(t)\sin\left(N+\frac{1}{2}\right)tdt\\<br />
+    &amp;=\frac{1}{2\pi}\int_{-\pi}^{\pi}\left[g(t)\cos\frac{t}{2}\right]\sin Ntdt+\frac{1}{2\pi}\int_{-\pi}^{\pi}\left[g(t)\sin\frac{t}{2}\right]\cos Ntdt
+    \end{aligned}
+\end{equation}
+根据$f(x)$的条件和$g(x)$的定义，$g(x)\cos(t/2)$和$g(x)\sin(t/2)$是有界的. 利用Bessel不等式的推论可以发现，这两个积分趋近于$0$. 这就证明了结论.</p>
+
+<h2 id="总结-我接下来想写的">总结&amp;我接下来想写的</h2>
+
+<p>写到这里，已经涉及到了很多数学中的基本技巧：三角函数、向量内积、复变函数、等比数列、函数项数列收敛等等. Fourier级数可以说是相当“优美”的一类级数. 在一些领域中，展开式中每一项均具有物理意义，这是其他级数难以企及的. 我们又可以看到，Fourier级数还可以跳出三角函数的限制，放在普遍的无穷维空间的规范正交基. 此外，它的收敛定理相比幂级数而言也是很宽松的.</p>
+
+<p>接下来还有很多内容，我暂时的打算是这样的：</p>
+
+<ul>
+<li><p>Jordan&rsquo;s criterion(关于$s_N(x)$收敛什么时候收敛到什么值)，涉及到“有界差分”的概念.</p></li>
+
+<li><p>Parseval等式和应用（Fourier分析理论的核心内容之一），如三角函数系的完备性</p></li>
+
+<li><p>Fejer核、Poisson核</p></li>
+
+<li><p>Gibbs现象</p></li>
+
+<li><p>&hellip;</p></li>
+</ul>
 
     </div>
 
@@ -502,7 +597,7 @@ if (!doNotTrack) {
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-      2019-08-04
+      2019-08-05
       
     </span>
   </p>
@@ -520,26 +615,27 @@ if (!doNotTrack) {
     <footer class="post-footer">
       <div class="post-tags">
           <a href="http://admiraldesvl.github.io/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/">数学分析</a>
+          <a href="http://admiraldesvl.github.io/tags/fourier%E5%88%86%E6%9E%90/">Fourier分析</a>
           
         </div>
 
       
       <nav class="post-nav">
         
-          <a class="prev" href="/post/2019-08-05-beautiful-fourier-001/">
+        
+          <a class="next" href="/post/2019-08-04-contraction-application/">
+            <span class="next-text nav-default">收缩定理和其应用</span>
+            <span class="prev-text nav-mobile">Next</span>
             
             <i class="iconfont">
-              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
   width="18" height="18">
-  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
 </svg>
 
             </i>
-            <span class="prev-text nav-default">优美的Fourier级数（一）</span>
-            <span class="prev-text nav-mobile">Prev</span>
           </a>
-        
       </nav>
     </footer>
   </article>
@@ -566,7 +662,7 @@ if (!doNotTrack) {
   <div id="disqus_thread"></div>
   <script type="text/javascript">
     var disqus_config = function () {
-      this.page.url = "http://admiraldesvl.github.io/post/2019-08-04-contraction-application/";
+      this.page.url = "http://admiraldesvl.github.io/post/2019-08-05-beautiful-fourier-001/";
     };
     function load_disqus() {
       
