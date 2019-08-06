@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Desvl</copyright>
-    <lastBuildDate>Mon, 05 Aug 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 06 Aug 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://admiraldesvl.github.io/categories/%E6%95%B0%E5%AD%A6/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>优美的Fourier级数（二）</title>
+      <link>http://admiraldesvl.github.io/post/2019-08-06-beautiful-fourier-002/</link>
+      <pubDate>Tue, 06 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://admiraldesvl.github.io/post/2019-08-06-beautiful-fourier-002/</guid>
+      <description>前言 如果你和Fourier级数打交道，那么在处理间断函数，特别是锯齿状函数的时候，有没有注意过间断处的形状？它为什么会处在中间位置？什么时候</description>
+    </item>
     
     <item>
       <title>优美的Fourier级数（一）</title>
