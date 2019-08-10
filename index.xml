@@ -52,6 +52,32 @@
     </item>
     
     <item>
+      <title>Solutions to Real and Complex Analysis by Rudin</title>
+      <link>http://admiraldesvl.github.io/post/2019-08-10-rc-analysis-solution/</link>
+      <pubDate>Tue, 06 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://admiraldesvl.github.io/post/2019-08-10-rc-analysis-solution/</guid>
+      
+        <description>
+
+&lt;h2 id=&#34;download-via-github&#34;&gt;Download via GitHub:&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://github.com/Admiraldesvl/Real-and-Complex-Analysis-Rudin-Solution/tree/master/Ch01&#34;&gt;Chapter1&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&amp;hellip;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;what-i-want-to-say&#34;&gt;What I want to say&lt;/h2&gt;
+
+&lt;p&gt;I don&amp;rsquo;t know the accurate time when I&amp;rsquo;ll finish it. But I want to keep the accuracy and readability of every solution.&lt;/p&gt;
+
+&lt;p&gt;If you have any suggestion to improve/correct my text, you are welcome to email me (link at the bottom) or leave a comment. You are also welcome to create an issue/pull request at GitHub.&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
       <title>优美的Fourier级数（二）</title>
       <link>http://admiraldesvl.github.io/post/2019-08-06-beautiful-fourier-002/</link>
       <pubDate>Tue, 06 Aug 2019 00:00:00 +0000</pubDate>
@@ -198,6 +224,14 @@
 &lt;p&gt;至此，Jordan判别法得到了证明. 但千万不要认为，Fourier级数的收敛是这么简单的一件事情. 这可能会让人觉得，既然有界差分就有这么好的收敛现象，那么连续函数一定就收敛得更好. 但实际情况完全不一样：存在至少有一点发散的连续函数的Fourier级数（du Bois Reymond, 1873）. 此外，甚至存在每点都发散的Fourier级数(Kolmogorov, 1926). 这和处处连续但处处不可导的函数一样，很难想象，但是理论上确实存在.&lt;/p&gt;
 
 &lt;p&gt;但是，Jordan判别法还是体现了Fourier级数的优美之处. 因为满足有界差分的函数还是很容易获得的.&lt;/p&gt;
+
+&lt;h2 id=&#34;相关索引&#34;&gt;相关索引&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://admiraldesvl.github.io/post/2019-08-05-beautiful-fourier-001/&#34;&gt;优美的Fourier级数（一）&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;优美的Fourier级数（二）&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </description>
       
     </item>
@@ -387,6 +421,14 @@ $n\to\infty$时，就是所谓的Bessel不等式. 也可以发现，函数的Fou
 &lt;li&gt;&lt;p&gt;Gibbs现象&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;&amp;hellip;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;相关索引&#34;&gt;相关索引&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;优美的Fourier级数（一）&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://admiraldesvl.github.io/post/2019-08-06-beautiful-fourier-002/&#34;&gt;优美的Fourier级数（二）&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
       
