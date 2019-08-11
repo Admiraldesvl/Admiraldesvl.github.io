@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>线性代数/Linear Algebra on Desvl&#39;s Personal Site</title>
+    <link>http://admiraldesvl.github.io/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/linear-algebra/</link>
+    <description>Recent content in 线性代数/Linear Algebra on Desvl&#39;s Personal Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>Desvl</copyright>
+    <lastBuildDate>Sun, 11 Aug 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://admiraldesvl.github.io/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/linear-algebra/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>用实矩阵表示复数</title>
+      <link>http://admiraldesvl.github.io/post/2019-08-11-real-complex-matrix-representation/</link>
+      <pubDate>Sun, 11 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://admiraldesvl.github.io/post/2019-08-11-real-complex-matrix-representation/</guid>
+      <description>代数同构 现在我们想要解决的问题是，能不能把复数用矩阵表示出来，从而可以利用矩阵的计算方法. 这要求既要有线性空间的运算规则，又要有复数的运算规</description>
+    </item>
+    
+  </channel>
+</rss>

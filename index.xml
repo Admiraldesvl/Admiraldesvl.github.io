@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Desvl</copyright>
-    <lastBuildDate>Tue, 06 Aug 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 11 Aug 2019 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="http://admiraldesvl.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -47,6 +47,64 @@
 &lt;/ul&gt;
 
 &lt;p&gt;Learn more and contribute on &lt;a href=&#34;https://github.com/gohugoio&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>用实矩阵表示复数</title>
+      <link>http://admiraldesvl.github.io/post/2019-08-11-real-complex-matrix-representation/</link>
+      <pubDate>Sun, 11 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://admiraldesvl.github.io/post/2019-08-11-real-complex-matrix-representation/</guid>
+      
+        <description>
+
+&lt;h2 id=&#34;代数同构&#34;&gt;代数同构&lt;/h2&gt;
+
+&lt;p&gt;现在我们想要解决的问题是，能不能把复数用矩阵表示出来，从而可以利用矩阵的计算方法. 这要求既要有线性空间的运算规则，又要有复数的运算规则。也就是说希望构建映射
+[
+    \rho: \mathbb{C}\to\text{End}(V)\cong M_n(\mathbb{R})
+]
+在这里，$\text{End}(V)$表示某线性空间$V$的全体线性变换，$M_n(\mathbb{R})$表示$n$阶实数方阵。考虑到$\mathbb{C}$是$\mathbb{R}$上的二维线性空间，上式里的$n$应该等于$2$.&lt;/p&gt;
+
+&lt;h2 id=&#34;实矩阵下的虚数单位-i&#34;&gt;实矩阵下的虚数单位$i$&lt;/h2&gt;
+
+&lt;p&gt;实数里的$1$可以用单位矩阵$I$来表示，而$i$的表示就有不同之处了. 如果我们设$i$对应的矩阵为二阶矩阵$J$, 但是我们不应该花大量时间计算矩阵元素的值. 考虑映射
+\begin{equation}
+    \begin{aligned}
+        \varphi_i:\mathbb{C}&amp;amp;\to\mathbb{C}\\&lt;br /&gt;
+        x&amp;amp;\mapsto ix
+    \end{aligned}
+\end{equation}
+又注意到$\mathbb{C}$的基为$1=(1,0)$和$i=(0,1)$,而$\varphi(1)=i$, $\varphi(i)=-1$, 因此$J$的列应该是$i$和$-1$的坐标列. 因此有
+[
+    J=\begin{bmatrix}
+    0&amp;amp;-1\\\ 1&amp;amp;0
+    \end{bmatrix}
+]
+确定$J$其实是一个坐标变换与基变换的过程.&lt;/p&gt;
+
+&lt;h2 id=&#34;mathbb-c-的线性表示&#34;&gt;$\mathbb{C}$的线性表示&lt;/h2&gt;
+
+&lt;p&gt;考虑到复数$(a,b)$可以表示成$a\times1+b\times{i}$, 而$1$和$i$都已经有了矩阵表示$I$和$J$,那么这个时候就得到$\mathbb{C}$的线性表示了.
+[
+    \rho:\mathbb{C}\to\mathbb{R}I+\mathbb{R}J\in{M_2}(\mathbb{R})\\&lt;br /&gt;
+    a+bi\mapsto aI+bJ=\begin{bmatrix}a&amp;amp;-b\\\ b&amp;amp;a\end{bmatrix}
+]&lt;/p&gt;
+
+&lt;p&gt;这时就实现了复数和二阶矩阵的一一对应, 复数的运算也可以直接转化成矩阵运算. 方阵的表示具体又易于处理, 因此合理的运用可以极大程度上简化一些运算.&lt;/p&gt;
+
+&lt;h2 id=&#34;旋转变换&#34;&gt;旋转变换&lt;/h2&gt;
+
+&lt;p&gt;旋转变换涉及到的矩阵是
+[
+    T=\begin{bmatrix}
+        \cos\theta&amp;amp;-\sin\theta\\&lt;br /&gt;
+        \sin\theta&amp;amp;\cos\theta
+    \end{bmatrix}
+]
+很明显, 这个矩阵对应复数$\cos\theta+i\sin\theta$, 是单位圆上的一点. 同时, 不难发现,这也是欧拉公式$e^{it}=\cos{t}+i\sin{t}$的另一种诠释. 而如果令$r=\sqrt{a^2+b^2}$(也就是虚数的模长), 那么复数$a+bi$对应的矩阵就变成了$rT$. 这时,每个复数也对应了一个拉伸与旋转, 而复数的乘积就可以看成两个拉伸于旋转变换的复合(两个矩阵的乘积), 这为复数乘积赋予了几何意义.&lt;/p&gt;
 </description>
       
     </item>

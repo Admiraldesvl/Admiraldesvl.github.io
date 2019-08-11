@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Archive - Desvl&#39;s Personal Site</title>
+  <title>用实矩阵表示复数 - Desvl&#39;s Personal Site</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -23,7 +23,8 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Desvl" />
-  <meta name="description" content="Nothing special." />
+  <meta name="description" content="代数同构 现在我们想要解决的问题是，能不能把复数用矩阵表示出来，从而可以利用矩阵的计算方法. 这要求既要有线性空间的运算规则，又要有复数的运算规" />
+
   <meta name="keywords" content="Hugo, theme, jane" />
 
 
@@ -34,8 +35,7 @@
 <meta name="generator" content="Hugo 0.56.3" />
 
 
-<link rel="canonical" href="http://admiraldesvl.github.io/post/" />
-<link href="%7balternate%20%7bRSS%20application/rss&#43;xml%20%20index%20alternate%20%20false%20false%20true%20false%20false%200%7d%20/post/index.xml%20http://admiraldesvl.github.io/post/index.xml%7d" rel="alternate" type="application/rss+xml" title="Desvl&#39;s Personal Site" />
+<link rel="canonical" href="http://admiraldesvl.github.io/post/2019-08-11-real-complex-matrix-representation/" />
 
 
 
@@ -57,18 +57,26 @@
 
 
 
-<meta property="og:title" content="Posts" />
-<meta property="og:description" content="Nothing special." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="http://admiraldesvl.github.io/post/" />
+<meta property="og:title" content="用实矩阵表示复数" />
+<meta property="og:description" content="代数同构 现在我们想要解决的问题是，能不能把复数用矩阵表示出来，从而可以利用矩阵的计算方法. 这要求既要有线性空间的运算规则，又要有复数的运算规" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://admiraldesvl.github.io/post/2019-08-11-real-complex-matrix-representation/" />
+<meta property="article:published_time" content="2019-08-11T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-08-11T00:00:00+00:00" />
+<meta itemprop="name" content="用实矩阵表示复数">
+<meta itemprop="description" content="代数同构 现在我们想要解决的问题是，能不能把复数用矩阵表示出来，从而可以利用矩阵的计算方法. 这要求既要有线性空间的运算规则，又要有复数的运算规">
 
-<meta property="og:updated_time" content="2019-08-11T00:00:00+00:00" />
-<meta itemprop="name" content="Posts">
-<meta itemprop="description" content="Nothing special.">
 
+<meta itemprop="datePublished" content="2019-08-11T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-08-11T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="839">
+
+
+
+<meta itemprop="keywords" content="线性代数/Linear Algebra," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Posts"/>
-<meta name="twitter:description" content="Nothing special."/>
+<meta name="twitter:title" content="用实矩阵表示复数"/>
+<meta name="twitter:description" content="代数同构 现在我们想要解决的问题是，能不能把复数用矩阵表示出来，从而可以利用矩阵的计算方法. 这要求既要有线性空间的运算规则，又要有复数的运算规"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -257,7 +265,7 @@ if (!doNotTrack) {
 
       </li>
     
-        <li class="menu-item active">
+        <li class="menu-item">
         
           
           
@@ -338,101 +346,195 @@ if (!doNotTrack) {
     <main id="main" class="main bg-llight">
       <div class="content-wrapper">
         <div id="content" class="content container">
-          
-<section id="archive" class="archive">
-    <div class="archive-title">
-      <span class="archive-post-counter">
-          5 posts In Total
-      </span>
-    </div>
+          <article class="post bg-white">
     
-      <div class="collection-title">
-        <h2 class="archive-year">2019</h2>
+    <header class="post-header">
+      <h1 class="post-title">用实矩阵表示复数</h1>
+      
+      <div class="post-meta">
+        <time datetime="2019-08-11" class="post-time">
+          2019-08-11
+        </time>
+        <div class="post-category">
+            <a href="http://admiraldesvl.github.io/categories/%E6%95%B0%E5%AD%A6/math/"> 数学/Math </a>
+            
+          </div>
+        
+
+        
+        
+
+        
+        
       </div>
+    </header>
 
-    <div class="archive-post">
-      <time datetime="2019-08-11" class="archive-post-time">
-        2019-08-11
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/2019-08-11-real-complex-matrix-representation/" class="archive-post-link">
-          用实矩阵表示复数
-        </a>
-      </span>
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Table of Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#代数同构">代数同构</a></li>
+<li><a href="#实矩阵下的虚数单位-i">实矩阵下的虚数单位$i$</a></li>
+<li><a href="#mathbb-c-的线性表示">$\mathbb{C}$的线性表示</a></li>
+<li><a href="#旋转变换">旋转变换</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      
+
+<h2 id="代数同构">代数同构</h2>
+
+<p>现在我们想要解决的问题是，能不能把复数用矩阵表示出来，从而可以利用矩阵的计算方法. 这要求既要有线性空间的运算规则，又要有复数的运算规则。也就是说希望构建映射
+[
+    \rho: \mathbb{C}\to\text{End}(V)\cong M_n(\mathbb{R})
+]
+在这里，$\text{End}(V)$表示某线性空间$V$的全体线性变换，$M_n(\mathbb{R})$表示$n$阶实数方阵。考虑到$\mathbb{C}$是$\mathbb{R}$上的二维线性空间，上式里的$n$应该等于$2$.</p>
+
+<h2 id="实矩阵下的虚数单位-i">实矩阵下的虚数单位$i$</h2>
+
+<p>实数里的$1$可以用单位矩阵$I$来表示，而$i$的表示就有不同之处了. 如果我们设$i$对应的矩阵为二阶矩阵$J$, 但是我们不应该花大量时间计算矩阵元素的值. 考虑映射
+\begin{equation}
+    \begin{aligned}
+        \varphi_i:\mathbb{C}&amp;\to\mathbb{C}\\<br />
+        x&amp;\mapsto ix
+    \end{aligned}
+\end{equation}
+又注意到$\mathbb{C}$的基为$1=(1,0)$和$i=(0,1)$,而$\varphi(1)=i$, $\varphi(i)=-1$, 因此$J$的列应该是$i$和$-1$的坐标列. 因此有
+[
+    J=\begin{bmatrix}
+    0&amp;-1\\\ 1&amp;0
+    \end{bmatrix}
+]
+确定$J$其实是一个坐标变换与基变换的过程.</p>
+
+<h2 id="mathbb-c-的线性表示">$\mathbb{C}$的线性表示</h2>
+
+<p>考虑到复数$(a,b)$可以表示成$a\times1+b\times{i}$, 而$1$和$i$都已经有了矩阵表示$I$和$J$,那么这个时候就得到$\mathbb{C}$的线性表示了.
+[
+    \rho:\mathbb{C}\to\mathbb{R}I+\mathbb{R}J\in{M_2}(\mathbb{R})\\<br />
+    a+bi\mapsto aI+bJ=\begin{bmatrix}a&amp;-b\\\ b&amp;a\end{bmatrix}
+]</p>
+
+<p>这时就实现了复数和二阶矩阵的一一对应, 复数的运算也可以直接转化成矩阵运算. 方阵的表示具体又易于处理, 因此合理的运用可以极大程度上简化一些运算.</p>
+
+<h2 id="旋转变换">旋转变换</h2>
+
+<p>旋转变换涉及到的矩阵是
+[
+    T=\begin{bmatrix}
+        \cos\theta&amp;-\sin\theta\\<br />
+        \sin\theta&amp;\cos\theta
+    \end{bmatrix}
+]
+很明显, 这个矩阵对应复数$\cos\theta+i\sin\theta$, 是单位圆上的一点. 同时, 不难发现,这也是欧拉公式$e^{it}=\cos{t}+i\sin{t}$的另一种诠释. 而如果令$r=\sqrt{a^2+b^2}$(也就是虚数的模长), 那么复数$a+bi$对应的矩阵就变成了$rT$. 这时,每个复数也对应了一个拉伸与旋转, 而复数的乘积就可以看成两个拉伸于旋转变换的复合(两个矩阵的乘积), 这为复数乘积赋予了几何意义.</p>
+
     </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Desvl</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+      2019-08-11
+      
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
+    
     
 
-    <div class="archive-post">
-      <time datetime="2019-08-06" class="archive-post-time">
-        2019-08-06
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/2019-08-06-beautiful-fourier-002/" class="archive-post-link">
-          优美的Fourier级数（二）
-        </a>
-      </span>
-    </div>
+    <footer class="post-footer">
+      <div class="post-tags">
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+        
+          <a class="next" href="/post/2019-08-10-rc-analysis-solution/">
+            <span class="next-text nav-default">Solutions to Real and Complex Analysis by Rudin</span>
+            <span class="prev-text nav-mobile">Next</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  <div class="disqus-comment">
+  <div class="disqus-button" id="load_disqus" onclick="load_disqus()">
+    Show Disqus Comments
+  </div>
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_config = function () {
+      this.page.url = "http://admiraldesvl.github.io/post/2019-08-11-real-complex-matrix-representation/";
+    };
+    function load_disqus() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'admiraldesvl';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+
+      $('#load_disqus').remove();
+    };
+  </script>
+  <noscript>Please enable JavaScript to view the
+    <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+  </noscript>
+  
+  </div>
+
     
-
-    <div class="archive-post">
-      <time datetime="2019-08-06" class="archive-post-time">
-        2019-08-06
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/2019-08-10-rc-analysis-solution/" class="archive-post-link">
-          Solutions to Real and Complex Analysis by Rudin
-        </a>
-      </span>
-    </div>
-    
-
-    <div class="archive-post">
-      <time datetime="2019-08-05" class="archive-post-time">
-        2019-08-05
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/2019-08-05-beautiful-fourier-001/" class="archive-post-link">
-          优美的Fourier级数（一）
-        </a>
-      </span>
-    </div>
-    
-
-    <div class="archive-post">
-      <time datetime="2019-08-04" class="archive-post-time">
-        2019-08-04
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/2019-08-04-contraction-application/" class="archive-post-link">
-          收缩定理和其应用
-        </a>
-      </span>
-    </div></section>
-
-
-
-
-
-
-  
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-
-
-
-
 
         </div>
       </div>
@@ -476,6 +578,22 @@ if (!doNotTrack) {
   </a>
   
 </div>
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_SVG">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
 
 
 <div class="copyright">
@@ -535,6 +653,13 @@ if (!doNotTrack) {
 
 <script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin="anonymous"></script>
 
+  <script type="text/javascript">
+    window.MathJax = {
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
 
 
 
