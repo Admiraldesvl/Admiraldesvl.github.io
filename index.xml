@@ -91,14 +91,14 @@
 
 &lt;p&gt;利用引理2展开$A$, 设有两个正交矩阵$P$和$\Omega$, 得到
 [
-    A=P\text{diag}\Omega=P\text{diag}P^{T}P\Omega=S(P\Omega)
+    A=P\text{diag}\Omega=P\text{diag}(\lambda_1,\cdots,\lambda_r,0,\cdots,0)P^{T}P\Omega=S(P\Omega)
 ]&lt;/p&gt;
 
 &lt;p&gt;第二个等号成立是因为$P^{T}P=I$. 再考虑到半正定矩阵的性质, 合并得到的$S$为半正定矩阵(因为$\lambda_i&amp;gt;0$). 因此$A$被分解成了半正定矩阵和正交矩阵的乘积(左分解).&lt;/p&gt;
 
 &lt;p&gt;重新展开$A$, 又能得到
 [
-    A=P\text{diag}\Omega=P\Omega\Omega^{T}\text{diag}\Omega=(P\Omega)S
+    A=P\text{diag}(\lambda_1,\cdots,\lambda_r,0,\cdots,0)\Omega=P\Omega\Omega^{T}\text{diag}\Omega=(P\Omega)S
 ]&lt;/p&gt;
 
 &lt;p&gt;同样, $A$被分解成正交矩阵和半正定矩阵的乘积(右分解).&lt;/p&gt;
