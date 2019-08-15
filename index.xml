@@ -152,8 +152,7 @@
 &lt;p&gt;取模之后有
 [
     \begin{aligned}
-        \overline{\alpha}&amp;amp;=\sum_{i=1}^n\lambda_i\overline{\varepsilon_i}
-        &amp;amp;=\sum_{i=r+1}^n\lambda_i\overline{\varepsilon_i}
+        \overline{\alpha}&amp;amp;=\sum_{i=1}^n\lambda_i\overline{\varepsilon_i}=\sum_{i=r+1}^n\lambda_i\overline{\varepsilon_i}
     \end{aligned}
 ]&lt;/p&gt;
 
