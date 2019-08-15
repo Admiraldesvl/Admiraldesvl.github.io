@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Desvl</copyright>
-    <lastBuildDate>Wed, 14 Aug 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 15 Aug 2019 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="http://admiraldesvl.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -47,6 +47,67 @@
 &lt;/ul&gt;
 
 &lt;p&gt;Learn more and contribute on &lt;a href=&#34;https://github.com/gohugoio&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>从复数的矩阵表示到极分解</title>
+      <link>http://admiraldesvl.github.io/post/2019-08-15-polar-factorization/</link>
+      <pubDate>Thu, 15 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://admiraldesvl.github.io/post/2019-08-15-polar-factorization/</guid>
+      
+        <description>
+
+&lt;h2 id=&#34;复数的矩阵表示&#34;&gt;复数的矩阵表示&lt;/h2&gt;
+
+&lt;p&gt;在&lt;a href=&#34;https://admiraldesvl.github.io/post/2019-08-11-real-complex-matrix-representation/&#34;&gt;之前的文章&lt;/a&gt;中我们指出, 一个复数可以对应一个线性变换, 而这个线性变换是拉伸和旋转的复合. 当然, 我们不想局限在二维空间. 接下来, 我们要将这个&amp;rdquo;拉伸+旋转&amp;rdquo;推广到任意有限维度. 首先,我们回忆对复数的表示. 复数$z=a+bi$用极坐标表示, 得到$z=\rho e^{i\theta}$. 这其中, $\rho=|z|\geq{0}$, $\theta$表示向量$(a,b)$和$x$轴的夹角. 用矩阵表示, 就有
+[
+    \begin{bmatrix}a&amp;amp;-b\\\ b&amp;amp;a\end{bmatrix}=\rho\begin{bmatrix}\cos\theta&amp;amp;-\sin\theta\\\ \sin\theta&amp;amp;\cos\theta\end{bmatrix}=\begin{bmatrix}\rho&amp;amp;0\\\ 0&amp;amp;\rho\end{bmatrix}\begin{bmatrix}\cos\theta&amp;amp;-\sin\theta\\\ \sin\theta&amp;amp;\cos\theta\end{bmatrix}
+]&lt;/p&gt;
+
+&lt;p&gt;这时, 我们把一个实方阵表示成了一个半正定实对称矩阵($\rho\geq{0}$)和一个正交矩阵. 它的&amp;rdquo;功能&amp;rdquo;是长度放大$\rho$倍, 旋转了$\theta$角度. 长度和角度正是极坐标的概念. 一个复数分解成了一个唯一的极坐标$(\rho,\theta)$. &lt;strong&gt;而接下来我们要做的就是, 对于任意有限维度的矩阵, 分解成这样一个&amp;rdquo;极坐标&amp;rdquo;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;极分解&#34;&gt;极分解&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;任一实方阵$A$可以表示为[A=S\Omega=\Omega_1 S_1,]其中$S$和$S_1$是半正定实对称方阵, 且为唯一的; 而$\Omega$与$\Omega_1$为实正交方阵.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&#34;两个引理&#34;&gt;两个引理&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;设$S$为半正定实对称方阵, 则有惟一的半正定实对称方阵$S_1$, 使得$S=S_1^2$.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;对任意$m\times{n}$实矩阵$A$, 存在实正交方阵$\Omega_1$和$\Omega_2$,使[\Omega_1{A}\Omega_2=\text{diag}(\lambda_1,\cdots,\lambda_r,0,\cdots,0),]其中$\lambda_1\geq\cdots\geq\lambda_r&amp;gt;0$, $\lambda_1^2,\cdots,\lambda_r^2$为$A^{T}A$的所有非零特征根.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&#34;极分解的证明&#34;&gt;极分解的证明&lt;/h3&gt;
+
+&lt;p&gt;证明过程中涉及到两个引理的应用, 正交矩阵和半正定矩阵的性质.&lt;/p&gt;
+
+&lt;p&gt;利用引理2展开$A$, 设有两个正交矩阵$P$和$\Omega$, 得到
+[
+    A=P\text{diag}\Omega=P\text{diag}P^{T}P\Omega=S(P\Omega)
+]&lt;/p&gt;
+
+&lt;p&gt;第二个等号成立是因为$P^{T}P=I$. 再考虑到半正定矩阵的性质, 合并得到的$S$为半正定矩阵(因为$\lambda_i&amp;gt;0$). 因此$A$被分解成了半正定矩阵和正交矩阵的乘积(左分解).&lt;/p&gt;
+
+&lt;p&gt;重新展开$A$, 又能得到
+[
+    A=P\text{diag}\Omega=P\Omega\Omega^{T}\text{diag}\Omega=(P\Omega)S
+]&lt;/p&gt;
+
+&lt;p&gt;同样, $A$被分解成正交矩阵和半正定矩阵的乘积(右分解).&lt;/p&gt;
+
+&lt;p&gt;接下来证明$S$和$S_1$的唯一性. 对于$A=S\Omega$, 注意$AA^{T}=S\Omega\Omega^{T}S^{T}=SS^{T}=S^2$, 而$AA^{T}$为半正定实对称方阵, 根据引理1, $S$是惟一的. 同样, $A^{T}A=S_1^2$, 这说明$S_1$是唯一的.&lt;/p&gt;
+
+&lt;h2 id=&#34;总结&#34;&gt;总结&lt;/h2&gt;
+
+&lt;p&gt;这篇文章中探讨了由复数的极坐标表示启发, 拓展到任意有限维度的实矩阵极分解, 这也相当于找到了这个矩阵的&amp;rdquo;极坐标&amp;rdquo;(若是复数域, 需要探讨酉矩阵和半正定厄米矩阵.). 这样的分解可能不能简化数值运算, 但是大大简化了利用矩阵分析和研究的过程, 赋予一个矩阵更具体的物理意义: 拉伸和旋转 例如连续介质力学中探讨形变时, 可以利用极分解, 分离旋转和拉伸. 此外, 极分解在计算机图形学里也能得到应用.&lt;/p&gt;
 </description>
       
     </item>
@@ -232,7 +293,7 @@
 &lt;p&gt;定义映射$\sigma:\alpha_1+\alpha_2+W_1\mapsto\alpha_1+W_1\cup W_2$, 并验证$\sigma$的定义合理,是同构即可.&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;(第三同构定理):&lt;/strong&gt; 设$S\subset{W}$军事线性空间$V$的子空间,则有线性空间同构[\frac{V}{W}\cong\frac{V/S}{W/S}]且对应关系比较自然.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;(第三同构定理):&lt;/strong&gt; 设$S\subset{W}$均是线性空间$V$的子空间,则有线性空间同构[\frac{V}{W}\cong\frac{V/S}{W/S}]且对应关系比较自然.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;定义映射$\sigma:V/S\to V/W$, $\alpha+S\mapsto\alpha+W$, 验证$\sigma$定义的合理性,且$\ker(\sigma)=W/S$, 再利用定义$5.9$即可.&lt;/p&gt;

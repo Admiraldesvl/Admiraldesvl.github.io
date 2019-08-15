@@ -10,25 +10,44 @@
   
   <url>
     <loc>http://admiraldesvl.github.io/categories/</loc>
-    <lastmod>2019-08-14T00:00:00+00:00</lastmod>
+    <lastmod>2019-08-15T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://admiraldesvl.github.io/</loc>
-    <lastmod>2019-08-14T00:00:00+00:00</lastmod>
+    <lastmod>2019-08-15T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://admiraldesvl.github.io/post/</loc>
-    <lastmod>2019-08-14T00:00:00+00:00</lastmod>
+    <lastmod>2019-08-15T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://admiraldesvl.github.io/tags/</loc>
-    <lastmod>2019-08-14T00:00:00+00:00</lastmod>
+    <lastmod>2019-08-15T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://admiraldesvl.github.io/post/2019-08-15-polar-factorization/</loc>
+    <lastmod>2019-08-15T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://admiraldesvl.github.io/categories/%E6%95%B0%E5%AD%A6/math/</loc>
+    <lastmod>2019-08-15T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://admiraldesvl.github.io/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/linear-algebra/</loc>
+    <lastmod>2019-08-15T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -37,18 +56,6 @@
     <lastmod>2019-08-14T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://admiraldesvl.github.io/categories/%E6%95%B0%E5%AD%A6/math/</loc>
-    <lastmod>2019-08-14T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://admiraldesvl.github.io/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/linear-algebra/</loc>
-    <lastmod>2019-08-14T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
