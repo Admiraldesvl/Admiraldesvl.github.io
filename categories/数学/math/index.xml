@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Desvl</copyright>
-    <lastBuildDate>Thu, 15 Aug 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 16 Aug 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://admiraldesvl.github.io/categories/%E6%95%B0%E5%AD%A6/math/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>矩阵的广义逆</title>
+      <link>http://admiraldesvl.github.io/post/2019-08-16-generalized-inverse/</link>
+      <pubDate>Fri, 16 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://admiraldesvl.github.io/post/2019-08-16-generalized-inverse/</guid>
+      <description>矩阵广义逆的概念最早于1920年被E.H.Moore提出, 在1955年被R. Penrose进一步完善. 此后广义逆在理论和应用上都逐渐重要. 可</description>
+    </item>
     
     <item>
       <title>从复数的矩阵表示到极分解</title>

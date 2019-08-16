@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Desvl</copyright>
-    <lastBuildDate>Thu, 15 Aug 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 16 Aug 2019 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="http://admiraldesvl.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -47,6 +47,137 @@
 &lt;/ul&gt;
 
 &lt;p&gt;Learn more and contribute on &lt;a href=&#34;https://github.com/gohugoio&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>矩阵的广义逆</title>
+      <link>http://admiraldesvl.github.io/post/2019-08-16-generalized-inverse/</link>
+      <pubDate>Fri, 16 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://admiraldesvl.github.io/post/2019-08-16-generalized-inverse/</guid>
+      
+        <description>
+
+&lt;p&gt;矩阵广义逆的概念最早于1920年被E.H.Moore提出, 在1955年被R. Penrose进一步完善. 此后广义逆在理论和应用上都逐渐重要. 可逆矩阵的逆一定满足这些条件, 但是广义逆不局限于方阵, 因此有着比较广阔的研究空间, 现已成为矩阵论的一个重要分支. 应用领域也很广泛,如数据分析和信号处理等.&lt;/p&gt;
+
+&lt;h2 id=&#34;moore-penrose-加号-广义逆&#34;&gt;Moore-Penrose(加号)广义逆&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;(Moore-Penrose条件)设$A$为$m\times{n}$复(或实)矩阵. 满足如下四个条件的矩阵$A^{+}$称为$A$的Moore-Penrose(或加号)广义逆&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;$AA^{+}A=A$&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;$A^{+}AA^{+}=A^{+}$&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;$(\overline{AA^{+}})^{T}=AA^{+}$&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;$(\overline{A^{+}A})^{T}=A^{+}A$&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;根据定义, 我们能立刻得到下面几点结论:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;$A$和$A^{+}$互为广义逆.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;$AA^{+}$和$A^{+}A$均为Hermite矩阵.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;$\text{rank}(A)=\text{rank}(A^{+})=\text{rank}(A^{+}A)=\text{rank}(AA^{+})$. 这是因为$AA^{+}A=A$且$A^{+}AA^{+}=A^{+}$, 有$\text{rank}(A)\leq\text{rank}(AA^{+})\leq\text{rank}(A^{+})$和$\text{rank}(A^{+})\leq\text{rank}(AA^{+})\leq\text{rank}(A)$.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;加号广义逆存在且唯一&#34;&gt;加号广义逆存在且唯一&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;设复矩阵$A=CR$, 其中$C$和$R$分别为列独立阵和行独立阵,则[A^{+}=\overline{R}^{T}(R\overline{R}^{T})^{-1}(\overline{C}^{T}C)^{-1}\overline{C}^{T}]&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;$A=CR$的分解是存在的. 由相抵标准形知存在可逆方阵$Q_1$, $Q_2$使得
+[
+    A=Q_1\begin{bmatrix}I_r&amp;amp;0\\{0}&amp;amp;0\end{bmatrix}Q_2=\underbrace{Q_1\begin{bmatrix}I_r\\{0}\end{bmatrix}}_\text{$C$}\underbrace{\begin{pmatrix}I_r&amp;amp;0\end{pmatrix}Q_2}_\text{$R$}
+]&lt;/p&gt;
+
+&lt;p&gt;当$A=C$为列独立阵时, $C$有左逆$X$使得$XC=I$. $C$的左逆有很多, 和我们欲证明的等式最相关的左逆是
+[
+    C^+=(\overline{C}^{T}C)^{-1}\overline{C}^{T}
+]&lt;/p&gt;
+
+&lt;p&gt;同理, 对$A=R$有右逆
+[
+    R^+=\overline{R}^{T}(R\overline{R}^{T})^{-1}
+]&lt;/p&gt;
+
+&lt;p&gt;设$A=CR$, 则$A^+=R^+C^+$为加号广义逆. 这可以通过将其代入广义逆的四个限制条件中进行验证. 至此, 我们证明了其存在性, 接下来, 我们要证明它的唯一性.&lt;/p&gt;
+
+&lt;p&gt;设$X_1$和$X_2$均为$A$的加号广义逆, 则
+[
+    \begin{aligned}
+        X_1&amp;amp;=X_1AX_2=X_1AX_2AX_1=X_1(\overline{AX_2})^{T}(\overline{AX_1})^{T}=X_1(\overline{AX_1AX_2})^T\\&lt;br /&gt;
+        &amp;amp;=X_1(\overline{AX_2})^T=X_1AX_2=(\overline{X_1A})^{T}=(\overline{X_1AX_2A})^{T}X_2\\&lt;br /&gt;
+        &amp;amp;=(\overline{X_2A})^{T}(\overline{X_1A})^{T}X_2=X_2AX_1AX_2=X_2AX_2=X_2
+    \end{aligned}
+]
+唯一性得到证明.&lt;/p&gt;
+
+&lt;h3 id=&#34;几个加号广义逆的例子&#34;&gt;几个加号广义逆的例子&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;$0^+=0$&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;$\text{diag}(\lambda_1,\cdots,\lambda_r,0,\cdots,0)^{+}=\text{diag}(\lambda_1^{-1},\cdots,\lambda_{r}^{-1},0,\cdots,0)$&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;$\begin{bmatrix}I_r&amp;amp;\\ &amp;amp;0\end{bmatrix}^+=\begin{bmatrix}I_r&amp;amp;\\ &amp;amp;0\end{bmatrix}$&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;$\begin{bmatrix}I_r\\ 0\end{bmatrix}^+=\begin{pmatrix}I_r&amp;amp;0\end{pmatrix}$&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;$\begin{pmatrix}I_r&amp;amp;0\end{pmatrix}^+=\begin{bmatrix}I_r\\ 0\end{bmatrix}$&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;可以看到, 在这时, 矩阵求逆不再要求是方阵, 也不要求满秩等等.&lt;/p&gt;
+
+&lt;h2 id=&#34;减号-一般-广义逆&#34;&gt;减号(一般)广义逆&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;所有满足$AA^{-}A=A$的矩阵$A^{-}$称为$A$的减号广义逆,或(一般)广义逆.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;在这里只满足了条件1. 如果满足条件1和3, 记为$A_l^{-}$, 称为最小二乘广义逆. 如果满足条件1和4, 记为$A_m^{-}$, 称为$A$的极小范数广义逆. 下面会介绍几点减号广义逆的具体应用, 再介绍如何求所有减号广义逆.&lt;/p&gt;
+
+&lt;h3 id=&#34;减号广义逆在线性方程组中的应用&#34;&gt;减号广义逆在线性方程组中的应用&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;齐次线性方程组$Ax=0$的解全体为[x=(I-A^{-}A)z.]其中$A^{-}$遍历任意减号广义逆, $z$表示任意列向量.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;这个定理的证明可以通过展开$A$来进行. 因为$A=A^{-}AA^{-}$, $A-AA^{-}A=A(I-A^{-}A)=0$. 故知$(I-A^{-}A)z$均为方程的解. 相反, 如果$Ax=0$, 那么考虑到$x=x-A^{-}Ax=(I-A^{-}A)x$, 这也是$x=(I-A^{-}A)z$的形式. 第一个等式成立的原因是,可以左乘$A$得到$Ax=(A-AA^{-}A)x=0$.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;非齐次线性方程组$Ax=b$有解当且仅当$b=A^{-}Ab$, 此时全体解为$x=A^{-}b$.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;这其实是广义逆表示形式的应用, 证明在此略去, 实际上可以通过矩阵相抵得到.&lt;/p&gt;
+
+&lt;h3 id=&#34;减号广义逆的表示&#34;&gt;减号广义逆的表示&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;设复矩阵$A$相抵于$PAQ=\begin{bmatrix}I_r&amp;amp;\\ &amp;amp;{0}\end{bmatrix}$, 则$A$的所有减号广义逆为[A^{-}=Q\begin{bmatrix}I_r&amp;amp;Y_2\\ Y_3 &amp;amp;{Y_4}\end{bmatrix}P.] 其中$Y_i$中元素为任意复数, 故$A^{-}$不唯一, 其秩也不唯一(除非$A$可逆).&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&#34;证明过程&#34;&gt;证明过程&lt;/h4&gt;
+
+&lt;p&gt;由$AA^{-}A=A$可以得到
+[
+    (PAQ)(Q^{-1}A^{-}P^{-1})(PAQ)=PAQ
+]&lt;/p&gt;
+
+&lt;p&gt;设$Q^{-1}A^{-}P^{-1}=\begin{bmatrix}Y_1&amp;amp;Y_2\\ Y_3&amp;amp;Y_4\end{bmatrix}$, 则有
+[
+    \begin{bmatrix}I_r&amp;amp;\\ &amp;amp;{0}\end{bmatrix}\begin{bmatrix}Y_1&amp;amp;Y_2\\ Y_3&amp;amp;Y_4\end{bmatrix}\begin{bmatrix}I_r&amp;amp;\\ &amp;amp;{0}\end{bmatrix}=\begin{bmatrix}Y_1&amp;amp; \\ &amp;amp; \end{bmatrix}=\begin{bmatrix}I_r&amp;amp;\\ &amp;amp;{0}\end{bmatrix}
+]&lt;/p&gt;
+
+&lt;p&gt;即$Y_1=I_r$, 得证.&lt;/p&gt;
 </description>
       
     </item>
