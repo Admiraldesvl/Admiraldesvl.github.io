@@ -2,48 +2,48 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>线性代数/Linear Algebra on Desvl&#39;s Blog</title>
-    <link>http://admiraldesvl.github.io/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/linear-algebra/</link>
+    <link>https://admiraldesvl.github.io/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/linear-algebra/</link>
     <description>Recent content in 线性代数/Linear Algebra on Desvl&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 16 Aug 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://admiraldesvl.github.io/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/linear-algebra/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://admiraldesvl.github.io/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/linear-algebra/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>矩阵的广义逆</title>
-      <link>http://admiraldesvl.github.io/post/2019-08-16-generalized-inverse/</link>
+      <link>https://admiraldesvl.github.io/post/2019-08-16-generalized-inverse/</link>
       <pubDate>Fri, 16 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://admiraldesvl.github.io/post/2019-08-16-generalized-inverse/</guid>
+      <guid>https://admiraldesvl.github.io/post/2019-08-16-generalized-inverse/</guid>
       <description>矩阵广义逆的概念最早于1920年被E.H.Moore提出, 在1955年被R. Penrose进一步完善. 此后广义逆在理论和应用上都逐渐重要. 可</description>
     </item>
     
     <item>
       <title>从复数的矩阵表示到极分解</title>
-      <link>http://admiraldesvl.github.io/post/2019-08-15-polar-factorization/</link>
+      <link>https://admiraldesvl.github.io/post/2019-08-15-polar-factorization/</link>
       <pubDate>Thu, 15 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://admiraldesvl.github.io/post/2019-08-15-polar-factorization/</guid>
+      <guid>https://admiraldesvl.github.io/post/2019-08-15-polar-factorization/</guid>
       <description>复数的矩阵表示 在之前的文章中我们指出, 一个复数可以对应一个线性变换, 而这个线性变换是拉伸和旋转的复合. 当然, 我们不想局限在二维空间. 接下来,</description>
     </item>
     
     <item>
       <title>商空间与线性映射基本定理</title>
-      <link>http://admiraldesvl.github.io/post/2019-08-14-quotient-space/</link>
+      <link>https://admiraldesvl.github.io/post/2019-08-14-quotient-space/</link>
       <pubDate>Wed, 14 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://admiraldesvl.github.io/post/2019-08-14-quotient-space/</guid>
+      <guid>https://admiraldesvl.github.io/post/2019-08-14-quotient-space/</guid>
       <description>整数和线性空间的同余类 我们先考虑这样一个数列： [ \cdots,-6,1,8,15,22,36,\cdots ] 注意这组数都可以写成$1+7n$的形式. 这个数列中每一个数除以7得到的余数都是1, 任取任</description>
     </item>
     
     <item>
       <title>用实矩阵表示复数</title>
-      <link>http://admiraldesvl.github.io/post/2019-08-11-real-complex-matrix-representation/</link>
+      <link>https://admiraldesvl.github.io/post/2019-08-11-real-complex-matrix-representation/</link>
       <pubDate>Sun, 11 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://admiraldesvl.github.io/post/2019-08-11-real-complex-matrix-representation/</guid>
+      <guid>https://admiraldesvl.github.io/post/2019-08-11-real-complex-matrix-representation/</guid>
       <description>代数同构 现在我们想要解决的问题是，能不能把复数用矩阵表示出来，从而可以利用矩阵的计算方法. 这要求既要有线性空间的运算规则，又要有复数的运算规</description>
     </item>
     

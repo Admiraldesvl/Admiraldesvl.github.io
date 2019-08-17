@@ -2,84 +2,84 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>数学/Math on Desvl&#39;s Blog</title>
-    <link>http://admiraldesvl.github.io/categories/%E6%95%B0%E5%AD%A6/math/</link>
+    <link>https://admiraldesvl.github.io/categories/%E6%95%B0%E5%AD%A6/math/</link>
     <description>Recent content in 数学/Math on Desvl&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 16 Aug 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://admiraldesvl.github.io/categories/%E6%95%B0%E5%AD%A6/math/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://admiraldesvl.github.io/categories/%E6%95%B0%E5%AD%A6/math/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>矩阵的广义逆</title>
-      <link>http://admiraldesvl.github.io/post/2019-08-16-generalized-inverse/</link>
+      <link>https://admiraldesvl.github.io/post/2019-08-16-generalized-inverse/</link>
       <pubDate>Fri, 16 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://admiraldesvl.github.io/post/2019-08-16-generalized-inverse/</guid>
+      <guid>https://admiraldesvl.github.io/post/2019-08-16-generalized-inverse/</guid>
       <description>矩阵广义逆的概念最早于1920年被E.H.Moore提出, 在1955年被R. Penrose进一步完善. 此后广义逆在理论和应用上都逐渐重要. 可</description>
     </item>
     
     <item>
       <title>从复数的矩阵表示到极分解</title>
-      <link>http://admiraldesvl.github.io/post/2019-08-15-polar-factorization/</link>
+      <link>https://admiraldesvl.github.io/post/2019-08-15-polar-factorization/</link>
       <pubDate>Thu, 15 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://admiraldesvl.github.io/post/2019-08-15-polar-factorization/</guid>
+      <guid>https://admiraldesvl.github.io/post/2019-08-15-polar-factorization/</guid>
       <description>复数的矩阵表示 在之前的文章中我们指出, 一个复数可以对应一个线性变换, 而这个线性变换是拉伸和旋转的复合. 当然, 我们不想局限在二维空间. 接下来,</description>
     </item>
     
     <item>
       <title>商空间与线性映射基本定理</title>
-      <link>http://admiraldesvl.github.io/post/2019-08-14-quotient-space/</link>
+      <link>https://admiraldesvl.github.io/post/2019-08-14-quotient-space/</link>
       <pubDate>Wed, 14 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://admiraldesvl.github.io/post/2019-08-14-quotient-space/</guid>
+      <guid>https://admiraldesvl.github.io/post/2019-08-14-quotient-space/</guid>
       <description>整数和线性空间的同余类 我们先考虑这样一个数列： [ \cdots,-6,1,8,15,22,36,\cdots ] 注意这组数都可以写成$1+7n$的形式. 这个数列中每一个数除以7得到的余数都是1, 任取任</description>
     </item>
     
     <item>
       <title>用实矩阵表示复数</title>
-      <link>http://admiraldesvl.github.io/post/2019-08-11-real-complex-matrix-representation/</link>
+      <link>https://admiraldesvl.github.io/post/2019-08-11-real-complex-matrix-representation/</link>
       <pubDate>Sun, 11 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://admiraldesvl.github.io/post/2019-08-11-real-complex-matrix-representation/</guid>
+      <guid>https://admiraldesvl.github.io/post/2019-08-11-real-complex-matrix-representation/</guid>
       <description>代数同构 现在我们想要解决的问题是，能不能把复数用矩阵表示出来，从而可以利用矩阵的计算方法. 这要求既要有线性空间的运算规则，又要有复数的运算规</description>
     </item>
     
     <item>
       <title>Solutions to Real and Complex Analysis by Rudin</title>
-      <link>http://admiraldesvl.github.io/post/2019-08-10-rc-analysis-solution/</link>
+      <link>https://admiraldesvl.github.io/post/2019-08-10-rc-analysis-solution/</link>
       <pubDate>Tue, 06 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://admiraldesvl.github.io/post/2019-08-10-rc-analysis-solution/</guid>
+      <guid>https://admiraldesvl.github.io/post/2019-08-10-rc-analysis-solution/</guid>
       <description>Download via GitHub: Chapter1 &amp;hellip; What I want to say I don&amp;rsquo;t know the accurate time when I&amp;rsquo;ll finish it. But I want to keep the accuracy and readability of every solution. If you have any suggestion to improve/correct my text, you are welcome to email me (link at the bottom) or leave a comment. You are also welcome to create an issue/pull request at GitHub.</description>
     </item>
     
     <item>
       <title>优美的Fourier级数（二）</title>
-      <link>http://admiraldesvl.github.io/post/2019-08-06-beautiful-fourier-002/</link>
+      <link>https://admiraldesvl.github.io/post/2019-08-06-beautiful-fourier-002/</link>
       <pubDate>Tue, 06 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://admiraldesvl.github.io/post/2019-08-06-beautiful-fourier-002/</guid>
+      <guid>https://admiraldesvl.github.io/post/2019-08-06-beautiful-fourier-002/</guid>
       <description>前言 如果你和Fourier级数打交道，那么在处理间断函数，特别是锯齿状函数的时候，有没有注意过间断处的形状？它为什么会处在中间位置？什么时候</description>
     </item>
     
     <item>
       <title>优美的Fourier级数（一）</title>
-      <link>http://admiraldesvl.github.io/post/2019-08-05-beautiful-fourier-001/</link>
+      <link>https://admiraldesvl.github.io/post/2019-08-05-beautiful-fourier-001/</link>
       <pubDate>Mon, 05 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://admiraldesvl.github.io/post/2019-08-05-beautiful-fourier-001/</guid>
+      <guid>https://admiraldesvl.github.io/post/2019-08-05-beautiful-fourier-001/</guid>
       <description>前言 Fourier级数是相当优美的一类级数，但它涉及到的问题绝对不仅仅是通过各种运算技巧求表达式. 相反，它是一个很复杂、很困难的大话题. 我在</description>
     </item>
     
     <item>
       <title>收缩定理和其应用</title>
-      <link>http://admiraldesvl.github.io/post/2019-08-04-contraction-application/</link>
+      <link>https://admiraldesvl.github.io/post/2019-08-04-contraction-application/</link>
       <pubDate>Sun, 04 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://admiraldesvl.github.io/post/2019-08-04-contraction-application/</guid>
+      <guid>https://admiraldesvl.github.io/post/2019-08-04-contraction-application/</guid>
       <description>什么是收缩 收缩的准确描述是这样的： 取度量空间$X$，度量$d$，函数$\varphi$是$X$到本身的映射，且满足$$d(\varphi(x</description>
     </item>
     
