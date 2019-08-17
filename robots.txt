@@ -1,2 +1,1 @@
 User-agent: *
-Sitemap: http://admiraldesvl.github.io/sitemap.xml
