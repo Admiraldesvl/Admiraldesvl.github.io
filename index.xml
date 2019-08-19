@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Desvl</copyright>
-    <lastBuildDate>Fri, 16 Aug 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 19 Aug 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://desvl.xyz/index.xml" rel="self" type="application/rss+xml" />
     
@@ -19,6 +19,15 @@
       
       <guid>https://desvl.xyz/about/</guid>
       <description>About this website 主要是与数学有关的内容. 可能内容不是很轻松有趣, 但是我希望严格的数理语言能引人思考, 从思考中获得兴趣. 当然内容不太可能涉及高深的领域,</description>
+    </item>
+    
+    <item>
+      <title>洛必达法则的几种证明办法</title>
+      <link>https://desvl.xyz/post/2019-08-19-l-hopital-proof/</link>
+      <pubDate>Mon, 19 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://desvl.xyz/post/2019-08-19-l-hopital-proof/</guid>
+      <description>前言 洛必达法则我想甚至不少高中生都听说过, 知道怎么进行简单的应用. 简单点说, 处理$\frac{0}{0}$的函数时, 对上下进行求导, 可能会很</description>
     </item>
     
     <item>
