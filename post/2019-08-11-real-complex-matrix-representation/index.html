@@ -168,15 +168,15 @@ MathJax.Hub.Config({
 
 <h2 id="代数同构">代数同构</h2>
 
-<p>现在我们想要解决的问题是，能不能把复数用矩阵表示出来，从而可以利用矩阵的计算方法. 这要求既要有线性空间的运算规则，又要有复数的运算规则。也就是说希望构建映射
+<p>现在我们想要解决的问题是, 能不能把复数用矩阵表示出来, 从而可以利用矩阵的计算方法. 这要求既要有线性空间的运算规则, 又要有复数的运算规则. 也就是说希望构建映射
 [
     \rho: \mathbb{C}\to\text{End}(V)\cong M_n(\mathbb{R})
 ]
-在这里，$\text{End}(V)$表示某线性空间$V$的全体线性变换，$M_n(\mathbb{R})$表示$n$阶实数方阵。考虑到$\mathbb{C}$是$\mathbb{R}$上的二维线性空间，上式里的$n$应该等于$2$.</p>
+在这里, $\text{End}(V)$表示某线性空间$V$的全体线性变换, $M_n(\mathbb{R})$表示$n$阶实数方阵. 考虑到$\mathbb{C}$是$\mathbb{R}$上的二维线性空间, 上式里的$n$应该等于$2$.</p>
 
 <h2 id="实矩阵下的虚数单位-i">实矩阵下的虚数单位$i$</h2>
 
-<p>实数里的$1$可以用单位矩阵$I$来表示，而$i$的表示就有不同之处了. 如果我们设$i$对应的矩阵为二阶矩阵$J$, 但是我们不应该花大量时间计算矩阵元素的值. 考虑映射
+<p>实数里的$1$可以用单位矩阵$I$来表示, 而$i$的表示就有不同之处了. 如果我们设$i$对应的矩阵为二阶矩阵$J$, 但是我们不应该花大量时间计算矩阵元素的值. 考虑映射
 \begin{equation}
     \begin{aligned}
         \varphi_i:\mathbb{C}&amp;\to\mathbb{C}\\<br />
@@ -193,7 +193,7 @@ MathJax.Hub.Config({
 
 <h2 id="mathbb-c-的线性表示">$\mathbb{C}$的线性表示</h2>
 
-<p>考虑到复数$(a,b)$可以表示成$a\times1+b\times{i}$, 而$1$和$i$都已经有了矩阵表示$I$和$J$,那么这个时候就得到$\mathbb{C}$的线性表示了.
+<p>考虑到复数$(a,b)$可以表示成$a\times1+b\times{i}$, 而$1$和$i$都已经有了矩阵表示$I$和$J$, 那么这个时候就得到$\mathbb{C}$的线性表示了.
 [
     \rho:\mathbb{C}\to\mathbb{R}I+\mathbb{R}J\in{M_2}(\mathbb{R})\\<br />
     a+bi\mapsto aI+bJ=\begin{bmatrix}a&amp;-b\\\ b&amp;a\end{bmatrix}

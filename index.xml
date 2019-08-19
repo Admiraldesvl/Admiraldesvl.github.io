@@ -18,7 +18,7 @@
       <pubDate>Fri, 02 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>https://desvl.xyz/about/</guid>
-      <description>About this website Mainly mathematical stuff. Although I don&amp;rsquo;t know if my contents are suitable for you. Enjoy! Ask me questions anoymously: Desvl on Peing Link Exchange ZHANGWP 一个球 Hiiragi SnakeBeer About Hugo Hugo is a static site engine written in Go. It makes use of a variety of open source projects including: Cobra Viper J Walter Weatherman Cast Learn more and contribute on GitHub.</description>
+      <description>About this website 主要是与数学有关的内容. 可能内容不是很轻松有趣, 但是我希望严格的数理语言能引人思考, 从思考中获得兴趣. 当然内容不太可能涉及高深的领域,</description>
     </item>
     
     <item>
@@ -54,7 +54,7 @@
       <pubDate>Sun, 11 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>https://desvl.xyz/post/2019-08-11-real-complex-matrix-representation/</guid>
-      <description>代数同构 现在我们想要解决的问题是，能不能把复数用矩阵表示出来，从而可以利用矩阵的计算方法. 这要求既要有线性空间的运算规则，又要有复数的运算规</description>
+      <description>代数同构 现在我们想要解决的问题是, 能不能把复数用矩阵表示出来, 从而可以利用矩阵的计算方法. 这要求既要有线性空间的运算规则, 又要有复数的运算规</description>
     </item>
     
     <item>
