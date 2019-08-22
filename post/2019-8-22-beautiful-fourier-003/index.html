@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+         
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>优美的Fourier级数（三）: Dirichlet核是好是坏?</title>
+        
+        <style>
+
+    html body {
+        font-family: 'Raleway', sans-serif;
+        background-color: white;
+    }
+
+    :root {
+        --accent: purple;
+        --border-width:  5px ;
+    }
+
+</style>
+
+
+<link rel="stylesheet" href="https://desvl.xyz/css/main.css">
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+
+
+
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+ 
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
+ <meta name="generator" content="Hugo 0.56.3" />
+        
+
+        
+        
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144178839-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments)};
+          gtag('js', new Date());
+
+          gtag('config', 'UA-144178839-1');
+        </script>
+        
+
+        
+        
+        <script type="text/javascript" async
+          src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        </script>
+        
+        <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_SVG">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
+    </head>
+
+    <body>
+         
+        <nav class="navbar navbar-default navbar-fixed-top">
+
+            <div class="container">
+
+                <div class="navbar-header">
+
+                    <a class="navbar-brand visible-xs" href="#">优美的Fourier级数（三）: Dirichlet核是好是坏?</a>
+
+                    <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                </div>
+
+                <div class="collapse navbar-collapse">
+
+                    
+                        <ul class="nav navbar-nav">
+                            
+                                <li><a href="/">Home</a></li>
+                            
+                                <li><a href="/post/">Posts</a></li>
+                            
+                                <li><a href="/tags/">Tags</a></li>
+                            
+                                <li><a href="/about/">About</a></li>
+                            
+                        </ul>
+                    
+
+                    
+                        <ul class="nav navbar-nav navbar-right">
+                            
+                                <li class="navbar-icon"><a href="mailto:admiraldesvl@gmail.com"><i class="fa fa-envelope-o"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://github.com/admiraldesvl/"><i class="fa fa-github"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://twitter.com/Desvl1998/"><i class="fa fa-twitter"></i></a></li>
+                            
+                        </ul>
+                    
+
+                </div>
+
+            </div>
+
+        </nav>
+
+
+<main>
+
+    <div class="item">
+
+    
+    
+    
+
+    
+    
+
+    <h4><a href="/post/2019-8-22-beautiful-fourier-003/">优美的Fourier级数（三）: Dirichlet核是好是坏?</a></h4>
+    <h5>August 22, 2019</h5>
+    
+    <a href="https://desvl.xyz/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/mathematical-analysis"><kbd class="item-tag">数学分析/Mathematical Analysis</kbd></a>
+    
+    <a href="https://desvl.xyz/tags/fourier%E5%88%86%E6%9E%90/fourier-analysis"><kbd class="item-tag">Fourier分析/Fourier Analysis</kbd></a>
+    
+
+</div>
+
+
+    <br> <div class="text-justify">
+
+<p>在前面的文章中, 我们看到了Dirichlet核下的两种收敛情况的分析. 当然, 函数核绝对不仅仅有Dirichlet核一个. 那么Dirichlet核相比其他核, 有什么&rdquo;优缺点&rdquo;? 有没有什么办法解决一致收敛的问题? 我们先从Dirichlet核积分的发散说起.</p>
+
+<h2 id="dirichlet核的发散">Dirichlet核的发散</h2>
+
+<blockquote>
+<p>$\lim\limits_{n\to\infty}\int_{-\pi}^{\pi}|D_n(x)|=+\infty$</p>
+</blockquote>
+
+<p>可令
+[
+    C_n=\int_{-\pi}^{\pi}|D_n(x)|dx=\int_{-\pi}^{\pi}|D_n(2y)|d2y=2\int_{-\pi/2}^{\pi/2}\frac{|\sin(2n+1)y|}{|\sin{y}|}dy=4\int_{0}^{\pi/2}\frac{|\sin(2n+1)y|}{\sin{y}}dy
+]</p>
+
+<p>如果我们利用上一篇文章中的技巧, 就能得到
+[
+    \frac{C_n}{4}=\int_0^{\pi/2}\frac{|\sin(2n+1)y|}{y}dy+\int_0^{\pi/2}|\sin(2n+1)y|\left(\frac{1}{\sin{y}}-\frac{1}{y}\right)dy
+]</p>
+
+<h4 id="第一部分-a-n-int-0-pi-2-frac-sin-2n-1-y-y-dy">第一部分: $A_n=\int_0^{\pi/2}\frac{|\sin(2n+1)y|}{y}dy$</h4>
+
+<p>令$a_k=\frac{k\pi}{2n+1}$, 那么
+[
+    \int_0^{\pi/2}\frac{|\sin(2n+1)y|}{y}dy=\int_0^{a_1}\frac{\sin(2n+1)y}{y}dy+\sum_{k=1}^{n-1}\int_{a_k}^{a_{k+1}}\frac{|\sin(2n+1)y|}{y}dy+\int_{a_n}^{\frac{\pi}{2}}\frac{|\sin(2n+1)y|}{y}dy
+]</p>
+
+<p>令$u=(2n+1)y$, 不难发现
+[
+    \int_0^{\frac{\pi}{2n+1}}\frac{|\sin(2n+1)y|}{y}dy=\int_0^{\pi}\frac{\sin{u}}{u}du
+]
+又注意到
+[
+    \int_{a_k}^{a_{k+1}}|\sin(2n+1)y|dy=\frac{2}{2n+1}
+]
+考虑到$\frac{1}{y}$的单调性, 又能得到
+[
+    \frac{2}{(2n+1)a_{k+1}}&lt;\int_{a_k}^{a_{k+1}}\frac{|\sin(2n+1)y|}{y}dy&lt;\frac{2}{(2n+1)a_k}
+]
+即
+[
+    \frac{2}{\pi}\cdot\frac{1}{k+1}&lt;\int_{a_k}^{a_{k+1}}\frac{|\sin(2n+1)y|}{y}dy&lt;\frac{2}{\pi}\cdot\frac{1}{k}
+]
+对最后一项也有
+[
+    \frac{2}{\pi}\cdot\frac{2}{2n+1}&lt;\int_{a_n}^{\frac{\pi}{2}}\frac{|\sin(2n+1)y|}{y}dy&lt;\frac{2}{\pi}\cdot\frac{1}{n}
+]</p>
+
+<p>将这些项加起来, 会有
+[
+    \int_0^{\pi/2}\frac{\sin{u}}{u}du+\frac{2}{\pi}(\sum_{k=2}^{n}\frac{1}{k}+\frac{2}{2n+1})&lt;A_n&lt;\int_0^{\pi/2}\frac{\sin{u}}{u}du+\frac{2}{\pi}\sum_{k=1}^{n}\frac{1}{k}
+]</p>
+
+<p>又考虑到$\sum_{k=1}^{n}\frac{1}{k}=\log{n}+\gamma+O(n^{-1})$, 其中$\gamma$为欧拉常数, 我们能得到
+[
+    A_n=\frac{2}{\pi}\log{n}+O(1)
+]</p>
+
+<h4 id="第二部分-b-n-int-0-pi-2-sin-2n-1-y-left-frac-1-sin-y-frac-1-y-right-dy">第二部分: $B_n=\int_0^{\pi/2}|\sin(2n+1)y|\left(\frac{1}{\sin(y)}-\frac{1}{y}\right)dy$</h4>
+
+<p>经过简单计算, 可以发现
+[
+    \int_{0}^{\pi/2}\left(\frac{1}{\sin(y)}-\frac{1}{y}\right)dy=\log\frac{4}{\pi}
+]</p>
+
+<p>又注意到$0\leq|\sin(2n+1)y|\leq1$, 因此$0\leq B_n\leq\log\frac{4}{\pi}$.</p>
+
+<h3 id="结论">结论</h3>
+
+<p>将$A_n$和$B_n$整合起来, 就能发现有
+[
+    C_n=\frac{8}{\pi}\log{n}+c
+]
+其中$c$是不小于$0$的有限量. 这就证明了$C_n\to\infty$的结论.</p>
+
+<p>Dirichlet核的绝对值积分发散, 这说明$n$非常大时, Dirichlet函数的图像抖动程度不够小. 它到底&rdquo;好&rdquo;还是&rdquo;不好&rdquo;呢? 绝对值积分的敛散性有没有实际意义? 接下来会介绍, 什么才是&rdquo;好核&rdquo;.</p>
+
+<h2 id="好核-good-kernel">好核(good kernel)</h2>
+
+<h3 id="好核的性质">好核的性质</h3>
+
+<p>函数核有很多, 我们希望有一个评判标准. 我们知道, 有很多优美的性质只有一致收敛才拥有. 在这里, 我们尝试讨论函数核应该满足怎样的条件才能实现我们想要的一致收敛.</p>
+
+<blockquote>
+<p>设$f(x)$是在$[-\pi,\pi]$上的连续函数,对于$x\in[-\pi,\pi]$和任意$\varepsilon&gt;0$, 可有$t\in(-\delta,\delta)$使得$|f(x-t)-f(x)|&lt;\epsilon$ 此外,$f(x)$是有界的, 可设$|f(x)|\leq{B}$. 对于函数核$\{K_n(x)\}$. 定义$K_nf(x)=\frac{1}{2\pi}\int_{-\pi}^{\pi}K_n(t)f(x-t)dt$.</p>
+</blockquote>
+
+<p>Dirichlet核就是一族函数核, 但是我们在这里不再局限在一些三角函数的运算技巧中.</p>
+
+<p>首先是归一化问题. 我们在探讨收敛问题时, 会列式
+[
+    K_nf(x)-f(x)=\frac{1}{2\pi}\int_{-\pi}^{\pi}K_n(t)(f(x-t)-f(x))dt
+]
+回忆Dini判别法的证明, 我们希望把$f(x)$移入积分符号里面, 为了方便计算, 我们希望好核有性质1:</p>
+
+<blockquote>
+<ul>
+<li>归一化: [\frac{1}{2\pi}\int_{-\pi}^{\pi}K_n(x)dx=1]</li>
+</ul>
+</blockquote>
+
+<p>可以发现, Dirichlet核满足性质1(这个条件相对来说不是很苛刻). 结合性质1, 我们能得到
+[
+    K_nf(x)-f(x)=\frac{1}{2\pi}\int_{-\pi}^{\pi}K_n(t)(f(x-t)-f(x))dt
+]</p>
+
+<p>为了讨论一致收敛, 我们希望误差的绝对值足够小. 也就是说,
+\begin{equation}
+    \begin{aligned}
+        |K_nf(x)-f(x)|&amp;=|\frac{1}{2\pi}\int_{-\pi}^{\pi}K_n(t)(f(x-t)-f(x))dt|\\<br />
+        &amp;\leq\frac{1}{2\pi}\int_{-\delta}^{\delta}|K_n(t)||f(x-t)-f(x)|dt+\int_{\delta\leq|t|\leq\pi}|f(x-t)-f(x)||K_n(t)|dt\\<br />
+        &amp;\leq\frac{\varepsilon}{2\pi}\int_{-\pi}^{\pi}|K_n(t)|dt+\frac{2B}{2\pi}\int_{\delta\leq|t|\leq\pi}|K_n(t)|dt
+    \end{aligned}
+\end{equation}</p>
+
+<p>对如果想要求误差绝对值足够小, 那么$\int_{\delta\leq|t|\leq\pi}|K_n(t)|dt$的极限必须是$0$. 然后, $\int_{-\pi}^{\pi}|K_n(t)|dt$需要是有界的. 既然想得到&rdquo;好核&rdquo;, 处理$0\cdots\infty$肯定是不合适的. 从这里我们得到好核的剩下两条性质:</p>
+
+<blockquote>
+<ul>
+<li>有界性: 存在$M&gt;0$, 使得对所有$n\geq1$有[\int_{-\pi}^{\pi}|K_n(t)|dt\leq{M}]</li>
+<li>两翼收敛: 对于所有$\delta&gt;0$, 满足[\lim\limits_{n\to\infty}\int_{\delta\leq|t|\leq\pi}|K_n(t)|dt=0]</li>
+</ul>
+</blockquote>
+
+<p><strong>Dirichlet核并不满足性质2, 因此并不是&rdquo;好核&rdquo;.</strong></p>
+
+<h3 id="好核的例子">好核的例子</h3>
+
+<p>下列两个函数核涉及到Cesàro和与Abel和, 具体细节会在接下来的文章中进行总结分析. 而这几个等式的证明也是很好的练习.</p>
+
+<h4 id="fejér核">Fejér核</h4>
+
+<p>Fejér核其实是Dirichlet核在Cesàro意义下的求和. 具体定义式如下:</p>
+
+<blockquote>
+<p>[K_N(x)=\frac{1}{N+1}\sum_{n=0}^ND_n(x)=\frac{1}{N+1}\frac{1-\cos(N+1)x}{1-\cos{x}}]</p>
+</blockquote>
+
+<h4 id="poisson核">Poisson核</h4>
+
+<p>Poisson核涉及到Abel意义下的求和. 具体定义式如下:</p>
+
+<blockquote>
+<p>[P_r(x)=\sum_{n=-\infty}^{\infty}r^{|n|}e^{inx}=\frac{1-r^2}{1-2r\cos\theta+r^2}]其中$0&lt;r&lt;1$</p>
+</blockquote>
+
+<h2 id="总结">总结</h2>
+
+<p>不难发现, 这篇文章中, 和很多东西打交道: 无穷小量、不等式、积分、一致收敛等等. 还是那句话, Fourier分析绝对不仅仅是如何求各项系数, 也不仅仅是三角函数的运算技巧, 而是一个很庞大、很复杂的问题. &ldquo;好核&rdquo;也给了我们一个启示: 如果直接证明函数核的一致收敛问题很困难, 可不可以转而证明它是&rdquo;好核&rdquo;? 还有一点值得注意: Cesàro和与Abel和为何能让导致好核的出现? 我认为, 这也体现了Fourier级数优美之处: 和很多领域的内容能和谐相处.</p>
+
+<!--## 相关索引
+- [优美的Fourier级数（一）: 绝对不只是求表达式的问题](https://admiraldesvl.github.io/post/2019-08-05-Beautiful-Fourier-001)
+
+- [优美的Fourier级数（二）: 有界差分下的收敛(Jordan判别法)](https://admiraldesvl.github.io/post/2019-08-06-Beautiful-Fourier-002/)
+
+- [优美的Fourier级数（三）: Dirichlet核是好是坏?](https://admiraldesvl.github.io/post/2019-08-22-Beautiful-Fourier-003)-->
+</div>
+
+    
+    
+
+    
+
+        <h4 class="page-header">Related</h4>
+
+         <div class="item">
+
+    
+    
+    
+
+    
+    
+
+    <h4><a href="/post/2019-08-19-l-hopital-proof/">洛必达法则的几种证明办法</a></h4>
+    <h5>August 19, 2019</h5>
+    
+    <a href="https://desvl.xyz/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/mathematical-analysis"><kbd class="item-tag">数学分析/Mathematical Analysis</kbd></a>
+    
+
+</div>
+  <div class="item">
+
+    
+    
+    
+
+    
+    
+
+    <h4><a href="/post/2019-08-06-beautiful-fourier-002/">优美的Fourier级数（二）: 有界差分下的收敛(Jordan判别法)</a></h4>
+    <h5>August 6, 2019</h5>
+    
+    <a href="https://desvl.xyz/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/mathematical-analysis"><kbd class="item-tag">数学分析/Mathematical Analysis</kbd></a>
+    
+    <a href="https://desvl.xyz/tags/fourier%E5%88%86%E6%9E%90/fourier-analysis"><kbd class="item-tag">Fourier分析/Fourier Analysis</kbd></a>
+    
+
+</div>
+  <div class="item">
+
+    
+    
+    
+
+    
+    
+
+    <h4><a href="/post/2019-08-05-beautiful-fourier-001/">优美的Fourier级数（一）: 绝对不只是求表达式的问题</a></h4>
+    <h5>August 5, 2019</h5>
+    
+    <a href="https://desvl.xyz/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/mathematical-analysis"><kbd class="item-tag">数学分析/Mathematical Analysis</kbd></a>
+    
+    <a href="https://desvl.xyz/tags/fourier%E5%88%86%E6%9E%90/fourier-analysis"><kbd class="item-tag">Fourier分析/Fourier Analysis</kbd></a>
+    
+
+</div>
+ 
+
+    
+
+    
+
+        <h4 class="page-header">Comments</h4>
+
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "admiraldesvl" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    
+
+</main>
+
+        <footer>
+
+            <p class="copyright text-muted">&copy; All rights reserved. Powered by <a href="https://gohugo.io">Hugo</a> and <a href="https://github.com/calintat/minimal">Minimal</a></p>
+
+        </footer>
+       
+    </body>
+
+</html>
+

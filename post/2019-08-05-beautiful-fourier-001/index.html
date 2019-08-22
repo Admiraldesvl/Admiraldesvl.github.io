@@ -4,7 +4,7 @@
          
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>优美的Fourier级数（一）</title>
+        <title>优美的Fourier级数（一）: 绝对不只是求表达式的问题</title>
         
         <style>
 
@@ -99,7 +99,7 @@ MathJax.Hub.Config({
 
                 <div class="navbar-header">
 
-                    <a class="navbar-brand visible-xs" href="#">优美的Fourier级数（一）</a>
+                    <a class="navbar-brand visible-xs" href="#">优美的Fourier级数（一）: 绝对不只是求表达式的问题</a>
 
                     <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
                         <span class="icon-bar"></span>
@@ -155,7 +155,7 @@ MathJax.Hub.Config({
     
     
 
-    <h4><a href="/post/2019-08-05-beautiful-fourier-001/">优美的Fourier级数（一）</a></h4>
+    <h4><a href="/post/2019-08-05-beautiful-fourier-001/">优美的Fourier级数（一）: 绝对不只是求表达式的问题</a></h4>
     <h5>August 5, 2019</h5>
     
     <a href="https://desvl.xyz/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/mathematical-analysis"><kbd class="item-tag">数学分析/Mathematical Analysis</kbd></a>
@@ -197,13 +197,13 @@ MathJax.Hub.Config({
 <p>\begin{equation}
     \begin{bmatrix}a&amp;b\end{bmatrix}\begin{bmatrix}c\\d\end{bmatrix}=ac+bd
 \end{equation}
-进一步，第一个行向量可以看成列向量的转置. 那么这个$ac+bd$就是两个2维平面内列向量的内积. 这即高中数学中所讲的“向量乘法”. 这涉及到经典欧基里德空间的内积定义. 而谈到向量，单位正交向量肯定是非常有探讨价值的. 因为一般情况下其他向量可以用单位正交向量比较简单地表示出来. 但是向量内积不仅仅存在于经典的欧氏空间. 我们可以定义一系列定义域相同的函数，例如函数$f$和$g$的内积可以定义成
+进一步，第一个行向量可以看成列向量的转置. 那么这个$ac+bd$就是两个2维平面内列向量的内积. 这即高中数学中所讲的“向量乘法”. 这涉及到经典欧基里德空间的内积定义. 而谈到向量，单位正交向量肯定是非常有探讨价值的. 因为一般情况下其他向量可以用单位正交向量比较简单地表示出来. 但是向量内积不仅仅存在于经典的欧氏空间. 我们可以定义一系列定义域相同的函数，例如$[a,b]$上的函数$f$和$g$的内积可以定义成
 [
-    (f,g)=\int_a^b f(x)\overline{g}(x)dx
+    (f,g):=\int_a^b f(x)\overline{g}(x)dx
 ]
-其中$\overline{g}$表示$g$的共轭复数. 一个共轭一个不共轭可以和经典欧氏空间里一个转置一个不转置相类比.</p>
+其中$\overline{g}$表示$g$的共轭复数. 实际上, 这个定义是$L^2$空间的内积定义, 而且$L^2$空间是$L^p$空间中唯一的Hilbert空间.</p>
 
-<p>在任何欧基里德空间里（对函数的定义也是欧基里德空间，区分于经典欧基里德空间），两个向量的内积为$0$, 说明两个向量正交，夹角为$\frac{\pi}{2}$. 而向量的模的平方即自身和自身的内积. 根据以上结果，我们可以定义函数的“单位正交系”. 若定义在$[a,b]$上的一系列函数${\varphi_n(x)}$满足$(\varphi_n,\varphi_n)=1$而$(\varphi_n,\varphi_m)=0(m\neq n)$, 则称为单位正交系.</p>
+<p>在内积空间里(欧基里德空间就是最基本的内积空间), 两个向量的内积为$0$, 说明两个向量正交，夹角为$\frac{\pi}{2}$. 而向量的模的平方即自身和自身的内积. 我们可以定义函数的“单位正交系”. 若定义在$[a,b]$上的一系列函数${\varphi_n(x)}$满足$(\varphi_n,\varphi_n)=1$而$(\varphi_n,\varphi_m)=0(m\neq n)$, 则称为单位正交系.</p>
 
 <h4 id="再看fourier级数">再看Fourier级数</h4>
 
@@ -225,11 +225,15 @@ MathJax.Hub.Config({
 [
     c_m=\frac{1}{2\pi}\int_{-\pi}^{\pi} f(x)e^{-imx}dx
 ]
-若进行验证，得到的结果也确实如此.(提示：将$e^{inx}$展开为三角函数，再在$[-\pi,\pi]$积分.)</p>
+为了得到这个形式($c_m$不受影响), 我们先用$\frac{e^{imx}}{\sqrt{2\pi}}$表示$f$, 应该有
+[
+    \frac{f(x)}{\sqrt{2\pi}}=\sum_{-\infty}^{\infty}c_n\frac{e^{inx}}{\sqrt{2\pi}}
+]
+再进行积分即可.</p>
 
 <h3 id="内积运算的法则">内积运算的法则</h3>
 
-<p>下列内积运算的法则会在接下来用到，事实上，若内积能满足下列几个条件，就称为欧基里德空间：</p>
+<p>下列内积运算的法则会在接下来用到. 涉及到复数, 因此和经典欧基里德空间有不同之处：</p>
 
 <ul>
 <li><p>$(a+c,b)=(a,b)+(c,b)$</p></li>
@@ -240,7 +244,7 @@ MathJax.Hub.Config({
 
 <li><p>$(a,kb)=k(a,b)$</p></li>
 
-<li><p>$(a,b)=(b,a)$</p></li>
+<li><p>$(a,b)=\overline{(b,a)}$</p></li>
 </ul>
 
 <h2 id="dirichlet核">Dirichlet核</h2>
@@ -279,7 +283,7 @@ MathJax.Hub.Config({
 
 <p>设$s_n(x)=\sum_{m=1}^n c_m\varphi_m(x)$, 其中$c_m=\int_a^b f(x)\overline{\varphi_m}(x)dx$. 下面通过讨论$s_n(x)$到$f(x)$的误差得到这个不等式和一个重要的推论.</p>
 
-<p>注意到$(f,s_n)=\int_a^b f(x)\sum\overline{c_m}\overline{\varphi_m(x)}dx=\sum\overline{c_m}\int_a^b f(x)\overline{\varphi_m(x)}dx=\sum|c_m^2|$</p>
+<p>注意到$(f,s_n)=\int_a^b f(x)\sum\overline{c_m}\overline{\varphi_m(x)}dx=\sum\overline{c_m}\int_a^b f(x)\overline{\varphi_m(x)}dx=\sum|c_m^2|=\overline{(f,s_n)}=(s_n,f)$</p>
 
 <p>以及$(s_n,s_n)=\sum|c_m^2|$
 \begin{equation}
@@ -299,7 +303,7 @@ $n\to\infty$时，就是所谓的Bessel不等式. 也可以发现，函数的Fou
 <h3 id="收敛证明">收敛证明</h3>
 
 <blockquote>
-<p>若对一些$x$有常数$\delta&gt;0$和$M&lt;\infty$使得[|f(x+t)-f(x)|\leq M|t|]对所有$t\in(-\delta,\delta)$成立，那么有[\lim\limits_{n\to\infty}s_N(x)=f(x)]</p>
+<p>(Dini&rsquo;s Test)若对一些$x$有常数$\delta&gt;0$和$M&lt;\infty$使得[|f(x+t)-f(x)|\leq M|t|]对所有$t\in(-\delta,\delta)$成立，那么有[\lim\limits_{n\to\infty}s_N(x)=f(x)]</p>
 </blockquote>
 
 <p><em>要注意的是，我们在这里只讨论逐点收敛.</em></p>
@@ -346,13 +350,11 @@ $n\to\infty$时，就是所谓的Bessel不等式. 也可以发现，函数的Fou
 <li><p>&hellip;</p></li>
 </ul>
 
-<h2 id="相关索引">相关索引</h2>
+<!--## 相关索引
 
-<ul>
-<li><p>优美的Fourier级数（一）</p></li>
+- 优美的Fourier级数（一）
 
-<li><p><a href="https://admiraldesvl.github.io/post/2019-08-06-beautiful-fourier-002/">优美的Fourier级数（二）</a></p></li>
-</ul>
+- [优美的Fourier级数（二）](https://desvl.xyz/post/2019-08-06-beautiful-fourier-002/)-->
 </div>
 
     
@@ -363,6 +365,24 @@ $n\to\infty$时，就是所谓的Bessel不等式. 也可以发现，函数的Fou
         <h4 class="page-header">Related</h4>
 
          <div class="item">
+
+    
+    
+    
+
+    
+    
+
+    <h4><a href="/post/2019-8-22-beautiful-fourier-003/">优美的Fourier级数（三）: Dirichlet核是好是坏?</a></h4>
+    <h5>August 22, 2019</h5>
+    
+    <a href="https://desvl.xyz/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/mathematical-analysis"><kbd class="item-tag">数学分析/Mathematical Analysis</kbd></a>
+    
+    <a href="https://desvl.xyz/tags/fourier%E5%88%86%E6%9E%90/fourier-analysis"><kbd class="item-tag">Fourier分析/Fourier Analysis</kbd></a>
+    
+
+</div>
+  <div class="item">
 
     
     
@@ -387,28 +407,12 @@ $n\to\infty$时，就是所谓的Bessel不等式. 也可以发现，函数的Fou
     
     
 
-    <h4><a href="/post/2019-08-06-beautiful-fourier-002/">优美的Fourier级数（二）</a></h4>
+    <h4><a href="/post/2019-08-06-beautiful-fourier-002/">优美的Fourier级数（二）: 有界差分下的收敛(Jordan判别法)</a></h4>
     <h5>August 6, 2019</h5>
     
     <a href="https://desvl.xyz/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/mathematical-analysis"><kbd class="item-tag">数学分析/Mathematical Analysis</kbd></a>
     
     <a href="https://desvl.xyz/tags/fourier%E5%88%86%E6%9E%90/fourier-analysis"><kbd class="item-tag">Fourier分析/Fourier Analysis</kbd></a>
-    
-
-</div>
-  <div class="item">
-
-    
-    
-    
-
-    
-    
-
-    <h4><a href="/post/2019-08-04-contraction-application/">收缩定理和其应用</a></h4>
-    <h5>August 4, 2019</h5>
-    
-    <a href="https://desvl.xyz/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/mathematical-analysis"><kbd class="item-tag">数学分析/Mathematical Analysis</kbd></a>
     
 
 </div>

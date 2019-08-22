@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Desvl</copyright>
-    <lastBuildDate>Mon, 19 Aug 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 22 Aug 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://desvl.xyz/index.xml" rel="self" type="application/rss+xml" />
     
@@ -19,6 +19,15 @@
       
       <guid>https://desvl.xyz/about/</guid>
       <description>About this website 主要是与数学有关的内容. 可能内容不是很轻松有趣, 但是我希望严格的数理语言能引人思考, 从思考中获得兴趣. 当然内容不太可能涉及高深的领域,</description>
+    </item>
+    
+    <item>
+      <title>优美的Fourier级数（三）: Dirichlet核是好是坏?</title>
+      <link>https://desvl.xyz/post/2019-8-22-beautiful-fourier-003/</link>
+      <pubDate>Thu, 22 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://desvl.xyz/post/2019-8-22-beautiful-fourier-003/</guid>
+      <description>在前面的文章中, 我们看到了Dirichlet核下的两种收敛情况的分析. 当然, 函数核绝对不仅仅有Dirichlet核一个. 那么Dirichle</description>
     </item>
     
     <item>
@@ -76,7 +85,7 @@
     </item>
     
     <item>
-      <title>优美的Fourier级数（二）</title>
+      <title>优美的Fourier级数（二）: 有界差分下的收敛(Jordan判别法)</title>
       <link>https://desvl.xyz/post/2019-08-06-beautiful-fourier-002/</link>
       <pubDate>Tue, 06 Aug 2019 00:00:00 +0000</pubDate>
       
@@ -85,7 +94,7 @@
     </item>
     
     <item>
-      <title>优美的Fourier级数（一）</title>
+      <title>优美的Fourier级数（一）: 绝对不只是求表达式的问题</title>
       <link>https://desvl.xyz/post/2019-08-05-beautiful-fourier-001/</link>
       <pubDate>Mon, 05 Aug 2019 00:00:00 +0000</pubDate>
       
