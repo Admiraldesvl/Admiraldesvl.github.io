@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>优美的Fourier级数 on Desvl&#39;s Blog</title>
+    <link>https://desvl.xyz/tags/%E4%BC%98%E7%BE%8E%E7%9A%84fourier%E7%BA%A7%E6%95%B0/</link>
+    <description>Recent content in 优美的Fourier级数 on Desvl&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Desvl</copyright>
+    <lastBuildDate>Thu, 22 Aug 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://desvl.xyz/tags/%E4%BC%98%E7%BE%8E%E7%9A%84fourier%E7%BA%A7%E6%95%B0/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>优美的Fourier级数（三）: Dirichlet核是好是坏?</title>
+      <link>https://desvl.xyz/post/2019-8-22-beautiful-fourier-003/</link>
+      <pubDate>Thu, 22 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://desvl.xyz/post/2019-8-22-beautiful-fourier-003/</guid>
+      <description>在前面的文章中, 我们看到了Dirichlet核下的两种收敛情况的分析. 当然, 函数核绝对不仅仅有Dirichlet核一个. 那么Dirichle</description>
+    </item>
+    
+    <item>
+      <title>优美的Fourier级数（二）: 有界差分下的收敛(Jordan判别法)</title>
+      <link>https://desvl.xyz/post/2019-08-06-beautiful-fourier-002/</link>
+      <pubDate>Tue, 06 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://desvl.xyz/post/2019-08-06-beautiful-fourier-002/</guid>
+      <description>前言 如果你和Fourier级数打交道，那么在处理间断函数，特别是锯齿状函数的时候，有没有注意过间断处的形状？它为什么会处在中间位置？什么时候</description>
+    </item>
+    
+    <item>
+      <title>优美的Fourier级数（一）: 绝对不只是求表达式的问题</title>
+      <link>https://desvl.xyz/post/2019-08-05-beautiful-fourier-001/</link>
+      <pubDate>Mon, 05 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://desvl.xyz/post/2019-08-05-beautiful-fourier-001/</guid>
+      <description>前言 Fourier级数是相当优美的一类级数，但它涉及到的问题绝对不仅仅是通过各种运算技巧求表达式. 相反，它是一个很复杂、很困难的大话题. 我在</description>
+    </item>
+    
+  </channel>
+</rss>
