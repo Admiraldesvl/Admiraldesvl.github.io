@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Desvl</copyright>
-    <lastBuildDate>Thu, 22 Aug 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 24 Aug 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://desvl.xyz/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>调和级数发散的证明(1&#43;1/2&#43;...&#43;1/n&#43;...)</title>
+      <link>https://desvl.xyz/post/2019-8-24-harmonic-series-divergence/</link>
+      <pubDate>Sat, 24 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://desvl.xyz/post/2019-8-24-harmonic-series-divergence/</guid>
+      <description>命题的提出 设$S_n=1+\frac{1}{2}+\frac{1}{3}+\cdots+\frac{1}{n}$, 求证$\{S_n\}$发散</description>
+    </item>
     
     <item>
       <title>优美的Fourier级数（三）: Dirichlet核是好是坏?</title>

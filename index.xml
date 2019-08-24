@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Desvl</copyright>
-    <lastBuildDate>Thu, 22 Aug 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 24 Aug 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://desvl.xyz/index.xml" rel="self" type="application/rss+xml" />
     
@@ -19,6 +19,15 @@
       
       <guid>https://desvl.xyz/about/</guid>
       <description>About this website 主要是与数学有关的内容. 可能内容不是很轻松有趣, 但是我希望严格的数理语言能引人思考, 从思考中获得兴趣. 当然内容不太可能涉及高深的领域,</description>
+    </item>
+    
+    <item>
+      <title>调和级数发散的证明(1&#43;1/2&#43;...&#43;1/n&#43;...)</title>
+      <link>https://desvl.xyz/post/2019-8-24-harmonic-series-divergence/</link>
+      <pubDate>Sat, 24 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://desvl.xyz/post/2019-8-24-harmonic-series-divergence/</guid>
+      <description>命题的提出 设$S_n=1+\frac{1}{2}+\frac{1}{3}+\cdots+\frac{1}{n}$, 求证$\{S_n\}$发散</description>
     </item>
     
     <item>
