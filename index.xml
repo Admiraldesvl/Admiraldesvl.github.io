@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Desvl</copyright>
-    <lastBuildDate>Sat, 24 Aug 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 26 Aug 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://desvl.xyz/index.xml" rel="self" type="application/rss+xml" />
     
@@ -19,6 +19,15 @@
       
       <guid>https://desvl.xyz/about/</guid>
       <description>About this website 主要是与数学有关的内容. 可能内容不是很轻松有趣, 但是我希望严格的数理语言能引人思考, 从思考中获得兴趣. 当然内容不太可能涉及高深的领域,</description>
+    </item>
+    
+    <item>
+      <title>一元微分学的顶峰——Taylor定理(一): Peano余项</title>
+      <link>https://desvl.xyz/post/2019-08-26-taylor/</link>
+      <pubDate>Mon, 26 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://desvl.xyz/post/2019-08-26-taylor/</guid>
+      <description>我们不想把话讲得太绝对, 但至少可以说: 凡是用一元微积分中的定理、技巧能解决的问题, 其中的大部分都可以用Taylor定理来解决. 掌握了Tayl</description>
     </item>
     
     <item>

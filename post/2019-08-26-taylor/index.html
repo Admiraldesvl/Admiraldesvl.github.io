@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+         
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>一元微分学的顶峰——Taylor定理(一): Peano余项</title>
+        
+        <style>
+
+    html body {
+        font-family: 'Raleway', sans-serif;
+        background-color: white;
+    }
+
+    :root {
+        --accent: purple;
+        --border-width:  5px ;
+    }
+
+</style>
+
+
+<link rel="stylesheet" href="https://desvl.xyz/css/main.css">
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+
+
+
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+ 
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
+ <meta name="generator" content="Hugo 0.56.3" />
+        
+
+        
+        
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144178839-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments)};
+          gtag('js', new Date());
+
+          gtag('config', 'UA-144178839-1');
+        </script>
+        
+
+        
+        
+        <script type="text/javascript" async
+          src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        </script>
+        
+        <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_SVG">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
+    </head>
+
+    <body>
+         
+        <nav class="navbar navbar-default navbar-fixed-top">
+
+            <div class="container">
+
+                <div class="navbar-header">
+
+                    <a class="navbar-brand visible-xs" href="#">一元微分学的顶峰——Taylor定理(一): Peano余项</a>
+
+                    <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                </div>
+
+                <div class="collapse navbar-collapse">
+
+                    
+                        <ul class="nav navbar-nav">
+                            
+                                <li><a href="/">Home</a></li>
+                            
+                                <li><a href="/post/">Posts</a></li>
+                            
+                                <li><a href="/tags/">Tags</a></li>
+                            
+                                <li><a href="/about/">About</a></li>
+                            
+                        </ul>
+                    
+
+                    
+                        <ul class="nav navbar-nav navbar-right">
+                            
+                                <li class="navbar-icon"><a href="mailto:admiraldesvl@gmail.com"><i class="fa fa-envelope-o"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://github.com/admiraldesvl/"><i class="fa fa-github"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://twitter.com/Desvl1998/"><i class="fa fa-twitter"></i></a></li>
+                            
+                        </ul>
+                    
+
+                </div>
+
+            </div>
+
+        </nav>
+
+
+<main>
+
+    <div class="item">
+
+    
+    
+    
+
+    
+    
+
+    <h4><a href="/post/2019-08-26-taylor/">一元微分学的顶峰——Taylor定理(一): Peano余项</a></h4>
+    <h5>August 26, 2019</h5>
+    
+    <a href="https://desvl.xyz/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/mathematical-analysis"><kbd class="item-tag">数学分析/Mathematical Analysis</kbd></a>
+    
+    <a href="https://desvl.xyz/tags/%E6%B3%B0%E5%8B%92%E5%AE%9A%E7%90%86/taylor-theorem"><kbd class="item-tag">泰勒定理/Taylor Theorem</kbd></a>
+    
+
+</div>
+
+
+    <br> <div class="text-justify">
+
+<blockquote>
+<p>我们不想把话讲得太绝对, 但至少可以说: 凡是用一元微积分中的定理、技巧能解决的问题, 其中的大部分都可以用Taylor定理来解决. 掌握了Taylor定理之后, 回过头去看前面那些理论, 似乎一切都在你的掌握之中,  使你有一种‘会当凌绝顶, 一览众山小’的意境, 从这个意义上说, ‘Taylor定理是一元微分学的顶峰’并不过分. ——《数学分析教程》常庚哲, 史济怀</p>
+</blockquote>
+
+<p>但我相信, 很多人看到Taylor公式看似复杂的式子就会望而生畏, 唯一能做的是用各种办法展开式子, 计算极限. Taylor公式看似复杂, 但实际上解决的是重要的实际问题, 如何用多项式逼近函数, 这种办法只需要加减乘三种运算, 这绝对是初等函数里最简单的. 如果学了Taylor公式只会计算极限, 那太亏了. 爬上一元微积分的顶峰确实很有必要.</p>
+
+<h2 id="taylor定理是为了偷懒">Taylor定理是为了偷懒</h2>
+
+<p>整数的运算很简单, 没有一串乱七八糟的小数, 反而还有各种优异的性质, 我们计算小数的时候有的时候会考虑 <strong>四舍五入</strong>, 在这个时候, 误差也是需要考虑的. 多项式的运算绝对相比指数函数、三角函数等等简单很多, 而且多项式本身也有优异的性质. 那么, 有没有办法用多项式解决复杂的函数问题呢？不严格地说, 我们能不能对复杂的函数进行 <strong>四舍五入</strong> 呢？这就是Taylor公式可以解决的, 当然误差也是我们需要考虑的. 多项式运算只涉及加法减法和乘法, 如果我们能通过简单的四则运算解决问题而回避了复杂函数本身的各种性质, 那就太好了. 所以要怎么做呢？</p>
+
+<p>处理方法可以从对误差的分析入手. 分两种情况: 尽量简化运算, 仅定性分析误差; 进行严格的运算, （尽量）得到准确的误差值.</p>
+
+<h2 id="粗略的尝试">粗略的尝试</h2>
+
+<p>我们知道, 导函数的值可以用来刻画切线, 切线上切点附近的值可能和原函数实际值拟合得很好. 那么在这里我们就试着用一次函数偷懒, 也就是说做切线然后研究其性质.</p>
+
+<h3 id="有限增量公式">有限增量公式</h3>
+
+<h4 id="公式的引入">公式的引入</h4>
+
+<blockquote>
+<p>证明: 函数在某点可导, 则在该点一定连续</p>
+</blockquote>
+
+<p>为了引入有限增量公式, 我们会通过导数的定义证明这个问题, 实际上, 还可以通过连续函数的$\varepsilon-\delta$定义进行证明.</p>
+
+<p>设$f(x)$于点$x_0$处可导. 根据定义, 存在极限
+[
+    \lim_{\Delta{x}\to{0}}\frac{\Delta{y}}{\Delta{x}}=f&rsquo;(x_0)
+]</p>
+
+<p>因此有
+[
+    \frac{\Delta{y}}{\Delta{x}}=f&rsquo;(x_0)+o(1)(\Delta{x}\to{0})
+]</p>
+
+<p>两边同时乘以$\Delta{x}$, 就能得到
+[
+    \Delta{y}=f&rsquo;(x_0)\Delta{x}+o(\Delta{x})(\Delta{x}\to{0})
+]</p>
+
+<p>由于$\Delta{x}=x-x_0$, $\Delta{y}=y-y_0=f(x)-f(x_0)$, 上式可以重写为
+[
+    f(x)=f(x_0)+f&rsquo;(x_0)(x-x_0)+o(x-x_0)(x\to x_0)
+]</p>
+
+<p>令$x\to x_0$, 就能得到$\lim\limits_{x\to x_0}f(x)=f(x_0)$. 证毕.</p>
+
+<p>$\Delta{y}=f&rsquo;(x_0)\Delta{x}+o(\Delta{x})(\Delta{x}\to{0})$就是我们想要的有限增量公式. 可以把它看成$y=kx+b$的形式. 这个公式的偷懒办法是, 在$x_0$处引切线, 然后只对切线上的值进行分析. 例如, 为了求$\sin{0.1}$, 我们不看这个复杂的三角函数, 而去看$y=x$在$x=0$附近的情况, 这样肯定是有误差的($o(\Delta{x})$), 但是确实很方便.</p>
+
+<h4 id="关于-o-g-x-这种表示方式">关于$o(g(x))$这种表示方式</h4>
+
+<p>在上面的证明中出现了$o(x-x_0)$项, 其实这种表示方式也是图懒. 这其实代表一个函数, 但是我们在这种时候懒得关心它里面有啥（仅定性分析）, 只关心涉及极限时的结果.</p>
+
+<blockquote>
+<p>$f(x)=o(g(x))(x\to a)$的定义是: $\lim\limits_{x\to a}\frac{f(x)}{g(x)}=0$.</p>
+</blockquote>
+
+<p>上面的证明中, 我们定义了两个$g(x)$, 分别是$g(x)=1$和$g(x)=x-x_0$, 也就对应了$o(1)$和$o(x-x_0)$.</p>
+
+<h3 id="利用lagrange中值定理-加强有限增量公式">利用Lagrange中值定理，加强有限增量公式</h3>
+
+<blockquote>
+<p>设$f$在$[a,b]$连续, 在$(a,b)$上可微, 则存在$\xi\in(a,b)$, 使得$f&rsquo;(\xi)=\frac{f(b)-f(a)}{b-a}$.</p>
+</blockquote>
+
+<h4 id="利用行列式证明">利用行列式证明</h4>
+
+<p><img src="img/2019-08-26-lagrange.png" alt="image" /></p>
+
+<p>这个定理我们尝试用几何原理和线性代数为工具进行证明. 在$f(x)$上取点$A(a,f(a))$和$B(b,f(b))$两点和$(a,b)$中任意点$(x,f(x))$, 讨论三点围成的面积$S(x)$. 可以发现, 如果$x=\xi$, $(x,f(x)$处的切线和$AB$平行, 那么面积值是最大的, 也就是说, 我们需要分析$S(x)$的驻点.</p>
+
+<p>利用行列式的性质, 我们能得到
+[
+    S(x)=\frac{1}{2}\begin{vmatrix}b-a&amp;x-a\\ f(b)-f(a)&amp;f(x)-f(a)\end{vmatrix}
+]</p>
+
+<p>对这个函数求导, 得到
+[
+    S&rsquo;(x)=\frac{1}{2}\begin{vmatrix}b-a&amp;1\\ f(b)-f(a)&amp;f&rsquo;(x)\end{vmatrix}
+]</p>
+
+<p>而$S(a)=S(b)=0$, 由罗尔定理知, 有$\xi\in(a,b)$使得$S&rsquo;(\xi)=0$, 将$\xi$代入导数表达式再将行列式展开即得结论.</p>
+
+<h4 id="利用行列式证明的依据">利用行列式证明的依据</h4>
+
+<p>如果你没学习过线性代数, 不了解行列式, 那也没关系. 在这里用行列式是考虑到平行四边形的面积. 设平行四边形有一个点为原点, 原点两侧有点$(a,b)$和$(c,d)$, 也就是说, 两条边的向量是$(a,b)$和$(c,d)$, 那么这个平行四边形的面积是$ad-bc$. 而对行列式而言, 又恰好有
+[
+    \begin{vmatrix}a&amp;c\\ b&amp;d\end{vmatrix}=ad-bc
+]</p>
+
+<p>仅此而已.</p>
+
+<h4 id="有限增量公式的加强">有限增量公式的加强</h4>
+
+<p>我们给出的原始的有限增量公式中, 我们对误差的认识太模糊, 这导致它处理不了一些要求精细的结果. 就好比数值运算只知道误差在小数点后但是不知道小数点后几位. 但是Lagrange中值定理给了我们更好掌握误差（哪怕就一点）的办法. 很明显, 原等式可以写成
+[
+    f(b)=f(a)+f&rsquo;(\xi)(b-a)=f(a)+f&rsquo;(a+\theta(b-a))(b-a),0&lt;\theta&lt;1
+]
+或
+[
+    \Delta{y}=f&rsquo;(x_0+\theta\Delta{x})\Delta{x}
+]</p>
+
+<p>这明显是原始的有限增量公式的一大进步, 对于误差, 我们舍弃了看不见摸不着的$o(x-x_0)$, 和$f&rsquo;(x)$建立了更紧密的联系.</p>
+
+<h2 id="更高的精确率">更高的精确率</h2>
+
+<p>到目前为止, 我们进行的都是一阶求导之后的粗略分析, 距离高精度的实际应用还差很远. 有的函数可以求导很多次，甚至可以无穷次求导, 比如$y=e^{x}$. 进行多次求导, 从这个函数中获得更多信息, 进行精确度更高的“四舍五入”, 这可能会更麻烦, 但如果还是多项式处理, 比硬算三角函数指数函数等等肯定简单多了.</p>
+
+<h3 id="偷懒-的依据-多项式并不是乱写的">“偷懒”的依据: 多项式并不是乱写的</h3>
+
+<p>我们要进行多项式逼近. 那么难免会想, 我们得到的多项式是惟一的吗？如果不是就很麻烦了, 总不能乱写多项式. 下面的唯一性引理就解决了这个问题.</p>
+
+<blockquote>
+<p>设$f$在$x_0$的某邻域$O(x_0)$处有定义, 且有[f(x)=\sum_{k=0}^{n}c_k(x-x_0)^k+o((x-x_0)^n)(x\to x_0)]则其中的系数$c_0,c_1,\cdots,c_n$是唯一确定的.</p>
+</blockquote>
+
+<p>我们可以将这里的$c_k$表示出来. 实际上,</p>
+
+<p>[
+    c_k=\lim\limits_{x\to x_0}\frac{f(x)-[c_0+c_1(x-x_0)+\cdots+c_{k-1}(x-x_0)^{k-1}]}{(x-x_0)^k}
+]</p>
+
+<p>根据条件, 右边的极限是存在的, 又考虑到极限的唯一性, 发现$c_k$是惟一的, 得证.</p>
+
+<p>这说明, 如果我们用多项式逼近, 那么逼近的“产品”是唯一的, 得到的多项式不是乱写的.</p>
+
+<h3 id="多项式的构建-模仿变化率">多项式的构建: 模仿变化率</h3>
+
+<p>如果我们想用多项式在某点逼近一个复杂的函数, 为了减少误差, 我们希望拟合程度尽量的好. 也就是说, 偷懒也要偷得像模像样. 直接控制多项式函数在某点处的取值很不现实, 因为这样容易牵一发而动全身. 但是多项式中和$x$没有关系的元素还是有的, 那就是系数. 多项式的系数决定了多项式在各处的变化率. 如果我们能在变化率上尽量模仿原函数, 又确定一个定点, 那么, 不必要的干扰能降低到最小.</p>
+
+<p>设有多项式$p_n(x)=c_0+c_1(x-x_0)+c_2(x-x_0)^2+\cdots+c_n(x-x_0)^n$. 首先, 我们确定定点$x_0$, 此时能得到
+[
+    p_n(x_0)=c_0=f(x_0)
+]</p>
+
+<p>至此我们已经确定了这个多项式中的第一项.</p>
+
+<p>对于函数的$k$阶导数, 我们对$p_n(x)$和$f(x)$分别连续求导, 会得到
+[
+    p_n^{(k)}(x_0)=k!c_k=f^{(k)}(x_0)
+]</p>
+
+<p>不需要对第一个等号感到诧异. 这其实就是对$x^{n}$进行n次求导得到$n!$. $k-1$项及以前的早已求导成常数, 第$k$次求导之后得到$0$; 而$k+1$项及以后的项还保留着$(x-x_0)$, 因此$x=x_0$时取值全为$0$, 因此$k$次求导后只剩下了$k!c_k$这一项非$0$常数.</p>
+
+<p>那么多项式每一项的值就很明显了:
+[
+    c_k=\frac{f^{(k)}(x_0)}{k!}
+]
+重写$p_n(x)$, 得到
+[
+    p_n(x)=\sum_{k=0}^n\frac{f^{(k)}(x_0)}{k!}(x-x_0)^{k}
+]</p>
+
+<p>当然, 误差是可能有的, 不妨设$f(x)=p_n(x)+r_n(x)$, 然后讨论$r_n(x)$的性质. 首先, 我们想知道, 这个误差减小的速度到底多快. 我们希望, $x\to x_0$时, $r_n(x)$趋近于$0$的速度比$p_n(x)$中最小的一项$(x-x_0)^n$要快, 也就是要证明
+[
+    \lim_{x\to x_0}\frac{r_n(x)}{(x-x_0)^n}=0
+]</p>
+
+<p>这就是接下来的Peano余项.</p>
+
+<h3 id="peano余项-各种余项的理论模型">Peano余项——各种余项的理论模型</h3>
+
+<blockquote>
+<p>$r_n(x)=o((x-x_0)^n)(x\to x_0)$</p>
+</blockquote>
+
+<p>也就是说, 我们接下来需要对$r_n(x)$进行定性分析. 考虑到
+[
+    r_n(x)=f(x)-p_n(x)
+]</p>
+
+<p>以及$p_n(x)$各阶导数的性质, 我们就能得到, 对所有$k=0,1,2,\cdots,n$, 有
+[
+    r^{(k)}(x_0)=0
+]</p>
+
+<p>接下来, 我们利用Cauchy中值定理, 得到
+[
+    \frac{r_n(x)}{(x-x_0)^n}=\frac{r_n(x)-r_n(x_0)}{(x-x_0)^n-(x_0-x_0)^n}=\frac{r&rsquo;_n(\xi_1)}{n(\xi_1-x_0)^{n-1}}(\xi_1的范围在x_0和x之间)
+]
+继续进行下去
+[
+    \cdots=\frac{r&rsquo;_n(\xi_1)-r&rsquo;_n(x_0)}{n(\xi_1-x_0)^{n-1}-n(x_0-x_0)^{n-1}}=\frac{r_n^{(2)}(\xi_2)}{n(n-1)(\xi_2-x_0)^{n-2}}(\xi_2的范围在x_0和\xi_1之间)
+]
+进行到第$n-1$阶, 得到
+[
+    \cdots=\frac{r_{n}^{(n-1)}(\xi_{n-1})-r_{n}^{(n-1)}(x_0)}{n!(\xi_{n-1}-x_0)}
+]</p>
+
+<p>根据中值定理, $\xi_n$其实是关于$n$单调的, 例如如果有$x&gt;x_0$, 那么有
+[
+    x_0&lt;\xi_{n-1}&lt;\xi_{n-2}&lt;\cdots&lt;\xi_2&lt;\xi_1&lt;x
+]
+这是因为$x_0&lt;\xi_1&lt;x_0$, $x_0&lt;\xi_2&lt;\xi_1$等不等式要同时成立.</p>
+
+<p>根据这个关系, 能得到$x\to x_0$时, 必定有$\xi_{n-1}\to x_0$. 那么对原等式取极限, 就能得到
+[
+    \lim_{x\to x_0}\frac{r_n(x)}{(x-x_0)^n}=\lim_{x\to x_0}\frac{r_{n}^{(n-1)}(\xi_{n-1})-r_{n}^{(n-1)}(x_0)}{n!(\xi_{n-1}-x_0)}=\frac{1}{n!}\lim_{x\to x_0}\frac{r_{n}^{(n-1)}(\xi_{n-1})-r_{n}^{(n-1)}(x_0)}{(\xi_{n-1}-x_0)}=\frac{r_n^{(n)}(x_0)}{n!}=0
+]</p>
+
+<p>其实最后的运算是利用导数的定义. 至此, 我们完成了Peano余项的证明. 我们发现, 余项的收敛情况符合我们的期望.</p>
+
+<h3 id="其余几种常见余项-以及它们和peano余项的关系">其余几种常见余项, 以及它们和Peano余项的关系</h3>
+
+<p>下面会列出几种常见的余项, 它们各有自己的用途, 严格的证明过程会在以后的文章中更新</p>
+
+<blockquote>
+<ul>
+<li><p>Lagrange余项 [r_n(x)=\frac{f^{(n+1)}(\xi)}{(n+1)!}(x-x_0)^{n+1}]其中$\xi$在$x_0$和$x$之间.</p></li>
+
+<li><p>Cauchy余项 [r_n(x)=\frac{f^{(n+1)}(\xi)}{n!}(x-\xi)^{n}(x-x_0)]其中$\xi$在$x_0$和$x$之间.</p></li>
+</ul>
+</blockquote>
+
+<p>如果我们能掌握$|f^{(n+1)}|$的取值范围, 那么就能对这两个误差进行数值上的准确估计.</p>
+
+<blockquote>
+<ul>
+<li>积分余项 [r_n=\frac{1}{n!}\int_{x_0}^xf^{(n+1)}(t)(x-t)^{n}dt]</li>
+</ul>
+</blockquote>
+
+<p>如果我们掌握了$f(x)$的表达式, 那么我们很有可能能利用积分的运算规则将这个误差准确地算出来. 实际上, 如果利用积分中值定理, 可以将积分型余项直接写成Lagrange余项或者Cauchy余项. 但积分余项和其余两种余项有本质上的区别: 没有不确定的中值, 可以进行更精确的计算.</p>
+
+<p>而如果利用Peano余项的计算方式进行验证, 不难发现, 它们都是Peano型余项所代表的函数, 只不过有了具体的形式, 使实际的数值运算变成可能. 换句话说， Peano余项代表了一个集合, 这几种具体的余项是集合中的元素. 这些余项各有优劣. 如果我们希望进行严格的数值运算, 那么积分型余项是首选; 如果涉及到取值范围、不等式, 那么Lagrange型余项和Cauchy型余项是首选; 如果我们关心的是极限, 并不关心繁琐的表达式, 那么Peano余项再合适不过了.</p>
+
+<h2 id="小结">小结</h2>
+
+<p>不妨在这里重新叙述以下我们到底做了什么: 起初, 我们利用导函数和切线的关系, 试图对一个函数进行线性拟合. 当然这种办法的效果太有限了. 接下来, 我们想到比一次函数更高级但是计算也相对简单的函数, 多项式函数. 为了偷懒, 我们照葫芦画瓢, 照着函数的各阶导数值逐项调整多项式的系数, 再去考虑误差. 这些误差就是各种余项. 结果我们发现, 误差的收敛程度非常好. 也就是说, 我们利用多项式对一个复杂的函数照葫芦画瓢是比较成功的. 这就好比进行数值运算, 四舍五入, 再去考虑误差.</p>
+
+<p>初学者看到复杂的Taylor公式望而生畏, 以为这是非常复杂繁琐的过程. 但恰恰相反,  <strong>Taylor公式将复杂的函数问题转化成相对更简单明了的多项式问题, 是对问题极大的简化. 正因为此, 我们才会说, Taylor定理是一元微分学的顶峰.</strong></p>
+</div>
+
+    
+    
+
+    
+
+        <h4 class="page-header">Related</h4>
+
+         <div class="item">
+
+    
+    
+    
+
+    
+    
+
+    <h4><a href="/post/2019-8-24-harmonic-series-divergence/">调和级数发散的证明(1&#43;1/2&#43;...&#43;1/n&#43;...)</a></h4>
+    <h5>August 24, 2019</h5>
+    
+    <a href="https://desvl.xyz/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/mathematical-analysis"><kbd class="item-tag">数学分析/Mathematical Analysis</kbd></a>
+    
+
+</div>
+  <div class="item">
+
+    
+    
+    
+
+    
+    
+
+    <h4><a href="/post/2019-08-22-what-is-limit/">关于极限这个概念</a></h4>
+    <h5>August 22, 2019</h5>
+    
+    <a href="https://desvl.xyz/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/mathematical-analysis"><kbd class="item-tag">数学分析/Mathematical Analysis</kbd></a>
+    
+
+</div>
+  <div class="item">
+
+    
+    
+    
+
+    
+    
+
+    <h4><a href="/post/2019-8-22-beautiful-fourier-003/">优美的Fourier级数（三）: Dirichlet核是好是坏?</a></h4>
+    <h5>August 22, 2019</h5>
+    
+    <a href="https://desvl.xyz/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/mathematical-analysis"><kbd class="item-tag">数学分析/Mathematical Analysis</kbd></a>
+    
+    <a href="https://desvl.xyz/tags/fourier%E5%88%86%E6%9E%90/fourier-analysis"><kbd class="item-tag">Fourier分析/Fourier Analysis</kbd></a>
+    
+    <a href="https://desvl.xyz/tags/%E4%BC%98%E7%BE%8E%E7%9A%84fourier%E7%BA%A7%E6%95%B0"><kbd class="item-tag">优美的Fourier级数</kbd></a>
+    
+
+</div>
+ 
+
+    
+
+    
+
+        <h4 class="page-header">Comments</h4>
+
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "admiraldesvl" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    
+
+</main>
+
+        <footer>
+
+            <p class="copyright text-muted">&copy; All rights reserved. Powered by <a href="https://gohugo.io">Hugo</a> and <a href="https://github.com/calintat/minimal">Minimal</a></p>
+
+        </footer>
+       
+    </body>
+
+</html>
+
