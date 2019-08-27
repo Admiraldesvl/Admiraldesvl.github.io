@@ -89,6 +89,34 @@ MathJax.Hub.Config({
 });
 </script>
 
+        
+        <script>
+        "use strict";
+
+        !function() {
+        var t = window.driftt = window.drift = window.driftt || [];
+        if (!t.init) {
+            if (t.invoked) return void (window.console && console.error && console.error("Drift snippet included twice."));
+            t.invoked = !0, t.methods = [ "identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on" ], 
+            t.factory = function(e) {
+            return function() {
+                var n = Array.prototype.slice.call(arguments);
+                return n.unshift(e), t.push(n), t;
+            };
+            }, t.methods.forEach(function(e) {
+            t[e] = t.factory(e);
+            }), t.load = function(t) {
+            var e = 3e5, n = Math.ceil(new Date() / e) * e, o = document.createElement("script");
+            o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "https://js.driftt.com/include/" + n + "/" + t + ".js";
+            var i = document.getElementsByTagName("script")[0];
+            i.parentNode.insertBefore(o, i);
+            };
+        }
+        }();
+        drift.SNIPPET_VERSION = '0.3.1';
+        drift.load('3dtfmpnagv35');
+        </script>
+        
     </head>
 
     <body>
@@ -142,7 +170,6 @@ MathJax.Hub.Config({
             </div>
 
         </nav>
-
 
 <main>
 
@@ -215,13 +242,44 @@ MathJax.Hub.Config({
 
 <p>这篇文章中探讨了由复数的极坐标表示启发, 拓展到任意有限维度的实矩阵极分解, 这也相当于找到了这个矩阵的&rdquo;极坐标&rdquo;(若是复数域, 需要探讨酉矩阵和半正定厄米矩阵.). 这样的分解可能不能简化数值运算, 但是大大简化了利用矩阵分析和研究的过程, 赋予一个矩阵更具体的物理意义: 拉伸和旋转 例如连续介质力学中探讨形变时, 可以利用极分解, 分离旋转和拉伸. 此外, 极分解在计算机图形学里也能得到应用.</p>
 </div>
-
+    <h4 class="page_header">Share | 分享</h4>
+    <hr>
+        
+        <style type="text/css">
+            #my_centered_buttons { display: flex; justify-content: center; }  
+            .a2a_svg, .a2a_count { border-radius: 0 !important; }  
+        </style>
+        <div align="center" class="a2a_kit a2a_kit_size_32 a2a_default_style" id=my_centered_buttons>
+            <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+            <a class="a2a_button_facebook"></a>
+            <a class="a2a_button_twitter"></a>
+            <a class="a2a_button_email"></a>
+            <a class="a2a_button_tumblr"></a>
+            <a class="a2a_button_reddit"></a>
+            <a class="a2a_button_telegram"></a>
+            <a class="a2a_button_evernote"></a>
+            <a class="a2a_button_douban"></a>
+            <a class="a2a_button_wechat"></a>
+            <a class="a2a_button_mastodon"></a>
+            <a class="a2a_button_print"></a>
+        </div>
+        <script>
+            var a2a_config = a2a_config || {};
+            a2a_config.num_services = 6;
+            a2a_config.thanks = {
+                postShare: true
+            };
+            a2a_config.track_links = 'ga';
+        </script>
+        <script async src="https://static.addtoany.com/menu/page.js"></script>
+            
     
     
+    
 
     
 
-        <h4 class="page-header">Related</h4>
+        <h4 class="page-header">Related | 相关文章</h4>
 
          <div class="item">
 
@@ -274,10 +332,10 @@ MathJax.Hub.Config({
  
 
     
-
+        
     
 
-        <h4 class="page-header">Comments</h4>
+        <h4 class="page-header">Comments | 评论</h4>
 
         <div id="disqus_thread"></div>
 <script type="application/javascript">
@@ -306,7 +364,7 @@ MathJax.Hub.Config({
 
         <footer>
 
-            <p class="copyright text-muted">&copy; All rights reserved. Powered by <a href="https://gohugo.io">Hugo</a> and <a href="https://github.com/calintat/minimal">Minimal</a></p>
+            <p class="copyright text-muted">&copy; All rights reserved. Powered by <a href="https://gohugo.io">Hugo</a>, original theme by <a href="https://github.com/calintat/minimal">Minimal</a></p>
 
         </footer>
        
