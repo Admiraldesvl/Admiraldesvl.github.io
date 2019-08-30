@@ -90,32 +90,7 @@ MathJax.Hub.Config({
 </script>
 
         
-        <script>
-        "use strict";
 
-        !function() {
-        var t = window.driftt = window.drift = window.driftt || [];
-        if (!t.init) {
-            if (t.invoked) return void (window.console && console.error && console.error("Drift snippet included twice."));
-            t.invoked = !0, t.methods = [ "identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on" ], 
-            t.factory = function(e) {
-            return function() {
-                var n = Array.prototype.slice.call(arguments);
-                return n.unshift(e), t.push(n), t;
-            };
-            }, t.methods.forEach(function(e) {
-            t[e] = t.factory(e);
-            }), t.load = function(t) {
-            var e = 3e5, n = Math.ceil(new Date() / e) * e, o = document.createElement("script");
-            o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "https://js.driftt.com/include/" + n + "/" + t + ".js";
-            var i = document.getElementsByTagName("script")[0];
-            i.parentNode.insertBefore(o, i);
-            };
-        }
-        }();
-        drift.SNIPPET_VERSION = '0.3.1';
-        drift.load('3dtfmpnagv35');
-        </script>
         
     </head>
 
@@ -199,17 +174,17 @@ MathJax.Hub.Config({
 
 <h2 id="前言">前言</h2>
 
-<p>如果你和Fourier级数打交道，那么在处理间断函数，特别是锯齿状函数的时候，有没有注意过间断处的形状？它为什么会处在中间位置？什么时候会出现这种情况？这就是接下来要解决的问题. 这期间会涉及到其他重要的基本技巧，还是那句话，Fourier级数绝对不仅仅是处理一系列三角函数. 还要注意，这里我们探讨的函数应该是局限在$[-\pi,\pi]$的实函数.</p>
+<p>如果你和Fourier级数打交道，那么在处理间断函数，特别是锯齿状函数的时候，有没有注意过间断处的形状？它为什么会处在中间位置？什么时候会出现这种情况？这就是接下来要解决的问题. 这期间会涉及到其他重要的基本技巧，还是那句话，Fourier级数绝对不仅仅是处理一系列三角函数. 还要注意，这里我们探讨的函数应该是局限在$[-\pi,\pi]$的实函数. 这篇文章中实际要做的事情是, 利用定积分的各种性质, 进行无穷小量的分析.</p>
 
 <h2 id="jordan判别法">Jordan判别法</h2>
 
 <blockquote>
-<p>如果$f$是有界差分，那么$$s_N(x)\to\frac{f(x^+)+f(x^-)}{2}$$, 其中$f(x^+)=\lim_{h\to0^+}f(x+h)$, $f(x^-)=\lim_{h\to0^+}f(x-h)$</p>
+<p>如果$f$是有界差分，那么$$s_N(x)\to\frac{f(x^+)+f(x^-)}{2},$$ 其中$f(x^+)=\lim_{h\to0^+}f(x+h)$, $f(x^-)=\lim_{h\to0^+}f(x-h)$</p>
 </blockquote>
 
-<h3 id="有界差分">有界差分</h3>
+<h3 id="理论准备1-有界差分">理论准备1: 有界差分</h3>
 
-<p>关于有界差分，可以看成推广的“弧长”. 在$[a,b]$上，$f(x)$的总差分的定义是这样：
+<p>有界差分可以看成推广的“弧长”. 在$[a,b]$上，$f(x)$的总差分的定义是这样：
 [
     T_f(x):=\sup\{\sum_{i=1}^n|f(x_i)-f(x_{i-1})||a=x_0&lt;x_1&lt;\cdots&lt;x_n=x\}
 ]
@@ -223,7 +198,7 @@ MathJax.Hub.Config({
 
 <p>而$\frac{1}{2}(T_f(x)+f(x))$和$\frac{1}{2}(T_f(x)-f(x))$都是非负的单调增函数. 事实上，有界差分一定可以写成两个单调增函数的差，具体证明可以参见<a href="https://math.stackexchange.com/questions/141338/bounded-variation-difference-of-two-increasing-functions">这里</a>.</p>
 
-<h3 id="积分第二中值定理">积分第二中值定理</h3>
+<h3 id="理论准备2-积分第二中值定理">理论准备2: 积分第二中值定理</h3>
 
 <blockquote>
 <p>如果定义在$[a,b]$上的实函数$f$和$g$满足$f$ 连续且$g$单调，那么存在$c\in(a,b)$使得[\int_a^bf(x)g(x)dx=g(a^+)\int_a^cf(x)dx+g(b^-)\int_c^bf(x)dx]</p>
@@ -275,7 +250,7 @@ MathJax.Hub.Config({
 
 <p>其中$\chi_E=\begin{cases}1,x\in E\\{0}, x\notin E\end{cases}$</p>
 
-<p>那么这个积分的讨论就和上一篇里收敛性证明的最后利用Bessel不等式的推论的过程一样了，我们得到，这个积分的极限为$0$. 证明在这里略去.</p>
+<p>那么这个积分的讨论就和上一篇里收敛性证明的最后利用Bessel不等式的推论的过程一样了，我们得到，这个积分的极限为$0$. 证明在此略去.</p>
 
 <p>第一个积分的证明用到积分第二中值定理：
 \begin{equation}
@@ -424,7 +399,7 @@ MathJax.Hub.Config({
     
     
 
-    <h4><a href="/post/2019-08-22-what-is-limit/">关于极限这个概念</a></h4>
+    <h4><a href="/post/2019-08-22-what-is-limit/">高等数学入门: 关于极限这个概念</a></h4>
     <h5>August 22, 2019</h5>
     
     <a href="https://desvl.xyz/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/mathematical-analysis"><kbd class="item-tag">数学分析/Mathematical Analysis</kbd></a>
@@ -465,11 +440,15 @@ MathJax.Hub.Config({
 </main>
 
         <footer>
-
+        
+            <div style="float: margin: 0 auto;text-align: center;">
             <p class="copyright text-muted">&copy; All rights reserved. Powered by <a href="https://gohugo.io">Hugo</a>, original theme by <a href="https://github.com/calintat/minimal">Minimal</a></p>
-
-        </footer>
-       
+            </div>
+            <div style="float: margin: 0 auto;text-align: center;">
+            <script type="text/javascript" src="https://freehitcounters.org/count/2kh7"></script><br>
+            <a href='http://www.counter-zaehler.de'>besucherzähler ohne html</a> <script type='text/javascript' src='https://whomania.com/ctr?id=0779d7b7eedad865b5d97febde14c8dbb5c12ae4'></script>
+            </div>
+        </footer>  
     </body>
 
 </html>

@@ -49,7 +49,7 @@
     </item>
     
     <item>
-      <title>关于极限这个概念</title>
+      <title>高等数学入门: 关于极限这个概念</title>
       <link>https://desvl.xyz/post/2019-08-22-what-is-limit/</link>
       <pubDate>Thu, 22 Aug 2019 00:00:00 +0000</pubDate>
       
@@ -99,7 +99,7 @@
       <pubDate>Sun, 11 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>https://desvl.xyz/post/2019-08-11-real-complex-matrix-representation/</guid>
-      <description>代数同构 现在我们想要解决的问题是, 能不能把复数用矩阵表示出来, 从而可以利用矩阵的计算方法. 这要求既要有线性空间的运算规则, 又要有复数的运算规</description>
+      <description>代数同构 现在我们想要解决的问题是, 能不能把复数用矩阵表示出来, 从而可以利用矩阵的计算方法. 这要求这个表示方法既要有线性空间的运算规则, 又要有</description>
     </item>
     
     <item>
@@ -130,12 +130,12 @@
     </item>
     
     <item>
-      <title>收缩定理和其应用</title>
+      <title>压缩定理和其应用</title>
       <link>https://desvl.xyz/post/2019-08-04-contraction-application/</link>
       <pubDate>Sun, 04 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>https://desvl.xyz/post/2019-08-04-contraction-application/</guid>
-      <description>什么是收缩 收缩的准确描述是这样的： 取度量空间$X$，度量$d$，函数$\varphi$是$X$到本身的映射，且满足$$d(\varphi(x</description>
+      <description>什么是压缩 压缩的准确描述是这样的： 取度量空间$X$, 度量$d$, 函数$\varphi$是$X$到本身的映射, 且满足$$d(\varphi(x</description>
     </item>
     
   </channel>

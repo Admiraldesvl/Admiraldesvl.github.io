@@ -40,7 +40,7 @@
     </item>
     
     <item>
-      <title>关于极限这个概念</title>
+      <title>高等数学入门: 关于极限这个概念</title>
       <link>https://desvl.xyz/post/2019-08-22-what-is-limit/</link>
       <pubDate>Thu, 22 Aug 2019 00:00:00 +0000</pubDate>
       
@@ -76,12 +76,12 @@
     </item>
     
     <item>
-      <title>收缩定理和其应用</title>
+      <title>压缩定理和其应用</title>
       <link>https://desvl.xyz/post/2019-08-04-contraction-application/</link>
       <pubDate>Sun, 04 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>https://desvl.xyz/post/2019-08-04-contraction-application/</guid>
-      <description>什么是收缩 收缩的准确描述是这样的： 取度量空间$X$，度量$d$，函数$\varphi$是$X$到本身的映射，且满足$$d(\varphi(x</description>
+      <description>什么是压缩 压缩的准确描述是这样的： 取度量空间$X$, 度量$d$, 函数$\varphi$是$X$到本身的映射, 且满足$$d(\varphi(x</description>
     </item>
     
   </channel>

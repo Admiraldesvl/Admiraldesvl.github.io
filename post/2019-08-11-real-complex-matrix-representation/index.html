@@ -90,32 +90,7 @@ MathJax.Hub.Config({
 </script>
 
         
-        <script>
-        "use strict";
 
-        !function() {
-        var t = window.driftt = window.drift = window.driftt || [];
-        if (!t.init) {
-            if (t.invoked) return void (window.console && console.error && console.error("Drift snippet included twice."));
-            t.invoked = !0, t.methods = [ "identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on" ], 
-            t.factory = function(e) {
-            return function() {
-                var n = Array.prototype.slice.call(arguments);
-                return n.unshift(e), t.push(n), t;
-            };
-            }, t.methods.forEach(function(e) {
-            t[e] = t.factory(e);
-            }), t.load = function(t) {
-            var e = 3e5, n = Math.ceil(new Date() / e) * e, o = document.createElement("script");
-            o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "https://js.driftt.com/include/" + n + "/" + t + ".js";
-            var i = document.getElementsByTagName("script")[0];
-            i.parentNode.insertBefore(o, i);
-            };
-        }
-        }();
-        drift.SNIPPET_VERSION = '0.3.1';
-        drift.load('3dtfmpnagv35');
-        </script>
         
     </head>
 
@@ -195,7 +170,7 @@ MathJax.Hub.Config({
 
 <h2 id="代数同构">代数同构</h2>
 
-<p>现在我们想要解决的问题是, 能不能把复数用矩阵表示出来, 从而可以利用矩阵的计算方法. 这要求既要有线性空间的运算规则, 又要有复数的运算规则. 也就是说希望构建映射
+<p>现在我们想要解决的问题是, 能不能把复数用矩阵表示出来, 从而可以利用矩阵的计算方法. 这要求这个表示方法既要有线性空间的运算规则, 又要有复数的运算规则. 也就是说希望构建映射
 [
     \rho: \mathbb{C}\to\text{End}(V)\cong M_n(\mathbb{R})
 ]
@@ -203,7 +178,7 @@ MathJax.Hub.Config({
 
 <h2 id="实矩阵下的虚数单位-i">实矩阵下的虚数单位$i$</h2>
 
-<p>实数里的$1$可以用单位矩阵$I$来表示, 而$i$的表示就有不同之处了. 如果我们设$i$对应的矩阵为二阶矩阵$J$, 但是我们不应该花大量时间计算矩阵元素的值. 考虑映射
+<p>实数里的$1$可以用单位矩阵$I$来表示, 而$i$的表示就有不同之处了. 如果我们设$i$对应的矩阵为二阶矩阵$J$, 但是为了得到矩阵, 我们不需要也不应该花大量时间计算矩阵元素的值. 考虑映射
 \begin{equation}
     \begin{aligned}
         \varphi_i:\mathbb{C}&amp;\to\mathbb{C}\\<br />
@@ -228,7 +203,7 @@ MathJax.Hub.Config({
 
 <p>这时就实现了复数和二阶矩阵的一一对应, 复数的运算也可以直接转化成矩阵运算. 方阵的表示具体又易于处理, 因此合理的运用可以极大程度上简化一些运算.</p>
 
-<h2 id="旋转变换">旋转变换</h2>
+<h2 id="旋转变换-复数乘积的几何意义">旋转变换: 复数乘积的几何意义</h2>
 
 <p>旋转变换涉及到的矩阵是
 [
@@ -237,7 +212,9 @@ MathJax.Hub.Config({
         \sin\theta&amp;\cos\theta
     \end{bmatrix}
 ]
-很明显, 这个矩阵对应复数$\cos\theta+i\sin\theta$, 是单位圆上的一点. 同时, 不难发现,这也是欧拉公式$e^{it}=\cos{t}+i\sin{t}$的另一种诠释. 而如果令$r=\sqrt{a^2+b^2}$(也就是虚数的模长), 那么复数$a+bi$对应的矩阵就变成了$rT$. 这时,每个复数也对应了一个拉伸与旋转, 而复数的乘积就可以看成两个拉伸于旋转变换的复合(两个矩阵的乘积), 这为复数乘积赋予了几何意义.</p>
+很明显, 这个矩阵对应复数$\cos\theta+i\sin\theta$, 是单位圆上的一点. 同时, 不难发现,这也是欧拉公式$e^{it}=\cos{t}+i\sin{t}$的另一种诠释. 而如果令$r=\sqrt{a^2+b^2}$(也就是虚数的模长), 那么复数$a+bi$对应的矩阵就变成了$rT$. 这时,每个复数也对应了一个拉伸与旋转, 而复数的乘积就可以看成两个拉伸于旋转变换的复合(两个矩阵的乘积), 这为复数乘积赋予了几何意义. 不难发现, 一个数乘以$i$, 实质上是将这个数在复平面旋转$\frac{\pi}{2}$; 一个数乘以$-1$, 实质上是将这个数在复平面旋转$\pi$. 这既可以直接验证, 又可以通过矩阵的运算验证.</p>
+
+<p>那么, 现在你有会怎么理解$i^2=-1$呢?</p>
 </div>
     <h4 class="page_header">Share | 分享</h4>
     <hr>
@@ -360,11 +337,15 @@ MathJax.Hub.Config({
 </main>
 
         <footer>
-
+        
+            <div style="float: margin: 0 auto;text-align: center;">
             <p class="copyright text-muted">&copy; All rights reserved. Powered by <a href="https://gohugo.io">Hugo</a>, original theme by <a href="https://github.com/calintat/minimal">Minimal</a></p>
-
-        </footer>
-       
+            </div>
+            <div style="float: margin: 0 auto;text-align: center;">
+            <script type="text/javascript" src="https://freehitcounters.org/count/2kh7"></script><br>
+            <a href='http://www.counter-zaehler.de'>besucherzähler ohne html</a> <script type='text/javascript' src='https://whomania.com/ctr?id=0779d7b7eedad865b5d97febde14c8dbb5c12ae4'></script>
+            </div>
+        </footer>  
     </body>
 
 </html>

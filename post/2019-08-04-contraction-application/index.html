@@ -4,7 +4,7 @@
          
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>收缩定理和其应用</title>
+        <title>压缩定理和其应用</title>
         
         <style>
 
@@ -90,32 +90,7 @@ MathJax.Hub.Config({
 </script>
 
         
-        <script>
-        "use strict";
 
-        !function() {
-        var t = window.driftt = window.drift = window.driftt || [];
-        if (!t.init) {
-            if (t.invoked) return void (window.console && console.error && console.error("Drift snippet included twice."));
-            t.invoked = !0, t.methods = [ "identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on" ], 
-            t.factory = function(e) {
-            return function() {
-                var n = Array.prototype.slice.call(arguments);
-                return n.unshift(e), t.push(n), t;
-            };
-            }, t.methods.forEach(function(e) {
-            t[e] = t.factory(e);
-            }), t.load = function(t) {
-            var e = 3e5, n = Math.ceil(new Date() / e) * e, o = document.createElement("script");
-            o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "https://js.driftt.com/include/" + n + "/" + t + ".js";
-            var i = document.getElementsByTagName("script")[0];
-            i.parentNode.insertBefore(o, i);
-            };
-        }
-        }();
-        drift.SNIPPET_VERSION = '0.3.1';
-        drift.load('3dtfmpnagv35');
-        </script>
         
     </head>
 
@@ -127,7 +102,7 @@ MathJax.Hub.Config({
 
                 <div class="navbar-header">
 
-                    <a class="navbar-brand visible-xs" href="#">收缩定理和其应用</a>
+                    <a class="navbar-brand visible-xs" href="#">压缩定理和其应用</a>
 
                     <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
                         <span class="icon-bar"></span>
@@ -182,7 +157,7 @@ MathJax.Hub.Config({
     
     
 
-    <h4><a href="/post/2019-08-04-contraction-application/">收缩定理和其应用</a></h4>
+    <h4><a href="/post/2019-08-04-contraction-application/">压缩定理和其应用</a></h4>
     <h5>August 4, 2019</h5>
     
     <a href="https://desvl.xyz/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/mathematical-analysis"><kbd class="item-tag">数学分析/Mathematical Analysis</kbd></a>
@@ -193,19 +168,19 @@ MathJax.Hub.Config({
 
     <br> <div class="text-justify">
 
-<h2 id="什么是收缩">什么是收缩</h2>
+<h2 id="什么是压缩">什么是压缩</h2>
 
-<p>收缩的准确描述是这样的：</p>
+<p>压缩的准确描述是这样的：</p>
 
 <blockquote>
-<p>取度量空间$X$，度量$d$，函数$\varphi$是$X$到本身的映射，且满足$$d(\varphi(x),\varphi(y))\leq cd(x,y)$$. 其中$x,y\in{X}$, $c&lt;1$. 那么$\varphi$就是一个从$X$到本身的收缩.</p>
+<p>取度量空间$X$, 度量$d$, 函数$\varphi$是$X$到本身的映射, 且满足$$d(\varphi(x),\varphi(y))\leq cd(x,y)$$. 其中$x,y\in{X}$, $c&lt;1$. 那么$\varphi$就是一个从$X$到本身的压缩.</p>
 </blockquote>
 
-<p>一个最简单的例子是， $y=\frac{x}{2}$. 这是一个“平缓”的函数。平缓的程度是怎样呢？斜率小于1.</p>
+<p>一个最简单的例子是,  $y=\frac{x}{2}$. 这是一个“平缓”的函数. 平缓的程度是怎样呢? 斜率小于1.</p>
 
-<p>而收缩定理指出，对于这个函数，有且仅有一个$x$使得$\varphi(x)=x$. 例如上面的例子，只有$0=0$这一个点. 接下来要给出证明. 这个证明方法在求极限时也非常实用，只要能构建出这样的收缩.</p>
+<p>而压缩定理指出, 对于这个函数, 有且仅有一个$x$使得$\varphi(x)=x$. 例如上面的例子, 只有$0=0$这一个点. 接下来要给出证明.</p>
 
-<h2 id="收缩的证明">收缩的证明</h2>
+<h2 id="压缩的证明">压缩的证明</h2>
 
 <p>任取$x_0\in{X}$, 按照如下方法定义数列$x_n$:</p>
 
@@ -213,9 +188,9 @@ MathJax.Hub.Config({
 
 <p>从而会有</p>
 
-<p>[d(x_2,x_1)=d(\varphi(x_1),\varphi(x_0))\leq cd(x_1,x_0)]</p>
-
-<p>推广下去，就有</p>
+<p>[d(x_2,x_1)=d(\varphi(x_1),\varphi(x_0))\leq cd(x_1,x_0)]
+(如果你不理解这里的$d(x,y)$, 可以简单地看成$|x-y|$)
+推广下去, 就有</p>
 
 <p>[d(x_{n+1},x_n)\leq c^nd(x_1,x_0)]</p>
 
@@ -225,33 +200,33 @@ MathJax.Hub.Config({
         d(x_n,x_m)\leq\sum_{i=n+1}^m d(x_i,x_{i+1})\leq(c^n+c^{n+1}+\cdots+c^{m-1})d(x_1,x_0)\leq\frac{c^n}{1-c}d(x_1,x_0)
     \end{aligned}
 \end{equation}
-这说明，$x_n$是一个Cauthy数列，又考虑到$X$是完备空间，因此$x_n$收敛. 设$x_n$的极限为$x$. 由收缩的定义可知，$\varphi$为一致连续的函数，从而有
+这说明, $x_n$是一个Cauthy数列, 又考虑到$X$是完备空间, 因此$x_n$收敛. 设$x_n$的极限为$x$. 由压缩的定义可知, $\varphi$为一致连续的函数, 从而有
 [
     \varphi(x)=\lim\limits_{n\to\infty}\varphi(x_n)=\lim\limits_{n\to\infty}x_{n+1}=x
 ]
-至于唯一性的证明，可设$\varphi(x)=x$, $\varphi(y)=y$. 从而有$d(\varphi(x),\varphi(y))=d(x,y)\leq cd(x,y)$ 这只有在$d(x,y)=0$时成立. 唯一性得到证明.</p>
+至于唯一性的证明, 可设$\varphi(x)=x$, $\varphi(y)=y$. 从而有$d(\varphi(x),\varphi(y))=d(x,y)\leq cd(x,y)$ 这只有在$d(x,y)=0$时成立. 唯一性得到证明.</p>
 
 <h2 id="简单应用">简单应用</h2>
 
-<p>下面是一道数学专业研究生入学考试题。可以发现，利用“压缩”这个工具，问题的解决变得非常简单.</p>
+<p>下面是一道数学专业研究生入学考试题. 在这个题中可以发现, 在指定的条件下, 利用“压缩”这个工具, 问题的解决变得非常简单.</p>
 
 <blockquote>
-<p>已知$0\leq a\leq 1, b \geq2$, 有数列${x_n}$ 满足x_0=0, 且有递推关系[x_{n+1}=x_n-\frac{1}{b}(x_n^2-a),]求证此数列收敛，并求出极限.</p>
+<p>已知$0\leq a\leq 1, b \geq2$, 有数列${x_n}$ 满足x_0=0, 且有递推关系[x_{n+1}=x_n-\frac{1}{b}(x_n^2-a),]求证此数列收敛, 并求出极限.</p>
 </blockquote>
 
-<p><em>在这里设$\phi(x)=x-\frac{1}{b}(x^2-a)$， 那么有$x_{n+1}=\varphi(x_n)$. 如果能证出$\varphi$为一个压缩，极限的问题就迎刃而解了.</em></p>
+<p><em>在这里设$\phi(x)=x-\frac{1}{b}(x^2-a)$,  那么有$x_{n+1}=\varphi(x_n)$. 如果能证出$\varphi$为一个压缩, 极限的问题就迎刃而解了.</em></p>
 
 <p><strong>证明</strong></p>
 
 <p>设$\varphi(x)=x-\frac{1}{b}(x^2-a)$. 则$x_{n+1}=\varphi(x_n)$. 在这里$x_1=\varphi(x_0)=\frac{a}{b}$. 现证明对所有$n&gt;0$ 有$\frac{a}{b}\leq x_n\leq 1$, 对$n$进行归纳.</p>
 
-<p>$n=1$时，不等式已成立.</p>
+<p>$n=1$时, 不等式已成立.</p>
 
-<p>假设$n=k$时成立，则$n=k+1$时，有
+<p>假设$n=k$时成立, 则$n=k+1$时, 有
 [
     x_{k+1}=\frac{a}{b}-\frac{bx_k-x_k^2}{b}
 ]
-考虑到$y=bx-x^2$在$[\frac{a}{b},\frac{b}{2}]$单调递减，而$\frac{b}{2}\geq1$, 故有
+考虑到$y=bx-x^2$在$[\frac{a}{b},\frac{b}{2}]$单调递减, 而$\frac{b}{2}\geq1$, 故有
 [
     x_{n+1}\leq\frac{a}{b} +\frac{b-1}{b}\leq 1
 ]
@@ -259,26 +234,26 @@ MathJax.Hub.Config({
 
 <p>因此不等式对所有$n&gt;0$成立.</p>
 
-<p>利用这个不等式，得到
+<p>利用这个不等式, 得到
 [
     |f(x)-f(y)|=|x-y||1-\frac{x+y}{b}|\leq|x-y||1-\frac{2a}{b^2}|, \quad \frac{a}{b}\leq x,y \leq 1
 ]</p>
 
-<p>$a=0$时，得到$x_1=x_2=\cdots=0$, 故极限存在且为0.</p>
+<p>$a=0$时, 得到$x_1=x_2=\cdots=0$, 故极限存在且为0.</p>
 
-<p>$a\neq 0$时，令$c=|1-\frac{2a}{b^2}|$, 则始终有$c&lt;1$. 此时就是上文中所提到的压缩. 收敛的证明略去.</p>
+<p>$a\neq 0$时, 令$c=|1-\frac{2a}{b^2}|$, 则始终有$c&lt;1$. 此时就是上文中所提到的压缩. 收敛的证明略去.</p>
 
 <p>设$\lim\limits_{n\to\infty}x_n=x$, 则$x=\varphi(x)$. 解得$x=\sqrt{a}$. 这在$a=0$时也成立.</p>
 
-<p>综上，$\lim\limits_{n\to\infty}x_n$存在，且值为$\sqrt{a}$.</p>
+<p>综上, $\lim\limits_{n\to\infty}x_n$存在, 且值为$\sqrt{a}$.</p>
 
 <h2 id="总结">总结</h2>
 
-<p>压缩是非常有实用价值的工具. 利用它我们可以解决这种函数、数列的极限问题，但它的用途并不局限一元实数函数. 这也是为什么在定义的时候指出是度量空间和指定的度量. 例如，在$\mathbb{R}^n$中证明隐函数定理，就涉及到它的直接利用.</p>
+<p>压缩映射在处理迭代生成的数列时很有效, 而且可以推广到多维甚至无穷维中. 但是要注意, 这个映射实质上是在处理局部性质, 大范围的非线性的问题则不能处理. 处理迭代数列是它在离散形式下的基本应用, 但压缩在连续形式下也有很多重要的应用, 例如在$\mathbb{R}^n$中证明隐函数定理</p>
 
 <h2 id="关于度量">关于度量</h2>
 
-<p>度量函数$d(x,y)$即表示两点之间的距离，满足以下三个条件：</p>
+<p>度量函数$d(x,y)$即表示两点之间的距离, 满足以下三个条件：</p>
 
 <ul>
 <li><p>$d(x,y)=0$当且仅当$x=y$.</p></li>
@@ -288,7 +263,7 @@ MathJax.Hub.Config({
 <li><p>$d(x,y) + d(y,z) \leq d(x,z)$ (三角形不等式)</p></li>
 </ul>
 
-<p>而度量空间即一个有度量函数的集合. 一个简单的例子是，全体实数$\mathbb{R}$, 度量函数$d(x,y)=|x-y|$.</p>
+<p>而度量空间即一个有度量函数的集合. 一个简单的例子是, 全体实数$\mathbb{R}$, 度量函数$d(x,y)=|x-y|$.</p>
 </div>
     <h4 class="page_header">Share | 分享</h4>
     <hr>
@@ -372,7 +347,7 @@ MathJax.Hub.Config({
     
     
 
-    <h4><a href="/post/2019-08-22-what-is-limit/">关于极限这个概念</a></h4>
+    <h4><a href="/post/2019-08-22-what-is-limit/">高等数学入门: 关于极限这个概念</a></h4>
     <h5>August 22, 2019</h5>
     
     <a href="https://desvl.xyz/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/mathematical-analysis"><kbd class="item-tag">数学分析/Mathematical Analysis</kbd></a>
@@ -413,11 +388,15 @@ MathJax.Hub.Config({
 </main>
 
         <footer>
-
+        
+            <div style="float: margin: 0 auto;text-align: center;">
             <p class="copyright text-muted">&copy; All rights reserved. Powered by <a href="https://gohugo.io">Hugo</a>, original theme by <a href="https://github.com/calintat/minimal">Minimal</a></p>
-
-        </footer>
-       
+            </div>
+            <div style="float: margin: 0 auto;text-align: center;">
+            <script type="text/javascript" src="https://freehitcounters.org/count/2kh7"></script><br>
+            <a href='http://www.counter-zaehler.de'>besucherzähler ohne html</a> <script type='text/javascript' src='https://whomania.com/ctr?id=0779d7b7eedad865b5d97febde14c8dbb5c12ae4'></script>
+            </div>
+        </footer>  
     </body>
 
 </html>

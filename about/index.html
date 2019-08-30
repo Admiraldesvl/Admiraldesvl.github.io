@@ -74,32 +74,7 @@
         
         
         
-        <script>
-        "use strict";
 
-        !function() {
-        var t = window.driftt = window.drift = window.driftt || [];
-        if (!t.init) {
-            if (t.invoked) return void (window.console && console.error && console.error("Drift snippet included twice."));
-            t.invoked = !0, t.methods = [ "identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on" ], 
-            t.factory = function(e) {
-            return function() {
-                var n = Array.prototype.slice.call(arguments);
-                return n.unshift(e), t.push(n), t;
-            };
-            }, t.methods.forEach(function(e) {
-            t[e] = t.factory(e);
-            }), t.load = function(t) {
-            var e = 3e5, n = Math.ceil(new Date() / e) * e, o = document.createElement("script");
-            o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "https://js.driftt.com/include/" + n + "/" + t + ".js";
-            var i = document.getElementsByTagName("script")[0];
-            i.parentNode.insertBefore(o, i);
-            };
-        }
-        }();
-        drift.SNIPPET_VERSION = '0.3.1';
-        drift.load('3dtfmpnagv35');
-        </script>
         
     </head>
 
@@ -274,11 +249,15 @@
 </main>
 
         <footer>
-
+        
+            <div style="float: margin: 0 auto;text-align: center;">
             <p class="copyright text-muted">&copy; All rights reserved. Powered by <a href="https://gohugo.io">Hugo</a>, original theme by <a href="https://github.com/calintat/minimal">Minimal</a></p>
-
-        </footer>
-       
+            </div>
+            <div style="float: margin: 0 auto;text-align: center;">
+            <script type="text/javascript" src="https://freehitcounters.org/count/2kh7"></script><br>
+            <a href='http://www.counter-zaehler.de'>besucherzähler ohne html</a> <script type='text/javascript' src='https://whomania.com/ctr?id=0779d7b7eedad865b5d97febde14c8dbb5c12ae4'></script>
+            </div>
+        </footer>  
     </body>
 
 </html>

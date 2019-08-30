@@ -90,32 +90,7 @@ MathJax.Hub.Config({
 </script>
 
         
-        <script>
-        "use strict";
 
-        !function() {
-        var t = window.driftt = window.drift = window.driftt || [];
-        if (!t.init) {
-            if (t.invoked) return void (window.console && console.error && console.error("Drift snippet included twice."));
-            t.invoked = !0, t.methods = [ "identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on" ], 
-            t.factory = function(e) {
-            return function() {
-                var n = Array.prototype.slice.call(arguments);
-                return n.unshift(e), t.push(n), t;
-            };
-            }, t.methods.forEach(function(e) {
-            t[e] = t.factory(e);
-            }), t.load = function(t) {
-            var e = 3e5, n = Math.ceil(new Date() / e) * e, o = document.createElement("script");
-            o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "https://js.driftt.com/include/" + n + "/" + t + ".js";
-            var i = document.getElementsByTagName("script")[0];
-            i.parentNode.insertBefore(o, i);
-            };
-        }
-        }();
-        drift.SNIPPET_VERSION = '0.3.1';
-        drift.load('3dtfmpnagv35');
-        </script>
         
     </head>
 
@@ -199,9 +174,11 @@ MathJax.Hub.Config({
 
 <h2 id="前言">前言</h2>
 
-<p>Fourier级数是相当优美的一类级数，但它涉及到的问题绝对不仅仅是通过各种运算技巧求表达式. 相反，它是一个很复杂、很困难的大话题. 我在这里会把一些基本内容和一系列严格的证明整理下来. 从Fourier级数出发，我们能看到很多重要的基本技巧的应用，也会涉及和实际应用息息相关的问题. 当然这些内容里不会包括如何求表达式，我觉得计算机做得比我会好多了.</p>
+<p>Fourier级数是相当优美的一类级数，但它涉及到的问题绝对不仅仅是通过各种运算技巧求表达式. 相反，它是一个很复杂、很困难的大话题. 我在这里会把一些基本内容和一系列严格的证明整理下来. 从Fourier级数出发，我们能看到很多重要的基本技巧的应用，也会遇见和实际应用息息相关的问题. 当然这些内容里不会包括如何求表达式，我觉得计算机做得比我会好多了.</p>
 
 <h2 id="fourier级数">Fourier级数</h2>
+
+<p>在读这篇文章时, 你可能已经学到了一些求Fourier级数系数的技巧, 这可以看成一元微积分的角度的理解. 接下来, 我们希望从向量几何的角度看待Fourier级数. 当然, 这里不是要求画出几何图像, 而是要求理解运算规则.</p>
 
 <h3 id="级数的表达">级数的表达</h3>
 
@@ -210,7 +187,7 @@ MathJax.Hub.Config({
     f(x)=a_0+\sum_{n=1}^{\infty}(a_n\cos nx+b_n\sin nx)\quad x\in\mathbb{R}
 ]</p>
 
-<p>这里的$a_n$和$b_n$既可以是实数又可以是复数(但我们接下来主要讨论实数函数$f$). 有的地方把第一项写成$\frac{a_0}{2}$, 这是考虑到积分时会多出来的一个$\frac{1}{2}$. 两种写法单纯是如何统一表达，在后面会解释. 考虑到$e^{ix}=\cos x+i\sin x$, 上面的式子可以写成
+<p>这里的$a_n$和$b_n$既可以是实数又可以是复数(但我们接下来主要讨论实数函数$f$). 有的地方把第一项写成$\frac{a_0}{2}$, 这是考虑到积分时会多出来的一个$\frac{1}{2}$. 两种写法单纯是关于如何统一表达，在后面会解释. 考虑到$e^{ix}=\cos x+i\sin x$, 上面的式子可以写成
 [
     f(x)= \sum_{-\infty}^{\infty}c_ne^{inx}\quad x\in\mathbb{R}
 ]</p>
@@ -333,7 +310,7 @@ $n\to\infty$时，就是所谓的Bessel不等式. 也可以发现，函数的Fou
 <p>(Dini&rsquo;s Test)若对一些$x$有常数$\delta&gt;0$和$M&lt;\infty$使得[|f(x+t)-f(x)|\leq M|t|]对所有$t\in(-\delta,\delta)$成立，那么有[\lim\limits_{n\to\infty}s_N(x)=f(x)]</p>
 </blockquote>
 
-<p><em>要注意的是，我们在这里只讨论逐点收敛.</em></p>
+<p><em>要注意的是，我们在这里只讨论逐点收敛. 其他形式的收敛会在接下来的文章中讨论</em></p>
 
 <p>定义函数
 [
@@ -368,9 +345,9 @@ $n\to\infty$时，就是所谓的Bessel不等式. 也可以发现，函数的Fou
 <ul>
 <li><p>Jordan&rsquo;s criterion(关于$s_N(x)$收敛什么时候收敛到什么值)，涉及到“有界差分”的概念.</p></li>
 
-<li><p>Parseval等式和应用（Fourier分析理论的核心内容之一），如三角函数系的完备性</p></li>
+<li><p>Parseval等式和应用(Fourier分析理论的核心内容之一)，如三角函数系的完备性</p></li>
 
-<li><p>Fejer核、Poisson核</p></li>
+<li><p>Fejer核、Poisson核(一致收敛问题)</p></li>
 
 <li><p>Gibbs现象</p></li>
 
@@ -465,7 +442,7 @@ $n\to\infty$时，就是所谓的Bessel不等式. 也可以发现，函数的Fou
     
     
 
-    <h4><a href="/post/2019-08-22-what-is-limit/">关于极限这个概念</a></h4>
+    <h4><a href="/post/2019-08-22-what-is-limit/">高等数学入门: 关于极限这个概念</a></h4>
     <h5>August 22, 2019</h5>
     
     <a href="https://desvl.xyz/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/mathematical-analysis"><kbd class="item-tag">数学分析/Mathematical Analysis</kbd></a>
@@ -506,11 +483,15 @@ $n\to\infty$时，就是所谓的Bessel不等式. 也可以发现，函数的Fou
 </main>
 
         <footer>
-
+        
+            <div style="float: margin: 0 auto;text-align: center;">
             <p class="copyright text-muted">&copy; All rights reserved. Powered by <a href="https://gohugo.io">Hugo</a>, original theme by <a href="https://github.com/calintat/minimal">Minimal</a></p>
-
-        </footer>
-       
+            </div>
+            <div style="float: margin: 0 auto;text-align: center;">
+            <script type="text/javascript" src="https://freehitcounters.org/count/2kh7"></script><br>
+            <a href='http://www.counter-zaehler.de'>besucherzähler ohne html</a> <script type='text/javascript' src='https://whomania.com/ctr?id=0779d7b7eedad865b5d97febde14c8dbb5c12ae4'></script>
+            </div>
+        </footer>  
     </body>
 
 </html>

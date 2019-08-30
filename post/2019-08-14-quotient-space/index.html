@@ -90,32 +90,7 @@ MathJax.Hub.Config({
 </script>
 
         
-        <script>
-        "use strict";
 
-        !function() {
-        var t = window.driftt = window.drift = window.driftt || [];
-        if (!t.init) {
-            if (t.invoked) return void (window.console && console.error && console.error("Drift snippet included twice."));
-            t.invoked = !0, t.methods = [ "identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on" ], 
-            t.factory = function(e) {
-            return function() {
-                var n = Array.prototype.slice.call(arguments);
-                return n.unshift(e), t.push(n), t;
-            };
-            }, t.methods.forEach(function(e) {
-            t[e] = t.factory(e);
-            }), t.load = function(t) {
-            var e = 3e5, n = Math.ceil(new Date() / e) * e, o = document.createElement("script");
-            o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "https://js.driftt.com/include/" + n + "/" + t + ".js";
-            var i = document.getElementsByTagName("script")[0];
-            i.parentNode.insertBefore(o, i);
-            };
-        }
-        }();
-        drift.SNIPPET_VERSION = '0.3.1';
-        drift.load('3dtfmpnagv35');
-        </script>
         
     </head>
 
@@ -320,13 +295,13 @@ MathJax.Hub.Config({
 
 <h4 id="定理的证明">定理的证明</h4>
 
-<h5 id="overline-psi-的定义是合理的">$\overline{\psi}$的定义是合理的</h5>
+<h5 id="overline-psi-的定义是合理的"><strong>$\overline{\psi}$的定义是合理的</strong></h5>
 
 <p>在这里需要证明, $\overline{\psi}(\overline(\alpha)=\psi(\alpha)$的成立不依赖于$\alpha\in\overline{\alpha}=\alpha+W$的选取.</p>
 
 <p>设$\alpha&rsquo;=\alpha+w,w\in{W}$. 则$\overline{\psi}(\overline{\alpha})=\psi(\alpha&rsquo;)=\psi(\alpha+w)=\psi(\alpha)+\psi(w)=\psi(\alpha)$.</p>
 
-<h5 id="overline-psi-是线性映射">$\overline{\psi}$ 是线性映射</h5>
+<h5 id="overline-psi-是线性映射"><strong>$\overline{\psi}$ 是线性映射</strong></h5>
 
 <p>对于加法,
 [
@@ -338,7 +313,7 @@ MathJax.Hub.Config({
     \overline{\psi}(\lambda\overline{\alpha})=\overline{\psi}(\overline{\lambda\alpha})=\psi(\lambda\alpha)=\lambda\psi(\alpha)=\lambda\overline{\psi}(\overline{\alpha}).
 ]</p>
 
-<h5 id="overline-psi-是同构映射">$\overline{\psi}$是同构映射</h5>
+<h5 id="overline-psi-是同构映射"><strong>$\overline{\psi}$是同构映射</strong></h5>
 
 <p>$\overline{\psi}(\overline{\alpha})=\psi(\alpha)=0$时, 考虑到$\ker(\psi)=W$, 有$\alpha\in{W}$, 故$\overline{\psi}=\overline{0}$. 故$\overline{\psi}$是单射.</p>
 
@@ -362,13 +337,13 @@ MathJax.Hub.Config({
 <p><strong>(第二同构定理):</strong> 设$W_1$和$W_2$是线性空间$V$的子空间,则有线性空间同构[\frac{W_1+W_2}{W_2}\cong\frac{W_1}{W_1\cap W_2}]而且对应关系比较自然.</p>
 </blockquote>
 
-<p>定义映射$\sigma:\alpha_1+\alpha_2+W_1\mapsto\alpha_1+W_1\cup W_2$, 并验证$\sigma$的定义合理,是同构即可.</p>
+<p>定义映射$\sigma:\alpha_1+\alpha_2+W_1\mapsto\alpha_1+W_1\cup W_2$, 并验证$\sigma$的定义合理, 是同构即可.</p>
 
 <blockquote>
 <p><strong>(第三同构定理):</strong> 设$S\subset{W}$均是线性空间$V$的子空间,则有线性空间同构[\frac{V}{W}\cong\frac{V/S}{W/S}]且对应关系比较自然.</p>
 </blockquote>
 
-<p>定义映射$\sigma:V/S\to V/W$, $\alpha+S\mapsto\alpha+W$, 验证$\sigma$定义的合理性,且$\ker(\sigma)=W/S$, 再利用定义$5.9$即可.</p>
+<p>定义映射$\sigma:V/S\to V/W$, $\alpha+S\mapsto\alpha+W$, 验证$\sigma$定义的合理性, 且$\ker(\sigma)=W/S$, 其余同上.</p>
 </div>
     <h4 class="page_header">Share | 分享</h4>
     <hr>
@@ -491,11 +466,15 @@ MathJax.Hub.Config({
 </main>
 
         <footer>
-
+        
+            <div style="float: margin: 0 auto;text-align: center;">
             <p class="copyright text-muted">&copy; All rights reserved. Powered by <a href="https://gohugo.io">Hugo</a>, original theme by <a href="https://github.com/calintat/minimal">Minimal</a></p>
-
-        </footer>
-       
+            </div>
+            <div style="float: margin: 0 auto;text-align: center;">
+            <script type="text/javascript" src="https://freehitcounters.org/count/2kh7"></script><br>
+            <a href='http://www.counter-zaehler.de'>besucherzähler ohne html</a> <script type='text/javascript' src='https://whomania.com/ctr?id=0779d7b7eedad865b5d97febde14c8dbb5c12ae4'></script>
+            </div>
+        </footer>  
     </body>
 
 </html>

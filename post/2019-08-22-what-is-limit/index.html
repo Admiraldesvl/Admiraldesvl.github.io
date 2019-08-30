@@ -4,7 +4,7 @@
          
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>关于极限这个概念</title>
+        <title>高等数学入门: 关于极限这个概念</title>
         
         <style>
 
@@ -90,32 +90,7 @@ MathJax.Hub.Config({
 </script>
 
         
-        <script>
-        "use strict";
 
-        !function() {
-        var t = window.driftt = window.drift = window.driftt || [];
-        if (!t.init) {
-            if (t.invoked) return void (window.console && console.error && console.error("Drift snippet included twice."));
-            t.invoked = !0, t.methods = [ "identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on" ], 
-            t.factory = function(e) {
-            return function() {
-                var n = Array.prototype.slice.call(arguments);
-                return n.unshift(e), t.push(n), t;
-            };
-            }, t.methods.forEach(function(e) {
-            t[e] = t.factory(e);
-            }), t.load = function(t) {
-            var e = 3e5, n = Math.ceil(new Date() / e) * e, o = document.createElement("script");
-            o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "https://js.driftt.com/include/" + n + "/" + t + ".js";
-            var i = document.getElementsByTagName("script")[0];
-            i.parentNode.insertBefore(o, i);
-            };
-        }
-        }();
-        drift.SNIPPET_VERSION = '0.3.1';
-        drift.load('3dtfmpnagv35');
-        </script>
         
     </head>
 
@@ -127,7 +102,7 @@ MathJax.Hub.Config({
 
                 <div class="navbar-header">
 
-                    <a class="navbar-brand visible-xs" href="#">关于极限这个概念</a>
+                    <a class="navbar-brand visible-xs" href="#">高等数学入门: 关于极限这个概念</a>
 
                     <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
                         <span class="icon-bar"></span>
@@ -182,7 +157,7 @@ MathJax.Hub.Config({
     
     
 
-    <h4><a href="/post/2019-08-22-what-is-limit/">关于极限这个概念</a></h4>
+    <h4><a href="/post/2019-08-22-what-is-limit/">高等数学入门: 关于极限这个概念</a></h4>
     <h5>August 22, 2019</h5>
     
     <a href="https://desvl.xyz/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/mathematical-analysis"><kbd class="item-tag">数学分析/Mathematical Analysis</kbd></a>
@@ -195,7 +170,7 @@ MathJax.Hub.Config({
 
 <h2 id="前言">前言</h2>
 
-<p>你开始高等数学或者数学分析的课程之后, 不出意外的话, 会立马碰上一个理解和应用非常困难, 却又非常重要的概念: 极限. 这篇文章里我不想也不会讲各种奇妙的计算&rdquo;秘诀&rdquo;. 我不支持这种内容,  当然让我讲我也讲不了. 我会在这篇文章里分享一下我对极限这个概念的理解. 希望我的理解能对各位有所帮助.</p>
+<p>你开始高等数学或者数学分析的课程之后, 不出意外的话, 会立马碰上一个理解和应用非常困难, 却又非常重要的概念: 极限. 这篇文章里我不想也不会讲各种奇妙的计算&rdquo;秘诀&rdquo;. 我不支持这种内容, 当然让我讲我也讲不了. 我会在这篇文章里分享一下我对极限这个概念的理解, 希望我的理解能对各位有所帮助.</p>
 
 <h2 id="极限好理解吗">极限好理解吗？</h2>
 
@@ -209,7 +184,7 @@ MathJax.Hub.Config({
 <p>函数$f(x)$在$x$趋近于$a$时以$A$为极限的定义是: 设$a,A\in\mathbb{R}$, 函数$f$在点$a$的一个邻域中有定义, 若对<strong>每个</strong>给定的$\varepsilon&gt;0$, <strong>存在</strong> $\delta&gt;0$, 使得$-\delta&lt;x-a&lt;\delta$时, 成立<strong>不等式</strong>$|f(x)-A|&lt;\varepsilon$.</p>
 </blockquote>
 
-<p>我们接下来要从牛顿莱布尼兹时代往前走了, 不能再出现&rdquo;先不等于$0$, 再等于$0$&ldquo;之类的说法了. 从两个定义中可以看到, 极限中有两个重点需要处理: <strong>不等式、全称量词和存在量词</strong>. 这也是数学家们&rdquo;驯服&rdquo;无穷小量的办法. 数理逻辑中两个重要的逻辑符号, $\forall$和$\exists$, 在数学中被广泛使用, 这其中就包括了极限. 这两个量词使得叙述更加清晰严密, 想写否定说法也轻而易举. 至于不等式, 想必各位已经接受了一定量的训练.</p>
+<p>我们要从牛顿莱布尼兹时代往前迈进, 不能再出现&rdquo;先不等于$0$, 再等于$0$&ldquo;之类的说法了. 从两个定义中可以看到, 极限中有两个重点需要处理: <strong>不等式、全称量词和存在量词</strong>. 这也是数学家们&rdquo;驯服&rdquo;无穷小量的办法. 数理逻辑中两个重要的逻辑符号, $\forall$和$\exists$, 在数学中被广泛使用, 这其中就包括了极限. 这两个量词使得叙述更加清晰严密, 想写否定说法也轻而易举. 至于不等式, 想必各位已经接受了一定量的训练.</p>
 
 <p>我们再来看看这两个定义到底在干什么: 对数列来说, 解释&rdquo;无穷远处&rdquo;确实是一件很困难的事, 那我们退而求其次, 解释这个数列的局部特征, 也就是说, $n&gt;N$这一部分. 对函数来说, 某个点$x=a$处可能没有定义, 比如$y=\frac{x^2-1}{x+1}$在$x=-1$处. 那么解释这个点处的性质变得很困难, 所以我们退而求其次, 解释局部特征, 也就是说$x=a$这个点附近. 而这两个情况中的局部都有一个特征: 误差足够小.</p>
 
@@ -348,11 +323,15 @@ MathJax.Hub.Config({
 </main>
 
         <footer>
-
+        
+            <div style="float: margin: 0 auto;text-align: center;">
             <p class="copyright text-muted">&copy; All rights reserved. Powered by <a href="https://gohugo.io">Hugo</a>, original theme by <a href="https://github.com/calintat/minimal">Minimal</a></p>
-
-        </footer>
-       
+            </div>
+            <div style="float: margin: 0 auto;text-align: center;">
+            <script type="text/javascript" src="https://freehitcounters.org/count/2kh7"></script><br>
+            <a href='http://www.counter-zaehler.de'>besucherzähler ohne html</a> <script type='text/javascript' src='https://whomania.com/ctr?id=0779d7b7eedad865b5d97febde14c8dbb5c12ae4'></script>
+            </div>
+        </footer>  
     </body>
 
 </html>

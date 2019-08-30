@@ -90,32 +90,7 @@ MathJax.Hub.Config({
 </script>
 
         
-        <script>
-        "use strict";
 
-        !function() {
-        var t = window.driftt = window.drift = window.driftt || [];
-        if (!t.init) {
-            if (t.invoked) return void (window.console && console.error && console.error("Drift snippet included twice."));
-            t.invoked = !0, t.methods = [ "identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on" ], 
-            t.factory = function(e) {
-            return function() {
-                var n = Array.prototype.slice.call(arguments);
-                return n.unshift(e), t.push(n), t;
-            };
-            }, t.methods.forEach(function(e) {
-            t[e] = t.factory(e);
-            }), t.load = function(t) {
-            var e = 3e5, n = Math.ceil(new Date() / e) * e, o = document.createElement("script");
-            o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "https://js.driftt.com/include/" + n + "/" + t + ".js";
-            var i = document.getElementsByTagName("script")[0];
-            i.parentNode.insertBefore(o, i);
-            };
-        }
-        }();
-        drift.SNIPPET_VERSION = '0.3.1';
-        drift.load('3dtfmpnagv35');
-        </script>
         
     </head>
 
@@ -203,7 +178,7 @@ MathJax.Hub.Config({
 
 <h2 id="taylor定理是为了偷懒">Taylor定理是为了偷懒</h2>
 
-<p>整数的运算很简单, 没有一串乱七八糟的小数, 反而还有各种优异的性质, 我们计算小数的时候有的时候会考虑 <strong>四舍五入</strong>, 在这个时候, 误差也是需要考虑的. 多项式的运算绝对相比指数函数、三角函数等等简单很多, 而且多项式本身也有优异的性质. 那么, 有没有办法用多项式解决复杂的函数问题呢？不严格地说, 我们能不能对复杂的函数进行 <strong>四舍五入</strong> 呢？这就是Taylor公式可以解决的, 当然误差也是我们需要考虑的. 多项式运算只涉及加法减法和乘法, 如果我们能通过简单的四则运算解决问题而回避了复杂函数本身的各种性质, 那就太好了. 所以要怎么做呢？</p>
+<p>整数的运算很简单, 没有一串乱七八糟的小数, 反而还有各种优异的性质, 我们计算小数的时候有的时候会考虑<strong>四舍五入</strong>, 在这个时候, 误差也是需要考虑的. 多项式的运算绝对相比指数函数、三角函数等等简单很多, 而且多项式本身也有优异的性质. 那么, 有没有办法用多项式解决复杂的函数问题呢？不严格地说, 我们能不能对复杂的函数进行<strong>四舍五入</strong> 呢？这就是Taylor公式可以解决的, 当然误差也是我们需要考虑的. 多项式运算只涉及加法减法和乘法, 如果我们能通过简单的四则运算解决问题而回避了复杂函数本身的各种性质, 那就太好了. 所以要怎么做呢？</p>
 
 <p>处理方法可以从对误差的分析入手. 分两种情况: 尽量简化运算, 仅定性分析误差; 进行严格的运算, （尽量）得到准确的误差值.</p>
 
@@ -493,7 +468,7 @@ MathJax.Hub.Config({
     
     
 
-    <h4><a href="/post/2019-08-22-what-is-limit/">关于极限这个概念</a></h4>
+    <h4><a href="/post/2019-08-22-what-is-limit/">高等数学入门: 关于极限这个概念</a></h4>
     <h5>August 22, 2019</h5>
     
     <a href="https://desvl.xyz/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/mathematical-analysis"><kbd class="item-tag">数学分析/Mathematical Analysis</kbd></a>
@@ -554,11 +529,15 @@ MathJax.Hub.Config({
 </main>
 
         <footer>
-
+        
+            <div style="float: margin: 0 auto;text-align: center;">
             <p class="copyright text-muted">&copy; All rights reserved. Powered by <a href="https://gohugo.io">Hugo</a>, original theme by <a href="https://github.com/calintat/minimal">Minimal</a></p>
-
-        </footer>
-       
+            </div>
+            <div style="float: margin: 0 auto;text-align: center;">
+            <script type="text/javascript" src="https://freehitcounters.org/count/2kh7"></script><br>
+            <a href='http://www.counter-zaehler.de'>besucherzähler ohne html</a> <script type='text/javascript' src='https://whomania.com/ctr?id=0779d7b7eedad865b5d97febde14c8dbb5c12ae4'></script>
+            </div>
+        </footer>  
     </body>
 
 </html>
