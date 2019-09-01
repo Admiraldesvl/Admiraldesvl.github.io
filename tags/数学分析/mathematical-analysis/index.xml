@@ -17,7 +17,7 @@
       <pubDate>Sun, 01 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://desvl.xyz/post/2019-9-1-beautiful-fourier-004/</guid>
-      <description>前言 这篇文章是两个Good kernel的第一篇, 主要涉及一个内容: 关于一致收敛的Fejér定理. 但是, 我们会回避各种复杂繁琐的运算, 充分利用</description>
+      <description>初步介绍一个‘好核’：Fejér核</description>
     </item>
     
     <item>
@@ -26,7 +26,7 @@
       <pubDate>Mon, 26 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>https://desvl.xyz/post/2019-08-26-taylor/</guid>
-      <description>我们不想把话讲得太绝对, 但至少可以说: 凡是用一元微积分中的定理、技巧能解决的问题, 其中的大部分都可以用Taylor定理来解决. 掌握了Tayl</description>
+      <description>多项式逼近函数</description>
     </item>
     
     <item>
@@ -35,7 +35,7 @@
       <pubDate>Sat, 24 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>https://desvl.xyz/post/2019-8-24-harmonic-series-divergence/</guid>
-      <description>命题的提出 设$S_n=1+\frac{1}{2}+\frac{1}{3}+\cdots+\frac{1}{n}$, 求证$\{S_n\}$发散</description>
+      <description>关于为什么1+&lt;sup&gt;1&lt;/sup&gt;&amp;frasl;&lt;sub&gt;2&lt;/sub&gt;+&amp;hellip;+1/n+&amp;hellip;是发散的</description>
     </item>
     
     <item>
@@ -44,7 +44,7 @@
       <pubDate>Thu, 22 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>https://desvl.xyz/post/2019-8-22-beautiful-fourier-003/</guid>
-      <description>在前面的文章中, 我们看到了Dirichlet核下的两种收敛情况的分析. 当然, 函数核绝对不仅仅有Dirichlet核一个. 那么Dirichle</description>
+      <description>引入‘好核’的概念</description>
     </item>
     
     <item>
@@ -53,7 +53,7 @@
       <pubDate>Thu, 22 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>https://desvl.xyz/post/2019-08-22-what-is-limit/</guid>
-      <description>前言 你开始高等数学或者数学分析的课程之后, 不出意外的话, 会立马碰上一个理解和应用非常困难, 却又非常重要的概念: 极限. 这篇文章里我不想也不会讲</description>
+      <description>正确理解什么是极限</description>
     </item>
     
     <item>
@@ -62,7 +62,7 @@
       <pubDate>Mon, 19 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>https://desvl.xyz/post/2019-08-19-l-hopital-proof/</guid>
-      <description>前言 洛必达法则我想甚至不少高中生都听说过, 知道怎么进行简单的应用. 简单点说, 处理$\frac{0}{0}$的函数时, 对上下进行求导, 可能会很</description>
+      <description>利用两种微积分中的重要工具证明洛必达法则</description>
     </item>
     
     <item>
@@ -71,7 +71,7 @@
       <pubDate>Tue, 06 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>https://desvl.xyz/post/2019-08-06-beautiful-fourier-002/</guid>
-      <description>前言 如果你和Fourier级数打交道，那么在处理间断函数，特别是锯齿状函数的时候，有没有注意过间断处的形状？它为什么会处在中间位置？什么时候</description>
+      <description>Jordan判别法的完整证明</description>
     </item>
     
     <item>
@@ -80,7 +80,7 @@
       <pubDate>Mon, 05 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>https://desvl.xyz/post/2019-08-05-beautiful-fourier-001/</guid>
-      <description>前言 Fourier级数是相当优美的一类级数，但它涉及到的问题绝对不仅仅是通过各种运算技巧求表达式. 相反，它是一个很复杂、很困难的大话题. 我在</description>
+      <description>从不同的角度理解Fourier级数</description>
     </item>
     
     <item>
@@ -89,7 +89,7 @@
       <pubDate>Sun, 04 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>https://desvl.xyz/post/2019-08-04-contraction-application/</guid>
-      <description>什么是压缩 压缩的准确描述是这样的： 取度量空间$X$, 度量$d$, 函数$\varphi$是$X$到本身的映射, 且满足$$d(\varphi(x</description>
+      <description>利用压缩定理解决迭代生成的数列的极限问题</description>
     </item>
     
   </channel>

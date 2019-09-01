@@ -17,7 +17,7 @@
       <pubDate>Fri, 16 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>https://desvl.xyz/post/2019-08-16-generalized-inverse/</guid>
-      <description>矩阵广义逆的概念最早于1920年被E.H.Moore提出, 在1955年被R. Penrose进一步完善. 此后广义逆在理论和应用上都逐渐重要. 可</description>
+      <description>引入矩阵的几种广义逆的概念</description>
     </item>
     
     <item>
@@ -26,7 +26,7 @@
       <pubDate>Thu, 15 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>https://desvl.xyz/post/2019-08-15-polar-factorization/</guid>
-      <description>复数的矩阵表示 在之前的文章中我们指出, 一个复数可以对应一个线性变换, 而这个线性变换是拉伸和旋转的复合. 当然, 我们不想局限在二维空间. 接下来,</description>
+      <description>将一个实方阵进行类似于极坐标表示的分解</description>
     </item>
     
     <item>
@@ -35,7 +35,7 @@
       <pubDate>Wed, 14 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>https://desvl.xyz/post/2019-08-14-quotient-space/</guid>
-      <description>整数和线性空间的同余类 我们先考虑这样一个数列： [ \cdots,-6,1,8,15,22,36,\cdots ] 注意这组数都可以写成$1+7n$的形式. 这个数列中每一个数除以7得到的余数都是1, 任取任</description>
+      <description>引入商空间这个概念</description>
     </item>
     
     <item>
@@ -44,7 +44,7 @@
       <pubDate>Sun, 11 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>https://desvl.xyz/post/2019-08-11-real-complex-matrix-representation/</guid>
-      <description>代数同构 现在我们想要解决的问题是, 能不能把复数用矩阵表示出来, 从而可以利用矩阵的计算方法. 这要求这个表示方法既要有线性空间的运算规则, 又要有</description>
+      <description>将复数表示成矩阵, 并且解释其几何意义</description>
     </item>
     
   </channel>
