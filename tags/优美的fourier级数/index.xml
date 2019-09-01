@@ -6,10 +6,19 @@
     <description>Recent content in 优美的Fourier级数 on Desvl&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 22 Aug 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 01 Sep 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://desvl.xyz/tags/%E4%BC%98%E7%BE%8E%E7%9A%84fourier%E7%BA%A7%E6%95%B0/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>优美的Fourier级数（四）: 一致收敛下的Fejér定理</title>
+      <link>https://desvl.xyz/post/2019-9-1-beautiful-fourier-004/</link>
+      <pubDate>Sun, 01 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://desvl.xyz/post/2019-9-1-beautiful-fourier-004/</guid>
+      <description>前言 这篇文章是两个Good kernel的第一篇, 主要涉及一个内容: 关于一致收敛的Fejér定理. 但是, 我们会回避各种复杂繁琐的运算, 充分利用</description>
+    </item>
     
     <item>
       <title>优美的Fourier级数（三）: Dirichlet核是好是坏?</title>
