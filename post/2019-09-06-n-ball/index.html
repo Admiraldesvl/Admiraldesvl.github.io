@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+         
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>n维空间中球的体积</title>
+        
+        <style>
+
+    html body {
+        font-family: 'Raleway', sans-serif;
+        background-color: white;
+    }
+
+    :root {
+        --accent: purple;
+        --border-width:  5px ;
+    }
+
+</style>
+
+
+<link rel="stylesheet" href="https://desvl.xyz/css/main.css">
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+
+
+
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+ 
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
+ <meta name="generator" content="Hugo 0.56.3" />
+        
+
+        
+        
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144178839-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments)};
+          gtag('js', new Date());
+
+          gtag('config', 'UA-144178839-1');
+        </script>
+        
+
+        
+        
+        <script type="text/javascript" async
+          src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        </script>
+        
+        <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_SVG">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
+        <meta name="twitter:card" content="summary"/>
+<meta name="twitter:image" content="https://desvl.xyz/"/>
+<meta name="twitter:title" content="n维空间中球的体积"/>
+<meta name="twitter:description" content="n维空间中球的体积"/>
+
+        
+
+        
+    </head>
+
+    <body>
+         
+        <nav class="navbar navbar-default navbar-fixed-top">
+
+            <div class="container">
+
+                <div class="navbar-header">
+
+                    <a class="navbar-brand visible-xs" href="#">n维空间中球的体积</a>
+
+                    <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                </div>
+
+                <div class="collapse navbar-collapse">
+
+                    
+                        <ul class="nav navbar-nav">
+                            
+                                <li><a href="/">Home | 主页</a></li>
+                            
+                                <li><a href="/post/">Posts | 文章</a></li>
+                            
+                                <li><a href="/tags/">Tags | 标签</a></li>
+                            
+                                <li><a href="/about/">About | 关于</a></li>
+                            
+                        </ul>
+                    
+
+                    
+                        <ul class="nav navbar-nav navbar-right">
+                            
+                                <li class="navbar-icon"><a href="mailto:admiraldesvl@gmail.com"><i class="fa fa-envelope-o"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://github.com/admiraldesvl/"><i class="fa fa-github"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://twitter.com/Desvl1998/"><i class="fa fa-twitter"></i></a></li>
+                            
+                        </ul>
+                    
+
+                </div>
+
+            </div>
+
+        </nav>
+
+<main>
+
+    <div class="item">
+
+    
+    
+    
+
+    
+    
+
+    <h4><a href="/post/2019-09-06-n-ball/">n维空间中球的体积</a></h4>
+    <h5>September 6, 2019</h5>
+    
+    <a href="https://desvl.xyz/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/mathematical-analysis"><kbd class="item-tag">数学分析/Mathematical Analysis</kbd></a>
+    
+
+</div>
+
+
+    <br> <div class="text-justify">
+
+<h2 id="球的定义">球的定义</h2>
+
+<p>我们可以在$n$维欧基里德空间对球进行很简单的定义：
+[
+    B_n(R)=\{(x_1,\cdots,x_n)|\sum_{i=1}^nx_i^2\leq{R^2}\}
+]</p>
+
+<p>在一维空间, 这就一条线段; 在平面, 这就是一个原面, 对于三维以上的球, 想象形状是很困难的事情, 但是利用微积分工具研究球的体积还是可行的. 为了进一步简化运算, 我们将引入参数方程.
+<!-- 球坐标的极坐标表示 --></p>
+
+<h3 id="多维空间球的参数方程表示">多维空间球的参数方程表示</h3>
+
+<p>平面圆上一点可以用极坐标表示成$(r,\theta)$， 其中$r$是点到原点的距离, $\theta$是连接原点和极轴的夹角. 实际上, 这个点可以写成$(r\cos\theta,r\sin\theta)$. 但是推广到多维空间, 情况变得很复杂. 三角函数只有两个, 而坐标轴有$n$个. 而且夹角的定义是不确定的. 为此, 我们利用<strong>递归</strong>的办法, 逐个获得每个坐标的表示. 设$P(x_1,x_2,\cdots,x_n)$, 球半径为$r$, 坐标轴为$\textbf{e_1},\cdots,\textbf{e_n}$.</p>
+
+<blockquote>
+<ol>
+<li><p>第$i$次分解, 得到第$m=n-(i-1)$个坐标, 坐标数为$OP_{i-1}\sin\theta_i$, 其中$\theta_i$为$\textbf{e}_m$和$\overrightarrow{OP}_{i-1}$的夹角. 其中$P_0=P$.</p></li>
+
+<li><p>如果$m&gt;1$, 令$\overrightarrow{OP}_{i-2}$为$\overrightarrow{OP}_{i-1}$的另一个分量. 此即$\overrightarrow{OP}_{i-1}$和自身与$\textbf{e}_m$的投影的向量差. 此后重复步骤1.</p></li>
+
+<li><p>如果$m=1$, 停止进行.</p></li>
+</ol>
+</blockquote>
+
+<p>如果$n=1$, 那么只进行步骤1一次. 注意到, 此时(或者说递归到1时)$\theta=\frac{\pi}{2}$, <strong>所以$\sin\theta_n$略去不写</strong>; 如果$n=2$, 那么进行两次递归. 得到的结果是$x_1=r\cos\theta, x_2=r\sin\theta$. 这和我们常用的表示方法是一致的. 有了这个分解途径, 我们可以将$n$维空间的球坐标参数方程写出来:</p>
+
+<p>[
+\begin{cases}
+\begin{aligned}
+    &amp;x_n=r\sin\theta_1 \\<br />
+    &amp;x_{n-1}=r\cos\theta_1\sin\theta_2 \\<br />
+    &amp;x_{n-2}=r\cos\theta_1\cos\theta_2\sin\theta_2 \\<br />
+    &amp;\cdots\cdots \\<br />
+    &amp;x_1=r\cos\theta_1\cdots\cos\theta_{n-1}
+\end{aligned}
+\end{cases}
+]</p>
+
+<p>接下来我们要讨论$n&gt;2$时$\theta_i$的取值范围. 实质上, 只需要讨论$\theta_1$和$\theta_{n-1}$即可. 对于$i&lt;n-1$, $\theta_i$表示向量和坐标轴夹角(取值范围为$(0,\pi]$)的余角, 取值范围为$[-\frac{\pi}{2},\frac{\pi}{2})$就足够表示.</p>
+
+<p>但是$\theta_{n-1}$不能是这个范围. 这个角其实是平面内的夹角, 所以取值范围应为$[0,2\pi)$. 这个可以通过圆和三维球进行解释: $n=2$时，$\theta$必须取遍整个圆; $n=3$时, 另一个夹角只需取遍半个圆即可. 另一部分可以通过旋转得到. 综上, $n&gt;2$时, 夹角$\theta_i$满足</p>
+
+<p>[
+\begin{aligned}
+    \theta_i\in\begin{cases}[-\frac{\pi}{2},\frac{\pi}{2}),&amp;0\leq i&lt; n-1 \\\ [0,2\pi), &amp;i={n-1}\end{cases}
+\end{aligned}
+]</p>
+
+<!-- Gamma函数和性质 -->
+
+<h2 id="gamma-函数-计算体积的核心工具">$\Gamma$函数——计算体积的核心工具</h2>
+
+<p>接下来我们将介绍一个很经典的含参积分函数. 它不仅在各个领域有着非常广泛的应用, 它自身的性质的验证也是非常好的微积分训练题.</p>
+
+<blockquote>
+<p>在$(0,+\infty)$定义$\Gamma$函数如下：[\Gamma(x)=\int_{0}^{\infty}t^{x-1}e^{-t}dt]</p>
+</blockquote>
+
+<h3 id="gamma-函数的第一层认识-阶乘">$\Gamma$函数的第一层认识：阶乘</h3>
+
+<p>进行简单的广义积分的运算, 不难发现, <strong>$\Gamma(1)=1$</strong>. 如果进行分部积分运算, 还可以发现:
+[
+    \begin{aligned}
+        \Gamma(x+1)=\int_{0}^{\infty}t^xe^{-t}dt&amp;=-\int_{0}^{\infty}t^xde^{-t}=-t^xe^{-t}|_{0}^{\infty}+\int_{0}^{\infty}e^{-t}dt^x \\<br />
+        &amp;=x\int_{0}^{\infty}t^{x-1}e^{-t}dt=x\Gamma(x)
+    \end{aligned}
+]</p>
+
+<p>如果将这个等式代入整数, 就会发现有$\Gamma(2)=1\Gamma(1)=1=1!$, $\Gamma(3)=2\Gamma(2)=2!$, $\cdots$. 也就是说, 我们有以下重要结论:</p>
+
+<blockquote>
+<p>$$\Gamma(n+1)=n!\quad n=1,2,\cdots$$</p>
+</blockquote>
+
+<h3 id="gamma-函数的第二层认识-b-函数和-gamma-frac-1-2">$\Gamma$函数的第二层认识: $B$函数和$\Gamma(\frac{1}{2})$</h3>
+
+<p>我们会引入另一个和$\Gamma$函数有密切联系的函数, 不过具体的论证细节不是这篇文章的重点, 省去. 对于$x,y\in(0,+\infty)$, 有</p>
+
+<blockquote>
+<p>$B(x,y)= \int_{0}^{1}t^{x-1}(1-t)^{y-1}=\frac{\Gamma(x)\Gamma(y)}{\Gamma(x+y)}$</p>
+</blockquote>
+
+<p>如果我们令$t=\sin^{2}\theta$, 代入$B(x,y)$的积分中, 会得到$B$函数的另一个表示形式
+[
+    B(x,y)=\int_{0}^{1}\sin^{2x-2}\theta\cos^{2y-2}\theta d\sin^{2}\theta=2\int_{0}^{\frac{\pi}{2}}\sin^{2x-1}\theta\cos^{2y-1}\theta d\theta
+]</p>
+
+<p>很明显, 如果代入$x=y=\frac{1}{2}$, 就会得到
+[
+    B(\frac{1}{2},\frac{1}{2})=2\int_{0}^{\frac{\pi}{2}}d\theta=\pi
+]</p>
+
+<p>再利用$B(x,y)$和$\Gamma$函数的关系, 得到</p>
+
+<p>[
+    \frac{\Gamma(\frac{1}{2})\Gamma(\frac{1}{2}}{\Gamma(1)}=\Gamma(\frac{1}{2})^2=\pi
+]</p>
+
+<p>那么我们就得到了一个重要的等式
+[
+    \Gamma(\frac{1}{2})=\sqrt{\pi}
+]</p>
+
+<p>当然$\Gamma$函数的内容绝对不止如此. 正相反, 它是一个非常有趣、非常能体现微积分思想的函数. 如果你不了解如何得到$\int_{-\infty}^{\infty}e^{-x^2}dx$的值, 那么读到这里, 你已经离它很近很近了. 可以试试自己分析一下.</p>
+
+<p>我们先停下来看看到这里我们做了什么.</p>
+
+<p>首先, 我们将点的坐标进行极分解, 从$(x_1,\cdots,x_n)$到$(r,\theta_1,\cdots,\theta_{n-1})$. 我们不希望用各种繁琐的方式计算体积. 正因为此, 我们进行极坐标转换, 试图直接利用三角函数的性质. 其次, 我们引入了$\Gamma$函数. 就目前所知, 它和阶乘、$\pi$有联系.</p>
+
+<p>我们这样做的目的是, 将求体积变成一个很单纯的多元定积分问题. 当然这背后还有一些多元积分的理论, 我就不花大篇幅讲了.</p>
+
+<h2 id="体积的计算">体积的计算</h2>
+
+<h3 id="极分解函数">极分解函数</h3>
+
+<p>从$\textbf{x}=(x_1,\cdots,x_n)$到$\textbf{p}=(r,\theta_1,\cdots,\theta_{n-1})$, 我们实际上是定义了一个从$\mathbb{R}^n$到$\mathbb{R}^n$的函数, 函数方程即一系列参数方程. 这个函数(设为$P$)的定义域为$B(n)$, 值域其实我们也已经在求角范围的过程中求出来了. 它不是一个球, 而是一个$n$维“长方体”. 这个长方体$D$满足
+[
+    D=\{((r,\theta_1,\cdots,\theta_{n-1})|0\leq{r}\leq{R},-\frac{\pi}{2}\leq\theta_1\leq\frac{\pi}{2},\cdots,-\frac{\pi}{2}\leq\theta_{n-2}\leq\frac{\pi}{2},0\leq\theta_{n-1}\leq 2\pi\}
+]</p>
+
+<h3 id="体积的推导">体积的推导</h3>
+
+<p>这里涉及到向量外积、微分形式等诸多复杂问题. 我们不能把这篇文章超过一半的文本用来引入这些概念. 在这里只给出积分简单的推导. 尽管可能不够严密.</p>
+
+<p>抛开具体过程, 我们希望得到这样一个等式:
+[
+    V(R)=\int_{B_n(R)}dV
+]
+对于$dV$, 我们有
+[
+    dV=dx_1dx_2\cdots dx_n
+]</p>
+
+<p>利用Jacobi行列式和换元的关系, 又能得到(这相当于求微分)
+[
+    dx_1dx_2\cdots dx_n=J_P d\theta_1d\theta_2\cdots d\theta_{n-1}dr
+]</p>
+
+<p>计算$J_P=\frac{\partial(x_1,\cdots,x_n)}{\partial(r,\theta_1,\cdots,\theta_{n-1})}$(这相当于一元函数的导数)得
+[
+    J_P=r^{n-1}\cos^{n-2}\theta_1\cos^{n-3}\theta_2\cdots\cos\theta_{n-2}
+]</p>
+
+<p>再结合$D$的“边长”, 体积公式就很显然了:
+[
+\begin{aligned}
+    V(R)&amp;=\int_{D}J_P d\theta_1d\theta_2\cdots d\theta_{n-1}dr \\<br />
+    &amp;=\int_{0}^{R}\int_{0}^{2\pi}\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\cdots\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}r^{n-1}\cos^{n-2}\theta_1\cos^{n-3}\theta_2\cdots\cos\theta_{n-2}d\theta_1d\theta_2\cdots d\theta_{n-1}dr
+\end{aligned}
+]</p>
+
+<p>接下来我们要做的就变成了单纯的计算.</p>
+
+<h3 id="体积的计算-1">体积的计算</h3>
+
+<p>对于$r^{n-1}$这一项, 有
+[
+    \int_{0}^{R}r^{n-1}dr=\frac{R^n}{n}
+]</p>
+
+<p>此外还有</p>
+
+<p>[
+    \int_{0}^{2\pi}d\theta_{n-1}=2\pi
+]</p>
+
+<p>对于带有形如$\cos^m\theta$的项, 就需要用到$B$函数了.
+[
+\begin{aligned}
+    \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\cos^m\theta d\theta&amp;=2\int_{0}^{\frac{\pi}{2}}\cos^m\theta d\theta \\<br />
+    &amp;=2\int_{0}^{\frac{\pi}{2}}\cos^{2\frac{m+1}{2}-1}\theta\sin^{2\frac{1}{2}-1}\theta d\theta=B(\frac{m+1}{2},\frac{1}{2})
+\end{aligned}
+]</p>
+
+<p>因此,
+[
+\begin{aligned}
+    V_n(R)&amp;=\int_{D}J_P d\theta_1d\theta_2\cdots d\theta_{n-1}dr \\<br />
+    &amp;=\int_{0}^{R}\int_{0}^{2\pi}\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\cdots\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}r^{n-1}\cos^{n-2}\theta_1\cos^{n-3}\theta_2\cdots\cos\theta_{n-2}d\theta_1d\theta_2\cdots d\theta_{n-1}dr \\<br />
+    &amp; = \frac{R^n}{n}\cdot 2\pi\cdot\Pi_{k=1}^{n}B(\frac{n+1}{2},\frac{1}{2})
+\end{aligned}
+]</p>
+
+<p>将$B$函数展开, 代入$\Gamma(\frac{1}{2})$,就得到了最终的结果
+[V_n(R)=\frac{(\sqrt{\pi}R)^n}{\Gamma(\frac{n}{2}+1)}]</p>
+
+<p>这就是任意维度球的体积. 在计算过程中, 我们完全避开了复杂的几何性质, 把求体积的问题转换成了三角函数的积分. 这个体积公式中既有$\pi$, 又有$R^n$，还有一个与维度有关系的系数. 实际上, 完全可以把$n=1,2,3$代入, 得到的结论和我们通过基本的微积分一点点推出来的结果是一样的.</p>
+
+<h2 id="一个很可爱的结论">一个很可爱的结论</h2>
+
+<blockquote>
+<p>[\sum_{n=1}^{\infty}V_{2n}(R)=e^{\pi R^2}]</p>
+</blockquote>
+
+<p>这个结论很可爱. 我们在任意维度搭建起球和自然数对数$e$的桥梁. 一番斗争后我们又回到了规整的自然数. 当然证明也是非常简单的:
+[
+    \sum V_{2n}(R)=\sum \frac{r^{2n}{\pi}^n}{\Gamma(n+1)}=\sum \frac{(\pi R^2)^n}{n!}=e^{\pi R^2}
+]</p>
+</div>
+    <h4 class="page_header">Share | 分享</h4>
+    <hr>
+        
+        <style type="text/css">
+            #my_centered_buttons { display: flex; justify-content: center; }  
+            .a2a_svg, .a2a_count { border-radius: 0 !important; }  
+        </style>
+        <div align="center" class="a2a_kit a2a_kit_size_32 a2a_default_style" id=my_centered_buttons>
+            <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+            <a class="a2a_button_facebook"></a>
+            <a class="a2a_button_twitter"></a>
+            <a class="a2a_button_email"></a>
+            <a class="a2a_button_tumblr"></a>
+            <a class="a2a_button_reddit"></a>
+            <a class="a2a_button_telegram"></a>
+            <a class="a2a_button_evernote"></a>
+            <a class="a2a_button_douban"></a>
+            <a class="a2a_button_wechat"></a>
+            <a class="a2a_button_mastodon"></a>
+            <a class="a2a_button_print"></a>
+        </div>
+        <script>
+            var a2a_config = a2a_config || {};
+            a2a_config.num_services = 6;
+            a2a_config.thanks = {
+                postShare: true
+            };
+            a2a_config.track_links = 'ga';
+        </script>
+        <script async src="https://static.addtoany.com/menu/page.js"></script>
+            
+    
+    
+    
+
+    
+
+        <h4 class="page-header">Related | 相关文章</h4>
+
+         <div class="item">
+
+    
+    
+    
+
+    
+    
+
+    <h4><a href="/post/2019-9-1-beautiful-fourier-004/">优美的Fourier级数（四）: 一致收敛下的Fejér定理</a></h4>
+    <h5>September 1, 2019</h5>
+    
+    <a href="https://desvl.xyz/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/mathematical-analysis"><kbd class="item-tag">数学分析/Mathematical Analysis</kbd></a>
+    
+    <a href="https://desvl.xyz/tags/fourier%E5%88%86%E6%9E%90/fourier-analysis"><kbd class="item-tag">Fourier分析/Fourier Analysis</kbd></a>
+    
+    <a href="https://desvl.xyz/tags/%E4%BC%98%E7%BE%8E%E7%9A%84fourier%E7%BA%A7%E6%95%B0"><kbd class="item-tag">优美的Fourier级数</kbd></a>
+    
+
+</div>
+  <div class="item">
+
+    
+    
+    
+
+    
+    
+
+    <h4><a href="/post/2019-08-26-taylor/">一元微分学的顶峰——Taylor定理(一): Peano余项</a></h4>
+    <h5>August 26, 2019</h5>
+    
+    <a href="https://desvl.xyz/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/mathematical-analysis"><kbd class="item-tag">数学分析/Mathematical Analysis</kbd></a>
+    
+    <a href="https://desvl.xyz/tags/%E6%B3%B0%E5%8B%92%E5%AE%9A%E7%90%86/taylor-theorem"><kbd class="item-tag">泰勒定理/Taylor Theorem</kbd></a>
+    
+
+</div>
+  <div class="item">
+
+    
+    
+    
+
+    
+    
+
+    <h4><a href="/post/2019-8-24-harmonic-series-divergence/">调和级数发散的证明(1&#43;1/2&#43;...&#43;1/n&#43;...)</a></h4>
+    <h5>August 24, 2019</h5>
+    
+    <a href="https://desvl.xyz/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/mathematical-analysis"><kbd class="item-tag">数学分析/Mathematical Analysis</kbd></a>
+    
+
+</div>
+ 
+
+    
+        
+    
+
+        <h4 class="page-header">Comments | 评论</h4>
+
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "admiraldesvl" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    
+
+</main>
+
+        <footer>
+        
+            <div style="float: margin: 0 auto;text-align: center;">
+            <p class="text-muted">Powered by <a href="https://gohugo.io">Hugo</a> | Theme by <a href = "https://github.com/calintat/minimal">Minimal</a></p>           
+            </div>
+            <div style="float: margin: 0 auto;text-align: center;">
+            <p class="copyright text-muted">
+            &copy; Desvl |
+            <script language="JavaScript">var fhsh = document.createElement('script');var fhs_id_h = "3339125";
+            fhsh.src = "//freehostedscripts.net/ocount.php?site="+fhs_id_h+"&name=Page views&a=1";
+            document.head.appendChild(fhsh);document.write("<span id='h_"+fhs_id_h+"'></span>");
+            </script>
+            </p>
+            </div>
+        </footer>  
+    </body>
+
+</html>
+
