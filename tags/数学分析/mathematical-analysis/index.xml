@@ -6,10 +6,19 @@
     <description>Recent content in 数学分析/Mathematical Analysis on Desvl&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 06 Sep 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 07 Sep 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://desvl.xyz/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/mathematical-analysis/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>高等数学入门: 上下确界及其极限形式</title>
+      <link>https://desvl.xyz/post/2019-09-07-sup-inf/</link>
+      <pubDate>Sat, 07 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://desvl.xyz/post/2019-09-07-sup-inf/</guid>
+      <description>介绍“确界”这个概念</description>
+    </item>
     
     <item>
       <title>n维空间中球的体积</title>

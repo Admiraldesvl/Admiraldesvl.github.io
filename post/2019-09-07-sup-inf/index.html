@@ -4,7 +4,7 @@
          
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>优美的Fourier级数（四）: 一致收敛下的Fejér定理</title>
+        <title>高等数学入门: 上下确界及其极限形式</title>
         
         <style>
 
@@ -91,8 +91,8 @@ MathJax.Hub.Config({
 
         <meta name="twitter:card" content="summary"/>
 <meta name="twitter:image" content="https://desvl.xyz/"/>
-<meta name="twitter:title" content="优美的Fourier级数（四）: 一致收敛下的Fejér定理"/>
-<meta name="twitter:description" content="初步介绍一个‘好核’：Fejér核"/>
+<meta name="twitter:title" content="高等数学入门: 上下确界及其极限形式"/>
+<meta name="twitter:description" content="介绍“确界”这个概念"/>
 
         
 
@@ -107,7 +107,7 @@ MathJax.Hub.Config({
 
                 <div class="navbar-header">
 
-                    <a class="navbar-brand visible-xs" href="#">优美的Fourier级数（四）: 一致收敛下的Fejér定理</a>
+                    <a class="navbar-brand visible-xs" href="#">高等数学入门: 上下确界及其极限形式</a>
 
                     <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
                         <span class="icon-bar"></span>
@@ -162,14 +162,10 @@ MathJax.Hub.Config({
     
     
 
-    <h4><a href="/post/2019-9-1-beautiful-fourier-004/">优美的Fourier级数（四）: 一致收敛下的Fejér定理</a></h4>
-    <h5>September 1, 2019</h5>
+    <h4><a href="/post/2019-09-07-sup-inf/">高等数学入门: 上下确界及其极限形式</a></h4>
+    <h5>September 7, 2019</h5>
     
     <a href="https://desvl.xyz/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/mathematical-analysis"><kbd class="item-tag">数学分析/Mathematical Analysis</kbd></a>
-    
-    <a href="https://desvl.xyz/tags/fourier%E5%88%86%E6%9E%90/fourier-analysis"><kbd class="item-tag">Fourier分析/Fourier Analysis</kbd></a>
-    
-    <a href="https://desvl.xyz/tags/%E4%BC%98%E7%BE%8E%E7%9A%84fourier%E7%BA%A7%E6%95%B0"><kbd class="item-tag">优美的Fourier级数</kbd></a>
     
 
 </div>
@@ -177,135 +173,118 @@ MathJax.Hub.Config({
 
     <br> <div class="text-justify">
 
-<h2 id="前言">前言</h2>
+<h2 id="问题的引入-最大值-最小值的局限性">问题的引入: 最大值、最小值的局限性</h2>
 
-<p>这篇文章是两个Good kernel的第一篇, 主要涉及一个内容: 关于一致收敛的Fejér定理. 但是, 我们会回避各种复杂繁琐的运算, 充分利用各种已知条件, 巧妙地进行间接证明. 这些解决办法省时省力, 也大大降低了文章的阅读难度. 不需要各种复杂的无穷小量分析, 只需要高中数学中的三角函数和非常简单的不等式. 当然, Fejér定理不仅仅与收敛相关, 它也涉及到一系列Fourier级数的分析与判定. 这会在后面的文章中进一步进行介绍.</p>
-
-<h2 id="fejér核的推导">Fejér核的推导</h2>
-
-<p>Fejér核其实就是Dirichlet核的算数平均值. 但我们项解决一个问题: 如何用三角函数更简单地表示Fejér核. 接下来会提供两种不同的证明方法. 这一节需要证明的是</p>
-
-<blockquote>
-<p>[K_N(x)=\frac{1}{N+1}\sum_{n=0}^ND_n(x)=\frac{1}{N+1}\cdot\frac{1-\cos(N+1)x}{1-\cos{x}}]</p>
-</blockquote>
-
-<p>也就是说, 需要证明
+<p>我们先考虑一个简单的函数:
 [
-    \sum_{n=0}^N\frac{\sin(N+\frac{1}{2})x}{\sin\frac{x}{2}}=\frac{1-\cos(N+1)x}{1-\cos{x}}
+    f(x)=x\quad x\in(0,1)
 ]</p>
 
-<h3 id="数学归纳法">数学归纳法</h3>
+<p>那么问题来了: 这个函数有没有最小值或者最大值? 答案是没有. 定义域中的严格不等式给我们制造了无法得到严格解的麻烦. 可能读者会想到, 这是个单调函数, 可以使用极限解决这个问题. 但是这样做局限性太大了. 如果我们连函数的表达式都不知道, 又要到哪个极限找“最值”呢? 我们要做的是, 找到一个数, 它描述集合的范围时, 不依赖于最大值最小值的存在, 而且它不依赖于极限.</p>
 
-<p>$N=0$时, 原等式即$1=1$.</p>
+<h2 id="理论基础-实数是有序的">理论基础: 实数是有序的</h2>
 
-<p>假设$N=k$时原等式成立, 现对$N$进行归纳.</p>
-
-<p>$$\sum_{n=0}^k\frac{\sin(k+\frac{1}{2})x}{\sin\frac{x}{2}}+\frac{\sin((k+1)+\frac{1}{2})}{\sin\frac{x}{2}}=\frac{1-\cos(k+1)x}{1-\cos{x}}+\frac{\sin((k+1)+\frac{1}{2})}{\sin\frac{x}{2}}$$</p>
-
-<p>考虑到$1-2\sin^2\frac{x}{2}=\cos{x}$, 可以进行通分:</p>
-
-<p>$$\frac{1-\cos(k+1)x}{1-\cos{x}}+\frac{\sin((k+1)+\frac{1}{2})}{\sin\frac{x}{2}}=\frac{1-\cos(k+1)x+2\sin^2\frac{x}{2}\sin(k+\frac{1}{2})x}{2\sin^2\frac{x}{2}}$$</p>
-
-<p>那么只需要证明</p>
-
-<p>$$\cos(k+1)x-2\sin^2\frac{x}{2}\sin(k+\frac{1}{2})x=\cos(k+2)x$$</p>
-
-<p>这是显然的. 只需要将最后一项展开, 得到</p>
-
-<p>$$\cos(k+1)x-2\sin^2\frac{x}{2}\sin(k+\frac{1}{2})x=\cos(k+1)x-\sin(k+1)x\sin{x}-\cos(k+1)x(1-\cos{x})=\cos(k+1)x\cos{x}-\sin(k+1)x\sin{x}=\cos(k+2)x$$</p>
-
-<p>这实际上就完成了等式的证明.</p>
-
-<h3 id="积化和差">积化和差</h3>
-
-<h4 id="简单推导">简单推导</h4>
-
-<p>积化和差的内容是高中数学的选学内容. 但其实也很简单. 接下来我们对要用到的部分进行简单推导</p>
-
-<p>因为
-[
-    \cos(x+y)=\cos{x}\cos{y}-\sin{x}\sin{y}\\<br />
-    \cos(x-y)=\cos{x}\cos{y}+\sin{x}\sin{y}\\<br />
-]
-所以
-[
-    2\sin{x}\sin{y}=\cos(x-y)-\cos(x+y)
-]</p>
-
-<h4 id="等式的证明">等式的证明</h4>
-
-<p>[
-    \sum_{n=0}^N\frac{\sin(N+\frac{1}{2})x}{\sin\frac{x}{2}}=\frac{\sum_{n=0}^N\sin(N+\frac{1}{2})x\cdot2\sin\frac{x}{2}}{2\sin^2\frac{x}{2}}
-]</p>
-
-<p>利用积化和差的结论, 上式等于</p>
-
-<p>[
-    \frac{\sum_{n=0}^N(\cos{nx}-\cos(n+1)x)}{2\sin^2\frac{x}{2}}=\frac{1-\cos(N+1)x}{2\sin^2\frac{x}{2}}=\frac{1-\cos(N+1)x}{1-\cos{x}}
-]</p>
-
-<h2 id="fejér核是好核-关于一致收敛的fejér定理">Fejér核是好核(关于一致收敛的Fejér定理)</h2>
-
-<p>接下来我们需要证明, Fejér核是好核. 可以发现, 如果我们证明了这个结论, 我们实际上就证明了$K_nf(x)=\frac{1}{2\pi}\int_{-\pi}^{\pi}f(x-t)K_n(t)dt$一致收敛于$f$的结论.</p>
-
-<h3 id="归一化">归一化</h3>
+<p>我们一直以来接触各种不等式, 最基本的理论依据就是, 实数的顺序. 这个顺序的意思就是大小关系. 没有顺序关系的数也是有的, 例如复数. 实数的顺序其实可以叙述成以下两点:</p>
 
 <blockquote>
 <ul>
-<li>归一化: [\frac{1}{2\pi}\int_{-\pi}^{\pi}K_n(x)dx=1]</li>
+<li><p>如果$x\in\mathbb{R}$而且$y\in\mathbb{R}$, 那么下面三个关系有且仅有一个成立[x&lt;y\quad x=y\quad y&lt;x]</p></li>
+
+<li><p>如果$x,y,z\in\mathbb{R}$, 而且有$x&lt;y$和$y&lt;z$, 那么$x&lt;z$</p></li>
 </ul>
 </blockquote>
 
-<p>这个结论的证明不需要进行复杂的三角函数的运算. 无论如何, Fejér核是Dirichlet核的算数平均值, 那么就有
+<p>至于“$\leq$”， 应该理解成小于或等于, “或”的意思在这里是并没有强调哪个一定成立.</p>
+
+<h2 id="确界的定义">确界的定义</h2>
+
+<p>我们接下来只讨论上界. 也就是说, 我们只讨论小于的情况. 至于另一侧, 将小于号换成大于号即可.</p>
+
+<h3 id="什么叫有上界">什么叫有上界</h3>
+
+<blockquote>
+<p>取集合$E\subset\mathbb{R}$, 如果<strong>存在</strong>$\beta\in\mathbb{R}$使得对<strong>任意</strong>$x\in{E}$都<strong>满足</strong>不等式$x\leq\beta$, 那么就称$E$有上界, $\beta$就是$E$的一个上界.</p>
+</blockquote>
+
+<p>这其实就是一个存在命题. 只要满足就够了. 满足之后呢? 没然后了. 剩下的细节不重要. 这和极限很类似. 一个很简单的例子: $(-\infty,1]$就是有上界的. 而且上界$\beta$满足$\beta\in[1,+\infty)$.</p>
+
+<h3 id="上确界-最小的上界">上确界: 最小的上界</h3>
+
+<p>有的时候, 我们需要知道一个严格解, 这就是上确界. 首先, 我们给出上确界的定义.</p>
+
+<blockquote>
+<p>对于有上界的集合$E$, 假设存在一个$\alpha\in\mathbb{R}$满足以下条件, 那么就称它为$E$的上确界, 记作$\alpha=\sup{E}$:</p>
+
+<ul>
+<li><p>$\alpha$是$E$的一个上界</p></li>
+
+<li><p>如果$\gamma&lt;\alpha$, 那么$\gamma$不是$E$的上界</p></li>
+</ul>
+</blockquote>
+
+<p>下确界可以通过相反的不等式进行确定, 记作$\alpha=\inf{E}$. 当然$\sup$和$\inf$后面也不一定要跟一个集合, 也可以跟一个函数或者数列. 回到开头的那个函数, 我们能很容易得到
 [
-    \frac{1}{2\pi}\int_{-\pi}^{\pi}K_N(t)dt=\frac{1}{N+1}\cdot\frac{1}{2\pi}\int_{-\pi}^{\pi}\sum_{n=0}^{N}D_n(t)dt=\frac{1}{N+1}\cdot\frac{1}{2\pi}\sum_{n=0}^{N}\int_{-\pi}^{\pi}D_n(t)dt=\frac{1}{N+1}\cdot{(N+1)}=1
+    \sup{f(x)}=1\quad\inf{f(x)}=0
 ]</p>
 
-<h3 id="有界性">有界性</h3>
+<p>这时我们不再依赖于极限, 也可以发现, <strong>如果函数的最大值或最小值存在, 那么它一定等于上确界或下确界, 但是上下确界存在时, 最值不一定存在.</strong> 在函数最值不存在时, 我们仍然能利用确界对函数的范围进行严格的分析, 而且不一定需要求极限, 这体现了上下确界的价值所在. 在这里建议读者写几个函数, 再试着求以下上下确界.</p>
 
-<blockquote>
-<ul>
-<li>有界性: 存在$M&gt;0$, 使得对所有$n\geq1$有[\int_{-\pi}^{\pi}|K_n(t)|dt\leq{M}]</li>
-</ul>
-</blockquote>
+<h2 id="确界的极限形式-上极限-下极限">确界的极限形式(上极限、下极限)</h2>
 
-<p>这个结论的证明也不需要进行复杂的三角函数的运算. 实际上我们已经证明完了. 只需要指明一点: $K_n(x)\geq{0}$, 所以$|K_n(x)|=K_n(x). 这是显然的, 因为分子分母都是非负的.</p>
+<h3 id="数列形式">数列形式</h3>
 
-<h3 id="两翼收敛">两翼收敛</h3>
-
-<blockquote>
-<ul>
-<li>两翼收敛: 对于所有$\delta&gt;0$, 满足[\lim\limits_{n\to\infty}\int_{\delta\leq|t|\leq\pi}|K_n(t)|dt=0]</li>
-</ul>
-</blockquote>
-
-<p>我们还是不需要进行复杂的运算. 注意到$\delta\leq|x|\leq\pi$时, 始终有
+<p>设$\{a_n\}$是$\mathbb{R}$里的一个数列, 并且定义
 [
-    \begin{cases}
-        1-\cos(N+1)x\leq{2}\\<br />
-        \frac{1}{1-\cos{x}}\leq\frac{1}{1-\cos{\delta}}
-    \end{cases}
+    b_k=\sup\{a_k,a_{k+1},a_{k+2},\cdots\}
 ]</p>
 
-<p>所以就有
+<p>再定义
 [
-    K_N(x)\leq\frac{1}{N+1}\cdot\frac{2}{1-\cos\delta}
-]
-再对$K_N(x)$进行积分, 代入不等式关系, 立刻得到结论.</p>
+    \beta=\inf\{b_1,b_2,b_3,\cdots\}
+]</p>
 
-<p>至此, 我们通过一些已知结论和简单的性质, 回避了复杂的运算, 证明了“Fejér核是好核”这一个说法. 而<a href="/post/2019-8-22-beautiful-fourier-003/">上一篇文章</a>指出, 证明了好核其实就是证明了一致收敛. 其实就是下面的Fejér定理:</p>
+<p>那么就有
+[
+    \beta=\limsup_{n\to\infty}a_n
+]</p>
 
-<blockquote>
-<p>如果$f$是周期为$2\pi$的连续函数, 那么$K_nf(x)$一致收敛于$f$.</p>
-</blockquote>
+<p>这就完成了上极限的定义. 而下极限的求法就是将上面的上确界、下确界交换顺序即可. 可是这里为什么出现了极限符号? 这是因为
+[
+    b_1\geq b_2\geq b_3\geq\cdots\geq\beta
+]</p>
 
-<h2 id="逐点收敛-逐点形式下的fejér定理">逐点收敛(逐点形式下的Fejér定理)</h2>
+<p>所以有
+[
+    \lim\limits_{k\to\infty}b_k=\beta
+]</p>
 
-<blockquote>
-<p>如果以$2\pi$为周期的函数$f$在$[-\pi,\pi]$上可积和绝对可积, 并且在$x_0$处有左右极限$f(x_0^+)$和$f(x_0^-)$， 则$f$的Fejér核收敛于$\frac{f(x_0^+)+f(x_0^-)}{2}$</p>
-</blockquote>
+<p>此外,$\{a_n\}$中有一个子列$\{a_{n_i}\}$收敛于$\beta$, 而且$\beta$是具有这个性质<strong>最大</strong>的数.</p>
 
-<p>我们上一次看到这个$\frac{f(x_0^+)+f(x_0^-)}{2}$是在Jordan判定法. Fejér核虽然比Dirichlet核更复杂, 但是逐点收敛的证明是很简单的, 它是非负的. 证明会在接下来的文章中更新.</p>
+<p>这其实还是解决了一件事情, 如果一个数列发散, 我们还是有可能利用上下确界的极限形式来研究极限的一些性质. 一个很简单的例子比如
+[
+    \limsup_{n\to\infty}{(-1)^n}=1\quad\liminf_{n\to\infty}{(-1)^n}=-1
+]</p>
+
+<h3 id="函数形式">函数形式</h3>
+
+<p>函数中上下极限的求法其实和数列形式是非常类似的. 我们先举一个上极限的例子, 理解构建过程时也可以利用这个例子:
+[
+    \limsup_{x\to{0}}\sin\frac{1}{x}=1
+]</p>
+
+<p>对于函数, 值域可能是连续集合. 求$x\to{a}$时的上极限, 我们先求出$x\to{a}$时, $f(x)$的上确界构成的集合
+[
+    U=\{y|y=\sup\{f(x)|x\in(a-\varepsilon,a+\varepsilon)\}\}
+]</p>
+
+<p>那么上极限就是
+[
+    \limsup_{x\to{a}}f(x)=\inf\{U\}
+]</p>
+
+<h2 id="总结">总结</h2>
+
+<p>我们单纯利用不等式, 建立起一个非常严格，也非常有应用价值的概念: 确界. 这个概念源于最值, 又高于最值. 当然确界和最值什么时候相等又是一个拓扑学问题. 这又是另外一个话题了.</p>
 </div>
     <h4 class="page_header">Share | 分享</h4>
     <hr>
@@ -355,8 +334,8 @@ MathJax.Hub.Config({
     
     
 
-    <h4><a href="/post/2019-09-07-sup-inf/">高等数学入门: 上下确界及其极限形式</a></h4>
-    <h5>September 7, 2019</h5>
+    <h4><a href="/post/2019-09-06-n-ball/">n维空间中球的体积</a></h4>
+    <h5>September 6, 2019</h5>
     
     <a href="https://desvl.xyz/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/mathematical-analysis"><kbd class="item-tag">数学分析/Mathematical Analysis</kbd></a>
     
@@ -371,10 +350,14 @@ MathJax.Hub.Config({
     
     
 
-    <h4><a href="/post/2019-09-06-n-ball/">n维空间中球的体积</a></h4>
-    <h5>September 6, 2019</h5>
+    <h4><a href="/post/2019-9-1-beautiful-fourier-004/">优美的Fourier级数（四）: 一致收敛下的Fejér定理</a></h4>
+    <h5>September 1, 2019</h5>
     
     <a href="https://desvl.xyz/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/mathematical-analysis"><kbd class="item-tag">数学分析/Mathematical Analysis</kbd></a>
+    
+    <a href="https://desvl.xyz/tags/fourier%E5%88%86%E6%9E%90/fourier-analysis"><kbd class="item-tag">Fourier分析/Fourier Analysis</kbd></a>
+    
+    <a href="https://desvl.xyz/tags/%E4%BC%98%E7%BE%8E%E7%9A%84fourier%E7%BA%A7%E6%95%B0"><kbd class="item-tag">优美的Fourier级数</kbd></a>
     
 
 </div>
