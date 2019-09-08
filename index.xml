@@ -6,7 +6,7 @@
     <description>Recent content on Desvl&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 07 Sep 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 08 Sep 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://desvl.xyz/index.xml" rel="self" type="application/rss+xml" />
     
@@ -18,6 +18,15 @@
       
       <guid>https://desvl.xyz/about/</guid>
       <description>About this website/关于这个网站 主要是与数学有关的内容. 可能内容不是很轻松有趣, 但是我希望严格的数理语言能引人思考, 从思考中获得兴趣. 当然内</description>
+    </item>
+    
+    <item>
+      <title>一元微分学的顶峰——Taylor定理(二): 积分型余项、Lagrange余项、Cauchy余项</title>
+      <link>https://desvl.xyz/post/2019-09-08-taylor2/</link>
+      <pubDate>Sun, 08 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://desvl.xyz/post/2019-09-08-taylor2/</guid>
+      <description>关于Taylor定理的积分型余项和其余两种余项的关系</description>
     </item>
     
     <item>
@@ -53,7 +62,7 @@
       <pubDate>Mon, 26 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>https://desvl.xyz/post/2019-08-26-taylor/</guid>
-      <description>多项式逼近函数</description>
+      <description>关于Taylor定理的Peano余项和其实质: 多项式逼近函数</description>
     </item>
     
     <item>
