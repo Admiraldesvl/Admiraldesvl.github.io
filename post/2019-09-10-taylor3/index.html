@@ -4,7 +4,7 @@
          
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>高等数学入门: 关于极限这个概念</title>
+        <title>一元微分学的顶峰——Taylor定理(三): 利用Taylor定理分析误差</title>
         
         <style>
 
@@ -91,8 +91,8 @@ MathJax.Hub.Config({
 
         <meta name="twitter:card" content="summary"/>
 <meta name="twitter:image" content="https://desvl.xyz/"/>
-<meta name="twitter:title" content="高等数学入门: 关于极限这个概念"/>
-<meta name="twitter:description" content="正确理解什么是极限"/>
+<meta name="twitter:title" content="一元微分学的顶峰——Taylor定理(三): 利用Taylor定理分析误差"/>
+<meta name="twitter:description" content="利用Taylor定理分析两个重要数列极限和数列的误差"/>
 
         
 
@@ -107,7 +107,7 @@ MathJax.Hub.Config({
 
                 <div class="navbar-header">
 
-                    <a class="navbar-brand visible-xs" href="#">高等数学入门: 关于极限这个概念</a>
+                    <a class="navbar-brand visible-xs" href="#">一元微分学的顶峰——Taylor定理(三): 利用Taylor定理分析误差</a>
 
                     <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
                         <span class="icon-bar"></span>
@@ -162,10 +162,12 @@ MathJax.Hub.Config({
     
     
 
-    <h4><a href="/post/2019-08-22-what-is-limit/">高等数学入门: 关于极限这个概念</a></h4>
-    <h5>August 22, 2019</h5>
+    <h4><a href="/post/2019-09-10-taylor3/">一元微分学的顶峰——Taylor定理(三): 利用Taylor定理分析误差</a></h4>
+    <h5>September 10, 2019</h5>
     
     <a href="https://desvl.xyz/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/mathematical-analysis"><kbd class="item-tag">数学分析/Mathematical Analysis</kbd></a>
+    
+    <a href="https://desvl.xyz/tags/%E6%B3%B0%E5%8B%92%E5%AE%9A%E7%90%86/taylor-theorem"><kbd class="item-tag">泰勒定理/Taylor Theorem</kbd></a>
     
 
 </div>
@@ -173,33 +175,86 @@ MathJax.Hub.Config({
 
     <br> <div class="text-justify">
 
-<h2 id="前言">前言</h2>
+<h2 id="问题的引入">问题的引入</h2>
 
-<p>你开始高等数学或者数学分析的课程之后, 不出意外的话, 会立马碰上一个理解和应用非常困难, 却又非常重要的概念: 极限. 这篇文章里我不想也不会讲各种奇妙的计算&rdquo;秘诀&rdquo;. 我不支持这种内容, 当然让我讲我也讲不了. 我会在这篇文章里分享一下我对极限这个概念的理解, 希望我的理解能对各位有所帮助.</p>
+<p>如果数列$\{x_n\}$的极限是$x$, 那么有$\lim_{n\to\infty}(x-x_n)=0$. 但是问题是, $x-x_n$是以什么速度收敛到$0$的呢? 和$n$有没有关系? 如果按照一定比例放大这个误差会有什么结果? 可以先考虑一个简单的例子: $\lim_{n\to\infty}\frac{1}{n}=0$, 而这个误差$\frac{1}{n}-0$就能刻画收敛速度. 如果我们放大$n$倍, 那么有$\lim_{n\to\infty}n(\frac{1}{n}-0)=1$.</p>
 
-<h2 id="极限好理解吗">极限好理解吗？</h2>
+<p>接下来, 我们尝试分析一些更复杂但是很有实际意义的误差.</p>
 
-<p>不, 极限<strong>很难理解</strong>. 理解的难度并不是说某人悟性如何, 而是因为, 这个概念的正确建立在数学历史上就是充满坎坷的. 总体来说, 高中课程上完, 我们来到了牛顿-莱布尼兹时代. 我们学习了四则运算、勾股定理、欧几里得几何、笛卡尔坐标系、一元二次方程等等, 又学习了一些导数和积分的基本知识. 这基本是牛顿-莱布尼兹发展微积分之前的内容. 但是, 接下来的路就显得很坎坷了. 从牛顿和莱布尼兹在17世纪发展了微积分以来, 数学家们花了好长时间才摆脱无穷小量这个&rdquo;梦魇&rdquo;. 微积分诞生之初, 理论基础非常不严格, 诸如&rdquo;先不等于$0$, 再等于$0$&ldquo;这种说法也使微积分本身遭到了批评家的砰击. 一直到20世纪, 无穷小量才得到了严格地数学处理. 我们不可能轻轻松松走完数学家们二百年的路. <strong>极限的理解是一个长期的工作, 贯穿整个微积分的学习, 不能急于求成.</strong></p>
+<h3 id="e-和-left-1-frac-1-n-right-n">$e$和$\left(1+\frac{1}{n}\right)^n$</h3>
 
-<h2 id="极限到底在处理什么">极限到底在处理什么?</h2>
+<p>欧拉数$e$有一个很重要的极限</p>
 
 <blockquote>
-<p>数列$\{a_n\}$收敛于$a$的定义是: 对于每一个给定的$\varepsilon&gt;0$, <strong>存在</strong>$N$, 使得对满足条件$n&gt;N$的<strong>每个</strong>自然数$n$, 成立<strong>不等式</strong>$|a_n-a|&lt;\varepsilon$.</p>
-
-<p>函数$f(x)$在$x$趋近于$a$时以$A$为极限的定义是: 设$a,A\in\mathbb{R}$, 函数$f$在点$a$的一个邻域中有定义, 若对<strong>每个</strong>给定的$\varepsilon&gt;0$, <strong>存在</strong> $\delta&gt;0$, 使得$-\delta&lt;x-a&lt;\delta$时, 成立<strong>不等式</strong>$|f(x)-A|&lt;\varepsilon$.</p>
+<p>[\lim\limits_{n\to\infty}(1+\frac{1}{n})^n=e]</p>
 </blockquote>
 
-<p>我们要从牛顿莱布尼兹时代往前迈进, 不能再出现&rdquo;先不等于$0$, 再等于$0$&ldquo;之类的说法了. 从两个定义中可以看到, 极限中有两个重点需要处理: <strong>不等式、全称量词和存在量词</strong>. 这也是数学家们&rdquo;驯服&rdquo;无穷小量的办法. 数理逻辑中两个重要的逻辑符号, $\forall$和$\exists$, 在数学中被广泛使用, 这其中就包括了极限. 这两个量词使得叙述更加清晰严密, 想写否定说法也轻而易举. 至于不等式, 想必各位已经接受了一定量的训练.</p>
+<p>这个极限是随着$n$的增大而趋于$0$的. 问题是, 我们能不能定量分析这个误差? 有一种办法是写出$e=\sum\frac{1}{n!}$然后展开$\left(1+\frac{1}{n}\right)^n$再进行分析. 这种方法要处理的项太多了. 接下来, 我们会尝试通过Taylor定理进行细致而又简洁的分析.</p>
 
-<p>我们再来看看这两个定义到底在干什么: 对数列来说, 解释&rdquo;无穷远处&rdquo;确实是一件很困难的事, 那我们退而求其次, 解释这个数列的局部特征, 也就是说, $n&gt;N$这一部分. 对函数来说, 某个点$x=a$处可能没有定义, 比如$y=\frac{x^2-1}{x+1}$在$x=-1$处. 那么解释这个点处的性质变得很困难, 所以我们退而求其次, 解释局部特征, 也就是说$x=a$这个点附近. 而这两个情况中的局部都有一个特征: 误差足够小.</p>
+<blockquote>
+<p>令$\delta_n=e-\left(1+\frac{1}{n}\right)^n$, 求证$\lim\limits_{n\to\infty}n\delta_n=\frac{e}{2}$.</p>
+</blockquote>
 
-<p>极限这个概念涉及的面非常广, 有各种各样复杂的形式, 涉及到各种不等式, 会用到各种计算技巧, 这也是极限这个概念非常困难的原因之一. 但是不能忘记处理极限的时候到底在干什么.</p>
+<p>用Taylor公式分析$\delta_n$即可.
+[
+    \begin{aligned}
+        \delta_n=e-\left(1+\frac{1}{n}\right)^n&amp;=e-\text{exp}\left(n\log\left(1+\frac{1}{n}\right)\right) \\<br />
+        &amp;=e-\text{exp}\left(n\left(\frac{1}{n}-\frac{1}{2n^2}+o\left(\frac{1}{n^2}\right)\right)\right) \\<br />
+        &amp;=e-\text{exp}\left(1-\frac{1}{2n}+o\left(\frac{1}{n}\right)\right) \\<br />
+        &amp;=e\left(1-\text{exp}\left(-\frac{1}{2n}+o\left(\frac{1}{n}\right)\right)\right) \\<br />
+        &amp;=e\left(1-\left(1-\frac{1}{2n}+o\left(\frac{1}{n}\right)\right)\right) \\<br />
+        &amp;= \frac{e}{2n} +o(1)
+    \end{aligned}
+]</p>
 
-<h2 id="总结">总结</h2>
+<p>所以就有 $\lim\limits_{n\to\infty}n\delta_n=\frac{e}{2}$.</p>
 
-<p>这篇文章可能会让你失望. 文中并没有什么奇妙的&rdquo;本质&rdquo;, 没有立竿见影的效果. 但是我希望它能让你对极限的理解得到提升——至少, 得抓住理解的重点. 微积分的课程从引入极限的概念以后, 总是在直接或者间接的处理极限, 而极限又总是在处理量词和不等式.</p>
+<p>在这几个式子里, 我们用到了两次Taylor公式. 第一次是将$\log\left(1+\frac{1}{n}\right)$展开成$\frac{1}{n}-\frac{1}{2n^2}+o(\frac{1}{n^2})$. 第二次是将$\text{exp}\left(1-\frac{1}{2n}+o\left(\frac{1}{n}\right)\right)$展开成$\left(1-\frac{1}{2n}+o\left(\frac{1}{n}\right)\right)$. 但这两次运算的实质是一样的: <strong>将复杂的函数简化成多项式(变元是$\frac{1}{n}$), 再进行无穷小量的分析. 用Peano余项的Taylor公式分析极限不是奇怪的事情, 因为Peano余项本身就是一个不等式的刻画.</strong></p>
 
-<p>又说一句题外话: 我并不支持所谓&rdquo;狗-sin狗等价于六分之一狗三&rdquo;这种让人哭笑不得的&rdquo;真传&rdquo;. 可能对于大多数人来说, 高等数学中各种定理的严格的理论证明不是很重要, 这当然无可厚非, 没有谁对谁错. 但是, 理解正规的论述(尽管可能不是很严密)对提高数学水平还是很有帮助的. 能用生动形象的语言把一些知识解释给别人听说明自己理解得好, 但是把经不起推敲的解释太当回事肯定也不行, 这样肯定会少点东西.</p>
+<h3 id="sum-k-1-n-frac-1-n-f-frac-k-n-和-int-0-1-f-x-dx-积分与黎曼和">$\sum_{k=1}^n\frac{1}{n}f(\frac{k}{n})$和$\int_{0}^{1}f(x)dx$(积分与黎曼和)</h3>
+
+<p>这个问题是我在解决一个数学竞赛题的时候发现的. 在这篇文章里我试着推广一下. 通过分析这个误差, 也能对积分的定义有一些不同的认识.</p>
+
+<blockquote>
+<p>设$f(x)$可导, 求极限[\lim\limits_{n\to\infty}n\left(\sum_{k=1}^n\frac{1}{n}f(\frac{k}{n})-\int_{0}^{1}f(x)dx\right)]</p>
+</blockquote>
+
+<p>这个和上一节中的$n\delta_n$一样, 都是$0\cdot\infty$类型的极限. 我们必须进一步化简这个等式.</p>
+
+<p>首先要做的一件事情是将求和号合并. 为了将<strong>不确定性</strong>降到最低, 将$\int_{0}^{1}f(x)dx$分割成$n$个小区间的积分和. 否则还能做什么? 我们还能直接利用积分中值定理. 但是这样做的话不确定内容太多(只有整个$[0,1]$区间的函数中值). 换句话说, 分割成$n$个小区间, 也是为了将不确定性进行“分割”.</p>
+
+<p>[
+    \sum_{k=1}^n\frac{1}{n}f(\frac{k}{n})-\int_{0}^{1}f(x)dx=\sum_{k=1}^n\int_{\frac{k-1}{n}}^{\frac{k}{n}}\left(f(\frac{k}{n})-f(x)\right)dx
+]</p>
+
+<p>看到$f(\frac{k}{n})-f(x)$, 读者可能会想到Lagrange中值定理, 但这是远远不够的. $x$还是变化的, 所以这个中值也是变化的, 而且中值的变化情况也是很难确定的. 这就要求我们有更深入的挖掘. Taylor定理无疑是中值定理的强化版, 对此我们有
+[
+    f(x)=f(\frac{k}{n})+f&rsquo;(\frac{k}{n})\left(x-\frac{k}{n}\right)+o(x-\frac{k}{n})
+]</p>
+
+<p>将这个展开式和上一步得到的和式合并, 发现可以消去一项, 也就是说有
+[
+\begin{aligned}
+    \sum_{k=1}^n\int_{\frac{k-1}{n}}^{\frac{k}{n}}\left(f(\frac{k}{n})-f(x)\right)dx &amp;= -\sum_{k=1}^n\int_{\frac{k-1}{n}}^{\frac{k}{n}}\left(f&rsquo;(\frac{k}{n})(x-\frac{k}{n})+o(x-\frac{k}{n})\right)dx \\<br />
+    &amp;=\sum_{k=1}^n\left(\frac{1}{2n^2}f&rsquo;(\frac{k}{n})+o(\frac{1}{n^2})\right)
+\end{aligned}
+]</p>
+
+<p>以上涉及到的是一系列基本的积分运算. 值得注意的是$\frac{1}{2n^2}f&rsquo;(\frac{k}{n})$这一项, 如果乘上$n$再求和, 再取极限, 就是一个积分, 而$n\cdot o(\frac{1}{n^2})\to{0}$. 这时我们已经离答案很近了:
+[
+\begin{aligned}
+    \lim\limits_{n\to\infty}n\sum_{k=1}^n\left(\frac{1}{2n^2}f&rsquo;(\frac{k}{n})+o(\frac{1}{n})\right)&amp;=\lim\limits_{n\to\infty}\frac{1}{2}\sum_{k=1}^n\frac{1}{n}f&rsquo;(\frac{k}{n}) \\<br />
+    &amp;=\frac{1}{2}\int_{0}^{1}f&rsquo;(x)dx \\<br />
+    &amp;=\frac{f(1)-f(0)}{2}
+\end{aligned}
+]</p>
+
+<p>也就是说,
+&gt; [\lim\limits_{n\to\infty}n\left(\sum_{k=1}^n\frac{1}{n}f(\frac{k}{n})-\int_{0}^{1}f(x)dx\right)=\frac{f(1)-f(0)}{2}]</p>
+
+<h2 id="小结">小结</h2>
+
+<p>我们在做的都是一件事情: 多项式近似. 对初等函数而言, 多项式通常是最简单的一类. 对多项式而言, 求导、积分、不等式等等都是比较简单、比较自然的. 也可以这样想: <strong>多项式是有限次运算, 而其他初等函数可能是无限次运算. 但是分析一些问题时, 有限次运算就够了. Taylor公式就给我们搭建起无限次到有限次的桥梁.</strong></p>
 </div>
     <h4 class="page_header">Share | 分享</h4>
     <hr>
@@ -249,24 +304,6 @@ MathJax.Hub.Config({
     
     
 
-    <h4><a href="/post/2019-09-10-taylor3/">一元微分学的顶峰——Taylor定理(三): 利用Taylor定理分析误差</a></h4>
-    <h5>September 10, 2019</h5>
-    
-    <a href="https://desvl.xyz/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/mathematical-analysis"><kbd class="item-tag">数学分析/Mathematical Analysis</kbd></a>
-    
-    <a href="https://desvl.xyz/tags/%E6%B3%B0%E5%8B%92%E5%AE%9A%E7%90%86/taylor-theorem"><kbd class="item-tag">泰勒定理/Taylor Theorem</kbd></a>
-    
-
-</div>
-  <div class="item">
-
-    
-    
-    
-
-    
-    
-
     <h4><a href="/post/2019-09-08-taylor2/">一元微分学的顶峰——Taylor定理(二): 三种余项的推导</a></h4>
     <h5>September 8, 2019</h5>
     
@@ -287,6 +324,22 @@ MathJax.Hub.Config({
 
     <h4><a href="/post/2019-09-07-sup-inf/">高等数学入门: 上下确界及其极限形式</a></h4>
     <h5>September 7, 2019</h5>
+    
+    <a href="https://desvl.xyz/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/mathematical-analysis"><kbd class="item-tag">数学分析/Mathematical Analysis</kbd></a>
+    
+
+</div>
+  <div class="item">
+
+    
+    
+    
+
+    
+    
+
+    <h4><a href="/post/2019-09-06-n-ball/">n维空间中球的体积</a></h4>
+    <h5>September 6, 2019</h5>
     
     <a href="https://desvl.xyz/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/mathematical-analysis"><kbd class="item-tag">数学分析/Mathematical Analysis</kbd></a>
     

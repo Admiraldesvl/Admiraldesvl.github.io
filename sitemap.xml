@@ -11,25 +11,50 @@
   
   <url>
     <loc>https://desvl.xyz/categories/</loc>
-    <lastmod>2019-09-08T00:00:00+00:00</lastmod>
+    <lastmod>2019-09-10T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://desvl.xyz/</loc>
-    <lastmod>2019-09-08T00:00:00+00:00</lastmod>
+    <lastmod>2019-09-10T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://desvl.xyz/post/</loc>
-    <lastmod>2019-09-08T00:00:00+00:00</lastmod>
+    <lastmod>2019-09-10T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://desvl.xyz/tags/</loc>
-    <lastmod>2019-09-08T00:00:00+00:00</lastmod>
+    <lastmod>2019-09-10T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://desvl.xyz/post/2019-09-10-taylor3/</loc>
+    <lastmod>2019-09-10T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://desvl.xyz/categories/%E6%95%B0%E5%AD%A6/math/</loc>
+    <lastmod>2019-09-10T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://desvl.xyz/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/mathematical-analysis/</loc>
+    <lastmod>2019-09-10T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://desvl.xyz/tags/%E6%B3%B0%E5%8B%92%E5%AE%9A%E7%90%86/taylor-theorem/</loc>
+    <lastmod>2019-09-10T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -38,24 +63,6 @@
     <lastmod>2019-09-08T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://desvl.xyz/categories/%E6%95%B0%E5%AD%A6/math/</loc>
-    <lastmod>2019-09-08T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://desvl.xyz/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/mathematical-analysis/</loc>
-    <lastmod>2019-09-08T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://desvl.xyz/tags/%E6%B3%B0%E5%8B%92%E5%AE%9A%E7%90%86/taylor-theorem/</loc>
-    <lastmod>2019-09-08T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
