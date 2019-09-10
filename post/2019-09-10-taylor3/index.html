@@ -243,7 +243,7 @@ MathJax.Hub.Config({
 <p>以上涉及到的是一系列基本的积分运算. 值得注意的是$\frac{1}{2n^2}f&rsquo;(\frac{k}{n})$这一项, 如果乘上$n$再求和, 再取极限, 就是一个积分, 而$n\cdot o(\frac{1}{n^2})\to{0}$. 这时我们已经离答案很近了:
 [
 \begin{aligned}
-    \lim\limits_{n\to\infty}n\sum_{k=1}^n\left(\frac{1}{2n^2}f&rsquo;(\frac{k}{n})+o(\frac{1}{n})\right)&amp;=\lim\limits_{n\to\infty}\frac{1}{2}\sum_{k=1}^n\frac{1}{n}f&rsquo;(\frac{k}{n}) \\<br />
+    \lim\limits_{n\to\infty}n\sum_{k=1}^n\left(\frac{1}{2n^2}f&rsquo;(\frac{k}{n})+o(\frac{1}{n^2})\right)&amp;=\lim\limits_{n\to\infty}\frac{1}{2}\sum_{k=1}^n\frac{1}{n}f&rsquo;(\frac{k}{n}) \\<br />
     &amp;=\frac{1}{2}\int_{0}^{1}f&rsquo;(x)dx \\<br />
     &amp;=\frac{f(1)-f(0)}{2}
 \end{aligned}
