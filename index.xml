@@ -6,7 +6,7 @@
     <description>Recent content on Desvl&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 12 Sep 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 14 Sep 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://desvl.xyz/index.xml" rel="self" type="application/rss+xml" />
     
@@ -18,6 +18,15 @@
       
       <guid>https://desvl.xyz/about/</guid>
       <description>About this website/关于这个网站 主要是与数学有关的内容. 可能内容不是很轻松有趣, 但是我希望严格的数理语言能引人思考, 从思考中获得兴趣. 当然内</description>
+    </item>
+    
+    <item>
+      <title>高等数学入门: 静态的极限、静态的导数</title>
+      <link>https://desvl.xyz/post/2019-09-14-what-is-limit-2/</link>
+      <pubDate>Sat, 14 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://desvl.xyz/post/2019-09-14-what-is-limit-2/</guid>
+      <description>不要再有“导数是切线斜率”的刻板印象了</description>
     </item>
     
     <item>
@@ -180,15 +189,6 @@
       
       <guid>https://desvl.xyz/post/2019-08-05-beautiful-fourier-001/</guid>
       <description>从不同的角度理解Fourier级数</description>
-    </item>
-    
-    <item>
-      <title>压缩定理和其应用</title>
-      <link>https://desvl.xyz/post/2019-08-04-contraction-application/</link>
-      <pubDate>Sun, 04 Aug 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://desvl.xyz/post/2019-08-04-contraction-application/</guid>
-      <description>利用压缩定理解决迭代生成的数列的极限问题</description>
     </item>
     
   </channel>
