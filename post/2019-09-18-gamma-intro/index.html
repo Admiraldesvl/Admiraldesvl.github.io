@@ -4,7 +4,7 @@
          
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>洛必达法则的几种证明办法</title>
+        <title>伽玛函数两个有趣的应用</title>
         
         <style>
 
@@ -91,8 +91,8 @@ MathJax.Hub.Config({
 
         <meta name="twitter:card" content="summary"/>
 <meta name="twitter:image" content="https://desvl.xyz/"/>
-<meta name="twitter:title" content="洛必达法则的几种证明办法"/>
-<meta name="twitter:description" content="利用两种微积分中的重要工具证明洛必达法则"/>
+<meta name="twitter:title" content="伽玛函数两个有趣的应用"/>
+<meta name="twitter:description" content="一个经典的含参反常积分——伽玛函数在微积分中的一些应用"/>
 
         
 
@@ -107,7 +107,7 @@ MathJax.Hub.Config({
 
                 <div class="navbar-header">
 
-                    <a class="navbar-brand visible-xs" href="#">洛必达法则的几种证明办法</a>
+                    <a class="navbar-brand visible-xs" href="#">伽玛函数两个有趣的应用</a>
 
                     <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
                         <span class="icon-bar"></span>
@@ -162,8 +162,8 @@ MathJax.Hub.Config({
     
     
 
-    <h4><a href="/post/2019-08-19-l-hopital-proof/">洛必达法则的几种证明办法</a></h4>
-    <h5>August 19, 2019</h5>
+    <h4><a href="/post/2019-09-18-gamma-intro/">伽玛函数两个有趣的应用</a></h4>
+    <h5>September 18, 2019</h5>
     
     <a href="https://desvl.xyz/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/mathematical-analysis"><kbd class="item-tag">数学分析/Mathematical Analysis</kbd></a>
     
@@ -175,116 +175,54 @@ MathJax.Hub.Config({
 
 <h2 id="前言">前言</h2>
 
-<p>洛必达法则我想甚至不少高中生都听说过, 知道怎么进行简单的应用. 简单点说, 处理$\frac{0}{0}$的函数时, 对上下进行求导, 可能会很大程度上简化计算. 但是洛必达法则为什么能奏效? 能不能用严格的数理语言进行论证?  这是这篇文章需要解决的.</p>
+<p>在<a href="/post/2019-09-06-n-ball">介绍$n$维球体积</a>时, 我们引入了一个很重要的函数:
+[
+    \Gamma(x)=\int_0^{\infty}t^{x-1}e^{-t}dt
+]</p>
 
-<h2 id="洛必达法则的完整论述">洛必达法则的完整论述</h2>
+<p>并且用它和$B(x,y)$对三角函数积分进行大幅度简化. 但这只是$\Gamma$函数诸多性质的一部分. 这个函数经常出现在分析学中很多让人意想不到的场合. 今天我会试着整理一些这个函数两个很常用的应用.</p>
+
+<h2 id="欧拉-泊松积分-int-infty-infty-e-x-2-dx-到底怎么算">欧拉-泊松积分$\int_{-\infty}^{\infty}e^{-x^2}dx$到底怎么算?</h2>
+
+<p>很遗憾, $\int e^{-x^2}dx$不是一个初等函数, 不能写成一个&rdquo;原函数&rdquo;. 但是它的值是可以算的. 介绍$n$维球体积时我说, 算出$\Gamma(\frac{1}{2})=\sqrt{\pi}$, 离算出$\int_{-\infty}^{\infty}e^{-x^2}dx$已经很近很近了. 在这里我会给出计算办法.</p>
+
+<p>只需要令$t=s^2$, 代入$\Gamma$的方程即可. 此时有
+[
+    \Gamma(x)=2\int_0^{\infty}s^{2x-1}e^{-s^2}ds
+]</p>
+
+<p>看到$2x-1$, 你会想到什么? 没错, 这个$s$可以消去一个! 代入$\frac{1}{2}$, 就有
+[
+    \Gamma(\frac{1}{2})=2\int_{0}^{\infty}e^{-s^2}ds=\int_{-\infty}^{\infty}e^{-s^2}ds=\sqrt{\pi}
+]</p>
+
+<p>至此, 欧拉-泊松积分的计算得到解决. 当然解决办法还有很多, 但这种算法是离$\Gamma$函数最近的.</p>
+
+<h2 id="stirling公式-分析-n-的有力工具">Stirling公式, 分析$n!$的有力工具.</h2>
+
+<p>Stirling公式是对$\Gamma$函数在$x$足够大时的估计:
+[
+    \lim\limits_{x\to\infty}\frac{\Gamma(x+1)}{(x/e)^x\sqrt{2\pi x}}=1
+]</p>
+
+<p>对于正整数$n$, 利用$\Gamma$函数的阶乘性质, 也可以得到
+[
+    \lim\limits_{x\to\infty}\frac{\Gamma(n+1)}{(n/e)^n\sqrt{2\pi n}}=\lim\limits_{x\to\infty}\frac{n!}{(n/e)^n\sqrt{2\pi n}}=1
+]</p>
+
+<p>这个命题的证明是比较困难的. 我在先这里会给出一些简单应用. Stirling公式说明了一件事情: $n!$和$(n/e)^n\sqrt{2\pi n}$是等价无穷大. 所以在计算一些$\frac{\infty}{\infty}$类型的极限时, 可以直接利用这个关系, 将$n!$这一项替换掉, 从而得到一些意想不到的简化. 下面是一个经典的例子:</p>
 
 <blockquote>
-<p>假设有在$(a,b)$可导的实函数$f$和$g$, 且$g&rsquo;(x)\neq0$对所有$x\in(a,b)$恒成立, 其中$-\infty\leq{a}&lt;{b}\leq+\infty$. 若有[\lim_{x\to a}\frac{f&rsquo;(x)}{g&rsquo;(x)}=A,]且如果[\lim_{x\to a}f(x)=\lim_{x\to a}g(x)=0,]或[\lim_{x\to a}g(x)=+\infty,]那么[\lim_{x\to a}\frac{f(x)}{g(x)}=A]类似的结论对$x\to{b}$或者$g(x)\to-\infty$也成立.</p>
+<p>求极限$\lim\limits_{n\to\infty}\frac{n!}{n^n}$</p>
 </blockquote>
 
-<h2 id="证明1-线性近似">证明1:线性近似</h2>
-
-<h3 id="波努利最开始的-证明">波努利最开始的&rdquo;证明&rdquo;</h3>
-
-<p>洛必达法则首次出现于1696年洛必达的 <em>Analyse des inJiniment petits pour l&rsquo;intelligence des lignes courbes(Analysis of  the  Infinitely Small for  the  Understanding of Curves)</em> 一书中. 这本书当然以&rdquo;洛必达法则&rdquo;闻名于世. 证明是这样完成的:
-[
-    \frac{f(a+dx)}{g(a+dx)}=\frac{f(a)+f&rsquo;(a)dx}{g(a)+g&rsquo;(a)dx}=\frac{f&rsquo;(a)dx}{g&rsquo;(a)dx}=\frac{f&rsquo;(a)}{g&rsquo;(a)}
+<p>[
+\begin{aligned}
+    \lim\limits_{n\to\infty}\frac{n!}{n^n}&amp;=\lim\limits_{n\to\infty}\frac{(n/e)^n\sqrt{2\pi n}}{n^n} \\<br />
+    &amp;=\lim\limits_{n\to\infty}\frac{\sqrt{2\pi n}}{e^n} \\<br />
+    &amp;=0
+\end{aligned}
 ]</p>
-
-<p>这个证明很好理解, 线性近似展开, 再考虑到$f(a)=g(a)=0$就得到结果. 但是这个做法肯定是不合适的, $dx$在这里非常模糊, 也不方便表达$x\to\infty$的情况. 关于历史内容可以参见 <em>The Historical Development of the Calculus</em> 一书.</p>
-
-<h3 id="线性近似的严格证明">线性近似的严格证明</h3>
-
-<p><em>首先, 这里只讨论$h\to0$的情况. 实际上, 对于其他情况, 可以作换元. 例如$h\to\infty$时, 可以利用$u=\frac{1}{h}$, 那么又转换成了$u\to0$的情况. 另外我们只讨论函数趋近于$0$的情况. 因为趋近于无穷时函数的线性近似可能无法处理. 例如$y=\frac{1}{x}$在$x=0$附近是没有近似的.</em></p>
-
-<p>对函数导数有
-[
-    f&rsquo;(x) = \lim_{h\rightarrow 0} \frac{f(x+h)-f(x)}{h},
-]
-我们可以写成
-[
-    f&rsquo;(x) = \frac{f(x+h)-f(x)}{h} + r(h)
-]</p>
-
-<p>其中$\lim\limits_{h\to0}r(h)=0$, 且$r(h)$为连续函数. 进行代数变形(这里$r(h)$的正负进行了调整),我们的得到线性近似
-[
-    f(x+h)=f(x)+f&rsquo;(x)h+r(h)h
-]
-同样可以写出$g(x)$的线性近似
-[
-    g(x+h)=g(x)+g&rsquo;(x)h+s(h)h
-]</p>
-
-<p>那么就能得到
-[
-    \frac{f(a+h)}{g(a+h)}=\frac{f(a)+f&rsquo;(a)h+r(h)h}{g(a)+g&rsquo;(a)h+s(h)h}=\frac{f&rsquo;(a)h+r(h)h}{g&rsquo;(a)h+s(h)h}=\frac{f&rsquo;(a)+r(h)}{g&rsquo;(a)+s(h)}
-]</p>
-
-<p>而$h\to0$时,$r(h)\to0$, $s(h)\to0$, 故得到了结论.</p>
-
-<h2 id="证明2-中值定理">证明2:中值定理</h2>
-
-<p><em>这个证明中, 我们会利用柯西中值定理(GMVT)对所有的情况进行完整的证明, 这期间涉及到一些不等式运算技巧. 证明来自Rudin的 Principles Of Mathematical Analysis, 我会在其中加上一些额外的解释</em></p>
-
-<h3 id="情况1-infty-leq-a-infty">情况1: $-\infty\leq{A}&lt;+\infty$</h3>
-
-<p>选取实数$\varepsilon&gt;0$和$q$使得$A&lt;A+\varepsilon&lt;q$. 因为$\frac{f(x)}{g(x)}\to{A}$, 必定有实数$\delta\in(0,b-a)$使得对于所有$a&lt;x&lt;a+\delta$, 始终有$-\varepsilon&lt;\frac{f&rsquo;(x)}{g&rsquo;(x)}-A&lt;\varepsilon$. 也就是说
-[\frac{f&rsquo;(x)}{g&rsquo;(x)}&lt;A+\varepsilon.]</p>
-
-<p>对$a&lt;x&lt;y&lt;c$, 由GMVT可知, 存在$t\in(x,y)$使得不等式(A)成立:
-[
-    \frac{f(x)-f(y)}{g(x)-g(y)}=\frac{f&rsquo;(t)}{g&rsquo;(t)}&lt;A+\varepsilon
-]
-最后一个不等式成立是因为$t\in(x,y)\subset(a,b)$, 而$(a,b)$中这个不等式成立.</p>
-
-<h4 id="情况1-1-g-x-to0">情况1.1: $g(x)\to0$</h4>
-
-<p>令$x\to{a}$, 此时关于$x$和$y$的不等式会有$\frac{f(y)}{g(y)}\leq{A+\varepsilon}&lt;q\quad(a&lt;y&lt;a+\delta)$</p>
-
-<p>也就是说, 对任意实数$\varepsilon&gt;0$, 有$\delta&gt;0$, 使得$a&lt;y&lt;a+\delta$时, 满足不等式(B):
-[
-   \frac{f(y)}{g(y)}\leq\varepsilon+A&lt;q
-]
-(注意:这个地方并没有用$\varepsilon-\delta$证明了这个情况下的收敛)</p>
-
-<h4 id="情况1-2-g-x-to-infty">情况1.2: $g(x)\to+\infty$</h4>
-
-<p>记$r=A+\varepsilon$. 固定不等式(A)中的$y$, 因为$g(x)\to+\infty$, 能找到一个值$c\in(a,b)$使得$g(x)&gt;g(y)$和$g(x)&gt;0$对所有$x\in(a,c)$同时成立. 那么不等式(A)两边同时乘以$[g(x)-g(y)]/g(x)$, 能得到不等式&copy;
-[
-    \frac{f(x)}{g(x)}&lt;r-r\frac{g(y)}{g(x)}+\frac{f(y)}{g(x)}\quad(a&lt;x&lt;c)
-]</p>
-
-<p>令$x\to{a}$, 因为$g(x)\to+\infty$, 有点$g_1\in(a,c)$使得不等式(D)成立:
-[
-    \frac{f(x)}{g(x)}&lt;q\quad(a&lt;x&lt;c_1)
-]</p>
-
-<h4 id="情况1-1和1-2的整合">情况1.1和1.2的整合</h4>
-
-<p>不等式(B)和(D)都只说明, 存在$c\in(a,b)$使得对于所有$x\in(a,c)$, 满足$\frac{f(x)}{g(x)}&lt;q$.但是$\frac{f(x)}{g(x)}$与$A$的关系并不知道.</p>
-
-<p>这里要注意, 不等式(B)和(D)都只在$q&gt;A$时成立, 也就是说,如果$q=A$, 那么有$\frac{f(x)}{g(x)}\geq{q}=A$. 也就是说, <strong>对于所有$q&gt;A$, 都存在$c\in(a,b)$, 使得对于所有$x\in(a,c)$, 满足 $A\leq\frac{f(x)}{g(x)}&lt;q$, 若令$q\to{A}$, 就能得到$\frac{f(x)}{g(x)}\to{A}$.</strong></p>
-
-<h3 id="情况2-infty-a-leq-infty">情况2: $-\infty&lt;{A}\leq+\infty$</h3>
-
-<p>这个情况是完全类似的. 同理可证, 对任意$p$, 当且仅当$p&lt;A$时, 总有$c&rsquo;\in(a,b)$, 使得对于所有$x\in(a,c&rsquo;)$, 满足$p&lt;\frac{f(x)}{g(x)}\leq{A}$.</p>
-
-<p>结合$A$的这两种情况, 原命题得证.</p>
-
-<h3 id="证明中几个小问题">证明中几个小问题</h3>
-
-<ul>
-<li>不等式(A)第一项的分母为什么一定有意义?</li>
-</ul>
-
-<p>假设它无意义, 如果有$g(x)=g(y)$, 那么有${x}&lt;t&lt;y$使得$g&rsquo;(t)=0$, 此时不满足$f&rsquo;(t)/g&rsquo;(t)&lt;A+\varepsilon$.</p>
-
-<ul>
-<li>不等式(B)中为什么变成小于等于?</li>
-</ul>
-
-<p>每次改变$x$, $t$也发生改变, 记为$t(x)$, 此时可能有$\lim\limits_{x\to{a}}\frac{f&rsquo;(t(x))}{g&rsquo;(t(x))}=r$.</p>
 </div>
     <h4 class="page_header">Share | 分享</h4>
     <hr>
@@ -331,22 +269,6 @@ MathJax.Hub.Config({
     
     
 
-    <h4><a href="/post/2019-09-18-gamma-intro/">伽玛函数两个有趣的应用</a></h4>
-    <h5>September 18, 2019</h5>
-    
-    <a href="https://desvl.xyz/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/mathematical-analysis"><kbd class="item-tag">数学分析/Mathematical Analysis</kbd></a>
-    
-
-</div>
-  <div class="item">
-
-    
-    
-    
-
-    
-    
-
     <h4><a href="/post/2019-09-14-what-is-limit-2/">高等数学入门: 静态的极限、静态的导数</a></h4>
     <h5>September 14, 2019</h5>
     
@@ -373,6 +295,24 @@ MathJax.Hub.Config({
     <a href="https://desvl.xyz/tags/fourier%E5%88%86%E6%9E%90/fourier-analysis"><kbd class="item-tag">Fourier分析/Fourier Analysis</kbd></a>
     
     <a href="https://desvl.xyz/tags/%E4%BC%98%E7%BE%8E%E7%9A%84fourier%E7%BA%A7%E6%95%B0"><kbd class="item-tag">优美的Fourier级数</kbd></a>
+    
+
+</div>
+  <div class="item">
+
+    
+    
+    
+
+    
+    
+
+    <h4><a href="/post/2019-09-10-taylor3/">一元微分学的顶峰——Taylor定理(三): 利用Taylor定理分析误差</a></h4>
+    <h5>September 10, 2019</h5>
+    
+    <a href="https://desvl.xyz/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/mathematical-analysis"><kbd class="item-tag">数学分析/Mathematical Analysis</kbd></a>
+    
+    <a href="https://desvl.xyz/tags/%E6%B3%B0%E5%8B%92%E5%AE%9A%E7%90%86/taylor-theorem"><kbd class="item-tag">泰勒定理/Taylor Theorem</kbd></a>
     
 
 </div>

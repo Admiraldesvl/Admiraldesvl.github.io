@@ -14,7 +14,7 @@ main {
     padding: 25px;
     flex: 1 0 auto;
     max-width: 850px;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 /*footer*/
@@ -73,10 +73,12 @@ a:hover {
 
 .item {
     padding: 10px 0;
+    font-size: 20px;
 }
 
 .item-tag {
     background-color: var(--accent);
+    font-size: 12px;
 }
 
 /*navigation bar icons*/

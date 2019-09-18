@@ -6,10 +6,19 @@
     <description>Recent content in 数学/Math on Desvl&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 14 Sep 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 18 Sep 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://desvl.xyz/categories/%E6%95%B0%E5%AD%A6/math/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>伽玛函数两个有趣的应用</title>
+      <link>https://desvl.xyz/post/2019-09-18-gamma-intro/</link>
+      <pubDate>Wed, 18 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://desvl.xyz/post/2019-09-18-gamma-intro/</guid>
+      <description>一个经典的含参反常积分——伽玛函数在微积分中的一些应用</description>
+    </item>
     
     <item>
       <title>高等数学入门: 静态的极限、静态的导数</title>
@@ -180,15 +189,6 @@
       
       <guid>https://desvl.xyz/post/2019-08-05-beautiful-fourier-001/</guid>
       <description>从不同的角度理解Fourier级数</description>
-    </item>
-    
-    <item>
-      <title>压缩定理和其应用</title>
-      <link>https://desvl.xyz/post/2019-08-04-contraction-application/</link>
-      <pubDate>Sun, 04 Aug 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://desvl.xyz/post/2019-08-04-contraction-application/</guid>
-      <description>利用压缩定理解决迭代生成的数列的极限问题</description>
     </item>
     
   </channel>
