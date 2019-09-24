@@ -6,10 +6,19 @@
     <description>Recent content in 高等数学入门 on Desvl&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 14 Sep 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 20 Sep 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://desvl.xyz/tags/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E5%85%A5%E9%97%A8/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>高等数学入门: 从数理逻辑的角度理解epsilon-delta语言</title>
+      <link>https://desvl.xyz/post/2019-09-20-what-is-limit-3/</link>
+      <pubDate>Fri, 20 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://desvl.xyz/post/2019-09-20-what-is-limit-3/</guid>
+      <description>在逻辑上解释epsilon-delta语言, 并与编程语言进行类比</description>
+    </item>
     
     <item>
       <title>高等数学入门: 静态的极限、静态的导数</title>

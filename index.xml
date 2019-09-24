@@ -6,7 +6,7 @@
     <description>Recent content on Desvl&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 18 Sep 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 24 Sep 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://desvl.xyz/index.xml" rel="self" type="application/rss+xml" />
     
@@ -18,6 +18,24 @@
       
       <guid>https://desvl.xyz/about/</guid>
       <description>About this website/关于这个网站 主要是与数学有关的内容. 可能内容不是很轻松有趣, 但是我希望严格的数理语言能引人思考, 从思考中获得兴趣. 当然内</description>
+    </item>
+    
+    <item>
+      <title>对伽玛函数进一步的认识——Bohr-Mollerup定理</title>
+      <link>https://desvl.xyz/post/2019-09-24-gamma-intro-2/</link>
+      <pubDate>Tue, 24 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://desvl.xyz/post/2019-09-24-gamma-intro-2/</guid>
+      <description>Bohr-Mollerup定理和Euler-Gauss公式的介绍</description>
+    </item>
+    
+    <item>
+      <title>高等数学入门: 从数理逻辑的角度理解epsilon-delta语言</title>
+      <link>https://desvl.xyz/post/2019-09-20-what-is-limit-3/</link>
+      <pubDate>Fri, 20 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://desvl.xyz/post/2019-09-20-what-is-limit-3/</guid>
+      <description>在逻辑上解释epsilon-delta语言, 并与编程语言进行类比</description>
     </item>
     
     <item>
@@ -171,24 +189,6 @@
       
       <guid>https://desvl.xyz/post/2019-08-11-real-complex-matrix-representation/</guid>
       <description>将复数表示成矩阵, 并且解释其几何意义</description>
-    </item>
-    
-    <item>
-      <title>Solutions to Real and Complex Analysis by Rudin</title>
-      <link>https://desvl.xyz/post/2019-08-10-rc-analysis-solution/</link>
-      <pubDate>Tue, 06 Aug 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://desvl.xyz/post/2019-08-10-rc-analysis-solution/</guid>
-      <description>Download the solution of Papa Rudin</description>
-    </item>
-    
-    <item>
-      <title>优美的Fourier级数（二）: 有界差分下的收敛(Jordan判别法)</title>
-      <link>https://desvl.xyz/post/2019-08-06-beautiful-fourier-002/</link>
-      <pubDate>Tue, 06 Aug 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://desvl.xyz/post/2019-08-06-beautiful-fourier-002/</guid>
-      <description>Jordan判别法的完整证明</description>
     </item>
     
   </channel>

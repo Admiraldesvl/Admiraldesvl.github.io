@@ -6,10 +6,28 @@
     <description>Recent content in 数学/Math on Desvl&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 18 Sep 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 24 Sep 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://desvl.xyz/categories/%E6%95%B0%E5%AD%A6/math/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>对伽玛函数进一步的认识——Bohr-Mollerup定理</title>
+      <link>https://desvl.xyz/post/2019-09-24-gamma-intro-2/</link>
+      <pubDate>Tue, 24 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://desvl.xyz/post/2019-09-24-gamma-intro-2/</guid>
+      <description>Bohr-Mollerup定理和Euler-Gauss公式的介绍</description>
+    </item>
+    
+    <item>
+      <title>高等数学入门: 从数理逻辑的角度理解epsilon-delta语言</title>
+      <link>https://desvl.xyz/post/2019-09-20-what-is-limit-3/</link>
+      <pubDate>Fri, 20 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://desvl.xyz/post/2019-09-20-what-is-limit-3/</guid>
+      <description>在逻辑上解释epsilon-delta语言, 并与编程语言进行类比</description>
+    </item>
     
     <item>
       <title>伽玛函数两个有趣的应用</title>
@@ -171,24 +189,6 @@
       
       <guid>https://desvl.xyz/post/2019-08-10-rc-analysis-solution/</guid>
       <description>Download the solution of Papa Rudin</description>
-    </item>
-    
-    <item>
-      <title>优美的Fourier级数（二）: 有界差分下的收敛(Jordan判别法)</title>
-      <link>https://desvl.xyz/post/2019-08-06-beautiful-fourier-002/</link>
-      <pubDate>Tue, 06 Aug 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://desvl.xyz/post/2019-08-06-beautiful-fourier-002/</guid>
-      <description>Jordan判别法的完整证明</description>
-    </item>
-    
-    <item>
-      <title>优美的Fourier级数（一）: 绝对不只是求表达式的问题</title>
-      <link>https://desvl.xyz/post/2019-08-05-beautiful-fourier-001/</link>
-      <pubDate>Mon, 05 Aug 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://desvl.xyz/post/2019-08-05-beautiful-fourier-001/</guid>
-      <description>从不同的角度理解Fourier级数</description>
     </item>
     
   </channel>

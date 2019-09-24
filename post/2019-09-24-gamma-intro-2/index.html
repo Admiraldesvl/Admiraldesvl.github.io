@@ -4,7 +4,7 @@
          
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>洛必达法则的几种证明办法</title>
+        <title>对伽玛函数进一步的认识——Bohr-Mollerup定理</title>
         
         <style>
 
@@ -91,8 +91,8 @@ MathJax.Hub.Config({
 
         <meta name="twitter:card" content="summary"/>
 <meta name="twitter:image" content="https://desvl.xyz/"/>
-<meta name="twitter:title" content="洛必达法则的几种证明办法"/>
-<meta name="twitter:description" content="利用两种微积分中的重要工具证明洛必达法则"/>
+<meta name="twitter:title" content="对伽玛函数进一步的认识——Bohr-Mollerup定理"/>
+<meta name="twitter:description" content="Bohr-Mollerup定理和Euler-Gauss公式的介绍"/>
 
         
 
@@ -107,7 +107,7 @@ MathJax.Hub.Config({
 
                 <div class="navbar-header">
 
-                    <a class="navbar-brand visible-xs" href="#">洛必达法则的几种证明办法</a>
+                    <a class="navbar-brand visible-xs" href="#">对伽玛函数进一步的认识——Bohr-Mollerup定理</a>
 
                     <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
                         <span class="icon-bar"></span>
@@ -162,8 +162,8 @@ MathJax.Hub.Config({
     
     
 
-    <h4><a href="/post/2019-08-19-l-hopital-proof/">洛必达法则的几种证明办法</a></h4>
-    <h5>August 19, 2019</h5>
+    <h4><a href="/post/2019-09-24-gamma-intro-2/">对伽玛函数进一步的认识——Bohr-Mollerup定理</a></h4>
+    <h5>September 24, 2019</h5>
     
     <a href="https://desvl.xyz/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/mathematical-analysis"><kbd class="item-tag">数学分析/Mathematical Analysis</kbd></a>
     
@@ -173,118 +173,190 @@ MathJax.Hub.Config({
 
     <br> <div class="text-justify">
 
-<h2 id="前言">前言</h2>
+<p>[
+    \Gamma(x)=\int_0^{\infty}t^{x-1}e^{-t}dt
+]</p>
 
-<p>洛必达法则我想甚至不少高中生都听说过, 知道怎么进行简单的应用. 简单点说, 处理$\frac{0}{0}$的函数时, 对上下进行求导, 可能会很大程度上简化计算. 但是洛必达法则为什么能奏效? 能不能用严格的数理语言进行论证?  这是这篇文章需要解决的.</p>
-
-<h2 id="洛必达法则的完整论述">洛必达法则的完整论述</h2>
+<p>这个函数总是在不经意间出现在各种不同的领域, 比如前面讲到的n维球体积, 再比如概率论中的伽玛分布等等. 但它本身也有很多值得研究的性质, 分析的过程中涉及到各种平凡而又巧妙的分析办法. 这些分析方法本身就是很有价值的. 这篇文章要指出的是, 根据Bohr和Mollerup的研究, 函数的几个性质是它独享的. 也就是说,</p>
 
 <blockquote>
-<p>假设有在$(a,b)$可导的实函数$f$和$g$, 且$g&rsquo;(x)\neq0$对所有$x\in(a,b)$恒成立, 其中$-\infty\leq{a}&lt;{b}\leq+\infty$. 若有[\lim_{x\to a}\frac{f&rsquo;(x)}{g&rsquo;(x)}=A,]且如果[\lim_{x\to a}f(x)=\lim_{x\to a}g(x)=0,]或[\lim_{x\to a}g(x)=+\infty,]那么[\lim_{x\to a}\frac{f(x)}{g(x)}=A]类似的结论对$x\to{b}$或者$g(x)\to-\infty$也成立.</p>
+<p>(Bohr-Mollerup定理)如果一个定义在$(0,\infty)$上的函数满足以下三条性质:</p>
+
+<ul>
+<li><p>$f(x+1)=xf(x)$</p></li>
+
+<li><p>$f(1)=1$</p></li>
+
+<li><p>$\log{f}$ 是凸函数</p></li>
+</ul>
+
+<p>那么$f(x)=\Gamma(x)$</p>
 </blockquote>
 
-<h2 id="证明1-线性近似">证明1:线性近似</h2>
+<p>当然首先需要证明一件事情, $\Gamma(x)$满足这三条性质(前两条可以通过分部积分和直接代入$1$进行验证).</p>
 
-<h3 id="波努利最开始的-证明">波努利最开始的&rdquo;证明&rdquo;</h3>
+<h2 id="log-gamma-x-是凸函数">$\log\Gamma(x)$是凸函数</h2>
 
-<p>洛必达法则首次出现于1696年洛必达的 <em>Analyse des inJiniment petits pour l&rsquo;intelligence des lignes courbes(Analysis of  the  Infinitely Small for  the  Understanding of Curves)</em> 一书中. 这本书当然以&rdquo;洛必达法则&rdquo;闻名于世. 证明是这样完成的:
+<p>凸函数是指满足
 [
-    \frac{f(a+dx)}{g(a+dx)}=\frac{f(a)+f&rsquo;(a)dx}{g(a)+g&rsquo;(a)dx}=\frac{f&rsquo;(a)dx}{g&rsquo;(a)dx}=\frac{f&rsquo;(a)}{g&rsquo;(a)}
-]</p>
-
-<p>这个证明很好理解, 线性近似展开, 再考虑到$f(a)=g(a)=0$就得到结果. 但是这个做法肯定是不合适的, $dx$在这里非常模糊, 也不方便表达$x\to\infty$的情况. 关于历史内容可以参见 <em>The Historical Development of the Calculus</em> 一书.</p>
-
-<h3 id="线性近似的严格证明">线性近似的严格证明</h3>
-
-<p><em>首先, 这里只讨论$h\to0$的情况. 实际上, 对于其他情况, 可以作换元. 例如$h\to\infty$时, 可以利用$u=\frac{1}{h}$, 那么又转换成了$u\to0$的情况. 另外我们只讨论函数趋近于$0$的情况. 因为趋近于无穷时函数的线性近似可能无法处理. 例如$y=\frac{1}{x}$在$x=0$附近是没有近似的.</em></p>
-
-<p>对函数导数有
-[
-    f&rsquo;(x) = \lim_{h\rightarrow 0} \frac{f(x+h)-f(x)}{h},
+    f(\lambda{x}+(1-\lambda)y)\leq \lambda{f(x)}+(1-\lambda)f(y)
 ]
-我们可以写成
-[
-    f&rsquo;(x) = \frac{f(x+h)-f(x)}{h} + r(h)
-]</p>
+的一类函数.</p>
 
-<p>其中$\lim\limits_{h\to0}r(h)=0$, 且$r(h)$为连续函数. 进行代数变形(这里$r(h)$的正负进行了调整),我们的得到线性近似
+<p>但是如果直接用$\log\Gamma(x)$进行运算, 那会是很困难的. 考虑到$\Gamma(x)$是反常积分的形式, 还可以用到Hölder不等式(这个不等式对反常积分也成立):
 [
-    f(x+h)=f(x)+f&rsquo;(x)h+r(h)h
+    \left|\int_{a}^{b}fgdx\right|\leq\left(\int_{a}^{b}|f|^pdx\right)^{1/p}\left(\int_{a}^{b}|g|^qdx\right)^{1/q}
 ]
-同样可以写出$g(x)$的线性近似
+其中$\frac{1}{p}+\frac{1}{q}=1$. 这自然可以与$\lambda$和$1-\lambda$联系起来. 那么需要讨论$\frac{x}{p}+\frac{y}{q}$:
 [
-    g(x+h)=g(x)+g&rsquo;(x)h+s(h)h
-]</p>
-
-<p>那么就能得到
-[
-    \frac{f(a+h)}{g(a+h)}=\frac{f(a)+f&rsquo;(a)h+r(h)h}{g(a)+g&rsquo;(a)h+s(h)h}=\frac{f&rsquo;(a)h+r(h)h}{g&rsquo;(a)h+s(h)h}=\frac{f&rsquo;(a)+r(h)}{g&rsquo;(a)+s(h)}
-]</p>
-
-<p>而$h\to0$时,$r(h)\to0$, $s(h)\to0$, 故得到了结论.</p>
-
-<h2 id="证明2-中值定理">证明2:中值定理</h2>
-
-<p><em>这个证明中, 我们会利用柯西中值定理(GMVT)对所有的情况进行完整的证明, 这期间涉及到一些不等式运算技巧. 证明来自Rudin的 Principles Of Mathematical Analysis, 我会在其中加上一些额外的解释</em></p>
-
-<h3 id="情况1-infty-leq-a-infty">情况1: $-\infty\leq{A}&lt;+\infty$</h3>
-
-<p>选取实数$\varepsilon&gt;0$和$q$使得$A&lt;A+\varepsilon&lt;q$. 因为$\frac{f(x)}{g(x)}\to{A}$, 必定有实数$\delta\in(0,b-a)$使得对于所有$a&lt;x&lt;a+\delta$, 始终有$-\varepsilon&lt;\frac{f&rsquo;(x)}{g&rsquo;(x)}-A&lt;\varepsilon$. 也就是说
-[\frac{f&rsquo;(x)}{g&rsquo;(x)}&lt;A+\varepsilon.]</p>
-
-<p>对$a&lt;x&lt;y&lt;c$, 由GMVT可知, 存在$t\in(x,y)$使得不等式(A)成立:
-[
-    \frac{f(x)-f(y)}{g(x)-g(y)}=\frac{f&rsquo;(t)}{g&rsquo;(t)}&lt;A+\varepsilon
+\begin{aligned}
+    \Gamma(\frac{x}{p}+\frac{y}{q})&amp;=\int_0^{\infty}t^{\frac{x}{p}+\frac{y}{q}-1}e^{-t}dt \\<br />
+    &amp;=\int_0^{\infty}t^{\frac{x}{p}+\frac{y}{q}-\frac{1}{p}-\frac{1}{q}}e^{-t(\frac{1}{p}+\frac{1}{q})}dt \\<br />
+    &amp;=\int_0^{\infty}\left(t^{x-1}e^{-t}\right)^{\frac{1}{p}}\left(t^{y-1}e^{-t}\right)^{\frac{1}{q}}dt
+\end{aligned}
 ]
-最后一个不等式成立是因为$t\in(x,y)\subset(a,b)$, 而$(a,b)$中这个不等式成立.</p>
-
-<h4 id="情况1-1-g-x-to0">情况1.1: $g(x)\to0$</h4>
-
-<p>令$x\to{a}$, 此时关于$x$和$y$的不等式会有$\frac{f(y)}{g(y)}\leq{A+\varepsilon}&lt;q\quad(a&lt;y&lt;a+\delta)$</p>
-
-<p>也就是说, 对任意实数$\varepsilon&gt;0$, 有$\delta&gt;0$, 使得$a&lt;y&lt;a+\delta$时, 满足不等式(B):
+另一侧有
 [
-   \frac{f(y)}{g(y)}\leq\varepsilon+A&lt;q
+\begin{aligned}
+    \Gamma(x)^{\frac{1}{p}}=\left(\int_0^{\infty}t^{x-1}e^{-t}dt\right)^{\frac{1}{p}}
+\end{aligned}
 ]
-(注意:这个地方并没有用$\varepsilon-\delta$证明了这个情况下的收敛)</p>
-
-<h4 id="情况1-2-g-x-to-infty">情况1.2: $g(x)\to+\infty$</h4>
-
-<p>记$r=A+\varepsilon$. 固定不等式(A)中的$y$, 因为$g(x)\to+\infty$, 能找到一个值$c\in(a,b)$使得$g(x)&gt;g(y)$和$g(x)&gt;0$对所有$x\in(a,c)$同时成立. 那么不等式(A)两边同时乘以$[g(x)-g(y)]/g(x)$, 能得到不等式&copy;
+以及
 [
-    \frac{f(x)}{g(x)}&lt;r-r\frac{g(y)}{g(x)}+\frac{f(y)}{g(x)}\quad(a&lt;x&lt;c)
+\begin{aligned}
+    \Gamma(y)^{\frac{1}{q}}=\left(\int_0^{\infty}t^{y-1}e^{-t}dt\right)^{\frac{1}{q}}
+\end{aligned}
+]
+结合起来, 就有
+[
+    \Gamma(\frac{x}{p}+\frac{y}{q})\leq\Gamma(x)^{\frac{1}{p}}\Gamma(y)^{\frac{1}{q}}
 ]</p>
 
-<p>令$x\to{a}$, 因为$g(x)\to+\infty$, 有点$g_1\in(a,c)$使得不等式(D)成立:
+<p>再取对数, 就离结论很近了:
 [
-    \frac{f(x)}{g(x)}&lt;q\quad(a&lt;x&lt;c_1)
+    \log\Gamma(\frac{x}{p}+\frac{y}{q})\leq\frac{1}{p}\Gamma(x)+\frac{1}{q}\Gamma(y)
 ]</p>
 
-<h4 id="情况1-1和1-2的整合">情况1.1和1.2的整合</h4>
+<p>又因为$\frac{1}{p}+\frac{1}{q}=1$, 所以能得到, $\log\Gamma(x)$是凸函数.</p>
 
-<p>不等式(B)和(D)都只说明, 存在$c\in(a,b)$使得对于所有$x\in(a,c)$, 满足$\frac{f(x)}{g(x)}&lt;q$.但是$\frac{f(x)}{g(x)}$与$A$的关系并不知道.</p>
+<h2 id="bohr-mollerup定理的证明-两种方法得到euler-gauss公式">Bohr-Mollerup定理的证明——两种方法得到Euler-Gauss公式</h2>
 
-<p>这里要注意, 不等式(B)和(D)都只在$q&gt;A$时成立, 也就是说,如果$q=A$, 那么有$\frac{f(x)}{g(x)}\geq{q}=A$. 也就是说, <strong>对于所有$q&gt;A$, 都存在$c\in(a,b)$, 使得对于所有$x\in(a,c)$, 满足 $A\leq\frac{f(x)}{g(x)}&lt;q$, 若令$q\to{A}$, 就能得到$\frac{f(x)}{g(x)}\to{A}$.</strong></p>
+<p>在进行Bohr-Mollerup定理之前, 有必要得到$\Gamma$函数的另一种形式, Euler-Gauss公式. 这个公式的推导方法有很多, 涉及到各种基本技巧: 分部积分、换元、极限等等. 我在这里选择了最平凡的一种方法, 利用大家都熟悉的极限：$e=\lim\limits_{n\to\infty}(1+\frac{1}{n})^n$. 这些推导过程本身也是很好的微积分练习题.</p>
 
-<h3 id="情况2-infty-a-leq-infty">情况2: $-\infty&lt;{A}\leq+\infty$</h3>
+<h3 id="递归法证明euler-gauss公式">递归法证明Euler-Gauss公式</h3>
 
-<p>这个情况是完全类似的. 同理可证, 对任意$p$, 当且仅当$p&lt;A$时, 总有$c&rsquo;\in(a,b)$, 使得对于所有$x\in(a,c&rsquo;)$, 满足$p&lt;\frac{f(x)}{g(x)}\leq{A}$.</p>
+<p>我们已经知道,
+[
+    e^{-t}=\lim\limits_{n\to\infty}(1-\frac{t}{n})^n
+]</p>
 
-<p>结合$A$的这两种情况, 原命题得证.</p>
+<p>定义二元函数
+[
+    \Gamma(x,n)=\int_{0}^{n}t^{x-1}(1-\frac{t}{n})^ndt
+]</p>
 
-<h3 id="证明中几个小问题">证明中几个小问题</h3>
+<p>那么很明显, 有极限
+[
+    \Gamma(x)=\lim\limits_{n\to\infty}\Gamma(x,n)
+]</p>
 
-<ul>
-<li>不等式(A)第一项的分母为什么一定有意义?</li>
-</ul>
+<p>接下来继续讨论二元函数. 进行换元. 令$t=ns$, 那么会有
+[
+    \Gamma(x,n)=n^{x}\int_{0}^{1}s^{x-1}(1-s)^nds
+]</p>
 
-<p>假设它无意义, 如果有$g(x)=g(y)$, 那么有${x}&lt;t&lt;y$使得$g&rsquo;(t)=0$, 此时不满足$f&rsquo;(t)/g&rsquo;(t)&lt;A+\varepsilon$.</p>
+<p>对于最小的$n=1$, 有
+[
+    \Gamma(x,1)=\frac{1}{x(x+1)}
+]</p>
 
-<ul>
-<li>不等式(B)中为什么变成小于等于?</li>
-</ul>
+<p>对于$n&gt;1$, 需要进行分部积分.
+[
+\begin{aligned}
+    \Gamma(x,n)&amp;=n^{x}\int_{0}^{1}s^{x-1}(1-s)^nds \\<br />
+    &amp;=\frac{n^{x}}{x}\int_{0}^{1}(1-s)^nds^{x} \\<br />
+    &amp;=\frac{n^{x}}{x}n\int_{0}^{1}s^{x}(1-s)^{n-1}ds \\<br />
+    &amp;=\frac{1}{x}(\frac{n}{n-1})^{x+1}\Gamma(x+1,n-1)
+\end{aligned}
+]</p>
 
-<p>每次改变$x$, $t$也发生改变, 记为$t(x)$, 此时可能有$\lim\limits_{x\to{a}}\frac{f&rsquo;(t(x))}{g&rsquo;(t(x))}=r$.</p>
+<p>知道了$\Gamma(x)$中$n$的体现形式, 就可以进行递归化简了. 从$n$到$1$, 递归了$n-1$次, 那么最后一项是$\Gamma(x+n-1,1)$.</p>
+
+<p>[
+\begin{aligned}
+    \Gamma(x,n)&amp;=\frac{1}{x}(\frac{n}{n+1})^{x+1}\Gamma(x+1,n-1) \\<br />
+    &amp;=\frac{1}{x}(\frac{n}{n+1})^{x+1}\left(\frac{1}{x+2}(\frac{n-1}{n-2})^{x+2}\Gamma(x+2,n-2)\right) \\<br />
+    &amp;\cdots\cdots \\<br />
+    &amp;=\frac{n^xn!}{x(x+1)(x+2)\cdots(x+n)}
+\end{aligned}
+]</p>
+
+<p>又考虑到$\Gamma(x)=\lim\limits_{n\to\infty}\Gamma(x,n)$, 能得到</p>
+
+<blockquote>
+<p>[
+   \Gamma(x)=\lim\limits_{n\to\infty}\frac{n^xn!}{x(x+1)(x+2)\cdots(x+n)}
+]</p>
+</blockquote>
+
+<p>这就是所谓的Euler-Gauss公式.</p>
+
+<h3 id="bohr-mollerup定理">Bohr-Mollerup定理</h3>
+
+<p>在进行证明之前, 我们先理一下要完成的工作. $\Gamma(x)$已经满足了这三个条件, 那么只需要证明, 给定这三个条件, 得到的函数是唯一的就行了, 这其实也就是得到Euler-Gauss公式. 而$f(x+1)=xf(x)$这个性质表明, 只需要讨论$(0,1)$上的性质即可.</p>
+
+<p>接下来, 令$\phi(x)=\log{f(x)}$, 并将这三个条件逐个代入</p>
+
+<p>首先, 利用第二个性质, 容易得到
+[
+    \phi(x+1)=\log{f(x+1)}=\log{xf(x)}=\log{f(x)}+\log{x}
+]</p>
+
+<p>考虑到$f(1)=1$, 可以立即得到
+[
+    \phi(n+1)=\log{n!}
+]</p>
+
+<p>以及
+[
+    \phi(n+1+x)=\phi(x)+\log[x(x+1)\cdots(x+n)]
+]</p>
+
+<p>对$x\in(0,1)$(在最开始已经限制了), 最后利用凸函数的性质
+[
+    \frac{\phi(n+1)-\phi(n)}{(n+1)-n}\leq\frac{\phi(n+1+x)-\phi(n+1)}{(n+1+x)-(n+1)}\leq\frac{\phi(n+2)-\phi(n+1)}{(n+2)-(n+1)}
+]</p>
+
+<p>再利用前面得到的三个等式, 能得到
+[
+    \log{n}\leq\frac{\phi(x)+\log[x(x+1)\cdots(x+n)]-\log{n!}}{x}\leq\log(n+1)
+]</p>
+
+<p>接下来的操作比较有技巧性. 每个不等式同时乘以$x$减去$\log{n}$, 能得到
+[
+    0\leq\phi(x)-\log{\frac{n!n^{x}}{x(x+1)(x+2)\cdots(x+n)}}\leq x\log(1+\frac{1}{n})
+]</p>
+
+<p>考虑到$\log{x}$的连续性, $n\to\infty$时, $\phi(x)-\log{\frac{n!n^{x}}{x(x+1)(x+2)\cdots(x+n)}}\to 0$, 这也就是说,
+[
+    \phi(x)=\lim\limits_{n\to\infty}\frac{n^xn!}{x(x+1)(x+2)\cdots(x+n)}=\Gamma(x)
+]</p>
+
+<h2 id="我们能从中看到什么">我们能从中看到什么</h2>
+
+<p>Bohr-Mollerup定理无疑提供了一个证明一个函数是不是$\Gamma(x)$函数的重要途径. 比如为了证明
+[
+    B(x,y)=\int_{0}^{1}t^{x-1}(1-t)^{y-1}dt=\frac{\Gamma(x)\Gamma(y)}{\Gamma(x+y)}
+]</p>
+
+<p>可以令$f(x)=\frac{B(x,y)\Gamma(x+y)}{\Gamma(y)}$, 再分析$f(x)$是否满足那三个条件. 再比如Legendre加倍公式
+[
+    \Gamma(2x)=\frac{2^{2x-1}}{\sqrt{\pi}}\Gamma(x)\Gamma(x+\frac{1}{2})
+]</p>
+
+<p>如果利用Bohr-Mollerup定理, 证明过程是非常简单的.</p>
+
+<p>Euler-Gauss公式和Bohr-Mollerup定理的证明过程可能比较刁钻, 比较困难, 但是一点点分解整个过程, 得到的还是一系列平凡的技巧. 这也体现了很重要的一点: 如何利用已知的条件, 进行加工, 严格而又不失激情地发现未知的事物(或者证明未被证明的问题).</p>
 </div>
     <h4 class="page_header">Share | 分享</h4>
     <hr>
@@ -331,22 +403,6 @@ MathJax.Hub.Config({
     
     
 
-    <h4><a href="/post/2019-09-24-gamma-intro-2/">对伽玛函数进一步的认识——Bohr-Mollerup定理</a></h4>
-    <h5>September 24, 2019</h5>
-    
-    <a href="https://desvl.xyz/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/mathematical-analysis"><kbd class="item-tag">数学分析/Mathematical Analysis</kbd></a>
-    
-
-</div>
-  <div class="item">
-
-    
-    
-    
-
-    
-    
-
     <h4><a href="/post/2019-09-20-what-is-limit-3/">高等数学入门: 从数理逻辑的角度理解epsilon-delta语言</a></h4>
     <h5>September 20, 2019</h5>
     
@@ -369,6 +425,24 @@ MathJax.Hub.Config({
     <h5>September 18, 2019</h5>
     
     <a href="https://desvl.xyz/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/mathematical-analysis"><kbd class="item-tag">数学分析/Mathematical Analysis</kbd></a>
+    
+
+</div>
+  <div class="item">
+
+    
+    
+    
+
+    
+    
+
+    <h4><a href="/post/2019-09-14-what-is-limit-2/">高等数学入门: 静态的极限、静态的导数</a></h4>
+    <h5>September 14, 2019</h5>
+    
+    <a href="https://desvl.xyz/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/mathematical-analysis"><kbd class="item-tag">数学分析/Mathematical Analysis</kbd></a>
+    
+    <a href="https://desvl.xyz/tags/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E5%85%A5%E9%97%A8"><kbd class="item-tag">高等数学入门</kbd></a>
     
 
 </div>
