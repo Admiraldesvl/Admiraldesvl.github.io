@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gamma函数 on Desvl&#39;s Blog</title>
+    <link>https://desvl.xyz/tags/gamma%E5%87%BD%E6%95%B0/</link>
+    <description>Recent content in Gamma函数 on Desvl&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 24 Sep 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://desvl.xyz/tags/gamma%E5%87%BD%E6%95%B0/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>对伽玛函数进一步的认识——Bohr-Mollerup定理</title>
+      <link>https://desvl.xyz/post/2019-09-24-gamma-intro-2/</link>
+      <pubDate>Tue, 24 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://desvl.xyz/post/2019-09-24-gamma-intro-2/</guid>
+      <description>Bohr-Mollerup定理和Euler-Gauss公式的介绍</description>
+    </item>
+    
+    <item>
+      <title>伽玛函数两个有趣的应用</title>
+      <link>https://desvl.xyz/post/2019-09-18-gamma-intro/</link>
+      <pubDate>Wed, 18 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://desvl.xyz/post/2019-09-18-gamma-intro/</guid>
+      <description>一个经典的含参反常积分——伽玛函数在微积分中的一些应用</description>
+    </item>
+    
+    <item>
+      <title>n维空间中球的体积</title>
+      <link>https://desvl.xyz/post/2019-09-06-n-ball/</link>
+      <pubDate>Fri, 06 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://desvl.xyz/post/2019-09-06-n-ball/</guid>
+      <description>n维空间中球的体积</description>
+    </item>
+    
+  </channel>
+</rss>
