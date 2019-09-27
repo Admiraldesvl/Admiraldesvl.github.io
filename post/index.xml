@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Desvl&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 24 Sep 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 27 Sep 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://desvl.xyz/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>优美的Fourier级数（六）: Poisson核的一致收敛</title>
+      <link>https://desvl.xyz/post/2019-09-27-beautiful-fourier-006/</link>
+      <pubDate>Fri, 27 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://desvl.xyz/post/2019-09-27-beautiful-fourier-006/</guid>
+      <description>Abel求和、Poisson核的简单介绍</description>
+    </item>
     
     <item>
       <title>对伽玛函数进一步的认识——Bohr-Mollerup定理</title>
@@ -180,15 +189,6 @@
       
       <guid>https://desvl.xyz/post/2019-08-11-real-complex-matrix-representation/</guid>
       <description>将复数表示成矩阵, 并且解释其几何意义</description>
-    </item>
-    
-    <item>
-      <title>Solutions to Real and Complex Analysis by Rudin</title>
-      <link>https://desvl.xyz/post/2019-08-10-rc-analysis-solution/</link>
-      <pubDate>Tue, 06 Aug 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://desvl.xyz/post/2019-08-10-rc-analysis-solution/</guid>
-      <description>Download the solution of Papa Rudin</description>
     </item>
     
   </channel>

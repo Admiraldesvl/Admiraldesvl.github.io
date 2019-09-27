@@ -6,10 +6,37 @@
     <description>Recent content in Tags on Desvl&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 24 Sep 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 27 Sep 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://desvl.xyz/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Fourier分析/Fourier Analysis</title>
+      <link>https://desvl.xyz/tags/fourier%E5%88%86%E6%9E%90/fourier-analysis/</link>
+      <pubDate>Fri, 27 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://desvl.xyz/tags/fourier%E5%88%86%E6%9E%90/fourier-analysis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>优美的Fourier级数</title>
+      <link>https://desvl.xyz/tags/%E4%BC%98%E7%BE%8E%E7%9A%84fourier%E7%BA%A7%E6%95%B0/</link>
+      <pubDate>Fri, 27 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://desvl.xyz/tags/%E4%BC%98%E7%BE%8E%E7%9A%84fourier%E7%BA%A7%E6%95%B0/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>数学分析/Mathematical Analysis</title>
+      <link>https://desvl.xyz/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/mathematical-analysis/</link>
+      <pubDate>Fri, 27 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://desvl.xyz/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/mathematical-analysis/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Gamma函数</title>
@@ -21,38 +48,11 @@
     </item>
     
     <item>
-      <title>数学分析/Mathematical Analysis</title>
-      <link>https://desvl.xyz/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/mathematical-analysis/</link>
-      <pubDate>Tue, 24 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://desvl.xyz/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/mathematical-analysis/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>高等数学入门</title>
       <link>https://desvl.xyz/tags/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E5%85%A5%E9%97%A8/</link>
       <pubDate>Fri, 20 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://desvl.xyz/tags/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E5%85%A5%E9%97%A8/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Fourier分析/Fourier Analysis</title>
-      <link>https://desvl.xyz/tags/fourier%E5%88%86%E6%9E%90/fourier-analysis/</link>
-      <pubDate>Thu, 12 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://desvl.xyz/tags/fourier%E5%88%86%E6%9E%90/fourier-analysis/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>优美的Fourier级数</title>
-      <link>https://desvl.xyz/tags/%E4%BC%98%E7%BE%8E%E7%9A%84fourier%E7%BA%A7%E6%95%B0/</link>
-      <pubDate>Thu, 12 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://desvl.xyz/tags/%E4%BC%98%E7%BE%8E%E7%9A%84fourier%E7%BA%A7%E6%95%B0/</guid>
       <description></description>
     </item>
     
