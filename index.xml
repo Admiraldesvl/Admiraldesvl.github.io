@@ -6,7 +6,7 @@
     <description>Recent content on Desvl&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 27 Sep 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 02 Oct 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://desvl.xyz/index.xml" rel="self" type="application/rss+xml" />
     
@@ -18,6 +18,15 @@
       
       <guid>https://desvl.xyz/about/</guid>
       <description>About this website/关于这个网站 主要是与数学有关的内容. 可能内容不是很轻松有趣, 但是我希望严格的数理语言能引人思考, 从思考中获得兴趣. 当然内</description>
+    </item>
+    
+    <item>
+      <title>陈旧的观点——不要追求“生产力”、“效率”了</title>
+      <link>https://desvl.xyz/post/2019-10-02-productivity-overrated/</link>
+      <pubDate>Wed, 02 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://desvl.xyz/post/2019-10-02-productivity-overrated/</guid>
+      <description>你愿意把你的生活交给一堆你不认识的人写的计算机程序吗？</description>
     </item>
     
     <item>
@@ -180,15 +189,6 @@
       
       <guid>https://desvl.xyz/post/2019-08-15-polar-factorization/</guid>
       <description>将一个实方阵进行类似于极坐标表示的分解</description>
-    </item>
-    
-    <item>
-      <title>商空间与线性映射基本定理</title>
-      <link>https://desvl.xyz/post/2019-08-14-quotient-space/</link>
-      <pubDate>Wed, 14 Aug 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://desvl.xyz/post/2019-08-14-quotient-space/</guid>
-      <description>引入商空间这个概念</description>
     </item>
     
   </channel>

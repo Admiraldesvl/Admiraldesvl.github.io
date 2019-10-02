@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Desvl&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 27 Sep 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 02 Oct 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://desvl.xyz/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>陈旧的观点——不要追求“生产力”、“效率”了</title>
+      <link>https://desvl.xyz/post/2019-10-02-productivity-overrated/</link>
+      <pubDate>Wed, 02 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://desvl.xyz/post/2019-10-02-productivity-overrated/</guid>
+      <description>你愿意把你的生活交给一堆你不认识的人写的计算机程序吗？</description>
+    </item>
     
     <item>
       <title>优美的Fourier级数（六）: Poisson核的一致收敛</title>
@@ -180,15 +189,6 @@
       
       <guid>https://desvl.xyz/post/2019-08-14-quotient-space/</guid>
       <description>引入商空间这个概念</description>
-    </item>
-    
-    <item>
-      <title>用实矩阵表示复数</title>
-      <link>https://desvl.xyz/post/2019-08-11-real-complex-matrix-representation/</link>
-      <pubDate>Sun, 11 Aug 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://desvl.xyz/post/2019-08-11-real-complex-matrix-representation/</guid>
-      <description>将复数表示成矩阵, 并且解释其几何意义</description>
     </item>
     
   </channel>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>杂谈 on Desvl&#39;s Blog</title>
+    <link>https://desvl.xyz/categories/%E6%9D%82%E8%B0%88/</link>
+    <description>Recent content in 杂谈 on Desvl&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 02 Oct 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://desvl.xyz/categories/%E6%9D%82%E8%B0%88/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>陈旧的观点——不要追求“生产力”、“效率”了</title>
+      <link>https://desvl.xyz/post/2019-10-02-productivity-overrated/</link>
+      <pubDate>Wed, 02 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://desvl.xyz/post/2019-10-02-productivity-overrated/</guid>
+      <description>你愿意把你的生活交给一堆你不认识的人写的计算机程序吗？</description>
+    </item>
+    
+  </channel>
+</rss>
