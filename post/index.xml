@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Desvl&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 02 Oct 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 04 Oct 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://desvl.xyz/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>压缩定理解决一致收敛的问题</title>
+      <link>https://desvl.xyz/post/2019-10-04-contraction-application/</link>
+      <pubDate>Fri, 04 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://desvl.xyz/post/2019-10-04-contraction-application/</guid>
+      <description>利用压缩定理解决迭代生成的含有积分的函数的一致问题</description>
+    </item>
     
     <item>
       <title>陈旧的观点：不要追求生产力、效率了</title>
@@ -180,15 +189,6 @@
       
       <guid>https://desvl.xyz/post/2019-08-15-polar-factorization/</guid>
       <description>将一个实方阵进行类似于极坐标表示的分解</description>
-    </item>
-    
-    <item>
-      <title>商空间与线性映射基本定理</title>
-      <link>https://desvl.xyz/post/2019-08-14-quotient-space/</link>
-      <pubDate>Wed, 14 Aug 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://desvl.xyz/post/2019-08-14-quotient-space/</guid>
-      <description>引入商空间这个概念</description>
     </item>
     
   </channel>

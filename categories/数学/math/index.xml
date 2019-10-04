@@ -6,10 +6,19 @@
     <description>Recent content in 数学/Math on Desvl&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 27 Sep 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 04 Oct 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://desvl.xyz/categories/%E6%95%B0%E5%AD%A6/math/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>压缩定理解决一致收敛的问题</title>
+      <link>https://desvl.xyz/post/2019-10-04-contraction-application/</link>
+      <pubDate>Fri, 04 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://desvl.xyz/post/2019-10-04-contraction-application/</guid>
+      <description>利用压缩定理解决迭代生成的含有积分的函数的一致问题</description>
+    </item>
     
     <item>
       <title>优美的Fourier级数（六）: Poisson核的一致收敛</title>
@@ -180,15 +189,6 @@
       
       <guid>https://desvl.xyz/post/2019-08-14-quotient-space/</guid>
       <description>引入商空间这个概念</description>
-    </item>
-    
-    <item>
-      <title>用实矩阵表示复数</title>
-      <link>https://desvl.xyz/post/2019-08-11-real-complex-matrix-representation/</link>
-      <pubDate>Sun, 11 Aug 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://desvl.xyz/post/2019-08-11-real-complex-matrix-representation/</guid>
-      <description>将复数表示成矩阵, 并且解释其几何意义</description>
     </item>
     
   </channel>
