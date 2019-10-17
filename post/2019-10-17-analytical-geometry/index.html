@@ -4,7 +4,7 @@
          
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>压缩定理解决一致收敛的问题</title>
+        <title>利用隐函数存在定理解决解析几何问题</title>
         
         <style>
 
@@ -91,8 +91,8 @@ MathJax.Hub.Config({
 
         <meta name="twitter:card" content="summary"/>
 <meta name="twitter:image" content="https://desvl.xyz/"/>
-<meta name="twitter:title" content="压缩定理解决一致收敛的问题"/>
-<meta name="twitter:description" content="利用压缩定理解决迭代生成的含有积分的函数的一致收敛问题"/>
+<meta name="twitter:title" content="利用隐函数存在定理解决解析几何问题"/>
+<meta name="twitter:description" content="应用隐函数存在定理, 解决繁杂的曲面平面问题, 巧妙规避二次方程"/>
 
         
 
@@ -107,7 +107,7 @@ MathJax.Hub.Config({
 
                 <div class="navbar-header">
 
-                    <a class="navbar-brand visible-xs" href="#">压缩定理解决一致收敛的问题</a>
+                    <a class="navbar-brand visible-xs" href="#">利用隐函数存在定理解决解析几何问题</a>
 
                     <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
                         <span class="icon-bar"></span>
@@ -162,10 +162,12 @@ MathJax.Hub.Config({
     
     
 
-    <h4><a href="/post/2019-10-04-contraction-application/">压缩定理解决一致收敛的问题</a></h4>
-    <h5>October 4, 2019</h5>
+    <h4><a href="/post/2019-10-17-analytical-geometry/">利用隐函数存在定理解决解析几何问题</a></h4>
+    <h5>October 17, 2019</h5>
     
     <a href="https://desvl.xyz/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/mathematical-analysis"><kbd class="item-tag">数学分析/Mathematical Analysis</kbd></a>
+    
+    <a href="https://desvl.xyz/tags/%E8%A7%A3%E6%9E%90%E5%87%A0%E4%BD%95/analytical-geometry"><kbd class="item-tag">解析几何/Analytical Geometry</kbd></a>
     
 
 </div>
@@ -173,120 +175,156 @@ MathJax.Hub.Config({
 
     <br> <div class="text-justify">
 
-<p>两个月前, 我为了收集点材料写博客, 整理了一下<a href="/post/2019-08-04-contraction-application">压缩映射的介绍和一个简单的应用</a>. 压缩映射使得可以在不完全清楚数列最准确的递推公式的时候知道数列的极限. 当然它不仅仅可以用在最简单的数列中. 例如, 证明反函数存在时, 压缩映射的构建就是一个非常关键的环节. 还有一个例子就是今天要讲的: 函数的一致收敛. 接下来会分析一道如果不用压缩定理会比较难的微积分证明题. 但是在这之前, 我觉得有必要解释一下几个重要概念:</p>
+<p>最近在研究往年CMC试题时, 发现官方答案里解决空间曲面的相切问题时, 总是往往选择一种很不方便的办法: 求参数方程, 然后得到一个可能很长很长的二次方程, 最后利用只有一个二重根解决. 这种办法非常值得诟病的地方很多. 先不谈可能产生的巨大的计算量, 设出合理的参数方程本身就是比较困难的一件事情. 但是, 我们已经掌握了微积分这个工具, 为什么还要把自己局限在一两千年前呢?</p>
 
-<h3 id="一致收敛">一致收敛</h3>
+<h2 id="微积分理论依据">微积分理论依据</h2>
 
-<blockquote>
-<p>如果函数列$\{f_n\}$一致收敛于$f$, 那么对每个正实数$\varepsilon$, 都有一个正整数$N$使得$n\geq N$时, 有[|f_n(x)-f(x)|\leq\varepsilon]</p>
-</blockquote>
+<h3 id="二元函数决定的曲面在某点的切平面">二元函数决定的曲面在某点的切平面</h3>
 
-<p>这也就是说, 收敛情况和$x$无关.</p>
-
-<h3 id="函数的距离">函数的距离</h3>
-
-<blockquote>
-<p>对区间$[a,b]$上的连续函数定义抽象的距离[d(f,g)=\sup_{x\in[a,b]}|f(x)-g(x)|]</p>
-</blockquote>
-
-<p>如果在平面直角坐标系上做出$f$和$g$的图像, 那么这个&rdquo;距离&rdquo;就是竖直方向差值最大的地方. 这个定义可能看去很荒谬, 但是确实满足了距离(又叫做度量)该具有的性质:</p>
-
-<ul>
-<li>$d(f,g)\geq{0}$.</li>
-<li>$d(f,g)=0$当且仅当$f=g$</li>
-<li>$d(f,h)\leq d(f,g)+d(g,h)$(三角形不等式)</li>
-</ul>
-
-<p>不仅如此, 还可以对一致收敛的定义进行优化(至少对于连续函数而言, 这是比较轻松的, 而且这篇文章里我们也仅仅是在探讨连续函数). 因为$f$和$g$都是连续函数, 所以$|f-g|$一定能在一个闭区间上取得最大值最小值. 所以只需要$|f_n(x)-f(x)|$的最小值足够小即可. 也就是说, 可以有如下定义</p>
-
-<h4 id="连续函数的一致收敛">连续函数的一致收敛</h4>
-
-<blockquote>
-<p>如果连续函数构成的函数列$\{f_n\}$一致收敛于$f$, 那么对每个正实数$\varepsilon$, 都有一个正整数$N$使得$n\geq N$时, 有[d(f_n,f)\leq\varepsilon]</p>
-</blockquote>
-
-<h3 id="完备度量空间">完备度量空间</h3>
-
-<blockquote>
-<p>如果一个定义了距离函数$d$的集合$X$, 也就是度量空间, 能使得柯西数列收敛于集合内的一点, 那么这个集合$X$是完备的.</p>
-</blockquote>
-
-<p>这其实也隐含了一个逻辑关系: <strong>收敛数列一定是柯西数列, 反之不然.</strong> 从数列收敛到柯西数列的证明是很简单的(只需要两个不等式), 但是反过来就不一样了. 但是反例还是可以举出来的. 全体实数$\mathbb{Q}$以$d(x,y)=|x-y|$构成的度量空间就不是完备的. 例如, 可以构建以下数列:
+<p>如果函数$f$在点$(x_0,y_0)$可微, 则曲面$z=f(x,y)$在点$P(x_0,y_0,z_0)$的切面方程为
 [
-    3,3.1,3.14,3.141,3.1415,\cdots
+    z-z_0 = \frac{\partial f}{\partial x}(x_0,y_0)(x-x_0)+\frac{\partial f}{\partial y}(x_0,y_0)(y-y_0)
 ]</p>
 
-<p>这个数列收敛到$\pi$, 是一个无理数. 如果一个集合中的数列收敛, 那么这个极限应该也是这个集合内的. 这说明, 上面给出的集合<strong>并不收敛</strong>.</p>
+<p>这个方程也可以写成
+[
+    \frac{\partial f}{\partial x}(x_0,y_0)(x-x_0)+\frac{\partial f}{\partial y}(x_0,y_0)(y-y_0)-(z-z_0)=0
+]</p>
 
-<p>换句话说, 如果一个集合是完备的, 那么这个集合中的柯西数列能找到极限, 否则找不到. 因为连续函数一致收敛的极限函数也是连续函数, 所以在指定区间上的全体连续函数是完备的.</p>
+<p>根据平面的点法式方程(通过某点和某个法向量决定一个平面), 可以发现, 这个平面的法向量为
+[
+    \overrightarrow{\mathbf{n}}=(\frac{\partial f}{\partial x}(x_0,y_0),\frac{\partial f}{\partial y}(x_0,y_0),-1)
+]</p>
 
-<h2 id="构建压缩映射的实例">构建压缩映射的实例</h2>
+<p>这个平面的论证过程是比较长的, 在这里就不深入探究了. 当然我们接下来探讨的曲面肯定都是满足可微条件的.</p>
 
-<p>对于绝大多数类型的数列而言, 压缩映射的构建就是在第$n$项和第$n-1$项做文章, 另外还要找到一个小于$1$的系数. 具体的做法就是复刻压缩映射的证明. 具体做法可以分为三步:</p>
+<h3 id="隐含数组存在定理">隐含数组存在定理</h3>
 
-<ol>
-<li>利用已知条件构建函数的映射(定义域和值域都为函数)</li>
-<li>分析构建的函数的函数是不是一个压缩映射(需要考虑定义域的完备性)</li>
-<li>求出极限(不过这不是这篇文章的任务了. 接下来这个题的极限函数可能需要用到很复杂的常微分方程)</li>
-</ol>
+<p>有些曲面方程很难表示成$z=f(x,y)$的形式, 或者说根本写不出初等函数的形式. 这个时候就需要利用隐函数存在定理了. 虽然得不到这个方程的最简单的表达, 但是还是可以很轻松地求出法向量.</p>
 
-<h3 id="实例-全国大学生数学竞赛第7届预赛第5题-数学类">实例：全国大学生数学竞赛第7届预赛第5题(数学类)</h3>
+<p>设曲面由方程
+[
+    F(x,y,z)=0
+]
+给出, 切点为$(x_0,y_0,z_0)$. 这个方程可以理解成$F(x,y,z)=z-f(x,y)=0$. 设$F$在某邻域内满足隐函数定理条件(当然接下来要讨论的函数都满足), 不妨设$\frac{\partial F}{\partial z}(x_0,y_0,z_0)\neq 0$. 于是上面的方程唯一确定了连续可微的隐函数$z=f(x,y)$使得$z_0=f(x_0,y_0)$, 而且有
+[
+    \frac{\partial z}{\partial x}=-\frac{\partial F/\partial x}{\partial F/\partial z},\quad \frac{\partial z}{\partial y}=-\frac{\partial F/\partial y}{\partial F/\partial z}
+]</p>
+
+<p>且在这一点附近由$F=0$和$z=f(x,y)$确定的曲面是一致的. 利用上面指出的二元函数在某点的切平面方程, 就能得到
+[
+    -\frac{\partial F/\partial x}{\partial F/\partial z}(x_0,y_0,z_0)(x-x_0)-\frac{\partial F/\partial y}{\partial F/\partial z}(x_0,y_0,z_0)(y-y_0)-(z-z_0)=0
+]</p>
+
+<p>整理之后就能得到
+[
+    \frac{\partial F}{\partial x}(x_0,y_0,z_0)(x-x_0)+\frac{\partial F}{\partial y}(x_0,y_0,z_0)(y-y_0)+\frac{\partial F}{\partial z}(x_0,y_0,z_0)(z-z_0)=0
+]</p>
+
+<p>且在这一点的法向量为
+[
+    \overrightarrow{\mathbf{n}}=(\frac{\partial F}{\partial x}(x_0,y_0,z_0),\frac{\partial F}{\partial y}(x_0,y_0,z_0),\frac{\partial F}{\partial z}(x_0,y_0,z_0))
+]</p>
+
+<p>这几个式子也是很好理解的. 导数在几何上指出了曲线某点切线的斜率, 多元函数里也可以把三个偏导看成三个方向的斜率, 从而很自然地刻画了切面.</p>
+
+<h2 id="几个问题的解决">几个问题的解决</h2>
 
 <blockquote>
-<p>设$f(x)$是$[0,+\infty)$上的有界连续函数, $h(x)$是$[0,+\infty)$上的连续函数, 满足$\int_{0}^{+\infty}|h(t)|dt=a&lt;1$. 构造函数列如下:$g_0(x)=f(x)$,[g_n(x)=f(x)+\int_{0}^{x}h(t)g_{n-1}(t)dt,\quad n = 1,2,\cdots]求证:$\{g_n(x)\}$收敛于一个连续函数.</p>
+<p>设$S$是空间中的一个椭球面, 设方向为常向量$\overrightarrow{\mathbf{v}}$的一束平行光线照射$S$, 其中部分光线与$S$相切, 它们的切点构成曲线$\Gamma$. 求证: $\Gamma$构成了一个平面, 这个平面必定经过椭球的中心.</p>
 </blockquote>
 
-<p>可以看到, 相邻两项的关系、小于$1$的系数，这两个条件都具备了. 接下来, 如果能合理开发已知条件, 得到一个压缩映射, 那么就自然证明了一致收敛. 而每个$g_n(x)$都是连续函数, 所以一致收敛的函数也是连续函数, 这个问题也就解决了. 下面是完整的证明过程. 原题还要求求出这个极限函数, 但这里就不深入了.</p>
+<p>我想这个题是很容易理解的, 但是很难下手. 如果利用二次方程解决, 那么解决的时候可能会面对比较庞大的计算量, 然后还要分析出怎么得到二次方程只有一个根, 又是一番计算量. 另一种方法是仿射变换. 这样做需要一定量的文字论述, 思维跳跃也比较大.</p>
+
+<p>如果利用微积分的办法, 解决方案变得很单纯: <strong>求出某点的切平面或者法向量, 再利用已知条件对切点进行限制</strong>, 就离问题的答案很近了. 这个题如果将切点限制出来, 再对切点满足的另一个方程进行分析, 就基本解决问题了. 解决过程如下:</p>
 
 <hr />
 
-<p>定义线性变换
+<p>不妨设椭圆方程为
 [
-    \begin{aligned}
-        T: C([0,+\infty))&amp;\to C([0,+\infty)) \\<br />
-        g_{n-1}(x)&amp;\mapsto g_n(x)
-    \end{aligned}
+    \frac{x^2}{a^2}+\frac{y^2}{b^2}+\frac{z^2}{c^2}=1\quad(a,b,c&gt;0)
 ]</p>
 
-<p>相邻两项做差, 就有
+<p>这个曲面由方程
 [
-\begin{aligned}
-    |Tg_{n}(x)-Tg_{n-1}(x)|&amp;=|g_{n+1}(x)-g_{n}(x)| \\<br />
-    &amp;=|\int_{0}^{x}h(t)(g_{n}(t)-g_{n-1}(t))dt| \\<br />
-    &amp;\leq\int_{0}^{x}|h(t)||g_{n}(t)-g_{n-1}(t)|dt \\<br />
-    &amp;=|g_{n}(\xi)-g_{n-1}(\xi)|\int_{0}^{x}|h(t)|dt \quad(0&lt;\xi&lt;x)\\<br />
-    &amp;\leq d(g_{n},g_{n-1})\int_{0}^{x}|h(t)|dt \\<br />
-    &amp;\leq a\cdot d(g_{n},g_{n-1})
-\end{aligned}
+    F(x,y,z)=\frac{x^2}{a^2}+\frac{y^2}{b^2}+\frac{z^2}{c^2}-1=0
 ]</p>
 
-<p>可见, 这个函数映射$T$是一个压缩映射, 而且$C([0,+\infty))$是完备空间, 所以必定有唯一的函数$g$满足$Tg=g$, 这就是$Tg_{n-1}=g_{n}$的极限函数. 根据给出的一致收敛于函数距离的关系, $g_n$一致收敛于$g$. 而$g_n$每一项都是连续函数(由$g_0=f$保证), 所以$g$也是连续函数.</p>
+<p>决定. 利用隐函数存在定理可以求出曲面上任意一点$(x,y,z)$的切平面
+[
+    \overrightarrow{\mathbf{n}}=(\frac{\partial F}{\partial x},\frac{\partial F}{\partial y},\frac{\partial F}{\partial z})=(\frac{2x}{a^2},\frac{2y}{b^2},\frac{2z}{c^2})
+]</p>
+
+<p>设$\overrightarrow{\mathbf{v}}=(m,n,p)$, 则$\Gamma$上的点满足$\mathbf{\overrightarrow{n}\cdot \overrightarrow{v}}=0$, 能得到
+[
+    \frac{2mx}{a^2}+\frac{2ny}{b^2}+\frac{2pz}{c^2}=0
+]</p>
+
+<p>这恰好是一个过原点的平面, 而原点就是椭球的中心. 证毕.</p>
 
 <hr />
 
-<p>这个题的解决最难的部分在于做差之后的一系列不等式. 但是都是很平凡的办法. 如果你觉得很难理解, 可以在纸笔上写一下, 都是很自然的. 用到的技巧包括:</p>
-
-<ul>
-<li>绝对值不等式</li>
-<li>中值定理</li>
-<li><a href="/post/2019-09-07-sup-inf">上确界的性质</a></li>
-</ul>
-
-<p>这道题的官方答案是这样的:</p>
-
-<p>记$M=\sup|f(x)|$, 因而$|g_0(x)|\leq M$. 假设$|g_{n-1}(x)|\leq(1+a+\cdots+a^{n-1})M$(怎么从一个$1$想到一个等比数列的?), 对$n$进行归纳&hellip;&hellip;</p>
-
-<p>Come on. 给自己徒增难度是何苦呢?</p>
-
-<p>压缩映射是一个很正规但是很优雅的技巧, 会出现在水平相对较高的选拔考试中. 这些问题可能并不是必须要用压缩映射, 但是压缩映射总是可以减少很多麻烦. 当然掌握这个技巧不是仅仅为了考试, 不然也不会有人用它证明反函数存在定理了.</p>
-
-<h3 id="另一个例子">另一个例子</h3>
+<p>这里进行了哪些运算? 简单的求导、向量乘法. 没了. 是否比写二次方程简单多了? 其实这个地方的相切是比较规则的, 仅仅涉及了一个方向, 而且还可以过原点. 下面的一个决赛题, 就是一个不规则的相切问题.</p>
 
 <blockquote>
-<p>设$\varphi(x)$在$[a,b]$上连续, $K(x,t)$在$[a,b]\times[a,b]$上连续. 构造如下函数列:[f_0(x)=\varphi(x),f_n(x)=\varphi(x)+\lambda\int_{a}^{b}K(x,t)f_{n-1}(t)dt]证明: 当$|\lambda|$足够小时, 函数列$\{f_n\}$收敛于一个连续函数</p>
+<p>在空间直角坐标下, 设有椭球面[\frac{x^2}{a^2}+\frac{y^2}{b^2}+\frac{z^2}{c^2}=1\quad(a,b,c&gt;0)], 及$S$外部一点$A(x_0,y_0,z_0)$. 过点$A$与$S$相切的所有直线构成锥面$\Sigma$, 证明: 存在平面$\Pi$, 使得交线${S\cap\Pi}={S\cap\Sigma}$, 并求出$\Pi$的方程.</p>
 </blockquote>
 
-<p>这个题来自2016年浙江大学研究生入学考试数学分析第8题. 我想如果掌握了压缩映射, 这个题非常简单, 基本上也是在复刻上面的证明过程.</p>
+<p>这个题也是说, 切点被限制在一个平面上了. 但是, 这个点$A$是不确定的, 所以锥面很有可能是不规则的(比如不一定对称), 这个时候利用二次方程是非常非常繁琐的. 得到的参数方程满足的等式是这样的(你肯定不想见到):
+[
+    (1+\frac{x_0^2}{a^2}+\frac{y_0^2}{b^2}+\frac{z_0^2}{c^2}-2(\frac{x_0x}{a^2}+\frac{y_0y}{b^2}+\frac{z_0z}{c^2}))t^2+2(1-\frac{x_0x}{a^2}+\frac{y_0y}{b^2}+\frac{z_0z}{c^2})t=0
+]
+但是这是这个方程的最简形式, 之前的步骤中得到的式子长什么样我反正不想敲成代码. 但是利用微积分这个工具, 就不会有这么麻烦了.</p>
+
+<hr />
+
+<p>$S$上某点$P(x,y,z)$的一个法向量是
+[
+    \overrightarrow{\mathbf{n}}=(\frac{x}{a^2},\frac{y}{b^2},\frac{z}{c^2})
+]
+如果$P$在交线上, 那么一定有$\overrightarrow{AP}\cdot\overrightarrow{\mathbf{n}}=0$. 也就是说,
+[
+    \frac{x}{a^2}(x-x_0)+\frac{y}{b^2}(y-y_0)+\frac{z}{c^2}(z-z_0)=0
+]
+这个式子表征了$P\in\Sigma$. 再利用已知条件$P\in{S}$:
+[
+    \frac{x^2}{a^2}+\frac{y^2}{b^2}+\frac{z^2}{c^2}=1
+]</p>
+
+<p>将这两个式子整理, 得到对于$P\in{S\cap\Sigma}$, 有
+[
+    \frac{x_0x}{a^2}+\frac{y_0y}{b^2}+\frac{z_0z}{c^2}=1
+]</p>
+
+<p>这确定了一个平面$\Pi$. 因此$P\in\Pi$, 从而有$P\in{S\cap\Pi}$.</p>
+
+<p>最后, 需要证明, 如果$P\in{S\cap\Pi}$, 那么$P\in{S\cap\Sigma}$.</p>
+
+<p>这个关系成立是因为有等式
+[
+    \frac{x_0x}{a^2}+\frac{y_0y}{b^2}+\frac{z_0z}{c^2}=\frac{x^2}{a^2}+\frac{y^2}{b^2}+\frac{z^2}{c^2}=1
+]</p>
+
+<p>而这恰好和$P\in{S\cap\Sigma}$时的表达式
+[
+    \frac{x}{a^2}(x-x_0)+\frac{y}{b^2}(y-y_0)+\frac{z}{c^2}(z-z_0)=0
+]
+等价. 综上, ${S\cap\Pi}={S\cap\Sigma}$. 其中
+[
+    \Pi: \frac{x_0x}{a^2}+\frac{y_0y}{b^2}+\frac{z_0z}{c^2}=1
+]</p>
+
+<hr />
+
+<p>这个解决方法中最难的过程是哪步? 我想最多是化简等式吧. 但这绝对比最开始那个超长的二次方程简单多了.</p>
+
+<p>最后是一道预赛题, 如果能掌握这种解决办法, 其实下面这个题很简单, 具体求解过程就不深入了.</p>
+
+<blockquote>
+<p>设$\Gamma: z = 3x^2+4y^2+1$. 从原点作$\Gamma$的切锥面, 求切锥面方程.</p>
+</blockquote>
+
+<p>解决方案大致如下: 求出每点切平面方程, 再限制出仅过原点的点, 得到切锥面和$\Gamma$的交线方程. 最后利用锥面上的点一定可以放缩到切点上这个性质求出锥面方程.</p>
 </div>
     <h4 class="page_header">Share | 分享</h4>
     <hr>
@@ -333,12 +371,10 @@ MathJax.Hub.Config({
     
     
 
-    <h4><a href="/post/2019-10-17-analytical-geometry/">利用隐函数存在定理解决解析几何问题</a></h4>
-    <h5>October 17, 2019</h5>
+    <h4><a href="/post/2019-10-04-contraction-application/">压缩定理解决一致收敛的问题</a></h4>
+    <h5>October 4, 2019</h5>
     
     <a href="https://desvl.xyz/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/mathematical-analysis"><kbd class="item-tag">数学分析/Mathematical Analysis</kbd></a>
-    
-    <a href="https://desvl.xyz/tags/%E8%A7%A3%E6%9E%90%E5%87%A0%E4%BD%95/analytical-geometry"><kbd class="item-tag">解析几何/Analytical Geometry</kbd></a>
     
 
 </div>

@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Desvl&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 04 Oct 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 17 Oct 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://desvl.xyz/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>利用隐函数存在定理解决解析几何问题</title>
+      <link>https://desvl.xyz/post/2019-10-17-analytical-geometry/</link>
+      <pubDate>Thu, 17 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://desvl.xyz/post/2019-10-17-analytical-geometry/</guid>
+      <description>应用隐函数存在定理, 解决繁杂的曲面平面问题, 巧妙规避二次方程</description>
+    </item>
     
     <item>
       <title>压缩定理解决一致收敛的问题</title>
@@ -180,15 +189,6 @@
       
       <guid>https://desvl.xyz/post/2019-08-16-generalized-inverse/</guid>
       <description>引入矩阵的几种广义逆的概念</description>
-    </item>
-    
-    <item>
-      <title>从复数的矩阵表示到极分解</title>
-      <link>https://desvl.xyz/post/2019-08-15-polar-factorization/</link>
-      <pubDate>Thu, 15 Aug 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://desvl.xyz/post/2019-08-15-polar-factorization/</guid>
-      <description>将一个实方阵进行类似于极坐标表示的分解</description>
     </item>
     
   </channel>
