@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Desvl&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 17 Oct 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 31 Oct 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://desvl.xyz/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>欧拉反射公式和利用Fourier级数的证明</title>
+      <link>https://desvl.xyz/post/2019-10-31-euler-reflection/</link>
+      <pubDate>Thu, 31 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://desvl.xyz/post/2019-10-31-euler-reflection/</guid>
+      <description>利用Arzela定理和Fourier级数对欧拉反射公式进行证明</description>
+    </item>
     
     <item>
       <title>利用隐函数存在定理解决解析几何问题</title>
@@ -180,15 +189,6 @@
       
       <guid>https://desvl.xyz/post/2019-08-19-l-hopital-proof/</guid>
       <description>利用两种微积分中的重要工具证明洛必达法则</description>
-    </item>
-    
-    <item>
-      <title>矩阵的广义逆</title>
-      <link>https://desvl.xyz/post/2019-08-16-generalized-inverse/</link>
-      <pubDate>Fri, 16 Aug 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://desvl.xyz/post/2019-08-16-generalized-inverse/</guid>
-      <description>引入矩阵的几种广义逆的概念</description>
     </item>
     
   </channel>

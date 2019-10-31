@@ -4,7 +4,7 @@
          
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>伽玛函数两个有趣的应用</title>
+        <title>欧拉反射公式和利用Fourier级数的证明</title>
         
         <style>
 
@@ -91,8 +91,8 @@ MathJax.Hub.Config({
 
         <meta name="twitter:card" content="summary"/>
 <meta name="twitter:image" content="https://desvl.xyz/"/>
-<meta name="twitter:title" content="伽玛函数两个有趣的应用"/>
-<meta name="twitter:description" content="一个经典的含参反常积分——伽玛函数在微积分中的一些应用"/>
+<meta name="twitter:title" content="欧拉反射公式和利用Fourier级数的证明"/>
+<meta name="twitter:description" content="利用Arzela定理和Fourier级数对欧拉反射公式进行证明"/>
 
         
 
@@ -107,7 +107,7 @@ MathJax.Hub.Config({
 
                 <div class="navbar-header">
 
-                    <a class="navbar-brand visible-xs" href="#">伽玛函数两个有趣的应用</a>
+                    <a class="navbar-brand visible-xs" href="#">欧拉反射公式和利用Fourier级数的证明</a>
 
                     <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
                         <span class="icon-bar"></span>
@@ -162,10 +162,12 @@ MathJax.Hub.Config({
     
     
 
-    <h4><a href="/post/2019-09-18-gamma-intro/">伽玛函数两个有趣的应用</a></h4>
-    <h5>September 18, 2019</h5>
+    <h4><a href="/post/2019-10-31-euler-reflection/">欧拉反射公式和利用Fourier级数的证明</a></h4>
+    <h5>October 31, 2019</h5>
     
     <a href="https://desvl.xyz/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/mathematical-analysis"><kbd class="item-tag">数学分析/Mathematical Analysis</kbd></a>
+    
+    <a href="https://desvl.xyz/tags/fourier%E5%88%86%E6%9E%90/fourier-analysis"><kbd class="item-tag">Fourier分析/Fourier Analysis</kbd></a>
     
     <a href="https://desvl.xyz/tags/gamma%E5%87%BD%E6%95%B0"><kbd class="item-tag">Gamma函数</kbd></a>
     
@@ -175,56 +177,168 @@ MathJax.Hub.Config({
 
     <br> <div class="text-justify">
 
-<h2 id="前言">前言</h2>
+<p>$\Gamma$函数将自然数和连续函数很自然地结合起来, 在各个领域有着各种意想不到的作用. 它的细节绝对不是只言片语能解释完的. 在这里我会介绍一个很有意思的公式: 欧拉反射公式. 当然, 如果视野仅仅停留在一个公式上, 那肯定不行.</p>
 
-<p>在<a href="/post/2019-09-06-n-ball">介绍$n$维球体积</a>时, 我们引入了一个很重要的函数:
-[
-    \Gamma(x)=\int_0^{\infty}t^{x-1}e^{-t}dt
-]</p>
-
-<p>并且用它和$B(x,y)$对三角函数积分进行大幅度简化. 但这只是$\Gamma$函数诸多性质的一部分. 这个函数经常出现在分析学中很多让人意想不到的场合. 今天我会试着整理一些这个函数两个很常用的应用.</p>
-
-<h2 id="欧拉-泊松积分-int-infty-infty-e-x-2-dx-到底怎么算">欧拉-泊松积分$\int_{-\infty}^{\infty}e^{-x^2}dx$到底怎么算?</h2>
-
-<p>很遗憾, $\int e^{-x^2}dx$不是一个初等函数, 不能写成一个&rdquo;原函数&rdquo;. 但是它的值是可以算的. 介绍$n$维球体积时我说, 算出$\Gamma(\frac{1}{2})=\sqrt{\pi}$, 离算出$\int_{-\infty}^{\infty}e^{-x^2}dx$已经很近很近了. 在这里我会给出计算办法.</p>
-
-<p>只需要令$t=s^2$, 代入$\Gamma$的方程即可. 此时有
-[
-    \Gamma(x)=2\int_0^{\infty}s^{2x-1}e^{-s^2}ds
-]</p>
-
-<p>看到$2x-1$, 你会想到什么? 没错, 这个$s$可以消去一个! 代入$\frac{1}{2}$, 就有
-[
-    \Gamma(\frac{1}{2})=2\int_{0}^{\infty}e^{-s^2}ds=\int_{-\infty}^{\infty}e^{-s^2}ds=\sqrt{\pi}
-]</p>
-
-<p>至此, 欧拉-泊松积分的计算得到解决. 当然解决办法还有很多, 但这种算法是离$\Gamma$函数最近的.</p>
-
-<h2 id="stirling公式-分析-n-的有力工具">Stirling公式, 分析$n!$的有力工具.</h2>
-
-<p>Stirling公式是对$\Gamma$函数在$x$足够大时的估计:
-[
-    \lim\limits_{x\to\infty}\frac{\Gamma(x+1)}{(x/e)^x\sqrt{2\pi x}}=1
-]</p>
-
-<p>对于正整数$n$, 利用$\Gamma$函数的阶乘性质, 也可以得到
-[
-    \lim\limits_{x\to\infty}\frac{\Gamma(n+1)}{(n/e)^n\sqrt{2\pi n}}=\lim\limits_{x\to\infty}\frac{n!}{(n/e)^n\sqrt{2\pi n}}=1
-]</p>
-
-<p>这个命题的证明是比较困难的. 我在先这里会给出一些简单应用. Stirling公式说明了一件事情: $n!$和$(n/e)^n\sqrt{2\pi n}$是等价无穷大. 所以在计算一些$\frac{\infty}{\infty}$类型的极限时, 可以直接利用这个关系, 将$n!$这一项替换掉, 从而得到一些意想不到的简化. 下面是一个经典的例子:</p>
-
-<blockquote>
-<p>求极限$\lim\limits_{n\to\infty}\frac{n!}{n^n}$</p>
-</blockquote>
+<h2 id="欧拉反射公式">欧拉反射公式</h2>
 
 <p>[
+    \Gamma(x)\Gamma(1-x)=\frac{\pi}{\sin\pi{x}}\quad 0&lt;x&lt;1
+]</p>
+
+<h2 id="一些简单的应用">一些简单的应用</h2>
+
+<p>不如先看一下能直接利用它得到什么结论. 两个$\Gamma$函数的乘积, 自然就和$B$函数能建立起联系. 实际上,
+[
+    \Gamma(x)\Gamma(1-x)=\frac{\Gamma(x)\Gamma(1-x)}{\Gamma(x+1-x)}=B(x,1-x).
+]</p>
+
+<p>同时, 再利用$B$函数的三角函数变形式, 就有
+[
+    B(x,1-x)=2\int_{0}^{\pi/2}\cos^{2x-1}\theta\sin^{2(1-x)-1}\theta d\theta=2\int_{0}^{\pi/2}\cot^{2x-1}\theta d\theta
+]</p>
+
+<p>这时, 一个很奇妙的结论就出现了:
+[
+    \int_{0}^{\pi/2}\cot^{2x-1}\theta d\theta=\frac{\pi}{\sin\pi{x}}\quad 0&lt;x&lt;1
+]</p>
+
+<p>如果直接计算这个积分是很困难的. 但是, 这两个欧拉积分却为我们提供了一个捷径. 那么正切函数的怎么计算?</p>
+
+<p>其实计算方式是一样的. 这是因为, $B(p,q)=B(q,p)$(为什么?), 如果计算$B(1-x,x)$, 就能得到$\int_{0}^{\pi/2}\tan^{2x-1}\theta d\theta$了.</p>
+
+<p>接下来, 我们试着算一下一个很&rdquo;基本&rdquo;的定积分
+[
+    I_p=\int_{0}^{\infty}\frac{1}{1+x^p}dx\quad p&gt;1
+]</p>
+
+<p>这个时候想因式分解都不让了. 实际上有理式因式分解不一定是最靠谱的办法. 如果要分解$(1+x^{2019})$, 那就太折磨人了. 如果利用余元公式, 根本不需要.</p>
+
+<p>那么怎么才能通过欧拉反射公式解决呢? 首先将它转换成一个$B$函数.</p>
+
+<p>令$x^p=u\in[0,+\infty)$. 此时
+[
 \begin{aligned}
-    \lim\limits_{n\to\infty}\frac{n!}{n^n}&amp;=\lim\limits_{n\to\infty}\frac{(n/e)^n\sqrt{2\pi n}}{n^n} \\<br />
-    &amp;=\lim\limits_{n\to\infty}\frac{\sqrt{2\pi n}}{e^n} \\<br />
-    &amp;=0
+    I_p &amp;= \int_{0}^{+\infty}\frac{1}{1+u}du^{\frac{1}{p}} \\<br />
+        &amp;= \frac{1}{p}\int_{0}^{+\infty}\frac{u^{\frac{1}{p}-1}}{1+u}du
 \end{aligned}
 ]</p>
+
+<p>再令$\frac{u}{1+u}=v\in[0,1)$, 又能得到
+[
+\begin{aligned}
+    I_p &amp;= \frac{1}{p}\int_{0}^{+\infty}\left(\frac{u}{1+u}\right)^{\frac{1}{p}-1}\left(\frac{1}{1+u}\right)^{1-\frac{1}{p}}du \\<br />
+        &amp;= \frac{1}{p}\int_{0}^{1}v^{\frac{1}{p}-1}(1-v)^{2-\frac{1}{p}}dv \\<br />
+        &amp;= \frac{1}{p}B(\frac{1}{p},1-\frac{1}{p}) \\<br />
+        &amp;= \frac{\pi}{p\sin\frac{\pi}{p}}
+\end{aligned}
+]</p>
+
+<p>也就是说, 对于这类积分, 有一个普适性的结果:
+[
+    \int_{0}^{\infty}\frac{1}{1+x^p}dx=\frac{\pi}{p\sin\frac{\pi}{p}} \quad p&gt;1
+]</p>
+
+<p>所以如果要计算$\int_0^{\infty}\frac{1}{1+x^3}dx$, 根本不需要进行繁琐的因式分解. 如果$p$是整数时, 就可以说, <strong>$\Gamma$函数在多项式和三角函数之间搭建起桥梁.</strong></p>
+
+<p>这时还可以计算一个极限:
+[
+    \lim_{p\to\infty}I_p=\lim_{p\to\infty}\frac{\frac{\pi}{p}}{\sin\frac{\pi}{p}}=1
+]</p>
+
+<h2 id="公式的证明">公式的证明</h2>
+
+<p>不得不说这是一件比较困难的事情. 我会在这里先介绍一种利用Arzela控制收敛定理进行证明的办法.</p>
+
+<h4 id="引理1-arzela控制收敛定理-arzela-dominated-convergence-theorem-1885">引理1: Arzela控制收敛定理(Arzela dominated convergence theorem, 1885)</h4>
+
+<blockquote>
+<p>设${f_n}$是在$[a,b]$上收敛于$f$的可积函数列(并不要求一致收敛), 若$f$也可积, 且${f_n}$在$[a,b]$上一致有界, 即存在$M&gt;0$, 使得对每个$n$和所有$x\in[a,b]$同时满足$|f_n(x)\leq{M}$, 则有
+[\lim_{n\to\infty}\int_{a}^{b}f_n(x)dx=\int_{a}^{b}f(x)dx]</p>
+</blockquote>
+
+<p>上面这个式子本来需要一致收敛(这是非常严苛的), 但是Arzela发现只需要收敛和一致有界. 这个定理登场一百多年来, 一直没有一个让人满意的初等证明. 原因一个字:难. 如果感兴趣可以参考<a href="https://sites.math.washington.edu/~morrow/335_15/dominated.pdf">这里</a>.</p>
+
+<h4 id="引理2-余割函数的部分分式展开">引理2: 余割函数的部分分式展开</h4>
+
+<blockquote>
+<p>[\csc{x}=\frac{1}{x}+\sum_{n=1}^{\infty}(-1)^{n}\frac{2x}{x^2-n^2\pi^2}]</p>
+</blockquote>
+
+<p>怎么得到的这个公式? 利用傅里叶展开.</p>
+
+<p>注意到
+[
+    \cos\alpha{t} = \frac{\sin\pi\alpha}{\pi\alpha}+\sum_{n=1}^{\infty}(-1)^{n}\frac{2\alpha}{\pi(\alpha^2-n^2\pi^2)}\sin\alpha\pi\cos{nt}
+]</p>
+
+<p>$\alpha$为整数时, $\csc\alpha\pi$不存在. $\alpha$不是整数时, 令$t=0$, $\alpha\pi=x$. 此时有
+[
+    1=\frac{\sin{x}}{x}+\sum_{n=1}^{\infty}(-1)^{n}\frac{2x}{x^2-n^2\pi^2}\sin{x}
+]</p>
+
+<p>移项之后即得结论.</p>
+
+<h3 id="证明的第一步-用定积分表示反射公式">证明的第一步: 用定积分表示反射公式</h3>
+
+<p>我们已经知道$\Gamma(x)\Gamma(1-x)=B(x,1-x)$, 但这是远远不够的. 两个幂还有一个减号不是很好处理.</p>
+
+<p>令$t=\frac{1}{1+y}$, 那么就有</p>
+
+<p>[
+    B(x,1-x)=\int_{0}^{\infty}t^{1-x}(1-t)^{-x}dt=\int_{0}^{\infty}\frac{1}{y^x(1+y)}dy
+]</p>
+
+<h3 id="证明的第二步-反常积分的计算">证明的第二步: 反常积分的计算</h3>
+
+<p>实际上要做的就是证明第一步得到的结果等于$\pi\csc{\pi{x}}$. 这个时候上文给出的两个引理就能用上了.</p>
+
+<p>将这个积分分割成$(0,1)$和$[1,+\infty)$两个部分. 在$(0,1)$上, 利用幂级数的知识, 很容易得到
+[
+    \frac{1}{y^x(1+y)}=\sum_{n=0}^{\infty}(-1)^{n}y^{n-x}
+]</p>
+
+<p>等式右侧的函数虽然不是一致收敛, 但是$n\geq{1}$时, 这个级数的部分和一致有界, 这时就可以用Arzela控制收敛定理了. 也就是说, 可以直接交换极限符号:
+[
+\begin{aligned}
+    \int_{0}^{1}\frac{dy}{y^x(1+y)}&amp;=\int_{0}^{1}\left(\frac{1}{y^x}+\sum(-1)^{n}y^{n-x}\right)dy \\<br />
+    &amp;=\frac{1}{1-x}+\sum(-1)^n\int_{0}^{1}y^{n-x}dy \\<br />
+    &amp;=\sum\frac{(-1)^{n-1}}{n-x}
+\end{aligned}
+]</p>
+
+<p>而$[1,+\infty)$的部分, 只需令$u=\frac{1}{y}$, 就回到了$(0,1)$上的情况了:
+[
+\begin{aligned}
+    \int_{1}^{+\infty}\frac{dy}{y^x(1+y)}&amp;=\int_{0}^{1}\frac{du}{u^{1-x}(1+u)} \\<br />
+        &amp;=\sum_{n=1}^{\infty}\frac{(-1)^{n-1}}{n-(1-x)}=\frac{1}{x}+\sum\frac{(-1)^{n}}{n+x}
+\end{aligned}
+]</p>
+
+<p>最后, 将两部分接起来, 就能得到
+[
+\begin{aligned}
+    \int_{0}^{+\infty}\frac{dy}{y^x(1+y)}&amp;=\frac{1}{x}+\sum(-1)^{n}\left(\frac{1}{x-n}+\frac{1}{x+n}\right) \\<br />
+        &amp;=\frac{1}{x}+\sum(-1)^{n}\frac{2x}{x^2-n^2}
+\end{aligned}
+]</p>
+
+<p>而
+[
+\begin{aligned}
+    \pi\csc\pi{x}&amp;=\pi\left(\frac{1}{\pi{x}}+\sum_{n=1}^{\infty}(-1)^{n}\frac{2\pi x}{\pi^2x^2-n^2\pi^2}\right) \\<br />
+    &amp;=\frac{1}{x}+\sum(-1)^{n}\frac{2x}{x^2-n^2}
+\end{aligned}
+]</p>
+
+<p>此即
+[
+    B(x,1-x)=\pi\csc\pi{x}
+]
+即为所求的结论.</p>
+
+<h2 id="最后要说的">最后要说的</h2>
+
+<p>在实数范围证明这个问题确实是要花好大的功夫——甚至都用到了傅里叶级数. 但是 这一路上也可以看到很多重要的技巧, 回顾了很多基础知识. 还是那句话, 如果视野只局限在这个公式, 就很亏.</p>
 </div>
     <h4 class="page_header">Share | 分享</h4>
     <hr>
@@ -271,26 +385,6 @@ MathJax.Hub.Config({
     
     
 
-    <h4><a href="/post/2019-10-31-euler-reflection/">欧拉反射公式和利用Fourier级数的证明</a></h4>
-    <h5>October 31, 2019</h5>
-    
-    <a href="https://desvl.xyz/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/mathematical-analysis"><kbd class="item-tag">数学分析/Mathematical Analysis</kbd></a>
-    
-    <a href="https://desvl.xyz/tags/fourier%E5%88%86%E6%9E%90/fourier-analysis"><kbd class="item-tag">Fourier分析/Fourier Analysis</kbd></a>
-    
-    <a href="https://desvl.xyz/tags/gamma%E5%87%BD%E6%95%B0"><kbd class="item-tag">Gamma函数</kbd></a>
-    
-
-</div>
-  <div class="item">
-
-    
-    
-    
-
-    
-    
-
     <h4><a href="/post/2019-10-17-analytical-geometry/">利用隐函数存在定理解决解析几何问题</a></h4>
     <h5>October 17, 2019</h5>
     
@@ -313,6 +407,26 @@ MathJax.Hub.Config({
     <h5>October 4, 2019</h5>
     
     <a href="https://desvl.xyz/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/mathematical-analysis"><kbd class="item-tag">数学分析/Mathematical Analysis</kbd></a>
+    
+
+</div>
+  <div class="item">
+
+    
+    
+    
+
+    
+    
+
+    <h4><a href="/post/2019-09-27-beautiful-fourier-006/">优美的Fourier级数（六）: Poisson核的一致收敛</a></h4>
+    <h5>September 27, 2019</h5>
+    
+    <a href="https://desvl.xyz/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/mathematical-analysis"><kbd class="item-tag">数学分析/Mathematical Analysis</kbd></a>
+    
+    <a href="https://desvl.xyz/tags/fourier%E5%88%86%E6%9E%90/fourier-analysis"><kbd class="item-tag">Fourier分析/Fourier Analysis</kbd></a>
+    
+    <a href="https://desvl.xyz/tags/%E4%BC%98%E7%BE%8E%E7%9A%84fourier%E7%BA%A7%E6%95%B0"><kbd class="item-tag">优美的Fourier级数</kbd></a>
     
 
 </div>
