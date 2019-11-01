@@ -69,13 +69,24 @@
         </script>
         
 
-        
-        
+
         <script type="text/javascript" async
-          src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-        </script>
-        
-        
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_SVG">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
         <meta name="twitter:card" content="summary"/>
 <meta name="twitter:image" content="https://desvl.xyz/"/>
 <meta name="twitter:title" content="数学/Math"/>
@@ -128,6 +139,8 @@
                                 <li class="navbar-icon"><a href="https://github.com/admiraldesvl/"><i class="fa fa-github"></i></a></li>
                             
                                 <li class="navbar-icon"><a href="https://twitter.com/Desvl1998/"><i class="fa fa-twitter"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://www.desvl.xyz/index.xml"><i class="fa fa-rss"></i></a></li>
                             
                         </ul>
                     
