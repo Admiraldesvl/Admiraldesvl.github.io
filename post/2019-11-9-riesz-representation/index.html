@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+         
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Riesz定理简单介绍</title>
+        
+        <style>
+
+    html body {
+        font-family: 'Raleway', sans-serif;
+        background-color: white;
+    }
+
+    :root {
+        --accent: purple;
+        --border-width:  5px ;
+    }
+
+</style>
+
+
+<link rel="stylesheet" href="https://desvl.xyz/css/main.css">
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+
+
+
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+ 
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
+ <meta name="generator" content="Hugo 0.56.3" />
+        
+
+        
+        
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144178839-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments)};
+          gtag('js', new Date());
+
+          gtag('config', 'UA-144178839-1');
+        </script>
+        
+
+
+        <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_SVG">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
+        <meta name="twitter:card" content="summary"/>
+<meta name="twitter:image" content="https://desvl.xyz/"/>
+<meta name="twitter:title" content="Riesz定理简单介绍"/>
+<meta name="twitter:description" content="简单介绍Riesz表示定理和一些背景"/>
+
+        
+
+        
+    </head>
+
+    <body>
+         
+        <nav class="navbar navbar-default navbar-fixed-top">
+
+            <div class="container">
+
+                <div class="navbar-header">
+
+                    <a class="navbar-brand visible-xs" href="#">Riesz定理简单介绍</a>
+
+                    <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                </div>
+
+                <div class="collapse navbar-collapse">
+
+                    
+                        <ul class="nav navbar-nav">
+                            
+                                <li><a href="/">Home | 主页</a></li>
+                            
+                                <li><a href="/post/">Posts | 文章</a></li>
+                            
+                                <li><a href="/tags/">Tags | 标签</a></li>
+                            
+                                <li><a href="/about/">About | 关于</a></li>
+                            
+                        </ul>
+                    
+
+                    
+                        <ul class="nav navbar-nav navbar-right">
+                            
+                                <li class="navbar-icon"><a href="mailto:admiraldesvl@gmail.com"><i class="fa fa-envelope-o"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://github.com/admiraldesvl/"><i class="fa fa-github"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://twitter.com/Desvl1998/"><i class="fa fa-twitter"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://desvl.xyz/index.xml"><i class="fa fa-rss"></i></a></li>
+                            
+                        </ul>
+                    
+
+                </div>
+
+            </div>
+
+        </nav>
+
+<main>
+
+    <div class="item">
+
+    
+    
+    
+
+    
+    
+
+    <h4><a href="/post/2019-11-9-riesz-representation/">Riesz定理简单介绍</a></h4>
+    <h5>November 9, 2019</h5>
+    
+    <a href="https://desvl.xyz/tags/%E5%AE%9E%E5%88%86%E6%9E%90/real-analysis"><kbd class="item-tag">实分析/Real Analysis</kbd></a>
+    
+    <a href="https://desvl.xyz/tags/%E6%B3%9B%E5%87%BD%E5%88%86%E6%9E%90/functional-analysis"><kbd class="item-tag">泛函分析/Functional Analysis</kbd></a>
+    
+
+</div>
+
+
+    <br> <div class="text-justify">
+
+<h3 id="寻找函数的-矩阵">寻找函数的&rdquo;矩阵&rdquo;</h3>
+
+<p>在学习线性代数时, 一个很基本的问题得到了解决: 将线性变换和矩阵一一对应. 也就是说有如下定理:</p>
+
+<blockquote>
+<p>设$\mathscr{A}:V_1\to V_2$为域$F$上线性空间$V_1$到$V_2$的线性映射. 在$V_1$和$V_2$中分别选取有序基$\alpha_1,\cdots,\alpha_n$和$\beta_1,\cdots,\beta_m$之后, 以$\mathscr{A}\alpha_1,\cdots,\mathscr{A}\alpha_n$的坐标列为列作矩阵$A$, 也就是说</p>
+
+<p>[\mathscr{A}(\alpha_1,\cdots,\alpha_n)=(\beta_1,\cdots,\beta_m)A]</p>
+
+<p>则对任意$\alpha\in{V_1}$, $\beta\in{V_2}$, $\mathscr{A}\alpha=\beta$当且仅当$Ax=y$. 其中$x,y$分别是$\alpha,\beta$的坐标列, $A$称为$\mathscr{A}$的<strong>坐标表示</strong>.</p>
+</blockquote>
+
+<p>现在考虑Lebesgue积分构成的线性变换</p>
+
+<p>[
+    \Lambda: f\mapsto\int_{I}fd\mu
+]</p>
+
+<p>这时, 积分运算是一个线性泛函. 但是这个说法能不能反过来? 也就是说, 对于一个线性泛函$\Lambda$, 能不能找到一个测度$\mu$从而计算Lebesgue积分? 线性代数里给一个线性变换找到了一个矩阵, 找到了计算的依据. 如果能找到这个Lebesgue积分的$\mu$, 那么至少理论上也能找到计算的依据. Riesz表示定理指出, 这是可行的, 而且找到的测度具有一系列特殊性质.</p>
+
+<h3 id="riesz表示定理-关于-c-c-x-上线性泛函">Riesz表示定理(关于$C_c(X)$上线性泛函)</h3>
+
+<p>泛函分析中有多个有名的定理以匈牙利数学家<strong>Riesz Frigyes</strong>命名. 这里提到的是$C_c(X)$上的线性泛函中的表示定理:</p>
+
+<blockquote>
+<p>设$X$是一个局部紧的Hausdorff空间, $\Lambda$是$C_c(X)$上的一个正线性泛函, 则有且仅有一个正测度$\mu$能<strong>表示</strong>$\Lambda$, 且满足如下性质</p>
+
+<p>    (a)对所有$f\in{C_c(X)}$,有$\Lambda{f}=\int_{X}fd\mu$.</p>
+
+<p>    (b)对任意紧集$K\subset{X}$, 有$\mu(K)&lt;\infty$</p>
+
+<p>此外, 在$X$中还存在一个$\sigma$-代数$\mathfrak{M}$, 满足以下性质</p>
+
+<p>    (c)$\mathfrak{M}$包含$X$中所有的Borel集</p>
+
+<p>    (d)对于所有的$E\in\mathfrak{M}$, 有[\mu(E)=\inf\{\mu(V):E\subset{V}, V是开集\}](此时如果$E$为Borel集合, 那么$E$称为外部正则)</p>
+
+<p>    (e)对于所有的开集$E$, 以及所有满足$E\in\mathfrak{M}$且$\mu(E)&lt;\infty$的集合, 下列等式成立: [\mu(E)=\sup\{\mu(K):K\subset{E},K是紧集\}](此时如果$E$为Borel集合, 那么$E$称为内部正则)</p>
+
+<p>    (f)如果$E\in\mathfrak{M}$, $A\subset{E}$, 且$\mu(E)=0$, 那么$A\in\mathfrak{M}$</p>
+</blockquote>
+
+<p>如果所有$X$中的Borel集合都是外部正则且内部正则的, 那么这个测度$\mu$就是正则的.</p>
+
+<p>总结一下, 对于定义在一个局部紧Haudorff空间上的一个线性泛函, 我们能将其转换成一个计算Lebesgue积分的过程. 这就好比线性空间中线性映射和矩阵的对应关系. 如果找到了矩阵, 那么计算就变成了可能. 如果找到了测度, 那么线性泛函的计算也变成了可能.</p>
+
+<p>值得注意的还有, 线性泛函和测度是一一对应. 这个的证明只需要借助Urysohn引理. 其余几条的证明会在$\mu$和$\mathfrak{M}$的逐步分析中证明出来.</p>
+
+<p>至于&rdquo;正线性泛函&rdquo;, 可以这样理解. 如果$f(X)\in[0,+\infty)$, 那么$\Lambda f\in[0,+\infty)$</p>
+
+<h3 id="符号解释和urysohn引理">符号解释和Urysohn引理</h3>
+
+<h4 id="函数的支集和-c-c-x"><strong>函数的支集和$C_c(X)$</strong></h4>
+
+<p>一个函数的支集(记作$supp(f)$)就是就是指这个函数取值不为$0$的集合. 严格地说, 一个定义在拓扑空间$X$上的复函数的支集(support)是指的下面这个集合的闭包:</p>
+
+<p>[
+    \{x:f(x)\neq 0\}
+]</p>
+
+<p>而$C_c(X)$是一个函数的集合. 这里的$C$指的是Continuous, $c$指的是compact. 它代表了所有定义在$X$上且支集是紧集的全体函数.</p>
+
+<h4 id="borel集合"><strong>Borel集合</strong></h4>
+
+<p>对于一个拓扑空间$X$, 存在一个最小的$\sigma$-代数$\mathscr{B}$使得所有$X$中的开集属于$\mathscr{B}$. $\mathscr{B}$中的集合就被称为Borel集合.</p>
+
+<p>根据$\sigma$-代数的定义, 所有的闭集都属于$\mathscr{B}$. 这是因为开集的补集是闭集(反之亦然), 而如果$A\in\mathscr{B}$, 那么$A^c\in\mathscr{B}$. 同样, 所有开集的可数交集(记为$G_\delta&rsquo;s$), 所有闭集的可数并集(记为$F_\sigma&rsquo;s$), 都是$\mathscr{B}$的成员. 这里为了避免产生歧义, 有必要再申明一下. $F_\sigma&rsquo;s$中的成员是一些集合, 每一个集合都是可数个闭集的并集.</p>
+
+<h4 id="局部紧的hausdorff空间"><strong>局部紧的Hausdorff空间</strong></h4>
+
+<p>Hausdorff空间是指的这样的空间$X$. 如果$p\in{X}$, $q\in{X}$, 而且$p\neq{q}$, 那么$p$和$q$分别存在一个邻域$U_p$和$U_q$使得$U_p\cap{U_q}=\varnothing$.</p>
+
+<p>紧集是指的这样一个集合$K$, 如果${V_\alpha}$满足$\bigcup_\alpha V\alpha\supset{K}$, 那么${V_\alpha}$中必定存在有限个集合包含$K$. 在$\mathbb{R}^k$中, 如果一个集合是紧集, 那么它一定是有界闭集.</p>
+
+<p>局部紧是指$X$满足这样的一条性质: 每个$X$中的点都有一个邻域, 这个邻域的闭包是紧集.</p>
+
+<h4 id="urysohn引理"><strong>Urysohn引理</strong></h4>
+
+<blockquote>
+<p>设$X$是一个局部紧的Hausdorff空间, $V$是$X$中的开集, 且有紧集$K$满足$K\subset{V}$, 那么存在一个函数$f\in C_c(X)$满足$f(K)=1$且$supp(f)\subset V$.</p>
+</blockquote>
+
+<p>这里的$f(K)=1$是指对所有$x\in{K}$, $f(x)=1$. 如果考虑特征函数$\chi_K$和$\chi_V$, 那么有不等式</p>
+
+<p>[
+    \chi_K\leq f\leq \chi_V
+]</p>
+
+<h3 id="mu-的唯一性">$\mu$的唯一性</h3>
+
+<p>不妨设这个$\mu$存在(接下来会一步一步构建这个$\mu$并且验证它满足所有性质). 这时只需要证明, 如果$\mu_1$和$\mu_2$满足上面的性质, 那么对于所有的紧集$K$, 都有$\mu_1(K)=\mu_2(K)$. 这是因为, 考虑到(d)和(e), $\mu(E)$的在$\mathfrak{M}$上的值被紧集的值唯一确定了.</p>
+
+<p>对于紧集$K$和$\varepsilon&gt;0$, 选取开集$V$使得$\mu_2(V)&lt;\mu_2(K)+\varepsilon$. 根据Urysohm引理, 存在函数$f$使得$\chi_K\leq f\leq \chi_V$. 从而有</p>
+
+<p>[
+    \begin{aligned}
+        \mu_1(K)&amp;=\int_{X}\chi_Kd\mu_1\leq \int_{X}fd\mu_1=\Lambda f=\int_{X}fd\mu_2 \\<br />
+        &amp;\leq \int_{X}\chi_Vd\mu_2=\mu_2(V)&lt;\mu_2(K)+\varepsilon
+    \end{aligned}
+]</p>
+
+<p>从而有$\mu_1(K)\leq\mu_2(K)$. 同理还可以得到$\mu_2(K)\leq\mu_1(K)$. 因此有 $\mu_1(K)=\mu_2(K)$. 这说明, $\mu$是唯一的. 正线性泛函和测度是一一映射的.</p>
+
+<h3 id="mu-和-mathfrak-m-的构建">$\mu$和$\mathfrak{M}$的构建</h3>
+
+<p>对于开集$V\subset{X}$, 定义</p>
+
+<p>[
+    \mu(V)=\sup\{\Lambda f:supp(f)\subset V\}
+]</p>
+
+<p>如果$V_1\subset V_2$, 那么有$\mu(V_1)\leq \mu(V_2)$. 也就是说, 如果以&rdquo;包含&rdquo;为一个序, 那么$\mu$是单调的. 一个测度是必定满足这个条件的. 当然之后还要证明$\mu$满足测度的其他条件. 这时$E$的外部正则就很明显了:</p>
+
+<p>[
+    \mu(E)=\inf\{\mu(V):E\subset V, V为开集\}
+]</p>
+
+<p>注意, 这里的$E$是开集, 又考虑到$\mu$的单调性, 对于$E\subset V$, $\mu(E)$就应该是这样一个下界了.</p>
+
+<p>对于$\mathfrak{M}$, 首先定义$\mathfrak{M}_F$表示所有$X$的子集$E$, 其中$E$是内部正则的, 也就是说</p>
+
+<p>[
+    \mu(E)=\sup\{\mu(K):K\subset{E},K是紧集\}
+]</p>
+
+<p>然后再令$\mathfrak{M}$表示所有$X$的子集$E$, 使得对于所有$X$的紧子集$K$, 满足$E\cap K \in \mathfrak{M}$.</p>
+
+<p>重新整理一下构建的思路: 首先, 利用线性泛函的运算求出$\mu$, 发现这时开集都是外部正则的. 再把所有内部正则的集合进行加工构成$\mathfrak{M}_{F}$.</p>
+
+<p>接下来的工作就是证明这个构建能满足那几条性质了. 但在这篇博客里就不再展开了. 证明确实是很困难很长的. 我想把它放在下篇博客里. 这确实是一个很费头脑的工作, 我也不想简单地将书上的内容抄一遍. 但是博客的最后, 我觉得有必要介绍一下Riesz表示定理的原始版本, 也就是Riesz在1909年最初发表的定理.</p>
+
+<h3 id="riesz表示定理的黎曼-斯蒂尔杰斯积分表示">Riesz表示定理的黎曼-斯蒂尔杰斯积分表示</h3>
+
+<blockquote>
+<p><em>Étant donnée l&rsquo;opération $A[f(x)]$ , on peut déterminer la fonction à variation bornée $\alpha(x)$, telle que, quelle que soit la fonction eontinue $f(x)$, on ait $A[f(x)]=\int_{0}^{1}f(x)d\alpha(x)$.</em></p>
+</blockquote>
+
+<p>这里的区别在于, 完整版是要求是局部紧的Haudorff空间, 最初只是要求是区间$[0,1]$. 而且Riesz最初提出的是黎曼-斯蒂尔杰斯积分的表示, 而不是勒贝格积分. 这里的$\alpha(x)$要求是有阶差分.</p>
+
+<p>从黎曼-斯蒂尔杰斯积分进化到勒贝格积分, 也可以进一步理解斯蒂尔杰斯积分中的$\alpha$和测度. 测度是一个变量为集合的函数, 而$\alpha$将均匀的长度$x$变成了加权分配的长度$\alpha(x)$. 那么可不可以把测度看成一个加权分配的体积, 或者把$\alpha$看成一种更有独特意义的函数呢? 当然具体还得看Riesz表示定理经过的发展, 但我觉得这样的思考类比还是很有意义的.</p>
+</div>
+    <h4 class="page_header">Share | 分享</h4>
+    <hr>
+        
+
+            
+        
+        <style type="text/css">
+            #my_centered_buttons { display: flex; justify-content: center; }  
+            .a2a_svg, .a2a_count { border-radius: 0 !important; }  
+        </style>
+        <div align="center" class="a2a_kit a2a_kit_size_32 a2a_default_style" id=my_centered_buttons>
+                <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+                <a class="a2a_button_pocket"></a>
+                <a class="a2a_button_facebook"></a>
+                <a class="a2a_button_twitter"></a>
+                <a class="a2a_button_evernote"></a>
+                <a class="a2a_button_wechat"></a>
+                <a class="a2a_button_email"></a>
+                <a class="a2a_button_mastodon"></a>
+                <a class="a2a_button_qzone"></a>
+                <a class="a2a_button_print"></a>
+            </div>
+            <script>
+                var a2a_config = a2a_config || {};
+                a2a_config.onclick = 1;
+            </script>
+            <script async src="https://static.addtoany.com/menu/page.js"></script>
+        
+        <h6>如果您或您的朋友在Pocket等网站阅读本文, 建议使用“阅读原文”功能, 否则可能无法看到由Mathjax生成的数学公式</h6>
+    
+    
+
+    
+
+        <h4 class="page-header">Related | 相关文章</h4>
+
+         <div class="item">
+
+    
+    
+    
+
+    
+    
+
+    <h4><a href="/post/2019-08-10-rc-analysis-solution/">Solutions to Real and Complex Analysis by Rudin</a></h4>
+    <h5>August 6, 2019</h5>
+    
+    <a href="https://desvl.xyz/tags/%E5%AE%9E%E5%88%86%E6%9E%90/real-analysis"><kbd class="item-tag">实分析/Real Analysis</kbd></a>
+    
+
+</div>
+ 
+
+    
+        
+    
+
+        <h4 class="page-header">Comments | 评论</h4>
+
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "admiraldesvl" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    
+
+</main>
+
+        <footer>
+        
+            <div style="float: margin: 0 auto;text-align: center;">
+            <p class="text-muted">Powered by <a href="https://gohugo.io">Hugo</a> | Theme by <a href = "https://github.com/calintat/minimal">Minimal</a></p>           
+            </div>
+            <div style="float: margin: 0 auto;text-align: center;">
+            <p class="copyright text-muted">
+            &copy; Desvl |
+            <script language="JavaScript">var fhsh = document.createElement('script');var fhs_id_h = "3339125";
+            fhsh.src = "//freehostedscripts.net/ocount.php?site="+fhs_id_h+"&name=Page views&a=1";
+            document.head.appendChild(fhsh);document.write("<span id='h_"+fhs_id_h+"'></span>");
+            </script>
+            </p>
+            </div>
+        </footer>  
+    </body>
+
+</html>
+

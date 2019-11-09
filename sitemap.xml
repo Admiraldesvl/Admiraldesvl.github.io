@@ -11,13 +11,50 @@
   
   <url>
     <loc>https://desvl.xyz/categories/</loc>
-    <lastmod>2019-10-31T00:00:00+00:00</lastmod>
+    <lastmod>2019-11-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://desvl.xyz/</loc>
-    <lastmod>2019-10-31T00:00:00+00:00</lastmod>
+    <lastmod>2019-11-09T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://desvl.xyz/post/</loc>
+    <lastmod>2019-11-09T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://desvl.xyz/post/2019-11-9-riesz-representation/</loc>
+    <lastmod>2019-11-09T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://desvl.xyz/tags/</loc>
+    <lastmod>2019-11-09T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://desvl.xyz/tags/%E5%AE%9E%E5%88%86%E6%9E%90/real-analysis/</loc>
+    <lastmod>2019-11-09T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://desvl.xyz/categories/%E6%95%B0%E5%AD%A6/math/</loc>
+    <lastmod>2019-11-09T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://desvl.xyz/tags/%E6%B3%9B%E5%87%BD%E5%88%86%E6%9E%90/functional-analysis/</loc>
+    <lastmod>2019-11-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -29,24 +66,6 @@
   
   <url>
     <loc>https://desvl.xyz/tags/gamma%E5%87%BD%E6%95%B0/</loc>
-    <lastmod>2019-10-31T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://desvl.xyz/post/</loc>
-    <lastmod>2019-10-31T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://desvl.xyz/tags/</loc>
-    <lastmod>2019-10-31T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://desvl.xyz/categories/%E6%95%B0%E5%AD%A6/math/</loc>
     <lastmod>2019-10-31T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -279,12 +298,6 @@
     <lastmod>2019-08-06T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://desvl.xyz/tags/%E5%AE%9E%E5%88%86%E6%9E%90/real-analysis/</loc>
-    <lastmod>2019-08-06T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
