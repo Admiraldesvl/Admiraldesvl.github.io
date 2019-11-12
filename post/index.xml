@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Desvl&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 09 Nov 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 12 Nov 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://desvl.xyz/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>几种矩阵分解的梳理概括</title>
+      <link>https://desvl.xyz/post/2019-11-12-decompositions/</link>
+      <pubDate>Tue, 12 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://desvl.xyz/post/2019-11-12-decompositions/</guid>
+      <description>简单梳理特征值分解、准素分解、循环分解、Jordan分解和之间的联系</description>
+    </item>
     
     <item>
       <title>Riesz表示定理简单介绍</title>
@@ -180,15 +189,6 @@
       
       <guid>https://desvl.xyz/post/2019-8-22-beautiful-fourier-003/</guid>
       <description>引入‘好核’的概念</description>
-    </item>
-    
-    <item>
-      <title>高等数学入门: 关于极限这个概念</title>
-      <link>https://desvl.xyz/post/2019-08-22-what-is-limit/</link>
-      <pubDate>Thu, 22 Aug 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://desvl.xyz/post/2019-08-22-what-is-limit/</guid>
-      <description>正确理解什么是极限</description>
     </item>
     
   </channel>

@@ -4,7 +4,7 @@
          
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>用实矩阵表示复数</title>
+        <title>几种矩阵分解的梳理概括</title>
         
         <style>
 
@@ -86,8 +86,8 @@ MathJax.Hub.Config({
 
         <meta name="twitter:card" content="summary"/>
 <meta name="twitter:image" content="https://desvl.xyz/"/>
-<meta name="twitter:title" content="用实矩阵表示复数"/>
-<meta name="twitter:description" content="将复数表示成矩阵, 并且解释其几何意义"/>
+<meta name="twitter:title" content="几种矩阵分解的梳理概括"/>
+<meta name="twitter:description" content="简单梳理特征值分解、准素分解、循环分解、Jordan分解和之间的联系"/>
 
         
 
@@ -102,7 +102,7 @@ MathJax.Hub.Config({
 
                 <div class="navbar-header">
 
-                    <a class="navbar-brand visible-xs" href="#">用实矩阵表示复数</a>
+                    <a class="navbar-brand visible-xs" href="#">几种矩阵分解的梳理概括</a>
 
                     <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
                         <span class="icon-bar"></span>
@@ -159,8 +159,8 @@ MathJax.Hub.Config({
     
     
 
-    <h4><a href="/post/2019-08-11-real-complex-matrix-representation/">用实矩阵表示复数</a></h4>
-    <h5>August 11, 2019</h5>
+    <h4><a href="/post/2019-11-12-decompositions/">几种矩阵分解的梳理概括</a></h4>
+    <h5>November 12, 2019</h5>
     
     <a href="https://desvl.xyz/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/linear-algebra"><kbd class="item-tag">线性代数/Linear Algebra</kbd></a>
     
@@ -170,53 +170,62 @@ MathJax.Hub.Config({
 
     <br> <div class="text-justify">
 
-<h2 id="代数同构">代数同构</h2>
+<p>一个线性变换, 其对应的矩阵可能很复杂, 也可能很简单. 为了简化问题, 我们会尝试选择合适的基, 使得矩阵有着更简单、更能体现其性质的表示形式. 先主要简单介绍一下特征值分解, 剩下三种分解的细节会慢慢补充.</p>
 
-<p>现在我们想要解决的问题是, 能不能把复数用矩阵表示出来, 从而可以利用矩阵的计算方法. 这要求这个表示方法既要有线性空间的运算规则, 又要有复数的运算规则. 也就是说希望构建映射
+<h3 id="特征值分解">特征值分解</h3>
+
+<p>特征值分解是最朴素的一种分解. 它的出发点是一个线性方程:
 [
-    \rho: \mathbb{C}\to\text{End}(V)\cong M_n(\mathbb{R})
-]
-在这里, $\text{End}(V)$表示某线性空间$V$的全体线性变换, $M_n(\mathbb{R})$表示$n$阶实数方阵. 考虑到$\mathbb{C}$是$\mathbb{R}$上的二维线性空间, 上式里的$n$应该等于$2$.</p>
-
-<h2 id="实矩阵下的虚数单位-i">实矩阵下的虚数单位$i$</h2>
-
-<p>实数里的$1$可以用单位矩阵$I$来表示, 而$i$的表示就有不同之处了. 如果我们设$i$对应的矩阵为二阶矩阵$J$, 但是为了得到矩阵, 我们不需要也不应该花大量时间计算矩阵元素的值. 考虑映射
-\begin{equation}
-    \begin{aligned}
-        \varphi_i:\mathbb{C}&amp;\to\mathbb{C}\\<br />
-        x&amp;\mapsto ix
-    \end{aligned}
-\end{equation}
-又注意到$\mathbb{C}$的基为$1=(1,0)$和$i=(0,1)$,而$\varphi(1)=i$, $\varphi(i)=-1$, 因此$J$的列应该是$i$和$-1$的坐标列. 因此有
-[
-    J=\begin{bmatrix}
-    0&amp;-1\\\ 1&amp;0
-    \end{bmatrix}
-]
-确定$J$其实是一个坐标变换与基变换的过程.</p>
-
-<h2 id="mathbb-c-的线性表示">$\mathbb{C}$的线性表示</h2>
-
-<p>考虑到复数$(a,b)$可以表示成$a\times1+b\times{i}$, 而$1$和$i$都已经有了矩阵表示$I$和$J$, 那么这个时候就得到$\mathbb{C}$的线性表示了.
-[
-    \rho:\mathbb{C}\to\mathbb{R}I+\mathbb{R}J\in{M_2}(\mathbb{R})\\<br />
-    a+bi\mapsto aI+bJ=\begin{bmatrix}a&amp;-b\\\ b&amp;a\end{bmatrix}
+    Ax=\lambda x,
 ]</p>
 
-<p>这时就实现了复数和二阶矩阵的一一对应, 复数的运算也可以直接转化成矩阵运算. 方阵的表示具体又易于处理, 因此合理的运用可以极大程度上简化一些运算.</p>
-
-<h2 id="旋转变换-复数乘积的几何意义">旋转变换: 复数乘积的几何意义</h2>
-
-<p>旋转变换涉及到的矩阵是
+<p>其中$x$为非$0$向量. 一个线性变换可能既有旋转又有拉伸, 但是如果这个式子成立, 那么只有拉伸. 这可以看成是其&rdquo;特征&rdquo;所在. 这转化成解一个线性齐次方程组
 [
-    T=\begin{bmatrix}
-        \cos\theta&amp;-\sin\theta\\<br />
-        \sin\theta&amp;\cos\theta
-    \end{bmatrix}
-]
-很明显, 这个矩阵对应复数$\cos\theta+i\sin\theta$, 是单位圆上的一点. 同时, 不难发现,这也是欧拉公式$e^{it}=\cos{t}+i\sin{t}$的另一种诠释. 而如果令$r=\sqrt{a^2+b^2}$(也就是虚数的模长), 那么复数$a+bi$对应的矩阵就变成了$rT$. 这时,每个复数也对应了一个拉伸与旋转, 而复数的乘积就可以看成两个拉伸于旋转变换的复合(两个矩阵的乘积), 这为复数乘积赋予了几何意义. 不难发现, 一个数乘以$i$, 实质上是将这个数在复平面旋转$\frac{\pi}{2}$; 一个数乘以$-1$, 实质上是将这个数在复平面旋转$\pi$. 这既可以直接验证, 又可以通过矩阵的运算验证.</p>
+    (\lambda{I}-A)x=0
+]</p>
 
-<p>那么, 现在你有会怎么理解$i^2=-1$呢?</p>
+<p>如果令$B=\lambda{I}-A$, 那么就是说, $Bx=0$有非$0$解. 如果$B$是$n$阶方阵, 那么根据齐次方程组非零解的判定办法, 就一定有
+[
+    n-r(B)&gt;0
+]</p>
+
+<p>也就是说$r(B)&lt;n$. 这又说明, $|B|=|\lambda{I}-A|=0$.</p>
+
+<p>$|\lambda{I}-A|$其实就是一个$n$阶多项式. 通常记为$f(\lambda)$, 叫做特征多项式. 根据古典代数学基本定理, 方程$f(\lambda)=0$一定有$n$个根(可能有重根). 而这些根就是所谓特征根.</p>
+
+<p>反过来, $Bx=0$的解$x$就是$A$的特征向量. 如果$f(\lambda_1)=0$, 而且$Ax_1=\lambda_1x_1$, 那么就称$x_1$为属于$\lambda_1$的特征向量. 可以验证的是, 属于不同特征值的特征向量是线性无关的.</p>
+
+<p><strong>如何进行特征值分解, 将一个矩阵转化成对角矩阵呢?</strong></p>
+
+<p>当且仅当$A$有$n$个<strong>线性无关</strong>的特征向量时, 设这些列向量为$x_1,x_2,\cdots,x_n$, 矩阵$A$可以对角化. 事实上, 设
+[
+    P=(x_1,x_2,\cdots,x_n)
+]</p>
+
+<p>在这里用$n$个列向量表示了一个矩阵. 那么注意到
+[
+\begin{aligned}
+    P^{-1}AP&amp;=P^{-1}(Ax_1,Ax_2,\cdots,Ax_n)\\<br />
+    &amp;=P^{-1}(\lambda_1x_1,\lambda_2x_2,\cdots,\lambda_nx_n)\\<br />
+    &amp;=(\lambda_1P^{-1}x_1,\lambda_2P^{-1}x_2,\cdots,\lambda_nP^{-1}x_n)\\<br />
+    &amp;=(\lambda_1\varepsilon_1,\lambda_2\varepsilon_2,\cdots,\lambda_n\varepsilon_n)\\<br />
+    &amp;=\text{diag}(\lambda_1,\lambda_2,\cdots,\lambda_n)
+\end{aligned}
+]</p>
+
+<p>倒数第二个等号用到了$I=P^{-1}P=(P^{-1}x_1,P^{-1}x_2,\cdots,P^{-1}x_n)$. 从而$P^{-1}x_i=\varepsilon_i$. $\varepsilon_i$为标准正交基的第$i$分量.</p>
+
+<p>必要性在此不做证明.</p>
+
+<p>这说明特征值分解有惟一的办法: 找到$n$个线性无关的特征向量. 这个分解有很大的实际应用价值, 但是在某些情况下显得非常苛刻. 这要求我们找到一些更深刻的分解办法.</p>
+
+<h3 id="另外三种分解简单介绍">另外三种分解简单介绍</h3>
+
+<p>准素分解是借助极小多项式进行广义特征值分解. 考虑矩阵构成的多项式f(A)=A-\lambda{I}$. $A$的特征向量有$f(A)x=0$. 设$\mathcal{A}:x\mapsto f(A)x$, 那么显然$A$的特征向量组为$\mathcal{A}$这个线性变换的核. 但是这时候的$f(A)$很简单. 将$f(A)$推广成任意的多项式, 那么这个时候$\mathcal{A}$的核就自然可以被称为广义特征值了.</p>
+
+<p>循环分解利用了群论中循环群的思想. 这时候涉及到了比极小多项式更精细的<strong>零化子</strong>. 将一个线性空间在一个指定线性变换中分解成若干个循环子空间的直和. 结果矩阵被准对角化, 对角元素为零化子的友阵. 零化子的次数最大项就是线性变换对应矩阵的极小多项式, 而所有零化子的乘积就是矩阵的特征多项式.</p>
+
+<p>最后, 将一个线性空间对线性变换先进行准素分解, 在进行循环分解, 最后选取合适的基, 即Jordan链, 再进行分解, 使线性变换的矩阵有着更简洁的表示形式, 即Jordan标准型. 值得注意的是, 任意一个复方阵都可以进行Jordan分解, 这样的话矩阵分解在理论上可行性就能提升不少.</p>
 </div>
     <h4 class="page_header">Share | 分享</h4>
     <hr>
@@ -263,22 +272,6 @@ MathJax.Hub.Config({
     
     
 
-    <h4><a href="/post/2019-11-12-decompositions/">几种矩阵分解的梳理概括</a></h4>
-    <h5>November 12, 2019</h5>
-    
-    <a href="https://desvl.xyz/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/linear-algebra"><kbd class="item-tag">线性代数/Linear Algebra</kbd></a>
-    
-
-</div>
-  <div class="item">
-
-    
-    
-    
-
-    
-    
-
     <h4><a href="/post/2019-08-16-generalized-inverse/">矩阵的广义逆</a></h4>
     <h5>August 16, 2019</h5>
     
@@ -297,6 +290,22 @@ MathJax.Hub.Config({
 
     <h4><a href="/post/2019-08-15-polar-factorization/">从复数的矩阵表示到极分解</a></h4>
     <h5>August 15, 2019</h5>
+    
+    <a href="https://desvl.xyz/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/linear-algebra"><kbd class="item-tag">线性代数/Linear Algebra</kbd></a>
+    
+
+</div>
+  <div class="item">
+
+    
+    
+    
+
+    
+    
+
+    <h4><a href="/post/2019-08-14-quotient-space/">商空间与线性映射基本定理</a></h4>
+    <h5>August 14, 2019</h5>
     
     <a href="https://desvl.xyz/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/linear-algebra"><kbd class="item-tag">线性代数/Linear Algebra</kbd></a>
     
