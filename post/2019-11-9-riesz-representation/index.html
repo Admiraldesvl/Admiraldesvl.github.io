@@ -201,17 +201,17 @@ MathJax.Hub.Config({
 
 <p>    (a)对所有$f\in{C_c(X)}$,有$\Lambda{f}=\int_{X}fd\mu$.</p>
 
-<p>    (b)对任意紧集$K\subset{X}$, 有$\mu(K)&lt;\infty$</p>
+<p>    (b)对任意紧集$K\subset{X}$, 有$\mu(K)&lt;\infty.$</p>
 
 <p>此外, 在$X$中还存在一个$\sigma$-代数$\mathfrak{M}$, 满足以下性质</p>
 
 <p>    (c)$\mathfrak{M}$包含$X$中所有的Borel集</p>
 
-<p>    (d)对于所有的$E\in\mathfrak{M}$, 有[\mu(E)=\inf\{\mu(V):E\subset{V}, V是开集\}](此时如果$E$为Borel集合, 那么$E$称为外部正则)</p>
+<p>    (d)对于所有的$E\in\mathfrak{M}$, 有[\mu(E)=\inf\{\mu(V):E\subset{V}, V是开集\}.](此时如果$E$为Borel集合, 那么$E$称为外部正则)</p>
 
-<p>    (e)对于所有的开集$E$, 以及所有满足$E\in\mathfrak{M}$且$\mu(E)&lt;\infty$的集合, 下列等式成立: [\mu(E)=\sup\{\mu(K):K\subset{E},K是紧集\}](此时如果$E$为Borel集合, 那么$E$称为内部正则)</p>
+<p>    (e)对于所有的开集$E$, 以及所有满足$E\in\mathfrak{M}$且$\mu(E)&lt;\infty$的集合, 下列等式成立: [\mu(E)=\sup\{\mu(K):K\subset{E},K是紧集\}.](此时如果$E$为Borel集合, 那么$E$称为内部正则)</p>
 
-<p>    (f)如果$E\in\mathfrak{M}$, $A\subset{E}$, 且$\mu(E)=0$, 那么$A\in\mathfrak{M}$</p>
+<p>    (f)如果$E\in\mathfrak{M}$, $A\subset{E}$, 且$\mu(E)=0$, 那么$A\in\mathfrak{M}.$</p>
 </blockquote>
 
 <p>如果所有$X$中的Borel集合都是外部正则且内部正则的, 那么这个测度$\mu$就是正则的.</p>
@@ -220,7 +220,7 @@ MathJax.Hub.Config({
 
 <p>值得注意的还有, 线性泛函和测度是一一对应. 这个的证明只需要借助Urysohn引理. 其余几条的证明会在$\mu$和$\mathfrak{M}$的逐步分析中证明出来.</p>
 
-<p>至于&rdquo;正线性泛函&rdquo;, 可以这样理解. 如果$f(X)\in[0,+\infty)$, 那么$\Lambda f\in[0,+\infty)$</p>
+<p>至于&rdquo;正线性泛函&rdquo;, 可以这样理解. 如果$f(X)\in[0,+\infty)$, 那么$\Lambda f\in[0,+\infty).$</p>
 
 <h3 id="符号解释和urysohn引理">符号解释和Urysohn引理</h3>
 
@@ -238,7 +238,7 @@ MathJax.Hub.Config({
 
 <p>对于一个拓扑空间$X$, 存在一个最小的$\sigma$-代数$\mathscr{B}$使得所有$X$中的开集属于$\mathscr{B}$. $\mathscr{B}$中的集合就被称为Borel集合.</p>
 
-<p>根据$\sigma$-代数的定义, 所有的闭集都属于$\mathscr{B}$. 这是因为开集的补集是闭集(反之亦然), 而如果$A\in\mathscr{B}$, 那么$A^c\in\mathscr{B}$. 同样, 所有开集的可数交集(记为$G_\delta&rsquo;s$), 所有闭集的可数并集(记为$F_\sigma&rsquo;s$), 都是$\mathscr{B}$的成员. 这里为了避免产生歧义, 有必要再申明一下. $F_\sigma&rsquo;s$中的成员是一些集合, 每一个集合都是可数个闭集的并集.</p>
+<p>根据$\sigma$-代数的定义, 所有的闭集都属于$\mathscr{B}$. 这是因为开集的补集是闭集(反之亦然), 而如果$A\in\mathscr{B}$, 那么$A^c\in\mathscr{B}$. 同样, 所有开集的可数交集(记为$G_\delta$), 所有闭集的可数并集(记为$F_\sigma$), 都是$\mathscr{B}$的成员. 这里为了避免产生歧义, 有必要再申明一下. $F_\sigma$中的成员是一些集合, 每一个集合都是可数个闭集的并集.</p>
 
 <h4 id="局部紧的hausdorff空间"><strong>局部紧的Hausdorff空间</strong></h4>
 
@@ -251,10 +251,10 @@ MathJax.Hub.Config({
 <h4 id="urysohn引理"><strong>Urysohn引理</strong></h4>
 
 <blockquote>
-<p>设$X$是一个局部紧的Hausdorff空间, $V$是$X$中的开集, 且有紧集$K$满足$K\subset{V}$, 那么存在一个函数$f\in C_c(X)$满足满足$k\prec f \prec V$</p>
+<p>设$X$是一个局部紧的Hausdorff空间, $V$是$X$中的开集, 且有紧集$K$满足$K\subset{V}$, 那么存在一个函数$f\in C_c(X)$满足$k\prec f \prec V$.</p>
 </blockquote>
 
-<p>$K\prec f$是指$0\leq f \leq 1$, 且对所有$x\in{K}$, $f(x)=1$. $f\prec V$指的是，$0\leq f\leq 1$, 且$supp(f)\subset V$ 如果考虑特征函数$\chi_K$和$\chi_V$, 那么有不等式</p>
+<p>$K\prec f$是指$0\leq f \leq 1$, 且对所有$x\in{K}$, $f(x)=1$. $f\prec V$指的是，$0\leq f\leq 1$, 且$supp(f)\subset V$. 如果考虑特征函数$\chi_K$和$\chi_V$, 那么有不等式</p>
 
 <p>[
     \chi_K\leq f\leq \chi_V
