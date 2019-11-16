@@ -6,11 +6,22 @@
     <description>Interests come from thinking. 本网站几乎每篇文章都使用MathJax, 为保证完整的阅读, 请访问原网站的对应链接.</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 12 Nov 2019</lastBuildDate>
+    <lastBuildDate>Sat, 16 Nov 2019</lastBuildDate>
     
         <atom:link href="https://desvl.xyz/index.xml" rel="self" type="application/rss+xml" />
     
     
+        
+    
+        
+            <item>
+            <title>Riesz表示定理证明(一)</title>
+            <link>https://desvl.xyz/post/2019-11-16-riesz-proof-1/</link>
+            <pubDate>Sat, 16 Nov 2019</pubDate>
+            
+            <guid>https://desvl.xyz/post/2019-11-16-riesz-proof-1/</guid>
+            <description>(请点击原文链接进行阅读)Riesz表示定理证明的第一部分</description>
+            </item>
         
     
         
@@ -20,7 +31,7 @@
             <pubDate>Tue, 12 Nov 2019</pubDate>
             
             <guid>https://desvl.xyz/post/2019-11-12-decompositions/</guid>
-            <description>简单梳理特征值分解、准素分解、循环分解、Jordan分解和之间的联系</description>
+            <description>(请点击原文链接进行阅读)简单梳理特征值分解、准素分解、循环分解、Jordan分解和之间的联系</description>
             </item>
         
     
@@ -31,7 +42,7 @@
             <pubDate>Sat, 09 Nov 2019</pubDate>
             
             <guid>https://desvl.xyz/post/2019-11-9-riesz-representation/</guid>
-            <description>简单介绍Riesz表示定理和一些背景</description>
+            <description>(请点击原文链接进行阅读)简单介绍Riesz表示定理和一些背景</description>
             </item>
         
     
@@ -42,7 +53,7 @@
             <pubDate>Thu, 31 Oct 2019</pubDate>
             
             <guid>https://desvl.xyz/post/2019-10-31-euler-reflection/</guid>
-            <description>利用Arzela定理和Fourier级数对欧拉反射公式进行证明</description>
+            <description>(请点击原文链接进行阅读)利用Arzela定理和Fourier级数对欧拉反射公式进行证明</description>
             </item>
         
     
@@ -53,7 +64,7 @@
             <pubDate>Thu, 17 Oct 2019</pubDate>
             
             <guid>https://desvl.xyz/post/2019-10-17-analytical-geometry/</guid>
-            <description>应用隐函数存在定理, 解决繁杂的曲面平面问题, 巧妙规避二次方程</description>
+            <description>(请点击原文链接进行阅读)应用隐函数存在定理, 解决繁杂的曲面平面问题, 巧妙规避二次方程</description>
             </item>
         
     
@@ -64,7 +75,7 @@
             <pubDate>Fri, 04 Oct 2019</pubDate>
             
             <guid>https://desvl.xyz/post/2019-10-04-contraction-application/</guid>
-            <description>利用压缩定理解决迭代生成的含有积分的函数的一致收敛问题</description>
+            <description>(请点击原文链接进行阅读)利用压缩定理解决迭代生成的含有积分的函数的一致收敛问题</description>
             </item>
         
     
@@ -75,7 +86,7 @@
             <pubDate>Wed, 02 Oct 2019</pubDate>
             
             <guid>https://desvl.xyz/post/2019-10-02-productivity-overrated/</guid>
-            <description>你愿意把你的生活交给一堆你不认识的人写的计算机程序吗？</description>
+            <description>(请点击原文链接进行阅读)你愿意把你的生活交给一堆你不认识的人写的计算机程序吗？</description>
             </item>
         
     
@@ -86,7 +97,7 @@
             <pubDate>Fri, 27 Sep 2019</pubDate>
             
             <guid>https://desvl.xyz/post/2019-09-27-beautiful-fourier-006/</guid>
-            <description>Abel求和、Poisson核的简单介绍</description>
+            <description>(请点击原文链接进行阅读)Abel求和、Poisson核的简单介绍</description>
             </item>
         
     
@@ -97,7 +108,7 @@
             <pubDate>Tue, 24 Sep 2019</pubDate>
             
             <guid>https://desvl.xyz/post/2019-09-24-gamma-intro-2/</guid>
-            <description>Bohr-Mollerup定理和Euler-Gauss公式的介绍</description>
+            <description>(请点击原文链接进行阅读)Bohr-Mollerup定理和Euler-Gauss公式的介绍</description>
             </item>
         
     
@@ -108,7 +119,7 @@
             <pubDate>Fri, 20 Sep 2019</pubDate>
             
             <guid>https://desvl.xyz/post/2019-09-20-what-is-limit-3/</guid>
-            <description>在逻辑上解释epsilon-delta语言, 并与编程语言进行类比</description>
+            <description>(请点击原文链接进行阅读)在逻辑上解释epsilon-delta语言, 并与编程语言进行类比</description>
             </item>
         
     
@@ -119,7 +130,7 @@
             <pubDate>Wed, 18 Sep 2019</pubDate>
             
             <guid>https://desvl.xyz/post/2019-09-18-gamma-intro/</guid>
-            <description>一个经典的含参反常积分——伽玛函数在微积分中的一些应用</description>
+            <description>(请点击原文链接进行阅读)一个经典的含参反常积分——伽玛函数在微积分中的一些应用</description>
             </item>
         
     
@@ -130,7 +141,7 @@
             <pubDate>Sat, 14 Sep 2019</pubDate>
             
             <guid>https://desvl.xyz/post/2019-09-14-what-is-limit-2/</guid>
-            <description>不要再有“导数是切线斜率”的刻板印象了</description>
+            <description>(请点击原文链接进行阅读)不要再有“导数是切线斜率”的刻板印象了</description>
             </item>
         
     
@@ -141,7 +152,7 @@
             <pubDate>Thu, 12 Sep 2019</pubDate>
             
             <guid>https://desvl.xyz/post/2019-09-12-beautiful-fourier-005/</guid>
-            <description>进一步介绍Fejér核, 以及几个重要应用</description>
+            <description>(请点击原文链接进行阅读)进一步介绍Fejér核, 以及几个重要应用</description>
             </item>
         
     
@@ -152,7 +163,7 @@
             <pubDate>Tue, 10 Sep 2019</pubDate>
             
             <guid>https://desvl.xyz/post/2019-09-10-taylor3/</guid>
-            <description>利用Taylor定理分析两个重要数列极限和数列的误差</description>
+            <description>(请点击原文链接进行阅读)利用Taylor定理分析两个重要数列极限和数列的误差</description>
             </item>
         
     
@@ -163,7 +174,7 @@
             <pubDate>Sun, 08 Sep 2019</pubDate>
             
             <guid>https://desvl.xyz/post/2019-09-08-taylor2/</guid>
-            <description>关于Taylor定理的积分型余项和其余两种余项的关系</description>
+            <description>(请点击原文链接进行阅读)关于Taylor定理的积分型余项和其余两种余项的关系</description>
             </item>
         
     
@@ -174,7 +185,7 @@
             <pubDate>Sat, 07 Sep 2019</pubDate>
             
             <guid>https://desvl.xyz/post/2019-09-07-sup-inf/</guid>
-            <description>介绍“确界”这个概念</description>
+            <description>(请点击原文链接进行阅读)介绍“确界”这个概念</description>
             </item>
         
     
@@ -185,7 +196,7 @@
             <pubDate>Fri, 06 Sep 2019</pubDate>
             
             <guid>https://desvl.xyz/post/2019-09-06-n-ball/</guid>
-            <description>n维空间中球的体积</description>
+            <description>(请点击原文链接进行阅读)n维空间中球的体积</description>
             </item>
         
     
@@ -196,7 +207,7 @@
             <pubDate>Sun, 01 Sep 2019</pubDate>
             
             <guid>https://desvl.xyz/post/2019-9-1-beautiful-fourier-004/</guid>
-            <description>初步介绍一个‘好核’：Fejér核</description>
+            <description>(请点击原文链接进行阅读)初步介绍一个‘好核’：Fejér核</description>
             </item>
         
     
@@ -207,7 +218,7 @@
             <pubDate>Mon, 26 Aug 2019</pubDate>
             
             <guid>https://desvl.xyz/post/2019-08-26-taylor/</guid>
-            <description>关于Taylor定理的Peano余项和其实质: 多项式逼近函数</description>
+            <description>(请点击原文链接进行阅读)关于Taylor定理的Peano余项和其实质: 多项式逼近函数</description>
             </item>
         
     
@@ -218,7 +229,7 @@
             <pubDate>Sat, 24 Aug 2019</pubDate>
             
             <guid>https://desvl.xyz/post/2019-8-24-harmonic-series-divergence/</guid>
-            <description>关于为什么1+&lt;sup&gt;1&lt;/sup&gt;&amp;frasl;&lt;sub&gt;2&lt;/sub&gt;+&amp;hellip;+1/n+&amp;hellip;是发散的</description>
+            <description>(请点击原文链接进行阅读)关于为什么1+&lt;sup&gt;1&lt;/sup&gt;&amp;frasl;&lt;sub&gt;2&lt;/sub&gt;+&amp;hellip;+1/n+&amp;hellip;是发散的</description>
             </item>
         
     
@@ -229,7 +240,7 @@
             <pubDate>Thu, 22 Aug 2019</pubDate>
             
             <guid>https://desvl.xyz/post/2019-8-22-beautiful-fourier-003/</guid>
-            <description>引入‘好核’的概念</description>
+            <description>(请点击原文链接进行阅读)引入‘好核’的概念</description>
             </item>
         
     
@@ -240,7 +251,7 @@
             <pubDate>Thu, 22 Aug 2019</pubDate>
             
             <guid>https://desvl.xyz/post/2019-08-22-what-is-limit/</guid>
-            <description>正确理解什么是极限</description>
+            <description>(请点击原文链接进行阅读)正确理解什么是极限</description>
             </item>
         
     
@@ -251,7 +262,7 @@
             <pubDate>Mon, 19 Aug 2019</pubDate>
             
             <guid>https://desvl.xyz/post/2019-08-19-l-hopital-proof/</guid>
-            <description>利用两种微积分中的重要工具证明洛必达法则</description>
+            <description>(请点击原文链接进行阅读)利用两种微积分中的重要工具证明洛必达法则</description>
             </item>
         
     
@@ -262,7 +273,7 @@
             <pubDate>Fri, 16 Aug 2019</pubDate>
             
             <guid>https://desvl.xyz/post/2019-08-16-generalized-inverse/</guid>
-            <description>引入矩阵的几种广义逆的概念</description>
+            <description>(请点击原文链接进行阅读)引入矩阵的几种广义逆的概念</description>
             </item>
         
     
@@ -273,7 +284,7 @@
             <pubDate>Thu, 15 Aug 2019</pubDate>
             
             <guid>https://desvl.xyz/post/2019-08-15-polar-factorization/</guid>
-            <description>将一个实方阵进行类似于极坐标表示的分解</description>
+            <description>(请点击原文链接进行阅读)将一个实方阵进行类似于极坐标表示的分解</description>
             </item>
         
     
@@ -284,7 +295,7 @@
             <pubDate>Wed, 14 Aug 2019</pubDate>
             
             <guid>https://desvl.xyz/post/2019-08-14-quotient-space/</guid>
-            <description>引入商空间这个概念</description>
+            <description>(请点击原文链接进行阅读)引入商空间这个概念</description>
             </item>
         
     
@@ -295,7 +306,7 @@
             <pubDate>Sun, 11 Aug 2019</pubDate>
             
             <guid>https://desvl.xyz/post/2019-08-11-real-complex-matrix-representation/</guid>
-            <description>将复数表示成矩阵, 并且解释其几何意义</description>
+            <description>(请点击原文链接进行阅读)将复数表示成矩阵, 并且解释其几何意义</description>
             </item>
         
     
@@ -306,7 +317,7 @@
             <pubDate>Tue, 06 Aug 2019</pubDate>
             
             <guid>https://desvl.xyz/post/2019-08-10-rc-analysis-solution/</guid>
-            <description>Download the solution of Papa Rudin</description>
+            <description>(请点击原文链接进行阅读)Download the solution of Papa Rudin</description>
             </item>
         
     
@@ -317,7 +328,7 @@
             <pubDate>Tue, 06 Aug 2019</pubDate>
             
             <guid>https://desvl.xyz/post/2019-08-06-beautiful-fourier-002/</guid>
-            <description>Jordan判别法的完整证明</description>
+            <description>(请点击原文链接进行阅读)Jordan判别法的完整证明</description>
             </item>
         
     
@@ -328,7 +339,7 @@
             <pubDate>Mon, 05 Aug 2019</pubDate>
             
             <guid>https://desvl.xyz/post/2019-08-05-beautiful-fourier-001/</guid>
-            <description>从不同的角度理解Fourier级数</description>
+            <description>(请点击原文链接进行阅读)从不同的角度理解Fourier级数</description>
             </item>
         
     
@@ -339,7 +350,7 @@
             <pubDate>Sun, 04 Aug 2019</pubDate>
             
             <guid>https://desvl.xyz/post/2019-08-04-contraction-application/</guid>
-            <description>利用压缩定理解决迭代生成的数列的极限问题</description>
+            <description>(请点击原文链接进行阅读)利用压缩定理解决迭代生成的数列的极限问题</description>
             </item>
         
     

@@ -6,10 +6,19 @@
     <description>Recent content in 数学/Math on Desvl&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 12 Nov 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 16 Nov 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://desvl.xyz/categories/%E6%95%B0%E5%AD%A6/math/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Riesz表示定理证明(一)</title>
+      <link>https://desvl.xyz/post/2019-11-16-riesz-proof-1/</link>
+      <pubDate>Sat, 16 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://desvl.xyz/post/2019-11-16-riesz-proof-1/</guid>
+      <description>Riesz表示定理证明的第一部分</description>
+    </item>
     
     <item>
       <title>几种矩阵分解的梳理概括</title>
@@ -180,15 +189,6 @@
       
       <guid>https://desvl.xyz/post/2019-8-22-beautiful-fourier-003/</guid>
       <description>引入‘好核’的概念</description>
-    </item>
-    
-    <item>
-      <title>高等数学入门: 关于极限这个概念</title>
-      <link>https://desvl.xyz/post/2019-08-22-what-is-limit/</link>
-      <pubDate>Thu, 22 Aug 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://desvl.xyz/post/2019-08-22-what-is-limit/</guid>
-      <description>正确理解什么是极限</description>
     </item>
     
   </channel>
