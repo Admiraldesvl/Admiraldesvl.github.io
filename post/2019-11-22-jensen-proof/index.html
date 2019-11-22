@@ -4,7 +4,7 @@
          
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Solutions to Real and Complex Analysis by Rudin</title>
+        <title>Jensen不等式的证明</title>
         
         <style>
 
@@ -86,8 +86,8 @@ MathJax.Hub.Config({
 
         <meta name="twitter:card" content="summary"/>
 <meta name="twitter:image" content="https://desvl.xyz/"/>
-<meta name="twitter:title" content="Solutions to Real and Complex Analysis by Rudin"/>
-<meta name="twitter:description" content="Download the solution of Papa Rudin"/>
+<meta name="twitter:title" content="Jensen不等式的证明"/>
+<meta name="twitter:description" content="在Lebesgue积分的背景下对Jensen不等式进行证明"/>
 
         
 
@@ -102,7 +102,7 @@ MathJax.Hub.Config({
 
                 <div class="navbar-header">
 
-                    <a class="navbar-brand visible-xs" href="#">Solutions to Real and Complex Analysis by Rudin</a>
+                    <a class="navbar-brand visible-xs" href="#">Jensen不等式的证明</a>
 
                     <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
                         <span class="icon-bar"></span>
@@ -159,8 +159,8 @@ MathJax.Hub.Config({
     
     
 
-    <h4><a href="/post/2019-08-10-rc-analysis-solution/">Solutions to Real and Complex Analysis by Rudin</a></h4>
-    <h5>August 6, 2019</h5>
+    <h4><a href="/post/2019-11-22-jensen-proof/">Jensen不等式的证明</a></h4>
+    <h5>November 22, 2019</h5>
     
     <a href="https://desvl.xyz/tags/%E5%AE%9E%E5%88%86%E6%9E%90/real-analysis"><kbd class="item-tag">实分析/Real Analysis</kbd></a>
     
@@ -170,19 +170,108 @@ MathJax.Hub.Config({
 
     <br> <div class="text-justify">
 
-<h2 id="download-via-github">Download via GitHub:</h2>
+<h3 id="jensen不等式的表述">Jensen不等式的表述</h3>
 
-<ul>
-<li><p><a href="https://github.com/Admiraldesvl/Real-and-Complex-Analysis-Rudin-Solution/tree/master/Ch01">Chapter1</a></p></li>
+<blockquote>
+<p>设$\mu$为一个集合$\Omega$上的 $\sigma$-代数$\mathfrak{M}$的测度, 其中$\mu(\Omega)=1$. 又设$f\in L^1(\mu)$. 如果对任意$x\in\Omega$有$f(x)\in(a,b)$, 且$\varphi$在$(a,b)$上为凸函数, 那么</p>
 
-<li><p>&hellip;</p></li>
-</ul>
+<p>[\varphi\left(\int_{\Omega}fd\mu\right)\leq\int_{\Omega}(\varphi\circ f)d\mu]</p>
+</blockquote>
 
-<h2 id="what-i-want-to-say">What I want to say</h2>
+<p>如果$\mu$为概率测度, 那么就已经证明了概率论版本的不等式; 如果$\mu$为勒贝格测度$m$, 那么经过一定调整之后也能自然得到Riemann函数版本的不等式. 同样, 离散版本的不等式也显得很自然了. 不一定要把积分版的看成离散版的极限, 也可以把离散版看成一个平凡的可测函数(这样自然是没问题的). 这样可以规避掉很多零散的细节.</p>
 
-<p>I don&rsquo;t know the accurate time when I&rsquo;ll finish it. But I want to keep the accuracy and readability of every solution.</p>
+<p>实际上, 概率论中最基本的概念, 随机变量, 本身就一定是一个可测函数. 随机变量的离散和连续都是自然的. 当然了, 严格的定义也可以是有的:</p>
 
-<p>If you have any suggestion to improve/correct my text, you are welcome to email me (link at the bottom) or leave a comment. You are also welcome to create an issue/pull request at GitHub.</p>
+<blockquote>
+<p>一个可测函数$f$是*离散*的当且仅当有一个可数集合$B$使得$\mu(\{x:f(x)\notin B\})=0$.</p>
+</blockquote>
+
+<p>但是, 这里的$\varphi$一定是连续函数, 这不是人为要求的, 而是可以证明的(注意是在开区间上, 在闭区间上不一定, 可以举出反例).</p>
+
+<p>如果知道了数学期望实际上就是计算勒贝格积分, 那么这个不等式的概率论版本就显而易见了:
+[
+    E(\varphi(X))\geq\varphi(E(X))
+]
+其中$\varphi$为凸函数.</p>
+
+<p>这个不等式的其他派生形式也就更自然了, 在这里就不赘述了. 这些不等式主要利用了$e^x$的凸性.</p>
+
+<h3 id="凸函数的一个重要性质">凸函数的一个重要性质</h3>
+
+<blockquote>
+<p>满足$-\infty\leq a&lt;\varphi&lt;b\leq\infty$的实函数$\varphi$如果满足$\varphi((1-\lambda)x+\lambda y)\leq(1-\lambda)\varphi(x)+\lambda\varphi(y)$时, 被称为凸函数, 其中$a&lt;x,y&lt;b$, $0\leq\lambda\leq 1$.</p>
+</blockquote>
+
+<p>接下来, 通过进行变量重新命名, 可以发现一个很独特的不等式. 在接下来这个不等式中还要注意到, 所谓二阶导函数大于$0$或者小于$0$其实是很不严格的判别办法, 因为可导实在是太严苛了. 更不用说二阶了.</p>
+
+<p>令$(1-\lambda)x+\lambda y=t$, $x=s$, $y=u$, 那么可以发现</p>
+
+<p>[
+    \varphi(t)\leq (1-\lambda)\varphi(s)+\lambda(u) \\<br />
+    t-s = \lambda(u-s) \\<br />
+    u-t = (1-\lambda)(u-s)
+]</p>
+
+<p>那么就有</p>
+
+<p>[
+    \frac{\varphi(t)-\varphi(s)}{t-s}=\frac{\varphi(t)-\varphi(s)}{\lambda(u-s)} \\<br />
+    \frac{\varphi(u)-\varphi(t)}{u-t}=\frac{\varphi(u)-\varphi(t)}{(1-\lambda)(u-s)}
+]</p>
+
+<p>进行简单的变形, 就能得到</p>
+
+<p>[
+    \frac{\varphi(t)-\varphi(s)}{t-s}\leq\frac{\varphi(u)-\varphi(t)}{u-t}
+]</p>
+
+<p>这其中, $a&lt;s&lt;t&lt;u&lt;b$ (可以想一下为什么要满足$s&lt;t&lt;u$). 如果$\varphi$可导, 那么有$\xi\in(s,t)$, $\zeta\in(t,u)$使得$\varphi&rsquo;(\xi)\leq\varphi&rsquo;(\zeta)$. 所以二阶导数大于等于$0$? 这个时候这个说法是很不合适的. 因为不知道$\varphi$是否二阶可导. 所以直接说凸函数二阶导数大于等于$0$就更不合适了, 因为这个函数可导与否都是个问题.</p>
+
+<h3 id="jensen不等式的证明">Jensen不等式的证明</h3>
+
+<p>首先, 令$t=\int_{\Omega}fd\mu$. 根据Lebesgue积分(其实这时考虑Riemann积分也没有问题)的性质, 就能够得到$a&lt;t&lt;b$(注意$\Omega$的测度为$1$).</p>
+
+<p>对$a&lt;s&lt;t$, 定义$A=\sup{\frac{\varphi(s)-\varphi(t)}{s-t}}$, 那么上一节得到的不等式就可以插上一个$A$, 得到了</p>
+
+<p>[
+    \frac{\varphi(s)-\varphi(t)}{s-t}\leq{A}\leq\frac{\varphi(u)-\varphi(t)}{u-t}
+]</p>
+
+<p>其中$t&lt;u&lt;b$. 第一个不等号是根据上界的定义直接得到的. 如果你对第二个不等号感到疑惑, 可以假设这个不等式不成立, 会得到一个显然的矛盾.</p>
+
+<p>接下来, 给这个不等式两边分别乘以$s-t$和$u-t$, 能得到</p>
+
+<p>[
+    \varphi(s)\geq\varphi(t)+A(s-t)
+]</p>
+
+<p>以及</p>
+
+<p>[
+    \varphi(u)\geq\varphi(t)+A(s-t)
+]</p>
+
+<p>这也就是说, 对于所有的$a&lt;s&lt;b$, 都有$\varphi(s)\geq\varphi(t)+A(s-t)$成立.</p>
+
+<p>令$s=f(x)$, 就能得到</p>
+
+<p>[
+    \varphi(f(x))\geq\varphi(t)+A(f(x)-t)
+]</p>
+
+<p>这时, 对两侧以测度$\mu$积分, 就能得到(不要忘了$\mu(\Omega)=1$)</p>
+
+<p>[
+    \int_{\Omega}(\varphi\circ f)d\mu\geq\varphi(t)+A(\int_{\Omega}f(x)d\mu-t)
+]</p>
+
+<p>这时不要忘了$t=\int_{\Omega}fd\mu$. 将这个代入上式, 就能得到</p>
+
+<p>[
+    \int_{\Omega}(\varphi\circ f)d\mu\geq\varphi\left(\int_{\Omega}fd\mu\right)
+]</p>
+
+<p>证明完毕.</p>
 </div>
     <h4 class="page_header">Share | 分享</h4>
     <hr>
@@ -229,22 +318,6 @@ MathJax.Hub.Config({
     
     
 
-    <h4><a href="/post/2019-11-22-jensen-proof/">Jensen不等式的证明</a></h4>
-    <h5>November 22, 2019</h5>
-    
-    <a href="https://desvl.xyz/tags/%E5%AE%9E%E5%88%86%E6%9E%90/real-analysis"><kbd class="item-tag">实分析/Real Analysis</kbd></a>
-    
-
-</div>
-  <div class="item">
-
-    
-    
-    
-
-    
-    
-
     <h4><a href="/post/2019-11-16-riesz-proof-1/">Riesz表示定理证明(一)</a></h4>
     <h5>November 16, 2019</h5>
     
@@ -269,6 +342,22 @@ MathJax.Hub.Config({
     <a href="https://desvl.xyz/tags/%E5%AE%9E%E5%88%86%E6%9E%90/real-analysis"><kbd class="item-tag">实分析/Real Analysis</kbd></a>
     
     <a href="https://desvl.xyz/tags/%E6%B3%9B%E5%87%BD%E5%88%86%E6%9E%90/functional-analysis"><kbd class="item-tag">泛函分析/Functional Analysis</kbd></a>
+    
+
+</div>
+  <div class="item">
+
+    
+    
+    
+
+    
+    
+
+    <h4><a href="/post/2019-08-10-rc-analysis-solution/">Solutions to Real and Complex Analysis by Rudin</a></h4>
+    <h5>August 6, 2019</h5>
+    
+    <a href="https://desvl.xyz/tags/%E5%AE%9E%E5%88%86%E6%9E%90/real-analysis"><kbd class="item-tag">实分析/Real Analysis</kbd></a>
     
 
 </div>

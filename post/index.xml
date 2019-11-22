@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Desvl&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 16 Nov 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 22 Nov 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://desvl.xyz/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Jensen不等式的证明</title>
+      <link>https://desvl.xyz/post/2019-11-22-jensen-proof/</link>
+      <pubDate>Fri, 22 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://desvl.xyz/post/2019-11-22-jensen-proof/</guid>
+      <description>在Lebesgue积分的背景下对Jensen不等式进行证明</description>
+    </item>
     
     <item>
       <title>Riesz表示定理证明(一)</title>
@@ -180,15 +189,6 @@
       
       <guid>https://desvl.xyz/post/2019-08-26-taylor/</guid>
       <description>关于Taylor定理的Peano余项和其实质: 多项式逼近函数</description>
-    </item>
-    
-    <item>
-      <title>调和级数发散的证明(1&#43;1/2&#43;...&#43;1/n&#43;...)</title>
-      <link>https://desvl.xyz/post/2019-8-24-harmonic-series-divergence/</link>
-      <pubDate>Sat, 24 Aug 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://desvl.xyz/post/2019-8-24-harmonic-series-divergence/</guid>
-      <description>关于为什么1+&lt;sup&gt;1&lt;/sup&gt;&amp;frasl;&lt;sub&gt;2&lt;/sub&gt;+&amp;hellip;+1/n+&amp;hellip;是发散的</description>
     </item>
     
   </channel>

@@ -6,11 +6,22 @@
     <description>Interests come from thinking. 本网站几乎每篇文章都使用MathJax, 为保证完整的阅读, 请访问原网站的对应链接.</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 16 Nov 2019</lastBuildDate>
+    <lastBuildDate>Fri, 22 Nov 2019</lastBuildDate>
     
         <atom:link href="https://desvl.xyz/index.xml" rel="self" type="application/rss+xml" />
     
     
+        
+    
+        
+            <item>
+            <title>Jensen不等式的证明</title>
+            <link>https://desvl.xyz/post/2019-11-22-jensen-proof/</link>
+            <pubDate>Fri, 22 Nov 2019</pubDate>
+            
+            <guid>https://desvl.xyz/post/2019-11-22-jensen-proof/</guid>
+            <description>(请点击原文链接进行阅读)在Lebesgue积分的背景下对Jensen不等式进行证明</description>
+            </item>
         
     
         
