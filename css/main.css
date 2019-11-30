@@ -52,10 +52,6 @@ a:link, a:visited {
     color: var(--accent);
 }
 
-main::selection{
-    color: var(--accent);
-}
-
 a.icon:hover {
     text-decoration: none;
 }
