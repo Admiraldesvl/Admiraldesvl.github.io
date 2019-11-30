@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>概率论/Probability on Desvl&#39;s Blog</title>
+    <link>https://desvl.xyz/tags/%E6%A6%82%E7%8E%87%E8%AE%BA/probability/</link>
+    <description>Recent content in 概率论/Probability on Desvl&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 30 Nov 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://desvl.xyz/tags/%E6%A6%82%E7%8E%87%E8%AE%BA/probability/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>概率论中需要知道的单调函数的性质</title>
+      <link>https://desvl.xyz/post/2019-11-30-distribution/</link>
+      <pubDate>Sat, 30 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://desvl.xyz/post/2019-11-30-distribution/</guid>
+      <description>关于分布函数(CDF)单调性、连续性的简单讨论</description>
+    </item>
+    
+  </channel>
+</rss>
