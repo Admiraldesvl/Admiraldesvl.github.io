@@ -15,7 +15,11 @@ main {
     flex: 1 0 auto;
     max-width: 850px;
     font-size: 18px;
+    selection{
+        color: var(--accent);
+    }
 }
+
 
 /*footer*/
 
@@ -48,6 +52,10 @@ main {
 /*apply accent colour to links*/
 
 a:link, a:visited {
+    color: var(--accent);
+}
+
+a::selection{
     color: var(--accent);
 }
 
