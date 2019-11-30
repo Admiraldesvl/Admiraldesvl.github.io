@@ -52,7 +52,7 @@ a:link, a:visited {
     color: var(--accent);
 }
 
-a:selection{
+main::selection{
     color: var(--accent);
 }
 
