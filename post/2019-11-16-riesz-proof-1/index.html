@@ -174,7 +174,7 @@ MathJax.Hub.Config({
 
 <h3 id="说在前面的">说在前面的</h3>
 
-<p>以下这个证明来自Real and Complex Analysis, W.Rudin. 不得不说这个证明很厉害, 但是很难理解. 可能原文一个单词能卡人半天, 在mathexchange也能看到不少关于如何理解这个证明某个细节的提问. 我尽我最大努力进行解释补充, 在尽量保证可读性的同时不对原文进行过大的调整. 也算是回报社区了.</p>
+<p>以下这个证明来自<em>Real and Complex Analysis, W.Rudin</em>. 不得不说这个证明很厉害, 但是很难理解. 可能原文一个单词能卡人半天, 在mathexchange也能看到不少关于如何理解这个证明某个细节的提问. 我尽我最大努力进行解释补充, 在尽量保证可读性的同时不对原文进行过大的调整. 也算是回报社区了.</p>
 
 <h4 id="证明前的小准备-1-的分割-partition-of-unity"><strong>证明前的小准备: $1$的分割(partition of unity)</strong></h4>
 
@@ -202,13 +202,21 @@ MathJax.Hub.Config({
 
 <p>[\mu(V_1\cup V_2)\leq\mu(V_1)+\mu(V_2)]</p>
 
-<p>对开集$V_1$和$V_2$成立. 取$g$满足$g\prec V_1\cup V_2$. 根据$1$的分割原理, 有非负函数$h_1(x)$和$h_2(x)$满足$h_i\prec V_i$, 而且对所有$x\in supp(g)$, 满足$h_1(x)+h_2(x)=1$. 这个时候可以把$g$写成$g=h_1(x)g(x)+h_2(x)g(x)$. 再考虑$\Lambda$为线性泛函, 就能得到</p>
+<p>对开集$V_1$和$V_2$成立.</p>
+
+<p>取$g$满足$g\prec V_1\cup V_2$. 根据$1$的分割原理, 有非负函数$h_1(x)$和$h_2(x)$满足$h_i\prec V_i$, 而且对所有$x\in supp(g)$, 满足$h_1(x)+h_2(x)=1$. 这个时候可以把$g$写成$g=h_1(x)g(x)+h_2(x)g(x)$. 再考虑$\Lambda$为线性泛函, 就能得到</p>
 
 <p>[\Lambda{g}=\Lambda{h_1g}+\Lambda{h_2g}]</p>
 
-<p>这个等式对所有$g \prec V_1\cup V_2$都成立, 又注意到$\mu(V_1\cup V_2)=\sup\Lambda{g}$, 所以$\mu(V_1\cup V_2)\leq\mu(V_1)+\mu(V_2)$.</p>
+<p>这个等式对所有$g \prec V_1\cup V_2$都成立, 又注意到$\mu(V_1\cup V_2)=\sup\Lambda{g}$, 所以[\mu(V_1\cup V_2)\leq\mu(V_1)+\mu(V_2).]</p>
 
-<p>接下来需要推广到可数个. 如果对某个$i$有$\mu(E_i)=\infty$, 那么这一步需要证明的不等式自然是成立的. 所以, 现在应该假设, 对所有$i$, 都有$\mu(E_i)&lt;\infty$. 对<strong>所有</strong>的$E$都有$\mu(E)=\inf\{\mu(V):E\subset V, V为开集\}$. 对$\varepsilon&gt;0$, 可以取开集$V_i\supset E_i$, 使得</p>
+<p>接下来需要推广到可数个. 如果对某个$i$有$\mu(E_i)=\infty$, 那么这一步需要证明的不等式自然是成立的.</p>
+
+<p>所以, 现在应该假设, 对所有$i$, 都有$\mu(E_i)&lt;\infty$. 对<strong>所有</strong>的$E$都有</p>
+
+<p>[\mu(E)=\inf\{\mu(V):E\subset V, V为开集\}].</p>
+
+<p>对$\varepsilon&gt;0$, 可以取开集$V_i\supset E_i$, 使得</p>
 
 <p>[\mu(V_i)&lt;\mu(E_i)+\frac{\varepsilon}{2^i}.]</p>
 
@@ -226,7 +234,7 @@ MathJax.Hub.Config({
 
 <p>另外解释一下$\Lambda{f}\leq\cdots\leq\sum_{i=1}^{\infty}\mu(E_i)+\varepsilon$中每个不等式的意义. 第一个不等号自然是被$\mu$定义决定. 因为$\mu(V_1\cup\cdots\cup V_n)=\sup\{\Lambda{f}:f\prec V_1\cup\cdots\cup V_n\}$, 所以$\Lambda{f}\leq\mu(V_1\cup\cdots\cup V_n)$. 第二个不等式自然是归纳得到. 第三个不等式, 考虑$\sum_{i=1}^{n}\mu(V_i)\leq\sum_{i=1}^{n}(\mu(E_i)+2^{-i}\varepsilon)$, 而$\mu$又是非负测度, 又能得到</p>
 
-<p>$\sum_{i=1}^{n}(\mu(E_i)+2^{-i}\varepsilon)\leq\sum_{i=1}^{\infty}(\mu(E_i)+2^{-i}\varepsilon)$. 就得到了不等式最右侧. 还要注意到几何级数$\sum\frac{1}{2^n}=1$的运用.</p>
+<p>$\sum_{i=1}^{n}(\mu(E_i)+2^{-i}\varepsilon)\leq\sum_{i=1}^{\infty}(\mu(E_i)+2^{-i}\varepsilon)$. 就得到了不等式最右侧. 另外还要注意到几何级数$\sum\frac{1}{2^n}=1$的运用.</p>
 
 <blockquote>
 <p><em>第二步: 如果$K$为紧集, 那么有$K\in\mathfrak{M}$且[\mu(K)=\inf\{\Lambda{f}:K\prec f\}].</em></p>
@@ -234,11 +242,23 @@ MathJax.Hub.Config({
 
 <p>这一步证明完毕, 就能说明(b)的成立了. 这时, 紧集的&rdquo;测度&rdquo;得到了合理的构建(这时我们还没有证明$\mu$是一个测度), 为接下来的证明做好铺垫.</p>
 
-<p>如果$K \prec f$, 且$0&lt;\alpha<1$, 令$V_{\alpha} = \{x:f(x)>a\}$. 那么必定有$K\subset V_\alpha$. 这是因为$K=\{x:f(x)=1\}$. 此时如果$g\prec V_\alpha$, 就有$\frac{f}{\alpha}\geq g$恒成立. 再考虑到$\mu(V_\alpha)$的定义, 就有$\mu(V_\alpha)=\sup\{\Lambda{g}:g\prec V_\alpha\}\leq\alpha^{-1}\Lambda{f}$. 考虑到$K\subset V_\alpha$,  就有$\mu(V_\alpha)\geq\mu(K)$. 综上, 得到不等式</p>
+<p>如果$K \prec f$, 且$0&lt;\alpha<1$, 令$V_{\alpha} = \{x:f(x)>\alpha\}$. 那么考虑到$K$的定义,必定有$K\subset V_\alpha$. 此时如果$g\prec V_\alpha$, 就有$\frac{f}{\alpha}\geq g$恒成立.</p>
+
+<p>接下来, 考虑到$\mu(V_\alpha)$的定义, 就有$\mu(V_\alpha)=\sup\{\Lambda{g}:g\prec V_\alpha\}\leq\alpha^{-1}\Lambda{f}$. 最后, 考虑到$K\subset V_\alpha$,  就有$\mu(V_\alpha)\geq\mu(K)$. 综上, 得到不等式</p>
 
 <p>[\mu(K)\leq\alpha^{-1}\Lambda{f}.]</p>
 
-<p>$\alpha\to 1$时, 就能得到$\mu(K)\leq\Lambda{f}$. 因此$\mu(K)&lt;\infty$. 在构建$\mathfrak{M}_F$时, 我们指出这个集合中的集合元素满足$\mu(E)&lt;\infty$, 且$\mu(E)=\sup\{\mu(K):K\subset{E},K是紧集\}$. 现在要来看这一步里的$K$是否满足这个关系. 对于紧集$K&rsquo;$, 如果$K&rsquo;\subset K$, 那么$\mu(K&rsquo;)\leq\mu(K)$. 如果$K&rsquo;=K$, 那么有$\mu(K&rsquo;)=\mu(K)$. 也就是说有等式$\mu(K)=\sup\mu(K&rsquo;)$. 这说明$K$满足所需的关系. 所以$K\in\mathfrak{M}_F$.</p>
+<p>$\alpha\to 1$时, 就能得到$\mu(K)\leq\Lambda{f}$. 因此$\mu(K)&lt;\infty$.</p>
+
+<p>在构建$\mathfrak{M}_F$时我们曾指出, 集合$\mathfrak{M}$中的集合元素$E$需要满足两个条件:</p>
+
+<blockquote>
+<p>[\mu(E)&lt;\infty]</p>
+
+<p>[\mu(E)=\sup\{\mu(K):K\subset{E},K是紧集\}]</p>
+</blockquote>
+
+<p>现在要来看这一步里的$K$是否满足这两个条件. 对于紧集$K&rsquo;$, 如果$K&rsquo;\subset K$, 那么$\mu(K&rsquo;)\leq\mu(K)$. 如果$K&rsquo;=K$, 那么有$\mu(K&rsquo;)=\mu(K)$. 也就是说有等式$\mu(K)=\sup\mu(K&rsquo;)$. 这说明K满足两个条件. 所以$K\in\mathfrak{M}_F$.</p>
 
 <p>接下来证明等式$\mu(K)=\inf\{\Lambda{f}:K\prec f\}$. 对$\varepsilon&gt;0$, 存在$V\supset K$且$\mu(V)&lt;\mu(K)+\varepsilon$. 根据Urysohn引理, 存在$f$满足$K \prec f \prec V$. 再考虑$\mu(V)$的定义, 有</p>
 
@@ -262,7 +282,7 @@ MathJax.Hub.Config({
 
 <p>那么就有$\mu(K)=\inf\{\mu(W):K\subset{W},W为开集\}$. 考虑到$\mu(W)$的定义, 又有$\mu(W)\geq\Lambda{f}$. 如果$\mu(K)&lt;\Lambda{f}$, 那么根据下确界的定义, $\Lambda{f}$应该不是$\{\mu(W):W\supset K, W为开集\}$的下界, 这与已知矛盾. 必定有$\mu(K)\geq\Lambda{f}$.</p>
 
-<p>整合一下这一步中得到的一系列不等式: 对于开集$V$, 和实数$\alpha&lt;\mu(V)$, 总有紧集$K$使得$\alpha&lt;\mu(K)\leq\mu(V)$. 此时就可以确认, $\mu(V)=\sup\{\mu(K):K\subset V, K为紧集\}$. 这说明, 开集$V$满足$\mu(V)&lt;\infty$时, 必定有$V\in\mathfrak{M}_F$.</p>
+<p>整合一下这一步中得到的一系列不等式就能完成这一步的目标了: 对于开集$V$, 和实数$\alpha&lt;\mu(V)$, 总有紧集$K$使得$\alpha&lt;\mu(K)\leq\mu(V)$. 此时就可以确认, $\mu(V)=\sup\{\mu(K):K\subset V, K为紧集\}$. 这说明, 开集$V$满足$\mu(V)&lt;\infty$时, 必定有$V\in\mathfrak{M}_F$.</p>
 
 <h3 id="关于下一篇">关于下一篇</h3>
 
