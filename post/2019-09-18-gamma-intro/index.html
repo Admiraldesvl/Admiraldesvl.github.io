@@ -87,7 +87,7 @@ MathJax.Hub.Config({
         <meta name="twitter:card" content="summary"/>
 <meta name="twitter:image" content="https://desvl.xyz/"/>
 <meta name="twitter:title" content="伽玛函数两个有趣的应用"/>
-<meta name="twitter:description" content="一个经典的含参反常积分——伽玛函数在微积分中的一些应用"/>
+<meta name="twitter:description" content="经典的含参反常积分——伽玛函数在微积分中的一些应用"/>
 
         
 
@@ -183,9 +183,9 @@ MathJax.Hub.Config({
 
 <h2 id="欧拉-泊松积分-int-infty-infty-e-x-2-dx-到底怎么算">欧拉-泊松积分$\int_{-\infty}^{\infty}e^{-x^2}dx$到底怎么算?</h2>
 
-<p>很遗憾, $\int e^{-x^2}dx$不是一个初等函数, 不能写成一个&rdquo;原函数&rdquo;. 但是它的值是可以算的. 介绍$n$维球体积时我说, 算出$\Gamma(\frac{1}{2})=\sqrt{\pi}$, 离算出$\int_{-\infty}^{\infty}e^{-x^2}dx$已经很近很近了. 在这里我会给出计算办法.</p>
+<p>很遗憾, $\int e^{-x^2}dx$不是一个初等函数, 不能写成一个&rdquo;原函数&rdquo;. 但是它的值是可以算的. 介绍$n$维球体积时我们提到过, 算出$\Gamma(\frac{1}{2})=\sqrt{\pi}$, 离算出$\int_{-\infty}^{\infty}e^{-x^2}dx$已经很近很近了. 在这里, 我会给出具体的计算办法.</p>
 
-<p>只需要令$t=s^2$, 代入$\Gamma$的方程即可. 此时有
+<p>实际上, 只需要令$t=s^2$, 代入$\Gamma$的方程即可. 此时有
 [
     \Gamma(x)=2\int_0^{\infty}s^{2x-1}e^{-s^2}ds
 ]</p>
@@ -195,7 +195,7 @@ MathJax.Hub.Config({
     \Gamma(\frac{1}{2})=2\int_{0}^{\infty}e^{-s^2}ds=\int_{-\infty}^{\infty}e^{-s^2}ds=\sqrt{\pi}
 ]</p>
 
-<p>至此, 欧拉-泊松积分的计算得到解决. 当然解决办法还有很多, 但这种算法是离$\Gamma$函数最近的.</p>
+<p>当然, 解决办法还有很多, 但这种算法是离$\Gamma$函数最近的.</p>
 
 <h2 id="stirling公式-分析-n-的有力工具">Stirling公式, 分析$n!$的有力工具.</h2>
 
