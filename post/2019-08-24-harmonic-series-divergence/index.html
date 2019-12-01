@@ -4,7 +4,7 @@
          
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Solutions to Real and Complex Analysis by Rudin</title>
+        <title>调和级数发散的证明(1&#43;1/2&#43;...&#43;1/n&#43;...)</title>
         
         <style>
 
@@ -86,8 +86,8 @@ MathJax.Hub.Config({
 
         <meta name="twitter:card" content="summary"/>
 <meta name="twitter:image" content="https://desvl.xyz/"/>
-<meta name="twitter:title" content="Solutions to Real and Complex Analysis by Rudin"/>
-<meta name="twitter:description" content="Download the solution of Papa Rudin"/>
+<meta name="twitter:title" content="调和级数发散的证明(1&#43;1/2&#43;...&#43;1/n&#43;...)"/>
+<meta name="twitter:description" content="关于为什么1&#43;1&frasl;2&#43;&hellip;&#43;1/n&#43;&hellip;是发散的"/>
 
         
 
@@ -102,7 +102,7 @@ MathJax.Hub.Config({
 
                 <div class="navbar-header">
 
-                    <a class="navbar-brand visible-xs" href="#">Solutions to Real and Complex Analysis by Rudin</a>
+                    <a class="navbar-brand visible-xs" href="#">调和级数发散的证明(1&#43;1/2&#43;...&#43;1/n&#43;...)</a>
 
                     <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
                         <span class="icon-bar"></span>
@@ -159,10 +159,10 @@ MathJax.Hub.Config({
     
     
 
-    <h4><a href="/post/2019-08-10-rc-analysis-solution/">Solutions to Real and Complex Analysis by Rudin</a></h4>
-    <h5>August 6, 2019</h5>
+    <h4><a href="/post/2019-08-24-harmonic-series-divergence/">调和级数发散的证明(1&#43;1/2&#43;...&#43;1/n&#43;...)</a></h4>
+    <h5>August 24, 2019</h5>
     
-    <a href="https://desvl.xyz/tags/%E5%AE%9E%E5%88%86%E6%9E%90/real-analysis"><kbd class="item-tag">实分析/Real Analysis</kbd></a>
+    <a href="https://desvl.xyz/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/mathematical-analysis"><kbd class="item-tag">数学分析/Mathematical Analysis</kbd></a>
     
 
 </div>
@@ -170,19 +170,149 @@ MathJax.Hub.Config({
 
     <br> <div class="text-justify">
 
-<h2 id="download-via-github">Download via GitHub:</h2>
+<h2 id="命题的提出">命题的提出</h2>
 
-<ul>
-<li><p><a href="https://github.com/Admiraldesvl/Real-and-Complex-Analysis-Rudin-Solution/tree/master/Ch01">Chapter1</a></p></li>
+<blockquote>
+<p>设$S_n=1+\frac{1}{2}+\frac{1}{3}+\cdots+\frac{1}{n}$, 求证$\{S_n\}$发散</p>
+</blockquote>
 
-<li><p>&hellip;</p></li>
-</ul>
+<p>这个数列的发散是很难猜出来的, 因为它的增长速度很慢, 会给人以收敛的错觉. 如果用计算机手动运算, 会发现直到$12367$项, 这个数列的值才超过$10$. 但缓慢的增长速度不能说明敛散性. 接下来会给出一系列精彩的证明, 从14~17世纪纯粹的分式不等式到近现代涉及到微积分等方法.</p>
 
-<h2 id="what-i-want-to-say">What I want to say</h2>
+<h2 id="遥远的中世纪-nicole-oresme-1350-1360">遥远的中世纪: Nicole Oresme(1350?-1360?)</h2>
 
-<p>I don&rsquo;t know the accurate time when I&rsquo;ll finish it. But I want to keep the accuracy and readability of every solution.</p>
+<p>这个证明方式是历史上最早的证明, 涉及到简单的不等式放缩和数学归纳.</p>
 
-<p>If you have any suggestion to improve/correct my text, you are welcome to email me (link at the bottom) or leave a comment. You are also welcome to create an issue/pull request at GitHub.</p>
+<p>考虑到不等式
+[
+    \underbrace{\frac{1}{n+1}+\frac{1}{n+2}+\cdots+\frac{1}{2n}}_{\text{$n$项}}&gt;n\cdot\frac{1}{2n}=\frac{1}{2}
+]
+我们分析$\{S_{2^n}\}$这个数列, 发现
+[
+    S_1=1+0\cdot\frac{1}{2}
+]
+[
+    S_2=1+1\cdot\frac{1}{2}
+]
+[
+    S_4=1+\frac{1}{2}+\frac{1}{2+1}+\frac{1}{2\cdot{2}}&gt;1+\frac{1}{2}+\frac{1}{2}=1+2\cdot\frac{1}{2}
+]
+[
+    S_8=S_4+\frac{1}{4+1}+\cdots+\frac{1}{4\cdot{2}}&gt;1+3\cdot\frac{1}{2}
+]
+递推下去, 我们能得到
+[
+    S_{2^n}\geq 1+n\cdot\frac{1}{2}
+]
+这说明$S_n$有一个子列无界, 故原数列发散. 证毕.</p>
+
+<p>其实不用局限在$2^n$这一部分, 用同样的办法, 我们能得到
+[
+    S_{M^n}\geq 1+n\cdot\frac{M-1}{M}
+]</p>
+
+<h2 id="pietro-mengoli-17世纪中叶">Pietro Mengoli(17世纪中叶)</h2>
+
+<p>考虑不等式
+[
+    \frac{1}{n-1}+\frac{1}{n}+\frac{1}{n+1}=\frac{1}{n}+\frac{2n}{n^2-1}&gt;\frac{1}{n}+\frac{2n}{n^2}=\frac{3}{n}
+]</p>
+
+<p>假设原级数收敛到$S$, 那么有
+[
+    \begin{aligned}
+        S&amp;=1+\left(\frac{1}{2}+\frac{1}{3}+\frac{1}{4}\right)+\left(\frac{1}{5}+\frac{1}{6}+\frac{1}{7}\right)+\cdots\\<br />
+        &amp;&gt;1+\frac{3}{3}+\frac{3}{6}+\frac{3}{9}+\cdots\\<br />
+        &amp;=1+S
+    \end{aligned}
+]
+而$S&gt;1+S$无解, 这说明极限不存在. 证毕.</p>
+
+<h2 id="bernoulli兄弟-1689">Bernoulli兄弟(1689)</h2>
+
+<p>Bernoulli兄弟的证明发布于 <em>Tractatus de se-riebus infinitis</em> 一书中.</p>
+
+<h3 id="jacob-bernoulli">Jacob Bernoulli</h3>
+
+<p>对任意正整数有
+[
+    \underbrace{\frac{1}{n+1}+\frac{1}{n+2}+\cdots+\frac{1}{n^2}}_\text{$n^2-n$项}&gt;\frac{n^2-n}{n^2}=1-\frac{1}{n}
+]</p>
+
+<p>也就是说
+[
+    \frac{1}{n}+\frac{1}{n+1}+\cdots+\frac{1}{n^2}&gt;1
+]</p>
+
+<p>因此有
+[
+    \begin{aligned}
+        \sum_{n=1}^{\infty}\frac{1}{n}&amp;=1+\left(\frac{1}{2}+\frac{1}{3}+\frac{1}{4}\right)+\left(\frac{1}{5}+\cdots+\frac{1}{25}\right)+\cdots\\<br />
+        &amp;&gt;1+1+1+\cdots
+    \end{aligned}
+]</p>
+
+<p>原级数发散. 证毕.</p>
+
+<h3 id="johann-bernoulli">Johann Bernoulli</h3>
+
+<p>考虑级数
+[
+    \sum_{n=k}^{\infty}\left(\frac{1}{n}-\frac{1}{n+1}\right)=\sum_{n=k}^{\infty}\frac{1}{n(n+1)}=\frac{1}{k}
+]</p>
+
+<p>同样, 我们假设级数收敛于$S$
+[
+    \begin{aligned}
+        S&amp;=1+\frac{1}{2}+\frac{1}{3}+\frac{1}{4}+\frac{1}{5}+\cdots\\<br />
+        &amp;=1+\frac{1}{2}+\frac{2}{6}+\frac{3}{12}+\frac{4}{20}+\frac{5}{30}+\cdots\\<br />
+        &amp;=1+\left(\frac{1}{2}+\frac{1}{6}+\frac{1}{12}+\cdots\right)+\left(\frac{1}{6}+\frac{1}{12}+\frac{1}{20}+\cdots\right)+\cdots\\<br />
+        &amp;=1+1+\frac{1}{2}+\frac{1}{3}+\cdots\\<br />
+        &amp;=1+S
+    \end{aligned}
+]
+而$S=1+S$无解, 这说明极限不存在.</p>
+
+<h2 id="三种cauchy判别法">三种Cauchy判别法</h2>
+
+<p>Cauchy的三种判别法是比较常见且应用非常广泛的, 在微积分课程中也是常客, 现将三种方法列在下面</p>
+
+<h3 id="cauchy积分判别法">Cauchy积分判别法</h3>
+
+<blockquote>
+<p>设$f$在$[1,+\infty)$单调减少, 则级数$\sum_{n=1}^{\infty}f(n)$与广义积分$\int_{1}^{\infty}f(x)dx$同敛散</p>
+</blockquote>
+
+<p>代入$f(x)=\frac{1}{x}$即可.</p>
+
+<h3 id="cauchy凝聚判别法">Cauchy凝聚判别法</h3>
+
+<blockquote>
+<p>设$\{a_n\}$是单调减少的整数列, 则正项级数$\sum_{n=1}^{\infty}a_n$收敛的充分必要条件是凝聚项级数$\sum_{n=1}^{\infty}2^na_{2^n}$收敛</p>
+</blockquote>
+
+<p>这个判别法可以很简单地对$a_n=\frac{1}{n^p}$对应级数的敛散性进行讨论.</p>
+
+<h3 id="cauchy收敛准则">Cauchy收敛准则</h3>
+
+<p>可以发现, $S_{2n}-S_n=\frac{1}{n}+\frac{1}{n+1}+\cdots+\frac{1}{2n}&gt;\frac{n}{2n}=\frac{1}{2}$.</p>
+
+<p>这说明, 存在$\varepsilon=\frac{1}{2}$, 总有$|S_{2n}-S_n|&gt;\varepsilon$. 这说明了这个级数的发散.</p>
+
+<h2 id="honsberger-1976">Honsberger(1976)</h2>
+
+<p>这个证明是$e^{x}\geq{1+x}$的巧用.</p>
+
+<p>考虑$e^{S_n}$这个数列, 有</p>
+
+<p>[
+    \begin{aligned}
+        e^{S_n}&amp;=\text{exp}\left(1+\frac{1}{2}+\frac{1}{3}+\frac{1}{4}+\cdots+\frac{1}{n}\right)\\<br />
+        &amp;=e^{1}e^{\frac{1}{2}}e^{\frac{1}{3}}e^{\frac{1}{4}}\cdots e^{\frac{1}{n}}\\<br />
+        &amp;&gt;\left(1+1\right)\left(1+\frac{1}{2}\right)\cdots\left(1+\frac{1}{n}\right)\\<br />
+        &amp;=n+1
+    \end{aligned}
+]
+$e^{S_n}$的发散便说明了$S_n$的发散.</p>
 </div>
     <h4 class="page_header">Share | 分享</h4>
     <hr>
@@ -229,28 +359,12 @@ MathJax.Hub.Config({
     
     
 
-    <h4><a href="/post/2019-11-22-jensen-proof/">Jensen不等式的证明</a></h4>
-    <h5>November 22, 2019</h5>
+    <h4><a href="/post/2019-11-30-distribution/">概率论中需要知道的单调函数的性质</a></h4>
+    <h5>November 30, 2019</h5>
     
-    <a href="https://desvl.xyz/tags/%E5%AE%9E%E5%88%86%E6%9E%90/real-analysis"><kbd class="item-tag">实分析/Real Analysis</kbd></a>
+    <a href="https://desvl.xyz/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/mathematical-analysis"><kbd class="item-tag">数学分析/Mathematical Analysis</kbd></a>
     
-
-</div>
-  <div class="item">
-
-    
-    
-    
-
-    
-    
-
-    <h4><a href="/post/2019-11-16-riesz-proof-1/">Riesz表示定理证明(一)</a></h4>
-    <h5>November 16, 2019</h5>
-    
-    <a href="https://desvl.xyz/tags/%E5%AE%9E%E5%88%86%E6%9E%90/real-analysis"><kbd class="item-tag">实分析/Real Analysis</kbd></a>
-    
-    <a href="https://desvl.xyz/tags/%E6%B3%9B%E5%87%BD%E5%88%86%E6%9E%90/functional-analysis"><kbd class="item-tag">泛函分析/Functional Analysis</kbd></a>
+    <a href="https://desvl.xyz/tags/%E6%A6%82%E7%8E%87%E8%AE%BA/probability"><kbd class="item-tag">概率论/Probability</kbd></a>
     
 
 </div>
@@ -263,12 +377,32 @@ MathJax.Hub.Config({
     
     
 
-    <h4><a href="/post/2019-11-09-riesz-representation/">Riesz表示定理简单介绍</a></h4>
-    <h5>November 9, 2019</h5>
+    <h4><a href="/post/2019-10-31-euler-reflection/">欧拉反射公式和利用Fourier级数的证明</a></h4>
+    <h5>October 31, 2019</h5>
     
-    <a href="https://desvl.xyz/tags/%E5%AE%9E%E5%88%86%E6%9E%90/real-analysis"><kbd class="item-tag">实分析/Real Analysis</kbd></a>
+    <a href="https://desvl.xyz/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/mathematical-analysis"><kbd class="item-tag">数学分析/Mathematical Analysis</kbd></a>
     
-    <a href="https://desvl.xyz/tags/%E6%B3%9B%E5%87%BD%E5%88%86%E6%9E%90/functional-analysis"><kbd class="item-tag">泛函分析/Functional Analysis</kbd></a>
+    <a href="https://desvl.xyz/tags/fourier%E5%88%86%E6%9E%90/fourier-analysis"><kbd class="item-tag">Fourier分析/Fourier Analysis</kbd></a>
+    
+    <a href="https://desvl.xyz/tags/gamma%E5%87%BD%E6%95%B0"><kbd class="item-tag">Gamma函数</kbd></a>
+    
+
+</div>
+  <div class="item">
+
+    
+    
+    
+
+    
+    
+
+    <h4><a href="/post/2019-10-17-analytical-geometry/">利用隐函数存在定理解决解析几何问题</a></h4>
+    <h5>October 17, 2019</h5>
+    
+    <a href="https://desvl.xyz/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/mathematical-analysis"><kbd class="item-tag">数学分析/Mathematical Analysis</kbd></a>
+    
+    <a href="https://desvl.xyz/tags/%E8%A7%A3%E6%9E%90%E5%87%A0%E4%BD%95/analytical-geometry"><kbd class="item-tag">解析几何/Analytical Geometry</kbd></a>
     
 
 </div>
