@@ -4,7 +4,7 @@
          
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Jensen不等式的证明</title>
+        <title>Riesz表示定理证明(二)</title>
         
         <style>
 
@@ -86,8 +86,8 @@ MathJax.Hub.Config({
 
         <meta name="twitter:card" content="summary"/>
 <meta name="twitter:image" content="https://desvl.xyz/"/>
-<meta name="twitter:title" content="Jensen不等式的证明"/>
-<meta name="twitter:description" content="在Lebesgue积分的背景下对Jensen不等式进行证明"/>
+<meta name="twitter:title" content="Riesz表示定理证明(二)"/>
+<meta name="twitter:description" content="Riesz表示定理证明的第二部分"/>
 
         
 
@@ -102,7 +102,7 @@ MathJax.Hub.Config({
 
                 <div class="navbar-header">
 
-                    <a class="navbar-brand visible-xs" href="#">Jensen不等式的证明</a>
+                    <a class="navbar-brand visible-xs" href="#">Riesz表示定理证明(二)</a>
 
                     <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
                         <span class="icon-bar"></span>
@@ -159,10 +159,12 @@ MathJax.Hub.Config({
     
     
 
-    <h4><a href="/post/2019-11-22-jensen-proof/">Jensen不等式的证明</a></h4>
-    <h5>November 22, 2019</h5>
+    <h4><a href="/post/2019-12-09-riesz-proof-2/">Riesz表示定理证明(二)</a></h4>
+    <h5>December 9, 2019</h5>
     
     <a href="https://desvl.xyz/tags/%E5%AE%9E%E5%88%86%E6%9E%90/real-analysis"><kbd class="item-tag">实分析/Real Analysis</kbd></a>
+    
+    <a href="https://desvl.xyz/tags/%E6%B3%9B%E5%87%BD%E5%88%86%E6%9E%90/functional-analysis"><kbd class="item-tag">泛函分析/Functional Analysis</kbd></a>
     
 
 </div>
@@ -170,108 +172,113 @@ MathJax.Hub.Config({
 
     <br> <div class="text-justify">
 
-<h3 id="jensen不等式的表述">Jensen不等式的表述</h3>
+<h3 id="前情回顾">前情回顾</h3>
+
+<p>在证明一中, 我们花很大功夫对$\mu$和$\mathfrak{M}_F$进行了粗略的估计. 但是到头来似乎只证明了一个(b), 连$\mathfrak{M}$都没见到, 有点让人摸不着头脑. 在这一篇证明里, $\mu$和$\mathfrak{M}_F$的性质会被进一步细化, 证明一里的结论也会用上. 而这一切都是给证明$\mathfrak{M}$是一个$\sigma$-代数, $\mu$是一个测度做准备. 这一篇中出现的$\sup$和$\inf$与含有$\varepsilon$的不等式的转换和证明一中大同小异, 完全可以用类似的办法进行验证.</p>
+
+<hr />
+
+<h3 id="证明的第二部分">证明的第二部分</h3>
 
 <blockquote>
-<p>设$\mu$为一个集合$\Omega$上的 $\sigma$-代数$\mathfrak{M}$的测度, 其中$\mu(\Omega)=1$. 又设$f\in L^1(\mu)$. 如果对任意$x\in\Omega$有$f(x)\in(a,b)$, 且$\varphi$在$(a,b)$上为凸函数, 那么</p>
-
-<p>[\varphi\left(\int_{\Omega}fd\mu\right)\leq\int_{\Omega}(\varphi\circ f)d\mu]</p>
+<p><em>第四步: 设$E_1,E_2,\cdots$是$\mathfrak{M}_F$中两两不相交的元素集合, 令$E=\bigcup_{i=1}^{\infty}E_i$, 那么有</em>
+[\mu(E)=\sum_{i=1}^{\infty}E_i]
+<em>此外, 如果$\mu(E)&lt;\infty$, 那么$E\in\mathfrak{M}_F$.</em></p>
 </blockquote>
 
-<p>如果$\mu$为概率测度, 那么就已经证明了概率论版本的不等式; 如果$\mu$为勒贝格测度$m$, 那么经过一定调整之后也能自然得到Riemann函数版本的不等式. 同样, 离散版本的不等式也显得很自然了. 不一定要把积分版的看成离散版的极限, 也可以把离散版看成一个平凡的可测函数(这样自然是没问题的). 这样可以规避掉很多零散的细节.</p>
+<p>这实际上就是$\mu$作为一个测度最重要的一个性质: 可列可加性. 当然证明的结论也是会在接下来反复用到的.</p>
 
-<p>实际上, 概率论中最基本的概念, 随机变量, 本身就一定是一个可测函数. 随机变量的离散和连续都是自然的. 当然了, 严格的定义也可以是有的:</p>
-
-<blockquote>
-<p>一个可测函数$f$是*离散*的当且仅当有一个可数集合$B$使得$\mu(\{x:f(x)\notin B\})=0$.</p>
-</blockquote>
-
-<p>但是, 这里的$\varphi$一定是连续函数, 这不是人为要求的, 而是可以证明的(注意是在开区间上, 在闭区间上不一定, 可以举出反例).</p>
-
-<p>如果知道了数学期望实际上就是计算勒贝格积分, 那么这个不等式的概率论版本就显而易见了:
+<p>和第一步类似, 首先需要证明, 对于不相交的紧集$K_1$和$K_2$, 有
 [
-    E(\varphi(X))\geq\varphi(E(X))
+    \mu(K_1\cup K_2)=\mu(K_1)+\mu(K_2)
 ]
-其中$\varphi$为凸函数.</p>
+第一步里已经证明了$\mu(K_1\cup K_2)\leq\mu(K_1)+\mu(K_2)$, 所以在这里只需要证明这个不等式成立:
+[
+    \mu(K_1)+\mu(K_2)\leq\mu(K_1\cup K_2)
+]
+ 第二步中我们证明了, 对于紧集$K$和任意$\varepsilon&gt;0$, 存在开集$V\supset K$满足$\mu(V)&lt;\mu(K)+\varepsilon$. 又根据Urysohn引理, 存在函数$g$满足$K\prec f\prec V$, 且有</p>
 
-<p>这个不等式的其他派生形式也就更自然了, 在这里就不赘述了. 这些不等式主要利用了$e^x$的凸性.</p>
+<p>[\Lambda{g}\leq\mu(V)&lt;\mu(K)+\varepsilon].</p>
 
-<h3 id="凸函数的一个重要性质">凸函数的一个重要性质</h3>
+<p>在这一步里, 令$K=K_1\cup K_2$就有</p>
+
+<p>[K_1\cup K_2\prec g, \Lambda{g}&lt;\mu(K_1\cup K_2)+\varepsilon]</p>
+
+<p>根据Urysohn引理, 存在函数$f\in C_c(X)$, 使得$f(K_1)=1$, $f(K_2)=0$. 这个时候就有$K_1\prec fg$, $K_2\prec(1-f)g$. 这个关系式可以直接根据$\prec$的定义直接得到. 又注意到, $\Lambda$是线性的, 那么就有</p>
+
+<p>[\mu(K_1)+\mu(K_2)\leq\Lambda(fg)+\Lambda(1-f)g=\Lambda(g)&lt;\mu(K_1\cup K_2)+\varepsilon.]</p>
+
+<p>这就得到了我们想要的不等式了. 关于$f$的存在性我会单独放在一篇博客里. 实际上, 这个问题的证明虽然很平凡, 但是也是一个非常不错的拓扑学练习, 需要对紧集性质进行反复运用. 我会尝试从头到尾对这个命题细致地分析, 但就不在这里浪费时间了.</p>
+
+<p>接下来需要推广到可数个. $\mu(E)=\infty$的情况在第一步中已经讨论过了, 也不是这一步需要关注的重点. 因此接下来只需要讨论$\mu(E)&lt;\infty$的情况. 对任意$\varepsilon&gt;0$和$E_i\in\mathfrak{M}_F$, 存在紧集$H_i\subset E$满足</p>
+
+<p>[\mu(H_i)&gt;\mu(E_i)-\frac{\varepsilon}{2^i}.]</p>
+
+<p>令$K_n=\bigcup_{i=1}^{n}H_i$, 那么考虑到$H_i$为紧集, 且为有限个, 利用这一步中对两个紧集的情形进行归纳, 那么就有</p>
+
+<p>[\mu(E)\geq\mu(K_n)=\sum_{i=1}^{n}\mu(H_i)&gt;\sum_{i=1}^{n}\mu(E_i)-\sum_{i=1}^{n}\frac{\varepsilon}{2^i}&gt;\sum_{i=1}^{n}\mu(E_i)-\varepsilon]</p>
+
+<p>注意这里的$\mu(E)&gt;\sum_{i=1}^{n}\mu(E_i)-\varepsilon$对所有的$n$和$\varepsilon$都成立, 所以有</p>
+
+<p>[\mu(E)\geq\sum_{i=1}^{\infty}\mu(E_i).]</p>
+
+<p>根据第一步中得到的另一个相反的不等式, 就得到了这一步中所求的等式.</p>
+
+<p>这一步还有一点没有完成: 如果$\mu(E)&lt;\infty$, 需要证明$E\in\mathfrak{M}_F$. (我们甚至都没有证明$\mathfrak{M}_F$是一个$\sigma$-代数, 所以这个证明是不能省略的.)</p>
+
+<p>对于$\varepsilon&gt;0$, 存在$N$使得
+[\mu(E)\leq\sum_{i=1}^{N}\mu(E_i)+\varepsilon.]</p>
+
+<p>又已经知道, $\sum_{i=1}^{N}\mu(E_i)&lt;\mu(K_N)+\varepsilon$, 合并之后就能得到
+[\mu(E)\leq\mu(K_N)+2\varepsilon]</p>
+
+<p>考虑到$K_N\subset E$, 得到的不等式刚好和$\mathfrak{M}_F$中元素的定义是一样的, 也就是说,
+[\mu(E)=\sup\{\mu(K_N):K_N\subset{E},K为紧集\}]</p>
+
+<p>于是就得出了剩下的结论: $E\in\mathfrak{M}_F$.</p>
 
 <blockquote>
-<p>满足$-\infty\leq a&lt;\varphi&lt;b\leq\infty$的实函数$\varphi$如果满足$\varphi((1-\lambda)x+\lambda y)\leq(1-\lambda)\varphi(x)+\lambda\varphi(y)$时, 被称为凸函数, 其中$a&lt;x,y&lt;b$, $0\leq\lambda\leq 1$.</p>
+<p><em>第五步: 若$E\in\mathfrak{M}_F$, 那么对于$\varepsilon&gt;0$, 存在开集$V$和紧集$K$使得$K\subset{E}\subset{V}$, 且$\mu(V-K)&lt;\varepsilon$.</em></p>
 </blockquote>
 
-<p>接下来, 通过进行变量重新命名, 可以发现一个很独特的不等式. 在接下来这个不等式中还要注意到, 所谓二阶导函数大于$0$或者小于$0$其实是很不严格的判别办法, 因为可导实在是太严苛了. 更不用说二阶了.</p>
+<p>这一步很容易让人联想到&rdquo;连续性&rdquo;. 但这不是这里要关注的重点. 这一步会在后面的证明中作为一个有力的工具反复出现.</p>
 
-<p>令$(1-\lambda)x+\lambda y=t$, $x=s$, $y=u$, 那么可以发现</p>
+<p>根据关于$\mu$, $\mathfrak{M}_F$的定义, 结合前面几步中的策略, 很容易得到, 对于$\varepsilon&gt;0$, 存在开集$V$和紧集$K$, 满足$K\subset E\subset V$, 而且
+[\mu(V)-\frac{\varepsilon}{2}&lt;\mu(E)&lt;\mu(K)+\frac{\varepsilon}{2}]</p>
 
-<p>[
-    \varphi(t)\leq (1-\lambda)\varphi(s)+\lambda(u) \\<br />
-    t-s = \lambda(u-s) \\<br />
-    u-t = (1-\lambda)(u-s)
-]</p>
+<p>又因为$V-K$为开集, 根据第三步, 有$V-K\in\mathfrak{M}_F$. 另外根据第四步, 有
+[\mu(K)+\mu(V-K)=\mu(V)]</p>
 
-<p>那么就有</p>
+<p>这个等式成立是因为, 首先, $K\cap(V-K)=\varnothing$, 而且根据第二步, 因为$K$为紧集, 所以$K\in\mathfrak{M}_F$. 如果令$K=E_1$, $V-K=E_2$, $E_3=E_4=\cdots=\varnothing$, 考虑$K\cup V-K=V$即可. 又注意到, $\mu(V)-\frac{\varepsilon}{2}&lt;\mu(K)+\frac{\varepsilon}{2}$, 移向之后就有
+[\mu(V)&lt;\mu(K)+\varepsilon.]</p>
 
-<p>[
-    \frac{\varphi(t)-\varphi(s)}{t-s}=\frac{\varphi(t)-\varphi(s)}{\lambda(u-s)} \\<br />
-    \frac{\varphi(u)-\varphi(t)}{u-t}=\frac{\varphi(u)-\varphi(t)}{(1-\lambda)(u-s)}
-]</p>
+<p>合并这几个不等式, 就有
+[\mu(V-K)&lt;\varepsilon]
+第五步证明完毕</p>
 
-<p>进行简单的变形, 就能得到</p>
+<blockquote>
+<p><em>第六步: 如果$A,B\in\mathfrak{M}_F$, 那么$A\cap{B},A\cup{B},A-B\in\mathfrak{M}_F$</em></p>
+</blockquote>
 
-<p>[
-    \frac{\varphi(t)-\varphi(s)}{t-s}\leq\frac{\varphi(u)-\varphi(t)}{u-t}
-]</p>
+<p>这里就是$\mathfrak{M}_F$中元素运算的封闭性了. 第三篇里会介绍$\mathfrak{M}$和$\mathfrak{M}_F$的关系, 这也会引出$\mathfrak{M}$中运算的封闭性.</p>
 
-<p>这其中, $a&lt;s&lt;t&lt;u&lt;b$ (可以想一下为什么要满足$s&lt;t&lt;u$). 如果$\varphi$可导, 那么有$\xi\in(s,t)$, $\zeta\in(t,u)$使得$\varphi&rsquo;(\xi)\leq\varphi&rsquo;(\zeta)$. 所以二阶导数大于等于$0$? 这个时候这个说法是很不合适的. 因为不知道$\varphi$是否二阶可导. 所以直接说凸函数二阶导数大于等于$0$就更不合适了, 因为这个函数可导与否都是个问题.</p>
+<p>首先, 根据第五步, 对于$A$和$B$和$\varepsilon&gt;0$, 存在紧集$K_1$和$K_2$, 以及开集$V_1$和$V_2$, 使得$K_1\subset A\subset V_1$, $K_2\subset B\subset V_2$, 且成立$\mu(V_i-K_i)&lt;\varepsilon$成立($i=1,2$). 又可以根据简单的集合运算发现,
+[A-B\subset V_1-K_2\subset(V_1-K_1)\cup(K_1-V_2)\cup(V_2-K_2)]</p>
 
-<h3 id="jensen不等式的证明">Jensen不等式的证明</h3>
+<p>又考虑到第一步, 能得到
+[\mu(A-B)\leq\varepsilon+\mu(K_1-V_2)+\varepsilon]</p>
 
-<p>首先, 令$t=\int_{\Omega}fd\mu$. 根据Lebesgue积分(其实这时考虑Riemann积分也没有问题)的性质, 就能够得到$a&lt;t&lt;b$(注意$\Omega$的测度为$1$).</p>
+<p>因为$K_1-V_2$是$A-B$的紧子集, 这说明, $\mu(A-B)$正好符合$\mathfrak{M}_F$的条件,  也就是说, $A-B\in\mathfrak{M}_F$.</p>
 
-<p>对$a&lt;s&lt;t$, 定义$A=\sup{\frac{\varphi(s)-\varphi(t)}{s-t}}$, 那么上一节得到的不等式就可以插上一个$A$, 得到了</p>
+<p>解决了这个之后, 剩下两个运算结果可以转化成与集合减法相关的表达来解决.</p>
 
-<p>[
-    \frac{\varphi(s)-\varphi(t)}{s-t}\leq{A}\leq\frac{\varphi(u)-\varphi(t)}{u-t}
-]</p>
+<p>对于$A\cap{B}$, 注意到$A\cap B = A-(A-B)$, 又考虑到$A,A-B\in\mathfrak{M}_F$, 所以就有$A\cap{B}\in\mathfrak{M}_F$. 而$A\cup{B}=(A-B)\cup{B}$, 这时就可以直接应用第四步, 得到$A\cup{B}\in\mathfrak{M}_F$.</p>
 
-<p>其中$t&lt;u&lt;b$. 第一个不等号是根据上界的定义直接得到的. 如果你对第二个不等号感到疑惑, 可以假设这个不等式不成立, 会得到一个显然的矛盾.</p>
+<hr />
 
-<p>接下来, 给这个不等式两边分别乘以$s-t$和$u-t$, 能得到</p>
+<h3 id="关于最后一篇">关于最后一篇</h3>
 
-<p>[
-    \varphi(s)\geq\varphi(t)+A(s-t)
-]</p>
-
-<p>以及</p>
-
-<p>[
-    \varphi(u)\geq\varphi(t)+A(s-t)
-]</p>
-
-<p>这也就是说, 对于所有的$a&lt;s&lt;b$, 都有$\varphi(s)\geq\varphi(t)+A(s-t)$成立.</p>
-
-<p>令$s=f(x)$, 就能得到</p>
-
-<p>[
-    \varphi(f(x))\geq\varphi(t)+A(f(x)-t)
-]</p>
-
-<p>这时, 对两侧以测度$\mu$积分, 就能得到(不要忘了$\mu(\Omega)=1$)</p>
-
-<p>[
-    \int_{\Omega}(\varphi\circ f)d\mu\geq\varphi(t)+A(\int_{\Omega}f(x)d\mu-t)
-]</p>
-
-<p>这时不要忘了$t=\int_{\Omega}fd\mu$. 将这个代入上式, 就能得到</p>
-
-<p>[
-    \int_{\Omega}(\varphi\circ f)d\mu\geq\varphi\left(\int_{\Omega}fd\mu\right)
-]</p>
-
-<p>证明完毕.</p>
+<p>至此$\mu$和$\mathfrak{M}_F$的细致性质已经浮现在眼前, 我们也有足够的能力揭开$\mathfrak{M}$的面纱了. 充分运用前面几步的工作, $\mathfrak{M}$是一个怎样的$\sigma$-代数, 它和$\mathfrak{M}_F$的关系, $\mu$和$\mathfrak{M}$的关系, 都会浮现出来. 到最后, 最开始提出的若干命题都会被得到证明.</p>
 </div>
     <h4 class="page_header">Share | 分享</h4>
     <hr>
@@ -318,12 +325,10 @@ MathJax.Hub.Config({
     
     
 
-    <h4><a href="/post/2019-12-09-riesz-proof-2/">Riesz表示定理证明(二)</a></h4>
-    <h5>December 9, 2019</h5>
+    <h4><a href="/post/2019-11-22-jensen-proof/">Jensen不等式的证明</a></h4>
+    <h5>November 22, 2019</h5>
     
     <a href="https://desvl.xyz/tags/%E5%AE%9E%E5%88%86%E6%9E%90/real-analysis"><kbd class="item-tag">实分析/Real Analysis</kbd></a>
-    
-    <a href="https://desvl.xyz/tags/%E6%B3%9B%E5%87%BD%E5%88%86%E6%9E%90/functional-analysis"><kbd class="item-tag">泛函分析/Functional Analysis</kbd></a>
     
 
 </div>

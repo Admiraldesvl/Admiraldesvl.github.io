@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Desvl&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 30 Nov 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 09 Dec 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://desvl.xyz/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Riesz表示定理证明(二)</title>
+      <link>https://desvl.xyz/post/2019-12-09-riesz-proof-2/</link>
+      <pubDate>Mon, 09 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://desvl.xyz/post/2019-12-09-riesz-proof-2/</guid>
+      <description>Riesz表示定理证明的第二部分</description>
+    </item>
     
     <item>
       <title>概率论中需要知道的单调函数的性质</title>
@@ -180,15 +189,6 @@
       
       <guid>https://desvl.xyz/post/2019-09-06-n-ball/</guid>
       <description>n维空间中球的体积</description>
-    </item>
-    
-    <item>
-      <title>优美的Fourier级数（四）: 一致收敛下的Fejér定理</title>
-      <link>https://desvl.xyz/post/2019-09-01-beautiful-fourier-004/</link>
-      <pubDate>Sun, 01 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://desvl.xyz/post/2019-09-01-beautiful-fourier-004/</guid>
-      <description>初步介绍一个‘好核’：Fejér核</description>
     </item>
     
   </channel>

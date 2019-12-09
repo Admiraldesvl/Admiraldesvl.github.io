@@ -6,10 +6,19 @@
     <description>Recent content in 数学/Math on Desvl&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 30 Nov 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 09 Dec 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://desvl.xyz/categories/%E6%95%B0%E5%AD%A6/math/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Riesz表示定理证明(二)</title>
+      <link>https://desvl.xyz/post/2019-12-09-riesz-proof-2/</link>
+      <pubDate>Mon, 09 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://desvl.xyz/post/2019-12-09-riesz-proof-2/</guid>
+      <description>Riesz表示定理证明的第二部分</description>
+    </item>
     
     <item>
       <title>概率论中需要知道的单调函数的性质</title>
@@ -180,15 +189,6 @@
       
       <guid>https://desvl.xyz/post/2019-09-01-beautiful-fourier-004/</guid>
       <description>初步介绍一个‘好核’：Fejér核</description>
-    </item>
-    
-    <item>
-      <title>一元微分学的顶峰——Taylor定理(一): Peano余项</title>
-      <link>https://desvl.xyz/post/2019-08-26-taylor/</link>
-      <pubDate>Mon, 26 Aug 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://desvl.xyz/post/2019-08-26-taylor/</guid>
-      <description>关于Taylor定理的Peano余项和其实质: 多项式逼近函数</description>
     </item>
     
   </channel>
