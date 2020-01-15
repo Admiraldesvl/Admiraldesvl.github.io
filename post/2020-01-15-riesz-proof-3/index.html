@@ -4,7 +4,7 @@
          
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Riesz表示定理证明(二)</title>
+        <title>Riesz表示定理证明(三)</title>
         
         <style>
 
@@ -86,8 +86,8 @@ MathJax.Hub.Config({
 
         <meta name="twitter:card" content="summary"/>
 <meta name="twitter:image" content="https://desvl.xyz/"/>
-<meta name="twitter:title" content="Riesz表示定理证明(二)"/>
-<meta name="twitter:description" content="Riesz表示定理证明的第二部分"/>
+<meta name="twitter:title" content="Riesz表示定理证明(三)"/>
+<meta name="twitter:description" content="Riesz表示定理证明的最后一部分, 以及这一证明的缺陷"/>
 
         
 
@@ -102,7 +102,7 @@ MathJax.Hub.Config({
 
                 <div class="navbar-header">
 
-                    <a class="navbar-brand visible-xs" href="#">Riesz表示定理证明(二)</a>
+                    <a class="navbar-brand visible-xs" href="#">Riesz表示定理证明(三)</a>
 
                     <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
                         <span class="icon-bar"></span>
@@ -159,8 +159,8 @@ MathJax.Hub.Config({
     
     
 
-    <h4><a href="/post/2019-12-09-riesz-proof-2/">Riesz表示定理证明(二)</a></h4>
-    <h5>December 9, 2019</h5>
+    <h4><a href="/post/2020-01-15-riesz-proof-3/">Riesz表示定理证明(三)</a></h4>
+    <h5>January 15, 2020</h5>
     
     <a href="https://desvl.xyz/tags/%E5%AE%9E%E5%88%86%E6%9E%90/real-analysis"><kbd class="item-tag">实分析/Real Analysis</kbd></a>
     
@@ -172,113 +172,131 @@ MathJax.Hub.Config({
 
     <br> <div class="text-justify">
 
-<h3 id="前情回顾">前情回顾</h3>
+<h3 id="证明第三部分">证明第三部分</h3>
 
-<p>在证明一中, 我们花很大功夫对$\mu$和$\mathfrak{M}_F$进行了粗略的估计. 但是到头来似乎只证明了一个(b), 连$\mathfrak{M}$都没见到, 有点让人摸不着头脑. 在这一篇证明里, $\mu$和$\mathfrak{M}_F$的性质会被进一步细化, 证明一里的结论也会用上. 而这一切都是给证明$\mathfrak{M}$是一个$\sigma$-代数, $\mu$是一个测度做准备. 这一篇中出现的$\sup$和$\inf$与含有$\varepsilon$的不等式的转换和证明一中大同小异, 完全可以用类似的办法进行验证.</p>
+<blockquote>
+<p>第七步: $\mathfrak{M}$是一个$X$中的$\sigma$-代数, 包含了所有的Borel集.</p>
+</blockquote>
+
+<p>设$K$为$X$中的任一紧子集. 接下来会验证$\mathfrak{M}$符合$\sigma$-代数的几条性质. 这也就证明了(c).</p>
 
 <hr />
 
-<h3 id="证明的第二部分">证明的第二部分</h3>
+<p>对于全集$X$, 有$X\cap{K}=K\in\mathfrak{M}_F$, 从而$X\in\mathfrak{M}_F$.</p>
 
-<blockquote>
-<p><em>第四步: 设$E_1,E_2,\cdots$是$\mathfrak{M}_F$中两两不相交的元素集合, 令$E=\bigcup_{i=1}^{\infty}E_i$, 那么有</em>
-[\mu(E)=\sum_{i=1}^{\infty}\mu(E_i)]
-<em>此外, 如果$\mu(E)&lt;\infty$, 那么$E\in\mathfrak{M}_F$.</em></p>
-</blockquote>
+<p>对于$A\in\mathfrak{M}$, 现证$A^c\cap{K}\in\mathfrak{M}_F$. 而根据$\mathfrak{M}$的定义, 这就说明了$A^c\in\mathfrak{M}$.</p>
 
-<p>这实际上就是$\mu$作为一个测度最重要的一个性质: 可列可加性. 当然证明的结论也是会在接下来反复用到的.</p>
-
-<p>和第一步类似, 首先需要证明, 对于不相交的紧集$K_1$和$K_2$, 有
+<p>首先, 注意到
 [
-    \mu(K_1\cup K_2)=\mu(K_1)+\mu(K_2)
+    A^c\cap{K}=K-(A\cap{K}).
 ]
-第一步里已经证明了$\mu(K_1\cup K_2)\leq\mu(K_1)+\mu(K_2)$, 所以在这里只需要证明这个不等式成立:
-[
-    \mu(K_1)+\mu(K_2)\leq\mu(K_1\cup K_2)
-]
- 第二步中我们证明了, 对于紧集$K$和任意$\varepsilon&gt;0$, 存在开集$V\supset K$满足$\mu(V)&lt;\mu(K)+\varepsilon$. 又根据Urysohn引理, 存在函数$g$满足$K\prec f\prec V$, 且有</p>
+第二步里指出, $K\in\mathfrak{M}_F$, 根据$\mathfrak{M}$的定义, 对于$A$一定有$A\cap{K}\in\mathfrak{M}_F$. 又根据第六步, $\mathfrak{M}_F$中的元素对于差集是封闭的, 也就是说$K-(A\cap{K})=A^c\cap{K}\in\mathfrak{M}_F$.</p>
 
-<p>[\Lambda{g}\leq\mu(V)&lt;\mu(K)+\varepsilon].</p>
-
-<p>在这一步里, 令$K=K_1\cup K_2$就有</p>
-
-<p>[K_1\cup K_2\prec g, \Lambda{g}&lt;\mu(K_1\cup K_2)+\varepsilon]</p>
-
-<p>根据Urysohn引理, 存在函数$f\in C_c(X)$, 使得$f(K_1)=1$, $f(K_2)=0$. 这个时候就有$K_1\prec fg$, $K_2\prec(1-f)g$. 这个关系式可以直接根据$\prec$的定义直接得到. 又注意到, $\Lambda$是线性的, 那么就有</p>
-
-<p>[\mu(K_1)+\mu(K_2)\leq\Lambda(fg)+\Lambda(1-f)g=\Lambda(g)&lt;\mu(K_1\cup K_2)+\varepsilon.]</p>
-
-<p>这就得到了我们想要的不等式了. 关于$f$的存在性我会单独放在一篇博客里. 实际上, 这个问题的证明虽然很平凡, 但是也是一个非常不错的拓扑学练习, 需要对紧集性质进行反复运用. 我会尝试从头到尾对这个命题细致地分析, 但就不在这里浪费时间了.</p>
-
-<p>接下来需要推广到可数个. $\mu(E)=\infty$的情况在第一步中已经讨论过了, 也不是这一步需要关注的重点. 因此接下来只需要讨论$\mu(E)&lt;\infty$的情况. 对任意$\varepsilon&gt;0$和$E_i\in\mathfrak{M}_F$, 存在紧集$H_i\subset E$满足</p>
-
-<p>[\mu(H_i)&gt;\mu(E_i)-\frac{\varepsilon}{2^i}.]</p>
-
-<p>令$K_n=\bigcup_{i=1}^{n}H_i$, 那么考虑到$H_i$为紧集, 且为有限个, 利用这一步中对两个紧集的情形进行归纳, 那么就有</p>
-
-<p>[\mu(E)\geq\mu(K_n)=\sum_{i=1}^{n}\mu(H_i)&gt;\sum_{i=1}^{n}\mu(E_i)-\sum_{i=1}^{n}\frac{\varepsilon}{2^i}&gt;\sum_{i=1}^{n}\mu(E_i)-\varepsilon]</p>
-
-<p>注意这里的$\mu(E)&gt;\sum_{i=1}^{n}\mu(E_i)-\varepsilon$对所有的$n$和$\varepsilon$都成立, 所以有</p>
-
-<p>[\mu(E)\geq\sum_{i=1}^{\infty}\mu(E_i).]</p>
-
-<p>根据第一步中得到的另一个相反的不等式, 就得到了这一步中所求的等式.</p>
-
-<p>这一步还有一点没有完成: 如果$\mu(E)&lt;\infty$, 需要证明$E\in\mathfrak{M}_F$. (我们甚至都没有证明$\mathfrak{M}_F$是一个$\sigma$-代数, 所以这个证明是不能省略的.)</p>
-
-<p>对于$\varepsilon&gt;0$, 存在$N$使得
-[\mu(E)\leq\sum_{i=1}^{N}\mu(E_i)+\varepsilon.]</p>
-
-<p>又已经知道, $\sum_{i=1}^{N}\mu(E_i)&lt;\mu(K_N)+\varepsilon$, 合并之后就能得到
-[\mu(E)\leq\mu(K_N)+2\varepsilon]</p>
-
-<p>考虑到$K_N\subset E$, 得到的不等式刚好和$\mathfrak{M}_F$中元素的定义是一样的, 也就是说,
-[\mu(E)=\sup\{\mu(K_N):K_N\subset{E},K为紧集\}]</p>
-
-<p>于是就得出了剩下的结论: $E\in\mathfrak{M}_F$.</p>
-
-<blockquote>
-<p><em>第五步: 若$E\in\mathfrak{M}_F$, 那么对于$\varepsilon&gt;0$, 存在开集$V$和紧集$K$使得$K\subset{E}\subset{V}$, 且$\mu(V-K)&lt;\varepsilon$.</em></p>
-</blockquote>
-
-<p>这一步很容易让人联想到&rdquo;连续性&rdquo;. 但这不是这里要关注的重点. 这一步会在后面的证明中作为一个有力的工具反复出现.</p>
-
-<p>根据关于$\mu$, $\mathfrak{M}_F$的定义, 结合前面几步中的策略, 很容易得到, 对于$\varepsilon&gt;0$, 存在开集$V$和紧集$K$, 满足$K\subset E\subset V$, 而且
-[\mu(V)-\frac{\varepsilon}{2}&lt;\mu(E)&lt;\mu(K)+\frac{\varepsilon}{2}]</p>
-
-<p>又因为$V-K$为开集, 根据第三步, 有$V-K\in\mathfrak{M}_F$. 另外根据第四步, 有
-[\mu(K)+\mu(V-K)=\mu(V)]</p>
-
-<p>这个等式成立是因为, 首先, $K\cap(V-K)=\varnothing$, 而且根据第二步, 因为$K$为紧集, 所以$K\in\mathfrak{M}_F$. 如果令$K=E_1$, $V-K=E_2$, $E_3=E_4=\cdots=\varnothing$, 考虑$K\cup V-K=V$即可. 又注意到, $\mu(V)-\frac{\varepsilon}{2}&lt;\mu(K)+\frac{\varepsilon}{2}$, 移向之后就有
-[\mu(V)&lt;\mu(K)+\varepsilon.]</p>
-
-<p>合并这几个不等式, 就有
-[\mu(V-K)&lt;\varepsilon]
-第五步证明完毕</p>
-
-<blockquote>
-<p><em>第六步: 如果$A,B\in\mathfrak{M}_F$, 那么$A\cap{B},A\cup{B},A-B\in\mathfrak{M}_F$</em></p>
-</blockquote>
-
-<p>这里就是$\mathfrak{M}_F$中元素运算的封闭性了. 第三篇里会介绍$\mathfrak{M}$和$\mathfrak{M}_F$的关系, 这也会引出$\mathfrak{M}$中运算的封闭性.</p>
-
-<p>首先, 根据第五步, 对于$A$和$B$和$\varepsilon&gt;0$, 存在紧集$K_1$和$K_2$, 以及开集$V_1$和$V_2$, 使得$K_1\subset A\subset V_1$, $K_2\subset B\subset V_2$, 且成立$\mu(V_i-K_i)&lt;\varepsilon$成立($i=1,2$). 又可以根据简单的集合运算发现,
-[A-B\subset V_1-K_2\subset(V_1-K_1)\cup(K_1-V_2)\cup(V_2-K_2)]</p>
-
-<p>又考虑到第一步, 能得到
-[\mu(A-B)\leq\varepsilon+\mu(K_1-V_2)+\varepsilon]</p>
-
-<p>因为$K_1-V_2$是$A-B$的紧子集, 这说明, $\mu(A-B)$正好符合$\mathfrak{M}_F$的条件,  也就是说, $A-B\in\mathfrak{M}_F$.</p>
-
-<p>解决了这个之后, 剩下两个运算结果可以转化成与集合减法相关的表达来解决.</p>
-
-<p>对于$A\cap{B}$, 注意到$A\cap B = A-(A-B)$, 又考虑到$A,A-B\in\mathfrak{M}_F$, 所以就有$A\cap{B}\in\mathfrak{M}_F$. 而$A\cup{B}=(A-B)\cup{B}$, 这时就可以直接应用第四步, 得到$A\cup{B}\in\mathfrak{M}_F$.</p>
+<p>又根据$\mathfrak{M}$的定义, 对于<strong>任意</strong>紧集$K$, 都有$A^c\cap{K}\in\mathfrak{M}_F$, 从而$A^c\in\mathfrak{M}$.</p>
 
 <hr />
 
-<h3 id="关于最后一篇">关于最后一篇</h3>
+<p>对于$A_k\in\mathfrak{M}(k=1,2,\cdots)$, 需要证明$A=\bigcup_{k=1}^{\infty}A_k\in\mathfrak{M}$. 令$B_1=A_1\cap{K}$, 对于$k&gt;1$, 按下列方式定义:
+[
+    B_k=(A_k\cap{K})-\bigcup_{i=1}^{k-1}B_k
+]</p>
 
-<p>至此$\mu$和$\mathfrak{M}_F$的细致性质已经浮现在眼前, 我们也有足够的能力揭开$\mathfrak{M}$的面纱了. 充分运用前面几步的工作, $\mathfrak{M}$是一个怎样的$\sigma$-代数, 它和$\mathfrak{M}_F$的关系, $\mu$和$\mathfrak{M}$的关系, 都会浮现出来. 到最后, 最开始提出的若干命题都会被得到证明.</p>
+<p>不难发现, $\{B_k\}$之间互不相交, 此外, 根据$\mathfrak{M}$的定义和第六步, 可以发现, $B_k\in\mathfrak{M}_F, k=1,2,\cdots$. 根据第四步又能得到, $\bigcup_{k=1}^{\infty}B_k=A\cap{K}\in\mathfrak{M}_F$, 因此, $A\in\mathfrak{M}$. 因此, $\mathfrak{M}$是$X$上的$\sigma$-代数.</p>
+
+<hr />
+
+<p>最后需要证明, $\mathfrak{M}$中有$X$所有的Borel集. 根据其定义, 只需要证明全体闭子集即可. 对于闭集$C\in{X}$, 因为$X$为Haudorff空间, $C\cap{K}$为紧集, 因此有$C\cap{K}\in\mathfrak{M}_F$, 从而有$C\in\mathfrak{M}$. 因此, $\mathfrak{M}$有$X$所有的Borel集.</p>
+
+<blockquote>
+<p>第八步: $\mathfrak{M}_F=\{E\in\mathfrak{M}:\mu(E)&lt;\infty\}$</p>
+</blockquote>
+
+<p>这说明了$\mathfrak{M}$和$\mathfrak{M}_F$之间的关系, 也证明了(e).</p>
+
+<p>对于$E\in\mathfrak{M}_F$, 已经有了$\mu(E)&lt;\infty$. 因此需要证明, $E\in\mathfrak{M}$.</p>
+
+<p>根据第二步, 对任意紧集$K\subset{X}$有$K\in\mathfrak{M}_F$. 根据第六步, $E\cap{K}\in\mathfrak{M}_F$. 因此$E\in\mathfrak{M}$.</p>
+
+<p>现设$E\in\mathfrak{M}$且$\mu(E)&lt;\infty$. 存在开集$V\supset{E}$使得$\mu(V)&lt;\infty$(这样的$V$的存在性可以通过反证证明). 根据第三步, $V\in\mathfrak{M}_F$. 根据第五步, 对于$\varepsilon&gt;0$, 存在紧集$K$使得$K\subset{V}\subset{V}$且有$\mu(V-K)&lt;\varepsilon$. 又知道$E\cap{K}\in\mathfrak{M}_F$, 存在紧集$H\subset{E\cap{K}}$ 使得(如果对这里感到疑惑可见第二步)
+[
+    \mu(E\cap{K})&lt;\mu(H)+\varepsilon
+]</p>
+
+<p>因为$E\subset\mu(E\cap{K})\cup(V-K), 根据第一步和第五步, 有
+[
+    \mu(E)\leq\mu(E\cap{K})+\mu(V-K)&lt;\mu(H)+2\varepsilon
+]</p>
+
+<p>这就说明了$E\in\mathfrak{M}_F$.</p>
+
+<blockquote>
+<p>第九步: $\mu$是$\mathfrak{M}$上的测度</p>
+</blockquote>
+
+<p>对于可列可加性只需要看第四步和第八步. 第四步中讨论了对于$\mu(E_i)&lt;\infty$的情况, 对于$\mu(E)=\infty$的情况只需考虑$\mathfrak{M}$和$\mathfrak{M}_F$的关系即可, 这就是第八步所解决的问题.</p>
+
+<blockquote>
+<p>第十步: 对于任意$f\in C_c(X)$, 成立等式$\Lambda{f}=\int_{X}fd\mu$</p>
+</blockquote>
+
+<p>证明完之后Riesz表示定理所有内容都得到了证明.</p>
+
+<p>不难发现, 只需要对实函数进行证明; 而且, 在通过不等式进行证明时, 只需要证明
+[
+    \Lambda{f}\leq\int_{X}fd\mu
+]</p>
+
+<p>等式的另一部分只需要考虑到$\Lambda$的线性性质和Lebesgue积分的线性性质, 能得到
+[
+    -\Lambda{f}=\Lambda{-f}\leq\int_{X}-fd\mu=-\int_{X}fd\mu
+]</p>
+
+<p>接下来需要考虑$f$的连续性. 设$K$为$f$的紧支集, 又可以知道$f$的值域$E$为紧集, 不妨设$E\subset[a,b]$. 对$\varepsilon&gt;0$, 设$\{y_i\}$满足$y_{i+1}-y_i&lt;\varepsilon$且有
+[
+    y_0&lt;a&lt;y_1&lt;\cdots&lt;y_n=b
+]
+又令
+[
+    E_i=\{x:y_{i-1}&lt;y\leq{y_i}\}\cap{K}\quad(i=1,\cdots,n)
+]</p>
+
+<p>又可以知道$f$为Borel可测函数, 因此$\{E_i\}$为互不相交的Borel集且$\cup{E_i}=K$. 存在开集$V_i\supset{E_i}$使得对$x\in{V_i}$有$f(x)&lt;y_i$, 而且
+[
+    \mu(V_i)&lt;\mu(E_i)+\frac{\varepsilon}{n}\quad(i=1,\cdots,n)
+]</p>
+
+<p>对$K$进行&rdquo;1的分割&rdquo;, 存在函数$h_i\prec{V_i}$使得在$K$上有$\sum{h_i}=1$. 因此有$f=\sum h_if$. 根据第二步,
+[
+    \mu(K)\leq\Lambda(\sum h_i)=\sum\Lambda{h_i}
+]</p>
+
+<p>接下来需要用到做的$\varepsilon$分割. 在Borel集$E_i$上, 首先有$h_if\leq(y_i+\varepsilon)h_i$, 又考虑到$y_i-y_{i-1}&lt;\varepsilon$, 又有$f(x)&gt;y_i-\varepsilon$. 结合这两点, 首先能得到
+[
+    \Lambda{f}=\sum_{i=1}^{n}\Lambda(h_if)\leq\sum_{i=1}^{n}(y_i+\varepsilon)\Lambda{h_i}=\sum_{i=1}^{n}(|a|+y_i+\varepsilon)\Lambda{h_i}-|a|\sum_{i=1}^{n}\Lambda{h_i}
+]</p>
+
+<p>考虑到$\mu(V_i)$的定义以及$\sum\Lambda{h_i}\geq\mu(K)$, 又有
+[
+    \Lambda{f}\leq\sum_{i=1}^{n}(|a|+y_i+\varepsilon)\left(\mu(E_i)+\varepsilon/n\right)-|a|\mu(K)
+]
+接下来, 利用$\mu(K)=\sum\mu(E_i)$, 上式变形为
+[
+\Lambda{f}\leq\sum_{i=1}^{n}(y_i-\varepsilon)\mu(E_i)+2\varepsilon\mu(K)+\frac{\varepsilon}{n}\sum_{i=1}^{n}(|a|+y_i+\varepsilon)
+]
+最后根据Lebesgue积分的定义, 注意在$E_i$上有$f(x)&gt;y_i-\varepsilon$, 能得到
+[
+\sum_{i=1}^{n}(y_i-\varepsilon)\mu(E_i)+2\varepsilon\mu(K)+\frac{\varepsilon}{n}\sum_{i=1}^{n}(|a|+y_i+\varepsilon)\leq\int_{X}fd\mu+\varepsilon\left(2\mu(K)+|a|+b+\varepsilon\right)
+]</p>
+
+<p>考虑到$\varepsilon$的任意性, 此即
+[
+    \Lambda{f}\leq\int_{X}fd\mu
+]
+Riesz表示定理证明完毕.</p>
+
+<h3 id="一些需要加强的部分">一些需要加强的部分</h3>
+
+<p>不难发现这个证明过程虽然已经很完善, 还是有些缺陷. 外正则是直接通过构造证明出来的, 但是内正则只证明了开集和$\mathfrak{M}_F$中的集合. 其实这已经到了极限了, 因为确实有合适的反例阻止我们. 但是, 对条件进行稍微加强就能得到更合适的内外正则. 在这时需要引入$\sigma$-紧的概念. 这又是以后的博客会讲的内容了. 当然这一切都是为了合理地引入Euclidean空间的重要测度: Lebesgue测度做准备.</p>
 </div>
     <h4 class="page_header">Share | 分享</h4>
     <hr>
@@ -325,8 +343,8 @@ MathJax.Hub.Config({
     
     
 
-    <h4><a href="/post/2020-01-15-riesz-proof-3/">Riesz表示定理证明(三)</a></h4>
-    <h5>January 15, 2020</h5>
+    <h4><a href="/post/2019-12-09-riesz-proof-2/">Riesz表示定理证明(二)</a></h4>
+    <h5>December 9, 2019</h5>
     
     <a href="https://desvl.xyz/tags/%E5%AE%9E%E5%88%86%E6%9E%90/real-analysis"><kbd class="item-tag">实分析/Real Analysis</kbd></a>
     
