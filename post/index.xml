@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Desvl&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 15 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 17 Jan 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://desvl.xyz/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>抽象Lebesgue积分的构建</title>
+      <link>https://desvl.xyz/post/2020-01-17-abstract-lebesgue-integral/</link>
+      <pubDate>Fri, 17 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://desvl.xyz/post/2020-01-17-abstract-lebesgue-integral/</guid>
+      <description>从π-系统和λ-系统出发, 构建实函数和复函数的抽象Lebesgue积分</description>
+    </item>
     
     <item>
       <title>Riesz表示定理证明(三)</title>
@@ -18,15 +27,6 @@
       
       <guid>https://desvl.xyz/post/2020-01-15-riesz-proof-3/</guid>
       <description>Riesz表示定理证明的最后一部分, 以及这一证明的缺陷</description>
-    </item>
-    
-    <item>
-      <title>抽象Lebesgue积分的构建</title>
-      <link>https://desvl.xyz/post/2020-01-17-abstract-lebesgue-integral/</link>
-      <pubDate>Wed, 15 Jan 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://desvl.xyz/post/2020-01-17-abstract-lebesgue-integral/</guid>
-      <description>从π-系统和λ-系统出发, 构建实函数和复函数的抽象Lebesgue积分</description>
     </item>
     
     <item>
