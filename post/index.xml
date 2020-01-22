@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Desvl&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 17 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 22 Jan 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://desvl.xyz/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>线性空间的循环子空间与简单应用</title>
+      <link>https://desvl.xyz/post/2020-01-22-cyclic-decomposition/</link>
+      <pubDate>Wed, 22 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://desvl.xyz/post/2020-01-22-cyclic-decomposition/</guid>
+      <description>引入线性空间的循环子空间的概念, 介绍与特征值分解的差异和一些实例</description>
+    </item>
     
     <item>
       <title>抽象Lebesgue积分的构建</title>
@@ -180,15 +189,6 @@
       
       <guid>https://desvl.xyz/post/2019-09-10-taylor3/</guid>
       <description>利用Taylor定理分析两个重要数列极限和数列的误差</description>
-    </item>
-    
-    <item>
-      <title>一元微分学的顶峰——Taylor定理(二): 三种余项的推导</title>
-      <link>https://desvl.xyz/post/2019-09-08-taylor2/</link>
-      <pubDate>Sun, 08 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://desvl.xyz/post/2019-09-08-taylor2/</guid>
-      <description>关于Taylor定理的积分型余项和其余两种余项的关系</description>
     </item>
     
   </channel>

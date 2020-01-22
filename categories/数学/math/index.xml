@@ -6,10 +6,19 @@
     <description>Recent content in 数学/Math on Desvl&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 17 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 22 Jan 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://desvl.xyz/categories/%E6%95%B0%E5%AD%A6/math/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>线性空间的循环子空间与简单应用</title>
+      <link>https://desvl.xyz/post/2020-01-22-cyclic-decomposition/</link>
+      <pubDate>Wed, 22 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://desvl.xyz/post/2020-01-22-cyclic-decomposition/</guid>
+      <description>引入线性空间的循环子空间的概念, 介绍与特征值分解的差异和一些实例</description>
+    </item>
     
     <item>
       <title>抽象Lebesgue积分的构建</title>
@@ -180,15 +189,6 @@
       
       <guid>https://desvl.xyz/post/2019-09-08-taylor2/</guid>
       <description>关于Taylor定理的积分型余项和其余两种余项的关系</description>
-    </item>
-    
-    <item>
-      <title>高等数学入门: 上下确界及其极限形式</title>
-      <link>https://desvl.xyz/post/2019-09-07-sup-inf/</link>
-      <pubDate>Sat, 07 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://desvl.xyz/post/2019-09-07-sup-inf/</guid>
-      <description>介绍“确界”这个概念</description>
     </item>
     
   </channel>
