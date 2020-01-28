@@ -6,11 +6,22 @@
     <description>Interests come from thinking. 本网站几乎每篇文章都使用MathJax, 为保证完整的阅读, 请访问原网站的对应链接.</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 22 Jan 2020</lastBuildDate>
+    <lastBuildDate>Tue, 28 Jan 2020</lastBuildDate>
     
         <atom:link href="https://desvl.xyz/index.xml" rel="self" type="application/rss+xml" />
     
     
+        
+    
+        
+            <item>
+            <title>线性变换不变子空间的导子及其性质</title>
+            <link>https://desvl.xyz/post/2020-01-28-conductor/</link>
+            <pubDate>Tue, 28 Jan 2020</pubDate>
+            
+            <guid>https://desvl.xyz/post/2020-01-28-conductor/</guid>
+            <description>(请点击原文链接进行阅读)关于线性变换的不变子空间的导子, 以及某一指定向量的导子.</description>
+            </item>
         
     
         

@@ -6,15 +6,24 @@
     <description>Recent content in Tags on Desvl&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 22 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 28 Jan 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://desvl.xyz/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>多项式/Polynomial</title>
+      <link>https://desvl.xyz/tags/%E5%A4%9A%E9%A1%B9%E5%BC%8F/polynomial/</link>
+      <pubDate>Tue, 28 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://desvl.xyz/tags/%E5%A4%9A%E9%A1%B9%E5%BC%8F/polynomial/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>线性代数/Linear Algebra</title>
       <link>https://desvl.xyz/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/linear-algebra/</link>
-      <pubDate>Wed, 22 Jan 2020 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 28 Jan 2020 00:00:00 +0000</pubDate>
       
       <guid>https://desvl.xyz/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/linear-algebra/</guid>
       <description></description>
