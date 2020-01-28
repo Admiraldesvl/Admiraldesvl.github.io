@@ -212,7 +212,12 @@ MathJax.Hub.Config({
 ]
 其中$c_k\in\mathbb{F}$不全为$0$. 那么$P(\lambda)=\sum_{k=0}^{n}c_k\lambda^k$就是一个非$0$多项式使得$P(\mathscr{A})\textbf{v}\in{W}$的多项式. 这和假设矛盾. 存在性得到证明.</p>
 
-<p>对线性空间的导子而言, 考虑$V$的一组基$\{\textbf{e}_i\}(i=1,\cdots,n)$. 那么只需要考虑$P(\lambda)=\prod_{i=1}^{n}P_{\text{cond }W,\mathscr{A},\textbf{e}_i}(\lambda)$即可. 不妨验证一下, 对任意$\textbf{v}\in{V}$, 都有$P(\mathscr{A})\textbf{v}\in{W}$. 因此$I(W,\mathscr{A})\neq\varnothing$.</p>
+<p>对线性空间的导子而言, 考虑$V$的一组基$\{\textbf{e}_i\}(i=1,\cdots,n)$. 那么只需要考虑
+[
+    P(\lambda)=\prod_{i=1}^{n}P_{\text{cond }W,\mathscr{A},\textbf{e}_i}(\lambda)
+]</p>
+
+<p>不妨验证一下, 对任意$\textbf{v}\in{V}$, 都有$P(\mathscr{A})\textbf{v}\in{W}$. 因此$I(W,\mathscr{A})\neq\varnothing$.</p>
 
 <hr />
 
@@ -254,7 +259,7 @@ MathJax.Hub.Config({
 <p>这个结论将两种导子充分地联系起来. 显然有$P_{\text{cond }W,\mathscr{A}}(\lambda)\in{I(W,\mathscr{A},\textbf{v})}$, 但是反过来又是怎样? 这就需要证明这个结论. 这个结论看似复杂, 但是从多项式的性质, 就很平凡了. 这个定理的证明可以划分成证明这两个引理:</p>
 
 <blockquote>
-<p>引理1: 设$\text{gcd}(P(\lambda),Q(\lambda))=1$, $\textbf{u},\textbf{v}\in{V}$, 且有$P_{\text{cond }W,\mathscr{A},\textbf{u}}(\lambda)=P(\lambda)$和 $P_{\text{cond }W,\mathscr{A},\textbf{v}}(\lambda)=Q(\lambda)$, 那么
+<p>引理1: 设$\text{gcd}(P(\lambda),Q(\lambda))=1$, 对于向量$\textbf{u},\textbf{v}\in{V}$, 有$P_{\text{cond }W,\mathscr{A},\textbf{u}}(\lambda)=P(\lambda)$和 $P_{\text{cond }W,\mathscr{A},\textbf{v}}(\lambda)=Q(\lambda)$, 那么
 [
     P_{\text{cond }W,\mathscr{A},\textbf{u+v}}(\lambda)=P(\lambda)Q(\lambda)
 ]</p>
@@ -267,9 +272,13 @@ MathJax.Hub.Config({
     P(\mathscr{A})Q(\mathscr{A})(\textbf{u+v})=Q(\mathscr{A})P(\mathscr{A})\textbf{u}+P(\mathscr{A})Q(\mathscr{A})\textbf{v}\in{W}
 ]</p>
 
-<p>根据定理0, 一定有$P_{\text{cond }W,\mathscr{A},\textbf{u+v}}(\lambda)|P(\lambda)Q(\lambda)$. 此时就有$P_{\text{cond }W,\mathscr{A},\textbf{u+v}}(\lambda)R(\lambda)=P(\lambda)Q(\lambda)$. 现在需要证明, $R(\lambda)=1$.</p>
+<p>根据定理0, 一定有
+[
+    P_{\text{cond }W,\mathscr{A},\textbf{u+v}}(\lambda)|P(\lambda)Q(\lambda)
+]
+此时就有$P_{\text{cond }W,\mathscr{A},\textbf{u+v}}(\lambda)R(\lambda)=P(\lambda)Q(\lambda)$. 现在需要证明, $R(\lambda)=1$.</p>
 
-<p>不妨设$S(\lambda)=\frac{P(\lambda)}{R(\lambda)}$. 那么$P_{\text{cond }W,\mathscr{A},\textbf{u+v}}(\lambda)=S(\lambda)Q(\lambda)$. 现在假设$\text{deg}R&gt;0$, 那么$\text{deg}S&lt;\text{deg}P$. 那么不难得到$Q(\mathscr{A})S(\mathscr{A})\textbf{u}\notin{W}$. 同时又有$S(\mathscr{A})Q(\mathscr{A})\textbf{u}\in{W}$. 但是
+<p>不失一般性, 不妨设$S(\lambda)=\frac{P(\lambda)}{R(\lambda)}$. 那么经过简单的运算就有$P_{\text{cond }W,\mathscr{A},\textbf{u+v}}(\lambda)=S(\lambda)Q(\lambda)$. 现在假设$\text{deg}R&gt;0$, 那么$\text{deg}S&lt;\text{deg}P$. 那么不难得到$Q(\mathscr{A})S(\mathscr{A})\textbf{u}\notin{W}$和$S(\mathscr{A})Q(\mathscr{A})\textbf{u}\in{W}$同时成立. 但是
 [
     P_{\text{cond }W,\mathscr{A},\textbf{u+v}}(\mathscr{A})(\textbf{u}+\textbf{v})=S(\mathscr{A})Q(\mathscr{A})\textbf{v}+Q(\mathscr{A})S(\mathscr{A})\textbf{u}\in{W}
 ]
@@ -314,7 +323,7 @@ MathJax.Hub.Config({
 
 <p>其中$p_i$是不可约的, 且这种乘积是唯一的(不考虑常数项和次序).</p>
 
-<p>那么$P_{\text{cond },W,\mathscr{A}}(\lambda)$就可以进行分解(如果导子是常数, 结论是显然的), 合并相同因子之后假设有
+<p>那么$P_{\text{cond },W,\mathscr{A}}(\lambda)$就可以进行分解(如果导子是常数, 结论是显然的), 合并相同因子之后有
 [
     P_{\text{cond },W,\mathscr{A}}(\lambda)=(P_1(\lambda))^{r_1}(P_2(\lambda))^{r_2}\cdots(P_n(\lambda))^{r_n}
 ]</p>
