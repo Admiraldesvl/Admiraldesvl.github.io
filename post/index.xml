@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Desvl&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 28 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 03 Feb 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://desvl.xyz/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>线性空间的循环分解以及矩阵的有理标准形(附实例)</title>
+      <link>https://desvl.xyz/post/2020-02-03-cyclic-decomposition-and-example/</link>
+      <pubDate>Mon, 03 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://desvl.xyz/post/2020-02-03-cyclic-decomposition-and-example/</guid>
+      <description>引入线性空间的循环分解, 以及如何利用这一原理得到矩阵的有理标准形</description>
+    </item>
     
     <item>
       <title>线性变换不变子空间的导子及其性质</title>
@@ -180,15 +189,6 @@
       
       <guid>https://desvl.xyz/post/2019-09-14-what-is-limit-2/</guid>
       <description>不要再有“导数是切线斜率”的刻板印象了</description>
-    </item>
-    
-    <item>
-      <title>优美的Fourier级数（五）: 逐点收敛下的Fejér定理</title>
-      <link>https://desvl.xyz/post/2019-09-12-beautiful-fourier-005/</link>
-      <pubDate>Thu, 12 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://desvl.xyz/post/2019-09-12-beautiful-fourier-005/</guid>
-      <description>进一步介绍Fejér核, 以及几个重要应用</description>
     </item>
     
   </channel>
