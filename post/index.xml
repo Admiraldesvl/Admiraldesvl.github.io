@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Desvl&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 03 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 08 Feb 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://desvl.xyz/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>线性空间的准素分解以及矩阵的准素标准形(附实例)</title>
+      <link>https://desvl.xyz/post/2020-02-08-primary-decomposition/</link>
+      <pubDate>Sat, 08 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://desvl.xyz/post/2020-02-08-primary-decomposition/</guid>
+      <description>引入线性空间的准素分解, 以及如何利用这一原理得到矩阵的准素标准形, 最后讨论了矩阵对角化的充分必要条件</description>
+    </item>
     
     <item>
       <title>线性空间的循环分解以及矩阵的有理标准形(附实例)</title>
@@ -180,15 +189,6 @@
       
       <guid>https://desvl.xyz/post/2019-09-18-gamma-intro/</guid>
       <description>经典的含参反常积分——伽玛函数在微积分中的一些应用</description>
-    </item>
-    
-    <item>
-      <title>高等数学入门: 静态的极限、静态的导数</title>
-      <link>https://desvl.xyz/post/2019-09-14-what-is-limit-2/</link>
-      <pubDate>Sat, 14 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://desvl.xyz/post/2019-09-14-what-is-limit-2/</guid>
-      <description>不要再有“导数是切线斜率”的刻板印象了</description>
     </item>
     
   </channel>
