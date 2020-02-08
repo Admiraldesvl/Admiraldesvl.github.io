@@ -177,7 +177,11 @@ MathJax.Hub.Config({
 <h2 id="洛必达法则的完整论述">洛必达法则的完整论述</h2>
 
 <blockquote>
-<p>假设有在$(a,b)$可导的实函数$f$和$g$, 且$g&rsquo;(x)\neq0$对所有$x\in(a,b)$恒成立, 其中$-\infty\leq{a}&lt;{b}\leq+\infty$. 若有[\lim_{x\to a}\frac{f&rsquo;(x)}{g&rsquo;(x)}=A,]且如果[\lim_{x\to a}f(x)=\lim_{x\to a}g(x)=0,]或[\lim_{x\to a}g(x)=+\infty,]那么[\lim_{x\to a}\frac{f(x)}{g(x)}=A]类似的结论对$x\to{b}$或者$g(x)\to-\infty$也成立.</p>
+<p>假设有定义在$(a,b)$可导的实函数$f$和$g$, 且$g&rsquo;(x)\neq0$对所有$x\in(a,b)$恒成立, 其中$a$和$b$满足
+[
+    -\infty\leq{a}&lt;{b}\leq+\infty.
+]<br />
+若有[\lim_{x\to a}\frac{f&rsquo;(x)}{g&rsquo;(x)}=A,]且如果[\lim_{x\to a}f(x)=\lim_{x\to a}g(x)=0,]或[\lim_{x\to a}g(x)=+\infty,]那么[\lim_{x\to a}\frac{f(x)}{g(x)}=A]类似的结论对$x\to{b}$或者$g(x)\to-\infty$也成立.</p>
 </blockquote>
 
 <h2 id="证明1-线性近似">证明1:线性近似</h2>
@@ -265,7 +269,7 @@ MathJax.Hub.Config({
 
 <h3 id="情况2-infty-a-leq-infty">情况2: $-\infty&lt;{A}\leq+\infty$</h3>
 
-<p>这个情况是完全类似的. 同理可证, 对任意$p$, 当且仅当$p&lt;A$时, 总有$c&rsquo;\in(a,b)$, 使得对于所有$x\in(a,c&rsquo;)$, 满足$p&lt;\frac{f(x)}{g(x)}\leq{A}$.</p>
+<p>这个情况是和情况1完全类似的. 同理可证, 对任意$p$, 当且仅当$p&lt;A$时, 总有$c&rsquo;\in(a,b)$, 使得对于所有$x\in(a,c&rsquo;)$, 满足$p&lt;\frac{f(x)}{g(x)}\leq{A}$.</p>
 
 <p>结合$A$的这两种情况, 原命题得证.</p>
 
@@ -275,11 +279,11 @@ MathJax.Hub.Config({
 <li>不等式(A)第一项的分母为什么一定有意义?</li>
 </ul>
 
-<p>假设它无意义, 如果有$g(x)=g(y)$, 那么有${x}&lt;t&lt;y$使得$g&rsquo;(t)=0$, 此时不满足$f&rsquo;(t)/g&rsquo;(t)&lt;A+\varepsilon$.</p>
-
-<ul>
-<li>不等式(B)中为什么变成小于等于?</li>
-</ul>
+<p>假设它无意义. 如果有$g(x)=g(y)$, 那么有${x}&lt;t&lt;y$使得$g&rsquo;(t)=0$, 此时不满足
+[
+    f&rsquo;(t)/g&rsquo;(t)&lt;A+\varepsilon
+]
+- 不等式(B)中为什么变成小于等于?</p>
 
 <p>每次改变$x$, $t$也发生改变, 记为$t(x)$, 此时可能有$\lim\limits_{x\to{a}}\frac{f&rsquo;(t(x))}{g&rsquo;(t(x))}=r$.</p>
 </div>
