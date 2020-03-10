@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+         
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Riesz表示定理证明(一)</title>
+        
+        <style>
+
+    html body {
+        font-family: 'Raleway', sans-serif;
+        background-color: white;
+    }
+
+    :root {
+        --accent: purple;
+        --border-width:  5px ;
+    }
+
+</style>
+
+
+<link rel="stylesheet" href="https://desvl.xyz/css/main.css">
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+
+
+
+
+
+<link rel="stylesheet" type="text/css" href="https://desvl.xyz/css/bootstrap.css">
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+ 
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
+ <meta name="generator" content="Hugo 0.56.3" />
+        
+
+        
+        
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144178839-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments)};
+          gtag('js', new Date());
+
+          gtag('config', 'UA-144178839-1');
+        </script>
+        
+
+
+        <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_SVG">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
+        <meta name="twitter:card" content="summary"/>
+<meta name="twitter:image" content="https://desvl.xyz/"/>
+<meta name="twitter:title" content="Riesz表示定理证明(一)"/>
+<meta name="twitter:description" content="Riesz表示定理证明的第一部分"/>
+
+        
+
+        
+    </head>
+
+    <body>
+         
+        <nav class="navbar navbar-default navbar-fixed-top">
+
+            <div class="container">
+
+                <div class="navbar-header">
+
+                    <a class="navbar-brand visible-xs" href="#">Riesz表示定理证明(一)</a>
+
+                    <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                </div>
+
+                <div class="collapse navbar-collapse">
+
+                    
+                        <ul class="nav navbar-nav">
+                            
+                                <li><a href="/">Home | 主页</a></li>
+                            
+                                <li><a href="/post/">Posts | 文章</a></li>
+                            
+                                <li><a href="/tags/">Tags | 标签</a></li>
+                            
+                                <li><a href="/about/">About | 关于</a></li>
+                            
+                        </ul>
+                    
+
+                    
+                        <ul class="nav navbar-nav navbar-right">
+                            
+                                <li class="navbar-icon"><a href="mailto:admiraldesvl@gmail.com"><i class="fa fa-envelope-o"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://github.com/admiraldesvl/"><i class="fa fa-github"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://twitter.com/Desvl1998/"><i class="fa fa-twitter"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://desvl.xyz/index.xml"><i class="fa fa-rss"></i></a></li>
+                            
+                        </ul>
+                    
+
+                </div>
+
+            </div>
+
+        </nav>
+
+<main>
+
+    <div class="item">
+
+    
+    
+    
+
+    
+    
+
+    <h4><a href="/post/2019-11-16-riesz-proof-1/">Riesz表示定理证明(一)</a></h4>
+    <h5>November 16, 2019</h5>
+    
+    <a href="https://desvl.xyz/tags/%E5%AE%9E%E5%88%86%E6%9E%90/real-analysis"><kbd class="item-tag">实分析/Real Analysis</kbd></a>
+    
+    <a href="https://desvl.xyz/tags/%E6%B3%9B%E5%87%BD%E5%88%86%E6%9E%90/functional-analysis"><kbd class="item-tag">泛函分析/Functional Analysis</kbd></a>
+    
+
+</div>
+
+
+    <br> <div class="text-justify">
+
+<h3 id="说在前面的">说在前面的</h3>
+
+<p>以下这个证明来自<em>Real and Complex Analysis, W.Rudin</em>. 不得不说这个证明很厉害, 但是很难理解. 可能原文一个单词能卡人半天, 在mathexchange也能看到不少关于如何理解这个证明某个细节的提问. 我尽我最大努力进行解释补充, 在尽量保证可读性的同时不对原文进行过大的调整. 也算是回报社区了.</p>
+
+<h4 id="证明前的小准备-1-的分割-partition-of-unity"><strong>证明前的小准备: $1$的分割(partition of unity)</strong></h4>
+
+<blockquote>
+<p>设$V_1,\cdots,V_n$是局部紧Hausdorff空间的子集, 有开集$K$满足[K\subset V_1\cup \cdots\cup V_n.] 则有$n$个函数$h_i$满足$h_i\prec V_i$, 对所有$x\in{K}$, 有$\sum_{i=1}^{n}h_i(x)=1$.</p>
+</blockquote>
+
+<h3 id="证明思路">证明思路</h3>
+
+<p>证明的整体思路是这样的: 说明$\mu$是一个测度(满足测度的若干条性质), 再说明$\mathfrak{M}$是一个$\sigma$-代数, 在整个过程中勾勒出最开始提出$\mu$和$\mathfrak{M}$所具有的若干性质. 最后, 论证等式$\Lambda{f}=\int_{X}fd\mu$成立(还要注意, 等式右边首先要合法), 得到一个完整的证明.</p>
+
+<p>证明分为10步, 最难理解的还是最开始的几步, 最后几步基本上各种运算分析技巧, 当然这些技巧也是很有实际价值的. 这个证明过程中除了可以让人更深刻地认识这个定理, 还可以让人学到如何在测度论中使用$\varepsilon-\delta$风格的证明办法, 以及各种处理上确界和下确界的办法.</p>
+
+<p>考虑到证明又难又长, 我把完整的证明拆成三篇, 每一篇会加上一些额外的解释.</p>
+
+<h3 id="证明-mu-和-mathfrak-m-f-的性质的粗略分析">证明：$\mu$和$\mathfrak{M}_F$的性质的粗略分析</h3>
+
+<blockquote>
+<p><em>第一步: 对$X$的任意子集$E_1,E_2,\cdots$,有[\mu\left(\bigcup_{i=1}^{\infty}E_i\right)\leq\sum_{i=1}^{\infty}\mu(E_i)]</em></p>
+</blockquote>
+
+<p>根据测度的定义, 如果$\mu$是测度, 那么这一条一定成立. 但是想证明可列可加性(测度最基本的一点), 还是需要一些铺垫.</p>
+
+<p>首先要证明</p>
+
+<p>[\mu(V_1\cup V_2)\leq\mu(V_1)+\mu(V_2)]</p>
+
+<p>对开集$V_1$和$V_2$成立.</p>
+
+<p>取$g$满足$g\prec V_1\cup V_2$. 根据$1$的分割原理, 有非负函数$h_1(x)$和$h_2(x)$满足$h_i\prec V_i$, 而且对所有$x\in supp(g)$, 满足$h_1(x)+h_2(x)=1$. 这个时候可以把$g$写成$g=h_1(x)g(x)+h_2(x)g(x)$. 再考虑$\Lambda$为线性泛函, 就能得到</p>
+
+<p>[\Lambda{g}=\Lambda{h_1g}+\Lambda{h_2g}]</p>
+
+<p>这个等式对所有$g \prec V_1\cup V_2$都成立, 又注意到$\mu(V_1\cup V_2)=\sup\Lambda{g}$, 所以[\mu(V_1\cup V_2)\leq\mu(V_1)+\mu(V_2).]</p>
+
+<p>接下来需要推广到可数个. 如果对某个$i$有$\mu(E_i)=\infty$, 那么这一步需要证明的不等式自然是成立的.</p>
+
+<p>所以, 现在应该假设, 对所有$i$, 都有$\mu(E_i)&lt;\infty$. 对<strong>所有</strong>的$E$都有</p>
+
+<p>[\mu(E)=\inf\{\mu(V):E\subset V, V为开集\}].</p>
+
+<p>对$\varepsilon&gt;0$, 可以取开集$V_i\supset E_i$, 使得</p>
+
+<p>[\mu(V_i)&lt;\mu(E_i)+\frac{\varepsilon}{2^i}.]</p>
+
+<p>令$V=\bigcup_{i=1}^{\infty}V_i$, 选取函数$f\prec V$. 因为$supp(f)$为紧集, $supp(f)\subset V$, 因此$supp(f)$可以被有限个开集$V_i$覆盖, 不妨设$f\prec V_1\cup\cdots\cup V_n$. 对最开始得到的不等式进行归纳, 就能得到</p>
+
+<p>[\Lambda{f}\leq\mu(V_1\cup\cdots\cup V_n)\leq \mu(V_1)+\cdots+\mu(V_n)\leq\sum_{i=1}^{\infty}\mu(E_i)+\varepsilon.]</p>
+
+<p>又考虑到$\bigcup_{i=1}^{\infty} E_i\subset V$, 所以$\mu(\bigcup E_i)\leq\mu(V)$, 结合起来就有</p>
+
+<p>[\mu(\bigcup_{i=1}^{\infty}E_i)\leq \sum_{i=1}^{\infty}\mu(E_i)+\varepsilon.]</p>
+
+<p>考虑到$\varepsilon$是任意的, 这就证明了这一步需要证明的不等式.</p>
+
+<p>进行下一步之前, 需要进行一些额外的解释. 首先是关于$\mu(V_i)&lt;\mu(E_i)+\varepsilon$的合理性. 这里就要考虑上下确界的定义了. 可以利用反证法. 如果有$\mu(V_i)\geq\mu(E_i)+\frac{\varepsilon}{2^i}$对所有的$V_i\supset E_i$成立, 那么$\mu(E_i)$就不是$\mu(V_i)$的下确界. 这是因为, 首先$\mu(E_i)$是$\{\mu(V_i)\}$的一个下界, 而$\mu(E_i)+\frac{\varepsilon}{2^{i}}$也是一个下界. 而$\mu(E_i)+\frac{\varepsilon}{2^i}&gt;\mu(E_i)$. 如果$\mu(E_i)$是下确界, 那么必然有$\mu(E_i)+\frac{\varepsilon}{2^i}$不是下界. 这得到了一个矛盾, 这就证明了存在的合理性.</p>
+
+<p>另外解释一下$\Lambda{f}\leq\cdots\leq\sum_{i=1}^{\infty}\mu(E_i)+\varepsilon$中每个不等式的意义. 第一个不等号自然是被$\mu$定义决定. 因为$\mu(V_1\cup\cdots\cup V_n)=\sup\{\Lambda{f}:f\prec V_1\cup\cdots\cup V_n\}$, 所以$\Lambda{f}\leq\mu(V_1\cup\cdots\cup V_n)$. 第二个不等式自然是归纳得到. 第三个不等式, 考虑$\sum_{i=1}^{n}\mu(V_i)\leq\sum_{i=1}^{n}(\mu(E_i)+2^{-i}\varepsilon)$, 而$\mu$又是非负测度, 又能得到</p>
+
+<p>$\sum_{i=1}^{n}(\mu(E_i)+2^{-i}\varepsilon)\leq\sum_{i=1}^{\infty}(\mu(E_i)+2^{-i}\varepsilon)$. 就得到了不等式最右侧. 另外还要注意到几何级数$\sum\frac{1}{2^n}=1$的运用.</p>
+
+<blockquote>
+<p><em>第二步: 如果$K$为紧集, 那么有$K\in\mathfrak{M}$且[\mu(K)=\inf\{\Lambda{f}:K\prec f\}].</em></p>
+</blockquote>
+
+<p>这一步证明完毕, 就能说明(b)的成立了. 这时, 紧集的&rdquo;测度&rdquo;得到了合理的构建(这时我们还没有证明$\mu$是一个测度), 为接下来的证明做好铺垫.</p>
+
+<p>如果$K \prec f$, 且$0&lt;\alpha<1$, 令$V_{\alpha} = \{x:f(x)>\alpha\}$. 那么考虑到$K$的定义,必定有$K\subset V_\alpha$. 此时如果$g\prec V_\alpha$, 就有$\frac{f}{\alpha}\geq g$恒成立.</p>
+
+<p>接下来, 考虑到$\mu(V_\alpha)$的定义, 就有$\mu(V_\alpha)=\sup\{\Lambda{g}:g\prec V_\alpha\}\leq\alpha^{-1}\Lambda{f}$. 最后, 考虑到$K\subset V_\alpha$,  就有$\mu(V_\alpha)\geq\mu(K)$. 综上, 得到不等式</p>
+
+<p>[\mu(K)\leq\alpha^{-1}\Lambda{f}.]</p>
+
+<p>$\alpha\to 1$时, 就能得到$\mu(K)\leq\Lambda{f}$. 因此$\mu(K)&lt;\infty$.</p>
+
+<p>在构建$\mathfrak{M}_F$时我们曾指出, 集合$\mathfrak{M}$中的集合元素$E$需要满足两个条件:</p>
+
+<blockquote>
+<p>[\mu(E)&lt;\infty]</p>
+
+<p>[\mu(E)=\sup\{\mu(K):K\subset{E},K是紧集\}]</p>
+</blockquote>
+
+<p>现在要来看这一步里的$K$是否满足这两个条件. 对于紧集$K&rsquo;$, 如果$K&rsquo;\subset K$, 那么$\mu(K&rsquo;)\leq\mu(K)$. 如果$K&rsquo;=K$, 那么有$\mu(K&rsquo;)=\mu(K)$. 也就是说有等式$\mu(K)=\sup\mu(K&rsquo;)$. 这说明K满足两个条件. 所以$K\in\mathfrak{M}_F$.</p>
+
+<p>接下来证明等式$\mu(K)=\inf\{\Lambda{f}:K\prec f\}$. 对$\varepsilon&gt;0$, 存在$V\supset K$且$\mu(V)&lt;\mu(K)+\varepsilon$. 根据Urysohn引理, 存在$f$满足$K \prec f \prec V$. 再考虑$\mu(V)$的定义, 有</p>
+
+<p>[\Lambda{f}\leq\mu(V)&lt;\mu(K)+\varepsilon]</p>
+
+<p>这就得到了不等式</p>
+
+<p>[\Lambda{f}-\varepsilon&lt;\mu(K)\leq\Lambda{f}]. 这就证明了$\mu(K)=\inf\Lambda{f}$</p>
+
+<blockquote>
+<p><em>第三步: 所有的满足$\mu(V)&lt;\infty$的开集都属于$\mathfrak{M}_F$.</em></p>
+</blockquote>
+
+<p>根据$\mathfrak{M}_F$的定义, 这里需要证明$\mu(V)=\sup\{\mu(K):K\subset V, K为紧集\}$.</p>
+
+<p>对于$\mu(V)$, 可以取实数$\alpha$满足$\alpha&lt;\mu(V)$. 那么存在一个函数$f\prec V$, 使得$\alpha&lt;\Lambda{f}$ . 如果你觉得很难理解存在$f$的合理性, 可以假设所有的$f$都有$\Lambda{f}\leq\alpha&lt;\mu(V)$. 那么这个时候$\Lambda{f}$的上确界就不是$\mu(V)$, 这与定义矛盾.</p>
+
+<p>对于任意开集$W$满足$supp(f)\subset W$, 有$f\prec W$, 因此就能得到$\Lambda{f}\leq\mu(W)$. 设$supp(f)=K$. 现在要证明, $\Lambda{f}\leq\mu(K)$. 注意对任意的$E\subset X$, 都有等式</p>
+
+<p>[\mu(E)=\inf\{\mu(V):E\subset V, V为开集\}.]</p>
+
+<p>那么就有$\mu(K)=\inf\{\mu(W):K\subset{W},W为开集\}$. 考虑到$\mu(W)$的定义, 又有$\mu(W)\geq\Lambda{f}$. 如果$\mu(K)&lt;\Lambda{f}$, 那么根据下确界的定义, $\Lambda{f}$应该不是$\{\mu(W):W\supset K, W为开集\}$的下界, 这与已知矛盾. 必定有$\mu(K)\geq\Lambda{f}$.</p>
+
+<p>整合一下这一步中得到的一系列不等式就能完成这一步的目标了: 对于开集$V$, 和实数$\alpha&lt;\mu(V)$, 总有紧集$K$使得$\alpha&lt;\mu(K)\leq\mu(V)$. 此时就可以确认, $\mu(V)=\sup\{\mu(K):K\subset V, K为紧集\}$. 这说明, 开集$V$满足$\mu(V)&lt;\infty$时, 必定有$V\in\mathfrak{M}_F$.</p>
+
+<h3 id="关于下一篇">关于下一篇</h3>
+
+<p>下一篇中, 会对$\mu$和$\mathfrak{M}_F$进行更精细的分析, 最终间接构建出合适的$\mathfrak{M}$. 内容会比较多, 但是主要内容从各种技巧性的不等式变成了基本的计算. 当然, 这一篇的三步也会被用上. 这一篇里有各种上下确界的分析, 而下一篇里会有更多的集合运算.</p>
+</div>
+    <h4 class="page_header">Share | 分享</h4>
+    <hr>
+        
+
+            
+        
+        <style type="text/css">
+            #my_centered_buttons { display: flex; justify-content: center; }  
+            .a2a_svg, .a2a_count { border-radius: 0 !important; }  
+        </style>
+        <div align="center" class="a2a_kit a2a_kit_size_32 a2a_default_style" id=my_centered_buttons>
+                <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+                <a class="a2a_button_pocket"></a>
+                <a class="a2a_button_facebook"></a>
+                <a class="a2a_button_twitter"></a>
+                <a class="a2a_button_evernote"></a>
+                <a class="a2a_button_wechat"></a>
+                <a class="a2a_button_email"></a>
+                <a class="a2a_button_mastodon"></a>
+                <a class="a2a_button_qzone"></a>
+                <a class="a2a_button_print"></a>
+            </div>
+            <script>
+                var a2a_config = a2a_config || {};
+                a2a_config.onclick = 1;
+            </script>
+            <script async src="https://static.addtoany.com/menu/page.js"></script>
+        
+        <h6>如果您或您的朋友在Pocket等网站阅读本文, 建议使用“阅读原文”功能, 否则可能无法看到由Mathjax生成的数学公式</h6>
+    
+    
+
+    
+
+        <h4 class="page-header">Related | 相关文章</h4>
+
+         <div class="item">
+
+    
+    
+    
+
+    
+    
+
+    <h4><a href="/post/2020-01-17-abstract-lebesgue-integral/">抽象Lebesgue积分的构建</a></h4>
+    <h5>January 17, 2020</h5>
+    
+    <a href="https://desvl.xyz/tags/%E5%AE%9E%E5%88%86%E6%9E%90/real-analysis"><kbd class="item-tag">实分析/Real Analysis</kbd></a>
+    
+
+</div>
+  <div class="item">
+
+    
+    
+    
+
+    
+    
+
+    <h4><a href="/post/2020-01-15-riesz-proof-3/">Riesz表示定理证明(三)</a></h4>
+    <h5>January 15, 2020</h5>
+    
+    <a href="https://desvl.xyz/tags/%E5%AE%9E%E5%88%86%E6%9E%90/real-analysis"><kbd class="item-tag">实分析/Real Analysis</kbd></a>
+    
+    <a href="https://desvl.xyz/tags/%E6%B3%9B%E5%87%BD%E5%88%86%E6%9E%90/functional-analysis"><kbd class="item-tag">泛函分析/Functional Analysis</kbd></a>
+    
+
+</div>
+  <div class="item">
+
+    
+    
+    
+
+    
+    
+
+    <h4><a href="/post/2019-12-09-riesz-proof-2/">Riesz表示定理证明(二)</a></h4>
+    <h5>December 9, 2019</h5>
+    
+    <a href="https://desvl.xyz/tags/%E5%AE%9E%E5%88%86%E6%9E%90/real-analysis"><kbd class="item-tag">实分析/Real Analysis</kbd></a>
+    
+    <a href="https://desvl.xyz/tags/%E6%B3%9B%E5%87%BD%E5%88%86%E6%9E%90/functional-analysis"><kbd class="item-tag">泛函分析/Functional Analysis</kbd></a>
+    
+
+</div>
+ 
+
+    
+        
+    
+
+        <h4 class="page-header">Comments | 评论</h4>
+
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "admiraldesvl" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    
+
+</main>
+
+        <footer>
+        
+            <div style="float: margin: 0 auto;text-align: center;">
+            <p class="text-muted">Powered by <a href="https://gohugo.io">Hugo</a> | Theme by <a href = "https://github.com/calintat/minimal">Minimal</a></p>           
+            </div>
+            <div style="float: margin: 0 auto;text-align: center;">
+            <p class="copyright text-muted">
+            &copy; Desvl |
+            <script language="JavaScript">var fhsh = document.createElement('script');var fhs_id_h = "3339125";
+            fhsh.src = "//freehostedscripts.net/ocount.php?site="+fhs_id_h+"&name=Page views&a=1";
+            document.head.appendChild(fhsh);document.write("<span id='h_"+fhs_id_h+"'></span>");
+            </script>
+            </p>
+            </div>
+        </footer>  
+    </body>
+
+</html>
+
