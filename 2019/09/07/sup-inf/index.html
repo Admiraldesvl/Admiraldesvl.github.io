@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Desvl">
+
+
+
+
+
+<title>高等数学入门：上下确界及其极限形式 | Desvl&#39;s blog</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+            <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+        
+    
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Desvl&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Desvl&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">高等数学入门：上下确界及其极限形式</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Desvl</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">September 7, 2019&nbsp;&nbsp;00:00:00</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h3 id="问题的引入-最大值、最小值的局限性"><a href="#问题的引入-最大值、最小值的局限性" class="headerlink" title="问题的引入: 最大值、最小值的局限性"></a>问题的引入: 最大值、最小值的局限性</h3><p>我们先考虑一个简单的函数:<br>\[<br>    f(x)=x\quad x\in(0,1)<br>\]</p>
+<p>那么问题来了: 这个函数有没有最小值或者最大值? 答案是没有. 定义域中的严格不等式给我们制造了无法得到严格解的麻烦. 可能读者会想到, 这是个单调函数, 可以使用极限解决这个问题. 但是这样做局限性太大了. 如果我们连函数的表达式都不知道, 又要到哪个极限找“最值”呢? 我们要做的是, 找到一个数, 它描述集合的范围时, 不依赖于最大值最小值的存在, 而且它不依赖于极限.</p>
+<h3 id="理论基础-实数是有序的"><a href="#理论基础-实数是有序的" class="headerlink" title="理论基础: 实数是有序的"></a>理论基础: 实数是有序的</h3><p>我们一直以来接触各种不等式, 最基本的理论依据就是, 实数的顺序. 这个顺序的意思就是大小关系. 没有顺序关系的数也是有的, 例如复数. 实数的顺序其实可以叙述成以下两点:</p>
+<blockquote>
+<ol>
+<li>如果$x\in\mathbb{R}$而且$y\in\mathbb{R}$, 那么下面三个关系有且仅有一个成立<br>\[<br>x&lt;y\quad x=y\quad y&lt;x  \]   </li>
+<li>如果$x,y,z\in\mathbb{R}$, 而且有$x&lt;y$和$y&lt;z$, 那么$x&lt;z$</li>
+</ol>
+</blockquote>
+<p>至于“$\leq$”，应该理解成小于或等于, “或”的意思在这里是并没有强调哪个一定成立.</p>
+<h3 id="确界的定义"><a href="#确界的定义" class="headerlink" title="确界的定义"></a>确界的定义</h3><p>我们接下来只讨论上界. 也就是说, 我们只讨论小于的情况. 至于另一侧, 将小于号换成大于号即可.</p>
+<h4 id="什么叫有上界"><a href="#什么叫有上界" class="headerlink" title="什么叫有上界"></a>什么叫有上界</h4><blockquote>
+<p>取集合$E\subset\mathbb{R}$, 如果<strong>存在</strong>$\beta\in\mathbb{R}$使得对<strong>任意</strong>$x\in{E}$都<strong>满足</strong>不等式$x\leq\beta$, 那么就称$E$有上界, $\beta$就是$E$的一个上界.</p>
+</blockquote>
+<p>这其实就是一个存在命题. 只要满足就够了. 满足之后呢? 没然后了. 剩下的细节不重要. 这和极限很类似. 一个很简单的例子: $(-\infty,1]$就是有上界的. 而且上界$\beta$满足$\beta\in[1,+\infty)$.</p>
+<h4 id="上确界-最小的上界"><a href="#上确界-最小的上界" class="headerlink" title="上确界: 最小的上界"></a>上确界: 最小的上界</h4><p>有的时候, 我们需要知道一个严格解, 这就是上确界. 首先, 我们给出上确界的定义.</p>
+<blockquote>
+<p>对于有上界的集合$E$, 假设存在一个$\alpha\in\mathbb{R}$满足以下条件, 那么就称它为$E$的上确界, 记作$\alpha=\sup{E}$:</p>
+<ul>
+<li><p>$\alpha$是$E$的一个上界</p>
+</li>
+<li><p>如果$\gamma&lt;\alpha$, 那么$\gamma$不是$E$的上界</p>
+</li>
+</ul>
+</blockquote>
+<p>下确界可以通过相反的不等式进行确定, 记作$\alpha=\inf{E}$. 当然$\sup$和$\inf$后面也不一定要跟一个集合, 也可以跟一个函数或者数列. 回到开头的那个函数, 我们能很容易得到<br>\[<br>    \sup{f(x)}=1\quad\inf{f(x)}=0<br>\]</p>
+<p>这时我们不再依赖于极限, 也可以发现, <strong>如果函数的最大值或最小值存在, 那么它一定等于上确界或下确界, 但是上下确界存在时, 最值不一定存在.</strong> 在函数最值不存在时, 我们仍然能利用确界对函数的范围进行严格的分析, 而且不一定需要求极限, 这体现了上下确界的价值所在. 在这里建议读者写几个函数, 再试着求以下上下确界.</p>
+<h3 id="确界的极限形式-上极限、下极限"><a href="#确界的极限形式-上极限、下极限" class="headerlink" title="确界的极限形式(上极限、下极限)"></a>确界的极限形式(上极限、下极限)</h3><h4 id="数列形式"><a href="#数列形式" class="headerlink" title="数列形式"></a>数列形式</h4><p>设${a_n}$是$\mathbb{R}$里的一个数列, 并且定义<br>\[<br>    b_k=\sup\{a_k,a_{k+1},a_{k+2},\cdots\}<br>\]</p>
+<p>再定义<br>\[<br>    \beta=\inf\{b_1,b_2,b_3,\cdots\}<br>\]</p>
+<p>那么就有<br>\[<br>    \beta=\limsup_{n\to\infty}a_n<br>\]</p>
+<p>这就完成了上极限的定义. 而下极限的求法就是将上面的上确界、下确界交换顺序即可. 可是这里为什么出现了极限符号? 这是因为<br>\[<br>    b_1\geq b_2\geq b_3\geq\cdots\geq\beta<br>\]</p>
+<p>所以有<br>\[<br>    \lim\limits_{k\to\infty}b_k=\beta<br>\]</p>
+<p>此外,${a_n}$中有一个子列${a_{n_i}}$收敛于$\beta$, 而且$\beta$是具有这个性质<strong>最大</strong>的数.</p>
+<p>这其实还是解决了一件事情, 如果一个数列发散, 我们还是有可能利用上下确界的极限形式来研究极限的一些性质. 一个很简单的例子比如<br>\[<br>    \limsup_{n\to\infty}{(-1)^n}=1\quad\liminf_{n\to\infty}{(-1)^n}=-1<br>\]</p>
+<h4 id="函数形式"><a href="#函数形式" class="headerlink" title="函数形式"></a>函数形式</h4><p>函数中上下极限的求法其实和数列形式是非常类似的. 我们先举一个上极限的例子, 理解构建过程时也可以利用这个例子:<br>\[<br>    \limsup_{x\to{0}}\sin\frac{1}{x}=1<br>\]</p>
+<p>对于函数, 值域可能是连续集合. 求$x\to{a}$时的上极限, 我们先求出$x\to{a}$时, $f(x)$的上确界构成的集合<br>\[<br>    U=\{y|y=\sup\{f(x)|x\in(a-\varepsilon,a+\varepsilon)\}\}<br>\]</p>
+<p>那么上极限就是<br>\[<br>    \limsup_{x\to{a}}f(x)=\inf{U}<br>\]</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>我们单纯利用不等式, 建立起一个非常严格，也非常有应用价值的概念: 确界. 这个概念源于最值, 又高于最值. 当然确界和最值什么时候相等又是一个拓扑学问题. 这又是另外一个话题了.</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Desvl</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://desvl.xyz/2019/09/07/sup-inf/">https://desvl.xyz/2019/09/07/sup-inf/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Interest comes from thinking.</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2019/10/02/productivity-overrated/">并不新颖的观点：不要追求生产力、效率了</a>
+            
+            
+            <a class="next" rel="next" href="/2019/08/19/l-hopital-proof/">洛必达法则的几种不同的证明</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Desvl | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

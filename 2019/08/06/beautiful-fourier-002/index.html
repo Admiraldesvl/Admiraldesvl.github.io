@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Desvl">
+
+
+
+
+
+<title>优美的Fourier级数（二）: 有界差分下的收敛(Jordan判别法) | Desvl&#39;s blog</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+            <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+        
+    
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Desvl&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Desvl&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">优美的Fourier级数（二）: 有界差分下的收敛(Jordan判别法)</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Desvl</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">August 6, 2019&nbsp;&nbsp;00:00:00</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>如果你和Fourier级数打交道，那么在处理间断函数，特别是锯齿状函数的时候，有没有注意过间断处的形状？它为什么会处在中间位置？什么时候会出现这种情况？这就是接下来要解决的问题. 这篇文章中, 会涉及到各种与三角函数、定积分、导函数有关的基本重要技巧. 还是那句话，Fourier级数绝对不仅仅是处理一系列三角函数. 还要注意，这里我们探讨的函数应该是定义在$[-\pi,\pi]$的实函数. 这篇文章中实际要做的事情是, 利用定积分的各种性质, 进行无穷小量的分析.</p>
+<h2 id="Jordan判别法"><a href="#Jordan判别法" class="headerlink" title="Jordan判别法"></a>Jordan判别法</h2><blockquote>
+<p>如果$f$是有界差分，那么<script type="math/tex">s_N(x)\to\frac{f(x^+)+f(x^-)}{2},</script> 其中$f(x^+)=\lim\limits_{h\to0^+}f(x+h)$, $f(x^-)=\lim\limits_{h\to0^+}f(x-h)$</p>
+</blockquote>
+<h3 id="理论准备1-有界差分"><a href="#理论准备1-有界差分" class="headerlink" title="理论准备1: 有界差分"></a>理论准备1: 有界差分</h3><p>有界差分可以看成推广的“弧长”. 在$[a,b]$上，$f(x)$的总差分的定义是这样：<br>\[<br>    T_f(x):=\sup\{\sum_{i=1}^n|f(x_i)-f(x_{i-1})||a=x_0&lt;x_1&lt;\cdots&lt;x_n=x\}<br>\]<br>对于连续函数来说，这就是$f(x)$在$[a,x]$的弧长. 而如果$f(x)$是$[a,b]$上的有界差分，那么只需要满足$T_f(b)&lt;\infty$.</p>
+<p>注意到, $f(x)$还可以写成</p>
+<p>\[<br>    f(x)=\frac{1}{2}[T_f(x)+f(x)]-\frac{1}{2}[T_f(x)-f(x)]<br>\]</p>
+<p>而$\frac{1}{2}[T_f(x)+f(x)]$和$\frac{1}{2}[T_f(x)-f(x)]$都是非负的单调增函数. 事实上，有界差分一定可以写成两个单调增函数的差，具体证明可以参见<a href="https://math.stackexchange.com/questions/141338/bounded-variation-difference-of-two-increasing-functions" target="_blank" rel="noopener">这里</a>.</p>
+<h3 id="理论准备2-积分第二中值定理"><a href="#理论准备2-积分第二中值定理" class="headerlink" title="理论准备2: 积分第二中值定理"></a>理论准备2: 积分第二中值定理</h3><blockquote>
+<p>如果定义在$[a,b]$上的实函数$f$和$g$满足$f$连续且$g$单调，那么存在$c\in(a,b)$使得<br>\[<br>    \int_a^bf(x)g(x)dx=g(a^+)\int_a^cf(x)dx+g(b^-)\int_c^bf(x)dx<br>\]</p>
+</blockquote>
+<p>这个定理的证明可以参见<a href="http://www.math.mcgill.ca/labute/courses/255w03/L9.pdf" target="_blank" rel="noopener">这里</a>，也可以用Abel变换进行证明.</p>
+<h3 id="回到Jordan判别法的证明"><a href="#回到Jordan判别法的证明" class="headerlink" title="回到Jordan判别法的证明"></a>回到Jordan判别法的证明</h3><p>因为$D_N(x)$是偶函数，$S_N(x)$可以重写成<br>\[<br>    S_N(x)=\frac{1}{2\pi}\int_0^{\pi}(f(x-t)+f(x+t))D_N(t)dt<br>\]</p>
+<p>如果我们定义$g(t)=f(x+t)+f(x-t)$, 那么就有<br>\[<br>    g(0^+)=f(x^+)+f(x^-)<br>\]</p>
+<p>原命题即证明<br>\[<br>    \frac{1}{2\pi}\int_0^{\pi}g(t)D_N(t)dt\to\frac{g(0^+)}{2}<br>\]</p>
+<p>又考虑到$g(t)$是有界差分，可以写成两个单调增函数的差. 那么这里只需要这个极限对单调增函数成立即可.</p>
+<p>设有单调增函数$h(t)$, 定义$H(t)=h(t)-h(0^+)$; 注意到<br>\[<br>    \frac{1}{2\pi}\int_0^{\pi}H(t)D_N(t)dt\to\frac{H(0^+)}{2}=0<br>\]<br>当且仅当<br>\[<br>    \frac{1}{2\pi}\int_0^{\pi}h(t)D_N(t)dt\to\frac{h(0^+)}{2}<br>\]<br>这是因为$\frac{1}{2\pi}\int_0^{\pi}D_N(t)dt=\frac{1}{2}$.<br>那么不失一般性，可以设$h(0^+)=0$, 那么需要证明，<br>\[<br>    \frac{1}{2\pi}\int_0^{\pi}h(t)D_N(t)dt\to 0\quad(N\to\infty)<br>\]</p>
+<p>因为$h(0^+)=0$, 根据连续的定义, 对任意$\varepsilon&gt;0$, 有$\delta&gt;0$使得对任意$0&lt;x&lt;\delta$有$0&lt;h(x)&lt;\varepsilon$. 原积分可以展开为<br>\[<br>    \frac{1}{2\pi}\int_0^{\pi}h(t)D_N(t)dt=\frac{1}{2\pi}\int_0^{\delta}h(t)D_N(t)dt+\frac{1}{2\pi}\int_{\delta}^{\pi}h(t)D_N(t)dt<br>\]</p>
+<p>注意到最后一个积分可以写成<br>\[<br>    \frac{1}{2\pi}\int_0^{\pi}\frac{h(t)}{\sin(t/2)}\chi_{[\delta,\pi]}\sin(N+\frac{1}{2})tdt<br>\]</p>
+<p>其中<br>\[<br>    \chi_E=\begin{cases}1,x\in E \\ {0}, x\notin E\end{cases}<br>\]</p>
+<p>那么这个积分的讨论就和上一篇里收敛性证明的最后利用Bessel不等式的推论的过程一样了， 将$\sin(N+\frac{1}{2})t$展开之后, 我们得到，这个积分的极限为$0$. 证明在此略去.</p>
+<p>第一个积分我们用积分第二定理展开, 得到:<br>\begin{equation}<br>    \begin{aligned}<br>        \frac{1}{2\pi}\int_0^{\delta}h(t)D_N(t)dt&amp;=\frac{1}{2\pi}h(\delta^-)\int_c^{\delta}D_N(t)dt\\<br>    &amp;\leq\frac{\varepsilon}{2\pi}\int_c^{\delta}D_N(t)dt<br>    \end{aligned}<br>\end{equation}</p>
+<p>其中$0&lt;c&lt;\delta$. 如果我们能证出$\int_c^{\delta}D_N(t)dt$是有界的，那么$\varepsilon\to0$时，就有所求结论. 注意到<br>\[<br>    \left\vert\int_c^{\delta}D_N(t)dt\right\vert\leq \left\vert\int_c^{\delta}\sin(N+\frac{1}{2})t(\frac{1}{\sin(t/2)}-\frac{1}{t/2})dt\right\vert+\left\vert\int_c^{\delta}\frac{\sin(N+\frac{1}{2})t}{t/2}dt\right\vert<br>\]<br>因为$\lim\limits_{t\to0}\frac{1}{\sin(t/2)}-\frac{1}{t/2}=0$, 而且这个函数在$(0,\pi]$上连续有定义，故$\frac{1}{\sin(t/2)}-\frac{1}{t/2}$在$[0,\pi]$上可积. 再利用Bessel不等式的推论，不等式右侧第一个积分趋近于0， 同时也是有界的.</p>
+<p>针对另一个积分的讨论，我们首先令$u=(N+\frac{1}{2})t$, 那么能得到<br>\[<br>    \int_c^{\delta}\frac{\sin(N+\frac{1}{2})t}{t/2}dt=2\int_{(N+\frac{1}{2})c}^{(N+\frac{1}{2})\delta}\frac{\sin u}{u}du<br>\]</p>
+<p>这个积分的有界性可以通过探讨函数$y=\int_0^{x}\frac{\sin x}{x}dx(x&gt;0)$得到. 通过很多办法可以发现，$\lim\limits_{x\to\infty}y=\frac{\pi}{2}$. 具体可以参见<a href="https://math.stackexchange.com/questions/5248/evaluating-the-integral-int-0-infty-frac-sin-x-x-mathrm-dx-frac-pi" target="_blank" rel="noopener">这里</a>. 接下来, 我们通过基本的导数和单调性的关系分析它的有界性. 我们要做的是, 证明$y(\pi)$为$y$的最大值(考虑到$\frac{\sin{x}}{x}$在$(0,\pi]$处处有界, 必然有$y(\pi)&lt;\infty$).</p>
+<p>因为$y’=\frac{\sin x}{x}$, $y$ 在$[2k\pi,(2k+1)\pi]$递增，在$[(2k-1)\pi,2k\pi]$递减.</p>
+<p>$y$在$[0,\pi]$递增，所以$0&lt;x&lt;\pi$时，$y(x)&lt;y(\pi)$.</p>
+<p>又考虑到<br>\[<br>    y((2k-1)\pi)-y((2k+1)\pi)=\int_{(2k-1)\pi}^{(2k+1)\pi}\frac{\sin x}{x}dx<br>\]<br>而<br>\[<br>    \int_{(2k-1)\pi}^{(2k+1)\pi}\frac{\sin x}{x}dx&gt;\int_{(2k-1)\pi}^{(2k+1)\pi}\frac{\sin x}{(2k+1)\pi}dx=0<br>\]<br>从而有<br>\[<br>    y(\pi)&gt;y(3\pi)&gt;\cdots&gt;y((2k+1)\pi)<br>\]<br>而根据函数的单调性，一定有<br>\[<br>    \begin{cases}<br>        y(2k\pi)&lt;y((2k-1)\pi)\\<br>        y(2k\pi)&lt;y((2k+1)\pi)<br>    \end{cases}<br>\] 因此$y$的最大值为$y(\pi)$. 用类似的办法还可以发现$y(0)$为最小值. 这说明，$y$是有界的.</p>
+<p>再回到原来的积分，有<br>\[<br>    2\left\vert\int_{(N+\frac{1}{2})c}^{(N+\frac{1}{2})\delta}\frac{\sin u}{u}du\right\vert=2\left\vert y((N+\frac{1}{2})\delta)-y((N+\frac{1}{2})c)\right\vert&lt;2y(\pi)<br>\]</p>
+<p>至此，我们证明了$\int_c^{\delta}D_N(t)dt$是有界的. 进一步也得出了想要的收敛性的结论.</p>
+<h2 id="总结-amp-其他想说的"><a href="#总结-amp-其他想说的" class="headerlink" title="总结&amp;其他想说的"></a>总结&amp;其他想说的</h2><p>至此，Jordan判别法得到了证明. 但千万不要认为，Fourier级数的收敛是这么简单的一件事情. 这可能会让人觉得，既然有界差分就有这么好的收敛现象，那么连续函数一定就收敛得更好. 但实际情况完全不一样：存在至少有一点发散的连续函数的Fourier级数（du Bois Reymond, 1873）. 此外，甚至存在每点都发散的Fourier级数(Kolmogorov, 1926). 这和处处连续但处处不可导的函数一样，很难想象，但是理论上确实存在.</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Desvl</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://desvl.xyz/2019/08/06/beautiful-fourier-002/">https://desvl.xyz/2019/08/06/beautiful-fourier-002/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Interest comes from thinking.</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2019/08/19/l-hopital-proof/">洛必达法则的几种不同的证明</a>
+            
+            
+            <a class="next" rel="next" href="/2019/08/05/beautiful-fourier-001/">优美的Fourier级数（一）: 绝对不只是求表达式的问题</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Desvl | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

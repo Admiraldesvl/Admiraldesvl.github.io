@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Desvl">
+
+
+
+
+
+<title>压缩定理和其应用 | Desvl&#39;s blog</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+            <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+        
+    
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Desvl&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Desvl&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">压缩定理和其应用</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Desvl</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">August 4, 2019&nbsp;&nbsp;00:00:00</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="什么是压缩"><a href="#什么是压缩" class="headerlink" title="什么是压缩"></a>什么是压缩</h2><p>压缩(contraction)的准确描述是这样的：</p>
+<blockquote>
+<p>取完备度量空间$X$, 度量$d$, 函数$\varphi$是$X$到本身的映射, 且满足</p>
+<p>\[<br>        d(\varphi(x),\varphi(y)) \leq cd(x,y).<br>\]<br> 其中$x,y\in{X}$, $c&lt;1$. 那么$\varphi$就是一个从$X$到本身的压缩.</p>
+</blockquote>
+<p>一个最简单的例子是, $y=\frac{x}{2}$. 这是一个“平缓”的函数. 平缓的程度是怎样呢? 斜率小于1.</p>
+<p>而压缩定理指出, 对于这个函数, 有且仅有一个$x$使得$\varphi(x)=x$. 例如上面的例子, 只有$0=0$这一个点. 接下来要给出证明.</p>
+<h2 id="压缩的证明"><a href="#压缩的证明" class="headerlink" title="压缩的证明"></a>压缩的证明</h2><p>任取$x_0\in{X}$, 按照如下方法定义数列$x_n$:</p>
+<p>\[<br>    x_{n+1}=\varphi(x_n)<br>\]</p>
+<p>从而会有</p>
+<p>\[d(x_2,x_1)=d(\varphi(x_1),\varphi(x_0))\leq cd(x_1,x_0)\] (如果你不理解这里的$d(x,y)$,<br>可以简单地看成$|x-y|$) 推广下去, 就有</p>
+<p>\[d(x_{n+1},x_n)\leq c^nd(x_1,x_0)\]</p>
+<p>对于$n&lt;m$, 就有 \begin{equation} \begin{aligned} d(x_n,x_m)\leq\sum_{i=n+1}^m<br>d(x_i,x_{i+1})\leq(c^n+c^{n+1}+\cdots+c^{m-1})d(x_1,x_0)\leq\frac{c^n}{1-c}d(x_1,x_0)<br>\end{aligned} \end{equation} 这说明, $x_n$是一个Cauchy数列, 又考虑到$X$是完备空间, 因此$x_n$收敛.<br>设$x_n$的极限为$x$. 由压缩的定义可知, $\varphi$为一致连续的函数, 从而有<br>\[<br>\varphi(x)=\lim\limits_{n\to\infty}\varphi(x_n)=\lim\limits_{n\to\infty}x_{n+1}=x<br>\]<br>至于唯一性的证明, 可设$\varphi(x)=x$, $\varphi(y)=y$.<br>从而有$d(\varphi(x),\varphi(y))=d(x,y)\leq cd(x,y)$ 这只有在$d(x,y)=0$时成立. 唯一性得到证明.</p>
+<h2 id="简单应用"><a href="#简单应用" class="headerlink" title="简单应用"></a>简单应用</h2><p>下面是一道数学专业研究生入学考试题. 在这个题中可以发现, 在指定的条件下, 利用“压缩”这个工具, 问题的解决变得非常简单.</p>
+<blockquote>
+<p>已知$0\leq a\leq 1, b \geq2$, 有数列${x_n}$ 满足$x_0=0$,<br>且有递推关系\[x_{n+1}=x_n-\frac{1}{b}(x_n^2-a),\]求证此数列收敛, 并求出极限.</p>
+</blockquote>
+<p>在这里设$\phi(x)=x-\frac{1}{b}(x^2-a)$, 那么有$x_{n+1}=\varphi(x_n)$.<br>如果能证出$\varphi$为一个压缩, 极限的问题就迎刃而解了.</p>
+<p><strong>证明</strong></p>
+<p>设$\varphi(x)=x-\frac{1}{b}(x^2-a)$. 则$x_{n+1}=\varphi(x_n)$.<br>在这里$x_1=\varphi(x_0)=\frac{a}{b}$. 现证明对所有$n&gt;0$ 有$\frac{a}{b}\leq x_n\leq 1$,<br>对$n$进行归纳.</p>
+<p>$n=1$时, 不等式已成立.</p>
+<p>假设$n=k$时成立, 则$n=k+1$时, 有 \[ x_{k+1}=\frac{a}{b}-\frac{bx_k-x_k^2}{b} \]<br>考虑到$y=bx-x^2$在$[\frac{a}{b},\frac{b}{2}]$单调递减, 而$\frac{b}{2}\geq1$, 故有 \[<br>x_{n+1}\leq\frac{a}{b} +\frac{b-1}{b}\leq 1 \] 而$y(\frac{a}{b})\geq y(0)=0$,<br>故$x_{n+1}\geq\frac{a}{b}$.</p>
+<p>因此不等式对所有$n&gt;0$成立.</p>
+<p>利用这个不等式, 得到 \[ |f(x)-f(y)|=|x-y||1-\frac{x+y}{b}|\leq|x-y||1-\frac{2a}{b^2}|,<br>\quad \frac{a}{b}\leq x,y \leq 1 \]</p>
+<p>$a=0$时, 得到$x_1=x_2=\cdots=0$, 故极限存在且为$0$.</p>
+<p>$a\neq 0$时, 令$c=|1-\frac{2a}{b^2}|$, 则始终有$c&lt;1$. 此时就是上文中所提到的压缩. 收敛的证明略去.</p>
+<p>设$\lim\limits_{n\to\infty}x_n=x$, 则$x=\varphi(x)$. 解得$x=\sqrt{a}$.<br>这在$a=0$时也成立.</p>
+<p>综上, $\lim\limits_{n\to\infty}x_n$存在, 且值为$\sqrt{a}$.</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>压缩映射在处理迭代生成的数列时很有效, 而且可以推广到多维甚至无穷维中. 但是要注意, 这个映射实质上是在处理局部性质, 大范围的非线性的问题则不能处理.<br>处理迭代数列是它在离散形式下的基本应用, 但压缩在连续形式下也有很多重要的应用, 例如在$\mathbb{R}^n$中证明隐函数定理</p>
+<h2 id="关于度量"><a href="#关于度量" class="headerlink" title="关于度量"></a>关于度量</h2><p>度量函数$d(x,y)$即表示两点之间的距离, 满足以下三个条件：</p>
+<ul>
+<li><p>$d(x,y)\geq 0$, 等号成立当且仅当$x=y$.</p>
+</li>
+<li><p>$d(x,y)=d(y,x)$.</p>
+</li>
+<li><p>$d(x,y) + d(y,z) \leq d(x,z)$ (三角形不等式)</p>
+</li>
+</ul>
+<p>而度量空间即一个有度量函数的集合. 度量空间的完备性指, 这个空间的任意Cauchy列都收敛. 一个简单的例子是, 全体实数$\mathbb{R}$, 度量函数$d(x,y)=|x-y|$. </p>
+<p>而$\mathbb{Q}$在这个相同的度量下是发散的. 例如Cauchy数列${\left(1+\frac{1}{n}\right)^n}$这个数列收敛到$e$, 而$e\notin{\mathbb{Q}}$.</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Desvl</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://desvl.xyz/2019/08/04/contraction-application/">https://desvl.xyz/2019/08/04/contraction-application/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Interest comes from thinking.</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2019/08/05/beautiful-fourier-001/">优美的Fourier级数（一）: 绝对不只是求表达式的问题</a>
+            
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Desvl | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
