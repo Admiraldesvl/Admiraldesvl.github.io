@@ -12,7 +12,7 @@
 
 
 
-<title>洛必达法则的几种不同的证明 | Desvl&#39;s blog</title>
+<title>调和级数发散的若干证明 | Desvl&#39;s blog</title>
 
 
 
@@ -200,7 +200,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">洛必达法则的几种不同的证明</h1>
+            <h1 class="post-title">调和级数发散的若干证明</h1>
             
                 <div class="post-meta">
                     
@@ -209,7 +209,7 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">August 19, 2019&nbsp;&nbsp;00:00:00</a>
+                        Date: <a href="#">August 24, 2019&nbsp;&nbsp;00:00:00</a>
                         </span>
                     
                     
@@ -218,39 +218,40 @@
         </header>
 
         <div class="post-content">
-            <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>洛必达法则我想甚至不少高中生甚至初中生都听说过，知道怎么进行简单的应用。简单点说，处理$\frac{0}{0}$的函数时，对上下进行求导，可能会很大程度上简化计算。但是洛必达法则为什么能奏效? 能不能用严格的数理语言进行论证? 这是这篇文章需要解决的.</p>
-<h3 id="洛必达法则的完整论述"><a href="#洛必达法则的完整论述" class="headerlink" title="洛必达法则的完整论述"></a>洛必达法则的完整论述</h3><blockquote>
-<p>假设有定义在$(a,b)$可导的实函数$f$和$g$，且$g’(x)\neq0$对所有$x\in(a,b)$恒成立，其中$a$和$b$满足 \[ -\infty\leq{a}&lt;{b}\leq+\infty.\]<br>若有\[\lim_{x\to a}\frac{f’(x)}{g’(x)}=A,\]且如果\[\lim_{x\to a}f(x)=\lim_{x\to a}g(x)=0,\]或\[\lim_{x\to a}g(x)=+\infty,\]那么\[\lim_{x\to a}\frac{f(x)}{g(x)}=A\]类似的结论对$x\to{b}$或者$g(x)\to-\infty$也成立。</p>
+            <h3 id="命题的提出"><a href="#命题的提出" class="headerlink" title="命题的提出"></a>命题的提出</h3><blockquote>
+<p>设$S_n=1+\frac{1}{2}+\frac{1}{3}+\cdots+\frac{1}{n}$, 求证${S_n}$发散</p>
 </blockquote>
-<h3 id="证明1-线性近似"><a href="#证明1-线性近似" class="headerlink" title="证明1:线性近似"></a>证明1:线性近似</h3><h4 id="波努利最开始的”证明”"><a href="#波努利最开始的”证明”" class="headerlink" title="波努利最开始的”证明”"></a>波努利最开始的”证明”</h4><p>洛必达法则首次出现于1696年洛必达的 <em>Analyse des inJiniment petits pour l’intelligence des lignes courbes(Analysis of the Infinitely Small for the Understanding of Curves</em> 一书中。这本书当然以”洛必达法则”闻名于世。证明是这样完成的: \[ \frac{f(a+dx)}{g(a+dx)}=\frac{f(a)+f’(a)dx}{g(a)+g’(a)dx}=\frac{f’(a)dx}{g’(a)dx}=\frac{f’(a)}{g’(a)} \]</p>
-<p>这个证明很好理解，线性近似展开，再考虑到$f(a)=g(a)=0$就得到结果。但是这个做法肯定是不合适的，$dx$在这里非常模糊，也不方便表达$x\to\infty$的情况。关于历史内容可以参见 <em>The Historical Development of the Calculus</em> 一书。</p>
-<h4 id="线性近似的严格证明"><a href="#线性近似的严格证明" class="headerlink" title="线性近似的严格证明"></a>线性近似的严格证明</h4><p>首先，这里只讨论$h\to0$的情况。实际上，对于其他情况，可以作换元。例如$h\to\infty$时，可以利用$u=\frac{1}{h}$，那么又转换成了$u\to0$的情况。另外我们只讨论函数趋近于$0$的情况。因为趋近于无穷时函数的线性近似可能无法处理。例如$y=\frac{1}{x}$在$x=0$附近是没有近似的。</p>
-<p>对函数导数有 \[ f’(x) = \lim_{h\to 0} \frac{f(x+h)-f(x)}{h}, \] </p>
-<p>我们可以写成 \[ f’(x) = \frac{f(x+h)-f(x)}{h} + r(h) \]</p>
-<p>其中$\lim\limits_{h\to0}r(h)=0$，且$r(h)$为连续函数。进行代数变形(这里$r(h)$的正负进行了调整),我们的得到线性近似 \[ f(x+h)=f(x)+f’(x)h+r(h)h \] </p>
-<p>同样可以写出$g(x)$的线性近似 \[ g(x+h)=g(x)+g’(x)h+s(h)h \]</p>
-<p>那么就能得到 \[ \frac{f(a+h)}{g(a+h)}=\frac{f(a)+f’(a)h+r(h)h}{g(a)+g’(a)h+s(h)h}=\frac{f’(a)h+r(h)h}{g’(a)h+s(h)h}=\frac{f’(a)+r(h)}{g’(a)+s(h)} \]</p>
-<p>而$h\to0$时，$r(h)\to0$，$s(h)\to0$，故得到了结论。</p>
-<h3 id="证明2-中值定理"><a href="#证明2-中值定理" class="headerlink" title="证明2:中值定理"></a>证明2:中值定理</h3><p><em>这个证明中，我们会利用柯西中值定理(GMVT)对所有的情况进行完整的证明，这期间涉及到一些不等式运算技巧。证明来自W.Rudin的 Principles Of Mathematical Analysis，我会在其中加上一些额外的解释。</em></p>
-<h4 id="情况1-infty-leq-A-lt-infty"><a href="#情况1-infty-leq-A-lt-infty" class="headerlink" title="情况1: $-\infty\leq{A}&lt;+\infty$"></a>情况1: $-\infty\leq{A}&lt;+\infty$</h4><p>选取实数$\varepsilon&gt;0$和$q$使得$A&lt;A+\varepsilon&lt;q$。因为$\frac{f(x)}{g(x)}\to{A}$，必定有实数$\delta\in(0,b-a)$使得对于所有$a&lt;x&lt;a+\delta$，始终有$-\varepsilon&lt;\frac{f’(x)}{g’(x)}-A&lt;\varepsilon$。也就是说 \[\frac{f’(x)}{g’(x)}&lt;A+\varepsilon.\]</p>
-<p>对$a&lt;x&lt;y&lt;c$，由GMVT可知，存在$t\in(x,y)$使得不等式(A)成立: \[ \frac{f(x)-f(y)}{g(x)-g(y)}=\frac{f’(t)}{g’(t)}&lt;A+\varepsilon \] 最后一个不等式成立是因为$t\in(x,y)\subset(a,b)$，而$(a,b)$中这个不等式成立。</p>
-<h5 id="情况1-1-g-x-to0"><a href="#情况1-1-g-x-to0" class="headerlink" title="情况1.1: $g(x)\to0$"></a>情况1.1: $g(x)\to0$</h5><p>令$x\to{a}$，此时关于$x$和$y$的不等式会有$\frac{f(y)}{g(y)}\leq{A+\varepsilon}&lt;q\quad(a&lt;y&lt;a+\delta)$。</p>
-<p>也就是说，对任意实数$\varepsilon&gt;0$，有$\delta&gt;0$，使得$a&lt;y&lt;a+\delta$时，满足不等式(B): \[ \frac{f(y)}{g(y)}\leq\varepsilon+A&lt;q \] </p>
-<p>(注意:这个地方并没有用$\varepsilon-\delta$证明了这个情况下的收敛)</p>
-<h5 id="情况1-2-g-x-to-infty"><a href="#情况1-2-g-x-to-infty" class="headerlink" title="情况1.2: $g(x)\to+\infty$"></a>情况1.2: $g(x)\to+\infty$</h5><p>记$r=A+\varepsilon$。固定不等式(A)中的$y$，因为$g(x)\to+\infty$，能找到一个值$c\in(a,b)$使得$g(x)&gt;g(y)$和$g(x)&gt;0$对所有$x\in(a,c)$同时成立。那么不等式(A)两边同时乘以$[g(x)-g(y)]/g(x)$，能得到不等式(C) \[ \frac{f(x)}{g(x)}&lt;r-r\frac{g(y)}{g(x)}+\frac{f(y)}{g(x)}\quad(a&lt;x&lt;c) \]</p>
-<p>令$x\to{a}$，因为$g(x)\to+\infty$，有点$c_1\in(a,c)$使得不等式(D)成立: \[ \frac{f(x)}{g(x)}&lt;q\quad(a&lt;x&lt;c_1) \]</p>
-<h5 id="情况1-1和1-2的整合"><a href="#情况1-1和1-2的整合" class="headerlink" title="情况1.1和1.2的整合"></a>情况1.1和1.2的整合</h5><p>不等式(B)和(D)都只说明，存在$c\in(a,b)$使得对于所有$x\in(a,c)$，满足$\frac{f(x)}{g(x)}&lt;q$.但是$\frac{f(x)}{g(x)}$与$A$的关系并不知道。</p>
-<p>这里要注意，不等式(B)和(D)都只在$q&gt;A$时成立，也就是说,如果$q=A$，那么有$\frac{f(x)}{g(x)}\geq{q}=A$。也就是说，<strong>对于所有$q&gt;A$，都存在$c\in(a,b)$，使得对于所有$x\in(a,c)$，满足 $A\leq\frac{f(x)}{g(x)}&lt;q$，若令$q\to{A}$，就能得到$\frac{f(x)}{g(x)}\to{A}$。</strong></p>
-<h4 id="情况2-infty-lt-A-leq-infty"><a href="#情况2-infty-lt-A-leq-infty" class="headerlink" title="情况2: $-\infty&lt;{A}\leq+\infty$"></a>情况2: $-\infty&lt;{A}\leq+\infty$</h4><p>这个情况是和情况1完全类似的。同理可证，对任意$p$，当且仅当$p&lt;A$时，总有$c’\in(a,b)$，使得对于所有$x\in(a,c’)$，满足$p&lt;\frac{f(x)}{g(x)}\leq{A}$。</p>
-<p>结合$A$的这两种情况，原命题得证。</p>
-<h4 id="证明中几个小问题"><a href="#证明中几个小问题" class="headerlink" title="证明中几个小问题"></a>证明中几个小问题</h4><blockquote>
-<p>不等式(A)第一项的分母为什么一定有意义?</p>
+<p>这个数列的发散是很难猜出来的, 因为它的增长速度很慢, 会给人以收敛的错觉. 如果用计算机手动运算, 会发现直到$12367$项, 这个数列的值才超过$10$. 但缓慢的增长速度不能说明敛散性. 接下来会给出一系列精彩的证明, 从14~17世纪纯粹的分式不等式到近现代涉及到微积分等方法.</p>
+<h3 id="遥远的中世纪-Nicole-Oresme-1350-1360"><a href="#遥远的中世纪-Nicole-Oresme-1350-1360" class="headerlink" title="遥远的中世纪: Nicole Oresme(1350?-1360?)"></a>遥远的中世纪: Nicole Oresme(1350?-1360?)</h3><p>这个证明方式是历史上最早的证明, 涉及到简单的不等式放缩和数学归纳.</p>
+<p>考虑到不等式<br>\[<br>    \underbrace{\frac{1}{n+1}+\frac{1}{n+2}+\cdots+\frac{1}{2n}}_{\text{$n$项}}&gt;n\cdot\frac{1}{2n}=\frac{1}{2}<br>\] </p>
+<p>我们分析${S_{2^n}}$这个数列, 发现<br>\[<br>    S_1=1+0\cdot\frac{1}{2}<br>\]<br>\[<br>    S_2=1+1\cdot\frac{1}{2}<br>\]<br>\[<br>    S_4=1+\frac{1}{2}+\frac{1}{2+1}+\frac{1}{2\cdot{2}}&gt;1+\frac{1}{2}+\frac{1}{2}=1+2\cdot\frac{1}{2}<br>\]<br>\[<br>    S_8=S_4+\frac{1}{4+1}+\cdots+\frac{1}{4\cdot{2}}&gt;1+3\cdot\frac{1}{2}<br>\] </p>
+<p>递推下去, 我们能得到<br>\[<br>    S_{2^n}\geq 1+n\cdot\frac{1}{2}<br>\] </p>
+<p>这说明$S_n$有一个子列无界, 故原数列发散. 证毕.</p>
+<p>其实不用局限在$2^n$这一部分, 用同样的办法, 我们能得到<br>\[<br>    S_{M^n}\geq 1+n\cdot\frac{M-1}{M}<br>\]</p>
+<h3 id="Pietro-Mengoli-17世纪中叶"><a href="#Pietro-Mengoli-17世纪中叶" class="headerlink" title="Pietro Mengoli(17世纪中叶)"></a>Pietro Mengoli(17世纪中叶)</h3><p>考虑不等式<br>\[<br>    \frac{1}{n-1}+\frac{1}{n}+\frac{1}{n+1}=\frac{1}{n}+\frac{2n}{n^2-1}&gt;\frac{1}{n}+\frac{2n}{n^2}=\frac{3}{n}<br>\]</p>
+<p>假设原级数收敛到$S$, 那么有<br>\[<br>    \begin{aligned}<br>        S&amp;=1+\left(\frac{1}{2}+\frac{1}{3}+\frac{1}{4}\right)+\left(\frac{1}{5}+\frac{1}{6}+\frac{1}{7}\right)+\cdots\\<br>         &amp;&gt;1+\frac{3}{3}+\frac{3}{6}+\frac{3}{9}+\cdots\\<br>         &amp;=1+S \end{aligned}<br>\] </p>
+<p>而$S&gt;1+S$无解, 这说明极限不存在. 证毕.</p>
+<h3 id="Bernoulli兄弟-1689"><a href="#Bernoulli兄弟-1689" class="headerlink" title="Bernoulli兄弟(1689)"></a>Bernoulli兄弟(1689)</h3><p>Bernoulli兄弟的证明发布于 <em>Tractatus de se-riebus infinitis</em> 一书中.</p>
+<h4 id="Jacob-Bernoulli"><a href="#Jacob-Bernoulli" class="headerlink" title="Jacob Bernoulli"></a>Jacob Bernoulli</h4><p>对任意正整数有<br>\[<br>    \underbrace{\frac{1}{n+1}+\frac{1}{n+2}+\cdots+\frac{1}{n^2}}_\text{$n^2-n$项}&gt;\frac{n^2-n}{n^2}=1-\frac{1}{n}<br>\]</p>
+<p>也就是说<br>\[<br>    \frac{1}{n}+\frac{1}{n+1}+\cdots+\frac{1}{n^2}&gt;1<br>\]</p>
+<p>因此有<br>\[<br>    \begin{aligned}<br>        \sum_{n=1}^{\infty}\frac{1}{n}&amp;=1+\left(\frac{1}{2}+\frac{1}{3}+\frac{1}{4}\right)+\left(\frac{1}{5}+\cdots+\frac{1}{25}\right)+\cdots\\<br>        &amp;&gt;1+1+1+\cdots<br>    \end{aligned}<br>\]</p>
+<p>原级数发散. 证毕.</p>
+<h4 id="Johann-Bernoulli"><a href="#Johann-Bernoulli" class="headerlink" title="Johann Bernoulli"></a>Johann Bernoulli</h4><p>考虑级数<br>\[<br>    \sum_{n=k}^{\infty}\left(\frac{1}{n}-\frac{1}{n+1}\right)=\sum_{n=k}^{\infty}\frac{1}{n(n+1)}=\frac{1}{k}<br>\]</p>
+<p>同样, 我们假设级数收敛于$S$<br>\[<br>    \begin{aligned}<br>    S&amp;=1+\frac{1}{2}+\frac{1}{3}+\frac{1}{4}+\frac{1}{5}+\cdots\\<br>    &amp;=1+\frac{1}{2}+\frac{2}{6}+\frac{3}{12}+\frac{4}{20}+\frac{5}{30}+\cdots\\<br>    &amp;=1+\left(\frac{1}{2}+\frac{1}{6}+\frac{1}{12}+\cdots\right)+\left(\frac{1}{6}+\frac{1}{12}+\frac{1}{20}+\cdots\right)+\cdots\\<br>    &amp;=1+1+\frac{1}{2}+\frac{1}{3}+\cdots\\<br>    &amp;=1+S \end{aligned}<br>\]<br>而$S=1+S$无解, 这说明极限不存在.</p>
+<h3 id="三种Cauchy判别法"><a href="#三种Cauchy判别法" class="headerlink" title="三种Cauchy判别法"></a>三种Cauchy判别法</h3><p>Cauchy的三种判别法是比较常见且应用非常广泛的, 在微积分课程中也是常客, 现将三种方法列在下面</p>
+<h4 id="Cauchy积分判别法"><a href="#Cauchy积分判别法" class="headerlink" title="Cauchy积分判别法"></a>Cauchy积分判别法</h4><blockquote>
+<p>设$f$在$[1,+\infty)$单调减少, 则级数$\sum_{n=1}^{\infty}f(n)$与广义积分$\int_{1}^{\infty}f(x)dx$同敛散</p>
 </blockquote>
-<p>假设它无意义。如果有$g(x)=g(y)$，那么有${x}&lt;t&lt;y$使得$g’(t)=0$，此时不满足 \[ f’(t)/g’(t)&lt;A+\varepsilon \]</p>
-<blockquote>
-<p>不等式(B)中为什么变成小于等于?</p>
+<p>代入$f(x)=\frac{1}{x}$即可.</p>
+<h4 id="Cauchy凝聚判别法"><a href="#Cauchy凝聚判别法" class="headerlink" title="Cauchy凝聚判别法"></a>Cauchy凝聚判别法</h4><blockquote>
+<p>设${a_n}$是单调减少的整数列, 则正项级数$\sum_{n=1}^{\infty}a_n$收敛的充分必要条件是凝聚项级数$\sum_{n=1}^{\infty}2^na_{2^n}$收敛</p>
 </blockquote>
-<p>每次改变$x$，$t$也发生改变，记为$t(x)$，此时可能有$\lim\limits_{x\to{a}}\frac{f’(t(x))}{g’(t(x))}=r$。</p>
+<p>这个判别法可以很简单地对$a_n=\frac{1}{n^p}$对应级数的敛散性进行讨论.</p>
+<h4 id="Cauchy收敛准则"><a href="#Cauchy收敛准则" class="headerlink" title="Cauchy收敛准则"></a>Cauchy收敛准则</h4><p>可以发现, $S_{2n}-S_n=\frac{1}{n}+\frac{1}{n+1}+\cdots+\frac{1}{2n}&gt;\frac{n}{2n}=\frac{1}{2}$.</p>
+<p>这说明, 存在$\varepsilon=\frac{1}{2}$, 总有$|S_{2n}-S_n|&gt;\varepsilon$. 这说明了这个级数的发散.</p>
+<h3 id="Honsberger-1976"><a href="#Honsberger-1976" class="headerlink" title="Honsberger(1976)"></a>Honsberger(1976)</h3><p>这个证明是$e^{x}\geq{1+x}$的巧用.</p>
+<p>考虑$e^{S_n}$这个数列, 有</p>
+<p>\[<br>    \begin{aligned}<br>        e^{S_n}&amp;=\text{exp}\left(1+\frac{1}{2}+\frac{1}{3}+\frac{1}{4}+\cdots+\frac{1}{n}\right)\\<br>        &amp;=e^{1}e^{\frac{1}{2}}e^{\frac{1}{3}}e^{\frac{1}{4}}\cdots e^{\frac{1}{n}}\\<br>        &amp;&gt;\left(1+1\right)\left(1+\frac{1}{2}\right)\cdots\left(1+\frac{1}{n}\right)\\<br>        &amp;=n+1 \end{aligned}<br>\]<br>$e^{S_n}$的发散便说明了$S_n$的发散.</p>
 
         </div>
 
@@ -265,7 +266,7 @@
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="https://desvl.xyz/2019/08/19/l-hopital-proof/">https://desvl.xyz/2019/08/19/l-hopital-proof/</a></span>
+                        <span><a href="https://desvl.xyz/2019/08/24/harmonic-series-divergence/">https://desvl.xyz/2019/08/24/harmonic-series-divergence/</a></span>
                     </p>
                 
                 
@@ -292,10 +293,10 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2019/08/24/harmonic-series-divergence/">调和级数发散的若干证明</a>
+                <a class="prev" rel="prev" href="/2019/09/07/sup-inf/">高等数学入门：上下确界及其极限形式</a>
             
             
-            <a class="next" rel="next" href="/2019/08/06/beautiful-fourier-002/">优美的Fourier级数（二）: 有界差分下的收敛(Jordan判别法)</a>
+            <a class="next" rel="next" href="/2019/08/19/l-hopital-proof/">洛必达法则的几种不同的证明</a>
             
         </section>
     </article>

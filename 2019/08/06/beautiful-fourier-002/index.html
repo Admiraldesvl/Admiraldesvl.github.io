@@ -220,8 +220,9 @@
         <div class="post-content">
             <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>如果你和Fourier级数打交道，那么在处理间断函数，特别是锯齿状函数的时候，有没有注意过间断处的形状？它为什么会处在中间位置？什么时候会出现这种情况？这就是接下来要解决的问题. 这篇文章中, 会涉及到各种与三角函数、定积分、导函数有关的基本重要技巧. 还是那句话，Fourier级数绝对不仅仅是处理一系列三角函数. 还要注意，这里我们探讨的函数应该是定义在$[-\pi,\pi]$的实函数. 这篇文章中实际要做的事情是, 利用定积分的各种性质, 进行无穷小量的分析.</p>
 <h2 id="Jordan判别法"><a href="#Jordan判别法" class="headerlink" title="Jordan判别法"></a>Jordan判别法</h2><blockquote>
-<p>如果$f$是有界差分，那么<script type="math/tex">s_N(x)\to\frac{f(x^+)+f(x^-)}{2},</script> 其中$f(x^+)=\lim\limits_{h\to0^+}f(x+h)$, $f(x^-)=\lim\limits_{h\to0^+}f(x-h)$</p>
+<p>如果$f$是有界差分，那么<br>\[<br>    s_N(x)\to\frac{f(x^+)+f(x^-)}{2}<br>\]</p>
 </blockquote>
+<p>其中$f(x^+)=\lim\limits_{h\to0^+}f(x+h)$, $f(x^-)=\lim\limits_{h\to0^+}f(x-h)$</p>
 <h3 id="理论准备1-有界差分"><a href="#理论准备1-有界差分" class="headerlink" title="理论准备1: 有界差分"></a>理论准备1: 有界差分</h3><p>有界差分可以看成推广的“弧长”. 在$[a,b]$上，$f(x)$的总差分的定义是这样：<br>\[<br>    T_f(x):=\sup\{\sum_{i=1}^n|f(x_i)-f(x_{i-1})||a=x_0&lt;x_1&lt;\cdots&lt;x_n=x\}<br>\]<br>对于连续函数来说，这就是$f(x)$在$[a,x]$的弧长. 而如果$f(x)$是$[a,b]$上的有界差分，那么只需要满足$T_f(b)&lt;\infty$.</p>
 <p>注意到, $f(x)$还可以写成</p>
 <p>\[<br>    f(x)=\frac{1}{2}[T_f(x)+f(x)]-\frac{1}{2}[T_f(x)-f(x)]<br>\]</p>
@@ -257,7 +258,7 @@
                 
                     <p class="copyright-item">
                         <span>Author:</span>
-                        <span>Desvl</span>
+                        <span>Desvl (Contact me via admiraldesvl@gmail.com) </span>
                     </p>
                 
                 
@@ -271,12 +272,6 @@
                         <span>License:</span>
                         <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC-BY-NC-4.0</a> LICENSE</span>
                     </p>
-                
-                
-                     <p class="copyright-item">
-                         <span>Slogan:</span>
-                         <span>Interest comes from thinking.</span>
-                     </p>
                 
 
             </section>
@@ -302,18 +297,33 @@
             <a class="next" rel="next" href="/2019/08/05/beautiful-fourier-001/">优美的Fourier级数（一）: 绝对不只是求表达式的问题</a>
             
         </section>
-
-
     </article>
 </div>
 
+
         </div>
-        <footer id="footer" class="footer">
+        
+<footer id="footer" class="footer">
     <div class="copyright">
         <span>© Desvl | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
     </div>
 </footer>
 
     </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>
