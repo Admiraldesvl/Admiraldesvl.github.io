@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://desvl.xyz/"/>
-  <updated>2020-02-26T04:22:23.943Z</updated>
+  <updated>2020-03-14T09:17:50.602Z</updated>
   <id>https://desvl.xyz/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Topological properties of the zeros of a holomorphic function</title>
+    <link href="https://desvl.xyz/2020/03/14/topological-property-of-the-zeros-of-a-holomorphic-function/"/>
+    <id>https://desvl.xyz/2020/03/14/topological-property-of-the-zeros-of-a-holomorphic-function/</id>
+    <published>2020-03-13T16:00:00.000Z</published>
+    <updated>2020-03-14T09:17:50.602Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="What’s-going-on"><a href="#What’s-going-on" class="headerlink" title="What’s going on"></a>What’s going on</h3><p>If for every $z_0 \in \Omega$ where $\Omega$ is a plane open set, the limit<br>\[<br>    \lim_{z \to z_0}\frac{f(z)-f(z_0)}{z-z_0}<br>\]<br>exists, we say that $f$ is holomorphic (a.k.a. analytic) in $\Omega$. If $f$ is holomorphic in the whole plane, it’s called <strong>entire</strong>. The class of all holomorphic functions (denoted by $H(\Omega)$) has many interesting properties. For example it does form a ring.</p><p>But what happens if we talk about the points where $f$ is equal to $0$? Is it possible to find an entire function $g$ such that $g(z)=0$ if and only if $z$ is on the unit circle? The topological property we will discuss in this post answers this question negatively.</p><h3 id="Zeros"><a href="#Zeros" class="headerlink" title="Zeros"></a>Zeros</h3><blockquote><p>Suppose $\Omega$ is a region, the set<br>\[<br>    Z(f)=\{z_0\in\Omega:f(z_0)=0\}<br>\]<br>is a at most countable set without limit point, as long as $f$ is not identically equal to $0$ on $\Omega$. </p></blockquote><p>Trivially, if $f(\Omega)=\{0\}$, we have $Z(f)=\Omega$. The set of unit circle is not at most countable and every point is a limit point. Hence if an entire function is equal to $0$ on the unit circle, then the function equals to $0$ on the whole plane.</p><p>Note: the connectivity of $\Omega$ is important. For example, for two disjoint open sets $\Omega_0$ and $\Omega_1$, define $f(z)=0$ on $\Omega_0$ and $f(z)=1$ on $\Omega_1$, then everything fails.</p><h3 id="A-simple-application-Feat-Baire-Category-Theorem"><a href="#A-simple-application-Feat-Baire-Category-Theorem" class="headerlink" title="A simple application (Feat. Baire Category Theorem)"></a>A simple application (Feat. Baire Category Theorem)</h3><p>Before establishing the proof, let’s see what we can do using this result.</p><blockquote><p>Suppose that $f$ is an entire function, and that in every power series<br>\[<br>    f(z)=\sum c_n(z-a)^n<br>\]<br>has at leat one coefficient is $0$, then $f$ is a polynomial.</p></blockquote><p>Clearly we have $n!c_n=f^{(n)}(a)$, thus for <strong>every</strong> $a \in \mathbb{C}$, we can find a postivie integer $n_0$ such that $f^{(n_0)}(a)=0$. Thus we establish the equation:<br>\[<br>    \bigcup_{n=0}^{\infty} Z(f^{(n)})=\mathbb{C}<br>\]<br>Notice the fact that $f^{(n)}$ is entire. So $Z(f^{n})$ is either an at most countable set without limit point, or simply equal to $\mathbb{C}$.  If there exists a number $N$ such that $Z(f^{N})=\mathbb{C}$, then naturally $Z(f^{n})=\mathbb{C}$ holds for all $n \geq N$. Whilst we see that $f$’s power series has finitely many nonzero coefficients, thus polynomial.</p><p>So the question is, is this $N$ always exist? Being an at most countable set without limit points , $Z(f^{(n)})$ has empty interior (nowhere dense). But according to <strong>Baire Category Theorem</strong>, $\mathbb{C}$ could not be a countable union of nowhere dense sets (of the first category if you say so). This forces the existence of $N$.</p><h3 id="Proof"><a href="#Proof" class="headerlink" title="Proof"></a>Proof</h3><p>The proof will be finished using some basic topology techniques.</p><p>Let $A$ be the set of all limit points of $Z(f)$ in $\Omega$. The continuity of $f$ shows that $A \subset Z(f)$. We’ll show that if $A \neq \varnothing$, then $Z(f)=\Omega$.</p><p>First we claim that if $a \in A$, then $a \in \bigcap_{n \geq 0}Z(f^{(n)})$. That is, $f^{(k)}(a) = 0$ for all $k \geq 0$. Suppose this fails, then there is a smallest positive integer $m$ such that $c_m \neq 0$ for the power series on the disc $D(a;r)$:<br>\[<br>    f(z)=\sum_{n=1}^{\infty}c_n(z-a)^{n}.<br>\]</p><p>Define</p><p>\[<br>    g(z)=\begin{cases}<br>        (z-a)^{-m}f(z)\quad(z\in\Omega-\{a\})<br>        c_m\quad(z=a)<br>    \end{cases}<br>\]</p><p>It’s clear that $g \in H(D(a;r))$ since we have<br>\[<br>    g(z)=\sum_{n=1}^{\infty}c_{m+n}(z-a)^{n}\quad(z\in D(a;r))<br>\]</p><p>But the continuity shows that $g(a)=0$ while $c_m \neq 0$. </p><p>Next fix a point $b \in \Omega$. Choose a curve (continuous mapping) defined $\gamma$ on $[0,1]$ such that $\gamma(0)=a$ and $\gamma(1)=b$. Let</p><p>\[<br>    \Gamma=\{t\in[0,1]:\gamma(t)\in\bigcap_{n \geq 0}Z(f^{(n)})\}<br>\]<br>By hypothesis, $0 \in \Gamma$. We shall prove that $1 \in \Gamma$. Let<br>\[<br>    s = \sup\Gamma<br>\]<br>There exists a sequence $\{t_n\}\subset\Gamma$ such that $t_n \to s$. The continuity of $f^{(k)}$ and $\gamma$ shows that<br>\[<br>    f^{(k)}(\gamma(s))=0<br>\]<br>Hence $s \in \Gamma$. Choose a disc $D(\gamma(s);\delta)\subset\Omega$. On this disc, $f$ is represented by its power series but all coefficients are $0$. It follows that $f(z)=0$ for all $z \in D(\gamma(s);\delta)$. Further, $f^{(k)}(z)=0$ for all $z \subset D(\gamma(s);\delta)$ for all $k \geq 0$. Therefore by the continuity of $\gamma$, there exists $\varepsilon&gt;0$ such that $\gamma(s-\varepsilon,s+\varepsilon)\subset D(\gamma(s);\delta)$, which implies that $(s-\varepsilon, s+\varepsilon)\cap[0,1]\subset\Gamma$. Since $s=\sup\Gamma$, we have $s=1$, therefore $1 \in \Gamma$. </p><p>So far we showed that $\Omega = \bigcap_{n \geq 0}Z(f^{(n)})$, which forces $Z(f)=\Omega$. This happens when $Z(f)$ contains limit points, which is equivalent to what we shall prove.</p><p>When $Z(f)$ contains no limit point, all points of $Z(f)$ are isolated points; hence in each compact subset of $\Omega$, there are at most finitely many points in $Z(f)$. Since $\Omega$ is $\sigma$-compact, $Z(f)$ is at most countable. $Z(f)$ is also called a discrete set in this situation.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;What’s-going-on&quot;&gt;&lt;a href=&quot;#What’s-going-on&quot; class=&quot;headerlink&quot; title=&quot;What’s going on&quot;&gt;&lt;/a&gt;What’s going on&lt;/h3&gt;&lt;p&gt;If for every $z_0
+        
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>准素分解与准素标准型</title>
