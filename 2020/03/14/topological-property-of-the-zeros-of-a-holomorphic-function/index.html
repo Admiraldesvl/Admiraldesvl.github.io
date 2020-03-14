@@ -236,11 +236,12 @@
 <p>Let $A$ be the set of all limit points of $Z(f)$ in $\Omega$. The continuity of $f$ shows that $A \subset Z(f)$. We’ll show that if $A \neq \varnothing$, then $Z(f)=\Omega$.</p>
 <p>First we claim that if $a \in A$, then $a \in \bigcap_{n \geq 0}Z(f^{(n)})$. That is, $f^{(k)}(a) = 0$ for all $k \geq 0$. Suppose this fails, then there is a smallest positive integer $m$ such that $c_m \neq 0$ for the power series on the disc $D(a;r)$:<br>\[<br>    f(z)=\sum_{n=1}^{\infty}c_n(z-a)^{n}.<br>\]</p>
 <p>Define</p>
-<p>\[<br>    g(z)=\begin{cases}<br>        (z-a)^{-m}f(z)\quad(z\in\Omega-\{a\})<br>        c_m\quad(z=a)<br>    \end{cases}<br>\]</p>
+<p>\[<br>\begin{aligned}<br>​    g(z)=\begin{cases}<br>​        (z-a)^{-m}f(z)\quad&amp;(z\in\Omega-\{a\}) \\\<br>​        c_m\quad&amp;(z=a)<br>​    \end{cases}<br>\end{aligned}<br>\]</p>
 <p>It’s clear that $g \in H(D(a;r))$ since we have<br>\[<br>    g(z)=\sum_{n=1}^{\infty}c_{m+n}(z-a)^{n}\quad(z\in D(a;r))<br>\]</p>
-<p>But the continuity shows that $g(a)=0$ while $c_m \neq 0$. </p>
+<p>But the continuity shows that $g(a)=0$ while $c_m \neq 0$.  A contradiction.</p>
 <p>Next fix a point $b \in \Omega$. Choose a curve (continuous mapping) defined $\gamma$ on $[0,1]$ such that $\gamma(0)=a$ and $\gamma(1)=b$. Let</p>
-<p>\[<br>    \Gamma=\{t\in[0,1]:\gamma(t)\in\bigcap_{n \geq 0}Z(f^{(n)})\}<br>\]<br>By hypothesis, $0 \in \Gamma$. We shall prove that $1 \in \Gamma$. Let<br>\[<br>    s = \sup\Gamma<br>\]<br>There exists a sequence $\{t_n\}\subset\Gamma$ such that $t_n \to s$. The continuity of $f^{(k)}$ and $\gamma$ shows that<br>\[<br>    f^{(k)}(\gamma(s))=0<br>\]<br>Hence $s \in \Gamma$. Choose a disc $D(\gamma(s);\delta)\subset\Omega$. On this disc, $f$ is represented by its power series but all coefficients are $0$. It follows that $f(z)=0$ for all $z \in D(\gamma(s);\delta)$. Further, $f^{(k)}(z)=0$ for all $z \subset D(\gamma(s);\delta)$ for all $k \geq 0$. Therefore by the continuity of $\gamma$, there exists $\varepsilon&gt;0$ such that $\gamma(s-\varepsilon,s+\varepsilon)\subset D(\gamma(s);\delta)$, which implies that $(s-\varepsilon, s+\varepsilon)\cap[0,1]\subset\Gamma$. Since $s=\sup\Gamma$, we have $s=1$, therefore $1 \in \Gamma$. </p>
+<p>\[<br>    \Gamma=\{t\in[0,1]:\gamma(t)\in\bigcap_{n \geq 0}Z(f^{(n)})\}<br>\]<br>By hypothesis, $0 \in \Gamma$. We shall prove that $1 \in \Gamma$. Let<br>\[<br>    s = \sup\Gamma<br>\]<br>There exists a sequence $\{t_n\}\subset\Gamma$ such that $t_n \to s$. The continuity of $f^{(k)}$ and $\gamma$ shows that<br>\[<br>    f^{(k)}(\gamma(s))=0<br>\]</p>
+<p>Hence $s \in \Gamma$. Choose a disc $D(\gamma(s);\delta)\subset\Omega$. On this disc, $f$ is represented by its power series but all coefficients are $0$. It follows that $f(z)=0$ for all $z \in D(\gamma(s);\delta)$. Further, $f^{(k)}(z)=0$ for all $z \subset D(\gamma(s);\delta)$ for all $k \geq 0$. Therefore by the continuity of $\gamma$, there exists $\varepsilon&gt;0$ such that $\gamma(s-\varepsilon,s+\varepsilon)\subset D(\gamma(s);\delta)$, which implies that $(s-\varepsilon, s+\varepsilon)\cap[0,1]\subset\Gamma$. Since $s=\sup\Gamma$, we have $s=1$, therefore $1 \in \Gamma$. </p>
 <p>So far we showed that $\Omega = \bigcap_{n \geq 0}Z(f^{(n)})$, which forces $Z(f)=\Omega$. This happens when $Z(f)$ contains limit points, which is equivalent to what we shall prove.</p>
 <p>When $Z(f)$ contains no limit point, all points of $Z(f)$ are isolated points; hence in each compact subset of $\Omega$, there are at most finitely many points in $Z(f)$. Since $\Omega$ is $\sigma$-compact, $Z(f)$ is at most countable. $Z(f)$ is also called a discrete set in this situation.</p>
 
@@ -301,5 +302,20 @@
 </footer>
 
     </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>
