@@ -143,14 +143,13 @@ template {
   display: none;
 }
 @font-face {
-  font-family: 'lanting';
-  src: url("../fonts/lanting/lanting.eot"); /* IE9 */
-  src: url("../fonts/lanting/lanting.eot?#iefix") format('embedded-opentype'), /* IE6-IE8 */ url("../fonts/lanting/lanting.woff2") format('woff2'), url("../fonts/lanting/lanting.woff") format('woff'), url("../fonts/lanting/lanting.ttf") format('truetype'); /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
-  font-weight: 300;
+  font-family: 'Baskerville';
+  src: url("../fonts/Baskerville/baskvl.ttf") format('truetype');
+  font-weight: 400;
   font-display: swap;
 }
 html {
-  font-family: 'Microsoft Jhenghei', Lantinghei SC, 'lanting', PingFang SC, Seguo UI, Microsoft Yahei, Arial;
+  font-family: Baskerville;
 }
 html::-webkit-scrollbar {
   width: 8px;
@@ -165,9 +164,9 @@ html::-webkit-scrollbar-thumb:hover {
   background-color: #ddd;
 }
 body {
-  font-size: 11pt;
+  font-size: 14pt;
   font-weight: normal;
-  line-height: 2em;
+  line-height: 1.5em;
   background-color: #fff;
   color: #161209;
   transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease, opacity 0.2s ease;
@@ -713,8 +712,8 @@ header label {
   margin: 0 !important;
 }
 .post-wrap .post-title {
-  font-size: 2em;
-  line-height: 1.5em;
+  font-size: 1.7em;
+  line-height: 1.2em;
 }
 .post-wrap .post-meta {
   color: rgba(85,85,85,0.529) !important;
@@ -1069,8 +1068,8 @@ header label {
   position: fixed;
   top: 95px;
   right: 2em;
-  width: 15rem;
-  font-size: 0.75rem;
+  width: 16rem;
+  font-size: 15px;
 }
 .post-toc .tocbot-list {
   max-height: 450px;
