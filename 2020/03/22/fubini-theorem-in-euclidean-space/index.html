@@ -16,23 +16,23 @@
 
 
 
-    <link rel="icon" href="../../../../favicon.ico">
+    <link rel="icon" href="/favicon.ico">
 
 
 
 
     <!-- stylesheets list from _config.yml -->
     
-    <link rel="stylesheet" href="../../../../css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
     
 
 
 
     <!-- scripts list from _config.yml -->
     
-    <script src="../../../../js/script.js"></script>
+    <script src="/js/script.js"></script>
     
-    <script src="../../../../js/tocbot.min.js"></script>
+    <script src="/js/tocbot.min.js"></script>
     
 
 
@@ -82,7 +82,7 @@
     
 
 
-<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="atom.xml" title="Desvl's blog" type="application/atom+xml">
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="Desvl's blog" type="application/atom+xml">
 </head>
 <body>
     <div class="wrapper">
@@ -92,9 +92,9 @@
             <div class="navbar-header header-logo"><a href="/">Desvl&#39;s Blog</a></div>
             <div class="menu navbar-right">
                 
-                    <a class="menu-item" href="../../../../archives">Posts</a>
+                    <a class="menu-item" href="/archives">Posts</a>
                 
-                    <a class="menu-item" href="../../../../about">About &amp; Link Exchange</a>
+                    <a class="menu-item" href="/about">About &amp; Link Exchange</a>
                 
                 <input id="switch_default" type="checkbox" class="switch_default">
                 <label for="switch_default" class="toggleBtn"></label>
@@ -113,9 +113,9 @@
             </div>
             <div class="menu" id="mobile-menu">
                 
-                    <a class="menu-item" href="../../../../archives">Posts</a>
+                    <a class="menu-item" href="/archives">Posts</a>
                 
-                    <a class="menu-item" href="../../../../about">About &amp; Link Exchange</a>
+                    <a class="menu-item" href="/about">About &amp; Link Exchange</a>
                 
             </div>
         </div>
@@ -337,7 +337,6 @@ g_k(y)=\int_{\mathbb{R}^m}f_k^ydx \to g(y)=\int_{\mathbb{R}^m}f^ydx\quad(k\to\in
 <h5 id="4-2-2-Finitely-many-almost-disjoint-closed-cubes"><a href="#4-2-2-Finitely-many-almost-disjoint-closed-cubes" class="headerlink" title="4.2.2 - Finitely many almost disjoint closed cubes"></a>4.2.2 - Finitely many almost disjoint closed cubes</h5><blockquote>
 <p>Suppose $E = \bigcup_{k=1}^{K}Q_k$, where $Q_k$ is closed cube, and $\text{int}(Q_i)\cap\text{int}(Q_j)=\varnothing$ for $i \neq j$, then $\chi_{E} \in \mathcal{F}$.</p>
 </blockquote>
-<p>This is a good illustration of this statement. You can treat these squares as $Q_1,\cdots,Q_4 \subset \mathbb{R}^2$, then they are ‘almost disjoint’, since their interiors has no intersection. </p>
 <p>This conclusion is obvious if one notice that</p>
 <script type="math/tex; mode=display">
 \chi_{E} = \sum_{k=1}^{K}\chi_{Q_k}.</script><p>In 4.2.1 we showed that $\chi_{Q_k} \in \mathcal{F}$. Hence $\chi_{E} \in \mathcal{F}$ according to Step 2.</p>
@@ -411,7 +410,7 @@ E= \bigcap_{k=1}^{\infty}S_k</script><p>For $S_k$’s, observe that $S_0 \supset
         <section class="post-nav">
             
             
-            <a class="next" rel="next" href="../../14/topological-property-of-the-zeros-of-a-holomorphic-function/">Topological properties of the zeros of a holomorphic function</a>
+            <a class="next" rel="next" href="/2020/03/14/topological-property-of-the-zeros-of-a-holomorphic-function/">Topological properties of the zeros of a holomorphic function</a>
             
         </section>
     </article>
@@ -427,5 +426,20 @@ E= \bigcap_{k=1}^{\infty}S_k</script><p>For $S_k$’s, observe that $S_0 \supset
 </footer>
 
     </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>
