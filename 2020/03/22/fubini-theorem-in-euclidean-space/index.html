@@ -278,8 +278,10 @@
 </blockquote>
 <p>For each $y$, $\chi_E(x,y)$ is measurable. And the integrability of $\chi_E(x,y)$ follows with</p>
 <script type="math/tex; mode=display">
-g(y)=\int_{\mathbb{R}^m}\chi_E(x,y)dx=\begin{cases}\text{vol}(Q_1)\quad y \in Q_2 \\
-0 y\notin Q_2\end{cases}</script><p>It shows that $g(y)=\text{vol}(Q_1)\chi_{Q_2}$, which is measurable and integrable as well. Further,</p>
+\begin{aligned}
+g(y)=\int_{\mathbb{R}^m}\chi_E(x,y)dx=\begin{cases}\text{vol}(Q_1)\quad &y \in Q_2 \\
+0 \quad &y\notin Q_2\end{cases}
+\end{aligned}</script><p>It shows that $g(y)=\text{vol}(Q_1)\chi_{Q_2}$, which is measurable and integrable as well. Further,</p>
 <script type="math/tex; mode=display">
 \int_{\mathbb{R}^{n}}g(y)dy=\text{vol}(Q_1)\text{vol}(Q_2)</script><p>Since we initially have $\int_{\mathbb{R}^d}\chi_Edm=\text{vol}(E)=\text{vol}(Q_1)\text{vol}(Q_2)$, we see that $\chi_E$ satisfies these three properties, hence $\chi_E \in \mathcal{F}$.</p>
 <h3 id="Step-2-mathcal-F-is-closed-under-finite-linear-combination"><a href="#Step-2-mathcal-F-is-closed-under-finite-linear-combination" class="headerlink" title="Step 2 - $\mathcal{F}$ is closed under finite linear combination"></a>Step 2 - $\mathcal{F}$ is closed under finite linear combination</h3><p>We have only judged open cubes in $\mathbb{R}^d$, which are far from Lebesgue $\sigma$-algebra. To get there, we may have to check some $G_\delta$ sets, but we can’t do that since we have no idea about limits in $\mathcal{F}$. We are also looking for some simple functions, which are linear combinations of character functions.</p>
