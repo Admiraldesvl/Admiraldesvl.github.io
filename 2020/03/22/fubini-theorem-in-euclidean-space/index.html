@@ -238,9 +238,7 @@
 \begin{aligned}
     E^y&=\{x\in\mathbb{R}^m:(x,y)\in{E}\} \\
     E_x&=\{y\in\mathbb{R}^n:(x,y)\in{E}\}
-\end{aligned}</script><p>Here is an example of a two variables function. Slices were denoted by black lines.</p>
-<p><img src="_images/slice.png" alt=""></p>
-<h3 id="But-why-‘almost-everywhere’"><a href="#But-why-‘almost-everywhere’" class="headerlink" title="But why ‘almost everywhere’?"></a>But why ‘almost everywhere’?</h3><p>Unfortunately, even if we assume that $f$ is measurable on $\mathbb{R}^d$, it can be shown that $f^y$ is not necessarily measurable for each $y$. It’s easy to construct a non-measurable set on $\mathbb{R}$ (x-axis), namely $A$. Then $A$ has Lebesgue measure $0$ in $\mathbb{R} \times \mathbb{R}$. But $E^y$ is not measurable for $y=0$. Nevertheless, the consideration of ‘almost everywhere’ is able to save us from this.</p>
+\end{aligned}</script><h3 id="But-why-‘almost-everywhere’"><a href="#But-why-‘almost-everywhere’" class="headerlink" title="But why ‘almost everywhere’?"></a>But why ‘almost everywhere’?</h3><p>Unfortunately, even if we assume that $f$ is measurable on $\mathbb{R}^d$, it can be shown that $f^y$ is not necessarily measurable for each $y$. It’s easy to construct a non-measurable set on $\mathbb{R}$ (x-axis), namely $A$. Then $A$ has Lebesgue measure $0$ in $\mathbb{R} \times \mathbb{R}$. But $E^y$ is not measurable for $y=0$. Nevertheless, the consideration of ‘almost everywhere’ is able to save us from this.</p>
 <h2 id="Fubini’s-Theorem"><a href="#Fubini’s-Theorem" class="headerlink" title="Fubini’s Theorem"></a>Fubini’s Theorem</h2><blockquote>
 <p>Suppose $f(x,y)$ is integrable on $\mathbb{R}^m \times \mathbb{R}^n$. Then for almost every $y \in \mathbb{R}^n$, we have</p>
 <ol>
@@ -339,7 +337,6 @@ g_k(y)=\int_{\mathbb{R}^m}f_k^ydx \to g(y)=\int_{\mathbb{R}^m}f^ydx\quad(k\to\in
 <h5 id="4-2-2-Finitely-many-almost-disjoint-closed-cubes"><a href="#4-2-2-Finitely-many-almost-disjoint-closed-cubes" class="headerlink" title="4.2.2 - Finitely many almost disjoint closed cubes"></a>4.2.2 - Finitely many almost disjoint closed cubes</h5><blockquote>
 <p>Suppose $E = \bigcup_{k=1}^{K}Q_k$, where $Q_k$ is closed cube, and $\text{int}(Q_i)\cap\text{int}(Q_j)=\varnothing$ for $i \neq j$, then $\chi_{E} \in \mathcal{F}$.</p>
 </blockquote>
-<p><img src="_images/almost-disjoint.png" alt=""></p>
 <p>This is a good illustration of this statement. You can treat these squares as $Q_1,\cdots,Q_4 \subset \mathbb{R}^2$, then they are ‘almost disjoint’, since their interiors has no intersection. </p>
 <p>This conclusion is obvious if one notice that</p>
 <script type="math/tex; mode=display">
@@ -430,20 +427,5 @@ E= \bigcap_{k=1}^{\infty}S_k</script><p>For $S_k$’s, observe that $S_0 \supset
 </footer>
 
     </div>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>
