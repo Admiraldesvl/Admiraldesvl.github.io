@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Desvl">
+
+
+
+
+
+<title>Counterexamples of Fubini&#39;s theorem | Desvl&#39;s blog</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+            <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+        
+    
+
+
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="Desvl's blog" type="application/atom+xml">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Desvl&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/about">About &amp; Link Exchange</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Desvl&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/about">About &amp; Link Exchange</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Counterexamples of Fubini&#39;s theorem</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Desvl</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">March 23, 2020&nbsp;&nbsp;12:13:44</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="Hypotheses-in-Fubini’s-theorem-cannot-be-dispensed-with"><a href="#Hypotheses-in-Fubini’s-theorem-cannot-be-dispensed-with" class="headerlink" title="Hypotheses in Fubini’s theorem cannot be dispensed with"></a>Hypotheses in Fubini’s theorem cannot be dispensed with</h2><p>In <a href="2020/03/22/fubini-theorem-in-euclidean-space/">this post</a> we proved Fubini’s theorem in the sense of Lebesgue measure, which makes it easier to evaluate multi variable integral. But these two classic counterexamples in this post prevent you from using Fubini’s theorem without enough consideration. </p>
+<h2 id="Counterexamples"><a href="#Counterexamples" class="headerlink" title="Counterexamples"></a>Counterexamples</h2><p>So we said $f(x,y)$ has to be integrable. What if $f$ is not? First let’s see this function.</p>
+<script type="math/tex; mode=display">
+f(x,y)=\frac{y^2-x^2}{(x^2+y^2)^2}=\frac{\partial^2}{\partial x \partial y}\arctan(\frac{y}{x})</script><p>This function is not Lebesgue integrable on $[0,1] \times [0,1]$, since we have</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+    \iint\limits_{D} |f(x,y)|dxdy 
+    & = \int_\varepsilon^1 \int_0^{\frac{\pi}{2}}\frac{r^2|\cos{2\theta}|}{r^4}rd\theta{dr} \\
+    &=\int_\varepsilon^1\frac{1}{r}dr \\
+    &\to \infty \quad (\varepsilon \to 0)
+\end{aligned}</script><p>where $D=\{(x,y):\varepsilon^2 \leq x^2+y^2 \leq 1, x \geq 0, y \geq 0\}$. Since $D \subset [0,1] \times [0,1]$, we see the integral of $|f(x,y)|$ is not finite. Fubini’s theorem fails then since</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+    \int_0^1 dx \int_0^1 f(x,y)dy &= \int_0^1 \frac{-1}{1+x^2}dx \\
+    &= -\frac{\pi}{4}
+\end{aligned}</script><p>meanwhile</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+    \int_0^1 dy \int_0^1 f(x,y)dx &= \int_0^1\frac{1}{1+y^2}dy \\
+    &=\frac{\pi}{4}
+\end{aligned}</script><p>See, everything messes up, the equation disappeared. This function is too ‘large’ for Fubini’s, so is the next one.</p>
+<hr>
+<p>Another function is generated by series. First consider the sequence on $[0,1]$ generated by</p>
+<script type="math/tex; mode=display">
+0= \delta_1<\delta_2<\cdots,\delta_n \to 1</script><p>And a sequence of functions $g_n$ generated by $\int_0^1 g_ndx=1$ with supports in $(\delta_n,\delta_{n+1})$.</p>
+<p>Define $f(x,y)$ on $[0,1] \times [0,1]$ such that</p>
+<script type="math/tex; mode=display">
+f(x,y)=\sum_{n=1}^{\infty}[g_n(x)-g_{n+1}(x)]g_n(y)</script><p>The right hand is convergent since for each point $(x,y)$ there is at least one term in this sum that is different from $0$.</p>
+<p>An easy computation shows that</p>
+<script type="math/tex; mode=display">
+\int_0^1\int_0^1 |f(x,y)|dxdy = \infty</script><p>and</p>
+<script type="math/tex; mode=display">
+\int_0^1 dx \int_0^1 f(x,y)dy = 1 \neq 0 = \int_0^1 dy \int_0^1 f(x,y)dx</script>
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Desvl (Contact me via admiraldesvl@gmail.com) </span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://desvl.xyz/2020/03/23/fubini-counterex-and-why/">https://desvl.xyz/2020/03/23/fubini-counterex-and-why/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Real-analysis/"># Real analysis</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2020/03/22/fubini-theorem-in-euclidean-space/">Fubini's theorem in Euclidean space (Understanding 'almost everywhere')</a>
+            
+        </section>
+    </article>
+</div>
+
+
+        </div>
+        
+<footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Desvl | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
