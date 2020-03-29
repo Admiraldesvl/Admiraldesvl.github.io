@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://desvl.xyz/about/index.html</loc>
+    
+    <lastmod>2020-03-29T09:39:58.809Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://desvl.xyz/2020/03/29/lebesgue-radon-nikodym/</loc>
     
     <lastmod>2020-03-29T03:11:54.960Z</lastmod>
@@ -75,13 +82,6 @@
     <loc>https://desvl.xyz/2020/01/17/abstract-lebesgue-integral/</loc>
     
     <lastmod>2020-03-23T04:33:07.270Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://desvl.xyz/about/index.html</loc>
-    
-    <lastmod>2020-03-22T13:18:58.006Z</lastmod>
     
   </url>
   
