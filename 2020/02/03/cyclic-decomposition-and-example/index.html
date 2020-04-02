@@ -223,12 +223,12 @@
         </header>
 
         <div class="post-content">
-            <h3 id="说在前面"><a href="#说在前面" class="headerlink" title="说在前面"></a>说在前面</h3><p><a href="/post/2020/01/22/cyclic-decomposition/">这篇博客</a>中仅仅引入了循环子空间的概念，遗留了很多问题没得到解决。这些问题会在这篇博客中得到解决。一个矩阵的有理标准形虽然不能得到与特征值、特征向量有关的内容，但是在分解期间只涉及到了加法和乘法，不会出现扩充数域的现象。可以说，有理标准形能得到一类相似矩阵更朴素的信息.</p>
+            <h3 id="说在前面"><a href="#说在前面" class="headerlink" title="说在前面"></a>说在前面</h3><p><a href="/2020/01/22/cyclic-decomposition/">这篇博客</a>中仅仅引入了循环子空间的概念，遗留了很多问题没得到解决。这些问题会在这篇博客中得到解决。一个矩阵的有理标准形虽然不能得到与特征值、特征向量有关的内容，但是在分解期间只涉及到了加法和乘法，不会出现扩充数域的现象。可以说，有理标准形能得到一类相似矩阵更朴素的信息.</p>
 <h3 id="循环分解"><a href="#循环分解" class="headerlink" title="循环分解"></a>循环分解</h3><blockquote>
 <p>设$V$是$\mathbb{F}$上的$n$维线性空间，$\mathscr{A}$是$V$的线性变换，则 \[<br>V=\bigoplus_{i=1}^r\mathbb{F}\big[\mathscr{A}\big]\alpha_i\] 其中，$\mathbb{F} [\mathscr{A}] \alpha_i\neq{0}$为$\alpha_i\in{V}$生成的循环子空间.</p>
 </blockquote>
 <p>注意，这里的<strong>直和</strong>告诉我们，$\alpha_1,\alpha_2,\cdots,\alpha_r$线性无关.</p>
-<p>这里我们会用到<a href="/post/2020/01/28/conductor/">这篇博客</a>里提到的导子。其实，这一节也可以看成导子性质的补充.</p>
+<p>这里我们会用到<a href="/2020/01/28/conductor/">这篇博客</a>里提到的导子。其实，这一节也可以看成导子性质的补充.</p>
 <h4 id="循环分解的证明"><a href="#循环分解的证明" class="headerlink" title="循环分解的证明"></a><strong>循环分解的证明</strong></h4><p>如果$V$本身是一个相对于$\mathscr{A}$的循环空间，那么证明结束。现在讨论另一种情况.</p>
 <p>讨论导子时我们了解到，存在$\alpha_1\in{V}$使得<br>\[<br>    P_{\text{min }\mathscr{A}}(\lambda)=P_{\text{min }\mathscr{A},\alpha_1}(\lambda)<br>\]</p>
 <p>设$W_1=\mathbb{F}[\mathscr{A}]\alpha_1$。又可以选取$\alpha_2$使得<br>\[<br>    P_{\text{cond }W_1,\mathscr{A}}(\lambda)=P_{\text{cond }W_1,\mathscr{A},\alpha_2}(\lambda)<br>\]</p>
@@ -245,16 +245,16 @@
 <p>对域$\mathbb{F}$上任一方阵$A$，存在域$\mathbb{F}$上的可逆方阵$P$使得 \[ B=P^{-1}AP=\text{diag}(C(m_1),\cdots,C(m_r)) \] 其中，$C(m_k)$是$m_k$的友阵，$m_k$是由$A$决定的线性变换$x\mapsto{Ax}$决定的线性变换的不变因子.</p>
 </blockquote>
 <p>方阵$B$即为方阵$A$的有理标准形.</p>
-<p>在<a href="/post/2020/01/22/cyclic-decomposition/">这篇博客</a>里我们指出，对于循环子空间$W=\mathbb{F}[\mathscr{A}]\alpha$，$\mathscr{A}$限制在$W$上的矩阵$A_W=C(m)$。这时我们选取了一组$W$上的循环基。现在，我们已经把一个线性空间分解成若干个循环子空间的直和，如果我们选择每个子空间的一组循环基，即得到有理标准形.</p>
+<p>在<a href="/2020/01/22/cyclic-decomposition/">这篇博客</a>里我们指出，对于循环子空间$W=\mathbb{F}[\mathscr{A}]\alpha$，$\mathscr{A}$限制在$W$上的矩阵$A_W=C(m)$。这时我们选取了一组$W$上的循环基。现在，我们已经把一个线性空间分解成若干个循环子空间的直和，如果我们选择每个子空间的一组循环基，即得到有理标准形.</p>
 <p>设$k_i=\text{deg }m_i$，则在对于基<br>\[<br>    \alpha_1,\mathscr{A}\alpha_1,\cdots,\mathscr{A}^{k_1-1}\alpha_1,\cdots,\alpha_r,\mathscr{A}\alpha_r,\cdots,\mathscr{A}^{k_r-1}\alpha_r<br>\] 而言，$\mathscr{A}$的方阵表示即为<br>\[<br>    A=\text{diag}(C(m_1),\cdots,C(m_r))<br>\]</p>
 <p>这里的$P$即为由这组基构成的矩阵。计算特征多项式不难发现有<br>\[<br>    f=m_1m_2\cdots m_r<br>\]</p>
 <h4 id="一些补充"><a href="#一些补充" class="headerlink" title="一些补充"></a><strong>一些补充</strong></h4><p>根据$f$和不变因子的关系，不难得到三条结论:</p>
 <ol>
-<li><p>$V$是循环空间当且仅当$f=m$。也就是说，极小多项式和特征多项式相等</p>
+<li><p>$V$是循环空间当且仅当$f=m$。也就是说，极小多项式和特征多项式相等。</p>
 </li>
-<li><p>$m|f$且$m$和$f$有相同的不可约因子(尽管次数可能不同)。也就是说，对于$f$可以唯一分解成不可约因子[ f=p_1^{d_1}\cdots p_s^{d_s} ] 那么一定有正整数$r_1,\cdots,r_s$使得<br>\[<br>m=p_1^{r_1}\cdots p_s^{r_s}<br>\]<br>其中$0&lt;r_i\leq d_i$.</p>
+<li><p>$m|f$且$m$和$f$有相同的不可约因子(尽管次数可能不同)。也就是说，对于$f$可以唯一分解成不可约因子\[ f=p_1^{d_1}\cdots p_s^{d_s} \] 那么一定有正整数$r_1,\cdots,r_s$使得<br>\[<br>m=p_1^{r_1}\cdots p_s^{r_s}<br>\]<br>其中$0&lt;r_i\leq d_i$。</p>
 </li>
-<li><p>循环分解也成了Cayley-Hamilton的证明。因为$m|f$，所以特征多项式$f$一定是零化多项式.</p>
+<li><p>循环分解也成了Cayley-Hamilton的证明。因为$m|f$，所以特征多项式$f$一定是零化多项式。</p>
 </li>
 </ol>
 <h3 id="循环分解的实例"><a href="#循环分解的实例" class="headerlink" title="循环分解的实例"></a>循环分解的实例</h3><blockquote>
@@ -312,7 +312,7 @@
                 <a class="prev" rel="prev" href="../../08/primary-decomposition/">准素分解与准素标准型</a>
             
             
-            <a class="next" rel="next" href="../../../01/17/abstract-lebesgue-integral/">抽象Lebesgue积分的构建</a>
+            <a class="next" rel="next" href="../../../01/28/conductor/">线性变换不变子空间的导子及其性质</a>
             
         </section>
     </article>
