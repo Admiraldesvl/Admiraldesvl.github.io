@@ -292,10 +292,16 @@
 <blockquote>
 <p>域$\mathbb{F}$上的矩阵$A$可以对角化的充分必要条件是，$m(\lambda)$可以写成这种形式<br>\[ m(\lambda)=(\lambda-\lambda_1)(\lambda-\lambda_2)\cdots(\lambda-\lambda_s) \] 其中$\lambda_1，\cdots，\lambda_s\in\mathbb{F}$，且互异.</p>
 </blockquote>
-<p>如果有$P^{-1}AP=\text{diag}(\lambda_1{I_1}，\cdots，\lambda_s{I_s})$，那么已经有$f(\lambda)=(\lambda-\lambda_1)\cdots(\lambda-\lambda_s)$。而这时无重因子，因此有$m(\lambda)=f(\lambda)$.</p>
+<p>如果有$P^{-1}AP=\text{diag}(\lambda_1{I_1}，\cdots，\lambda_s{I_s})$，那么通过简单的矩阵运算，可以发现</p>
+<script type="math/tex; mode=display">
+(A-\lambda_1I)(A-\lambda_2I)\cdots(A-\lambda_sI)=0</script><p>因此有</p>
+<script type="math/tex; mode=display">
+m|(\lambda-\lambda_1)\cdots(\lambda-\lambda_s)</script><p>同时，考虑到$\lambda_i$是$A$的特征值，因此是$m$的根，所以有</p>
+<script type="math/tex; mode=display">
+(\lambda-\lambda_1)\cdots(\lambda-\lambda_s)|m</script><p>此即$m=(\lambda-\lambda_1)\cdots(\lambda-\lambda_s)$。</p>
 <p>另一方面，如果$m(\lambda)=(\lambda-\lambda_1)(\lambda-\lambda_2)\cdots(\lambda-\lambda_s)$，那么对$A$进行准素分解能得到 </p>
 <p>\[<br>    P^{-1}AP=\text{diag}(A_1，\cdots，A_s)<br>\]</p>
-<p>接下来，考虑到$A_i$的极小多项式是$\lambda-\lambda_i$，那么就有<br>\[<br>    A_i-\lambda_i{I}=0<br>\]<br>所以$A$可以被对角化。</p>
+<p>接下来，考虑到$A_i$的极小多项式是$\lambda-\lambda_i$，那么就有<br>\[<br>    A_i-\lambda_i{I_i}=0<br>\]<br>所以$A$可以被对角化。</p>
 
         </div>
 
