@@ -238,7 +238,7 @@
 <p>设$V$是数域$\mathbb{F}$上的线性空间，对于固定的线性变换$\mathscr{A}$，和一个指定的向量$\alpha \in V$，应该有 <script type="math/tex">\mathscr{A}\alpha, \mathscr{A}^2\alpha, \cdots\in{V}</script></p>
 <p>考虑到线性空间对向量的加法和数乘的封闭性，$\mathbb{F}$上的全体多项式就恰好固定了这些向量。也就是说，对于最小不变子空间$W$，应该包含$\mathbb{F}$上全体多项式$\mathbb{F}[\lambda]$的像 <script type="math/tex">\mathbb{F}[{\lambda}]{\alpha}=\mathbb{F}[\mathscr{A}]\alpha=\{g(\mathscr{A})\alpha :g(\lambda)\in\mathbb{F}[\lambda]\}</script></p>
 <p>另一方面，$\mathbb{F}[\lambda]\alpha$已经是不变子空间，因此有$W=\mathbb{F}[\lambda]\alpha$。$W$称为$\alpha$生成$\mathscr{A}$的<strong>循环子空间</strong>，如果有$W=V$，那么$V$称为<strong>循环空间</strong>，$\alpha$称为$V$的循环向量。</p>
-<h3 id="零化子"><a href="#零化子" class="headerlink" title="零化子"></a>零化子</h3><p>在接触循环分解之前，先需要考察一下循环空间的”大小”。一些线性空间的基本性质要在这里搞明白。这样一个线性空间的维数是多少? 怎样能找到这个线性空间的零向量? 线性空间的基怎么找到? 既然是不变子空间，那么限制线性变换的方阵表示又是怎样? 这些问题都需要通过分析零化子来解决。</p>
+<h3 id="零化子"><a href="#零化子" class="headerlink" title="零化子"></a>零化子</h3><p>在接触循环分解之前，先需要考察一下循环空间的“大小”。一些线性空间的基本性质要在这里搞明白。这样一个线性空间的维数是多少? 怎样能找到这个线性空间的零向量? 线性空间的基怎么找到? 既然是不变子空间，那么限制线性变换的方阵表示又是怎样? 这些问题都需要通过分析零化子来解决。</p>
 <blockquote>
 <p>如果对多项式$g(\lambda)$有 <script type="math/tex">g(\lambda)\alpha=g(\mathscr{A})\alpha=0</script> 那么$g(\lambda)$称为$\alpha$的零化子(aka 零化多项式)。</p>
 </blockquote>
@@ -246,7 +246,7 @@
 <h4 id="如何找到最小零化子"><a href="#如何找到最小零化子" class="headerlink" title="如何找到最小零化子"></a><strong>如何找到最小零化子</strong></h4><p>选取循环向量$\alpha\in{W}$，再考察向量$\mathscr{A}\alpha$是否和$\alpha$线性相关，如果否，也将$\mathscr{A}\alpha$选取，再按照同样的办法选取$\mathscr{A}^2\alpha,\cdots,\mathscr{A}^{k-1}\alpha$，而$\alpha,\mathscr{A}\alpha,\mathscr{A}^2\alpha,\cdots,\mathscr{A}^{k-1}\alpha,\mathscr{A}^k\alpha$线性相关。根据线性空间的性质，$\mathscr{A}^k\alpha$可以被前面$(k-1)$个向量线性表示出来。也就是说有$c_0,\cdots,c_{k-1}\in\mathbb{F}$使得 <script type="math/tex">\mathscr{A}^{k}\alpha+c_{k-1}\mathscr{A}^{k-1}\alpha+\cdots+c_1\mathscr{A}\alpha+c_0\alpha=0</script></p>
 <p>如果令$m_{\alpha}(\lambda)=\lambda^k+c_{k-1}\lambda^{k-1}+\cdots+c_0$，那么就有$m_\alpha(\mathscr{A})\alpha=0$。也就是说，$m_\alpha$是$\alpha$的零化子。接下来需要验证这是次数最低的首一多项式。</p>
 <p>设$g(\lambda)$为$\alpha$的零化多项式。那么$g(\lambda)$可以写成 <script type="math/tex">g(\lambda)=m_{\alpha}(\lambda)q(\lambda)+r(\lambda)</script></p>
-<p>其中，$r=0$或$\text{deg}r&lt;k$。$r=0$时，显然$g(\lambda)$是$m_{\alpha}(\lambda)$的倍。而$\text{deg}r&lt;g$时不然。因此只需要证明第二种情况是不存在的即可。注意到 <script type="math/tex">0=g(\mathscr{A})\alpha=m_{\alpha}(\mathscr{A})q(\mathscr{A})\alpha+r(\mathscr{A})\alpha=r(\mathscr{A})\alpha</script></p>
+<p>其中，$r=0$或$\text{deg}r&lt;k$。$r=0$时，显然$g(\lambda)$是$m_{\alpha}(\lambda)$的倍。而$\text{deg}r&lt;\text{deg}g$时不然。因此只需要证明第二种情况是不存在的即可。注意到 <script type="math/tex">0=g(\mathscr{A})\alpha=m_{\alpha}(\mathscr{A})q(\mathscr{A})\alpha+r(\mathscr{A})\alpha=r(\mathscr{A})\alpha</script></p>
 <p>如果有$r\neq{0}$，则$\text{deg}r&lt;k$，这和$\alpha,\mathscr{A}\alpha,\cdots,\mathscr{A}^{k-1}\alpha$线性无关矛盾。因此，$m_{\alpha}(\lambda)$即为所求最小零化子。</p>
 <h4 id="循环空间的维度、基"><a href="#循环空间的维度、基" class="headerlink" title="循环空间的维度、基"></a><strong>循环空间的维度、基</strong></h4><p>在求最小零化子的时候，我们找到了$k$个线性无关的向量。然后第$k+1$个可以用这$k$个向量表示。这里的$k$应该和这个循环空间有着特殊的关系。注意到这$k$个向量能表示$\mathscr{A}^{k}\alpha$。那么能不能表示$W$中全部向量? 如果是这样的话，这$k$个向量就是这个循环空间的基，$k$就是维度(这可以联想到抽象代数中的循环空间的阶)。</p>
 <p>已知 <script type="math/tex">\mathscr{A}^{k}\alpha=-(c_{k-1}\mathscr{A}^{k-1}\alpha+\cdots+c_1\mathscr{A}\alpha+c_0\alpha)</script></p>
