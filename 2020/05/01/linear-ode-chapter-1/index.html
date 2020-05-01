@@ -252,7 +252,7 @@ t\begin{pmatrix}
 \end{pmatrix}
 \right\}=0</script><p>不妨用$A$表示这个矩阵，$v_1=(-2,1,0)^T$，$v_2=(-3,1,1)^T$，$v_0=(0,1,-3)^T$（$T$表示转置，也就是说本来应该写成列向量，这里为了书写简便）。那么可以验证，$Av_1=v_0$，而$Av_2=0$。那么这个式子又可以写成</p>
 <script type="math/tex; mode=display">
-A(v_1+tv_2)=Av_1+tAv_2=v_0+t\cdot0=v_0</script><p>所以我们想求的未知向量$x=v_1+tv_2$由两部分组成：一部分是符合$Ax=b$的一个特殊解，一部分符合$Ax’=0$，两部分的和代表了所有的解。也就是说，一个线性方程组的解，可能有无穷多个。<strong>但是，有一部分保证了解是准确的（也就是上面的$v_1$），有一部分保证解是普遍的（也就是上面的$tv_2$。$v_2$指出了解延伸的骨架，$t$取遍所有整数进行遍历）。</strong></p>
+A(v_1+tv_2)=Av_1+tAv_2=v_0+t\cdot0=v_0</script><p>所以我们想求的未知向量$x=v_1+tv_2$由两部分组成：一部分是符合$Ax=b$的一个特殊解，一部分符合$Ax’=0$，两部分的和代表了所有的解。也就是说，一个线性方程组的解，可能有无穷多个。<strong>但是，有一部分保证了解是准确的（也就是上面的$v_1$），有一部分保证解是普遍的（也就是上面的$tv_2$。$v_2$指出了解延伸的骨架，$t$取遍所有实数进行遍历）。</strong></p>
 <p>为什么要举高斯消元法这样一个例子呢？这里矩阵乘法是一个线性运算（$A(\alpha v+\beta w)=\alpha Av+\beta Aw$），而求导也是一个线性运算（$(af+bg)’=af’+bg’$），也就是说，它们都是“平直”的，是没有让问题变复杂的乘积的。电流方程的通解</p>
 <script type="math/tex; mode=display">
 i = \frac{E}{R}+C\exp(-\frac{R}{L}t)</script><p>很好验证，但是是不是也是这样的结构？对于$i_1=\exp(-\frac{R}{L}t)$，通过简单的求导运算可以得到$\frac{di_1}{dt}+\frac{R}{L}i_1=0$。对于$i_2=\frac{E}{R}$，我们已经知道它满足原来的方程。所以$i=Ci_1+i_2$，代入原来的方程，就有</p>
@@ -358,20 +358,5 @@ z'+(1-n)p(x)z=(1-n)q(x)</script><p>这就是一个一阶线性方程了，计算
 </footer>
 
     </div>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>
