@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://desvl.xyz/"/>
-  <updated>2020-05-04T07:16:56.382Z</updated>
+  <updated>2020-05-07T01:27:59.106Z</updated>
   <id>https://desvl.xyz/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>关于《有人弄乱了这束玫瑰花》</title>
+    <link href="https://desvl.xyz/2020/05/07/alguien-desordena-estas-rosas/"/>
+    <id>https://desvl.xyz/2020/05/07/alguien-desordena-estas-rosas/</id>
+    <published>2020-05-07T00:31:22.000Z</published>
+    <updated>2020-05-07T01:27:59.106Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="D:\hexo-blog\source\img\la-mujer-de-las-rosas.jpg" alt="Credit: https://desorbita.wordpress.com/2017/10/23/alguien-desordena-estas-rosas/"></p><p>她做得很好。二十年，房间中的孤独感并没有消退。我不想知道，她为什么选择回来。或者说我早已经知道。她想和那个她一起度过一个个童年午后的孩子分享同一份孤独。不过现在她像是照看一个有残疾的孙子，而这个孙子在他奶奶还有五岁的时候就没挪过窝，这个窝在山坡上的坟头里，窝里的孙子的尸骸已经回归自然。</p><p>我的想法很简单，我想从她的桌子上取一束玫瑰，在周日给自己上坟。可是她总是死死盯着，像是免受自己的孤独受到损伤一样盯着。这个眼神没有变，四十年前的她，用同样的眼神看着那个仰面朝天摔死在马厩的草堆的男孩的尸体。正是这个眼神让我认出来，她就是八月里那个大雨倾盆的下午陪我一起在马厩掏鸟窝的女孩。</p><p>可我并没有参透她的想法。关于她为什么回来，关于她为什么要为圣徒留下那些玫瑰花。</p><p>她的突然回归接近毁掉我的孤独感，但是这二十年，我们分享了不一样的孤独。等到她再也回不到这个房间，她需要被四个人抬到山岗，可能会葬在我的旁边。这就不是我能管到的了。在那之后，我想每个周日，拿两束玫瑰，一束放在自己的坟头，另一束放在她的坟头。但没必要，我不希望再去打扰她的孤独感了，她也不会打扰到我了。</p><p>那时候她就已经知道一切。每个周日，有人弄乱了玫瑰花。我会永远一个人待在这个房间，和她没来之前一样。我浑身是土，身上长满了蜘蛛网。我能分辨木头腐烂时的声音。我能分辨陈旧空气的鼓翼声。这一切在四十年前就决定了。这二十几年我很累。我也已经满意了。</p><blockquote><p>加西亚·马尔克斯：有人弄乱了玫瑰花</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;img src=&quot;D:\hexo-blog\source\img\la-mujer-de-las-rosas.jpg&quot; alt=&quot;Credit:
+        
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>线性ODE（二）——用矩阵表示方程组</title>
