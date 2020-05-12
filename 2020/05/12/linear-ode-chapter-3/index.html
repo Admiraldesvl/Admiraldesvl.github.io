@@ -276,14 +276,15 @@ C_1\mathbf{y_1}+C_2\mathbf{y_2} \in \mathfrak{R}^n</script><p>这其实利用求
 -a_n(x)&-a_{n-1}(x)&-a_{n-2}(x)&\cdots&-a_1(x)
 \end{pmatrix}</script><p>那么我们就可以得到一个方程</p>
 <script type="math/tex; mode=display">
-y^{(n)}+a_1(x)y^{(n-1)}+\cdots+a_n(x)y=0</script><p>所以我们已经得到了$n$个不同的解，不妨设这组解是$y_1,y_2,\cdots,y_n$。那么如果是</p>
+y^{(n)}+a_1(x)y^{(n-1)}+\cdots+a_n(x)y=0</script><p>所以我们已经得到了$n$个不同的解，不妨设这组解是$y_1,y_2,\cdots,y_n$。分别对这些$y_i$求导$n-1$次，就能得到上一节中的$n$维列向量。</p>
+<p>那么如果是</p>
 <script type="math/tex; mode=display">
 y^{(n)}+a_1(x)y^{(n-1)}+\cdots+a_n(x)y=f(x)</script><p>这种方程，该怎么求解呢？我们还是通过类似于之前一阶线性方程的办法，通过求导运算，间接求出来。假设有一个函数$y$满足这个方程。</p>
 <p>我们不妨设</p>
 <script type="math/tex; mode=display">
 \mathbf{y}=\begin{bmatrix}y_1\\ \vdots \\ y_n\end{bmatrix}</script><p>以及</p>
 <script type="math/tex; mode=display">
-\mathbf{c}=(c_1,c_2,\cdots,c_n)</script><p>其中满足$y_p=\mathbf{c \cdot y}$(利用行向量、列向量的乘法规则)。所以我们接下来的工作就是求出这样一个$\mathbf{c}$。我们会尝试用线性代数的语言进行描述。在这里，对向量求导、求积分的意思是</p>
+\mathbf{c}=(c_1,c_2,\cdots,c_n)</script><p>其中满足$y_p=\mathbf{c \cdot y}$(利用行向量、列向量的乘法规则)。所以我们接下来的工作就是求出这样一个$\mathbf{c}$。我们会尝试用线性代数的语言进行描述，可以看到，表述变得非常简单。在这里，对向量求导、求积分的意思是</p>
 <script type="math/tex; mode=display">
 \mathbf{y}'=\begin{bmatrix}y_1'\\ \vdots \\ y_n'\end{bmatrix} \\
 \int\mathbf{y}dx=\begin{bmatrix}\int y_1dx\\ \vdots \\\int y_ndx\end{bmatrix}</script><p>但是直接进行下去也似乎漫无边际。我们希望，能把这个$c$给稳定下来，所以我们会尝试加一些限制条件。这样的限制应该是$n-1$条。这就好比，如果要在平面中确定，和一条直线垂直的直线，那么只需要一个向量就行了。如果要在空间中确定，和一个平面垂直的一条直线，确定两个向量就行了——所谓两条相交直线确定一个平面。</p>
@@ -335,7 +336,7 @@ c_n'
 \vdots \\
 0 \\
 f
-\end{bmatrix}</script><p>如果你学习了Cramer法则，那么怎么解决这个问题已经浮现在眼前了。没错，我们可以直接利用Cramer法则，求出$\mathbf{c’}$，然后再求积分。我们用线性代数，将这个结构厘清，又简单利用微积分，将结果得出。</p>
+\end{bmatrix}</script><p>如果你学习了<strong>Cramer法则</strong>，那么怎么解决这个问题已经浮现在眼前了。没错，我们可以直接利用Cramer法则，求出$\mathbf{c’}$，然后再求积分。我们用线性代数，将这个结构厘清，又简单利用微积分，将结果得出。</p>
 <p>对于每个$c_k’$，我们有</p>
 <script type="math/tex; mode=display">
 c_k'=\frac{W_k}{W}</script><p>从而$c_k = \int\frac{W_k}{W}dx$，重复$n$次，就得到了整个$y_p$，从而得到我们想要的解。其中$W$为上式中由$y_1,y_2,\cdots,y_n$构成的矩阵的行列式，而$W_k$是将$W$中第$k$列换成$(0,0,\cdots,0,f)^T$之后得到的矩阵的行列式。具体而言，我们有</p>
@@ -351,7 +352,7 @@ W(x)=\begin{vmatrix}e^x&e^{-2x} \\e^x&-2e^{-2x}\end{vmatrix}=-3e^{-x}</script><s
 W_1(x)=\begin{vmatrix}0 & e^{-2x} \\x&-2e^{-2x}\end{vmatrix}=-xe^{-2x}</script><script type="math/tex; mode=display">
 W_2(x)=\begin{vmatrix}e^x&0\\e^x&x\end{vmatrix}=xe^x</script><p>从而</p>
 <script type="math/tex; mode=display">
-y=e^x(C_1+\int_0^x\frac{s}{3}e^{-s}ds)+e^{-2x}(C_2+\int_0^x\frac{-s}{3}e^{2s}ds)</script><p>如果我们知道$\begin{cases}y(0)&amp;=0\\ y’(0)&amp;=1\end{cases}$，我们就能得到方程组</p>
+y=e^x(C_1+\int_0^x\frac{s}{3}e^{-s}ds)+e^{-2x}(C_2+\int_0^x\frac{-s}{3}e^{2s}ds)</script><p>假设我们知道在原点处的取值情况，例如$\begin{cases}y(0)&amp;=0\\ y’(0)&amp;=1\end{cases}$，我们就能得到方程组</p>
 <script type="math/tex; mode=display">
 \begin{cases}
 C_1+C_2&=0 \\
@@ -415,20 +416,5 @@ C_1-2C_2&=1
 </footer>
 
     </div>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>
