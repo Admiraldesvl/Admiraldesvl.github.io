@@ -238,7 +238,7 @@ y_2'(x)+a(x)y_2'(x)=b(x)</script><p>那么全体解就可以表示成$Cy_1(x)+y_
 <script type="math/tex; mode=display">
 \frac{d\mathbf{y}}{dx}=\mathbf{A}(x)\mathbf{y}+\mathbf{f}(x)</script><p>的满足条件</p>
 <script type="math/tex; mode=display">
-\mathbf{y}(x_0)=\mathbf{y_0}</script><p>的解是存在且唯一的(这里要求$\mathbf{f}$和$\mathbf{A}$中的函数都是连续的)。这个问题的证明是一个比较麻烦的事情，涉及到Brouwer不动点问题，在这里就不做证明了。但是也是很好理解的：这里的$\mathbf{A}$和$\mathbf{f}$都是连续的，都不是“病态”的，所以这个方程不会有“病态的”形式，解是很自然的。</p>
+\mathbf{y}(x_0)=\mathbf{y_0}</script><p>的解是存在且唯一的(这里要求$\mathbf{f}$和$\mathbf{A}$中的函数都是连续的)。这个问题的证明是一个比较麻烦的事情，涉及到Banach不动点问题，在这里就不做证明了。但是也是很好理解的：这里的$\mathbf{A}$和$\mathbf{f}$都是连续的，都不是“病态”的，所以这个方程不会有“病态的”形式，解是很自然的。</p>
 <h3 id="和欧氏空间的一一对应"><a href="#和欧氏空间的一一对应" class="headerlink" title="和欧氏空间的一一对应"></a>和欧氏空间的一一对应</h3><p>我们宣称，线性方程组</p>
 <script type="math/tex; mode=display">
 \frac{d\mathbf{y}}{dx}=\mathbf{A}(x)\mathbf{y}</script><p>的解和$n$维欧氏空间是一一对应的。也就是说，<strong>对每个$\mathbf{y}(x)$，都对应$n$维欧氏空间的唯一一个向量；反之，对$n$维欧氏空间的每一个向量，都对应着一个方程组的唯一一个解</strong>。</p>
@@ -416,5 +416,20 @@ C_1-2C_2&=1
 </footer>
 
     </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>
