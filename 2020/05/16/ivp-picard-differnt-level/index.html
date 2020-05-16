@@ -248,16 +248,16 @@ y_{n+1}(x)=y_0+\int_{x_0}^{x}f(x,y_n(x))dx \quad |x-x_0| \leq \varepsilon</scrip
 \lim_{n \to \infty}y_n=\sum_{n=1}^{\infty}(y_{n+1}(x)-y_n(x))=y</script><p>is the solution to the IVP, where Lipschitz condition comes into play by considering</p>
 <script type="math/tex; mode=display">
 |y_{n+1}(x)-y_n(x)| \leq \frac{M}{L}\frac{(L|x-x_0|)^{n+1}}{(n+1)!}</script><p>Finally, it should be shown that $y$ is the unique solution. To do this, it can be shown that, if we have two solutions, say $y=u(x)$ and $y=v(x)$, then $u(x)-v(x)=0$.</p>
-<h3 id="Osgood’s-condition-implies-Picard’s"><a href="#Osgood’s-condition-implies-Picard’s" class="headerlink" title="Osgood’s condition implies Picard’s"></a>Osgood’s condition implies Picard’s</h3><p>Osgood’s condition is much weaker than Lipschitz’s. Under Osgood’s condition, it’s easy to check the existence and uniqueness, but there is no way to get the result (while Lipschitz’s gives you the way) through this condition.</p>
+<h3 id="Osgood’s-condition-partially-implies-Picard’s-uniqueness"><a href="#Osgood’s-condition-partially-implies-Picard’s-uniqueness" class="headerlink" title="Osgood’s condition partially implies Picard’s (uniqueness)"></a>Osgood’s condition partially implies Picard’s (uniqueness)</h3><p>Osgood’s condition is much weaker than Lipschitz’s. Under Osgood’s condition, it’s easy to check the uniqueness, but there is no way to get the result (while Lipschitz’s gives you the way) through this condition.</p>
 <blockquote>
-<p>$f(x,y)$ has a unique solution in every point in $R$ if $f$ is continuous and satisfies the <strong>Osgood’s condition</strong>, namely</p>
+<p>$f(x,y)$ has <strong>at most one</strong> solution in every point in $R$ if $f$ is continuous and satisfies the <strong>Osgood’s condition</strong>, namely</p>
 <script type="math/tex; mode=display">
 |f(x,y_1)-f(x,y_2)| \leq F(|y_1-y_2|)</script><p>in $R$ where $F$ is a continuous function such that $F(t)&gt;0$ for all $r&gt;0$.  Also, $F$ is defined in such a way that</p>
 <script type="math/tex; mode=display">
 \int_{0}^{r_1}\frac{1}{F(r)}dr=\infty</script><p>for some $r_1&gt;0$. </p>
 </blockquote>
-<p>Naturally, if we define $F(r)=Lr$, we have $\int_{0}^{r_1}\frac{1}{Lr}dr=\infty$, which shows that Osgood’s implies Picard’s theorem under Lipschitz’s condition.</p>
-<h4 id="Proof-of-Osgood’s"><a href="#Proof-of-Osgood’s" class="headerlink" title="Proof of Osgood’s"></a>Proof of Osgood’s</h4><p>We’ll prove this theorem indirectly. That is, if there exists some point $(x_0,y_0) \in R$ such that $f$ has at least two solutions, then $f$ does not satisfy Osgood’s condition, which is equivalent to the statement that if $f$ satisfies Osgood’s, then $f$ has unique solution.</p>
+<p>Naturally, if we define $F(r)=Lr$, we have $\int_{0}^{r_1}\frac{1}{Lr}dr=\infty$. But we are not g</p>
+<h4 id="Proof-of-Osgood’s"><a href="#Proof-of-Osgood’s" class="headerlink" title="Proof of Osgood’s"></a>Proof of Osgood’s</h4><p>We’ll prove this theorem indirectly. That is, if there exists some point $(x_0,y_0) \in R$ such that $f$ has at least two solutions, then $f$ does not satisfy Osgood’s condition, which is equivalent to the statement that if $f$ satisfies Osgood’s, then $f$ has no more than solution. But the existence is not guaranteed.</p>
 <hr>
 <p>Suppose now there exists a point $(x_0,y_0) \in R$ such that $y’=f(x,y)$ has two distinct solutions</p>
 <script type="math/tex; mode=display">
@@ -295,13 +295,13 @@ d(x_m,x_n) &\leq d(x_m,x_{m-1})+d(x_{m-1},x_{m-2})+\cdots+d(x_{n+1},x_n) \\
 <script type="math/tex; mode=display">
 d(f,g)=\sup|f(x)-g(x)|</script><h5 id="Contraction-map"><a href="#Contraction-map" class="headerlink" title="Contraction map"></a>Contraction map</h5><p>The functional $T:\mathcal{C_B}(R)\mapsto\mathcal{C_B}(R)$ by</p>
 <script type="math/tex; mode=display">
-T(y)=y_0+\int_{x_0}^{x}f(x,y)dx</script><p>is the contraction if we take uniform Lipschitz’s condition into consideration. Namely, if we have $\varepsilon&lt;\frac{1}{L}$, we can see that</p>
+T(y)=y_0+\int_{x_0}^{x}f(x,y)dx</script><p>is the contraction we are looking for, if we take uniform Lipschitz’s condition into consideration. Namely, if we have $\varepsilon&lt;\frac{1}{L}$, we can see that</p>
 <script type="math/tex; mode=display">
 \begin{aligned}
 d(T(r),T(s)) &= \sup\left\vert \int_{x_0}^{x}(f(x,r)-f(x,s))dx \right\vert \\
              &\leq\sup\int_{x_0}^{x}|f(x,r)-f(x,s)|dx \\
              &\leq L\varepsilon d(r,s)
-\end{aligned}</script><p>Therefore, the functional $T$ has a unique fixed point, which is equivalent to Picard’s existence and uniqueness theorem. Further, the solution can be theoretically obtained by taking</p>
+\end{aligned}</script><p>Therefore by Banach FPT, the functional $T$ has a unique fixed point, which is equivalent to Picard’s existence and uniqueness theorem. Further, the solution can be theoretically obtained by taking</p>
 <script type="math/tex; mode=display">
 y_{n+1}=T(y_n)</script><p>where $y(x_0)=y_0$ comes from the initial value problem.</p>
 
