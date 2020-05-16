@@ -709,10 +709,13 @@ header label {
   margin: 1em 0 1em 0;
 }
 .post-wrap .post-header h1 {
-  margin: 0 !important;
+  margin-top: 6%;
+  margin-right: 0;
+  margin-left: 0;
+  margin-bottom: 0;
 }
 .post-wrap .post-title {
-  font-size: 1.7em;
+  font-size: 1.5em;
   line-height: 1.2em;
 }
 .post-wrap .post-meta {
@@ -736,7 +739,7 @@ header label {
 .post-content {
   padding-top: 2rem;
   text-align: justify;
-  text-indent: 2em;
+  text-indent: 0em;
 }
 .post-content h2,
 .post-content h3,

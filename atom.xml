@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://desvl.xyz/"/>
-  <updated>2020-05-12T12:03:49.074Z</updated>
+  <updated>2020-05-15T14:53:07.326Z</updated>
   <id>https://desvl.xyz/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Prove Picard&#39;s Existence and Uniqueness Theorem on different level</title>
+    <link href="https://desvl.xyz/2020/05/15/ivp-picard-differnt-level/"/>
+    <id>https://desvl.xyz/2020/05/15/ivp-picard-differnt-level/</id>
+    <published>2020-05-14T16:00:00.000Z</published>
+    <updated>2020-05-15T14:53:07.326Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="IVP-and-Picard’s"><a href="#IVP-and-Picard’s" class="headerlink" title="IVP and Picard’s"></a>IVP and Picard’s</h2><p>By IVP (Initial Value Problem), we mean the problem about</p><script type="math/tex; mode=display">\begin{cases}\frac{dy}{dx}=f(x,y) \\y(x_0)=y_0\end{cases}</script><p>Of course we do hope we can solve this problem with ease, with a simple result. But that won’t happen if the function $f$ is ‘ugly’ enough. Hence the problem is, generally and theoretically, when we can get a unique solution? When does some solution exist? Fortunately Picard make it to ensure that</p><blockquote><p>If $f$ is uniformly Lipschitz continuous in $y$ and continuous in $x$ on $R={(x,y):|x-x_0| \leq a,|y-y_0| \leq b}$, then for some $\varepsilon&gt;0$, there exists a unique solution $y$ to the IVP on the interval $[x_0-\varepsilon,x_0+\varepsilon]$.</p></blockquote><p>Interesting enough, there are several ways on different levels to prove it. This blog post goes three proofs about that.</p><h2 id="Proving-Picard’s-existence-and-uniqueness-theorem"><a href="#Proving-Picard’s-existence-and-uniqueness-theorem" class="headerlink" title="Proving Picard’s existence and uniqueness theorem"></a>Proving Picard’s existence and uniqueness theorem</h2><h3 id="Some-preparation"><a href="#Some-preparation" class="headerlink" title="Some preparation"></a>Some preparation</h3><p>By uniformly Lipschitz continuous, we mean that for all $y \in R$, $f$ satisfies</p><script type="math/tex; mode=display">\left\vert f(x,y_1) - f(x,y_2)\right\vert \leq L\left\vert y_1 - y_2 \right\vert</script><p>for some $L &gt; 0$. This condition is useful in many different branch of mathematics.</p><p>Also, it’s trivial to verify that the IVP is equivalent to</p><script type="math/tex; mode=display">y=y_0+\int_{x_0}^{x}f(x,y)dx</script><p>And yes, our job becomes finding such a $y$ satisfy this equation.</p><h3 id="A-sketch-of-the-proof-in-elementary-calculus"><a href="#A-sketch-of-the-proof-in-elementary-calculus" class="headerlink" title="A sketch of the proof in elementary calculus"></a>A sketch of the proof in elementary calculus</h3><p>Honestly the proof is kind of long.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;IVP-and-Picard’s&quot;&gt;&lt;a href=&quot;#IVP-and-Picard’s&quot; class=&quot;headerlink&quot; title=&quot;IVP and Picard’s&quot;&gt;&lt;/a&gt;IVP and Picard’s&lt;/h2&gt;&lt;p&gt;By IVP
+        
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>线性ODE(三)——初探高阶线性方程</title>
@@ -482,31 +507,6 @@
         
         
           &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>优美的Fourier级数（一）: 绝对不只是求表达式的问题</title>
-    <link href="https://desvl.xyz/2019/08/05/beautiful-fourier-001/"/>
-    <id>https://desvl.xyz/2019/08/05/beautiful-fourier-001/</id>
-    <published>2019-08-04T16:00:00.000Z</published>
-    <updated>2020-03-23T04:33:13.027Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Fourier级数是相当优美的一类级数，但它涉及到的问题绝对不仅仅是通过各种运算技巧求表达式。 相反，它是一个很复杂、很困难的大话题。<br>我在这里会把一些基本内容和一系列严格的证明整理下来。 从Fourier级数出发，我们能看到很多重要的基本技巧的应用，也会遇见和实际应用息息相关的问题。<br>当然这些内容里不会包括如何求表达式，我觉得计算机做得比我好多了。</p><h2 id="Fourier级数"><a href="#Fourier级数" class="headerlink" title="Fourier级数"></a>Fourier级数</h2><p>在读这篇文章时， 你可能已经学到了一些求Fourier级数系数的技巧， 这可以看成一元微积分的角度的理解。 接下来，<br>我们希望从向量几何的角度看待Fourier级数。 当然， 这里不是要求画出几何图像， 而是要求理解运算规则。</p><h3 id="级数的表达"><a href="#级数的表达" class="headerlink" title="级数的表达"></a>级数的表达</h3><p>最常见的Fourier级数是这种形式：<br>\[<br>    f(x)=a_0+\sum_{n=1}^{\infty}(a_n\cos nx+b_n\sin nx)\quad<br>x\in\mathbb{R}<br>\]</p><p>这里的$a_n$和$b_n$既可以是实数又可以是复数(但我们接下来主要讨论实数函数$f$)。 有的地方把第一项写成$\frac{a_0}{2}$，<br>这是考虑到积分时会多出来的一个$\frac{1}{2}$。 两种写法单纯是关于如何统一表达，在后面会解释。 考虑到$e^{ix}=\cos x+i\sin<br>x$， 上面的式子可以写成<br>\[<br>    f(x)= \sum_{-\infty}^{\infty}c_ne^{inx}\quad x\in\mathbb{R}<br>\]</p><p>用这种表达方式时不用考虑$c_n$的细节。 注意到$a_0$可以写成$a_0\cos 0x + b_0\sin 0x$。</p><h3 id="关于级数的系数，即函数的“坐标”"><a href="#关于级数的系数，即函数的“坐标”" class="headerlink" title="关于级数的系数，即函数的“坐标”"></a>关于级数的系数，即函数的“坐标”</h3><h4 id="单位正交系"><a href="#单位正交系" class="headerlink" title="单位正交系"></a>单位正交系</h4><p>我们先回忆线性代数里的知识。 一个行向量和一个列向量的乘积是这样的：</p><p>\begin{equation}<br>\begin{bmatrix}a&amp;b\end{bmatrix}\begin{bmatrix}c\\d\end{bmatrix}=ac+bd<br>\end{equation} 进一步，第一个行向量可以看成列向量的转置。 那么这个$ac+bd$就是两个2维平面内列向量的内积。这就是高中数学中所讲的“向量乘法”。 这涉及到经典欧基里德空间的内积定义。 而谈到向量，单位正交向量肯定是非常有探讨价值的。因为一般情况下其他向量可以用单位正交向量比较简介地表示出来。<br>但是向量内积不仅仅存在于经典的欧氏空间。我们可以定义一系列定义域相同的函数，例如$[a，b]$上的函数$f$和$g$的内积可以定义成<br>\[ (f，g):=\int_a^b f(x)\overline{g}(x)dx<br>\]<br>其中$\overline{g}$表示$g$的共轭复数。 </p><p>在内积空间里， 两个向量的内积为$0$， 说明两个向量正交(这和欧几里得空间是一致的)。 或者更形象地说， 夹角为$\frac{\pi}{2}$。<br>而向量的模的平方即自身和自身的内积。 我们可以定义函数的“单位正交系”</p><blockquote><p>若定义在$[a，b]$上的一系列函数$\{\varphi_n(x)\}$若满足$(\varphi_n，\varphi_n)=1$而$(\varphi_n，\varphi_m)=0(m\neq n)$， 则被称为单位正交系。</p></blockquote><h4 id="再看Fourier级数"><a href="#再看Fourier级数" class="headerlink" title="再看Fourier级数"></a>再看Fourier级数</h4><p>可以验证，在$[-\pi，\pi]$上，下列两组函数是满足单位正交的条件的：<br>\[<br>    \frac{e^{ix}}{\sqrt{2\pi}}，\frac{e^{2ix}}{\sqrt{2\pi}}，\frac{e^{3ix}}{\sqrt{2\pi}}，\cdots<br>\]<br>\[<br>    \frac{1}{\sqrt{2\pi}}，\frac{\cos x}{\sqrt{\pi}}，\frac{\sin x}{\sqrt{\pi}}， \frac{\cos 2x}{\sqrt{\pi}}，\cdots<br>\]</p><p>读到这里可以发现，$a_0$和$\frac{a_0}{2}$的表示应该和$\frac{1}{\sqrt{2\pi}}$或者$\frac{1}{\sqrt{\pi}}$有关。</p><p>在$\mathbb{R}^n$里，如果知道单位正交向量$\mathbf{e_1}，\cdots，\mathbf{e_n}$，<br>那么任意向量都可以唯一表示成$x_1\mathbf{e_1}+\cdots+x_n\mathbf{e_n}$。 向量$\mathbf{\alpha}$在的第$k$坐标分量为$(\mathbf{\alpha}，\mathbf{e_k})$。<br>通过这个角度看Fourier级数，就会发现，各项的系数就是函数的坐标：<br>\[<br>    c_m=\int_a^bf(x)\overline{\varphi_m}(x)dx<br>\]<br>如果我们再看第二个复函数形式的表达式，就有<br>\[<br>    c_m=\frac{1}{2\pi}\int_{-\pi}^{\pi} f(x)e^{-imx}dx<br>\]<br>为了得到这个形式($c_m$不受影响)，<br>我们先用$\frac{e^{imx}}{\sqrt{2\pi}}$表示$f$， 应该有<br>\[<br>    \frac{f(x)}{\sqrt{2\pi}}=\sum_{-\infty}^{\infty}c_n\frac{e^{inx}}{\sqrt{2\pi}}<br>\]</p><p>这里到底发生了什么? 我们把傅里叶级数的问题放到了一个以<strong>函数</strong>为元素的空间中， 然后选择了一组空间的<strong>基</strong>， 然后求出的系数就是这组基下的<strong>坐标</strong>。  于是， 我们找到了傅里叶级数的几何意义(抽象上的)， 这使我们能像高中平面几何、空间几何一样利用向量的性质解决一些问题， 尽管傅里叶级数涉及到的空间的维度是无穷大。</p><h3 id="内积运算的规则"><a href="#内积运算的规则" class="headerlink" title="内积运算的规则"></a>内积运算的规则</h3><p>下列内积运算的规则会在接下来用到。 涉及到复数， 因此和经典欧基里德空间有不同之处(但是考虑到实数的共轭复数是本身， 最后一个性质其实是一样的)。 但是可以一个一个进行验证。</p><ul><li><p>$(a+c，b)=(a，b)+(c，b)$</p></li><li><p>$(a，b+c)=(a，b)+(a，c)$</p></li><li><p>$(ka，b)=k(a，b)$</p></li><li><p>$(a，kb)=k(a，b)$</p></li><li><p>$(a，b)=\overline{(b，a)}$</p></li></ul><h2 id="Dirichlet核"><a href="#Dirichlet核" class="headerlink" title="Dirichlet核"></a>Dirichlet核</h2><h3 id="定义式"><a href="#定义式" class="headerlink" title="定义式"></a>定义式</h3><p>Dirichlet核的定义是这样的：<br>\[<br>    D_N(x)=\sum_{-N}^N e^{inx} = \frac{\sin(N+\frac{1}{2})x}{\sin\frac{x}{2}}<br>\]</p><p>第二个等号既可以直接合并$e^{inx}$和$e^{-inx}$得到$\cos nx$的式子从而进行积化和差，又可以利用等比数列的性质得到。</p><h3 id="搭建起Dirichlet核和原函数的桥梁"><a href="#搭建起Dirichlet核和原函数的桥梁" class="headerlink" title="搭建起Dirichlet核和原函数的桥梁"></a>搭建起Dirichlet核和原函数的桥梁</h3><p>针对文章开头提到的第二种定义，可以定义函数数列<br>\[<br>    s_N(x)=\sum_{-N}^N c_ne^{inx}<br>\]<br>将$c_n$展开，有<br>\begin{equation}<br>    \begin{aligned}<br>        s_N(x)&amp;=\sum_{-N}^N\left(\frac{1}{2\pi}\int_{-\pi}^{\pi}f(t)e^{-int}dt\right)e^{inx}\\<br>              &amp;=\int_{-\pi}^{\pi} \frac{1}{2\pi}f(t)\sum_{-N}^Ne^{in(x-t)}dt\\<br>              &amp;=\frac{1}{2\pi}\int_{-\pi}^{\pi} f(t)D_N(x-t)dt\\<br>              &amp;=\frac{1}{2\pi}\int_{-\pi}^{\pi} f(x-t)D_N(t)dt<br>    \end{aligned}<br>\end{equation}<br>最后一个等号通过函数的周期性和简单的换元运算得到。 至此，Dirichlet核和原函数的桥梁就被搭建起来了。<br>接下来，需要证明，以这个函数核构建的函数收敛于$f$。</p><h3 id="Bessel不等式以及其重要推论"><a href="#Bessel不等式以及其重要推论" class="headerlink" title="Bessel不等式以及其重要推论"></a>Bessel不等式以及其重要推论</h3><blockquote><p>设$f(x)$在正交函数系${\varphi_n(x)}$下的系数为${c_n}$，<br>则有$\sum_{n=1}^{\infty}|c_n|^2\leq(f，f)$。</p></blockquote><p>设$s_n(x)=\sum_{m=1}^n c_m\varphi_m(x)$， 其中$c_m=\int_a^b<br>f(x)\overline{\varphi_m}(x)dx$。 下面通过讨论$s_n(x)$到$f(x)$的误差得到这个不等式和一个重要的推论。</p><p>注意到$(f，s_n)=\int_a^b<br>f(x)\sum\overline{c_m}\overline{\varphi_m(x)}dx=\sum\overline{c_m}\int_a^b<br>f(x)\overline{\varphi_m(x)}dx=\sum|c_m^2|=\overline{(f，s_n)}=(s_n，f)$，<br>以及$(s_n，s_n)=\sum|c_m^2|$， \begin{equation} \begin{aligned}<br>(f-s_n，f-s_n)&amp;=(f，f-s_n)-(s_n，f-s_n)\\\<br>&amp;=(f，f)-(f，s_n)-(s_n，f)+(s_n，s_n)\\\<br>&amp;=(f，f)-(s_n，s_n)\\\<br>&amp;\geq 0 \end{aligned} \end{equation} 也就是说，<br>\[<br>    (s_n，s_n)=\sum_1^n|c_m|^2\leq(f，f)<br>\]<br>$n\to\infty$时，就是所谓的Bessel不等式。<br>也可以发现，函数的Fourier系数$c_m$满足$\lim\limits_{n\to\infty}c_m=0$。<br>这个推论会在下面Dirichlet核收敛的证明中用到。</p><h3 id="收敛证明"><a href="#收敛证明" class="headerlink" title="收敛证明"></a>收敛证明</h3><blockquote><p>(<strong>Dini’s Test</strong>)若对一些$x$有常数$\delta&gt;0$和$M&lt;\infty$使得<br>\[<br>    |f(x+t)-f(x)|\leq M|t|<br>\]<br>对所有$t\in(-\delta，\delta)$成立，那么有<br>\[<br>    \lim\limits_{n\to\infty}s_N(x)=f(x)<br>\]</p></blockquote><p>要注意的是，我们在这里只讨论逐点收敛。 其他形式的收敛会在接下来的文章中讨论</p><p>定义函数<br>\[<br>    g(t)=<br>        \begin{cases}<br>            \frac{f(x-t)-f(t)}{\sin(t/2)}，0&lt;|t|&lt;\pi\\<br>            0，t=0<br>    \end{cases}<br>\]<br>考虑到<br>\[<br>    \frac{1}{2\pi}\int_{-\pi}^{\pi}D_N(x)dx=1<br>\]<br>因此有<br>\[<br>    \frac{1}{2\pi}\int_{-\pi}^{\pi}D_N(t)f(x)dt=f(x)<br>\]<br>所求函数和原函数做差，就有<br>\begin{equation}<br>    \begin{aligned}<br>    s_N(x)-f(x)&amp;=\frac{1}{2\pi}\int_{-\pi}^{\pi}g(t)\sin\left(N+\frac{1}{2}\right)tdt\\<br>               &amp;=\frac{1}{2\pi}\int_{-\pi}^{\pi}\left[g(t)\cos\frac{t}{2}\right]\sin Ntdt+\frac{1}{2\pi}\int_{-\pi}^{\pi}\left[g(t)\sin\frac{t}{2}\right]\cos Ntdt<br>    \end{aligned}<br>\end{equation}<br>根据$f(x)$的条件和$g(x)$的定义，$g(x)\cos(t/2)$和$g(x)\sin(t/2)$是有界的。<br>利用Bessel不等式的推论可以发现，这两个积分趋近于$0$。 这就证明了结论。</p><h2 id="总结-amp-我接下来想写的"><a href="#总结-amp-我接下来想写的" class="headerlink" title="总结&amp;我接下来想写的"></a>总结&amp;我接下来想写的</h2><p>写到这里，已经涉及到了很多数学中的基本技巧：三角函数、向量内积、复变函数、等比数列、函数项数列收敛等等。 Fourier级数可以说是相当“优美”的一类级数。 在一些领域中，展开式中每一项均具有物理意义这是其他级数难以企及的。 我们又可以看到，Fourier级数还可以跳出三角函数的限制，  放在普遍的无穷维空间的规范正交基。 此外，它的收敛定理相比幂级数而言也是很宽松的。</p><p>接下来还有很多内容，我暂时的打算是这样的：</p><ul><li><p>Jordan’s criterion(关于$s_N(x)$收敛什么时候收敛到什么值)，涉及到“有界差分”的概念</p></li><li><p>Parseval等式和应用(Fourier分析理论的核心内容之一)，如三角函数系的完备性</p></li><li><p>Fejer核、Poisson核(一致收敛问题)</p></li><li><p>…</p></li></ul><h2 id="“优美的Fourier级数”系列"><a href="#“优美的Fourier级数”系列" class="headerlink" title="“优美的Fourier级数”系列"></a>“优美的Fourier级数”系列</h2><blockquote><p><a href="/tags/优美的fourier级数">完整索引</a></p></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;Fourier级数是相当优美的一类级数，但它涉及到的问题绝对不仅仅是通过各种运算技巧求表达式。
         
       
     
