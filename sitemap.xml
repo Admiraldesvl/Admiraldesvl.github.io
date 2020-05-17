@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://desvl.xyz/2020/05/12/linear-ode-chapter-3/</loc>
+    
+    <lastmod>2020-05-17T11:28:23.861Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://desvl.xyz/2020/05/17/linear-ode-but-quotient-space/</loc>
+    
+    <lastmod>2020-05-17T11:28:08.688Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://desvl.xyz/2020/05/16/ivp-picard-differnt-level/</loc>
     
     <lastmod>2020-05-16T13:08:17.557Z</lastmod>
@@ -12,13 +26,6 @@
     <loc>https://desvl.xyz/about/index.html</loc>
     
     <lastmod>2020-05-16T11:48:14.744Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://desvl.xyz/2020/05/12/linear-ode-chapter-3/</loc>
-    
-    <lastmod>2020-05-12T12:03:49.074Z</lastmod>
     
   </url>
   
