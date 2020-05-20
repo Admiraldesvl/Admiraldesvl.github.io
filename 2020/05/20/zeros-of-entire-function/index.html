@@ -12,7 +12,7 @@
 
 
 
-<title>Linear ODE but Quotient Spaces | Desvl&#39;s blog</title>
+<title>More properties of zeros of an entire function | Desvl&#39;s blog</title>
 
 
 
@@ -205,7 +205,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">Linear ODE but Quotient Spaces</h1>
+            <h1 class="post-title">More properties of zeros of an entire function</h1>
             
                 <div class="post-meta">
                     
@@ -214,7 +214,7 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">May 17, 2020&nbsp;&nbsp;19:30:00</a>
+                        Date: <a href="#">May 20, 2020&nbsp;&nbsp;20:11:12</a>
                         </span>
                     
                     
@@ -223,47 +223,63 @@
         </header>
 
         <div class="post-content">
-            <h2 id="What-does-this-blog-do"><a href="#What-does-this-blog-do" class="headerlink" title="What does this blog do"></a>What does this blog do</h2><p>We are treating linear ODE problems as an example of quotient space in this blog post. You are assumed to be able to solve linear ODEs without theoretical problems, with basic understanding of normal subgroups. </p>
-<h2 id="General-theories"><a href="#General-theories" class="headerlink" title="General theories"></a>General theories</h2><h3 id="Quotient-Space"><a href="#Quotient-Space" class="headerlink" title="Quotient Space"></a>Quotient Space</h3><p>Let $X$ be a vector space, and $N$ a subspace of it. Naturally $N$ is normal in $X$ since $X$ is abelian. Define</p>
+            <h2 id="What’s-going-on-again"><a href="#What’s-going-on-again" class="headerlink" title="What’s going on again"></a>What’s going on again</h2><p>In <a href="/2020/03/14/topological-property-of-the-zeros-of-a-holomorphic-function/">this post</a> we discussed the topological properties of the zero points of an entire nonzero function, or roughly, how those points look like. The set of zero points contains no limit point, and at most countable (countable or finite). So if it’s finite, then we can find them out one by one. For example, the function $f(z)=z$ has simply one zero point. But what if it’s just countable? How fast the number grows?</p>
+<p>Another question. Suppose we have an entire function $f$, and the zeros of $f$, namely $z_1,z_2,\cdots,z_n$, are ordered increasingly by moduli:</p>
 <script type="math/tex; mode=display">
-\pi(x)=x+N</script><p>for $x \in X$, then the collection of sets ${\pi(x):x \in X}$ is the <em>quotient space</em> of $X$ <em>modulo</em> $N$, in which case we write $X/N$. Addition and scalar multiplication are defined by</p>
+|z_1| \leq |z_2| \leq \cdots \leq |z_n| \leq \cdots</script><p>Is it possible to get a fine enough estimation of $|z_n|$? Interesting enough, we can get there with the help of Jensen’s formula.</p>
+<h2 id="Jensen’s-formula"><a href="#Jensen’s-formula" class="headerlink" title="Jensen’s formula"></a>Jensen’s formula</h2><blockquote>
+<p>Suppose $\Omega=D(0;R)$, $f \in H(\Omega)$, $f(0) \neq 0$, $0&lt;r&lt;R$, and $z_1,z_2,\cdots,z_{n(r)}$ are the zeros of $f$ in $\overline{D}(0;R)$, then</p>
 <script type="math/tex; mode=display">
-\pi(x+y)=\pi(x)+\pi(y)\quad \pi(\alpha x)=\alpha\pi(x)</script><p>This is well-defined since $N$ is a vector space. The kernel of $\pi$ or the origin of $X/N$ has to be $N=0+N$.</p>
-<h3 id="Linear-ODE"><a href="#Linear-ODE" class="headerlink" title="Linear ODE"></a>Linear ODE</h3><p>If one solves a linear ODE problem of order $n$ on an interval $(a,b)$, namely</p>
+|f(0)|\prod_{n=1}^{n(r)}\frac{r}{|z_n|}=\exp\left[\frac{1}{2\pi}\int_{-\pi}^{\pi}\log|f(re^{i\theta})|d\theta\right]</script></blockquote>
+<p>There is no need to worry about the assumption $f(0) \neq 0$. Take another look at  <a href="/2020/03/14/topological-property-of-the-zeros-of-a-holomorphic-function/#Proof">this proof</a>. Every zero point $a$ has a unique positive number $m$ such that $f(z)=(z-a)^mg(z)$ and $g \in H(\Omega)$ but $g(a) \neq 0$. The number $m$ is called the order of the zero at $a$. Therefore if we have $f(0)=0$ we can simply consider another function, namely $\frac{f}{z^m}$ where $m$ is the order of zero at $0$.</p>
+<p>We are not proving this equation at this point. But it can be done by considering the following function</p>
 <script type="math/tex; mode=display">
-\frac{d\mathbf{y}}{dx}=\mathbf{Ay}+\mathbf{f} \quad a<x<b</script><p>they will find that the solution can be</p>
+g(z)=f(z)\prod_{n=1}^{m}\frac{r^2-\overline{z}_nz}{r(z_n-z)}\prod_{n=m+1}^{n(r)}\frac{z_n}{z_n-z}</script><p>where $m$ is found by ordering $z_j$ in such a way that $z_1,\cdots,z_m \in D(0;r)$ and $|z_{m+1}|=\cdots=|z_{n}|$. One can prove this equation by considering $|g(0)|$ as well as $\log|g(re^{i\theta})|$.</p>
+<h2 id="Several-applications"><a href="#Several-applications" class="headerlink" title="Several applications"></a>Several applications</h2><h3 id="The-number-of-zeros-of-f-in-overline-D-0-r"><a href="#The-number-of-zeros-of-f-in-overline-D-0-r" class="headerlink" title="The number of zeros of $f$ in $\overline{D}(0;r)$"></a>The number of zeros of $f$ in $\overline{D}(0;r)$</h3><p>For simplicity we shall assume $f(0)=1$ which has no loss of generality. Let</p>
 <script type="math/tex; mode=display">
-\mathbf{y}=\mathbf{\Phi}(x)\mathbf{c}+\mathbf{\Phi}(x)\int_0^x\mathbf{\Phi^{-1}}(s)\mathbf{f}(s)ds</script><p>where $\mathbf{c}$ is a given constant vector and $\mathbf{\Phi}(x)=\begin{bmatrix}\mathbf{\varphi_1},\mathbf{\varphi_2},\cdots,\mathbf{\varphi_n}\end{bmatrix}$ and ${\mathbf{\varphi_i}}$ are the fundamental solutions to $\frac{d\mathbf{y}}{dx}=\mathbf{Ay}$. We’ll translate this into the language of quotient space.</p>
-<h2 id="Steps-to-quotient-space"><a href="#Steps-to-quotient-space" class="headerlink" title="Steps to quotient space"></a>Steps to quotient space</h2><p>So where is the $X$? It suffices to pick $\mathcal{C}^n$, the space of all functions $\mathbf{y}=(y_1,y_2,\cdots,y_n)^T$ such that $y_k$ is $n$-times differentiable. The crux therefore becomes finding $N$. And we’ll show that it’s denoted by $\mathbf{\Phi}(x)\mathbf{c}$.</p>
-<h3 id="The-solutions-of-frac-d-mathbf-y-dx-mathbf-Ay-form-a-vector-space"><a href="#The-solutions-of-frac-d-mathbf-y-dx-mathbf-Ay-form-a-vector-space" class="headerlink" title="The solutions of $\frac{d\mathbf{y}}{dx}=\mathbf{Ay}$ form a vector space"></a>The solutions of $\frac{d\mathbf{y}}{dx}=\mathbf{Ay}$ form a vector space</h3><p>Indeed,  it’s trivially verified since $\frac{d}{dx}$ and matrix multiplication are linear. The question is, how does this vector space <em>look</em> like? Why the fundamental solutions to this equation has and only has $n$ elements? Does that mean this space (denoted by $N$), has dimension $n$? Fortunately, the following isomorphism answers this question in the affirmative.</p>
-<blockquote>
-<p><strong>Theorem</strong> The vector space $N$ is isomorphic to $\mathbb{R}^n$</p>
-</blockquote>
-<p>Pick and fix $x_0 \in (a,b)$. Picard’s existence and uniqueness theorem ensures that, the initial value problem</p>
+M(r)=\sup_{\theta}|f(re^{i\theta})|\quad 0<r<\infty</script><p>and $n(r)$ be the number of zeros of $f$ in $\overline{D}(0;r)$. By the maximum modulus theorem, we have</p>
 <script type="math/tex; mode=display">
-\begin{cases}
-\frac{d\mathbf{y}}{dx}=\mathbf{Ay}\\
-\mathbf{y}(x_0)=\mathbf{y}_0
-\end{cases}</script><p>has a unique solution. Therefore we have a bijection</p>
+\log|f(2re^{i\theta})| \leq |f(2re^{i\theta})| \leq M(2r)</script><p>If we insert Jensen’s formula into this inequality and order $|z_n|$ by increasing moduli, we get</p>
+<script type="math/tex; mode=display">
+\log M(2r) \geq \frac{1}{2\pi}\int_{-\pi}^{\pi}\log|f(2re^{i\theta})|d\theta=\sum_{n=1}^{n(2r)}\log\frac{2r}{|z_n|}\geq\sum_{n=1}^{n(r)}\log\frac{2r}{|z_n|}\geq n(r)\log2</script><p>Which implies</p>
+<script type="math/tex; mode=display">
+n(r)\leq\log_2M(2r)</script><p>So $n(r)$ is controlled by $M(2r)$.  The second and third inequalities look tricky, which require more explanation.</p>
+<p>First we should notice the fact that $z_n \in \overline{D}(0;R)$ for all $R \in \mathbb{R}$. Hence we have $\log\frac{2r}{|z_n|} \geq \log1=0$ for all $z_n \in \overline{D}(0;R)$.   Hence the second inequality follows. For the third one, we simply have</p>
+<script type="math/tex; mode=display">
+\sum_{n=1}^{n(r)}\log\frac{2r}{|z_n|}=\sum_{n=1}^{n(r)}(\log2+\log\frac{r}{|z_n|}) \geq n(r)\log2.</script><p>So this is it, the rapidity with which $n(r)$ can grow is dominated by $M(r)$.  Namely, the number of zeros of $f$ in the closed disc with radius $r$ is controlled by the maximum modulus of $f$ on a circle with bigger radius. </p>
+<h3 id="Examples-based-on-different-M-r"><a href="#Examples-based-on-different-M-r" class="headerlink" title="Examples based on different $M(r)$"></a>Examples based on different $M(r)$</h3><p>Let’s begin with a simple example. Let $f(z)=1$, we have $M(r)=1$ for all $r$, but also we have $n(r)=0$, in which sense this estimation does nothing. Indeed, as long as $M(r)$ is bounded by a constant, which implies $f(z)$ is bounded, then by Liouville’s theorem, $f(z)$ is constant and this estimation is not available.</p>
+<p>But if $M(r)$ grows properly, things become interesting. For example, if we have</p>
+<script type="math/tex; mode=display">
+M(r) \leq \exp(Ar^k)</script><p>where $A$ and $k$ are given positive numbers, we have a good enough estimation by</p>
+<script type="math/tex; mode=display">
+n(r) \leq \frac{A+(2r)^k}{\log2}</script><p>This estimation becomes interesting if we consider the logarithm of $n(r)$ and $r$, that is</p>
 <script type="math/tex; mode=display">
 \begin{aligned}
-H: N &\mapsto \mathbb{R}^n \\
-\mathbf{y}(x)&\to \mathbf{y}_0
-\end{aligned}</script><p>It suffices to prove that $H$ is linear. Namely, we need to show that</p>
+\limsup_{r\to\infty}\frac{\log{n(r)}}{\log{r}} &\leq \lim_{r\to\infty} \frac{\log(A+(2r)^k)-\log{2}}{\log{r}} \\
+                                               & =k
+\end{aligned}</script><p>If we have $f(z)=1-\exp(z^k)$ where $k$ is a positive integer, we have $n(r) \sim \frac{kr^k}{\pi}$, also</p>
 <script type="math/tex; mode=display">
-H(C_1\mathbf{y}_1+C_2\mathbf{y}_2)=C_1\mathbf{y}_1(x_0)+C_2\mathbf{y}_2(x_0)</script><p>which is trivial, since</p>
+\lim_{r\to\infty}\frac{\log{n(r)}}{\log r}=k</script><h3 id="Lower-bound-of-z-n-r"><a href="#Lower-bound-of-z-n-r" class="headerlink" title="Lower bound of $|z_{n(r)}|$"></a>Lower bound of $|z_{n(r)}|$</h3><p>We’ll see here, how to evaluate the lower bound of $|z_{n(r)}|$ using Jensen’s formula, provided that $M(r)$, or simply the upper bound of $f(z)$ is properly described. Without loss of generality we shall assume that $f(0)=1$. Also, we assume that the zero points of $f(z)$ are ordered by increasing moduli.</p>
+<p>First we still consider</p>
 <script type="math/tex; mode=display">
-(C_1\mathbf{y}_1+C_2\mathbf{y}_2)(x_0)=C_1\mathbf{y}_1(x_0)+C_2\mathbf{y}_2(x_0)</script><h3 id="Quotient-space-and-coset-are-there"><a href="#Quotient-space-and-coset-are-there" class="headerlink" title="Quotient space  and coset are there"></a>Quotient space  and coset are there</h3><p>Let’s see this solution again</p>
+M(r) \leq \exp(Ar^k)</script><p>and see what will happen.</p>
+<p>By Jensen’s, we have</p>
 <script type="math/tex; mode=display">
-\mathbf{y}=\mathbf{\Phi}(x)\mathbf{c}+\mathbf{\Phi}(x)\int_{x_0}^x\mathbf{\Phi^{-1}}(s)\mathbf{f}(s)ds</script><p>For $\mathbf{c}=(c_1,c_2,\cdots,c_n)^T$, we have</p>
+\prod_{n=1}^{n(r)}\frac{r}{|z_n|}=\exp\left[\frac{1}{2\pi}\int_{-\pi}^{\pi}\log|f(re^{i\theta})|d\theta\right] \leq \exp{Ar^k}</script><p>This gives</p>
 <script type="math/tex; mode=display">
-\mathbf{\Phi}(x)\mathbf{c}=\sum_{k=1}^{n}c_k\mathbf{\varphi}_k</script><p>We want to state that ${\mathbf{\varphi_k}}$ is a <strong>basis</strong> of $N$. Yes, it has $n$ elements, but it should also be linear independent. We have no worry about that, since the existence of $\mathbf{\Phi}^{-1}(x)$ forces $|\mathbf{\Phi}| \neq 0$, which is equivalent to the linear independence. </p>
-<p>There we have it. $\mathbf{c}$ can be any element of $\mathbb{R}^n$, hence $\mathbf{\Phi}(x)\mathbf{c}$ goes through all elements of $N$. Also we know, the function</p>
+\prod_{n=1}^{n(r)}|z_n| \geq r^{n(r)}\exp(-Ar^k)</script><p>By the arrangement of ${z_n}$, we have</p>
 <script type="math/tex; mode=display">
-\mathbf{z}=\mathbf{\Phi}(x)\int_{x_0}^x\mathbf{\Phi^{-1}}(s)\mathbf{f}(s)ds</script><p>is a special solution to $\frac{d\mathbf{y}}{dx}=\mathbf{Ay}+\mathbf{f}$. Thus we have</p>
+|z_{n(r)}| \geq \sqrt[n(r)]{\prod_{n=1}^{n(r)}|z_n|}\geq r\exp(-Ar^{k-n(r)})</script><hr>
+<p>Another example is when we have</p>
 <script type="math/tex; mode=display">
-\mathbf{z}+N=\pi(\mathbf{z})</script><p>to be the set of all solutions where $\pi(\mathbf{z}) \in X/N$.</p>
-
+|f(z)| \leq \exp(A|\Im{z}|)</script><p>where $\Im{z}$ means the imagine part of $z$.</p>
+<p>We shall notice that in this case,</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\frac{1}{2\pi}\int_{-\pi}^{\pi}\log|f(re^{i\theta})|d\theta &\leq \frac{1}{2\pi}\int_{-\pi}^{\pi}A|r\sin\theta|d\theta=\frac{2Ar}{\pi}
+\end{aligned}</script><p>Following Jensen’s formula, we therefore have</p>
+<script type="math/tex; mode=display">
+|z_{n(r)}| \geq \exp(\frac{2A}{\pi}r^{1-n(r)})</script>
         </div>
 
         
@@ -277,7 +293,7 @@ H(C_1\mathbf{y}_1+C_2\mathbf{y}_2)=C_1\mathbf{y}_1(x_0)+C_2\mathbf{y}_2(x_0)</sc
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="https://desvl.xyz/2020/05/17/linear-ode-but-quotient-space/">https://desvl.xyz/2020/05/17/linear-ode-but-quotient-space/</a></span>
+                        <span><a href="https://desvl.xyz/2020/05/20/zeros-of-entire-function/">https://desvl.xyz/2020/05/20/zeros-of-entire-function/</a></span>
                     </p>
                 
                 
@@ -304,10 +320,8 @@ H(C_1\mathbf{y}_1+C_2\mathbf{y}_2)=C_1\mathbf{y}_1(x_0)+C_2\mathbf{y}_2(x_0)</sc
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="../../20/zeros-of-entire-function/">More properties of zeros of an entire function</a>
             
-            
-            <a class="next" rel="next" href="../../16/ivp-picard-differnt-level/">Prove Picard's Existence and Uniqueness Theorem on Different Levels</a>
+            <a class="next" rel="next" href="../../17/linear-ode-but-quotient-space/">Linear ODE but Quotient Spaces</a>
             
         </section>
     </article>
