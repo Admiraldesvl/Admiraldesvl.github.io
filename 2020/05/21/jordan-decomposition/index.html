@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Desvl">
+
+
+
+
+
+<title>矩阵Jordan标准形的原理 | Desvl&#39;s blog</title>
+
+
+
+    <link rel="icon" href="../../../../favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="../../../../css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="../../../../js/script.js"></script>
+    
+    <script src="../../../../js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+            <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+        
+    
+
+
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="atom.xml" title="Desvl's blog" type="application/atom+xml">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Desvl&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="../../../../archives">Posts</a>
+                
+                    <a class="menu-item" href="../../../../about">About &amp; Link Exchange</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Desvl&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="../../../../archives">Posts</a>
+                
+                    <a class="menu-item" href="../../../../about">About &amp; Link Exchange</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">矩阵Jordan标准形的原理</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Desvl</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">May 21, 2020&nbsp;&nbsp;18:02:34</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="说在前面"><a href="#说在前面" class="headerlink" title="说在前面"></a>说在前面</h2><p>我们在处理较大规模线性运算（主要涉及加法、乘法）时，总是希望能对计算进行简化。例如需要讨论若干个线性方程的解，或者解一个高阶微分方程，再或者是一些非线性问题在局部的线性拟合估计。一个经典的办法是矩阵对角化。但是，不是所有矩阵都能对角化的。例如矩阵$\begin{bmatrix}1&amp;0\\1&amp;1\end{bmatrix}$在$\mathbb{R}$和$\mathbb{C}$中都不能对角化，因为其最小多项式是$(\lambda-1)^2$。而矩阵</p>
+<script type="math/tex; mode=display">
+A=\begin{bmatrix}0&-1&2&0 \\1&0&-2&0\\0&0&1&0\\1&1&-2&1\end{bmatrix}</script><p>在$\mathbb{R}$中不可以对角化，在$\mathbb{C}$中可以对角化，因为最小多项式是$(\lambda-1)(\lambda^2+1)$。那么有没有什么稳妥的简化矩阵的办法？对角阵可能是简化的极限，那么能不能退而求其次，得到一个比较简单的形式 ，同时又把对角形当作一个特殊情况？</p>
+<p>幸运的是，Jordan标准形给了我们这样一个机会。事实上，只要我们约定矩阵中的元素都是复数（实数看成虚部为$0$），那么就能保证，这个矩阵一定可以简化成Jordan标准形，是一个三角形矩阵，而且元素全部集中在对角线附近，而且如果这个矩阵能对角化，那么这个对角形，其实就是一个“极端”的Jordan标准形。</p>
+<p>如果你觉得这两个例子很莫名其妙，不知道我这个判据从何而来，甚至不是很了解什么是最小多项式，那么你对接下来所要用到的最基本的技术不是很了解。如果想看接下来的内容，请务必了解如何将矩阵对角化，以及准素分解和循环分解。我已经有两篇博客专门对其进行了解释，可供参阅。</p>
+<blockquote>
+<ul>
+<li><a href="/2020/01/22/cyclic-decomposition/">线性空间的循环子空间与简单应用</a></li>
+<li><a href="/2020/01/28/conductor/">线性变换不变子空间的导子及其性质</a></li>
+<li><a href="/2020/02/03/cyclic-decomposition-and-example/">线性空间的循环分解</a></li>
+<li><a href="/2020/02/08/primary-decomposition/">准素分解与准素标准型</a></li>
+</ul>
+</blockquote>
+<h2 id="Jordan标准形的形式，以及和对角形的关系"><a href="#Jordan标准形的形式，以及和对角形的关系" class="headerlink" title="Jordan标准形的形式，以及和对角形的关系"></a>Jordan标准形的形式，以及和对角形的关系</h2><p>实际上，$\begin{bmatrix}1&amp;0\\1&amp;1\end{bmatrix}$就是一个Jordan标准形的简单例子。Jordan标准形已经是简化的极限，所以很不幸，对角化和它无关。我们定义$n$阶矩阵</p>
+<script type="math/tex; mode=display">
+L_n=\begin{pmatrix}0&&& \\ 1&\ddots&&\\&\ddots&\ddots&\\&&1&0\end{pmatrix}</script><p>也就是一个对角线下方全是1的矩阵下三角形矩阵。又定义Jordan块（Jordan标准形的组成元素）如下</p>
+<script type="math/tex; mode=display">
+J_n(\lambda)=\lambda{I}+L_n=\begin{pmatrix}\lambda&&& \\ 1&\ddots&&\\&\ddots&\ddots&\\&&1&\lambda\end{pmatrix}</script><p>而Jordan标准形，就是由这些Jordan块作为对角元素的准对角矩阵，也就是</p>
+<script type="math/tex; mode=display">
+J=\text{diag}(J_{n_1}(\lambda_1),J_{n_2}(\lambda_2),\cdots,J_{n_k}(\lambda_k))</script><p>其中$\text{diag}(\cdots)$表示将括号内元素放在对角线上的对角矩阵。一个Jordan标准形可能是</p>
+<script type="math/tex; mode=display">
+\begin{pmatrix}
+\lambda_1&&\\
+&\ddots& \\
+&&\lambda_k
+\end{pmatrix}</script><p>也就是$n_1=n_2=\cdots=n_k=1$，这个时候就已经得到了一个对角阵。对角阵和Jordan标准形的关系就很清晰了。</p>
+<p>也可能是</p>
+<script type="math/tex; mode=display">
+\begin{pmatrix}2&0&0\\1&2&0\\0&0&7\end{pmatrix}</script><p>我们不妨写成$J=\text{diag}(J_2(2),J_1(7))$。</p>
+<p>当然，这个地方的$J$写成上三角矩阵，也是可以的。原因在后面会解释。</p>
+<h2 id="复方阵的Jordan标准形总是存在"><a href="#复方阵的Jordan标准形总是存在" class="headerlink" title="复方阵的Jordan标准形总是存在"></a>复方阵的Jordan标准形总是存在</h2><p>我们在这一节要证明这一个结论：</p>
+<blockquote>
+<p>对任一复方阵$A$，总是存在可逆复方阵$P$使得</p>
+<script type="math/tex; mode=display">
+P^{-1}AP=\text{diag}(J_{n_1}(\lambda_1),J_{n_2}(\lambda_2),\cdots,J_{n_k}(\lambda_k))=J</script></blockquote>
+<p>实际上，只要矩阵$A$的特征多项式，有$n$个特征值（这些特征值可以重复，可以不重复），那么这个矩阵就可以通过上面这个公式，转化成一个Jordan标准形。所以，实矩阵可能不需要要求把每个数都看成虚部为$0$的数，就可以对角化。而根据古典代数学基本定理，一个$n$阶复多项式一定有$n$个根，所以复矩阵一定是可以Jordan化的。这篇博客里只会讨论复数域的情况。下面提供两种不同的角度进行理解。但是整体思路是一样的。先对矩阵进行准素分解，又进行循环分解，再把循环分解的那一部分进行“错位”，得到Jordan标准形。</p>
+<h3 id="从线性空间的角度理解"><a href="#从线性空间的角度理解" class="headerlink" title="从线性空间的角度理解"></a>从线性空间的角度理解</h3><p>首先，我们定义一个线性变换（在$\mathbb{C}^n$下的标准基${(1,0,\cdots,0),(0,1,\cdots,0),\cdots,(0,0,\cdots,1)}$下）</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\mathscr{A}:\mathbb{C}^n &\to \mathbb{C}^n \\
+x &\mapsto Ax
+\end{aligned}</script><p>不妨设$\mathscr{A}$和$A$的特征多项式为</p>
+<script type="math/tex; mode=display">
+f(\lambda)=(\lambda-\lambda_1)^{d_1}\cdots(\lambda-\lambda_s)^{d_s}</script><p>首先，对$\mathbb{C}^n$进行准素分解，得到</p>
+<script type="math/tex; mode=display">
+\mathbb{C}^n=\bigoplus_{i=1}^{n}V_i</script><p>我们又可以对每个子空间$V_i$进行循环分解，得到</p>
+<script type="math/tex; mode=display">
+\mathbb{C}^n=\bigoplus_{i=1}^{n}V_i=\bigoplus_{i,j}V_{ij}</script><p>设$\mathscr{A}$限制在$V_i$和$V_{ij}$上的线性变换分别是$\mathscr{A}_i$和$\mathscr{A}_{ij}$，特征多项式分别是$(\lambda-\lambda_i)^{d_i}$和$(\lambda-\lambda_i)^{r_{ij}}$。为方便起见，我们记$V_{ij}=V$，$r_{ij}=r$， $\mathscr{A}_{ij}=\mathscr{A}_V$。定义新的线性变换</p>
+<script type="math/tex; mode=display">
+\mathscr{B}_V=\mathscr{A}_V-\lambda_i\mathscr{I}_V</script><p>其中$\mathscr{I}_V$是$V$中的恒等变换。因为不会产生歧义，我们简记成$\mathscr{B}_V=\mathscr{A}_V-\lambda_i$。因为$\mathscr{A}_V$的最小多项式是$(\lambda-\lambda_i)^r$，所以不难发现$\mathscr{B}^r_V$的极小多项式是$\lambda^r$，也就是说$\mathscr{B}^{r}_V=\mathscr{O}$，是一个零变换。</p>
+<p>我们又知道，$V$是由$\mathscr{A}_V$张成的循环子空间。不妨设$V$的循环基是</p>
+<script type="math/tex; mode=display">
+\alpha_1=\alpha,\alpha_2=\mathscr{A}_V\alpha,\cdots,\alpha_r=\mathscr{A}^{r-1}_V\alpha</script><p>我们会证明，如果把$\mathscr{A}_V$换成$\mathscr{B}_V$，得到的一组向量仍然是一组基。也就是说，我们需要证明</p>
+<script type="math/tex; mode=display">
+\beta_1=\alpha,\beta_2=\mathscr{B}_V\alpha,\cdots,\beta_r=\mathscr{B}^{r-1}_V\alpha</script><p>这组基线性无关。我们只需要证明从${\alpha_i}$到${\beta_i}$的过渡矩阵是可逆矩阵；或者说，用$\beta_i$表示$\alpha_i$的矩阵的行列式不等于$0$；或者说，${\beta_i}$这组向量的秩为$r$，这些说法都是等价的。我们不难发现（也可以用归纳证明）</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\beta_1&=\alpha_1 \\
+\beta_2&=\alpha_2-\lambda_i\alpha_1 \\
+\beta_3&=\alpha_3-2\lambda_i\alpha_2+\lambda_i^2\alpha_1 \\
+\cdots&\cdots\cdots\cdots\\
+\beta_k&=\sum_{j=0}^{k-1}C_k^{j}(-\lambda_i)^j\alpha_{k-j+1}
+\end{aligned}</script><p>用矩阵的形式表示，设$\beta=\begin{bmatrix}\beta_1\\ \beta_2 \\ \vdots \\\beta_n\end{bmatrix}$，$\alpha=\begin{bmatrix}\alpha_1\\ \alpha_2 \\ \vdots \\\alpha_n\end{bmatrix}$，那么就有</p>
+<script type="math/tex; mode=display">
+\beta=\begin{pmatrix}
+1 \\
+-\lambda&1 \\
+\lambda^2&-2\lambda&1\\
+\vdots&\vdots&\vdots&\ddots\\
+(-\lambda)^{r-1}&(-1)^{r-1}r\lambda&\cdots&\cdots&1
+\end{pmatrix}\alpha</script><p>也就是说，过渡矩阵（不妨设为$B$）的每一行，都是$(1-\lambda)^k$的对应项。显然，$\det{B} \neq 0$。这说明，这组向量线性无关，是$V$的一组基。对于这组基，我们有</p>
+<script type="math/tex; mode=display">
+(\mathscr{A}-\lambda_i)\beta_1=\beta_2,(\mathscr{A}-\lambda_i)\beta_2=\beta_3,\cdots,(\mathscr{A}-\lambda_i)\beta_{r-1}=\beta_r,(\mathscr{A}-\lambda_i)\beta_r=0</script><p>最后一个成立是因为$(\mathscr{A}-\lambda_i)\beta_r=\mathscr{B}_V^{r}\beta_1=0$。这组$\beta_i$又称作Jordan链，因为关系又可以写成一个链性关系：</p>
+<script type="math/tex; mode=display">
+\mathscr{A}\beta_1=\lambda_i\beta_1+\beta_2,\mathscr{A}\beta_2=\lambda_i\beta_2+\beta_3,\cdots,\mathscr{A}\beta_{r-1}=\lambda_{i}\beta_{r-1}+\beta_r,\mathscr{A}\beta_r=\lambda_i\beta_r</script><p>如果我们用${\beta_i}$作为基，那么$\mathscr{A}_V$的矩阵表示恰好就是一个Jordan块$J_{r}(\lambda_i)$。这是我们对任意一个循环子空间$V_{ij}$进行的操作，将所有的子空间都选择一组Jordan链之后，将所有的Jordan链作为$\mathbb{C}^n$的一组新基，即为$P$，根据矩阵相似的原理，将标准基变换为全体Jordan链，就得到了Jordan标准形。</p>
+<h4 id="证明的进一步理解：为什么要进行准素分解和循环分解？"><a href="#证明的进一步理解：为什么要进行准素分解和循环分解？" class="headerlink" title="证明的进一步理解：为什么要进行准素分解和循环分解？"></a>证明的进一步理解：为什么要进行准素分解和循环分解？</h4><p>在这里进行准素分解和循环分解，并非空穴来风。准素分解是根据矩阵的特征值进行分解。把特征值相等的部分切割开来，保证每个子空间，对应的每个子矩阵，都在操作相同的特征值，这保证了<strong>特征值还能在这个分解中派上用场</strong>。</p>
+<p>接下来，对每个准素分解子空间进行循环分解，<strong>把不变子空间这个概念充分直接运用</strong>（而不是只求特征向量这一丁点关于不变子空间的信息），再将每个子空间分解成循环子空间。但是循环分解得到的是一个友阵，这个友阵不够简洁。因为最后一列与$(\lambda-\lambda_i)^r$的二项式展开的系数有关系。如果我们对循环基进行合适的偏移，发现子空间也是$\mathscr{B}_V = \mathscr{A}_V-\lambda$这个线性变换张成的子空间，而$\mathscr{B}_V$的友阵恰好是一个$L_n$，就得到了一个非常简洁的表示形式了。</p>
+<p>如果我们把Jordan链的顺序完全颠倒，从$\beta_1,\beta_2,\cdots,\beta_n$颠倒成$\beta_n,\beta_{n-1},\cdots,\beta_1$，那么得到的标准形$J’$就是$J$的转置。所以，$J$和$J^{T}$都可以用来表示Jordan标准形。</p>
+<h3 id="从矩阵运算的角度理解"><a href="#从矩阵运算的角度理解" class="headerlink" title="从矩阵运算的角度理解"></a>从矩阵运算的角度理解</h3><p>设$A$的特征多项式为$f(\lambda)=(\lambda-\lambda_1)^{d_1}\cdots(\lambda-\lambda_s)^{d_s}$（其中,$\lambda_1,\lambda_2,\cdots,\lambda_s$互异）。首先，对矩阵$A$进行准素分解，也就是说首先我们有</p>
+<script type="math/tex; mode=display">
+T^{-1}AT=\text{diag}(A_1,\cdots,A_s)</script><p>其中$A_i$的特征多项式为$(\lambda-\lambda_i)^{d_i}$。</p>
+<p>再对$A_i$进行准素分解，也就是说</p>
+<script type="math/tex; mode=display">
+S_i^{-1}A_iS_i=\text{diag}(A_{i1},A_{i2},\cdots,A_{ij},\cdots,A_{ir_i})</script><p>然后讨论$A_{ij}$。首先，$A_{ij}$的最小多项式必定是$(\lambda-\lambda_i)^{k_{ij}}$的形式，如果令$B_{ij}=A_{ij}-\lambda_iI$，那么$B_{ij}$的最小多项式是$\lambda_i^{k_{ij}}$，故根据循环分解，它相似与$C(\lambda_i^{k_{ij}})$，也就是说，存在可逆矩阵$U_{ij}$，使得</p>
+<script type="math/tex; mode=display">
+U_{ij}^{-1}B_{ij}U_{ij}=\begin{pmatrix}0\\1&\ddots\\&\ddots&\ddots\\&&1&0\end{pmatrix}</script><p>从而</p>
+<script type="math/tex; mode=display">
+U_{ij}^{-1}A_{ij}U_{ij}=U_{ij}^{-1}(\lambda_iI+B_{ij})U_{ij}=\lambda_{i}I+C(\lambda_{i}^{k_{ij}})</script><p>此即一个Jordan块。将所有$U_{ij}$都求出来之后，就能得到Jordan标准形。选取$U_{ij}$的过程就是选取Jordan链的过程。</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Desvl (Contact me via admiraldesvl@gmail.com) </span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://desvl.xyz/2020/05/21/jordan-decomposition/">https://desvl.xyz/2020/05/21/jordan-decomposition/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="../../20/zeros-of-entire-function/">More properties of zeros of an entire function</a>
+            
+        </section>
+    </article>
+</div>
+
+
+        </div>
+        
+<footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Desvl | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
