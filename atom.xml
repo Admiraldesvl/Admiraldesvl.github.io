@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://desvl.xyz/"/>
-  <updated>2020-05-21T10:03:09.137Z</updated>
+  <updated>2020-06-01T15:05:45.551Z</updated>
   <id>https://desvl.xyz/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Jordan标准形的求法——以一个四阶矩阵为例</title>
+    <link href="https://desvl.xyz/2020/06/01/jordan-form-example/"/>
+    <id>https://desvl.xyz/2020/06/01/jordan-form-example/</id>
+    <published>2020-06-01T15:05:22.000Z</published>
+    <updated>2020-06-01T15:05:45.551Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="一个简单的例子"><a href="#一个简单的例子" class="headerlink" title="一个简单的例子"></a>一个简单的例子</h2><p>这篇博客里，我们会求一个矩阵的Jordan标准形（在$\mathbb{C}$中）：</p><script type="math/tex; mode=display">A=\begin{bmatrix}3&-1&0&0 \\1&1&0&0 \\3&0&5&-3 \\4&-1&3&1\end{bmatrix}</script><p>我们会顺着<a href="/2020/05/21/jordan-decomposition/">上一篇博客</a>的思路，用一个比较“机械”的办法，求出矩阵的Jordan标准形。但是，每一步的原因都是能给出的。“机械”的意思是说，有章可循。如果你有编程基础，你完全可以依照这个办法把求Jordan标准形的步骤写成程序，当然这就不是我擅长的领域了，我也不多做评价。不过，通往Jordan标准形的路有好几条，我觉得更适合用计算机程序写的路不应该是这篇博客的办法，而应该是<a href="https://matrixcalc.org/en/vectors.html" target="_blank" rel="noopener">这个网站</a>的计算办法。</p><h3 id="1-求特征多项式、极小多项式"><a href="#1-求特征多项式、极小多项式" class="headerlink" title="1. 求特征多项式、极小多项式"></a>1. 求特征多项式、极小多项式</h3><p>求这个矩阵的特征多项式能得到</p><script type="math/tex; mode=display">f(\lambda)=(\lambda-2)^2(\lambda-(3-\sqrt{5}i))(\lambda-(3+\sqrt{5}i))</script><p>当然，这个矩阵是不能对角化的，因为我们可以发现有</p><script type="math/tex; mode=display">m(\lambda)=f(\lambda)</script><p>求这两个方程的目的是显然的，Jordan要用到准素分解、循环分解，而准素分解需要用到极小多项式，极小多项式又和特征多项式有很多联系。</p><p>同时，我们能得到特征根</p><script type="math/tex; mode=display">\lambda_1=2\quad\lambda_2=2\quad \lambda_3=3-\sqrt{5}i\quad\lambda_4=3+\sqrt{5}i</script><h3 id="2-对矩阵进行准素分解"><a href="#2-对矩阵进行准素分解" class="headerlink" title="2. 对矩阵进行准素分解"></a>2. 对矩阵进行准素分解</h3><p>我们已经知道，在$\mathbb{C}$上存在可逆矩阵$P$使得</p><script type="math/tex; mode=display">A=P^{-1}\begin{bmatrix}A_1&&\\ &A_2& \\&&A_3\end{bmatrix}P</script><p>其中$A_1$的特征多项式$f_1=(\lambda-2)^2$，极小多项式$m_1=(\lambda-2)^2$，$A_2$的极小多项式和特征多项式$m_2=f_2=\lambda-(3-\sqrt{5}i)$，$A_3$的极小多项式和特征多项式$m_3=f_3=\lambda-(3+\sqrt{5}i)$。</p><p>这就是之前讲过的先进行准素分解。先利用极小多项式的因子进行切割，然后在每个子矩阵进行仔细分析。下面是详细步骤。</p><hr><p>我们已经知道，有</p><script type="math/tex; mode=display">\mathbb{R}^4=\text{ker}(\lambda-2)^2\oplus\text{ker}(\lambda-(3-\sqrt{5}i))\oplus\text{ker}(\lambda-(3+\sqrt{5}i))</script><p>所以我们需要求出$4$个广义特征向量。由$(A-I)^2\mathbf{v}=0$得</p><script type="math/tex; mode=display">\mathbf{v}_1=\begin{bmatrix}\frac{1}{4} \\ 1 \\ 0 \\ 0\end{bmatrix} \quad\mathbf{v}_2= \begin{bmatrix}-\frac{3}{4} \\ 0 \\ 1 \\0\end{bmatrix}</script><p> 由$(A-(3-\sqrt{5}i)I)\mathbf{v}=0$得</p><script type="math/tex; mode=display">\mathbf{v}_3=\begin{bmatrix}0 \\ 0 \\ \frac{2-\sqrt{5}i}{3} \\ 1\end{bmatrix}</script><p>由$(A - (3+\sqrt{5}i)I)\mathbf{v}=0$得</p><script type="math/tex; mode=display">\mathbf{v}_4=\begin{bmatrix}0 \\ 0 \\ \frac{2+\sqrt{5}i}{3} \\ 1\end{bmatrix}</script><p>我们得到了过渡矩阵</p><script type="math/tex; mode=display">P=\begin{bmatrix}\frac{1}{4}&-\frac{3}{4} & 0 & 0 \\1 & 0 & 0 & 0 \\0 & 1 & \frac{2-\sqrt{5}i}{3} & \frac{2+\sqrt{5}i}{3} \\0 & 0 & 1 & 1\end{bmatrix}</script><p>且有准素分解</p><script type="math/tex; mode=display">P^{-1}AP=\begin{bmatrix}\frac{5}{4} & -\frac{3}{4} & 0 & 0 \\\frac{3}{4} & \frac{11}{4} & 0 & 0 \\0 & 0 & 3-\sqrt{5}i & 0 \\0 & 0 & 0 & 3 + \sqrt{5}i\end{bmatrix}</script><h3 id="3-对准素分解得到的子矩阵进行循环分解"><a href="#3-对准素分解得到的子矩阵进行循环分解" class="headerlink" title="3. 对准素分解得到的子矩阵进行循环分解"></a>3. 对准素分解得到的子矩阵进行循环分解</h3><p>首先，我们仔细回顾一下，为了得到Jordan链，我们需要进行什么工作。对于矩阵$A_i$，我们进行循环分解，得到有理标准形</p><script type="math/tex; mode=display">Q_{i}^{-1}A_iQ_{i}=\text{diag}(A_{i1},\cdots,A_{ir_i})</script><p>然后，对每个子矩阵$A_{ij}$（$m_{ij}=(\lambda-\lambda_i)^{k_{ij}}$的友阵），考虑$B_{ij}=A_{ij}-\lambda_iI$，不难发现$B_{ij}$的极小多项式是$\lambda^{k_{ij}}$，所以只需要再对$B_{ij}$进行一次循环分解即可（如果很难理解，可以回顾一下上篇博客）。按照这个原理，在准素分解得到的$A_1$、$A_2$、$A_3$中，后两个的阶数为$1$，已经不需要分解，相似于自己即可。</p><p>对于矩阵</p><script type="math/tex; mode=display">A_{1}=\begin{bmatrix}\frac{5}{4} & -\frac{3}{4} \\ \frac{3}{4} & \frac{11}{4} \end{bmatrix}</script><p>考虑到不变因子$m_{11}=(\lambda-2)^2=\lambda^2-4\lambda+4$，有且仅有一个，我们能得到它的有理标准形是</p><script type="math/tex; mode=display">A_{11}=\begin{bmatrix}0 & -4 \\ 1 & 4\end{bmatrix}</script><p>从$A_{1}$到$A_{11}$的过渡矩阵可以取循环基$\alpha=(1,0)^T$和$A_1\alpha=(\frac{5}{4},\frac{3}{4})^T$，构成过渡矩阵$Q=\begin{bmatrix}1&amp;\frac{5}{4} \\ 0 &amp; \frac{3}{4}\end{bmatrix}$。此时就有</p><script type="math/tex; mode=display">Q^{-1}A_1Q=A_{11}</script><p>令$B_{11}=A_{11}-2{I}=\begin{bmatrix}-2&amp; -4 \\ 1 &amp; 2\end{bmatrix}$，又重新取循环基，$\alpha=(1,0)^T$和$B_{11}\alpha=(-2,1)^T$，得到过渡矩阵$U=\begin{bmatrix}1&amp; -2 \\ 0&amp; 1\end{bmatrix}$，这个时候又有</p><script type="math/tex; mode=display">U^{-1}B_{11}U=\begin{bmatrix}0 & 0 \\ 1 & 0\end{bmatrix}</script><p>从而对于$A_{11}$来说又有</p><script type="math/tex; mode=display">U^{-1}A_{11}U=\begin{bmatrix}2 & 0 \\ 1 & 2\end{bmatrix}</script><p>再回到矩阵$A_1$，又有</p><script type="math/tex; mode=display">U^{-1}Q^{-1}A_1QU=\begin{bmatrix}2 & 0 \\ 1 & 2\end{bmatrix}</script><p>令$V_1=QU$，我们就得到了$A_1=V_1^{-1}J_2(2)V_1$，得到一个和Jordan块的相似。</p><h3 id="4-将所有矩阵组装起来，得到原矩阵到Jordan标准形的总过渡矩阵"><a href="#4-将所有矩阵组装起来，得到原矩阵到Jordan标准形的总过渡矩阵" class="headerlink" title="4. 将所有矩阵组装起来，得到原矩阵到Jordan标准形的总过渡矩阵"></a>4. 将所有矩阵组装起来，得到原矩阵到Jordan标准形的总过渡矩阵</h3><p>对于$A_2$和$A_3$来说，对应的$V_2$和$V_3$都是一阶单位矩阵，因为本身就已经不能再化简了。结果，我们得到了从$\text{diag}(A_{11},A_{22},A_{33})$到Jordan标准形的过渡矩阵$S=\text{diag}(V_1,V_2,V_3)$，也就是说</p><script type="math/tex; mode=display">S=\begin{bmatrix}1 & -\frac{3}{4} & 0 & 0 \\ 0 & \frac{3}{4} & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 &1\end{bmatrix}</script><p>满足</p><script type="math/tex; mode=display">S^{-1}\begin{bmatrix}\frac{5}{4} & -\frac{3}{4} & 0 & 0 \\\frac{3}{4} & \frac{11}{4} & 0 & 0 \\0 & 0 & 3-\sqrt{5}i & 0 \\0 & 0 & 0 & 3 + \sqrt{5}i\end{bmatrix}S = \begin{bmatrix}2 & 0 & 0 & 0 \\1 & 2 & 0 & 0 \\0 & 0 & 3-\sqrt{5}i & 0 \\0 & 0 & 0 & 3+\sqrt{5}i\end{bmatrix}=J</script><p>最后再加上用来准素分解的$P$，我们就得到了从原矩阵$A$到Jordan标准形$J$的过渡矩阵</p><script type="math/tex; mode=display">T=PS=\begin{bmatrix}\frac{1}{4}& -\frac{3}{4} & 0 & 0 \\1 & -\frac{3}{4} & 0 & 0 \\0 & \frac{3}{4} & \frac{2-\sqrt{5}i}{3}&\frac{2+\sqrt{5}i}{3} \\0 & 0 & 1 & 1\end{bmatrix}</script><p>满足$T^{-1}AT=J$。到这里，我们的过渡矩阵就被求出来了。每一步都是有缘由的，都是直接运用前面的线性代数理论的，没有任何偏差。</p><p>但是要注意，Jordan标准形中，指定特征值下的Jordan块，不一定只有一个。这篇博客中的矩阵$A$，在特征值为$2$下有一个，这是因为极小多项式和特征多项式恰好相等。Jordan标准形中有多个相同特征值下的Jordan块的例子有没有？当然有，而且很简单，单位矩阵就是一个例子。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;一个简单的例子&quot;&gt;&lt;a href=&quot;#一个简单的例子&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>矩阵Jordan标准形的原理</title>
@@ -482,31 +507,6 @@
         
         
           &lt;p&gt;实际上，在十几年前，Get Things Done、Zen to Done等等“生产力圣经”闪亮登场并得到追捧以来，就有了反对的声音，所以我说，这是不是什么新颖的观点。随着互联网的发展，“生产力”的信奉者们开发了工具，所谓To-Do
-        
-      
-    
-    </summary>
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>高等数学入门：上下确界及其极限形式</title>
-    <link href="https://desvl.xyz/2019/09/07/sup-inf/"/>
-    <id>https://desvl.xyz/2019/09/07/sup-inf/</id>
-    <published>2019-09-06T16:00:00.000Z</published>
-    <updated>2020-03-23T04:34:18.699Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="问题的引入-最大值、最小值的局限性"><a href="#问题的引入-最大值、最小值的局限性" class="headerlink" title="问题的引入: 最大值、最小值的局限性"></a>问题的引入: 最大值、最小值的局限性</h3><p>我们先考虑一个简单的函数:<br>\[<br>    f(x)=x\quad x\in(0,1)<br>\]</p><p>那么问题来了: 这个函数有没有最小值或者最大值? 答案是没有. 定义域中的严格不等式给我们制造了无法得到严格解的麻烦. 可能读者会想到, 这是个单调函数, 可以使用极限解决这个问题. 但是这样做局限性太大了. 如果我们连函数的表达式都不知道, 又要到哪个极限找“最值”呢? 我们要做的是, 找到一个数, 它描述集合的范围时, 不依赖于最大值最小值的存在, 而且它不依赖于极限.</p><h3 id="理论基础-实数是有序的"><a href="#理论基础-实数是有序的" class="headerlink" title="理论基础: 实数是有序的"></a>理论基础: 实数是有序的</h3><p>我们一直以来接触各种不等式, 最基本的理论依据就是, 实数的顺序. 这个顺序的意思就是大小关系. 没有顺序关系的数也是有的, 例如复数. 实数的顺序其实可以叙述成以下两点:</p><blockquote><ol><li>如果$x\in\mathbb{R}$而且$y\in\mathbb{R}$, 那么下面三个关系有且仅有一个成立<br>\[<br>x&lt;y\quad x=y\quad y&lt;x  \]   </li><li>如果$x,y,z\in\mathbb{R}$, 而且有$x&lt;y$和$y&lt;z$, 那么$x&lt;z$</li></ol></blockquote><p>至于“$\leq$”，应该理解成小于或等于, “或”的意思在这里是并没有强调哪个一定成立.</p><h3 id="确界的定义"><a href="#确界的定义" class="headerlink" title="确界的定义"></a>确界的定义</h3><p>我们接下来只讨论上界. 也就是说, 我们只讨论小于的情况. 至于另一侧, 将小于号换成大于号即可.</p><h4 id="什么叫有上界"><a href="#什么叫有上界" class="headerlink" title="什么叫有上界"></a>什么叫有上界</h4><blockquote><p>取集合$E\subset\mathbb{R}$, 如果<strong>存在</strong>$\beta\in\mathbb{R}$使得对<strong>任意</strong>$x\in{E}$都<strong>满足</strong>不等式$x\leq\beta$, 那么就称$E$有上界, $\beta$就是$E$的一个上界.</p></blockquote><p>这其实就是一个存在命题. 只要满足就够了. 满足之后呢? 没然后了. 剩下的细节不重要. 这和极限很类似. 一个很简单的例子: $(-\infty,1]$就是有上界的. 而且上界$\beta$满足$\beta\in[1,+\infty)$.</p><h4 id="上确界-最小的上界"><a href="#上确界-最小的上界" class="headerlink" title="上确界: 最小的上界"></a>上确界: 最小的上界</h4><p>有的时候, 我们需要知道一个严格解, 这就是上确界. 首先, 我们给出上确界的定义.</p><blockquote><p>对于有上界的集合$E$, 假设存在一个$\alpha\in\mathbb{R}$满足以下条件, 那么就称它为$E$的上确界, 记作$\alpha=\sup{E}$:</p><ul><li><p>$\alpha$是$E$的一个上界</p></li><li><p>如果$\gamma&lt;\alpha$, 那么$\gamma$不是$E$的上界</p></li></ul></blockquote><p>下确界可以通过相反的不等式进行确定, 记作$\alpha=\inf{E}$. 当然$\sup$和$\inf$后面也不一定要跟一个集合, 也可以跟一个函数或者数列. 回到开头的那个函数, 我们能很容易得到<br>\[<br>    \sup{f(x)}=1\quad\inf{f(x)}=0<br>\]</p><p>这时我们不再依赖于极限, 也可以发现, <strong>如果函数的最大值或最小值存在, 那么它一定等于上确界或下确界, 但是上下确界存在时, 最值不一定存在.</strong> 在函数最值不存在时, 我们仍然能利用确界对函数的范围进行严格的分析, 而且不一定需要求极限, 这体现了上下确界的价值所在. 在这里建议读者写几个函数, 再试着求以下上下确界.</p><h3 id="确界的极限形式-上极限、下极限"><a href="#确界的极限形式-上极限、下极限" class="headerlink" title="确界的极限形式(上极限、下极限)"></a>确界的极限形式(上极限、下极限)</h3><h4 id="数列形式"><a href="#数列形式" class="headerlink" title="数列形式"></a>数列形式</h4><p>设${a_n}$是$\mathbb{R}$里的一个数列, 并且定义<br>\[<br>    b_k=\sup\{a_k,a_{k+1},a_{k+2},\cdots\}<br>\]</p><p>再定义<br>\[<br>    \beta=\inf\{b_1,b_2,b_3,\cdots\}<br>\]</p><p>那么就有<br>\[<br>    \beta=\limsup_{n\to\infty}a_n<br>\]</p><p>这就完成了上极限的定义. 而下极限的求法就是将上面的上确界、下确界交换顺序即可. 可是这里为什么出现了极限符号? 这是因为<br>\[<br>    b_1\geq b_2\geq b_3\geq\cdots\geq\beta<br>\]</p><p>所以有<br>\[<br>    \lim\limits_{k\to\infty}b_k=\beta<br>\]</p><p>此外,${a_n}$中有一个子列${a_{n_i}}$收敛于$\beta$, 而且$\beta$是具有这个性质<strong>最大</strong>的数.</p><p>这其实还是解决了一件事情, 如果一个数列发散, 我们还是有可能利用上下确界的极限形式来研究极限的一些性质. 一个很简单的例子比如<br>\[<br>    \limsup_{n\to\infty}{(-1)^n}=1\quad\liminf_{n\to\infty}{(-1)^n}=-1<br>\]</p><h4 id="函数形式"><a href="#函数形式" class="headerlink" title="函数形式"></a>函数形式</h4><p>函数中上下极限的求法其实和数列形式是非常类似的. 我们先举一个上极限的例子, 理解构建过程时也可以利用这个例子:<br>\[<br>    \limsup_{x\to{0}}\sin\frac{1}{x}=1<br>\]</p><p>对于函数, 值域可能是连续集合. 求$x\to{a}$时的上极限, 我们先求出$x\to{a}$时, $f(x)$的上确界构成的集合<br>\[<br>    U=\{y|y=\sup\{f(x)|x\in(a-\varepsilon,a+\varepsilon)\}\}<br>\]</p><p>那么上极限就是<br>\[<br>    \limsup_{x\to{a}}f(x)=\inf{U}<br>\]</p><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>我们单纯利用不等式, 建立起一个非常严格，也非常有应用价值的概念: 确界. 这个概念源于最值, 又高于最值. 当然确界和最值什么时候相等又是一个拓扑学问题. 这又是另外一个话题了.</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;问题的引入-最大值、最小值的局限性&quot;&gt;&lt;a href=&quot;#问题的引入-最大值、最小值的局限性&quot; class=&quot;headerlink&quot; title=&quot;问题的引入: 最大值、最小值的局限性&quot;&gt;&lt;/a&gt;问题的引入:
         
       
     
