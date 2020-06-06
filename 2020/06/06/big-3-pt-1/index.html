@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Desvl">
+
+
+
+
+
+<title>The Big Three Pt. 1 - Baire Category Theorem Explained | Desvl&#39;s blog</title>
+
+
+
+    <link rel="icon" href="../../../../favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="../../../../css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="../../../../js/script.js"></script>
+    
+    <script src="../../../../js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+            <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+        
+    
+
+
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="atom.xml" title="Desvl's blog" type="application/atom+xml">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Desvl&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="../../../../archives">Posts</a>
+                
+                    <a class="menu-item" href="../../../../about">About &amp; Link Exchange</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Desvl&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="../../../../archives">Posts</a>
+                
+                    <a class="menu-item" href="../../../../about">About &amp; Link Exchange</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">The Big Three Pt. 1 - Baire Category Theorem Explained</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Desvl</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">June 6, 2020&nbsp;&nbsp;11:18:04</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="About-the-‘Big-Three’"><a href="#About-the-‘Big-Three’" class="headerlink" title="About the ‘Big Three’"></a>About the ‘Big Three’</h2><p>There are three theorems about Banach spaces that occur frequently in the crux of functional analysis, which are called the ‘big three’:</p>
+<blockquote>
+<ol>
+<li>The Hahn-Banach Theorem</li>
+<li>The Banach-Steinhaus Theorem</li>
+<li>The Open Mapping Theorem</li>
+</ol>
+</blockquote>
+<p>The incoming series of blog posts is intended to offer a self-read friendly explanation with richer details. Some basic analysis and topology backgrounds are required.</p>
+<h2 id="First-and-second-category"><a href="#First-and-second-category" class="headerlink" title="First and second category"></a>First and second category</h2><p>The term ‘category’ is due to Baire, who developed the category theorem afterwards. Let $X$ be a  topological space. A set $E \subset X$ is said to be <em>nowhere dense</em> if $\overline{E}$ has empty interior, i.e. $\text{int}(\overline{E})= \varnothing$. </p>
+<p>There are some easy examples of nowhere dense sets. For example, suppose $X=\mathbb{R}$, equipped with the usual topology. Then $\mathbb{N}$ is nowhere dense in $\mathbb{R}$ while $\mathbb{Q}$ is not. It’s trivial since $\overline{\mathbb{N}}=\mathbb{N}$, which has empty interior. Meanwhile $\overline{\mathbb{Q}}=\mathbb{R}$. But $\mathbb{R}$ is open, whose interior is itself. The category is defined using nowhere dense set. In fact,</p>
+<blockquote>
+<ul>
+<li>A set $S$ is <strong>of the first category</strong> if $S$ is a countable union of nowhere dense sets.</li>
+<li>A set $T$ is <strong>of the second category</strong> if $T$ is not of the first category.</li>
+</ul>
+</blockquote>
+<h2 id="Baire-category-theorem-BCT"><a href="#Baire-category-theorem-BCT" class="headerlink" title="Baire category theorem (BCT)"></a>Baire category theorem (BCT)</h2><p>In this blog post, we consider two cases: BCT in complete metric space and in locally compact Hausdorff space. These two cases have nontrivial intersection but they are not equal. There are some complete metric spaces that are not locally compact Hausdorff. </p>
+<p>There are some classic topological spaces, for example $\mathbb{R}^n$, are both complete metric space and locally compact Hausdorff. If a locally compact Hausdorff space happens to be a topological vector space, then this space has finite dimension. Also, a topological vector space has to be Hausdorff. </p>
+<blockquote>
+<p>By a Baire space we mean a <em>topological space</em>  $X$ such that <strong>the intersection of every countable collection of dense open subsets</strong> of $X$ is also dense in $X$. </p>
+</blockquote>
+<p>Baire category states that</p>
+<blockquote>
+<p><strong>(BCT1)</strong> Every complete metric space is a Baire space.</p>
+<p><strong>(BCT2)</strong> Every locally compact Hausdorff space is a Baire space.</p>
+</blockquote>
+<p>By taking the complement of the definition, we can see that, <strong>every Baire space is not of the first category</strong>. </p>
+<p>Suppose we have a sequence of sets ${X_n}$ where $X_n$ is dense in $X$ for all $n&gt;0$, then $X_0=\cap_n X_n$ is also dense in $X$. Notice then $X_0^{c} = \cup_n X_n^c$, a nowhere dense set and a countable union of nowhere dense sets, i.e. of the first category. </p>
+<h3 id="Proving-BCT1-and-BCT2-via-Choquet-game"><a href="#Proving-BCT1-and-BCT2-via-Choquet-game" class="headerlink" title="Proving BCT1 and BCT2 via Choquet game"></a>Proving BCT1 and BCT2 via Choquet game</h3><p>Let $X$ be the given complete metric space or locally Hausdorff space, and ${X_n}$ a countable collection of open subsets of $X$. Pick an arbitrary open subsets of $X$, namely $A_0$ (this is possible due to the topology defined on $X$). To prove that $\cap_n V_n$ is dense, we have to show that $A_0 \cap \left(\cap_n V_n\right) \neq \varnothing$. This follows the definition of denseness. Typically we have</p>
+<blockquote>
+<p> A subset $A$ of $X$ is dense if and only if $A \cap U  \neq \varnothing$ for all nonempty open subsets $U$ of $X$.</p>
+</blockquote>
+<p>We pick a sequence of nonempty open sets ${A_n}$ inductively. With $A_{n-1}$ being picked, and since $V_n$ is open and dense in $X$, the intersection $V_n \cap A_{n-1}$ is nonempty and open. $A_n$ can be chosen such that</p>
+<script type="math/tex; mode=display">
+\overline{A}_n \subset V_n \cap A_{n-1}</script><p>For BCT1, $A_n$ can be chosen to be open balls with radius $&lt; \frac{1}{n}$; for BCT2, $A_n$ can be chosen such that the closure is compact. Define</p>
+<script type="math/tex; mode=display">
+C = \bigcap_{n=1}^{\infty}\overline{A}_n</script><p>Now, if $X$ is a locally compact Hausdorff space, then due to the compactness, $C$ is not empty, therefore we have</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+K \subset A_0 \\
+K \subset V_n \quad(n \in \mathbb{N})
+\end{cases}</script><p>which shows that $A_0 \cap V_n \neq \varnothing$. BCT2 is proved.</p>
+<p>For BCT1, we cannot follow this since it’s not ensured that $X$ has the Heine-Borel property, for example when $X$ is the Hilbert space (this is also a reason why BCT1 and BCT2 are not equivalent). The only tool remaining is Cauchy sequence. But how and where?</p>
+<p>For any $\varepsilon &gt; 0$, we have some $N$ such that $\frac{1}{N} &lt; \varepsilon$. For all $m&gt;n&gt;N$, we have $A_m \subset A_n\subset A_N$, therefore the centers of ${A_n}$ form a Cauchy sequence, converging to some point of $K$, which implies that $K \neq \varnothing$. BCT1 follows.</p>
+<h2 id="Applications-of-BCT"><a href="#Applications-of-BCT" class="headerlink" title="Applications of BCT"></a>Applications of BCT</h2><p>BCT will be used directly in the big three. It can be considered as the origin of them. But there are many other applications in different branches of mathematics. The applications shown below are in the same pattern: <strong>if it does not hold, then we have a Baire space of the first category, which is not possible.</strong></p>
+<blockquote>
+<p>$\mathbb{R}$ is uncountable</p>
+</blockquote>
+<p>Suppose $\mathbb{R}$ is countable, then we have</p>
+<script type="math/tex; mode=display">
+\mathbb{R}=\bigcup_{n=1}^{\infty}\{x_n\}</script><p>where $x_n$ is a real number. But ${x_n}$ is nowhere dense, therefore $\mathbb{R}$ is of the first category. A contradiction.</p>
+<blockquote>
+<p>Suppose that $f$ is an entire function, and that in every power series</p>
+<script type="math/tex; mode=display">
+f(z)=\sum_{n=1}^{\infty}c_n(z-a)^n</script><p>has at least one coefficient is $0$, then $f$ is a polynomial (there exists a $N$ such that $c_n=0$ for all $n&gt;N$).</p>
+</blockquote>
+<p>You can find the proof <a href="/2020/03/14/topological-property-of-the-zeros-of-a-holomorphic-function/#A-simple-application-Feat-Baire-Category-Theorem">here</a>. We are using the fact that $\mathbb{C}$ is complete.</p>
+<blockquote>
+<p>An infinite dimensional Banach space $B$ has no countable basis</p>
+</blockquote>
+<p>Assume that $B$ has a countable basis ${x_1,x_2,\cdots}$ and define</p>
+<script type="math/tex; mode=display">
+B_n=\text{span}\{x_1,x_2,\cdots,x_n\}</script><p>It can be easily shown that $B_n$ is nowhere dense. In this sense, $B=\cup_n B_n$. A contradiction since $B$ is a complete metric space.</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Desvl</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://desvl.xyz/2020/06/06/big-3-pt-1/">https://desvl.xyz/2020/06/06/big-3-pt-1/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2020 <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            <br>
+            
+            <a class="next" rel="next" href="../../01/jordan-form-example/">Jordan标准形的求法——以一个四阶矩阵为例</a>
+            
+        </section>
+    </article>
+</div>
+
+
+        </div>
+        
+<footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Desvl | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
