@@ -228,11 +228,11 @@
 \begin{cases}
 \frac{dy}{dx}=f(x,y) \\
 y(x_0)=y_0
-\end{cases}</script><p>Of course we do hope we can solve this problem with ease, with a simple result. But that won’t happen if the function $f$ is ‘ugly’ enough. Hence the problem is, generally and theoretically, when we can get a unique solution? When does some solution exist? Fortunately Picard make it to ensure that</p>
+\end{cases}</script><p>Of course we do hope we can solve this problem easily with a simple result. But that won’t happen if the function $f$ is ‘ugly’ enough. Hence the problem is, generally and theoretically, when we can get a unique solution? When does some solution exist? Fortunately Picard ensured that</p>
 <blockquote>
 <p>If $f$ is uniformly Lipschitz continuous in $y$ and continuous in $x$ on $R={(x,y):|x-x_0| \leq a,|y-y_0| \leq b}$, then for some $\varepsilon&gt;0$, there exists a unique solution $y$ to the IVP on the interval $[x_0-\varepsilon,x_0+\varepsilon]$.</p>
 </blockquote>
-<p>Interesting enough, there are several ways on different levels to prove it. This blog post goes with three proofs about that.</p>
+<p>Interesting enough, there are several ways to prove it on different levels. This blog post offers two proofs.</p>
 <h2 id="Proving-Picard’s-existence-and-uniqueness-theorem"><a href="#Proving-Picard’s-existence-and-uniqueness-theorem" class="headerlink" title="Proving Picard’s existence and uniqueness theorem"></a>Proving Picard’s existence and uniqueness theorem</h2><h3 id="Some-preparation"><a href="#Some-preparation" class="headerlink" title="Some preparation"></a>Some preparation</h3><p>By uniformly Lipschitz continuous, we mean that for all $y \in R$, $f$ satisfies</p>
 <script type="math/tex; mode=display">
 \left\vert f(x,y_1) - f(x,y_2)\right\vert \leq L\left\vert y_1 - y_2 \right\vert</script><p>for some $L &gt; 0$. This condition is useful in many different branch of mathematics.</p>
@@ -248,7 +248,7 @@ y_{n+1}(x)=y_0+\int_{x_0}^{x}f(x,y_n(x))dx \quad |x-x_0| \leq \varepsilon</scrip
 \lim_{n \to \infty}y_n=\sum_{n=1}^{\infty}(y_{n+1}(x)-y_n(x))=y</script><p>is the solution to the IVP, where Lipschitz condition comes into play by considering</p>
 <script type="math/tex; mode=display">
 |y_{n+1}(x)-y_n(x)| \leq \frac{M}{L}\frac{(L|x-x_0|)^{n+1}}{(n+1)!}</script><p>Finally, it should be shown that $y$ is the unique solution. To do this, it can be shown that, if we have two solutions, say $y=u(x)$ and $y=v(x)$, then $u(x)-v(x)=0$.</p>
-<h3 id="Osgood’s-condition-partially-implies-Picard’s-uniqueness"><a href="#Osgood’s-condition-partially-implies-Picard’s-uniqueness" class="headerlink" title="Osgood’s condition partially implies Picard’s (uniqueness)"></a>Osgood’s condition partially implies Picard’s (uniqueness)</h3><p>Osgood’s condition is much weaker than Lipschitz’s. Under Osgood’s condition, it’s easy to check the uniqueness, but there is no way to get the result (while Lipschitz’s gives you the way) through this condition.</p>
+<h3 id="Osgood’s-condition-ensures-uniqueness"><a href="#Osgood’s-condition-ensures-uniqueness" class="headerlink" title="Osgood’s condition ensures uniqueness"></a>Osgood’s condition ensures uniqueness</h3><p>Osgood’s condition is much weaker than Lipschitz’s. Under Osgood’s condition, it’s easy to check the uniqueness (existence is not guaranteed), but there is no way to get the result (while Lipschitz’s show you the way) through this condition.</p>
 <blockquote>
 <p>$f(x,y)$ has <strong>at most one</strong> solution in every point in $R$ if $f$ is continuous and satisfies the <strong>Osgood’s condition</strong>, namely</p>
 <script type="math/tex; mode=display">
@@ -256,8 +256,8 @@ y_{n+1}(x)=y_0+\int_{x_0}^{x}f(x,y_n(x))dx \quad |x-x_0| \leq \varepsilon</scrip
 <script type="math/tex; mode=display">
 \int_{0}^{r_1}\frac{1}{F(r)}dr=\infty</script><p>for some $r_1&gt;0$. </p>
 </blockquote>
-<p>Naturally, if we define $F(r)=Lr$, we have $\int_{0}^{r_1}\frac{1}{Lr}dr=\infty$. But we are not g</p>
-<h4 id="Proof-of-Osgood’s"><a href="#Proof-of-Osgood’s" class="headerlink" title="Proof of Osgood’s"></a>Proof of Osgood’s</h4><p>We’ll prove this theorem indirectly. That is, if there exists some point $(x_0,y_0) \in R$ such that $f$ has at least two solutions, then $f$ does not satisfy Osgood’s condition, which is equivalent to the statement that if $f$ satisfies Osgood’s, then $f$ has no more than solution. But the existence is not guaranteed.</p>
+<p>Naturally, if we define $F(r)=Lr$, we have $\int_{0}^{r_1}\frac{1}{Lr}dr=\infty$. </p>
+<h4 id="Proof-of-Osgood’s"><a href="#Proof-of-Osgood’s" class="headerlink" title="Proof of Osgood’s"></a>Proof of Osgood’s</h4><p>We’ll prove this theorem indirectly. That is, if there exists some point $(x_0,y_0) \in R$ such that $f$ has at least two solutions, then $f$ does not satisfy Osgood’s condition, which is equivalent to the statement that if $f$ satisfies Osgood’s, then $f$ has no more than solution.</p>
 <hr>
 <p>Suppose now there exists a point $(x_0,y_0) \in R$ such that $y’=f(x,y)$ has two distinct solutions</p>
 <script type="math/tex; mode=display">
@@ -273,7 +273,7 @@ r'(x)&=y_1'(x)-y_2'(x) \\
 \end{aligned}</script><p>Then the desired improper integral converges since we have</p>
 <script type="math/tex; mode=display">
 \int_{0}^{r_1}\frac{dr}{F(r)}=\int_{x_s}^{x_1}\frac{r'(x)dx}{F(r(x))} \leq x_1-x_s</script><p>Therefore $f$ does not satisfy Osgood’s condition. </p>
-<h3 id="Banach-FPT-is-applied-onto-Picard’s"><a href="#Banach-FPT-is-applied-onto-Picard’s" class="headerlink" title="Banach FPT is applied onto Picard’s"></a>Banach FPT is applied onto Picard’s</h3><h4 id="What-is-Banach-FPT"><a href="#What-is-Banach-FPT" class="headerlink" title="What is Banach FPT"></a>What is Banach FPT</h4><p>A map $T: X \mapsto X$ defined on a complete metric space $(X,d)$ is a contraction if there exists some $k \in [0,1)$ such that</p>
+<h3 id="Banach-FPT-is-applied-onto-Picard’s"><a href="#Banach-FPT-is-applied-onto-Picard’s" class="headerlink" title="Banach FPT is applied onto Picard’s"></a>Banach FPT is applied onto Picard’s</h3><h4 id="What-is-Banach-FPT-Fixed-Point-Theorem"><a href="#What-is-Banach-FPT-Fixed-Point-Theorem" class="headerlink" title="What is Banach FPT (Fixed Point Theorem)"></a>What is Banach FPT (Fixed Point Theorem)</h4><p>A map $T: X \mapsto X$ defined on a complete metric space $(X,d)$ is a contraction if there exists some $k \in [0,1)$ such that</p>
 <script type="math/tex; mode=display">
 d(T(x),T(y)) \leq k(x,y)</script><p>Banach Fixed Point Theorem states that, $T$ admits a fixed point, namely $T(x)=x$ for some $x \in X$. </p>
 <p>The proof is an application of Cauchy sequence (notice that $(X,d)$ is complete). Pick an arbitrary $x_0 \in X$, by defining $T(x_n)=x_{n+1}$, we have</p>
@@ -289,7 +289,7 @@ d(x_m,x_n) &\leq d(x_m,x_{m-1})+d(x_{m-1},x_{m-2})+\cdots+d(x_{n+1},x_n) \\
 & \to 0 \quad(n \to\infty)
 \end{aligned}</script><p>Since $(X,d)$ is complete, we see ${x_n}$ converges. Also, $T$ is (uniformly) continuous, therefore</p>
 <script type="math/tex; mode=display">
-\lim_{n \to \infty}x_n=\lim_{n \to \infty}x_{n+1}=x=T(x)</script><p>Uniqueness follows from the uniqueness of limit.</p>
+\lim_{n \to \infty}x_n=\lim_{n \to \infty}x_{n+1}=x=T(x)</script><p>Uniqueness of the fixed point follows from the uniqueness of limit.</p>
 <h4 id="Proving-Picard’s-using-Banach-FPT"><a href="#Proving-Picard’s-using-Banach-FPT" class="headerlink" title="Proving Picard’s using Banach FPT"></a>Proving Picard’s using Banach FPT</h4><p>Fortunately, Picard’s existence and uniqueness theorem can be directly proved using Banach FPT. All we need is a proper translation. </p>
 <h5 id="Complete-metric-space"><a href="#Complete-metric-space" class="headerlink" title="Complete metric space"></a>Complete metric space</h5><p>Let $\mathcal{C_B}(R)$ be all bounded continuous function on $R$, then $\mathcal{C_B}(R)$ is complete considering the metric by </p>
 <script type="math/tex; mode=display">
@@ -301,9 +301,9 @@ T(y)=y_0+\int_{x_0}^{x}f(x,y)dx</script><p>is the contraction we are looking for
 d(T(r),T(s)) &= \sup\left\vert \int_{x_0}^{x}(f(x,r)-f(x,s))dx \right\vert \\
              &\leq\sup\int_{x_0}^{x}|f(x,r)-f(x,s)|dx \\
              &\leq L\varepsilon d(r,s)
-\end{aligned}</script><p>Therefore by Banach FPT, the functional $T$ has a unique fixed point, which is equivalent to Picard’s existence and uniqueness theorem. Further, the solution can be theoretically obtained by taking</p>
+\end{aligned}</script><p>Therefore by Banach FPT, the functional $T$ has a unique fixed point, which is equivalent to Picard’s existence and uniqueness theorem. Further, the solution can be obtained by taking</p>
 <script type="math/tex; mode=display">
-y_{n+1}=T(y_n)</script><p>where $y(x_0)=y_0$ comes from the initial value problem.</p>
+y_{n+1}=T(y_n)</script><p>where $y(x_0)=y_0$ comes from the initial value problem. Picard’s follows from FPT.</p>
 
         </div>
 
