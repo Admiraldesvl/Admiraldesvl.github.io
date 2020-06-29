@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://desvl.xyz/about/index.html</loc>
+    
+    <lastmod>2020-06-29T14:02:21.047Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://desvl.xyz/2020/05/17/linear-ode-but-quotient-space/</loc>
     
     <lastmod>2020-06-17T02:01:45.465Z</lastmod>
@@ -19,13 +26,6 @@
     <loc>https://desvl.xyz/2020/06/06/big-3-pt-1/</loc>
     
     <lastmod>2020-06-13T15:16:53.640Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://desvl.xyz/about/index.html</loc>
-    
-    <lastmod>2020-06-05T01:33:28.611Z</lastmod>
     
   </url>
   
