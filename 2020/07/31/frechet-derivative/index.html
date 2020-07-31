@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Desvl">
+
+
+
+
+
+<title>A brief introduction to Fréchet derivative | Desvl&#39;s blog</title>
+
+
+
+    <link rel="icon" href="../../../../favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="../../../../css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="../../../../js/script.js"></script>
+    
+    <script src="../../../../js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+            <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+        
+    
+
+
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="atom.xml" title="Desvl's blog" type="application/atom+xml">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Desvl&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="../../../../archives">Posts</a>
+                
+                    <a class="menu-item" href="../../../../about">About &amp; Link Exchange</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Desvl&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="../../../../archives">Posts</a>
+                
+                    <a class="menu-item" href="../../../../about">About &amp; Link Exchange</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">A brief introduction to Fréchet derivative</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Desvl</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">July 31, 2020&nbsp;&nbsp;18:07:04</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <p>Fréchet derivative is a generalization to the ordinary derivative. Generally we are talking about Banach space, where $\mathbb{R}$ is a special case. Indeed, the space discussed is not even required to be of finite dimension.</p>
+<h2 id="Recall"><a href="#Recall" class="headerlink" title="Recall"></a>Recall</h2><p>A real-valued function $f(t)$ of a real variable, defined on some neighborhood of $0$, is said to be of $o(t)$ if</p>
+<script type="math/tex; mode=display">
+\lim_{t \to 0} \frac{f(t)}{t}=0.</script><p>And its derivative at some point $a$ is defined by</p>
+<script type="math/tex; mode=display">
+f'(a)=\lim_{h \to 0}\frac{f(a+h)-f(a)}{h}.</script><p>We also have this equivalent equation:</p>
+<script type="math/tex; mode=display">
+f(a+h)=f(a)+f'(a)h+o(h).</script><p>Now suppose $f:U \subset \mathbb{R}^n \to \mathbb{R}^m$ where $U$ is an open set. The function $f$ is differentiable at $x_0 \in U$ if satisfying the following conditions.</p>
+<ol>
+<li><p>All partial derivatives of $f$, i.e. $\frac{\partial f_i}{\partial x_j}$ exists for all $i=1,\cdots,m$ and $j = 1,\cdots,n$ at $f$. (Which ensures that the Jacobian matrix exists and is well-defined).</p>
+</li>
+<li><p>The Jacobian matrix $J(x_0)\in\mathbb{R}^{m\times n}$ satisfies</p>
+<script type="math/tex; mode=display">
+\lim_{|h| \to 0}\frac{|f(x_0+h)-f(x_0)-J(x_0)h|}{|h|}=0.</script><p>In fact the Jacobian matrix has been the derivative of $f$ at $x_0$ although it’s a matrix in lieu of number. But we should treat a number as a matrix in the general case. In the following definition of Fréchet derivative, you will see that we should treat <em>something</em> as linear functional.</p>
+</li>
+</ol>
+<h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><p>Let $f:U\to\mathbf{F}$ be a function where $U$ is an open subset of $\mathbf{E}$. We say $f$ is Fréchet differentiable at $x \in U$ if there is a bounded and <strong>linear operator </strong> $\lambda:\mathbf{E} \to \mathbf{F}$ such that</p>
+<script type="math/tex; mode=display">
+\lim_{\lVert y \rVert \to 0}\frac{\lVert f(x+y)-f(x)-\lambda y \rVert}{\lVert  y \rVert}=0.</script><p>We say that $\lambda$ is the <strong>derivative</strong> of $f$ at $x$, which will be denoted by $Df(x)$ or $f’(x)$. Notice that $\lambda \in L(\mathbf{E},\mathbf{F})$. If $f$ is differentiable at every point of $f$, then $f’$ is a map by</p>
+<script type="math/tex; mode=display">
+f':U \to L(\mathbf{E},\mathbf{F}).</script><hr>
+<p>The definition above doesn’t go too far from real functions defined on the real axis. Now we are assuming that both $\mathbf{E}$ and $\mathbf{F}$ are merely topological vector spaces, and still we can get the definition of Fréchet derivative (generalized).</p>
+<p>Let $\varphi$ be a mapping of a neighborhood of $0$ of $\mathbf{E}$ into $\mathbf{F}$. We say that $\varphi$ is <strong>tangent to</strong> $0$ if given a neighborhood $W$ of $0$ in $\mathbf{F}$, there exists a neighborhood $V$ of $0$ in $\mathbf{E}$ such that</p>
+<script type="math/tex; mode=display">
+\varphi(tV) \subset o(t)W</script><p>for some function of $o(t)$. For example, if both $\mathbf{E}$ and $\mathbf{F}$ are normed (not have to be Banach), then we get a usual condition by</p>
+<script type="math/tex; mode=display">
+\lVert \varphi(x) \rVert \leq \lVert x \rVert \psi(x)</script><p>where $\lim_{\lVert x \rVert \to 0}\psi(x)=0$.</p>
+<p>Still we assume that $\mathbf{E}$ and $\mathbf{F}$ are topological vector spaces. Let $f:U \to \mathbf{F}$ be a continuous map. We say that $f$ is differentiable at a point $x \in U$ if there exists some $\lambda \in L(\mathbf{E},\mathbf{F})$ such that for small $y$ we have</p>
+<script type="math/tex; mode=display">
+f(x+y)=f(x)+\lambda{y}+\varphi(y)</script><p>where $\varphi$ is tangent to $0$. Notice that $\lambda$ is uniquely determined.</p>
+<h2 id="Propositions"><a href="#Propositions" class="headerlink" title="Propositions"></a>Propositions</h2><p>You must be familiar with some properties of derivative, but we are redoing these in Banach space.</p>
+<h3 id="Chain-rule"><a href="#Chain-rule" class="headerlink" title="Chain rule"></a>Chain rule</h3><blockquote>
+<p>If $f: U \to V$ is differentiable at $x_0$, and $g:V \to W$ is differentiable at $f(x_0)$, then $g \circ f$ is differentiable at $x_0$, and </p>
+<script type="math/tex; mode=display">
+(g \circ f)'(x_0)=g'(f(x_0)) \circ f'(x_0)</script></blockquote>
+<p><em>Proof.</em> We are proving this in topological vector space. By definition, we already have some linear operator $\lambda$ and $\mu$ such that</p>
+<script type="math/tex; mode=display">
+f(x_0+y)=f(x_0)+\lambda{y}+\varphi(y) \\
+g(f(x_0)+h)=g(f(x_0))+\mu{h}+\psi(h)</script><p>where $\varphi$ and $\psi$ are tangent to $0$. Further, we got</p>
+<script type="math/tex; mode=display">
+f'(x_0)=\lambda \\
+g'(f(x_0))=\mu</script><p>To evaluate $g(f(x_0+y))$, notice that</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+\begin{aligned}
+g(f(x_0+y))&=g[f(x_0)+(\lambda{y}+\varphi(y))] \\
+&=g(f(x_0))+\mu(\lambda{y}+\varphi(y))+\psi(\lambda{y}+\varphi(y)) \\
+&=g(f(x_0))+\mu\circ\lambda{y}+\mu\circ\varphi(y)+\psi(\lambda{y}+\varphi(y))
+\end{aligned}
+\end{equation}</script><p>It’s clear that $\mu\circ\varphi(y)+\psi(\lambda{y}+\varphi(y))$ is tangent to $0$, and $\mu\circ\lambda$ is the linear map we are looking for. That is,</p>
+<script type="math/tex; mode=display">
+(g \circ f)'(x)=g'(f(x_0)) \circ f'(x_0).</script><h3 id="Derivative-of-higher-orders"><a href="#Derivative-of-higher-orders" class="headerlink" title="Derivative of higher orders"></a>Derivative of higher orders</h3><p>From now on, we are dealing with Banach spaces. Let $U$ be an open subset of $\mathbf{E}$, and $f:U \to \mathbf{F}$ be differentiable at each point of $U$. If $f’$ is continuous, then we say that $f$ is <strong>of class</strong> $C^1$. The function of order $C^p$ where $p \geq 1$ is defined inductively. The $p$-th derivative $D^pf$ is defined as $D(D^{p-1}f)$ and is itself a map of $U$ into $L(\mathbf{E},L(\mathbf{E},\cdots,L(\mathbf{E},\mathbf{F})\cdots)))$ which is isomorphic to $L^p(\mathbf{E},\mathbf{F})$. A map $f$ is said to be <strong>of class</strong> $C^p$ if its $kth$ derivative $D^kf$ exists for $1 \leq k \leq p$, and is continuous. With the help of chain rule, and the fact that the composition of two continuous functions are continuous, we get</p>
+<blockquote>
+<p>Let $U,V$ be open subsets of some Banach spaces. If $f:U \to V$ and $g: V \to \mathbf{F}$ are of class $C^p$, then so is $g \circ f$.</p>
+</blockquote>
+<h3 id="Open-subsets-of-Banach-spaces-as-a-category"><a href="#Open-subsets-of-Banach-spaces-as-a-category" class="headerlink" title="Open subsets of Banach spaces as a category"></a>Open subsets of Banach spaces as a category</h3><p>We in fact get a category ${(U,f_U)}$ where $U$ is the object as an open subset of some Banach space, and $f_U$ is the morphism as a map of class $C^p$ mapping $U$ into another open set. To verify this, one only has to realize that the composition of two maps of class $C^p$ is still of class $C^p$ (as stated above).</p>
+<p>We say that $f$ is of class $C^\infty$ if $f$ is of class $C^p$ for all integers $p \geq 1$. Meanwhile $C^0$ maps are the continuous maps.</p>
+<h2 id="An-example"><a href="#An-example" class="headerlink" title="An example"></a>An example</h2><p>We are going to evaluate the Fréchet derivative of a nonlinear functional. It is the derivative of a functional mapping an infinite dimensional space into $\mathbb{R}$ (instead of $\mathbb{R}$ to $\mathbb{R}$).</p>
+<p>Consider the functional by</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\Gamma:C^0[0,1] &\to \mathbb{R} \\
+u &\mapsto \int_{0}^{1}u^2(x)\sin\pi{x}dx.
+\end{aligned}</script><p>where the norm is defined by </p>
+<script type="math/tex; mode=display">
+\lVert u \rVert = \sup_{x \in [0,1]}|u|.</script><p>For $u\in C[0,1]$, we are going to find an linear operator $\lambda$ such that</p>
+<script type="math/tex; mode=display">
+\Gamma(u+\eta)=\Gamma(u)+\lambda{\eta}+\varphi(\eta),</script><p>where $\varphi(\eta)$ is tangent to $0$.</p>
+<p><em>Solution.</em> By evaluating $\Gamma(u+\eta)$, we get</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\Gamma(u+\eta)&=\int_{0}^{1}(u+\eta)^2\sin\pi{x}dx \\
+           &= \Gamma(u)+2\int_{0}^{1}u\eta\sin\pi{x}dx+\int_{0}^{1}\eta^2\sin\pi{x}dx.
+\end{aligned}</script><p>To prove that $\int_{0}^{1}\eta^2\sin{x}dx$ is the $\varphi(\eta)$ desired, notice that</p>
+<script type="math/tex; mode=display">
+\int_{0}^{1}\eta^2\sin\pi{x}dx \leq \lVert\eta\rVert^2\int_{0}^{1}\sin\pi{x}dx=2\lVert \eta \rVert^2.</script><p>Therefore we have</p>
+<script type="math/tex; mode=display">
+0\leq\lim_{\lVert \eta \rVert \to 0}\frac{\int_{0}^{1}\eta^2\sin\pi{x}dx}{\lVert \eta \rVert} \leq \lim_{\lVert\eta\rVert\to0}2\lVert\eta\rVert=0</script><p>as desired. The Fréchet of $\Gamma$ at $u$ is defined by</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\Gamma'(u):C[0,1] &\to \mathbb{R} \\
+            \eta &\mapsto 2\int_{0}^{1}u\eta\sin\pi{x}dx.
+\end{aligned}</script><p>It’s hard to believe but, the derivative is not a number, not a matrix, but a linear operator. But conversely, one can treat a matrix or a number as a linear operator effortlessly.</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Desvl</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://desvl.xyz/2020/07/31/frechet-derivative/">https://desvl.xyz/2020/07/31/frechet-derivative/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2020 <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            <br>
+            
+            <a class="next" rel="next" href="../../21/profinite-group/">An elementary introduction to profinite groups</a>
+            
+        </section>
+    </article>
+</div>
+
+
+        </div>
+        
+<footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Desvl | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>
