@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Desvl">
+
+
+
+
+
+<title>Cauchy sequence in group theory | Desvl&#39;s blog</title>
+
+
+
+    <link rel="icon" href="../../../../favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="../../../../css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="../../../../js/script.js"></script>
+    
+    <script src="../../../../js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+            <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+        
+    
+
+
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="atom.xml" title="Desvl's blog" type="application/atom+xml">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Desvl&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="../../../../archives">Posts</a>
+                
+                    <a class="menu-item" href="../../../../about">About &amp; Link Exchange</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Desvl&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="../../../../archives">Posts</a>
+                
+                    <a class="menu-item" href="../../../../about">About &amp; Link Exchange</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Cauchy sequence in group theory</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Desvl</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">August 1, 2020&nbsp;&nbsp;15:52:06</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="Recall-Cauchy-sequence-in-analysis"><a href="#Recall-Cauchy-sequence-in-analysis" class="headerlink" title="Recall - Cauchy sequence in analysis"></a>Recall - Cauchy sequence in analysis</h2><p>Before we go into group theory, let’s recall how Cauchy sequence is defined in analysis.</p>
+<h3 id="Real-complex-number"><a href="#Real-complex-number" class="headerlink" title="Real/complex number"></a>Real/complex number</h3><p>A sequence $(x_n)_{n=1}^{\infty}$ of real/complex numbers is called a Cauchy sequence if, for every $\varepsilon&gt;0$, there is a positive integer $N$ such that for all $m,n&gt;N$, we have</p>
+<script type="math/tex; mode=display">
+|x_m-x_n|<\varepsilon.</script><p>That said, the <strong>distance</strong> between two numbers is always ‘too close’. Notice that only distance is involved, the definition of Cauchy sequence in metric space comes up in the natural of things.</p>
+<h3 id="Metric-space"><a href="#Metric-space" class="headerlink" title="Metric space"></a>Metric space</h3><p>Given a metric space $(X,d)$, a sequence $(x_n)_{n=1}^{\infty}$ is Cauchy if for every real number $\varepsilon&gt;0$, there is a positive integer $N$ such that, for all $m,n&gt;N$, the distance by</p>
+<script type="math/tex; mode=display">
+d(x_m,x_n)<\varepsilon.</script><h3 id="Topological-vector-space"><a href="#Topological-vector-space" class="headerlink" title="Topological vector space"></a>Topological vector space</h3><p>By considering the topology induced by metric, we see that $x_n$ lies in a neighborhood of $x_m$ with radius $\varepsilon$. But a topology can be constructed by neighborhood, hence the Cauchy sequence for topological vector space follows.</p>
+<p>For a topological vector space $X$, pick a local base $\mathcal{B}$, then $(x_n)_{n=1}^{\infty}$ is a Cauchy sequence if for each member $U \in \mathcal{B}$, there exists some number $N$ such that for $m,n&gt;N$, we have</p>
+<script type="math/tex; mode=display">
+x_m-x_n \in U.</script><p>But in a topological space, it’s not working. Consider two topological space by</p>
+<script type="math/tex; mode=display">
+X=(0,1)\quad Y=(1,+\infty)</script><p>with usual topology. We have $X \simeq Y$ since we have the map by</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+h:X &\to Y \\
+  x &\mapsto \frac{1}{x}
+\end{aligned}</script><p>as a homeomorphism. Consider the Cauchy sequence $(\frac{1}{n+1})_{n=1}^{\infty}$, we see $(h(\frac{1}{n+1}))_{n=1}^{\infty}=(n+1)_{n=1}^{\infty}$ which is not Cauchy. This counterexample shows that being a Cauchy sequence is not preserved by homeomorphism. </p>
+<h3 id="Topological-group"><a href="#Topological-group" class="headerlink" title="Topological group"></a>Topological group</h3><p>Similarly, one can have a Cauchy sequence in a topological group (bu considering subtraction as inverse).</p>
+<p>A sequence $(x_n)_{n=1}^{\infty}$ in a topological group $G$ is a Cauchy sequence if for every open neighborhood $U$ of the identity $G$, there exists some number $N$ such that whenever $m,n&gt;N$, we have</p>
+<script type="math/tex; mode=display">
+x_nx_m^{-1} \in U</script><h2 id="Completeness"><a href="#Completeness" class="headerlink" title="Completeness"></a>Completeness</h2><p>A metric space $(X,d)$ where every Cauchy sequence converges is complete.</p>
+<p>Spaces like $\mathbb{R}$, $\mathbb{C}$ are complete with Euclid metric. But consider the sequence in $\mathbb{Q}$ by</p>
+<script type="math/tex; mode=display">
+a_n=\left(1+\frac{1}{n}\right)^{n}</script><p>we have $a_n\in\mathbb{Q}$ for all $n$ but the sequence does not converge in $\mathbb{Q}$. Indeed in $\mathbb{R}$ we can naturally write $a_n \to e$ but $e \notin \mathbb{Q}$ as we all know.</p>
+<p>There are several ways to construct $\mathbb{R}$ from $\mathbb{Q}$. One of the most famous methods is Dedekind’s cut. However you can find no explicit usage of Cauchy sequence. There is another method by using Cauchy sequence explicitly. We are following that way algebraically.</p>
+<h2 id="Completing-a-group"><a href="#Completing-a-group" class="headerlink" title="Completing a group"></a>Completing a group</h2><p>Suppose we are given a group $G$ with a sequence of normal subgroups $(H_n)_{n=1}^{\infty}$ with $H_n \supset H_{n+1}$ for all $n$, all of which has finite index. We are going to complete this group.</p>
+<h3 id="Cauchy-sequence"><a href="#Cauchy-sequence" class="headerlink" title="Cauchy sequence"></a>Cauchy sequence</h3><p>A sequence $(x_n)_{n=1}^{\infty}$ in $G$ will be called <strong>Cauchy sequence</strong> if given $H_k$, there exists some $N&gt;0$ such that for $m,n&gt;N$, we have</p>
+<script type="math/tex; mode=display">
+x_nx_m^{-1} \in H_k</script><p>Indeed, this looks very similar to what we see in topological group, but we don’t want to grant a topology to the group anyway. This definition does not go to far from the original definition of Cauchy sequence in $\mathbb{R}$ as well. If you treat $H_k$ as some ‘small’ thing, it shows that $x_m$ and $x_n$ are close enough (by considering $x_nx_m^{-1}$ as their difference).</p>
+<h3 id="Null-sequence"><a href="#Null-sequence" class="headerlink" title="Null sequence"></a>Null sequence</h3><p>A sequence $(x_n)_{n=1}^{\infty}$ in $G$ will be called <strong>null sequence</strong> if given $k$, there exists some $N&gt;0$ such that for all $n&gt;N$, we have</p>
+<script type="math/tex; mode=display">
+x_n\in H_k</script><p>or you may write $x_ne^{-1} \in H_k$. It can be considered as being <em>arbitrarily close to the identity $e$</em>.</p>
+<h3 id="Cauchy-sequence-and-null-sequence-as-groups"><a href="#Cauchy-sequence-and-null-sequence-as-groups" class="headerlink" title="Cauchy sequence and null sequence as groups"></a>Cauchy sequence and null sequence as groups</h3><blockquote>
+<p>The Cauchy sequences (of $G$) form a group under termwise product</p>
+</blockquote>
+<p><em>Proof.</em> Let $C$ be the set of Cauchy sequences, we shall show that $C$ forms a group. For $(x_1,x_2,\cdots),(y_1,y_2,\cdots)\in C$, the product is defined by</p>
+<script type="math/tex; mode=display">
+(x_1,x_2,\cdots)(y_1,y_2,\cdots)=(x_1y_1,x_2y_2,\cdots)</script><p>The associativity follows naturally from the associativity of $G$. To show that $(x_1y_1,x_2y_2,\cdots)$ is still a Cauchy sequence, notice that for big enough $m$, $n$ and some $k$, we have</p>
+<script type="math/tex; mode=display">
+x_nx_m^{-1}\in H_k \quad y_ny_m^{-1}\in H_k.</script><p>But $(x_ny_n)(x_my_m)^{-1}=x_ny_ny_m^{-1}x_m^{-1}$. To show that this is an element of $H_k$, notice that</p>
+<script type="math/tex; mode=display">
+x_ny_ny_m^{-1}x_m^{-1}=(x_ny_ny_m^{-1}{\color{red}{x_n^{-1}}})({\color{red}{x_n}}x_m^{-1})</script><p>Since $y_ny_m^{-1}\in H_k$, $H_k$ is normal, we have $x_ny_ny_mx_n^{-1} \in H_k$. Since $x_nx_m^{-1} \in H_k$, $(x_ny_n)(x_my_m)^{-1}$ can be viewed as a product of two elements of $H_k$, therefore is an element of $H_k$.</p>
+<p>Obviously, if we define $e_C=(e_G,e_G,\cdots)$, where $e_G$ is the identity of $G$, $e_C$ becomes the identity of $C$, since</p>
+<script type="math/tex; mode=display">
+(x_1,x_2,\cdots)(e_G,e_G,\cdots)=(x_1,x_2,\cdots)=(e_G,e_G,\cdots)(x_1,x_2,\cdots).</script><p>Finally the inverse. We need to show that</p>
+<script type="math/tex; mode=display">
+(x_1,x_2,\cdots)^{-1}=(x_1^{-1},x_2^{-1},\cdots)</script><p>is still an element of $C$. This is trivial since if we have</p>
+<script type="math/tex; mode=display">
+x_nx_m^{-1} \in H_k</script><p>then</p>
+<script type="math/tex; mode=display">
+(x_n^{-1})(x_m^{-1})^{-1}=x_n^{-1}x_m \in H_k</script><p>as $H_k$ is a group.</p>
+<hr>
+<blockquote>
+<p>The null sequences (of $G$) form a group, further, it’s a normal subgroup of $C$, that is, the group of Cauchy sequences.</p>
+</blockquote>
+<p>Let $N$ be the set of null sequences of $G$. Still, the identity is defined by $(e_G,e_G,\cdots)$, and there is no need to duplicate the validation. And the associativity still follows from $G$. To show that $N$ is closed under termwise product, namely if $(x_n),(y_n) \in N$, then $(x_ny_n)\in N$, one only need to notice that, for big $n$, we already have</p>
+<script type="math/tex; mode=display">
+x_n,y_n \in H_k.</script><p>Therefore $x_ny_n \in H_k$ since $x_n$ and $y_n$ are two elements of $H_k$.</p>
+<p>To show that $(x_n^{-1})$, which should be treated as the inverse of $(x_n)$, is still in $N$, notice that if $x_n \in H_k$, then $x_n^{-1} \in H_k$.</p>
+<p>Next, we shall show that $N$ is a subgroup of $C$, which is equivalent to show that every null sequence is Cauchy. Given $H_p \supset H_q$, for $(x_n)\in{N}$, there are some big enough $m$ and $n$ such that</p>
+<script type="math/tex; mode=display">
+x_n \in H_p \quad x_m \in H_q</script><p>therefore</p>
+<script type="math/tex; mode=display">
+x_nx_m^{-1} \in H_p</script><p>as desired. Finally, pick $(p_n) \in N$ and $(q_n) \in C$, we shall show that $(q_n)(p_n)(q_n)^{-1} \in N$. That is, the sequence $(q_np_nq_n^{-1})$ is a null sequence. Given $H_k$, we have some big $n$ such that</p>
+<script type="math/tex; mode=display">
+p_n \in H_k</script><p>therefore</p>
+<script type="math/tex; mode=display">
+q_np_nq_n^{-1} \in H_k</script><p>since $H_k$ is normal. Our statement is proved.</p>
+<h3 id="The-factor-group"><a href="#The-factor-group" class="headerlink" title="The factor group"></a>The factor group</h3><blockquote>
+<p>The factor group $C/N$ is called the <strong>completion</strong> of $G$ (with respect to $(H_n)$).</p>
+</blockquote>
+<p>As we know, the elements of $C/N$ are cosets. A coset can be considered as an element of $G$’s completion. Let’s head back to some properties of factor group. Pick $x,y \in C$, then $xN=yN$ if and only if $x^{-1}y \in N$. With that being said, two Cauchy sequences are equivalent if their ‘difference’ is a null sequence. </p>
+<p>Informally, consider the addictive group $\mathbb{Q}$. There are two Cauchy sequence by</p>
+<script type="math/tex; mode=display">
+(1,1,1,\cdots,1,\cdots) \\
+(0.9,0.99,0.999,0.9999,\cdots).</script><p>They are equivalent since</p>
+<script type="math/tex; mode=display">
+(0.1,0.01,0.001,\cdots)</script><p>is a null sequence. That’s why people say $0.99999… = 1$ (in analysis, the difference is convergent to $0$; but in algebra, we say the two sequences are equivalent). Another example, $\ln{2}$ can be represented by the equivalent class of</p>
+<script type="math/tex; mode=display">
+(0.6,0.69,0.693,\cdots).</script><hr>
+<h2 id="Remarks"><a href="#Remarks" class="headerlink" title="Remarks"></a>Remarks</h2><p>We made our completion using Cauchy sequences. The completion is filled with some Cauchy sequence and some additions of ‘nothing’, whence the gap disappears.</p>
+<p>Again, the sequence of normal subgroups does not have to be indexed by $\mathbb{N}$. It can be indexed by any directed partially ordered set, or simply partially ordered set. Removing the restriction of index set gives us a great variety of implementation.</p>
+<p>However, can we finished everything about completing $\mathbb{Q}$ using this? The answer is, no - the multiplication is not verified! To finish this, field theory have to be taken into consideration.</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Desvl</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://desvl.xyz/2020/08/01/cauchy-sequence-in-group-theory/">https://desvl.xyz/2020/08/01/cauchy-sequence-in-group-theory/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2020 <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            <br>
+            
+            <a class="next" rel="next" href="../../../07/31/frechet-derivative/">A brief introduction to Fréchet derivative</a>
+            
+        </section>
+    </article>
+</div>
+
+
+        </div>
+        
+<footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Desvl | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
