@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Desvl">
+
+
+
+
+
+<title>The Big Three Pt. 3 - The Open Mapping Theorem (Banach Space) | Desvl&#39;s blog</title>
+
+
+
+    <link rel="icon" href="../../../../favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="../../../../css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="../../../../js/script.js"></script>
+    
+    <script src="../../../../js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+            <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+        
+    
+
+
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="atom.xml" title="Desvl's blog" type="application/atom+xml">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Desvl&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="../../../../archives">Posts</a>
+                
+                    <a class="menu-item" href="../../../../about">About &amp; Link Exchange</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Desvl&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="../../../../archives">Posts</a>
+                
+                    <a class="menu-item" href="../../../../about">About &amp; Link Exchange</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">The Big Three Pt. 3 - The Open Mapping Theorem (Banach Space)</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Desvl</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">August 12, 2020&nbsp;&nbsp;22:01:50</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="What-is-open-mapping"><a href="#What-is-open-mapping" class="headerlink" title="What is open mapping"></a>What is open mapping</h2><p>An open map is a function between two topological spaces that maps open sets to open sets. Precisely speaking, a function $f: X \to Y$ is open if for any open set $U \subset X$, $f(U)$ is open in $Y$. Likewise, a closed map is a function mapping closed sets to closed sets.</p>
+<p>You may think open/closed map is an alternative name for continuous function. But it’s not. In fact, an open map need not to be closed and vice versa, and open/closed map are not necessarily continuous and vice versa. Here are several simple examples.</p>
+<ol>
+<li>$f(x)=\sin{x}$ defined on $\mathbb{R}$ is not open, though it’s continuous. It can be verified by considering $(0,2\pi)$, since we have $f((0,2\pi))=[-1,1]$.</li>
+<li>The projection $\pi: \mathbb{R}^2 \to \mathbb{R}$ defined by $(x,y) \mapsto x$ is open. Indeed, it maps an open ball onto an open interval on $x$ axis.</li>
+<li>The inclusion map $\varphi: \mathbb{R} \to \mathbb{R}^2$ by $x \mapsto (x,0)$ however, is not open. An open interval on the plane is <em>locally closed</em> but not open or closed.</li>
+</ol>
+<p>Under what condition will a continuous linear function between two TVS have to be a open mapping? We’ll give the answer in this blog post. Open mapping theorem is a sufficient condition on whether a continuous linear function is open.</p>
+<h2 id="Open-Mapping-Theorem"><a href="#Open-Mapping-Theorem" class="headerlink" title="Open Mapping Theorem"></a>Open Mapping Theorem</h2><blockquote>
+<p>Let $X,Y$ be Banach spaces and $T: X \to Y$ a surjective bounded linear map. Then $T$ is an open mapping.</p>
+</blockquote>
+<p>The open balls in $X$ and $Y$ are defined respectively by</p>
+<script type="math/tex; mode=display">
+B_r^X=\{x \in X:\lVert x \rVert<r\}\quad\text{and}\quad B_r^Y=\{y \in Y:\lVert y \rVert<r\}</script><p>All we need to do is show that there exists some $r&gt;0$ such that</p>
+<script type="math/tex; mode=display">
+B_r^Y \subset T(B_1^X)</script><p>Since every open set in $X$ or $Y$ can be expressed as a union of open balls. For a ball in $X$ centered at $x \in X$ with radius $r$, we can express it as $x+B_r^X$. After that, it becomes obvious that $T$ maps open set to open set.</p>
+<p>First we have</p>
+<script type="math/tex; mode=display">
+X=\bigcup_{n=1}^{\infty}B_n^{X}.</script><p>The surjectivity of $T$ ensures that</p>
+<script type="math/tex; mode=display">
+Y=\bigcup_{n=1}^{\infty}T(B_n^X).</script><p>Since $Y$ is Banach, or simply a complete metric space, by Baire category theorem, there must be some $n_0 \in \mathbb{N}$ such that $\overline{T(B_{n_0}^{X})}$ has nonempty interior. If not, which means $T(B_n^{X})$ is nowhere dense for all $n \in \mathbb{N}$, we have $Y$ is of the first category. A contradiction.</p>
+<p>Since $x \to nx$ is a homeomorphism of $X$ onto $X$, we see in fact $T(B_n^X)$ is not nowhere dense for all $n \in \mathbb{N}$. Therefore, there exists some $y_0 \in \overline{T(B_1^{X})}$ and some $\varepsilon&gt;0$ such that</p>
+<script type="math/tex; mode=display">
+y_0+B_\varepsilon^Y \subset \overline{T(B_1^X)}</script><p>the open set on the left hand is a neighborhood of $y_0$, which should be in the interior of $\overline{T(B_1^X)}$.</p>
+<p>On the other hand, we claim</p>
+<script type="math/tex; mode=display">
+\overline{T(B_1^X)} - y_0 \subset \overline{T(B_2^X)}.</script><p>We shall prove it as follows. Pick any $y \in \overline{T(B_1^X)}$, we shall show that $y-y_0 \in \overline{T(B_2^X)}$. For $y_0$, there exists a sequence of $y_n$ where $\lVert y_n \rVert &lt;1$ for all $n$ such that $Ty_n \to y_0$. Also we are able to find a sequence of $x_n$ where $\lVert x_n \rVert &lt;1$ for all $n$ such that $Tx_n \to y$. Notice that we also have </p>
+<script type="math/tex; mode=display">
+y-y_0=\lim_{n \to \infty}T(x_n-y_n),</script><p>since</p>
+<script type="math/tex; mode=display">
+\lVert x_n -y_n \rVert \leq \lVert x_n \rVert+\lVert y_n \rVert <2,</script><p>we see $T(x_n-y_n) \in T(B_2^X)$ for all $n$, it follows that</p>
+<script type="math/tex; mode=display">
+y-y_0 \in \overline{T(B_2^X)}.</script><p>Combining all these relations, we get</p>
+<script type="math/tex; mode=display">
+B_\varepsilon^Y \subset \overline{T(B_2^X)}.</script><p>Since $T$ is linear, we see</p>
+<script type="math/tex; mode=display">
+2B_{\varepsilon/2}^{Y} \subset \overline{T(2B_1^X)}=2\overline{T(B_1^X)}.</script><p>By induction we get</p>
+<script type="math/tex; mode=display">
+B_{\varepsilon/2^n}^Y \subset \overline{T(B_{1/2^{n-1}}^X)}</script><p>for all $n \geq 1$.</p>
+<p>We shall show however</p>
+<script type="math/tex; mode=display">
+B_{\varepsilon/4}^Y \subset T(B_1^X).</script><p>For any $u \in B_{\varepsilon/4}^Y$, we have $u \in \overline{T(B_{1/2}^X)}$. There exists some $x_1 \in B_{1/2}^{X}$ such that</p>
+<script type="math/tex; mode=display">
+\lVert u-Tx_1 \rVert < \frac{\varepsilon}{8}.</script><p>This implies that $u-Tx_1 \in B_{\varepsilon/8}^Y$. Under the same fashion, we are able to pick $x_n$ in such a way that</p>
+<script type="math/tex; mode=display">
+\lVert u-Tx_1-Tx_2-\cdots-Tx_n \rVert < \frac{\varepsilon}{2^{n+2}}</script><p>where $\lVert x_n \rVert&lt;2^{-n}$. Now let $z_n=\sum_{k=1}^{n}x_k$, we shall show that $(z_n)$ is Cauchy. For $m&lt;n$, we have</p>
+<script type="math/tex; mode=display">
+\lVert z_n - z_m \rVert =\left\Vert\sum_{k=m+1}^nx_k \right\Vert \leq \sum_{k=m+1}^{n}\lVert x_k\rVert < \frac{1}{2^{m+1}}</script><p>Since $X$ is Banach, there exists some $z \in X$ such that $z_n \to z$. Further we have</p>
+<script type="math/tex; mode=display">
+\lVert z\rVert = \lim_{n \to \infty}\lVert z_n \rVert \leq \sum_{k=1}^{\infty}\lVert x_n \rVert < 1</script><p>therefore $z \in B_1^X$. Since $T$ is bounded, therefore continuous, we get $T(z)=u$. To summarize, for $u \in B_{\varepsilon/4}^Y$, we have some $z \in B_{1}^X$ such that $T(z)=y$, which implies $T(B_1^X) \supset B_{\varepsilon/4}^Y$.</p>
+<p>Let $U \subset X$ be open, we want to show that $T(U)$ is also open. Take $y \in T(U)$, then $y=T(x)$ with $x \in U$. Since $U$ is open, there exists some $\varepsilon&gt;0$ such that $B_{\varepsilon}^{X}+x \subset U$. By the linearity of $T$, we obtain $B_{r\varepsilon}^Y \subset T(B_{\varepsilon}^X)$ for some small $r$. Using the linearity of $T$ again, we obtain</p>
+<script type="math/tex; mode=display">
+B_{r\varepsilon}^Y + y \subset T(B_{\varepsilon}^X+x) \subset T(U)</script><p>which shows that $T(U)$ is open, therefore $T$ is an open mapping.</p>
+<h3 id="Remarks"><a href="#Remarks" class="headerlink" title="Remarks"></a>Remarks</h3><p>One have to notice that the completeness of $X$ and $Y$ has been used more than one time. For example, the existence of $z$ depends on the fact that Cauchy sequence converges in $X$. Also, the surjectivity of $T$ cannot be omitted, can you see why?</p>
+<p>There are some different ways to state this theorem.</p>
+<ul>
+<li>To every $y$ with $\lVert y \rVert &lt; \delta$, there corresponds an $x$ with $\lVert x \rVert&lt;1$ such that $T(x)=y$.</li>
+<li>Let $U$ and $V$ be the open unit balls of the Banach spaces $X$ and $Y$. To every surjective bounded linear map, there corresponds a $\delta&gt;0$ such that</li>
+</ul>
+<script type="math/tex; mode=display">
+T(U) \supset \delta{V}.</script><p>You may also realize that we have used a lot of basic definitions of Banach topology. For example,  we checked the openness of $T(U)$ by using neighborhood. The set $\overline{T(B_1^X)}$ should also remind you of limit point.</p>
+<p>The difference of open mapping and continuous mapping can be viewed via the topologies of two topological vector spaces. Suppose $f: X \to Y$. If for any $U \in \tau_X$, we have $f(U) \in \tau_Y$, where $\tau_X$ and $\tau_Y$ are the topologies of $X$ and $Y$, respectively. But this has nothing to do with continuity. By continuity we mean, for any $V \in \tau_Y$, we have $f^{-1}(V) \in \tau_U$.</p>
+<p>Fortunately, this theorem can be generalized to $F$-spaces, which will be demonstrated in the next blog post of the series. A space $X$ is an $F$-space if its topology $\tau$ is induced by a complete invariant metric $d$. Still, completeness plays a critical rule.</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Desvl</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://desvl.xyz/2020/08/12/big-3-pt-3/">https://desvl.xyz/2020/08/12/big-3-pt-3/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2020 <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            <br>
+            
+            <a class="next" rel="next" href="../../01/cauchy-sequence-in-group-theory/">Cauchy sequence in group theory</a>
+            
+        </section>
+    </article>
+</div>
+
+
+        </div>
+        
+<footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Desvl | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
