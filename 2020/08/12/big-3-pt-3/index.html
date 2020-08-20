@@ -224,15 +224,15 @@
 
         <div class="post-content">
             <h2 id="What-is-open-mapping"><a href="#What-is-open-mapping" class="headerlink" title="What is open mapping"></a>What is open mapping</h2><p>An open map is a function between two topological spaces that maps open sets to open sets. Precisely speaking, a function $f: X \to Y$ is open if for any open set $U \subset X$, $f(U)$ is open in $Y$. Likewise, a closed map is a function mapping closed sets to closed sets.</p>
-<p>You may think open/closed map is an alternative name for continuous function. But it’s not. In fact, an open map need not to be closed and vice versa, and open/closed map are not necessarily continuous and vice versa. Here are several simple examples.</p>
+<p>You may think open/closed map is an alternative name of continuous function. But it’s not. The definition of open/closed mapping is totally different from continuity. Here are some simple examples.</p>
 <ol>
 <li>$f(x)=\sin{x}$ defined on $\mathbb{R}$ is not open, though it’s continuous. It can be verified by considering $(0,2\pi)$, since we have $f((0,2\pi))=[-1,1]$.</li>
 <li>The projection $\pi: \mathbb{R}^2 \to \mathbb{R}$ defined by $(x,y) \mapsto x$ is open. Indeed, it maps an open ball onto an open interval on $x$ axis.</li>
 <li>The inclusion map $\varphi: \mathbb{R} \to \mathbb{R}^2$ by $x \mapsto (x,0)$ however, is not open. An open interval on the plane is <em>locally closed</em> but not open or closed.</li>
 </ol>
-<p>Under what condition will a continuous linear function between two TVS have to be a open mapping? We’ll give the answer in this blog post. Open mapping theorem is a sufficient condition on whether a continuous linear function is open.</p>
+<p>Under what condition will a continuous linear function between two TVS be an open mapping? We’ll give the answer in this blog post. Open mapping theorem is a sufficient condition on whether a continuous linear function is open.</p>
 <h2 id="Open-Mapping-Theorem"><a href="#Open-Mapping-Theorem" class="headerlink" title="Open Mapping Theorem"></a>Open Mapping Theorem</h2><blockquote>
-<p>Let $X,Y$ be Banach spaces and $T: X \to Y$ a surjective bounded linear map. Then $T$ is an open mapping.</p>
+<p>Let $X,Y$ be Banach spaces and $T: X \to Y$ a <strong>surjective</strong> bounded linear map. Then $T$ is an open mapping.</p>
 </blockquote>
 <p>The open balls in $X$ and $Y$ are defined respectively by</p>
 <script type="math/tex; mode=display">
@@ -283,9 +283,9 @@ B_{r\varepsilon}^Y + y \subset T(B_{\varepsilon}^X+x) \subset T(U)</script><p>wh
 <li>Let $U$ and $V$ be the open unit balls of the Banach spaces $X$ and $Y$. To every surjective bounded linear map, there corresponds a $\delta&gt;0$ such that</li>
 </ul>
 <script type="math/tex; mode=display">
-T(U) \supset \delta{V}.</script><p>You may also realize that we have used a lot of basic definitions of Banach topology. For example,  we checked the openness of $T(U)$ by using neighborhood. The set $\overline{T(B_1^X)}$ should also remind you of limit point.</p>
+T(U) \supset \delta{V}.</script><p>You may also realize that we have used a lot of basic definitions of topology. For example,  we checked the openness of $T(U)$ by using neighborhood. The set $\overline{T(B_1^X)}$ should also remind you of limit point.</p>
 <p>The difference of open mapping and continuous mapping can be viewed via the topologies of two topological vector spaces. Suppose $f: X \to Y$. If for any $U \in \tau_X$, we have $f(U) \in \tau_Y$, where $\tau_X$ and $\tau_Y$ are the topologies of $X$ and $Y$, respectively. But this has nothing to do with continuity. By continuity we mean, for any $V \in \tau_Y$, we have $f^{-1}(V) \in \tau_U$.</p>
-<p>Fortunately, this theorem can be generalized to $F$-spaces, which will be demonstrated in the next blog post of the series. A space $X$ is an $F$-space if its topology $\tau$ is induced by a complete invariant metric $d$. Still, completeness plays a critical rule.</p>
+<p>Fortunately, this theorem can be generalized to $F$-spaces, which will be demonstrated in the following blog post of the series. A space $X$ is an $F$-space if its topology $\tau$ is induced by a complete invariant metric $d$. Still, completeness plays a critical rule.</p>
 
         </div>
 
