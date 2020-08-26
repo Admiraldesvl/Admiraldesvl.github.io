@@ -347,7 +347,7 @@ S(P,f,g)=\sum_{k=0}^{n-1}f(c_k)[g(x_{k+1})-g(x_k)]=\sum_{k=0}^{n-1}f(c_k)g'(\zet
 <script type="math/tex; mode=display">
 \sum_{k=0}^{n-1}|g'(c_k)-g'(\zeta_k)|(x_{k+1}-x_k) <\varepsilon</script><p>given that $|S(P,g’,x)-\int_a^b g’dx|&lt;\varepsilon$. Therefore</p>
 <script type="math/tex; mode=display">
-\left\vert\sum_{k=0}^{n-1}f(c_k)g'(\zeta_k)(x_{k+1}-x_k)-\sum_{k=0}^{n-1}f(c_k)g'(c_k)(x_{k+1}-x_k)\right\vert\leq M\varepsilon</script><p>where $M=\sup|f(x)|&lt;\infty$. ($f$ is assumed to be bounded.) Therefore</p>
+\left\vert\sum_{k=0}^{n-1}f(c_k)g'(\zeta_k)(x_{k+1}-x_k)-\sum_{k=0}^{n-1}f(c_k)g'(c_k)(x_{k+1}-x_k)\right\vert\leq M\varepsilon</script><p>where $M=\sup|f(x)|&lt;\infty$ ($f$ is assumed to be bounded.) . Also notice that $fg’$ is integrable since $f$ is continuous. Therefore</p>
 <script type="math/tex; mode=display">
 \begin{aligned}
 \left\vert S(P,f,g)-\int_a^bfg'dx \right\vert&=\left\vert S(P,f,g)-S(P,fg',x)+S(P,fg',x)-\int_a^bfg'dx \right\vert \\
@@ -358,7 +358,9 @@ S(P,f,g)=\sum_{k=0}^{n-1}f(c_k)[g(x_{k+1})-g(x_k)]=\sum_{k=0}^{n-1}f(c_k)g'(\zet
 \int_a^bfdg=\int_a^b fg'dx,</script><p>which proves the theorem. $\square$</p>
 <p>To sum up, given $\varepsilon&gt;0$, there exists some $\delta&gt;0$ such that if $\sigma(P)&lt;\delta$, we have</p>
 <script type="math/tex; mode=display">
-\left|S(P,g',x)-\int_a^b g'dx\right|<\varepsilon/(M+1)</script><p>and some estimation shows that</p>
+\left|S(P,g',x)-\int_a^b g'dx\right|<\varepsilon/(M+1)</script><p>and</p>
+<script type="math/tex; mode=display">
+\left\vert S(P,fg',x)-\int_a^bfg'dx \right\vert<\varepsilon/(M+1).</script><p>After some estimation, we get</p>
 <script type="math/tex; mode=display">
 \left|S(P,f,g)-\int_{a}^{b}fg'dx \right|<(M+1)\frac{\varepsilon}{M+1}=\varepsilon.</script>
         </div>
@@ -418,20 +420,5 @@ S(P,f,g)=\sum_{k=0}^{n-1}f(c_k)[g(x_{k+1})-g(x_k)]=\sum_{k=0}^{n-1}f(c_k)g'(\zet
 </footer>
 
     </div>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>
