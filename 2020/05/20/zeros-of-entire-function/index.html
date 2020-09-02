@@ -236,9 +236,9 @@
 <script type="math/tex; mode=display">
 |f(0)|\prod_{n=1}^{n(r)}\frac{r}{|z_n|}=\exp\left[\frac{1}{2\pi}\int_{-\pi}^{\pi}\log|f(re^{i\theta})|d\theta\right]</script></blockquote>
 <p>There is no need to worry about the assumption $f(0) \neq 0$. Take another look at  <a href="/2020/03/14/topological-property-of-the-zeros-of-a-holomorphic-function/#Proof">this proof</a>. Every zero point $a$ has a unique positive number $m$ such that $f(z)=(z-a)^mg(z)$ and $g \in H(\Omega)$ but $g(a) \neq 0$. The number $m$ is called the order of the zero at $a$. Therefore if we have $f(0)=0$ we can simply consider another function, namely $\frac{f}{z^m}$ where $m$ is the order of zero at $0$.</p>
-<p>We are not proving this equation at this point. But it can be done by considering the following function</p>
+<p>We are not proving this identity at this point. But it can be done by considering the following function</p>
 <script type="math/tex; mode=display">
-g(z)=f(z)\prod_{n=1}^{m}\frac{r^2-\overline{z}_nz}{r(z_n-z)}\prod_{n=m+1}^{n(r)}\frac{z_n}{z_n-z}</script><p>where $m$ is found by ordering $z_j$ in such a way that $z_1,\cdots,z_m \in D(0;r)$ and $|z_{m+1}|=\cdots=|z_{n}|$. One can prove this equation by considering $|g(0)|$ as well as $\log|g(re^{i\theta})|$.</p>
+g(z)=f(z)\prod_{n=1}^{m}\frac{r^2-\overline{z}_nz}{r(z_n-z)}\prod_{n=m+1}^{n(r)}\frac{z_n}{z_n-z}</script><p>where $m$ is found by ordering $z_j$ in such a way that $z_1,\cdots,z_m \in D(0;r)$ and $|z_{m+1}|=\cdots=|z_{n}|$. One can prove this identity by considering $|g(0)|$ as well as $\log|g(re^{i\theta})|$.</p>
 <h2 id="Several-applications"><a href="#Several-applications" class="headerlink" title="Several applications"></a>Several applications</h2><h3 id="The-number-of-zeros-of-f-in-overline-D-0-r"><a href="#The-number-of-zeros-of-f-in-overline-D-0-r" class="headerlink" title="The number of zeros of $f$ in $\overline{D}(0;r)$"></a>The number of zeros of $f$ in $\overline{D}(0;r)$</h3><p>For simplicity we shall assume $f(0)=1$ which has no loss of generality. Let</p>
 <script type="math/tex; mode=display">
 M(r)=\sup_{\theta}|f(re^{i\theta})|\quad 0<r<\infty</script><p>and $n(r)$ be the number of zeros of $f$ in $\overline{D}(0;r)$. By the maximum modulus theorem, we have</p>
@@ -343,5 +343,20 @@ M(r) \leq \exp(Ar^k)</script><p>and see what will happen.</p>
 </footer>
 
     </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

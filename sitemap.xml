@@ -2,16 +2,44 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://desvl.xyz/2020/08/26/r-s-integral/</loc>
+    <loc>https://desvl.xyz/2020/03/23/fubini-counterex-and-why/</loc>
     
-    <lastmod>2020-08-26T11:17:17.090Z</lastmod>
+    <lastmod>2020-09-02T11:11:10.843Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://desvl.xyz/2020/03/29/lebesgue-radon-nikodym/</loc>
     
-    <lastmod>2020-08-26T04:47:19.432Z</lastmod>
+    <lastmod>2020-09-02T11:11:10.843Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://desvl.xyz/2020/03/14/topological-property-of-the-zeros-of-a-holomorphic-function/</loc>
+    
+    <lastmod>2020-09-02T11:11:10.843Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://desvl.xyz/2020/05/20/zeros-of-entire-function/</loc>
+    
+    <lastmod>2020-09-02T11:11:10.843Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://desvl.xyz/2020/08/18/Basic-facts-of-semicontinuous-functions/</loc>
+    
+    <lastmod>2020-09-02T11:11:10.843Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://desvl.xyz/2020/08/26/r-s-integral/</loc>
+    
+    <lastmod>2020-09-02T11:11:10.843Z</lastmod>
     
   </url>
   
@@ -26,13 +54,6 @@
     <loc>https://desvl.xyz/2020/07/16/linear-ode-chapter-4/</loc>
     
     <lastmod>2020-08-20T07:35:03.543Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://desvl.xyz/2020/08/18/Basic-facts-of-semicontinuous-functions/</loc>
-    
-    <lastmod>2020-08-18T09:18:24.685Z</lastmod>
     
   </url>
   
@@ -128,13 +149,6 @@
   </url>
   
   <url>
-    <loc>https://desvl.xyz/2020/05/20/zeros-of-entire-function/</loc>
-    
-    <lastmod>2020-05-20T12:20:03.867Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://desvl.xyz/2020/05/12/linear-ode-chapter-3/</loc>
     
     <lastmod>2020-05-17T11:28:23.861Z</lastmod>
@@ -159,13 +173,6 @@
     <loc>https://desvl.xyz/2020/05/01/linear-ode-chapter-1/</loc>
     
     <lastmod>2020-05-02T00:57:11.796Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://desvl.xyz/2020/03/23/fubini-counterex-and-why/</loc>
-    
-    <lastmod>2020-04-24T03:33:50.613Z</lastmod>
     
   </url>
   
@@ -215,13 +222,6 @@
     <loc>https://desvl.xyz/2019/09/07/sup-inf/</loc>
     
     <lastmod>2020-03-23T04:34:18.699Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://desvl.xyz/2020/03/14/topological-property-of-the-zeros-of-a-holomorphic-function/</loc>
-    
-    <lastmod>2020-03-23T04:34:12.214Z</lastmod>
     
   </url>
   

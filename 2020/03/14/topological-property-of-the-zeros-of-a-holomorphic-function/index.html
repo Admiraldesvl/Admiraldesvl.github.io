@@ -238,7 +238,7 @@
 <blockquote>
 <p>Suppose that $f$ is an entire function, and that in every power series<br>\[<br>    f(z)=\sum c_n(z-a)^n<br>\]<br>has at leat one coefficient is $0$, then $f$ is a polynomial.</p>
 </blockquote>
-<p>Clearly we have $n!c_n=f^{(n)}(a)$, thus for <strong>every</strong> $a \in \mathbb{C}$, we can find a postivie integer $n_0$ such that $f^{(n_0)}(a)=0$. Thus we establish the equation:<br>\[<br>    \bigcup_{n=0}^{\infty} Z(f^{(n)})=\mathbb{C}<br>\]<br>Notice the fact that $f^{(n)}$ is entire. So $Z(f^{n})$ is either an at most countable set without limit point, or simply equal to $\mathbb{C}$.  If there exists a number $N$ such that $Z(f^{N})=\mathbb{C}$, then naturally $Z(f^{n})=\mathbb{C}$ holds for all $n \geq N$. Whilst we see that $f$’s power series has finitely many nonzero coefficients, thus polynomial.</p>
+<p>Clearly we have $n!c_n=f^{(n)}(a)$, thus for <strong>every</strong> $a \in \mathbb{C}$, we can find a postivie integer $n_0$ such that $f^{(n_0)}(a)=0$. Thus we establish the identity:<br>\[<br>    \bigcup_{n=0}^{\infty} Z(f^{(n)})=\mathbb{C}<br>\]<br>Notice the fact that $f^{(n)}$ is entire. So $Z(f^{n})$ is either an at most countable set without limit point, or simply equal to $\mathbb{C}$.  If there exists a number $N$ such that $Z(f^{N})=\mathbb{C}$, then naturally $Z(f^{n})=\mathbb{C}$ holds for all $n \geq N$. Whilst we see that $f$’s power series has finitely many nonzero coefficients, thus polynomial.</p>
 <p>So the question is, is this $N$ always exist? Being an at most countable set without limit points , $Z(f^{(n)})$ has empty interior (nowhere dense). But according to <strong>Baire Category Theorem</strong>, $\mathbb{C}$ could not be a countable union of nowhere dense sets (of the first category if you say so). This forces the existence of $N$.</p>
 <h3 id="Proof"><a href="#Proof" class="headerlink" title="Proof"></a>Proof</h3><p>The proof will be finished using some basic topology techniques.</p>
 <p>Let $A$ be the set of all limit points of $Z(f)$ in $\Omega$. The continuity of $f$ shows that $A \subset Z(f)$. We’ll show that if $A \neq \varnothing$, then $Z(f)=\Omega$.</p>
@@ -312,5 +312,20 @@
 </footer>
 
     </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

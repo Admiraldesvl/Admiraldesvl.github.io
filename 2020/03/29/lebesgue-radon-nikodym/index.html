@@ -317,7 +317,7 @@ w &= \sum_{n=1}^{\infty}w_n \\
 \Lambda{f}=\int_{X}fd\lambda=\int_{X}fgd\varphi=(f,g).</script><p>The properties of $L^2$ space shows that $g$ is determined <em>almost everywhere</em> with respect to $\varphi$.</p>
 <p>For $E \in \mathfrak{M}$, we got</p>
 <script type="math/tex; mode=display">
-0 \leq (\chi_{E},g)=\int_{E}gd\varphi=\int_{E}d\lambda=\lambda(E)\leq\varphi(E)</script><p>which implies $0 \leq g \leq 1$ for almost every $x$ with respect to $\varphi$. Therefore we are able to assume that $0 \leq g \leq 1$ without ruining the equation. The proof is in the bag once we define $A$ to be the set where $0 \leq g &lt; 1$ and $B$ the set where $g=1$.</p>
+0 \leq (\chi_{E},g)=\int_{E}gd\varphi=\int_{E}d\lambda=\lambda(E)\leq\varphi(E)</script><p>which implies $0 \leq g \leq 1$ for almost every $x$ with respect to $\varphi$. Therefore we are able to assume that $0 \leq g \leq 1$ without ruining the identity. The proof is in the bag once we define $A$ to be the set where $0 \leq g &lt; 1$ and $B$ the set where $g=1$.</p>
 <h3 id="Step-3-Generate-lambda-ac-and-lambda-s-and-the-Radon-Nikodym-derivative-at-one-stroke"><a href="#Step-3-Generate-lambda-ac-and-lambda-s-and-the-Radon-Nikodym-derivative-at-one-stroke" class="headerlink" title="Step 3 - Generate $\lambda_{ac}$ and $\lambda_{s}$ and the Radon-Nikodym derivative at one stroke"></a>Step 3 - Generate $\lambda_{ac}$ and $\lambda_{s}$ and the Radon-Nikodym derivative at one stroke</h3><p>We claim that $\lambda(A \cap E)$ and $\lambda(B \cap E)$ form the decomposition we are looking for, $\lambda_{ac}$ and $\lambda_s$, respectively. Namely, $\lambda_{ac}=\lambda(A \cap E)$, $\lambda_s=\lambda(B \cap E)$.</p>
 <h4 id="Proving-lambda-s-perp-mu"><a href="#Proving-lambda-s-perp-mu" class="headerlink" title="Proving $\lambda_s \perp \mu$"></a>Proving $\lambda_s \perp \mu$</h4><p>If we combine $\Lambda{f}=(f,g)$ and $\varphi=\lambda+\tilde{\mu}$ together, we have</p>
 <script type="math/tex; mode=display">
@@ -428,5 +428,20 @@ h=
 </footer>
 
     </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

@@ -285,7 +285,7 @@ f_1(t) < f_1(x)+\varepsilon/2 \quad t \in (x-\delta_1,x+\delta_1), \\
 f_2(t) < f_2(x) + \varepsilon/2 \quad t \in (x-\delta_2,x+\delta_2).</script><p><em>Proof.</em> If we pick $\delta=\min(\delta_1,\delta_2)$, then we see for all $t \in (x-\delta,x+\delta)$, we have</p>
 <script type="math/tex; mode=display">
 f_1(t)+f_2(t)<f_1(x)+f_2(x)+\varepsilon.</script><p>The upper semicontinuity of $f_1+f_2$ is proved by considering all $x \in \mathbb{R}$.</p>
-<p>Now suppose both $f_1$ and $f_2$ are lower semicontinuous. We have a equation by</p>
+<p>Now suppose both $f_1$ and $f_2$ are lower semicontinuous. We have a identity by</p>
 <script type="math/tex; mode=display">
 \{x:f_1+f_2>\alpha\}=\bigcup_{\beta\in\mathbb{R}}\{x:f_1>\beta\}\cap\{x:f_2>\alpha-\beta\}.</script><p>The set on the right side is always open. Hence $f_1+f_2$ is lower semicontinuous. $\square$</p>
 <hr>
@@ -417,5 +417,20 @@ v-u&=\sum_{k=1}^{\infty}c_k\chi_{V_k}-\sum_{k=1}^{N}c_k\chi_{F_k} \\
 </footer>
 
     </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

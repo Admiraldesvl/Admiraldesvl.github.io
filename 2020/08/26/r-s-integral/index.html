@@ -257,14 +257,14 @@ f \mapsto S(P,f,g)</script><p>and</p>
 g \mapsto S(P,f,g)</script><p>are linear. This follows directly from the definition of RS-sum. Let’s see the result.</p>
 <p>Suppose we have</p>
 <script type="math/tex; mode=display">
-\int_a^b fdg=I, \quad \int_a^b hdg=J, \int_a^b fdu=K</script><p>Then we have the following equations for $\alpha \in I$.</p>
+\int_a^b fdg=I, \quad \int_a^b hdg=J, \int_a^b fdu=K</script><p>Then we have the following identities for $\alpha \in I$.</p>
 <ol>
 <li>$\int_a^b \alpha fdg=\alpha I$.</li>
 <li>$\int_a^b (f+h)dg=I+J$.</li>
 <li>$\int_a^bfd(g+u)=I+K$.</li>
 <li>$\int_a^b fd(\alpha g)=\alpha I$.</li>
 </ol>
-<p><em>Proof.</em> We shall show 2 for example. Other three equations follows in the same way.</p>
+<p><em>Proof.</em> We shall show 2 for example. Other three identities follows in the same way.</p>
 <p>Notice that the existence of the limit of RS-sum depends only on the size of $P$. For $\varepsilon&gt;0$, there exists some $\delta_1,\delta_2&gt;0$ such that</p>
 <script type="math/tex; mode=display">
 |S(P,f,g)-I|<\frac{\varepsilon}{2},\quad |S(P,h,g)-J| < \frac{\varepsilon}{2}</script><p>when $\sigma(P)&lt;\delta_1$ and $\sigma(P)&lt;\delta_2$ respectively. By picking $\delta=\min(\delta_1,\delta_2)$, we see for $\sigma(P)&lt;\delta$, we have</p>
@@ -420,5 +420,20 @@ S(P,f,g)=\sum_{k=0}^{n-1}f(c_k)[g(x_{k+1})-g(x_k)]=\sum_{k=0}^{n-1}f(c_k)g'(\zet
 </footer>
 
     </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>
