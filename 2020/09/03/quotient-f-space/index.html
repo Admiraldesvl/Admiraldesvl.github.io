@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Desvl">
+
+
+
+
+
+<title>The completeness of the quotient space (topological vector space) | Desvl&#39;s blog</title>
+
+
+
+    <link rel="icon" href="../../../../favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="../../../../css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="../../../../js/script.js"></script>
+    
+    <script src="../../../../js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+            <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+        
+    
+
+ <meta name="twitter:card" content="summary" />
+ <meta name="twitter:site" content="desvl.xyz" />
+ <meta name="twitter:creator" content="@Desvl"/>
+ <meta name="twitter:title" content="Desvl's Blog" />
+ <meta name="twitter:image" content="https://admiraldesvl.github.io/image/avatar.jpeg" />
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="atom.xml" title="Desvl's blog" type="application/atom+xml">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Desvl&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="../../../../archives">Posts</a>
+                
+                    <a class="menu-item" href="../../../../about">About &amp; Link Exchange</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Desvl&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="../../../../archives">Posts</a>
+                
+                    <a class="menu-item" href="../../../../about">About &amp; Link Exchange</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">The completeness of the quotient space (topological vector space)</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Desvl</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">September 3, 2020&nbsp;&nbsp;23:11:51</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="The-Goal"><a href="#The-Goal" class="headerlink" title="The Goal"></a>The Goal</h2><p>We are going to show the completeness of $X/N$ where $X$ is a TVS and $N$ a closed subspace. Alongside, a bunch of useful analysis tricks will be demonstrated (and that’s why you may find this blog post a little tedious.). But what’s more important, the theorem proved here will be used in the future.</p>
+<h2 id="The-main-process"><a href="#The-main-process" class="headerlink" title="The main process"></a>The main process</h2><p>To make it clear, we should give a formal definition of $F$-space.</p>
+<blockquote>
+<p>A topological space $X$ is an $F$-space if its topology $\tau$ is induced by a complete invariant metric $d$.</p>
+</blockquote>
+<p>A metric $d$ on a vector space $X$ will be called invariant if for all $x,y,z \in X$, we have</p>
+<script type="math/tex; mode=display">
+d(x+z,y+z)=d(x,y).</script><p>By complete we mean every Cauchy sequence of $(X,d)$ converges.</p>
+<h3 id="Defining-the-quotient-metric-rho"><a href="#Defining-the-quotient-metric-rho" class="headerlink" title="Defining the quotient metric $\rho$"></a>Defining the quotient metric $\rho$</h3><p>The metric can be inherited to the quotient space naturally (we will use this fact latter), that is</p>
+<blockquote>
+<p>If $X$ is a $F$-space, $N$ is a closed subspace of a topological vector space $X$, then $X/N$ is still a $F$-space.</p>
+</blockquote>
+<p>Suppose $d$ is a complete invariant metric compatible with $\tau_X$. The metric on $X/N$ is defined by</p>
+<script type="math/tex; mode=display">
+\boxed{\rho(\pi(x),\pi(y))=\inf_{z \in N}d(x-y,z)}</script><h3 id="rho-is-a-metric"><a href="#rho-is-a-metric" class="headerlink" title="$\rho$ is a metric"></a>$\rho$ is a metric</h3><p><em>Proof.</em> First, if $\pi(x)=\pi(y)$, that is, $x-y \in N$, we see</p>
+<script type="math/tex; mode=display">
+\rho(\pi(x),\pi(y))=\inf_{z \in N}d(x-y,z)=d(x-y,x-y)=0.</script><p>If $\pi(x) \neq \pi(y)$ however, we shall show that $\rho(\pi(x),\pi(y))&gt;0$. In this case, we have $x-y \notin N$. Since $N$ is closed, $N^c$ is open, and $x-y$ is an interior point of $X-N$. Therefore there exists an open ball  $B_r(x-y)$ centered at $x-y$ with radius $r&gt;0$ such that $B_r(x-y) \cap N = \varnothing$. Notice we have $d(x-y,z)&gt;r$ since otherwise $z \in B_r(x-y)$. By putting</p>
+<script type="math/tex; mode=display">
+r_0=\sup\{r:B_r(x-y) \cap N = \varnothing\},</script><p>we see $d(x-y,z) \geq r_0$ for all $z \in N$ and indeed $r_0=\inf_{z \in N}d(x-y,z)&gt;0$ (the verification can be done by contradiction). </p>
+<p>Next, we shall show that $\rho(\pi(x),\pi(y))=\rho(\pi(y),\pi(x))$, and it suffices to assume that $\pi(x) \neq \pi(y)$. Sgince $d$ is translate invariant, we get</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+d(x-y,z)&=d(x-y-z,0) \\
+        &=d(0,y-x+z) \\
+        &=d(-z,y-x) \\
+        &=d(y-x,-z).
+\end{aligned}</script><p>Therefore the $\inf$ of the left hand is equal to the one of the right hand. The  identity is proved.</p>
+<p>Finally, we need to verify the triangle inequality. Let $r,s,t \in X$. For any $\varepsilon&gt;0$, there exist some $z_\varepsilon$ and $z_\varepsilon’$ such that</p>
+<script type="math/tex; mode=display">
+d(r-s,z_\varepsilon)<\rho(\pi(r),\pi(s))+\frac{\varepsilon}{2},\quad d(s-t,z'_\varepsilon)<\rho(\pi(s),\pi(t))+\frac{\varepsilon}{2}.</script><p>Since $d$ is invariant, we see</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+d(r-t,z_\varepsilon+z'_\varepsilon)&=d((r-s)+(s-t)-(z_\varepsilon+z'_\varepsilon),0) \\
+                                   &=d([(r-s)-z_\varepsilon]+[(s-t)-z'_\varepsilon],0) \\
+                                   &=d(r-s-z_\varepsilon,t-s+z'_\varepsilon) \\
+                                   &\leq d(r-s-z_\varepsilon,0)+d(t-s+z'_\varepsilon,0) \\
+                                   &=d(r-s,z_\varepsilon)+d(s-t,z'_\varepsilon)
+\end{aligned}</script><p><em>(I owe <a href="https://onp4.com/@leechlattice" target="_blank" rel="noopener">@LeechLattice</a> for the inequality above.)</em></p>
+<p>Therefore</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+d(r-t,z_\varepsilon+z'_\varepsilon)&\leq d(r-s,z_\varepsilon)+d(s-t,z'_\varepsilon) \\
+    &<\rho(\pi(r),\pi(s))+\rho(\pi(s),\pi(t))+\varepsilon.
+\end{aligned}</script><p><em>(Warning: This does not imply that $\rho(\pi(r),\pi(s))+\rho(\pi(s),\pi(t))=\inf_z d(r-t,z)$ since we don’t know whether it is the lower bound or not.)</em></p>
+<p>If $\rho(\pi(r),\pi(s))+\rho(\pi(s),\pi(t))&lt;\rho(\pi(r),\pi(t))$ however, let</p>
+<script type="math/tex; mode=display">
+0<\varepsilon<\rho(\pi(r),\pi(t))-(\rho(\pi(r),\pi(s))+\rho(\pi(s),\pi(t)))</script><p>then there exists some $z’’_\varepsilon=z_\varepsilon+z’_\varepsilon$ such that</p>
+<script type="math/tex; mode=display">
+d(r-t,z''_\varepsilon)<\rho(\pi(r),\pi(t))</script><p>which is a contradiction since $\rho(\pi(r),\pi(t)) \leq d(r-t,z)$ for all $z \in N$.</p>
+<p><em>(We are using the $\varepsilon$ definition of $\inf$. See <a href="http://mathonline.wikidot.com/epsilon-definition-of-the-supremum-and-infimum-of-a-bounded#:~:text=Epsilon%20Definition%20of%20The%20Supremum%20and%20Infimum%20of%20a%20Bounded%20Set,-Recall%20from%20The&amp;text=We%20say%20that%20the%20infimum,a%20lower%20bound%20of%20then%20." target="_blank" rel="noopener">here</a>.)</em></p>
+<h3 id="rho-is-translate-invariant"><a href="#rho-is-translate-invariant" class="headerlink" title="$\rho$ is translate invariant"></a>$\rho$ is translate invariant</h3><p>Since $\pi$ is surjective, we see if $u \in X/N$, there exists some $a \in X$ such that $\pi(a)=u$. Therefore</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\rho(\pi(x)+u,\pi(y)+u) &=\rho(\pi(x)+\pi(a),\pi(y)+\pi(a)) \\
+                        &=\rho(\pi(x+a),\pi(y+a)) \\
+                        &=\inf_{z \in N}d(x+a-y-a,z) \\
+                        &=\rho(\pi(x),\pi(y)).
+\end{aligned}</script><h3 id="rho-is-well-defined"><a href="#rho-is-well-defined" class="headerlink" title="$\rho$ is well-defined"></a>$\rho$ is well-defined</h3><p>If $\pi(x)=\pi(x’)$ and $\pi(y)=\pi(y’)$, we have to show that $\rho(\pi(x),\pi(y))=\rho(\pi(x’),\pi(y’))$. In fact,</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\rho(\pi(x),\pi(y)) &\leq \rho(\pi(x),\pi(x'))+\rho(\pi(x'),\pi(y'))+\rho(\pi(y'),\pi(y)) \\
+                    &=\rho(\pi(x'),\pi(y'))
+\end{aligned}</script><p>since $\rho(\pi(x),\pi(x’))=0$ as $\pi(x)=\pi(x’)$. Meanwhile</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\rho(\pi(x'),\pi(y')) &\leq \rho(\pi(x'),\pi(x)) + \rho(\pi(x),\pi(y)) + \rho(\pi(y),\pi(y')) \\
+                      &= \rho(\pi(x),\pi(y)).
+\end{aligned}</script><p>therefore $\rho(\pi(x),\pi(y))=\rho(\pi(x’),\pi(y’))$.</p>
+<h3 id="rho-is-compatible-with-tau-N"><a href="#rho-is-compatible-with-tau-N" class="headerlink" title="$\rho$ is compatible with $\tau_N$"></a>$\rho$ is compatible with $\tau_N$</h3><p>By proving this, we need to show that a set $E \subset X/N$ is open with respect to $\tau_N$ if and only if $E$ is a union of open balls. But we need to show a generalized version:</p>
+<blockquote>
+<p>If $\mathscr{B}$ is a local base for $\tau$, then the collection $\mathscr{B}_N$, which contains all sets $\pi(V)$ where $V \in \mathscr{B}$, forms a local base for $\tau_N$.</p>
+</blockquote>
+<p><em>Proof.</em> We already know that $\pi$ is continuous, linear and open. Therefore $\pi(V)$ is open for all $V \in \mathscr{B}$. For any open set around $E \subset X/N$ containing $\pi(0)$, we see $\pi^{-1}(E)$ is open, and we have</p>
+<script type="math/tex; mode=display">
+\pi^{-1}(E)=\bigcup_{V\in\mathscr{B}}V</script><p>and therefore</p>
+<script type="math/tex; mode=display">
+E=\bigcup_{V \in \mathscr{B}}\pi(V).</script><hr>
+<p>Now consider the local base $\mathscr{B}$ containing all open balls around $0 \in X$. Since</p>
+<script type="math/tex; mode=display">
+\pi(\{x:d(x,0)<r\})=\{u:\rho(u,\pi(0))<r\}</script><p>we see $\rho$ determines $\mathscr{B}_N$. But we have already proved that $\rho$ is invariant; hence $\mathscr{B}_N$ determines $\tau_N$. </p>
+<h3 id="If-d-is-complete-then-rho-is-complete"><a href="#If-d-is-complete-then-rho-is-complete" class="headerlink" title="If $d$ is complete, then $\rho$ is complete."></a>If $d$ is complete, then $\rho$ is complete.</h3><p>Once this is proved, we are able to claim that, if $X$ is a $F$-space, then $X/N$ is still a $F$-space, since its topology is induced by a complete invariant metric $\rho$.</p>
+<p><em>Proof.</em> Suppose $(x_n)$ is a Cauchy sequence in $X/N$, relative to $\rho$. There is a subsequence $(x_{n_k})$ with $\rho(x_{n_k},x_{n_{k+1}})&lt;2^{-k}$.  Since $\pi$ is surjective, we are able to pick some $z_k \in X$ such that $\pi(z_k) = x_{n_k}$ and such that</p>
+<script type="math/tex; mode=display">
+d(z_{k},z_{k+1})<2^{-k}.</script><p>(The existence can be verified by contradiction still.) By the inequality above, we see $(z_k)$ is Cauchy (can you see why?). Since $X$ is complete, $z_k \to z$ for some $z \in X$. By the <strong>continuity</strong> of $\pi$, we also see $x_{n_k} \to \pi(z)$ as $k \to \infty$. Therefore $(x_{n_k})$ converges. Hence $(x_n)$ converges since it has a convergent subsequence. $\rho$ is complete.</p>
+<h2 id="Remarks"><a href="#Remarks" class="headerlink" title="Remarks"></a>Remarks</h2><p>This fact will be used to prove some corollaries in the open mapping theorem. For instance, for any continuous linear map $\Lambda:X \to Y$, we see $\ker(\Lambda)$ is closed, therefore if $X$ is a $F$-space, then $X/\ker(\Lambda)$ is a $F$-space as well. We will show in the future that $X/\ker(\Lambda)$ and $\Lambda(X)$ are homeomorphic if $\Lambda(X)$ is of the second category.</p>
+<p>There are more properties that can be inherited by $X/N$ from $X$. For example, normability, metrizability, local convexity. In particular, if $X$ is Banach, then $X/N$ is Banach as well. To do this, it suffices to define the quotient norm by</p>
+<script type="math/tex; mode=display">
+\lVert \pi(x) \rVert = \inf\{\lVert x-z \rVert:z \in N\}.</script>
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Desvl</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://desvl.xyz/2020/09/03/quotient-f-space/">https://desvl.xyz/2020/09/03/quotient-f-space/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2020 <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            <br>
+            
+            <a class="next" rel="next" href="../../../08/26/r-s-integral/">Introducing Riemann-Stieltjes Integral</a>
+            
+        </section>
+    </article>
+</div>
+
+
+        </div>
+        
+<footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Desvl | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>
