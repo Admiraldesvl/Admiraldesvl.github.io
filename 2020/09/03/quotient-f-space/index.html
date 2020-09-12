@@ -245,7 +245,7 @@ d(x+z,y+z)=d(x,y).</script><p>By complete we mean every Cauchy sequence of $(X,d
 <script type="math/tex; mode=display">
 \rho(\pi(x),\pi(y))=\inf_{z \in N}d(x-y,z)=d(x-y,x-y)=0.</script><p>If $\pi(x) \neq \pi(y)$ however, we shall show that $\rho(\pi(x),\pi(y))&gt;0$. In this case, we have $x-y \notin N$. Since $N$ is closed, $N^c$ is open, and $x-y$ is an interior point of $X-N$. Therefore there exists an open ball  $B_r(x-y)$ centered at $x-y$ with radius $r&gt;0$ such that $B_r(x-y) \cap N = \varnothing$. Notice we have $d(x-y,z)&gt;r$ since otherwise $z \in B_r(x-y)$. By putting</p>
 <script type="math/tex; mode=display">
-r_0=\sup\{r:B_r(x-y) \cap N = \varnothing\},</script><p>we see $d(x-y,z) \geq r_0$ for all $z \in N$ and indeed $r_0=\inf_{z \in N}d(x-y,z)&gt;0$ (the verification can be done by contradiction). </p>
+r_0=\sup\{r:B_r(x-y) \cap N = \varnothing\},</script><p>we see $d(x-y,z) \geq r_0$ for all $z \in N$ and indeed $r_0=\inf_{z \in N}d(x-y,z)&gt;0$ (the verification can be done by contradiction). In general, $\inf_z d(x-y,z)=0$ if and only if $x-y \in \overline{N}$.</p>
 <p>Next, we shall show that $\rho(\pi(x),\pi(y))=\rho(\pi(y),\pi(x))$, and it suffices to assume that $\pi(x) \neq \pi(y)$. Sgince $d$ is translate invariant, we get</p>
 <script type="math/tex; mode=display">
 \begin{aligned}
@@ -253,7 +253,7 @@ d(x-y,z)&=d(x-y-z,0) \\
         &=d(0,y-x+z) \\
         &=d(-z,y-x) \\
         &=d(y-x,-z).
-\end{aligned}</script><p>Therefore the $\inf$ of the left hand is equal to the one of the right hand. The  identity is proved.</p>
+\end{aligned}</script><p>Therefore the $\inf$ of the left hand is equal to the one of the right hand. The identity is proved.</p>
 <p>Finally, we need to verify the triangle inequality. Let $r,s,t \in X$. For any $\varepsilon&gt;0$, there exist some $z_\varepsilon$ and $z_\varepsilon’$ such that</p>
 <script type="math/tex; mode=display">
 d(r-s,z_\varepsilon)<\rho(\pi(r),\pi(s))+\frac{\varepsilon}{2},\quad d(s-t,z'_\varepsilon)<\rho(\pi(s),\pi(t))+\frac{\varepsilon}{2}.</script><p>Since $d$ is invariant, we see</p>
@@ -354,6 +354,8 @@ d(z_{k},z_{k+1})<2^{-k}.</script><p>(The existence can be verified by contradict
             </div>
         </section>
         <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="../../12/big-3-pt-4/">The Big Three Pt. 3 - The Open Mapping Theorem (F-Space)</a>
             <br>
             
             <a class="next" rel="next" href="../../../08/26/r-s-integral/">Introducing Riemann-Stieltjes Integral</a>
@@ -372,5 +374,20 @@ d(z_{k},z_{k+1})<2^{-k}.</script><p>(The existence can be verified by contradict
 </footer>
 
     </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>
