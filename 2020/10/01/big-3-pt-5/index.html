@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Desvl">
+
+
+
+
+
+<title>The Big Three Pt. 5 - The Hahn-Banach Theorem (Dominated Extension) | Desvl&#39;s blog</title>
+
+
+
+    <link rel="icon" href="../../../../favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="../../../../css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="../../../../js/script.js"></script>
+    
+    <script src="../../../../js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+            <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+        
+    
+
+ <meta name="twitter:card" content="summary" />
+ <meta name="twitter:site" content="desvl.xyz" />
+ <meta name="twitter:creator" content="@Desvl"/>
+ <meta name="twitter:title" content="Desvl's Blog" />
+ <meta name="twitter:image" content="https://admiraldesvl.github.io/image/avatar.jpeg" />
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="atom.xml" title="Desvl's blog" type="application/atom+xml">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Desvl&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="../../../../archives">Posts</a>
+                
+                    <a class="menu-item" href="../../../../about">About &amp; Link Exchange</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Desvl&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="../../../../archives">Posts</a>
+                
+                    <a class="menu-item" href="../../../../about">About &amp; Link Exchange</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">The Big Three Pt. 5 - The Hahn-Banach Theorem (Dominated Extension)</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Desvl</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">October 1, 2020&nbsp;&nbsp;14:51:22</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="About-this-post"><a href="#About-this-post" class="headerlink" title="About this post"></a>About this post</h2><p>The Hahn-Banach theorem has been a central tool for functional analysis and therefore enjoys a wide variety, many of which have a numerous uses in other fields of mathematics. Therefore it’s not possible to cover all of them. In this post we are covering two ‘abstract enough’ results, which are sometimes called the dominated extension theorem. Both of them will be discussed in real vector space where topology is not endowed. This allows us to discuss any topological vector space.  </p>
+<p>Another interesting thing is, we will be using axiom of choice, or whatever equivalence you may like, for example Zorn’s lemma or well-ordering principle. Before everything, we need to examine more properties of vector spaces.</p>
+<h2 id="Vector-space"><a href="#Vector-space" class="headerlink" title="Vector space"></a>Vector space</h2><p>It’s obvious that every complex vector space is also a real vector space. Suppose $X$ is a complex vector space, and we shall give the definition of real-linear and complex-linear functionals.</p>
+<blockquote>
+<p>An addictive functional $\Lambda$ on $X$ is called <em>real-linear</em> (<em>complex-linear</em>) if $\Lambda(\alpha x)=\alpha\Lambda(x)$ for every $x \in X$ and for every real (complex) scalar $\alpha$.</p>
+</blockquote>
+<p>For *-linear functionals, we have two important but easy theorems.</p>
+<blockquote>
+<p>If $u$ is the real part of a complex-linear functional $f$ on $X$, then $u$ is real-linear and</p>
+<script type="math/tex; mode=display">
+f(x)=u(x)-iu(ix) \quad (x \in X).</script></blockquote>
+<p><em>Proof.</em> For complex $f(x)=u(x)+iv(x)$, it suffices to denote $v(x)$ correctly. But</p>
+<script type="math/tex; mode=display">
+if(x)=iu(x)-v(x),</script><p>we see $\Im(f(x)=v(x)=-\Re(if(x))$. Therefore</p>
+<script type="math/tex; mode=display">
+f(x)=u(x)-i\Re(if(x))=u(x)-i\Re(f(ix))</script><p>but $\Re(f(ix))=u(ix)$, we get</p>
+<script type="math/tex; mode=display">
+f(x)=u(x)-iu(ix).</script><p>To show that $u(x)$ is real-linear, note that </p>
+<script type="math/tex; mode=display">
+f(x+y)=u(x+y)+iv(x+y)=f(x)+f(y)=u(x)+u(y)+i(v(x)+v(y)).</script><p>Therefore $u(x)+u(y)=u(x+y)$. Similar process can be applied to real scalar $\alpha$. $\square$</p>
+<p>Conversely, we are able to generate a complex-linear functional by a real one.</p>
+<blockquote>
+<p>If $u$ is a real-linear functional, then $f(x)=u(x)-iu(ix)$ is a complex-linear functional</p>
+</blockquote>
+<p><em>Proof.</em> Direct computation. $\square$</p>
+<p>Suppose now $X$ is a complex topological vector space, we see a complex-linear functional on $X$ is continuous if and only if its real part is continuous. Every continuous real-linear $u: X \to \mathbb{R}$ is the real part of a unique complex-linear continuous functional $f$.</p>
+<h3 id="Sublinear-seminorm"><a href="#Sublinear-seminorm" class="headerlink" title="Sublinear, seminorm"></a>Sublinear, seminorm</h3><p>Sublinear functional is ‘almost’ linear but also ‘almost’ a norm. Explicitly, we say $p: X \to \mathbb{R}$ a sublinear functional when it satisfies</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+p(x)+p(y) &\leq p(x+y) \\
+    p(tx) &= tp(x) \\
+\end{aligned}</script><p>for all $t \geq 0$. As one can see, if $X$ is normable, then $p(x)=\lVert x \rVert$ is a sublinear functional. One should not be confused with semilinear functional, where inequality is not involved. Another thing worth noting is that $p$ is not restricted to be nonnegative.</p>
+<hr>
+<p>A seminorm on a vector space $X$ is a real-valued function $p$ on $X$ such that</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+p(x+y) &\leq p(x)+p(y) \\
+   p(\alpha x)&=|\alpha|p(x)
+\end{aligned}</script><p>for all $x,y \in X$ and scalar $\alpha$.</p>
+<p>Obviously a seminorm is also a sublinear functional. For the connection between norm and seminorm, one shall note that <em>$p$ is a norm if and only if it satisfies $p(x) \neq 0$ if $x \neq 0$.</em> </p>
+<h2 id="Dominated-extension-theorems"><a href="#Dominated-extension-theorems" class="headerlink" title="Dominated extension theorems"></a>Dominated extension theorems</h2><p>Are the results will be covered in this post. Generally speaking, we are able to extend a functional defined on a subspace to the whole space as long as it’s dominated by a sublinear functional. This is similar to the dominated convergence theorem, which states that if a convergent sequence of measurable functions are dominated by another function, then the convergence holds under the integral operator.</p>
+<blockquote>
+<p><strong>(Hahn-Banach)</strong> Suppose</p>
+<ol>
+<li>$M$ is a subspace of a real vector space $X$,</li>
+<li>$f: M \to \mathbb{R}$ is linear and $f(x) \leq p(x)$ on $M$ where $p$ is a sublinear functional on $X$</li>
+</ol>
+<p>Then there exists a linear $\Lambda: X \to \mathbb{R}$ such that</p>
+<script type="math/tex; mode=display">
+\Lambda(x)=f(x)</script><p>for all $x \in M$ and</p>
+<script type="math/tex; mode=display">
+-p(-x) \leq \Lambda(x) \leq p(x)</script><p>for all $x \in X$.</p>
+</blockquote>
+<h3 id="Step-1-Extending-f-by-one-dimension"><a href="#Step-1-Extending-f-by-one-dimension" class="headerlink" title="Step 1 - Extending $f$ by one dimension"></a>Step 1 - Extending $f$ by one dimension</h3><p>With that being said, if $f(x)$ is dominated by a sublinear functional, then we are able to extend this functional to the whole space with a relatively proper range.</p>
+<p><em>Proof.</em> If $M=X$ we have nothing to do. So suppose now $M$ is a nontrivial proper subspace of $X$. Choose $x_1 \in X-M$ and define</p>
+<script type="math/tex; mode=display">
+M_1=\{x+tx_1:x \in M,t \in R\}.</script><p>It’s easy to verify that $M_1$ satisfies all axioms of vector space (warning again: no topology is endowed). Now we will be using the properties of sublinear functionals.</p>
+<p>Since </p>
+<script type="math/tex; mode=display">
+f(x)+f(y)=f(x+y) \leq p(x+y) \leq p(x-x_1)+p(x_1+y)</script><p>for all $x,y \in M$, we have</p>
+<script type="math/tex; mode=display">
+f(x)-p(x-x_1) \leq p(x_1+y) -f(y).</script><p>Let</p>
+<script type="math/tex; mode=display">
+\alpha=\sup_{x}\{f(x)-p(x-x_1):x \in M\}.</script><p>By definition, we naturally get</p>
+<script type="math/tex; mode=display">
+f(x)-\alpha \leq p(x-x_1)</script><p>and</p>
+<script type="math/tex; mode=display">
+f(y)+\alpha \leq p(x_1+y).</script><p>Define $f_1$ on $M_1$ by</p>
+<script type="math/tex; mode=display">
+f_1(x+tx_1)=f(x)+t\alpha.</script><p>So when $x +tx_1 \in M$, we have $t=0$, and therefore $f_1=f$.</p>
+<p>To show that $f_1 \leq p$ on $M_1$, note that for $t&gt;0$, we have</p>
+<script type="math/tex; mode=display">
+f(x/t)-\alpha \leq p(x/t-x_1),</script><p>which implies</p>
+<script type="math/tex; mode=display">
+f(x)-t\alpha=f_1(x-t\alpha)\leq p(x-tx_1).</script><p>Similarly,</p>
+<script type="math/tex; mode=display">
+f(y/t)+\alpha \leq p(y/t+x_1),</script><p>and therefore</p>
+<script type="math/tex; mode=display">
+f(y)+t\alpha=f_1(y+tx_1) \leq p(y+tx_1).</script><p>Hence $f_1 \leq p$.</p>
+<h3 id="Step-2-An-application-of-Zorn’s-lemma"><a href="#Step-2-An-application-of-Zorn’s-lemma" class="headerlink" title="Step 2 - An application of Zorn’s lemma"></a>Step 2 - An application of Zorn’s lemma</h3><h4 id="Side-note-Why-Zorn’s-lemma"><a href="#Side-note-Why-Zorn’s-lemma" class="headerlink" title="Side note: Why Zorn’s lemma"></a>Side note: Why Zorn’s lemma</h4><p>It seems that we can never stop using step 1 to extend $M$ to a larger space, but we have to extend. (If $X$ is a finite dimensional space, then this is merely a linear algebra problem.) This meets exactly what William Timothy Gowers said in his blog post:</p>
+<blockquote>
+<p>If you are building a mathematical object in stages and find that (i) you have not finished even after infinitely many stages, and (ii) there seems to be nothing to stop you continuing to build, then Zorn’s lemma may well be able to help you.</p>
+<p>— How to use Zorn’s lemma</p>
+</blockquote>
+<p>And we will show that, as W. T. Gowers said,</p>
+<blockquote>
+<p>If the resulting partial order satisfies the chain condition and if a maximal element must be a structure of the kind one is trying to build, then the proof is complete.</p>
+</blockquote>
+<hr>
+<p>To apply Zorn’s lemma, we need to construct a partially ordered set. Let $\mathscr{P}$ be the collection of all ordered pairs $(M’,f’)$ where $M’$ is a subspace of $X$ containing $M$ and $f’$ is a linear functional on $M’$ that extends $f$ and satisfies $f’ \leq p$ on $M’$. For example we have</p>
+<script type="math/tex; mode=display">
+(M,f) , (M_1,f_1) \subset \mathscr{P}.</script><p>The partial order $\leq$ is defined as follows. By $(M’,f’) \leq (M’’,f’’)$, we mean $M’ \subset M’’$ and $f’ = f’’$ on $M’$. Obviously this is a partial order (you should be able to check this).</p>
+<p>Suppose now $\mathcal{F}$ is a chain (totally ordered subset of $\mathscr{P}$). We claim that $\mathcal{F}$ has an upper bound (which is required by Zorn’s lemma). Let</p>
+<script type="math/tex; mode=display">
+M_0=\bigcup_{(M',f') \in \mathcal{F}}M'</script><p>and</p>
+<script type="math/tex; mode=display">
+f_0(y)=f(y)</script><p>whenever $(M’,f’) \in \mathcal{F}$ and $y \in M’$. It’s easy to verify that $(M_0,f_0)$ is the upper bound we are looking for. But $\mathcal{F}$ is arbitrary, therefore by Zorn’s lemma, there exists a maximal element $(M^\ast,f^\ast)$ in $\mathscr{P}$. If $M^* \neq X$, according to step 1, we are able to extend $M^\ast$, which contradicts the maximality of $M^\ast$. And $\Lambda$ is defined to be $f^\ast$. By the linearity of $\Lambda$, we see</p>
+<script type="math/tex; mode=display">
+-p(-x) \leq -\Lambda(-x)=\Lambda{x}.</script><p>The theorem is proved. $\square$</p>
+<h3 id="How-this-proof-is-constructed"><a href="#How-this-proof-is-constructed" class="headerlink" title="How this proof is constructed"></a>How this proof is constructed</h3><p>This is a classic application of Zorn’s lemma (well-ordering principle, or Hausdorff maximality theorem). First, we showed that we are able to extend $M$ and $f$. But since we do not know the dimension or other properties of $X$, it’s not easy to control the extension which finally ‘converges’ to $(X,\Lambda)$. However, Zorn’s lemma saved us from this random exploration: Whatever happens, the maximal element is there, and take it to finish the proof. </p>
+<h2 id="Generalizing-onto-mathbb-C"><a href="#Generalizing-onto-mathbb-C" class="headerlink" title="Generalizing onto $\mathbb{C}$"></a>Generalizing onto $\mathbb{C}$</h2><p>Since inequality is appeared in the theorem above, we need more careful validation.</p>
+<blockquote>
+<p><strong>(Bohnenblust-Sobczyk-Soukhomlinoff)</strong> Suppose $M$ is a subspace of a vector space $X$, $p$ is a seminorm on $X$, and $f$ is a linear functional on $M$ such that</p>
+<script type="math/tex; mode=display">
+|f(x)| \leq p(x)</script><p>for all $x \in M$. Then $f$ extends to a linear functional $\Lambda$ on $X$ satisfying</p>
+<script type="math/tex; mode=display">
+|\Lambda (x)| \leq p(x)</script><p>for all $x \in X$.</p>
+</blockquote>
+<p><em>Proof.</em> If the scalar field is $\mathbb{R}$, then we are done, since $p(-x)=p(x)$ in this case (can you see why?). So we assume the scalar field is $\mathbb{C}$. </p>
+<p>Put $u = \Re f$. By dominated extension theorem, there is some real-linear functional $U$ such that $U(x)=u$ on $M$ and $U \leq p$ on $X$. And here we have</p>
+<script type="math/tex; mode=display">
+\Lambda(x)=U(x)-iU(ix)</script><p>where $\Lambda(x)=f(x)$ on $M$.</p>
+<p>To show that $|\Lambda(x)| \leq p(x)$ for $x \neq 0$, by taking $\alpha=\frac{|\Lambda(x)|}{\Lambda(x)}$, we have</p>
+<script type="math/tex; mode=display">
+U(\alpha{x})=\Lambda(\alpha{x})=|\Lambda(x)|\leq p(\alpha x)=p(x)</script><p>since $|\alpha|=1$ and $p(\alpha{x})=|\alpha|p(x)=p(x)$. $\square$</p>
+<h2 id="Extending-Hahn-Banach-theorem-under-linear-transform"><a href="#Extending-Hahn-Banach-theorem-under-linear-transform" class="headerlink" title="Extending Hahn-Banach theorem under linear transform"></a>Extending Hahn-Banach theorem under linear transform</h2><p>To end this post, we state a beautiful and useful extension of the Hahn-Banach theorem, which is done by R. P. Agnew and A. P. Morse.</p>
+<blockquote>
+<p><strong>(Agnew-Morse)</strong> Let $X$ denote a real vector space and $\mathcal{A}$ be a collection of linear maps $A_\alpha: X \to X$ that commute, or namely</p>
+<script type="math/tex; mode=display">
+A_\alpha A_\beta=A_\beta A_\alpha</script><p>for all $A_\alpha,A_\beta \in \mathcal{A}$. Let $p$ be a sublinear functional such that </p>
+<script type="math/tex; mode=display">
+p(A_\alpha{x})=p(x)</script><p>for all $A_\alpha \in \mathcal{A}$. Let $Y$ be a subspace of $X$ on which a linear functional $f$ is defined such that</p>
+<ol>
+<li>$f(y) \leq p(y)$ for all $y \in Y$.</li>
+<li>For each mapping $A$ and $y \in Y$, we have $Ay \in Y$.</li>
+<li>Under the hypothesis of 2, we have $f(Ay)=f(y)$.</li>
+</ol>
+<p>Then $f$ can be extended to $X$ by $\Lambda$ so that $-p(-x) \leq \Lambda(x) \leq p(x)$ for all $x \in X$, and</p>
+<script type="math/tex; mode=display">
+\Lambda(A_\alpha{x})=\Lambda{x}.</script></blockquote>
+<p>To prove this theorem, we need to construct a sublinear functional that dominates $f$. For the whole proof, see <em>Functional Analysis</em> by Peter Lax.</p>
+<h2 id="References-Further-Readings"><a href="#References-Further-Readings" class="headerlink" title="References / Further Readings"></a>References / Further Readings</h2><ol>
+<li>Walter Rudin, <em>Functional Analysis</em>.</li>
+<li>Peter Lax, <em>Functional Analysis</em>.</li>
+<li>William Timothy Gowers, <em><a href="https://gowers.wordpress.com/2008/08/12/how-to-use-zorns-lemma/" target="_blank" rel="noopener">How to use Zorn’s lemma</a></em>.</li>
+</ol>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Desvl</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://desvl.xyz/2020/10/01/big-3-pt-5/">https://desvl.xyz/2020/10/01/big-3-pt-5/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2020 <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            <br>
+            
+            <a class="next" rel="next" href="../../../09/27/diagram-chasing/">A long exact sequence of cohomology groups (zig-zag and diagram-chasing)</a>
+            
+        </section>
+    </article>
+</div>
+
+
+        </div>
+        
+<footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Desvl | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
