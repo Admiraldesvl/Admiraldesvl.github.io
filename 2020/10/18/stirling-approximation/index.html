@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Desvl">
+
+
+
+
+
+<title>Stirling公式的几种经典估计 | Desvl&#39;s blog</title>
+
+
+
+    <link rel="icon" href="../../../../favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="../../../../css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="../../../../js/script.js"></script>
+    
+    <script src="../../../../js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+            <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+        
+    
+
+ <meta name="twitter:card" content="summary" />
+ <meta name="twitter:site" content="desvl.xyz" />
+ <meta name="twitter:creator" content="@Desvl"/>
+ <meta name="twitter:title" content="Desvl's Blog" />
+ <meta name="twitter:image" content="https://admiraldesvl.github.io/image/avatar.jpeg" />
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="atom.xml" title="Desvl's blog" type="application/atom+xml">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Desvl&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="../../../../archives">Posts</a>
+                
+                    <a class="menu-item" href="../../../../about">About &amp; Link Exchange</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Desvl&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="../../../../archives">Posts</a>
+                
+                    <a class="menu-item" href="../../../../about">About &amp; Link Exchange</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Stirling公式的几种经典估计</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Desvl</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">October 18, 2020&nbsp;&nbsp;14:55:07</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="Stirling公式"><a href="#Stirling公式" class="headerlink" title="Stirling公式"></a>Stirling公式</h2><p>对于$\Gamma$函数，我们有一个经典的极限式（证明请见<a href="https://proofwiki.org/wiki/Stirling%27s_Formula" target="_blank" rel="noopener">ProofWiki</a>）。</p>
+<script type="math/tex; mode=display">
+\lim_{n\to\infty}\frac{\Gamma(x+1)}{(x/e)^x\sqrt{2\pi{x}}}=1.</script><p>利用这个式子，我们能立刻计算出一些比较难算的极限。注意到这个公式如果写成自然数的形式，有</p>
+<script type="math/tex; mode=display">
+\lim_{n \to\infty}\frac{n!}{(n/e)^n\sqrt{2\pi{n}}}=1</script><p>所以我们能立刻计算出这个极限：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\lim_{n \to\infty}\sqrt\frac{n!}{n^n} &= \lim_{n \to\infty}\sqrt\frac{n!\cdot (n/e)^n\sqrt{2\pi{n}}}{n^n \cdot (n/e)^n\sqrt{2\pi n}} \\
+&= \lim_{n \to\infty} \sqrt\frac{(n/e)^n\sqrt{2\pi n}}{n^n} \\
+&=\frac{1}{e}
+\end{aligned}</script><p>但是Stirling公式不仅仅如此。这篇博客里我们会见到几个比较经典的估计。</p>
+<h2 id="原数列的取值区间"><a href="#原数列的取值区间" class="headerlink" title="原数列的取值区间"></a>原数列的取值区间</h2><p>这一节我们会看到的结论是</p>
+<script type="math/tex; mode=display">
+1 < \frac{n!}{(n/e)^n\sqrt{2\pi n}}\leq\frac{e}{\sqrt{2\pi}}</script><p>如果在计算器里算一下右边的数，会发现，$\phi_n=\frac{n!}{(n/e)^n\sqrt{2\pi n}}$一直在$1$附近。</p>
+<p>对于$m=1,2,3,\dots$，在$y=\ln(x)$下方定义“折线函数”：</p>
+<script type="math/tex; mode=display">
+f(x)=(m+1-x)\ln{m}+(x-m)\ln(m+1)</script><p>其中$m \leq x \leq m+1$。在上方定义另一个“折线函数”：</p>
+<script type="math/tex; mode=display">
+g(x)=\frac{x}{m}-1+\ln{m}</script><p>其中$m-1/2 \leq x &lt; m+1/2$。如果画出$f$，$\ln{x}$，$g$的图像，会发现，$f$和$g$是对$\ln{x}$的拟合。且在$x \geq 1$时，我们有</p>
+<script type="math/tex; mode=display">
+f \leq \ln{x} \leq g.</script><p>所以计算定积分的时候就有</p>
+<script type="math/tex; mode=display">
+\int_1^n f(x)dx \leq \int_1^n \ln{x}dx=n\ln{n}-n+1 \leq \int_1^n g(x)dx</script><p>但是$f$和$g$的关系并不是那么简单。计算$f$的积分，我们发现</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\int_1^n f(x)dx &=\sum_{k=1}^{n-1}\int_{k}^{k+1}f(x)dx \\
+                &=\sum_{k=1}^{n-1}\left((k+\frac{1}{2})(\ln(k+1)-\ln{k})+(k+1)\ln{k}-k\ln(k+1)\right) \\
+                &=\ln(n!)-\frac{1}{2}\ln{n}
+\end{aligned}</script><p>而对于$g$，我们又有</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\int_1^n g(x)dx &= \left(\int_{1}^{\frac{2}{3}}+\sum_{k=2}^{n-1}\int_{k-\frac{1}{2}}^{k+\frac{1}{2}}+\int_{n-\frac{1}{2}}^n\right)g(x)dx \\
+                &= \frac{1}{8}+\sum_{k=2}^{n-1}\ln{k}+\frac{1}{2}\ln{n}-\frac{1}{8n} \\
+                &=\frac{1}{8}-\frac{1}{8n}+\ln(n!)-\frac{1}{2}\ln{n}
+\end{aligned}</script><p>这就说明</p>
+<script type="math/tex; mode=display">
+\int_1^n f(x)dx > \int_1^n g(x)dx -  \frac{1}{8}</script><p>总结上面几个不等式，我们得到，对$n&gt;1$：</p>
+<script type="math/tex; mode=display">
+\int_1^n g(x)dx -\frac{1}{8}<\int_1^n f(x)dx < \int_1^n g(x)dx</script><p>不等式各项都减去$\int_1^n \ln x dx$，我们又有</p>
+<script type="math/tex; mode=display">
+-\frac{1}{8n}+\ln(n!)-(\frac{1}{2}+n)\ln{n}+n < \ln(n!)-(n+\frac{1}{2})\ln{n}+n<\frac{1}{8}-\frac{1}{8n}+\ln(n!)-(n+\frac{1}{2})\ln{n}+n</script><p>由Stirling公式我们知道，</p>
+<script type="math/tex; mode=display">
+\ln(n!)-(n+\frac{1}{2})\ln{n} + n \to \ln\sqrt{2\pi}</script><p>而数列$x_n=-\frac{1}{8n}+\ln(n!)-(\frac{1}{2}+n)\ln{n}+n$是单调递增的，由上式可知收敛到$\ln\sqrt{2\pi}$。在不等式左边，我们取上确界$\ln\sqrt{2\pi}$。在不等式右边，我们取下确界$x_1+\frac{1}{8}=1$。这就让我们得到了</p>
+<script type="math/tex; mode=display">
+\ln\sqrt{2\pi}<\ln\frac{n!}{(n/e)^n\sqrt{n}}<1</script><p>这也就导致</p>
+<script type="math/tex; mode=display">
+1<\frac{n!}{(n/e)^n\sqrt{2\pi n}}\leq\frac{e}{\sqrt{2\pi}}</script><p>这对所有$n =1,2,3,\dots$都成立。</p>
+<h2 id="平移-Gamma-函数"><a href="#平移-Gamma-函数" class="headerlink" title="平移$\Gamma$函数"></a>平移$\Gamma$函数</h2><p>对于任意$c \in \mathbb{R}$，我们有</p>
+<script type="math/tex; mode=display">
+\lim_{x \to \infty}\frac{\Gamma(x+c)}{x^c\Gamma(x)}=1</script><p>这可以看成，把$\Gamma(x)$向左平移$c$后，在$x$足够大时，其值和$x^c\Gamma(x)$接近。这个等式的证明也是比较简单的，虽然计算比较繁琐，只需要利用Stirling公式。</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\lim_{x \to \infty}\frac{\Gamma(x+c)}{x^c\Gamma(x)} &=  \lim_{x \to \infty}\frac{\left(\frac{x+c-1}{e}\right)^{x+c-1}\sqrt{2\pi(x+c-1)}}{x^c\left(\frac{x-1}{e}\right)^{x-1}\sqrt{2\pi(x-1)}} \\
+&=\lim_{x \to \infty}\sqrt{\frac{x+c-1}{x-1}} \left(\frac{x+c-1}{ex}\right)^c\left(\frac{x+c-1}{x-1}\right)^{x-1}
+\end{aligned}</script><p>现在这三个因式的极限就很好计算了。显然我们有</p>
+<script type="math/tex; mode=display">
+\lim_{x \to \infty}\sqrt\frac{x+c-1}{x-1}=1</script><p>以及</p>
+<script type="math/tex; mode=display">
+\lim_{x \to \infty}\left(\frac{x+c-1}{ex}\right)^c=\frac{1}{e^c}.</script><p>最后，</p>
+<script type="math/tex; mode=display">
+\lim_{x \to \infty}\left(\frac{x+c-1}{x-1}\right)^{x-1}=\lim_{x \to \infty} \left(1+\frac{c}{x-1}\right)^{x-1}=e^c</script><p>故原极限为$1$。计算过程也非常精彩。注意到如果把$x$和$c$换成正整数$n$和整数$k$，我们又有</p>
+<script type="math/tex; mode=display">
+\lim_{n \to \infty}\frac{(n+k-1)!}{n^k(n-1)!}=1.</script><h2 id="估计定积分"><a href="#估计定积分" class="headerlink" title="估计定积分"></a>估计定积分</h2><p>结合Bernoulli不等式我们有</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\int_{-1}^1 (1-x^2)^ndx &\geq \int_{-1/\sqrt{n}}^{1/\sqrt{n}}(1-x^2)^ndx \\
+&\geq \int_{-1/\sqrt{n}}^{1/\sqrt{n}} (1-nx^2)dx \\
+&=\frac{4}{3\sqrt{n}}.
+\end{aligned}</script><p>接下来我们会给出一个比较精细的估计。实际上，</p>
+<script type="math/tex; mode=display">
+\lim_{n \to \infty}\sqrt{n}\int_{-1}^1 (1-x^2)^ndx=\sqrt{\pi}.</script><p>根据$B(x,y)$函数的定义，</p>
+<script type="math/tex; mode=display">
+B(x,y)=\int_0^1  t^{x-1}(1-t)^{y-1}dt=\frac{\Gamma(x)\Gamma(y)}{\Gamma(x+y)}</script><p>令$t=u^2，我们得到</p>
+<script type="math/tex; mode=display">
+B(x,y)=2\int_0^1 u^{2x-1}(1-u^2)^{y-1}du</script><p>代入$x=\frac{1}{2}$和$y=n+1$，我们就和所想要的结果很近了：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+B(\frac{1}{2},n+1)&=2\int_0^1(1-u^2)^ndu \\
+                  &=\int_{-1}^{1}(1-u^2)^ndu \\
+                  &=B(\frac{1}{2},n+1) \\
+                  &=\frac{\Gamma(\frac{1}{2})\Gamma(n+1)}{\Gamma(n+\frac{3}{2})}
+\end{aligned}</script><p>注意到，利用$B$函数的第二个表达式，我们是可以计算出$\Gamma(\frac{1}{2})$的。实际上，</p>
+<script type="math/tex; mode=display">
+B(\frac{1}{2},\frac{1}{2})=2\int_0^1\frac{1}{\sqrt{1-u^2}}du=\pi</script><p>从而$\Gamma(\frac{1}{2})=\sqrt{\pi}$。对于$B(\frac{1}{2},n+1)$，我们可以用到上面的平移公式了：</p>
+<script type="math/tex; mode=display">
+\lim_{n \to \infty}\frac{\Gamma(n+\frac{3}{2})}{\sqrt{n}\Gamma(n+1)}=1.</script><p>从而</p>
+<script type="math/tex; mode=display">
+\lim_{n \to \infty}\sqrt{n}\int_{-1}^{1}(1-x^2)^ndx=\lim_{n \to \infty} \frac{\sqrt{n}\Gamma(\frac{1}{2})\Gamma(n+1)}{\Gamma(n+\frac{1}{2})}=\sqrt{\pi}</script><h2 id="额外内容"><a href="#额外内容" class="headerlink" title="额外内容"></a>额外内容</h2><p>最后我们证明一个和Stirling公式没有关系的等式</p>
+<script type="math/tex; mode=display">
+\Gamma\left(\frac{1}{n}\right)\Gamma\left(\frac{2}{n}\right)\cdots\Gamma\left(\frac{n-1}{n}\right)=\frac{(2\pi)^{\frac{n-1}{2}}}{\sqrt{n}}</script><p>根据古典代数学基本定理，我们立刻有</p>
+<script type="math/tex; mode=display">
+1+x+x^2+\cdots+x^{n-1}=\prod_{k=1}^{n-1}\left(x-e^{\frac{2k\pi i}{n}}\right).</script><p>注意到另一方面</p>
+<script type="math/tex; mode=display">
+1+x+x^2+\cdots+x^{n-1}=\frac{x^{n}-1}{x-1}</script><p>$x=1$时，我们有</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+n=\prod_{k=1}^{n-1}\left(1-e^{\frac{2k\pi i}{n}}\right)&=\prod_{k=1}^{n-1}\left( e^{-\frac{k\pi i}{n}}-e^{\frac{k \pi i}{n}} \right)e^{\frac{k \pi i}{n}} \\
+&=\prod_{k=1}^{n-1}-2i\sin\frac{k\pi}{n}e^{\frac{k\pi i}{n}} \\
+&=\left\vert \prod_{k=1}^{n}-2i\sin\frac{k\pi}{n}e^{\frac{k\pi i}{n}}\right\vert \\
+&=2^{n-1}\prod_{k=1}^{n-1}\sin\frac{k\pi}{n}
+\end{aligned}</script><p>此即</p>
+<script type="math/tex; mode=display">
+\prod_{k=1}^{n-1}\sin\frac{k\pi}{n}=\frac{n}{2^{n-1}}.</script><p>考虑到<a href="/2019/10/31/euler-reflection/">欧拉反射公式</a>，对于$1 \leq k \leq n-1$，我们有</p>
+<script type="math/tex; mode=display">
+\Gamma\left(\frac{k}{n}\right)\Gamma\left(\frac{n-k}{n}\right)=\frac{\pi}{\sin\frac{k\pi}{n}}=\frac{\pi}{\sin\frac{(n-k)\pi}{n}}</script><p>如果$n$为奇数，那么根据上面的结果，我们能得到</p>
+<script type="math/tex; mode=display">
+\Gamma\left(\frac{1}{n}\right)\Gamma\left(\frac{2}{n}\right)\cdots\Gamma\left(\frac{n-1}{n}\right)=\prod_{k=1}^{\frac{n-1}{2}}\Gamma\left(\frac{n-k}{n}\right)\Gamma\left(\frac{k}{n}\right)=\frac{\pi^{(n-1)/2}}{\prod_{k=1}^{(n-1)/2}\sin(k\pi/n)}</script><p>这时我们只用到了一半数量的$k$。要用上另一半的$k$，我们只需要把$k$和$n-k$交换顺序，从而得到了</p>
+<script type="math/tex; mode=display">
+\left[\Gamma\left(\frac{1}{n}\right)\Gamma\left(\frac{2}{n}\right)\cdots\Gamma\left(\frac{n-1}{n}\right)\right]^2=\frac{\pi^{n-1}}{n/2^{n-1}}</script><p>即为所得。如果$n$为偶数，只需要把$1/2$这一项单独拿出来分两段计算即可。</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Desvl</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://desvl.xyz/2020/10/18/stirling-approximation/">https://desvl.xyz/2020/10/18/stirling-approximation/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2020 <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            <br>
+            
+            <a class="next" rel="next" href="../../15/G-K-Z-theorem/">A proof of the ordinary Gleason-Kahane-Żelazko theorem for complex functionals</a>
+            
+        </section>
+    </article>
+</div>
+
+
+        </div>
+        
+<footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Desvl | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
