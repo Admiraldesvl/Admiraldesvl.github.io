@@ -235,7 +235,7 @@
 <p>If $(x-\delta,x+\delta)$ is replaced with $(x-\delta,x)$ or $(x,x+\delta)$, we get left continuous and right continuous, one of which plays an important role in probability theory.</p>
 <p>But the problem is, sometimes continuity is too strong for being a restriction, but the ‘direction’ associated with left/right continuous functions are unnecessary as well. For example the function</p>
 <script type="math/tex; mode=display">
-f(x)=\chi_{(0,1)}(x)</script><p>is neither left nor right continuous (globally), but it is a thing. Left/right continuous is not a perfectly weakened version of continuity. We need something different.</p>
+f(x)=\chi_{(0,1)}(x)</script><p>is neither left nor right continuous (globally), but it is a thing. Left/right continuity is not a perfectly weakened version of continuity. We need something different.</p>
 <h2 id="Definition-of-semicontinuous"><a href="#Definition-of-semicontinuous" class="headerlink" title="Definition of semicontinuous"></a>Definition of semicontinuous</h2><p>Let $f$ be a real (or extended-real) function on $\mathbb{R}$. The semicontinuity of $f$ is defined as follows.</p>
 <blockquote>
 <p>If</p>
@@ -348,7 +348,7 @@ v-u&=\sum_{k=1}^{\infty}c_k\chi_{V_k}-\sum_{k=1}^{N}c_k\chi_{F_k} \\
 <script type="math/tex; mode=display">
 \int_\mathbb{R}(v-u)dm=\int_\mathbb{R}(v_1-u_1)dm+\int_\mathbb{R}(v_2-u_2)dm<2\varepsilon,</script><p>and the theorem follows. $\square$</p>
 <h3 id="Generalization"><a href="#Generalization" class="headerlink" title="Generalization"></a>Generalization</h3><p>Indeed, the only unique property about measure used is the existence of $F_k$ and $V_k$. The domain $\mathbb{R}$ here can be replaced with $\mathbb{R}^k$ for $1 \leq k &lt; \infty$, and $m$ be replaced with the respective $m_k$. Much more generally, the domain can be replaced by any locally compact Hausdorff space $X$, and the measure by any measure associated with <a href="https://en.wikipedia.org/wiki/Riesz–Markov–Kakutani_representation_theorem" target="_blank" rel="noopener">Riesz-Markov-Kakutani representation theorem</a> on $C_c(X)$.</p>
-<h3 id="Is-the-reverse-approximation-always-possible"><a href="#Is-the-reverse-approximation-always-possible" class="headerlink" title="Is the reverse approximation always possible?"></a>Is the reverse approximation always possible?</h3><p>The answer is no. Consider the <a href="[https://en.wikipedia.org/wiki/Smith%E2%80%93Volterra%E2%80%93Cantor_set](https://en.wikipedia.org/wiki/Smith–Volterra–Cantor_set">fat Cantor set</a>) $K$, which has Lebesgue measure $\frac{1}{2}$. We shall show that $\chi_K$ can not be approximated below by a lower semicontinuous function.</p>
+<h3 id="Is-the-reverse-approximation-always-possible"><a href="#Is-the-reverse-approximation-always-possible" class="headerlink" title="Is the reverse approximation always possible?"></a>Is the reverse approximation always possible?</h3><p>The answer is no. Consider the <a href="https://en.wikipedia.org/wiki/Smith%E2%80%93Volterra%E2%80%93Cantor_set" target="_blank" rel="noopener">fat Cantor set</a> $K$, which has Lebesgue measure $\frac{1}{2}$. We shall show that $\chi_K$ can not be approximated below by a lower semicontinuous function.</p>
 <blockquote>
 <p>If $v$ is a lower semicontinuous function such that $v \leq \chi_K$, then $v \leq 0$.</p>
 </blockquote>
