@@ -111,16 +111,14 @@
 <p>The only third party plugin used in this blog is MathJax. No tracker installed. Anyway I’m not an IT guy, the only thing I can ensure is your reading experience.</p>
 <p>This blog does not offer any print service. However, if you want to read my posts offline, it’s recommended to print the page into PDF with the help of browser extensions.</p>
 <p>There is <strong>no way</strong> to ensure that my posts are readable for everyone. When writing a post, I will set a default knowledge level for the reader. Of course I wouldn’t write something like “we refer the reader to Bourbaki”. But there are something that everyone have to overcome in order to be stronger.</p>
-<h3 id="Link-Exchange"><a href="#Link-Exchange" class="headerlink" title="Link Exchange"></a>Link Exchange</h3><p>Ordered chronologically. I’m not in a mood to add more link exchanges now.</p>
+<h3 id="Link-Exchange"><a href="#Link-Exchange" class="headerlink" title="Link Exchange"></a>Link Exchange</h3><p>Ordered chronologically. I’m not in a mood to add more link exchanges now. Some are remove due to inaccessibility or inactivity. Contact me if you want to recover it.</p>
 <ul>
 <li><a href="https://www.zhangwp.com" target="_blank" rel="noopener">ZHANGWP</a></li>
-<li><a href="https://jw12138.com/" target="_blank" rel="noopener">一个球</a></li>
+<li><a href="https://jw1.dev/" target="_blank" rel="noopener">一个球</a></li>
 <li><a href="https://blog.hiirachan.moe/" target="_blank" rel="noopener">Hiiragi</a></li>
-<li><a href="https://azukatze.moe/" target="_blank" rel="noopener">Azusa</a></li>
 <li><a href="https://blog.rxliuli.com/" target="_blank" rel="noopener">rxliuli</a></li>
 <li><a href="https://ylck.me/" target="_blank" rel="noopener">ylck的小窝</a></li>
 <li><a href="https://printempw.github.io/" target="_blank" rel="noopener">PriN.T</a></li>
-<li><a href="https://hweining.online/" target="_blank" rel="noopener">Akira Akimoto</a></li>
 <li><a href="https://suzu.dev/" target="_blank" rel="noopener">音羽机械研究所</a></li>
 <li><a href="https://nachtzug.xyz/" target="_blank" rel="noopener">Nachtzug</a></li>
 <li><a href="https://nasy.moe/" target="_blank" rel="noopener">Nasy Land</a></li>
@@ -150,5 +148,20 @@
 </footer>
 
     </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

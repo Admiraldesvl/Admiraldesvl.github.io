@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://desvl.xyz/about/index.html</loc>
+    
+    <lastmod>2020-10-18T07:21:32.255Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://desvl.xyz/2020/10/18/stirling-approximation/</loc>
     
     <lastmod>2020-10-18T07:06:59.450Z</lastmod>
@@ -131,13 +138,6 @@
     <loc>https://desvl.xyz/2020/08/14/La-tercera-resignaci%C3%B3n/</loc>
     
     <lastmod>2020-08-14T04:46:06.734Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://desvl.xyz/about/index.html</loc>
-    
-    <lastmod>2020-08-12T14:00:04.077Z</lastmod>
     
   </url>
   
