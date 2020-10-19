@@ -1,6 +1,27 @@
 @font-face {
   font-family: 'Baskerville';
-  src: url("../fonts/Baskerville/baskvl.ttf") format('truetype');
+  src: url("../fonts/Baskerville/BaskervilleBT.ttf") format('truetype');
   font-weight: 400;
   font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Baskerville';
+  src: url("../fonts/Baskerville/BaskervilleItalicBT.ttf") format('truetype');
+  font-weight: 400;
+  font-display: swap;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Baskerville';
+  src: url("../fonts/Baskerville/BaskervilleBoldBT.ttf") format('truetype');
+  font-weight: bold;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Baskerville';
+  src: url("../fonts/Baskerville/BaskervilleBoldBT.ttf") format('truetype');
+  font-weight: bold;
+  font-display: swap;
+  font-style: italic;
 }
