@@ -336,6 +336,37 @@ n=\prod_{k=1}^{n-1}\left(1-e^{\frac{2k\pi i}{n}}\right)&=\prod_{k=1}^{n-1}\left(
 \Gamma\left(\frac{1}{n}\right)\Gamma\left(\frac{2}{n}\right)\cdots\Gamma\left(\frac{n-1}{n}\right)=\prod_{k=1}^{\frac{n-1}{2}}\Gamma\left(\frac{n-k}{n}\right)\Gamma\left(\frac{k}{n}\right)=\frac{\pi^{(n-1)/2}}{\prod_{k=1}^{(n-1)/2}\sin(k\pi/n)}</script><p>这时我们只用到了一半数量的$k$。要用上另一半的$k$，我们只需要把$k$和$n-k$交换顺序，从而得到了</p>
 <script type="math/tex; mode=display">
 \left[\Gamma\left(\frac{1}{n}\right)\Gamma\left(\frac{2}{n}\right)\cdots\Gamma\left(\frac{n-1}{n}\right)\right]^2=\frac{\pi^{n-1}}{n/2^{n-1}}</script><p>即为所得。如果$n$为偶数，只需要把$1/2$这一项单独拿出来分两段计算即可。</p>
+<hr>
+<h3 id="2020-11-9更新"><a href="#2020-11-9更新" class="headerlink" title="2020.11.9更新"></a>2020.11.9更新</h3><p>我们给出两个看上去很难计算的极限式。</p>
+<blockquote>
+<script type="math/tex; mode=display">
+\lim_{n \to \infty}\left(1+\frac{1}{n}\right)^{n^2}\frac{n!}{n^n\sqrt{n}}</script></blockquote>
+<p>如果用Stirling公式直接替换$n!$，这个极限的结果是显然的。</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\lim_{n \to \infty}\left(1+\frac{1}{n}\right)^{n^2}\frac{n!}{n^n\sqrt{n}} &=\lim_{n \to \infty}\left(1+\frac{1}{n}\right)^{n^2}\frac{n!}{n^n\sqrt{n}}\frac{(n/e)^n\sqrt{2\pi n}}{n!} \\
+&=\lim_{n \to \infty}\left(1+\frac{1}{n}\right)^{n^2}\frac{\sqrt{2\pi}}{e^n}
+\end{aligned}</script><p>所以只需要求$(1+\frac{1}{n})^{n^2}e^{-n}$的极限即可。但是可千万别想当然地认为这个极限是$1$。如果我们利用Taylor展开，能得到</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\lim_{n \to \infty}\left(1+\frac{1}{n}\right)^{n^2}e^{-n}&=\lim_{n \to \infty}\exp\left(n^2\ln\left(1+\frac{1}{n}\right)-n\right) \\
+&=\lim_{n \to \infty} \exp\left(n^2\left(\frac{1}{n}-\frac{1}{2n^2}+o\left(\frac{1}{n^2}\right)\right)-n\right) \\
+&=\frac{1}{\sqrt{e}}
+\end{aligned}</script><p>所以原极限为$\sqrt\frac{2\pi}{e}$</p>
+<blockquote>
+<script type="math/tex; mode=display">
+\lim_{n\to\infty} \sqrt{n}\prod_{k=1}^{n}\frac{e^{1-\frac{1}{k}}}{\left(1+\frac{1}{k}\right)^k}</script></blockquote>
+<p>注意$n$项的分子相乘，有$\exp(n-1-\frac{1}{2}-\cdots-\frac{1}{n})$，而调和级数是发散的，我们想得到收敛，自然就要想到Euler常数$\gamma=\lim_{n\to\infty}\left(1+\frac{1}{2}+\cdots+\frac{1}{n}-\ln{n}\right)$。我们似乎也没有办法直接化简分母，我们知道$(1+1/k)^k$的极限是$e$，但是这里似乎用不上。所以不如先把分母展开化简一下。</p>
+<script type="math/tex; mode=display">
+\prod_{k=1}^{n}\left(1+\frac{1}{k}\right)^k=\frac{2^1\cdot3^2\cdot4^3\cdot4^5\cdots{(n+1)^n}}{1^1\cdot2^2\cdot3^3\cdot4^4\cdots{n^n}}=\frac{(n+1)^n}{n!}</script><p>所以原极限可以写成</p>
+<script type="math/tex; mode=display">
+\lim_{n \to \infty}\sqrt{n}\frac{n!e^{n-1-\frac{1}{2}-\cdots-\frac{1}{n}}}{(n+1)^n}</script><p>这时候就可以直接使用Stirling公式了。</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\lim_{n \to \infty}\sqrt{n}\frac{n!e^{n-1-\frac{1}{2}-\cdots-\frac{1}{n}}}{(n+1)^n} &=\lim_{n\to\infty}\sqrt{n}\frac{n!e^{n-1-\frac{1}{2}-\cdots-\frac{1}{n}}}{(n+1)^n}\cdot\frac{(n/e)^n\sqrt{2\pi n}}{n!} \\
+&=\sqrt{2\pi}\lim_{n\to\infty}\frac{n^{n+1}}{(n+1)^n}e^{-1-\frac{1}{2}-\cdots-\frac{1}{n}} \\
+&=\sqrt{2\pi}\lim_{n\to\infty}\left(1+\frac{1}{n}\right)^{-n}\cdot e^{\ln{n}}\cdot e^{-1-\frac{1}{2}-\frac{1}{3}-\cdots-\frac{1}{n}}
+\end{aligned}</script><p>而$\lim_{n\to\infty}\left(1+\frac{1}{n}\right)^{-n}=e^{-1}$，$\lim_{n\to\infty}e^{\ln{n}-1-\frac{1}{2}-\frac{1}{3}-\cdots-\frac{1}{n}}=e^{-\gamma}$，我们得到原极限为$\frac{\sqrt{2\pi}}{e^{1+\gamma}}$</p>
 
         </div>
 
