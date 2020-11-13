@@ -266,9 +266,9 @@ x=\lim_{n \to \infty}x_n \quad \text{ and }\quad y=\lim_{n \to \infty}f(x_n)</sc
 <p><img src="\img\closed-graph.png" alt="closed-graph"></p>
 <p><strong>REMARKS.</strong> For $X \times Y=\mathbb{R} \times \mathbb{R}$, we have a simple visualization. For $\varepsilon&gt;0$, there exists some $\delta$ such that $|f(x)-f(x_0)|&lt;\varepsilon$ whenever $|x-x_0|&lt;\delta$. For $y_0 \neq f(x_0)$, pick $\varepsilon$ such that $0&lt;\varepsilon&lt;\frac{1}{2}|f(x_0)-y_0|$, we have two boxes ($CDEF$ and $GHJI$ on the picture), namely</p>
 <script type="math/tex; mode=display">
-B_1=\{(x,y):x_0-\delta<x<x_0+\delta,f(x_0)-\delta<y<f(x_0)+\delta\}</script><p>and</p>
+B_1=\{(x,y):x_0-\delta<x<x_0+\delta,f(x_0)-\varepsilon<y<f(x_0)+\varepsilon\}</script><p>and</p>
 <script type="math/tex; mode=display">
-B_2=\{(x,y):x_0-\delta<x<x_0+\delta,y_0-\delta<y<y_0+\delta\}.</script><p>In this case, $B_2$ will not intersect the graph of $f$, hence $(x_0,y_0)$ is an interior point of $G^c$.</p>
+B_2=\{(x,y):x_0-\delta<x<x_0+\delta,y_0-\varepsilon<y<y_0+\varepsilon\}.</script><p>In this case, $B_2$ will not intersect the graph of $f$, hence $(x_0,y_0)$ is an interior point of $G^c$.</p>
 <p>The Hausdorff property of $Y$ is not removable. To see this, since $X$ has no restriction, it suffices to take a look at $X \times X$. Let $f$ be the identity map (which is continuous), we see the graph</p>
 <script type="math/tex; mode=display">
 G(f)=\{(x,x):x \in X\}</script><p>is the diagonal. Suppose $X$ is not Hausdorff, we reach a contradiction. By definition, there exists some distinct $x$ and $y$ such that all neighborhoods of $x$ contain $y$. Pick $(x,y) \in G^c$, then <em>all</em> neighborhoods of $(x,y) \in X \times X$ contain $(x,x)$ so $(x,y) \in G^c$ is <em>not</em> a interior point of $G^c$, hence $G^c$ is not open.</p>
