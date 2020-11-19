@@ -2,9 +2,51 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://desvl.xyz/2020/06/06/big-3-pt-1/</loc>
+    
+    <lastmod>2020-11-19T07:32:53.682Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://desvl.xyz/2020/06/30/big-3-pt-2/</loc>
+    
+    <lastmod>2020-11-19T07:32:42.159Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://desvl.xyz/2020/08/12/big-3-pt-3/</loc>
+    
+    <lastmod>2020-11-19T07:32:21.101Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://desvl.xyz/2020/09/12/big-3-pt-4/</loc>
+    
+    <lastmod>2020-11-19T07:32:08.891Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://desvl.xyz/2020/10/01/big-3-pt-5/</loc>
+    
+    <lastmod>2020-11-19T07:31:52.766Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://desvl.xyz/2020/11/13/big-3-pt-6/</loc>
     
-    <lastmod>2020-11-17T14:15:49.282Z</lastmod>
+    <lastmod>2020-11-19T07:31:31.670Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://desvl.xyz/2020/09/19/The-Riesz-Markov-Kakutani-Representation-Theorem/</loc>
+    
+    <lastmod>2020-11-19T07:19:26.089Z</lastmod>
     
   </url>
   
@@ -51,13 +93,6 @@
   </url>
   
   <url>
-    <loc>https://desvl.xyz/2020/10/01/big-3-pt-5/</loc>
-    
-    <lastmod>2020-10-01T06:54:07.999Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://desvl.xyz/2020/09/27/diagram-chasing/</loc>
     
     <lastmod>2020-09-27T03:47:39.125Z</lastmod>
@@ -68,20 +103,6 @@
     <loc>https://desvl.xyz/2020/09/24/two-fourier-transforms/</loc>
     
     <lastmod>2020-09-24T13:54:10.948Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://desvl.xyz/2020/09/19/The-Riesz-Markov-Kakutani-Representation-Theorem/</loc>
-    
-    <lastmod>2020-09-19T01:04:05.120Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://desvl.xyz/2020/09/12/big-3-pt-4/</loc>
-    
-    <lastmod>2020-09-12T03:47:09.094Z</lastmod>
     
   </url>
   
@@ -124,13 +145,6 @@
     <loc>https://desvl.xyz/2020/03/14/topological-property-of-the-zeros-of-a-holomorphic-function/</loc>
     
     <lastmod>2020-09-02T11:11:10.843Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://desvl.xyz/2020/08/12/big-3-pt-3/</loc>
-    
-    <lastmod>2020-08-20T07:58:32.601Z</lastmod>
     
   </url>
   
@@ -184,13 +198,6 @@
   </url>
   
   <url>
-    <loc>https://desvl.xyz/2020/06/30/big-3-pt-2/</loc>
-    
-    <lastmod>2020-07-22T11:26:08.649Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://desvl.xyz/2020/05/17/linear-ode-but-quotient-space/</loc>
     
     <lastmod>2020-06-17T02:01:45.465Z</lastmod>
@@ -201,13 +208,6 @@
     <loc>https://desvl.xyz/2020/05/16/ivp-picard-differnt-level/</loc>
     
     <lastmod>2020-06-17T01:43:56.648Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://desvl.xyz/2020/06/06/big-3-pt-1/</loc>
-    
-    <lastmod>2020-06-13T15:16:53.640Z</lastmod>
     
   </url>
   

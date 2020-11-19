@@ -251,27 +251,27 @@
 </blockquote>
 <p>Baire category states that</p>
 <blockquote>
-<p><strong>(BCT1)</strong> Every complete metric space is a Baire space.</p>
-<p><strong>(BCT2)</strong> Every locally compact Hausdorff space is a Baire space.</p>
+<p><strong>(BCT 1)</strong> Every complete metric space is a Baire space.</p>
+<p><strong>(BCT 2)</strong> Every locally compact Hausdorff space is a Baire space.</p>
 </blockquote>
 <p>By taking the complement of the definition, we can see that, <strong>every Baire space is not of the first category</strong>. </p>
 <p>Suppose we have a sequence of sets ${X_n}$ where $X_n$ is dense in $X$ for all $n&gt;0$, then $X_0=\cap_n X_n$ is also dense in $X$. Notice then $X_0^{c} = \cup_n X_n^c$, a nowhere dense set and a countable union of nowhere dense sets, i.e. of the first category. </p>
-<h3 id="Proving-BCT1-and-BCT2-via-Choquet-game"><a href="#Proving-BCT1-and-BCT2-via-Choquet-game" class="headerlink" title="Proving BCT1 and BCT2 via Choquet game"></a>Proving BCT1 and BCT2 via Choquet game</h3><p>Let $X$ be the given complete metric space or locally Hausdorff space, and ${X_n}$ a countable collection of open subsets of $X$. Pick an arbitrary open subsets of $X$, namely $A_0$ (this is possible due to the topology defined on $X$). To prove that $\cap_n V_n$ is dense, we have to show that $A_0 \cap \left(\cap_n V_n\right) \neq \varnothing$. This follows the definition of denseness. Typically we have</p>
+<h3 id="Proving-BCT-1-and-BCT-2-via-Choquet-game"><a href="#Proving-BCT-1-and-BCT-2-via-Choquet-game" class="headerlink" title="Proving BCT 1 and BCT 2 via Choquet game"></a>Proving BCT 1 and BCT 2 via Choquet game</h3><p>Let $X$ be the given complete metric space or locally Hausdorff space, and ${X_n}$ a countable collection of open subsets of $X$. Pick an arbitrary open subsets of $X$, namely $A_0$ (this is possible due to the topology defined on $X$). To prove that $\cap_n V_n$ is dense, we have to show that $A_0 \cap \left(\cap_n V_n\right) \neq \varnothing$. This follows the definition of denseness. Typically we have</p>
 <blockquote>
 <p> A subset $A$ of $X$ is dense if and only if $A \cap U  \neq \varnothing$ for all nonempty open subsets $U$ of $X$.</p>
 </blockquote>
 <p>We pick a sequence of nonempty open sets ${A_n}$ inductively. With $A_{n-1}$ being picked, and since $V_n$ is open and dense in $X$, the intersection $V_n \cap A_{n-1}$ is nonempty and open. $A_n$ can be chosen such that</p>
 <script type="math/tex; mode=display">
-\overline{A}_n \subset V_n \cap A_{n-1}</script><p>For BCT1, $A_n$ can be chosen to be open balls with radius $&lt; \frac{1}{n}$; for BCT2, $A_n$ can be chosen such that the closure is compact. Define</p>
+\overline{A}_n \subset V_n \cap A_{n-1}</script><p>For BCT 1, $A_n$ can be chosen to be open balls with radius $&lt; \frac{1}{n}$; for BCT 2, $A_n$ can be chosen such that the closure is compact. Define</p>
 <script type="math/tex; mode=display">
 C = \bigcap_{n=1}^{\infty}\overline{A}_n</script><p>Now, if $X$ is a locally compact Hausdorff space, then due to the compactness, $C$ is not empty, therefore we have</p>
 <script type="math/tex; mode=display">
 \begin{cases}
 K \subset A_0 \\
 K \subset V_n \quad(n \in \mathbb{N})
-\end{cases}</script><p>which shows that $A_0 \cap V_n \neq \varnothing$. BCT2 is proved.</p>
-<p>For BCT1, we cannot follow this since it’s not ensured that $X$ has the Heine-Borel property, for example when $X$ is the Hilbert space (this is also a reason why BCT1 and BCT2 are not equivalent). The only tool remaining is Cauchy sequence. But how and where?</p>
-<p>For any $\varepsilon &gt; 0$, we have some $N$ such that $\frac{1}{N} &lt; \varepsilon$. For all $m&gt;n&gt;N$, we have $A_m \subset A_n\subset A_N$, therefore the centers of ${A_n}$ form a Cauchy sequence, converging to some point of $K$, which implies that $K \neq \varnothing$. BCT1 follows.</p>
+\end{cases}</script><p>which shows that $A_0 \cap V_n \neq \varnothing$. BCT 2 is proved.</p>
+<p>For BCT 1, we cannot follow this since it’s not ensured that $X$ has the Heine-Borel property, for example when $X$ is the Hilbert space (this is also a reason why BCT 1 and BCT 2 are not equivalent). The only tool remaining is Cauchy sequence. But how and where?</p>
+<p>For any $\varepsilon &gt; 0$, we have some $N$ such that $\frac{1}{N} &lt; \varepsilon$. For all $m&gt;n&gt;N$, we have $A_m \subset A_n\subset A_N$, therefore the centers of ${A_n}$ form a Cauchy sequence, converging to some point of $K$, which implies that $K \neq \varnothing$. BCT 1 follows.</p>
 <h2 id="Applications-of-BCT"><a href="#Applications-of-BCT" class="headerlink" title="Applications of BCT"></a>Applications of BCT</h2><p>BCT will be used directly in the big three. It can be considered as the origin of them. But there are many other applications in different branches of mathematics. The applications shown below are in the same pattern: <strong>if it does not hold, then we have a Baire space of the first category, which is not possible.</strong></p>
 <blockquote>
 <p>$\mathbb{R}$ is uncountable</p>
@@ -291,6 +291,15 @@ f(z)=\sum_{n=1}^{\infty}c_n(z-a)^n</script><p>has at least one coefficient is $0
 <p>Assume that $B$ has a countable basis ${x_1,x_2,\cdots}$ and define</p>
 <script type="math/tex; mode=display">
 B_n=\text{span}\{x_1,x_2,\cdots,x_n\}</script><p>It can be easily shown that $B_n$ is nowhere dense. In this sense, $B=\cup_n B_n$. A contradiction since $B$ is a complete metric space.</p>
+<h2 id="The-series"><a href="#The-series" class="headerlink" title="The series"></a>The series</h2><p>Since there is no strong reason to write more posts on this topic, i.e. the three fundamental theorems of linear functional analysis, I think it’s time to make a list of the series. It’s been around half a year.</p>
+<ul>
+<li>The Big Three Pt. 1 - Baire Category Theorem Explained</li>
+<li><a href="/2020/06/30/big-3-pt-2/">The Big Three Pt. 2 - The Banach-Steinhaus Theorem</a></li>
+<li><a href="/2020/08/12/big-3-pt-3/">The Big Three Pt. 3 - The Open Mapping Theorem (Banach Space)</a></li>
+<li><a href="/2020/09/12/big-3-pt-4/">The Big Three Pt. 4 - The Open Mapping Theorem (F-Space)</a></li>
+<li><a href="/2020/10/01/big-3-pt-5/">The Big Three Pt. 5 - The Hahn-Banach Theorem (Dominated Extension)</a></li>
+<li><a href="/2020/11/13/big-3-pt-6/">The Big Three Pt. 6 - Closed Graph Theorem with Applications</a></li>
+</ul>
 
         </div>
 
