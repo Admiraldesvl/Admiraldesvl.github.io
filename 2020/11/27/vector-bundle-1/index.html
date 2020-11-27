@@ -12,7 +12,7 @@
 
 
 
-<title>Study tangent bundle in a relatively harder way - Definition | Desvl&#39;s blog</title>
+<title>Study Vector Bundle in a Relatively Harder Way - Definition | Desvl&#39;s blog</title>
 
 
 
@@ -209,7 +209,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">Study tangent bundle in a relatively harder way - Definition</h1>
+            <h1 class="post-title">Study Vector Bundle in a Relatively Harder Way - Definition</h1>
             
                 <div class="post-meta">
                     
@@ -237,7 +237,7 @@
 <script type="math/tex; mode=display">
 \tau_i:\pi^{-1}(U_i)\to U_i \times E</script><p>satisfying the following three conditions.</p>
 <p><strong>VB 1</strong> $\tau_i$ is a $C^p$ diffeomorphism making the following diagram commutative:</p>
-<p><img src="C:\Users\10329\Desktop\diagrams\diagram-000001.png" alt="diagram-000001"></p>
+<p><img src="\img\vector-bundle.png" alt="diagram-000001"></p>
 <p>where $pr$ is the projection of the first component: $(x,y) \mapsto x$. By restricting $\tau_i$ on one point of $U_i$, we obtain an isomorphism on each fiber $\pi^{-1}(x)$:</p>
 <script type="math/tex; mode=display">
 \tau_{ix}:\pi^{-1}(x) \xrightarrow{\simeq} \{x\} \times \mathbf{E}</script><p><strong>VB 2</strong> For each pair of open sets $U_i$, $U_j \in \mathfrak{U}$, we have the map</p>
@@ -348,5 +348,20 @@ T_x(M) & \mapsto x
 </footer>
 
     </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>
