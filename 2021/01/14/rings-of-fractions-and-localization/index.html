@@ -236,7 +236,7 @@ mn'-m'n=0.</script><p>But we are only using the ring structure of $\mathbb{Z}$. 
 </blockquote>
 <p>For example, for $\mathbb{Z}$ we have a multiplicatively closed subset</p>
 <script type="math/tex; mode=display">
-\{1,2,4,8,\cdots\} \subset \mathbb{Z}.</script><p>We can also insert $0$ here but it may produce some bad result. If $S$ is also a ideal then we must have $S=A$ so this is not very interesting. However the complement is interesting.</p>
+\{1,2,4,8,\cdots\} \subset \mathbb{Z}.</script><p>We can also insert $0$ here but it may produce some bad result. If $S$ is also an ideal then we must have $S=A$ so this is not very interesting. However the complement is interesting.</p>
 <blockquote>
 <p><strong>(Proposition 1)</strong> Suppose $A$ is a commutative ring such that $1 \neq 0$. Let $S$ be a multiplicatively closed set that does not contain $0$. Let $\mfk{p}$ be the maximal element of ideals contained in $A \setminus S$, then $\mfk{p}$ is prime.</p>
 </blockquote>
@@ -514,5 +514,20 @@ vup^{m+k}/1=v(p^k/1)up^m/1.</script><p>Since $up^m/1 \in I$, we see $vup^{m+k}/1
 </footer>
 
     </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>
