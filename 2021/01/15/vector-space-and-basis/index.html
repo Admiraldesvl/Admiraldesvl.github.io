@@ -229,9 +229,12 @@
         <div class="post-content">
             <h2 id="Module-and-vector-space"><a href="#Module-and-vector-space" class="headerlink" title="Module and vector space"></a>Module and vector space</h2><p>First we recall some backgrounds. Suppose $A$ is a ring with multiplicative identity $1_A$. A <strong>left module</strong> of $A$ is an additive abelian group $(M,+)$, together with an <a href="https://proofwiki.org/wiki/Definition:Linear_Ring_Action" target="_blank" rel="noopener">ring operation</a> $A \times M \to M$ such that</p>
 <script type="math/tex; mode=display">
-(a+b)x = ax+bx \\
-a(x+y) = ax+ay \\
-a(bx) = (ab)x.</script><p>for $x,y \in M$ and $a,b \in A$. As a corollary, we see $(0_A+0_A)x=0_Ax=0_Ax+0_Ax$, which shows $0_Ax=0_M$ for all $x \in M$. On the other hand, $a(x-x)=0_M$ which implies $a(-x)=-(ax)$. Taking $1 \in A$ and $0 \in A$, we also see $(1+0_A)x=x+0_Ax=1_Ax=x$. We can also define right $A$-modules but we are not discussing them here.</p>
+\begin{aligned}
+(a+b)x &= ax+bx \\
+a(x+y) &= ax+ay \\
+a(bx) &= (ab)x \\
+1_Ax &= x
+\end{aligned}</script><p>for $x,y \in M$ and $a,b \in A$. As a corollary, we see $(0_A+0_A)x=0_Ax=0_Ax+0_Ax$, which shows $0_Ax=0_M$ for all $x \in M$. On the other hand, $a(x-x)=0_M$ which implies $a(-x)=-(ax)$. We can also define right $A$-modules but we are not discussing them here.</p>
 <p>Let $S$ be a subset of $M$. We say $S$ is a <strong>basis</strong> of $M$ if $S$ generates $M$ and $S$ is linearly independent. That is, for all $m \in M$, we can pick $s_1,\cdots,s_n \in S$ and $a_1,\cdots,a_n \in A$ such that</p>
 <script type="math/tex; mode=display">
 m = a_1s_1+a_2s_2+\cdots+a_ns_n,</script><p>and, for any $s_1,\cdots,s_n \in S$, we have</p>
