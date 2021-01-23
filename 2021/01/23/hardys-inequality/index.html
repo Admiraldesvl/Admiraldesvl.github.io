@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Desvl">
+
+
+
+
+
+<title>Several ways to prove Hardy&#39;s inequality | Desvl&#39;s blog</title>
+
+
+
+    <link rel="icon" href="../../../../favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="../../../../css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="../../../../js/script.js"></script>
+    
+    <script src="../../../../js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+            <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+        
+    
+
+ <meta name="twitter:card" content="summary" />
+ <meta name="twitter:site" content="desvl.xyz" />
+ <meta name="twitter:creator" content="@Desvl"/>
+ <meta name="twitter:title" content="Desvl's Blog" />
+ <meta name="twitter:image" content="https://admiraldesvl.github.io/image/avatar.jpeg" />
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="atom.xml" title="Desvl's blog" type="application/atom+xml">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Desvl&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="../../../../archives">Posts</a>
+                
+                    <a class="menu-item" href="../../../../about">About &amp; Link Exchange</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Desvl&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="../../../../archives">Posts</a>
+                
+                    <a class="menu-item" href="../../../../about">About &amp; Link Exchange</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Several ways to prove Hardy&#39;s inequality</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Desvl</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">January 23, 2021&nbsp;&nbsp;14:05:28</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <p>Suppose $1 &lt; p &lt; \infty$ and $f \in L^p((0,\infty))$ (with respect to Lebesgue measure of course) is a nonnegative function, take</p>
+<script type="math/tex; mode=display">
+F(x) = \frac{1}{x}\int_0^x f(t)dt \quad 0 < x <\infty,</script><p>we have Hardy’s inequality $\def\lrVert[#1]{\lVert #1 \rVert}$</p>
+<script type="math/tex; mode=display">
+\lrVert[F]_p \leq q\lrVert[f]_p</script><p>where $\frac{1}{p}+\frac{1}{q}=1$ of course.</p>
+<p>There are several ways to prove it. I think there are several good reasons to write them down thoroughly since that may be why you find this page. Maybe you are burnt out since it’s <em>left as exercise</em>. You are assumed to have enough knowledge of Lebesgue measure and integration.</p>
+<h2 id="Minkowski’s-integral-inequality"><a href="#Minkowski’s-integral-inequality" class="headerlink" title="Minkowski’s integral inequality"></a>Minkowski’s integral inequality</h2><blockquote>
+<p>Let $S_1,S_2 \subset \mathbb{R}$ be two measurable set, suppose $F:S_1 \times S_2 \to \mathbb{R}$ is measurable, then</p>
+<script type="math/tex; mode=display">
+\left[\int_{S_2} \left\vert\int_{S_1}F(x,y)dx \right\vert^pdy\right]^{\frac{1}{p}} \leq \int_{S_1} \left[\int_{S_2} |F(x,y)|^p dy\right]^{\frac{1}{p}}dx.</script><p>A proof can be found at <a href="https://www.college-de-france.fr/media/en-pierre-louis-lions/UPL3685291072245700610_Persson___Lecture_2.pdf" target="_blank" rel="noopener">here</a> and you need to turn to Example A9. You may need to replace all measures with Lebesgue measure $m$.</p>
+</blockquote>
+<p>Now let’s get into it. For a measurable function in this place we should have $G(x,t)=\frac{f(t)}{x}$. If we put this function inside this inequality, we see</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+ \lrVert[F]_p &= \left[\int_0^\infty \left\vert \int_0^x \frac{f(t)}{x}dt \right\vert^p dx\right[^{\frac{1}{p}} \\
+                 &= \left[\int_0^\infty \left\vert \int_0^1 f(ux)du \right\vert^p dx\right]^{\frac{1}{p}} \\
+                 &\leq \int_0^1 \left[\int_0^\infty |f(ux)|^pdx\right]^{\frac{1}{p}}du \\
+                 &= \int_0^1 \left[\int_0^\infty |f(ux)|^pudx\right]^{\frac{1}{p}}u^{-\frac{1}{p}}du \\
+                 &= \lrVert[f]_p \int_0^1 u^{-\frac{1}{p}}du \\
+                 &=q\lrVert[f]_p.
+\end{aligned}</script><p>Note we have used change-of-variable twice and the inequality once. </p>
+<h2 id="A-constructive-approach"><a href="#A-constructive-approach" class="headerlink" title="A constructive approach"></a>A constructive approach</h2><p>I have no idea how people came up with this solution. Take $xF(x)=\int_0^x f(t)t^{u}t^{-u}dt$ where $0&lt;u&lt;1-\frac{1}{p}$. Hölder’s inequality gives us</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+xF(x) &= \int_0^x f(t)t^ut^{-u}dt \\
+      &\leq \left[\int_0^x t^{-uq}dt\right]^{\frac{1}{q}}\left[\int_0^xf(t)^pt^{up}dt\right]^{\frac{1}{p}} \\
+      &=\left(\frac{1}{1-uq}x^{1-uq}\right)^{\frac{1}{q}}\left[\int_0^xf(t)^pt^{up}dt\right]^{\frac{1}{p}}
+\end{aligned}</script><p>Hence</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+F(x)^p & \leq \frac{1}{x^p}\left\{\left(\frac{1}{1-uq}x^{1-uq}\right)^{\frac{1}{q}}\left[\int_0^xf(t)^pt^{up}dt\right]^{\frac{1}{p}}\right\}^{p} \\
+&= \left(\frac{1}{1-uq}\right)^{\frac{p}{q}}x^{\frac{p}{q}(1-uq)-p}\int_0^x f(t)^pt^{up}dt \\
+&= \left(\frac{1}{1-uq}\right)^{p-1}x^{-up-1}\int_0^x f(t)^pt^{up}dt
+\end{aligned}</script><p>Note we have used the fact that $\frac{1}{p}+\frac{1}{q}=1 \implies p+q=pq$ and $\frac{p}{q}=p-1$. Fubini’s theorem gives us the final answer:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\int_0^\infty F(x)^pdx &\leq \int_0^\infty\left[\left(\frac{1}{1-uq}\right)^{p-1}x^{-up-1}\int_0^x f(t)^pt^{up}dt\right]dx \\
+&=\left(\frac{1}{1-uq}\right)^{p-1}\int_0^\infty dx\int_0^x f(t)^pt^{up}x^{-up-1}dt \\
+&=\left(\frac{1}{1-uq}\right)^{p-1}\int_0^\infty dt\int_t^\infty f(t)^pt^{up}x^{-up-1}dx \\
+&=\left(\frac{1}{1-uq}\right)^{p-1}\frac{1}{up}\int_0^\infty f(t)^pdt.
+\end{aligned}</script><p>It remains to find the minimum of $\varphi(u) = \left(\frac{1}{1-uq}\right)^{p-1}\frac{1}{up}$. This is an elementary calculus problem. By taking its derivative, we see when $u=\frac{1}{pq}&lt;1-\frac{1}{p}$ it attains its minimum $\left(\frac{p}{p-1}\right)^p=q^p$. Hence we get</p>
+<script type="math/tex; mode=display">
+\int_0^\infty F(x)^pdx \leq q^p\int_0^\infty f(t)^pdt,</script><p>which is exactly what we want. Note the constant $q$ cannot be replaced with a smaller one. We simply proved the case when $f \geq 0$. For the general case, one simply needs to take absolute value.  </p>
+<h2 id="Integration-by-parts"><a href="#Integration-by-parts" class="headerlink" title="Integration by parts"></a>Integration by parts</h2><p>This approach makes use of properties of $L^p$ space. Still we assume that $f \geq 0$ but we also assume $f \in C_c((0,\infty))$, that is, $f$ is continuous and has <a href="https://en.wikipedia.org/wiki/Support_(mathematics" target="_blank" rel="noopener">compact support</a>#Compact_support). Hence $F$ is differentiable in this situation. Integration by parts gives</p>
+<script type="math/tex; mode=display">
+\int_0^\infty F^p(x)dx=xF(x)^p\vert_0^\infty- p\int_0^\infty xdF^p = -p\int_0^\infty xF^{p-1}(x)F'(x)dx.</script><p>Note since $f$ has compact support, there are some $[a,b]$ such that $f &gt;0$ only if $0 &lt; a \leq x \leq b &lt; \infty$ and hence $xF(x)^p\vert_0^\infty=0$. Next it is natural to take a look at $F’(x)$. Note we have</p>
+<script type="math/tex; mode=display">
+F'(x) = \frac{f(x)}{x}-\frac{\int_0^x f(t)dt}{x^2},</script><p>hence $xF’(x)=f(x)-F(x)$. A substitution gives us</p>
+<script type="math/tex; mode=display">
+\int_0^\infty F^p(x)dx = -p\int_0^\infty F^{p-1}(x)[f(x)-F(x)]dx,</script><p>which is equivalent to say</p>
+<script type="math/tex; mode=display">
+\int_0^\infty F^p(x)dx = \frac{p}{p-1}\int_0^\infty F^{p-1}(x)f(x)dx.</script><p>Hölder’s inequality gives us</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\int_0^\infty F^{p-1}(x)f(x)dx &\leq \left[\int_0^\infty F^{(p-1)q}(x)dx\right]^{\frac{1}{q}}\left[\int_0^\infty f(x)^pdx\right]^{\frac{1}{p}} \\
+&=\left[\int_0^\infty F^{p}(x)dx\right]^{\frac{1}{q}}\left[\int_0^\infty f(x)^pdx\right]^{\frac{1}{p}}.
+\end{aligned}</script><p>Together with the identity above we get</p>
+<script type="math/tex; mode=display">
+\int_0^\infty F^p(x)dx = q\left[\int_0^\infty F^{p}(x)dx\right]^{\frac{1}{q}}\left[\int_0^\infty f(x)^pdx\right]^{\frac{1}{p}}</script><p>which is exactly what we want since $1-\frac{1}{q}=\frac{1}{p}$ and all we need to do is divide $\left[\int_0^\infty F^pdx\right]^{1/q}$ on both sides. So what’s next? Note $C_c((0,\infty))$ is dense in $L^p((0,\infty))$. For any $f \in L^p((0,\infty))$, we can take a sequence of functions $f_n \in C_c((0,\infty))$ such that $f_n \to f$ with respect to $L^p$-norm. Taking $F=\frac{1}{x}\int_0^x f(t)dt$ and $F_n = \frac{1}{x}\int_0^x f_n(t)dt$, we need to show that $F_n \to F$ pointwise, so that we can use Fatou’s lemma. For $\varepsilon&gt;0$, there exists some $m$ such that $\lrVert[f_n-f]_p &lt; \frac{1}{n}$. Thus</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+|F_n(x)-F(x)| &= \frac{1}{x}\left\vert \int_0^x f_n(t)dt - \int_0^x f(t)dt \right\vert \\
+              &\leq \frac{1}{x} \int_0^x |f_n(t)-f(t)|dt \\
+              &\leq \frac{1}{x} \left[\int_0^x|f_n(t)-f(t)|^pdt\right]^{\frac{1}{p}}\left[\int_0^x 1^qdt\right]^{\frac{1}{q}} \\
+              &=\frac{1}{x^{1/p}}\left[\int_0^x|f_n(t)-f(t)|^pdt\right]^{\frac{1}{p}} \\
+              &\leq \frac{1}{x^{1/p}}\lrVert[f_n-f]_p <\frac{\varepsilon}{x^{1/p}}.
+\end{aligned}</script><p>Hence $F_n \to F$ pointwise, which also implies that $|F_n|^p \to |F|^p$ pointwise. For $|F_n|$ we have</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\int_0^\infty |F_n(x)|^pdx &= \int_0^\infty \left\vert\frac{1}{x}\int_0^x f_n(t)dt\right\vert^p dx \\
+&\leq \int_0^\infty \left[\frac{1}{x}\int_0^x |f_n(t)|dt\right]^{p}dx \\
+&\leq q\int_0^\infty |f_n(t)|^pdt
+\end{aligned}</script><p>note the third inequality follows since we have already proved it for $f \geq 0$. By Fatou’s lemma, we have</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\int_0^\infty |F(x)|^pdx &= \int_0^\infty \lim_{n \to \infty}|F_n(x)|^pdx \\
+&\leq \lim_{n \to \infty} \int_0^\infty |F_n(x)|^pdx \\
+&\leq \lim_{n \to \infty}q^p\int_0^\infty |f_n(x)|^pdx \\
+&=q^p\int_0^\infty |f(x)|^pdx.
+\end{aligned}</script>
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Desvl</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://desvl.xyz/2021/01/23/hardys-inequality/">https://desvl.xyz/2021/01/23/hardys-inequality/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2020 <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            <br>
+            
+            <a class="next" rel="next" href="../../19/tensor-product-universal-property/">Tensor Product as a Universal Object (Category Theory & Module Theory)</a>
+            
+        </section>
+    </article>
+</div>
+
+
+        </div>
+        
+<footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Desvl | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
