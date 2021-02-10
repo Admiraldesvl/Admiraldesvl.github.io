@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://desvl.xyz/about/index.html</loc>
+    
+    <lastmod>2021-02-10T14:09:26.450Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://desvl.xyz/2021/02/07/dedekind-domain/</loc>
     
-    <lastmod>2021-02-07T06:43:22.738Z</lastmod>
+    <lastmod>2021-02-10T13:37:34.022Z</lastmod>
     
   </url>
   
@@ -138,13 +145,6 @@
     <loc>https://desvl.xyz/2020/08/18/Basic-facts-of-semicontinuous-functions/</loc>
     
     <lastmod>2020-10-18T14:19:02.948Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://desvl.xyz/about/index.html</loc>
-    
-    <lastmod>2020-10-18T07:21:32.255Z</lastmod>
     
   </url>
   
