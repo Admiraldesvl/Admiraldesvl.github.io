@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://desvl.xyz/2021/02/23/linear-algebra-missing/</loc>
+    
+    <lastmod>2021-02-23T11:12:17.922Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://desvl.xyz/2020/03/22/fubini-theorem-in-euclidean-space/</loc>
+    
+    <lastmod>2021-02-23T11:08:21.378Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://desvl.xyz/2021/01/10/the-grothendieck-group/</loc>
+    
+    <lastmod>2021-02-23T11:08:16.963Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://desvl.xyz/about/index.html</loc>
     
     <lastmod>2021-02-10T14:09:26.450Z</lastmod>
@@ -33,13 +54,6 @@
     <loc>https://desvl.xyz/2021/01/15/vector-space-and-basis/</loc>
     
     <lastmod>2021-01-16T03:51:28.596Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://desvl.xyz/2021/01/10/the-grothendieck-group/</loc>
-    
-    <lastmod>2021-01-15T06:33:17.161Z</lastmod>
     
   </url>
   
@@ -327,13 +341,6 @@
     <loc>https://desvl.xyz/2020/01/22/cyclic-decomposition/</loc>
     
     <lastmod>2020-04-05T09:13:01.148Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://desvl.xyz/2020/03/22/fubini-theorem-in-euclidean-space/</loc>
-    
-    <lastmod>2020-04-05T09:11:26.030Z</lastmod>
     
   </url>
   
