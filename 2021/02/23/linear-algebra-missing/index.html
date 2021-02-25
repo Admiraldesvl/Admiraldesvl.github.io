@@ -280,7 +280,7 @@ SO(n) \subset O(n) \subset GL(n).</script><p>Now we consider a more detailed gro
 <blockquote>
 <p>There is a direct product decomposition</p>
 <script type="math/tex; mode=display">
-GL(n,\R)=O(n) \times \{\text{positive definite symmetric matrices}\}.</script></blockquote>
+GL(n,\mathbb{R})=O(n) \times \{\text{positive definite symmetric matrices}\}.</script></blockquote>
 <p>This decomposition is pretty intuitive. For example if a matrix $A \subset GL(n,\mathbb{R})$ has determinant $a$, we may be looking for a positive definite matrix of determinant $|a|$, and another matrix of determinant $\frac{a}{|a|}$, which is expected to be orthonormal as well. We can consider $O(n)$ as a rotation of basis (change the direction), and the positive definite symmetric matrix as scaling (change the size). Similar result hold if we change the order of multipication. It worth mentioning that by direct product we mean it’s up to the order of eigenvalues. </p>
 <p><strong>Proof.</strong> For any invertible matrix $A$, we see $AA^T$ is positive definite and symmetric. Therefore there exists some $P \in O(n)$ such that </p>
 <script type="math/tex; mode=display">
@@ -493,5 +493,20 @@ g(x)=\frac{Ay}{\sigma(Ay)}=y \implies Ay = \sigma(Ay)y.</script><p>But as we hav
 </footer>
 
     </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>
