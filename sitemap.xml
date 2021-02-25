@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://desvl.xyz/about/index.html</loc>
+    
+    <lastmod>2021-02-25T14:33:26.673Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://desvl.xyz/2021/02/23/linear-algebra-missing/</loc>
     
-    <lastmod>2021-02-23T11:12:17.922Z</lastmod>
+    <lastmod>2021-02-25T14:06:06.353Z</lastmod>
     
   </url>
   
@@ -19,13 +26,6 @@
     <loc>https://desvl.xyz/2021/01/10/the-grothendieck-group/</loc>
     
     <lastmod>2021-02-23T11:08:16.963Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://desvl.xyz/about/index.html</loc>
-    
-    <lastmod>2021-02-10T14:09:26.450Z</lastmod>
     
   </url>
   

@@ -245,7 +245,7 @@
 </ul>
 <h2 id="If-you-care-more-about-algebra"><a href="#If-you-care-more-about-algebra" class="headerlink" title="If you care more about algebra"></a>If you care more about algebra</h2><p>Since the background of the reader varies a lot, I will try to organise contents depending on topic and required background. For the following section, you are assumed to be familiar with basic abstract algebra terminologies, for example, group, ring, fields.</p>
 <h3 id="Linear-algebra-is-not-just-about-real-and-complex-numbers"><a href="#Linear-algebra-is-not-just-about-real-and-complex-numbers" class="headerlink" title="Linear algebra is not just about real and complex numbers"></a>Linear algebra is not just about real and complex numbers</h3><p>When learning linear algebra, we were always thinking about real or complex vectors, matrices. This makes sense because $\mathbb{R}$ and $\mathbb{C}$ are the closest number <strong>fields</strong> to our real life. But we should not have the stereotype that linear algebra is all about real and complex spaces, or properties of $\mathbb{R}^n$ and $\mathbb{C}^n$. Never has there been such an restriction. In fact, $\mathbb{R}$ and $\mathbb{C}$ can be replaced with any field $\mathbb{F}$, and there are vast differences depending on the properties of $\mathbb{F}$. </p>
-<p>There are already some differences about $\mathbb{R}$ and $\mathbb{C}$. Since $\mathbb{C}$ is algebraically closed, that is, all polynomials of order $n \geq 1$ have $n$ roots, dealing with eigen functions has been much ‘safer’. Besides, for example, we can diagnoalise the matrix</p>
+<p>There are already some differences about linear algebra over $\mathbb{R}$ and $\mathbb{C}$. Since $\mathbb{C}$ is algebraically closed, that is, all polynomials of order $n \geq 1$ have $n$ roots, dealing with eigen functions has been much ‘safer’. Besides, for example, we can diagnoalise the matrix</p>
 <script type="math/tex; mode=display">
 A = \begin{pmatrix}-1& -1 \\ 2 & 1 \end{pmatrix}</script><p>in $\mathbb{C}$ but not in $\mathbb{R}$.</p>
 <p>When $\mathbb{F}$ above is finite, there are a lot more interesting things. It’s not just saying, $\mathbb{F}$ is a field, and is finite. For example, if $\mathbb{F}=\mathbb{R}$, we have</p>
@@ -272,7 +272,66 @@ A = \begin{pmatrix}-1& -1 \\ 2 & 1 \end{pmatrix}</script><p>in $\mathbb{C}$ but 
 1&3&4 \\
 1&3&3\\
 0&1&3
-\end{pmatrix}.</script><p>In application, when working on applied algebra, it’s quite often to meet finite fields. What if we want to solve linear equation over a finite field? That’s when linear algebra over finite fields comes in. Realise this before it’s late! When we are working on rings in lieu of fields, we find ourselves in module theory.</p>
+\end{pmatrix}.</script><p>In application, when working on applied algebra, it’s quite often to meet finite fields. What if we want to solve linear equation over a finite field? That’s when linear algebra over finite fields comes in. Realise this before it’s late! By the way, we are working on rings in lieu of fields, we find ourselves in module theory.</p>
+<h3 id="The-general-linear-group"><a href="#The-general-linear-group" class="headerlink" title="The general linear group"></a>The general linear group</h3><p>The set of all invertible $n \times n$ matrices forms a multiplicative group (and you should have no problem verifying this). The notation won’t go further than $GL(n)$, $GL(n,\mathbb{F})$, $GL_n(\mathbb{F})$ or simply $GL_n$. The set of all orthomormal matrices, which is also a multiplicative group and written as $O(n)$, is obviously subgroup of $GL(n)$ since for all $A \in O(n)$, we have $\det{A} = \pm 1 \neq 0$ all the time. $O(n)$ contains $SO(n)$ as a subgroup, whose elements have determinant $1$. One should not mess up with $SO(n)$ and $SL(n)$ which is the group of all matrices of determinant $1$. In fact $SO(n)$ is a proper subset of $SL(n)$ and $SL(n) \cap O(n) = SO(n)$. In general we have</p>
+<script type="math/tex; mode=display">
+SO(n) \subset SL(n) \subset GL(n), \\
+SO(n) \subset O(n) \subset GL(n).</script><p>Now we consider a more detailed group structure between $GL(n)$ and $O(n)$. I met the following problem on a differential topology book and was about fibre and structure group. But for now it’s simply a linear algebra problem. The crux is finding the ‘square root’ of a positive defined matrix. </p>
+<blockquote>
+<p>There is a direct product decomposition</p>
+<script type="math/tex; mode=display">
+GL(n,\R)=O(n) \times \{\text{positive definite symmetric matrices}\}.</script></blockquote>
+<p>This decomposition is pretty intuitive. For example if a matrix $A \subset GL(n,\mathbb{R})$ has determinant $a$, we may be looking for a positive definite matrix of determinant $|a|$, and another matrix of determinant $\frac{a}{|a|}$, which is expected to be orthonormal as well. We can consider $O(n)$ as a rotation of basis (change the direction), and the positive definite symmetric matrix as scaling (change the size). Similar result hold if we change the order of multipication. It worth mentioning that by direct product we mean it’s up to the order of eigenvalues. </p>
+<p><strong>Proof.</strong> For any invertible matrix $A$, we see $AA^T$ is positive definite and symmetric. Therefore there exists some $P \in O(n)$ such that </p>
+<script type="math/tex; mode=display">
+P^T AA^TP = \operatorname{diag}(\lambda_1,\lambda_2,\cdots,\lambda_n).</script><p>We assume that $\lambda_1\leq \lambda_2 \leq \cdots \leq \lambda_n$ to preserve uniqueness. Note $\lambda_k&gt;0$ for all $1 \leq k \leq n$ since $AA^T$ is positive definite. We write $\Lambda=\operatorname{diag}(\sqrt\lambda_1,\sqrt\lambda_2,\cdots,\sqrt\lambda_n)$ which gives</p>
+<script type="math/tex; mode=display">
+AA^T = P\Lambda^2P^T.</script><p>Define the square root $B=\sqrt{AA^T}=\sqrt{A^TA}$ by</p>
+<script type="math/tex; mode=display">
+B = P\Lambda P^T.</script><p>Then $B^2=P\Lambda P^T P \Lambda P^T = AA^T$. Note $B$ is also a positive definite symmetric matrix and is unique for given $A$. Let $v_1,v_2,\cdots,v_n$ be the orthonormal and linear independent eigenvectors of $B$ with respect to $\sqrt\lambda_1, \sqrt\lambda_2, \cdots, \sqrt\lambda_n$. We first take a look at the following basis:</p>
+<script type="math/tex; mode=display">
+e_1=\frac{1}{\sqrt{\lambda_1}}Av_1,e_2=\frac{1}{\sqrt{\lambda_2}}Av_2,\cdots,e_n=\frac{1}{\sqrt{\lambda_n}}Av_n.</script><p>Note </p>
+<script type="math/tex; mode=display">
+\left(\frac{1}{\sqrt{\lambda_i}}Av_i\right)^{T}\left(\frac{1}{\sqrt{\lambda_j}}Av_j\right)=\frac{1}{\sqrt{\lambda_i\lambda_j}}v_i^TA^TAv_j=\frac{1}{\sqrt{\lambda_i\lambda_j}}v_i^TB^2v_j=\frac{\sqrt{\lambda_j}}{\sqrt{\lambda_i}}v_i^Tv_j.</script><p>So if the value above is $1$ if $i = j$ and $0$ if $i \neq j$. ${e_1,e_2,\cdots,e_n}$ is a basis since $A$ is invertible, and later we know it is orthonormal. </p>
+<p>Then we take </p>
+<script type="math/tex; mode=display">
+U = (e_1,e_2,\cdots,e_n)
+\begin{pmatrix}
+v_1^T \\
+v_2^T \\
+\vdots \\
+v_n^T
+\end{pmatrix}</script><p>We see</p>
+<script type="math/tex; mode=display">
+UU^T = (e_1,e_2,\cdots,e_n)\begin{pmatrix}
+v_1^T \\
+v_2^T \\
+\vdots \\
+v_n^T
+\end{pmatrix}(v_1,v_2,\cdots,v_n)\begin{pmatrix}
+e_1^T \\
+e_2^T \\
+\vdots \\
+e_n^T
+\end{pmatrix} = I = U^TU</script><p>since both ${e_1,e_2,\cdots,e_n}$ and ${v_1,v_2,\cdots,v_n}$ are orthonormal. On the other hand, we need to prove that $A=UB$. First of all,</p>
+<script type="math/tex; mode=display">
+Uv_k =(e_1,e_2,\cdots,e_n)
+\begin{pmatrix}
+v_1^T \\
+v_2^T \\
+\vdots \\
+v_n^T.
+\end{pmatrix} v_k = (e_1,e_2,\cdots,e_n)
+\begin{pmatrix}
+0\\
+\vdots \\
+v_k^Tv_k \\
+\vdots
+\end{pmatrix} = e_k.</script><p>(Note we used the fact that ${v_k}$ are orthonormal.) This yields</p>
+<script type="math/tex; mode=display">
+UPv_k = U \sqrt\lambda_kv_k = \sqrt\lambda_ke_k=\frac{\sqrt\lambda_k}{\sqrt\lambda_k}Av_k=Av_k.</script><p>Therefore $A=UB$ holds on a set of basis, therefore holds on $\mathbb{R}^n$. This gives the desired conclusion. For any invertible $n \times n$ matrix $A$ we have a unique decomposition</p>
+<script type="math/tex; mode=display">
+A = UB</script><p>where $U \in O(n)$ and $B$ is a positive definitive symmetric matrix. $\square$</p>
 <h3 id="Basis-of-vector-spaces"><a href="#Basis-of-vector-spaces" class="headerlink" title="Basis of vector spaces"></a>Basis of vector spaces</h3><p>Basis of a vector space is not coming from nowhere. The statement that all vector spaces have a basis is derived from axiom of choice and the fact that all non-zero elements in a field is invertible. I have written an article proving this already, see <a href="/2021/01/15/vector-space-and-basis/">here</a> (this is relatively advanced). On the other hand, since elements of a ring are not necessarily invertible, modules over a ring are not equipped with basis in general.</p>
 <p>It is also worth mentioning that, a vector space of finite dimension is not necessarily of finite dimension. Infinite dimensional vector space is not some fancy thing. It’s quite simple: the set of basis is not finite. It can be countable or uncountable. And there is a pretty straightforward example: the set of all continuous functions $f:\mathbb{R} \to \mathbb{R}$. </p>
 <h2 id="If-you-care-more-about-analysis-and-topology"><a href="#If-you-care-more-about-analysis-and-topology" class="headerlink" title="If you care more about analysis and topology"></a>If you care more about analysis and topology</h2><p>Now let’s see what we can do in analysis and topology. </p>
