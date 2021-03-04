@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://desvl.xyz/2020/09/24/two-fourier-transforms/</loc>
+    
+    <lastmod>2021-03-04T07:07:59.480Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://desvl.xyz/about/index.html</loc>
     
     <lastmod>2021-03-03T09:26:43.813Z</lastmod>
@@ -180,13 +187,6 @@
     <loc>https://desvl.xyz/2020/09/27/diagram-chasing/</loc>
     
     <lastmod>2020-09-27T03:47:39.125Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://desvl.xyz/2020/09/24/two-fourier-transforms/</loc>
-    
-    <lastmod>2020-09-24T13:54:10.948Z</lastmod>
     
   </url>
   
