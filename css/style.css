@@ -185,7 +185,7 @@ html::-webkit-scrollbar-thumb:hover {
   background-color: #ddd;
 }
 body {
-  font-size: 14pt;
+  font-size: 15pt;
   font-weight: normal;
   line-height: 1.5em;
   background-color: #fff;
@@ -627,7 +627,7 @@ header label {
 .post-wrap {
   position: relative;
   width: 100%;
-  max-width: 880px;
+  max-width: 920px;
   margin: 0 auto;
   padding-top: 2rem;
 }
@@ -638,7 +638,9 @@ header label {
   display: inline-block;
   text-decoration: none;
   overflow: hidden;
-  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow-wrap: break-word;
+  max-width: 700px;
 }
 .archive-item-link:hover {
   color: #633cb0;
@@ -914,14 +916,14 @@ header label {
   color: #87878d;
 }
 .post-content blockquote {
-  font-size: 1rem;
+  font-size: 16pt;
   display: block;
   margin: 1em 0;
   padding: 1em 1.2em 1em 1.2em;
   position: relative;
   color: rgba(52,73,94,0.8);
   background-color: #f7fcff;
-  border-left: 2px solid #f7f6f7;
+  border-left: 3px solid #f7f6f7;
 }
 .post-content blockquote p {
   margin: 0;
@@ -932,7 +934,7 @@ header label {
 .dark-theme .post-content blockquote {
   color: #a9a9b3;
   background-color: #3e3e3e;
-  border-left: 2px solid #dcdcdc;
+  border-left: 3px solid #dcdcdc;
 }
 .post-content blockquote.pullquote {
   background-color: transparent;
@@ -1093,11 +1095,11 @@ header label {
   top: 95px;
   right: 2em;
   width: 16rem;
-  font-size: 15px;
+  font-size: 16px;
 }
 .post-toc .tocbot-list {
   max-height: 450px;
-  max-width: 250px;
+  max-width: 280px;
   overflow: auto;
   position: relative;
   padding-right: 0.875rem;
@@ -1244,7 +1246,7 @@ header label {
     background: #292a2d !important;
   }
   .archive {
-    width: 90%;
+    width: 95%;
   }
   .archive .archive-item .archive-item-date {
     display: none;
