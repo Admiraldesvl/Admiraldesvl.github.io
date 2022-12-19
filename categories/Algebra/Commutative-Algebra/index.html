@@ -1,0 +1,515 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="robots" content="noindex"><meta><title>Category: Commutative Algebra - Desvl&#039;s blog</title><link rel="manifest" href="../../../manifest.json"><meta name="application-name" content="Desvl&#039;s blog"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Desvl&#039;s blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta property="og:type" content="blog"><meta property="og:title" content="Desvl&#039;s blog"><meta property="og:url" content="https://desvl.xyz/"><meta property="og:site_name" content="Desvl&#039;s blog"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://desvl.xyz/img/avatar.png"><meta property="article:author" content="Desvl"><meta property="twitter:card" content="summary_large_image"><meta property="twitter:image:src" content="https://desvl.xyz/img/avatar.png"><meta property="twitter:creator" content="@Desvl_"><meta property="twitter:site" content="{ https://desvl.xyz }"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://desvl.xyz"},"headline":"Desvl's blog","image":["https://desvl.xyz/img/avatar.png"],"author":{"@type":"Person","name":"Desvl"},"publisher":{"@type":"Organization","name":"Desvl","logo":{"@type":"ImageObject","url":"https://desvl.xyz/img/logo.svg"}},"description":""}</script><link rel="alternate" href="../../../atom.xml" title="Desvl&#039;s blog" type="application/atom+xml"><link rel="icon" href="../../../img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap"><link rel="stylesheet" href="../../../css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="../../../index.html"><img src="../../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="../../../index.html">Home</a><a class="navbar-item" href="../../../archives">Archives</a><a class="navbar-item" href="../../../categories">Categories</a><a class="navbar-item" href="../../../tags">Tags</a><a class="navbar-item" href="../../../about">About (Updated Aug. 2022)</a><a class="navbar-item" href="../../../link-exchange">Link Exchange</a><a class="navbar-item" href="../../../support-the-author">Support the Author</a></div><div class="navbar-end"></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="../../../categories">Categories</a></li><li><a href="../">Algebra</a></li><li class="is-active"><a href="#" aria-current="page">Commutative Algebra</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-12-04T16:00:00.000Z" title="05/12/2022, 00:00:00">2022-12-05</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-12-19T04:02:13.733Z" title="19/12/2022, 12:02:13">2022-12-19</time></span><span class="level-item"><a class="link-muted" href="../">Algebra</a><span> / </span><a class="link-muted" href="">Commutative Algebra</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../../2022/12/05/regular-local-ring-cohen-macaulay/">Every Regular Local Ring is Cohen-Macaulay</a></h1><div class="content">In this post we show that the class of regular local rings (the abstract version of power series rings) is a subclass of Cohen-Macaulay ring.</div><a class="article-more button is-small is-size-7" href="../../../2022/12/05/regular-local-ring-cohen-macaulay/#more">Read more</a></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-08-21T04:46:33.000Z" title="21/08/2022, 12:46:33">2022-08-21</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-09-16T02:11:23.088Z" title="16/09/2022, 10:11:23">2022-09-16</time></span><span class="level-item"><a class="link-muted" href="../">Algebra</a><span> / </span><a class="link-muted" href="../../Number-Theory/">Number Theory</a><span> / </span><a class="link-muted" href="../../Number-Theory/Algebraic-Number-Theory/">Algebraic Number Theory</a><span> / </span><a class="link-muted" href="">Commutative Algebra</a><span> / </span><a class="link-muted" href="../../Number-Theory/p-adic-Analysis/">p-adic Analysis</a><span> / </span><a class="link-muted" href="../../Number-Theory/Local-Fields/">Local Fields</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../../2022/08/21/hensel-lemma-newton/">Hensel&#039;s Lemma - A Fair Application of Newton&#039;s Method and &#039;Double Induction&#039;</a></h1><div class="content">We prove the celebrated Hensel's lemma using the so-called Newton's method and "double induction", and try to find solutions of polynomials in $\mathbb{Q}_p$.</div><a class="article-more button is-small is-size-7" href="../../../2022/08/21/hensel-lemma-newton/#more">Read more</a></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2021-12-29T11:04:49.000Z" title="29/12/2021, 19:04:49">2021-12-29</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-12-29T13:08:08.450Z" title="29/12/2021, 21:08:08">2021-12-29</time></span><span class="level-item"><a class="link-muted" href="../">Algebra</a><span> / </span><a class="link-muted" href="">Commutative Algebra</a><span> / </span><a class="link-muted" href="../../Geometry/">Geometry</a><span> / </span><a class="link-muted" href="../../Geometry/Algebraic-Geometry/">Algebraic Geometry</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../../2021/12/29/the-ring-of-trigonometric-polynomial-with-complex-scalar/">The ring of trigonometric polynomials with complex scalars</a></h1><div class="content">This post is a continuation of a previous post about the ring of trigonometric polynomials over the real field. Now we have jumped into the complex field, and the extension is not a trivial matter.</div><a class="article-more button is-small is-size-7" href="../../../2021/12/29/the-ring-of-trigonometric-polynomial-with-complex-scalar/#more">Read more</a></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2021-12-23T16:00:00.000Z" title="24/12/2021, 00:00:00">2021-12-24</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-12-19T04:01:21.922Z" title="19/12/2022, 12:01:21">2022-12-19</time></span><span class="level-item"><a class="link-muted" href="../">Algebra</a><span> / </span><a class="link-muted" href="">Commutative Algebra</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../../2021/12/24/The-ring-of-real-trigonometric-polynomials/">The ring of real trigonometric polynomials</a></h1><div class="content"><h2 id="The-ring"><a href="#The-ring" class="headerlink" title="The ring"></a>The ring</h2><p>Throughout we consider the polynomial ring</p>
+<script type="math/tex; mode=display">
+R=\mathbb{R}[\cos{x},\sin{x}].</script><p>This ring has a lot of non-trivial properties which give us a good chance to study commutative ring theory. </p></div><a class="article-more button is-small is-size-7" href="../../../2021/12/24/The-ring-of-real-trigonometric-polynomials/#more">Read more</a></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2021-02-07T06:43:22.000Z" title="07/02/2021, 14:43:22">2021-02-07</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-08-21T12:38:07.937Z" title="21/08/2022, 20:38:07">2022-08-21</time></span><span class="level-item"><a class="link-muted" href="../">Algebra</a><span> / </span><a class="link-muted" href="">Commutative Algebra</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../../2021/02/07/dedekind-domain/">Dedekind Domain and Properties in an Elementary Approach</a></h1><div class="content"><p>You can find contents about Dedekind domain (or Dedekind ring) in <em>almost all</em> algebraic number theory books. But many properties can be proved inside ring theory. I hope you can find the solution you need in this post, and this post will not go further than elementary ring theory. With that being said, you are assumed to have enough knowledge of ring and ring of fractions (<a href="/2021/01/14/rings-of-fractions-and-localization/">this post</a> serves well), but not too much mathematics maturity is assumed (at the very least you are assumed to be familiar with terminologies in the linked post).$\def\mb{\mathbb}$ $\def\mfk{\mathfrak}$</p>
+<h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><p>There are several ways to define Dedekind domain since there are several equivalent statements of it. We will start from the one based on ring of fractions. As a friendly reminder, $\mb{Z}$ or any principal integral domain is already a Dedekind domain. In fact Dedekind domain may be viewed as a generalization of principal integral domain. </p>
+<p>Let $\mfk{o}$ be an integral domain (a.k.a. entire ring), and $K$ be its quotient field. A <strong>Dedekind domain</strong> is an integral domain $\mfk{o}$ such that the fractional ideals form a group under multiplication. Let’s have a breakdown. By a <strong>fractional ideal</strong> $\mfk{a}$ we mean a nontrivial additive subgroup of $K$ such that</p>
+<ul>
+<li>$\mfk{o}\mfk{a}=\mfk{a}$,</li>
+<li>there exists some nonzero element $c \in \mfk{o}$ such that $c\mfk{a} \subset \mfk{o}$.</li>
+</ul>
+<p>What does the group look like? As you may guess, the unit element is $\mfk{o}$. For a fractional ideal $\mfk{a}$, we have the inverse to be another fractional ideal $\mfk{b}$ such that $\mfk{ab}=\mfk{ba}=\mfk{o}$. Note we regard $\mfk{o}$ as a subring of $K$. For $a \in \mfk{o}$, we treat it as $a/1 \in K$. This makes sense because the map $i:a \mapsto a/1$ is injective. For the existence of $c$, you may consider it as a restriction that the ‘denominator’ is <em>bounded</em>. Alternatively, we say that fractional ideal of $K$ is a finitely generated $\mfk{o}$-submodule of $K$. But in this post it is not assumed that you have learned module theory.</p>
+<p>Let’s take $\mb{Z}$ as an example. The quotient field of $\mb{Z}$ is $\mb{Q}$. We have a fractional ideal $P$ where all elements are of the type $\frac{np}{2}$ with $p$ prime and $n \in \mb{Z}$. Then indeed we have $\mb{Z}P=P$. On the other hand, take $2 \in \mb{Z}$, we have $2P \subset \mb{Z}$. For its inverse we can take a fractional ideal $Q$ where all elements are of the type $\frac{2n}{p}$. As proved in algebraic number theory, the ring of algebraic integers in a number field is a Dedekind domain.</p>
+<p>Before we go on we need to clarify the definition of ideal multiplication. Let $\mfk{a}$ and $\mfk{b}$ be two ideals, we define $\mfk{ab}$ to be the set of all sums</p>
+<script type="math/tex; mode=display">
+x_1y_1+\cdots+x_ny_n</script><p>where $x_i \in \mfk{a}$ and $y_i \in \mfk{b}$. Here the number $n$ means finite but is not fixed. Alternatively we cay say $\mfk{ab}$ contains all finite sum of products of $\mfk{a}$ and $\mfk{b}$.</p>
+<h2 id="Propositions"><a href="#Propositions" class="headerlink" title="Propositions"></a>Propositions</h2><blockquote>
+<p><strong>(Proposition 1)</strong> A Dedekind domain $\mfk{o}$ is Noetherian. </p>
+</blockquote>
+<p>By Noetherian ring we mean that every ideal in a ring is finitely generated. Precisely, we will prove that for every ideal $\mfk{a} \subset \mfk{o}$ there are $a_1,a_2,\cdots,a_n \in \mfk{a}$ such that, for every $r \in \mfk{a}$, we have an expression</p>
+<script type="math/tex; mode=display">
+r = c_1a_1 + c_2a_2 + \cdots + c_na_n \qquad c_1,c_2,\cdots,c_n \in \mfk{o}.</script><p>Also note that any ideal $\mfk{a} \subset \mfk{o}$ can be viewed as a fractional ideal.</p>
+<p><strong>Proof.</strong> Since $\mfk{a}$ is an ideal of $\mfk{o}$, let $K$ be the quotient field of $\mfk{o}$, we see since $\mfk{oa}=\mfk{a}$, we may also view $\mfk{a}$ as a fractional ideal. Since $\mfk{o}$ is a Dedekind domain, and fractional ideals of $\mfk{a}$ is a group, there is an fractional ideal $\mfk{b}$ such that $\mfk{ab}=\mfk{ba}=\mfk{o}$. Since $1 \in \mfk{o}$, we may say that there exists some $a_1,a_2,\cdots, a_n \in \mfk{a}$ and $b_1,b_2,\cdots,b_n \in \mfk{o}$ such that $\sum_{i = 1 }^{n}a_ib_i=1$. For any $r \in \mfk{a}$, we have an expression</p>
+<script type="math/tex; mode=display">
+r = rb_1a_1+rb_2a_2+\cdots+rb_na_n.</script><p>On the other hand, any element of the form $c_1a_1+c_2a_2+\cdots+c_na_n$, by definition, is an element of $\mfk{a}$. $\blacksquare$</p>
+<p>From now on, the inverse of an fractional ideal $\mfk{a}$ will be written like $\mfk{a}^{-1}$.</p>
+<blockquote>
+<p><strong>(Proposition 2)</strong> For ideals $\mfk{a},\mfk{b} \subset \mfk{o}$, $\mfk{b}\subset\mfk{a}$ if and only if there exists some $\mfk{c}$ such that $\mfk{ac}=\mfk{b}$ (or we simply say $\mfk{a}|\mfk{b}$)</p>
+</blockquote>
+<p><strong>Proof.</strong> If $\mfk{b}=\mfk{ac}$, simply note that $\mfk{ac} \subset \mfk{a} \cap \mfk{c} \subset \mfk{a}$. For the converse, suppose that $a \supset \mfk{b}$, then $\mfk{c}=\mfk{a}^{-1}\mfk{b}$ is an ideal of $\mfk{o}$ since $\mfk{c}=\mfk{a}^{-1}\mfk{b} \subset \mfk{a}^{-1}\mfk{a}=\mfk{o}$, hence we may write $\mfk{b}=\mfk{a}\mfk{c}$. $\blacksquare$</p>
+<blockquote>
+<p><strong>(Proposition 3)</strong> If $\mfk{a}$ is an ideal of $\mfk{o}$, then there are prime ideals $\mfk{p}_1,\mfk{p}_2,\cdots,\mfk{p}_n$ such that</p>
+<script type="math/tex; mode=display">
+\mfk{a}=\mfk{p}_1\mfk{p}_2\cdots\mfk{p}_n.</script></blockquote>
+<p><strong>Proof.</strong> For this problem we use a classical technique: contradiction on maximality. Suppose this is not true, let $\mfk{A}$ be the set of ideals of $\mfk{o}$ that cannot be written as the product of prime ideals. By assumption $\mfk{U}$ is non-empty. Since as we have proved, $\mfk{o}$ is Noetherian, we can pick a maximal element $\mfk{a}$ of $\mfk{A}$ with respect to inclusion. If $\mfk{a}$ is maximal, then since all maximal ideals are prime, $\mfk{a}$ itself is prime as well. If $\mfk{a}$ is properly contained in an ideal $\mfk{m}$, then we write $\mfk{a}=\mfk{m}\mfk{m}^{-1}\mfk{a}$. We have $\mfk{m}^{-1}\mfk{a} \supsetneq \mfk{a}$ since if not, we have $\mfk{a}=\mfk{ma}$, which implies that $\mfk{m}=\mfk{o}$. But by maximality, $\mfk{m}^{-1}\mfk{a}\not\in\mfk{U}$, hence it can be written as a product of prime ideals. But $\mfk{m}$ is prime as well, we have a prime factorization for $\mfk{a}$, contradicting the definition of $\mfk{U}$.</p>
+<p>Next we show unicity up to a permutation. If</p>
+<script type="math/tex; mode=display">
+\mfk{p}_1\mfk{p}_2\cdots\mfk{p}_k=\mfk{q}_1\mfk{q}_2\cdots\mfk{q}_j,</script><p>since $\mfk{p}_1\mfk{p}_2\cdots\mfk{p}_k\subset\mfk{p}_1$ and $\mfk{p}_1$ is prime, we may assume that $\mfk{q}_1 \subset \mfk{p}_1$. By the property of fractional ideal we have $\mfk{q}_1=\mfk{p}_1\mfk{r}_1$ for some fractional ideal $\mfk{r}_1$. However we also have $\mfk{q}_1 \subset \mfk{r}_1$. Since $\mfk{q}_1$ is prime, we either have $\mfk{q}_1 \supset \mfk{p}_1$ or $\mfk{q}_1 \supset \mfk{r}_1$. In the former case we get $\mfk{p}_1=\mfk{q}_1$, and we finish the proof by continuing inductively. In the latter case we have $\mfk{r}_1=\mfk{q}_1=\mfk{p}_1\mfk{q}_1$, which shows that $\mfk{p}_1=\mfk{o}$, which is impossible. $\blacksquare$</p>
+<blockquote>
+<p><strong>(Proposition 4)</strong> Every nontrivial prime ideal $\mfk{p}$ is maximal. </p>
+</blockquote>
+<p><strong>Proof.</strong> Let $\mfk{m}$ be an maximal ideal containing $\mfk{p}$. By proposition 2 we have some $\mfk{c}$ such that $\mfk{p}=\mfk{mc}$. If $\mfk{m} \neq \mfk{p}$, then $\mfk{c} \neq \mfk{o}$, and we may write $\mfk{c}=\mfk{p}_1\cdots\mfk{p}_n$, hence $\mfk{p}=\mfk{m}\mfk{p}_1\cdots\mfk{p}_n$, which is a prime factorisation, contradicting the fact that $\mfk{p}$ has a unique prime factorisation, which is $\mfk{p}$ itself. Hence any maximal ideal containing $\mfk{p}$ is $\mfk{p}$ itself. $\blacksquare$</p>
+<blockquote>
+<p><strong>(Proposition 5)</strong> Suppose the Dedekind domain $\mfk{o}$ only contains one prime (and maximal) ideal $\mfk{p}$, let $t \in \mfk{p}$ and $t \not\in \mfk{p}^2$, then $\mfk{p}$ is generated by $t$.</p>
+</blockquote>
+<p><strong>Proof.</strong> Let $\mfk{t}$ be the ideal generated by $t$. By proposition 3 we have a factorisation</p>
+<script type="math/tex; mode=display">
+\mfk{t}=\mfk{p}^n</script><p>for some $n$ since $\mfk{o}$ contains only one prime ideal. According to proposition 2, if $n \geq 3$, we write $\mfk{p}^n=\mfk{p}^2\mfk{p}^{n-2}$, we see $\mfk{p}^2 \supset \mfk{p}^n$. But this is impossible since if so we have $t \in \mfk{p}^n \subset \mfk{p}^2$ contradicting our assumption. Hence $0&lt;n&lt;3$. But If $n=2$ we have $t \in \mfk{p}^2$ which is also not possible. So $\mfk{t}=\mfk{p}$ provided that such $t$ exists. </p>
+<p>For the existence of $t$, note if not, then for all $t \in \mfk{p}$ we have $t \in \mfk{p}^2$, hence $\mfk{p} \subset \mfk{p}^2$. On the other hand we already have $\mfk{p}^2 = \mfk{p}\mfk{p}$, which implies that $\mfk{p}^2 \subset \mfk{p}$ (proposition 2), hence $\mfk{p}^2=\mfk{p}$, contradicting proposition 3. Hence such $t$ exists and our proof is finished. $\blacksquare$</p>
+<h2 id="Characterisation-of-Dedekind-domain"><a href="#Characterisation-of-Dedekind-domain" class="headerlink" title="Characterisation of Dedekind domain"></a>Characterisation of Dedekind domain</h2><p>In fact there is another equivalent definition of Dedekind domain:</p>
+<blockquote>
+<p>A domain $\mfk{o}$ is Dedekind if and only if</p>
+<ul>
+<li>$\mfk{o}$ is Noetherian.</li>
+<li>$\mfk{o}$ is integrally closed.</li>
+<li>$\mfk{o}$​ has Krull dimension $1$​ (i.e. every non-zero prime ideals are maximal).</li>
+</ul>
+</blockquote>
+<p>This is equivalent to say that faction ideals form a group and is frequently used by mathematicians as well. But we need some more advanced techniques to establish the equivalence. Presumably there will be a post about this in the future.</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2021-01-19T09:25:09.000Z" title="19/01/2021, 17:25:09">2021-01-19</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-10-06T08:12:45.438Z" title="06/10/2021, 16:12:45">2021-10-06</time></span><span class="level-item"><a class="link-muted" href="../">Algebra</a><span> / </span><a class="link-muted" href="../Module-Theory/">Module Theory</a><span> / </span><a class="link-muted" href="">Commutative Algebra</a><span> / </span><a class="link-muted" href="../Category-Theory/">Category Theory</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../../2021/01/19/tensor-product-universal-property/">Tensor Product as a Universal Object (Category Theory &amp; Module Theory)</a></h1><div class="content"><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>It is quite often to see direct sum or direct product of groups, modules, vector spaces. Indeed, for modules over a ring $R$, direct products are also <strong>direct products</strong> of $R$-modules as well. On the other hand, the direct sum is a <strong>coproduct</strong> in the category of $R$-modules.</p>
+<p>But what about tensor products? It is some different kind of <em>product</em> but how? Is it related to direct product? How do we write a tensor product down? We need to solve this question but it is not a good idea to dig into numeric works.</p>
+<h2 id="The-category-of-bilinear-or-even-n-multilinear-maps"><a href="#The-category-of-bilinear-or-even-n-multilinear-maps" class="headerlink" title="The category of bilinear or even $n$-multilinear maps"></a>The category of bilinear or even $n$-multilinear maps</h2><p>From now on, let $R$ be a commutative ring, and $M_1,\cdots,M_n$ are $R$-modules. Mainly we work on $M_1$ and $M_2$, i.e. $M_1 \times M_2$ and $M_1 \otimes M_2$. For $n$-multilinear one, simply replace $M_1\times M_2$ with $M_1 \times M_2 \times \cdots \times M_n$ and $M_1 \otimes M_2$ with $M_1 \otimes \cdots \otimes M_n$. The only difference is the change of symbols. </p>
+<p>The bilinear maps of $M_1 \times M_2$ determines a category, say $BL(M_1 \times M_2)$ or we simply write $BL$. For an object $(f,E)$ in this category we have $f: M_1 \times M_2 \to E$ as a bilinear map and $E$ as a $R$-module of course. For two objects $(f,E)$ and $(g,F)$, we define the morphism between them as a linear function making the following diagram commutative: $\def\mor{\operatorname{Mor}}$</p>
+<p><img src="\img\morphism-in-BL.png" alt="morphism-in-BL"></p>
+<p>This indeed makes $BL$ a category. If we define the morphisms from $(f,E)$ to $(g,F)$ by $\mor(f,g)$ (for simplicity we omit $E$ and $F$ since they are already determined by $f$ and $g$) we see the composition</p>
+<script type="math/tex; mode=display">
+\mor(f,g) \times \mor(h,g) \to \mor(h,f)</script><p>satisfy all axioms for a category:</p>
+<p><strong>CAT 1</strong> Two sets $\mor(f,g)$ and $\mor(f’,g’)$ are disjoint unless $f=f’$ and $g=g’$, in which case they are equal. If $g \neq g’$ but $f = f’$ for example, for any $h \in \mor(f,g)$, we have $g = h \circ f = h \circ f’ \neq g’$, hence $h \notin \mor(f,g)$. Other cases can be verified in the same fashion.</p>
+<p><strong>CAT 2</strong> The existence of identity morphism. For any $(f,E) \in BL$, we simply take the identity map $i:E \to E$. For $h \in \mor(f,g)$, we see $g = h \circ f = h \circ i \circ f$. For $h’ \in \mor(g,f)$, we see $f = h’ \circ g = i \circ h’ \circ g$.</p>
+<p><strong>CAT 3</strong> The law of composition is associative when defined. </p>
+<hr>
+<p>There we have a category. But what about the tensor product? It is defined to be <em>initial</em> (or <em>universally repelling</em>) object in this category. Let’s denote this object by $(\varphi,M_1 \otimes M_2)$.</p>
+<blockquote>
+<p>For any $(f,E) \in BL$, we have a unique morphism (which is a module homomorphism as well) $h:(\varphi,M_1 \otimes M_2) \to (f,E)$. For $x \in M_1$ and $y \in M_2$, we write $\varphi(x,y)=x \otimes y$. We call the existence of $h$ the <strong>universal property</strong> of $(\varphi,M_1 \otimes M_2)$.</p>
+</blockquote>
+<p>The tensor product is unique up to isomorphism. That is, if both $(f,E)$ and $(g,F)$ are tensor products, then $E \simeq F$ in the sense of module isomorphism. Indeed, let $h \in \mor(f,g)$ and $h’ \in \mor(g,h)$ be the unique morphisms respectively, we see $g = h \circ f$, $f = h’ \circ g$, and therefore</p>
+<script type="math/tex; mode=display">
+g = h \circ h' \circ g \\
+f = h' \circ h \circ f</script><p>Hence $h \circ h’$ is the identity of $(g,F)$ and $h’ \circ h$ is the identity of $(f,E)$. This gives $E \simeq F$.</p>
+<p>What do we get so far? For any modules that is connected to $M_1 \times M_2$ with a bilinear map, the tensor product $M_1 \oplus M_2$ of $M_1$ and $M_2$, is always able to be connected to that module with a unique module homomorphism. What if there are more than one tensor products? Never mind. All tensor products are isomorphic. </p>
+<p>But wait, does this definition make sense? Does this product even exist? How can we study the tensor product of two modules if we cannot even write it down? So far we are only working on arrows, and we don’t know what is happening inside an module. It is not a good idea to waste our time on ‘nonsenses’. We can look into it in an natural way. Indeed, if we can find a module satisfying the property we want, then we are done, since this can represent the tensor product under any circumstances. Again, all tensor products of $M_1$ and $M_2$ are isomorphic.</p>
+<h2 id="A-natural-way-to-define-the-tensor-product"><a href="#A-natural-way-to-define-the-tensor-product" class="headerlink" title="A natural way to define the tensor product"></a>A natural way to define the tensor product</h2><p>Let $M$ be the free module generated by the set of all tuples $(x_1,x_2)$ where $x_1 \in M_1$ and $x_2 \in M_2$, and $N$ be the submodule generated by tuples of the following types:</p>
+<script type="math/tex; mode=display">
+(x_1+x_1',x_2)-(x_1,x_2)-(x_1',x_2) \\
+(x_1,x_2+x_2')-(x_1,x_2)-(x_1,x_2') \\
+(ax_1,x_2)-a(x_1,x_2) \\
+(x_1,ax_2) - a(x_1,x_2)</script><p>First we have a inclusion map $\alpha=M_1 \times M_2 \to M$ and the canonical map $\pi:M \to M/N$. We claim that $(\pi \circ \alpha, M/N)$ is exactly what we want. But before that, we need to explain why we define such a $N$. </p>
+<p>The reason is quite simple: We want to make sure that $\varphi=\pi \circ \alpha$ is bilinear. For example, we have $\varphi(x_1+x_1’,x_2)=\varphi(x_1,x_2)+\varphi(x_1’,x_2)$ due to our construction of $N$ (other relations follow in the same manner). This can be verified group-theoretically. Note</p>
+<script type="math/tex; mode=display">
+\varphi(x_1+x_1',x_2)=(x_1+x_1',x_2)+N \\
+\varphi(x_1,x_2)+\varphi(x_1',x_2)=(x_1,x_2)+(x_1',x_2)+N</script><p>but</p>
+<script type="math/tex; mode=display">
+\varphi(x_1+x_1',x_2)-\varphi(x_1,x_2)-\varphi(x_1',x_2)=(x_1+x_1',x_2)-(x_1,x_2)-(x_1',x_2) +N = 0+N.</script><p>Hence we get the identity we want. For this reason we can write</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+(x_1+x_1')\otimes x_2 &= x_1 \otimes x_2 + x_1' \otimes x_2, \\
+x_1 \otimes (x_2 + x_2') &= x_1 \otimes x_2 + x_1 \otimes x_2', \\
+(ax_1) \otimes x_2 &= a(x_1 \otimes x_2), \\
+x_1 \otimes (ax_2) &= a(x_1 \otimes x_2).
+\end{aligned}</script><p>Sometimes to avoid confusion people may also write $x_1 \otimes_R x_2$ if both $M_1$ and $M_2$ are $R$-modules.  But before that we have to verify that this is indeed the tensor product. To verify this, all we need is <a target="_blank" rel="noopener" href="https://arbourj.wordpress.com/2012/04/16/free-module/">the universal property of free modules</a>.</p>
+<p><img src="\img\tensor-product-universal.png" alt="tensor-product-universal"></p>
+<p>By the universal property of $M$, for any $(f,E) \in BL$, we have a induced map $f_\ast$ making the diagram inside commutative. However, for elements in $N$, we see $f_\ast$ takes value $0$, since $f_\ast$ is a bilinear map already. We finish our work by taking $h[(x,y)+N] = f_\ast(x,y)$. This is the map induced by $f_\ast$, following the property of factor module. </p>
+<h2 id="Trivial-tensor-product"><a href="#Trivial-tensor-product" class="headerlink" title="Trivial tensor product"></a>Trivial tensor product</h2><p>For coprime integers $m,n&gt;1$, we have $\def\mb{\mathbb}$</p>
+<script type="math/tex; mode=display">
+\mb{Z}/m\mb{Z} \otimes \mb{Z}/n\mb{Z} = O</script><p>where $O$ means that the module only contains $0$ and $\mb{Z}/m\mb{Z}$ is considered as a module over $\mb{Z}$ for $m&gt;1$. This suggests that, the tensor product of two modules is not necessarily ‘bigger’ than its components. Let’s see why this is trivial. </p>
+<p>Note that for $x \in \mb{Z}/m\mb{Z}$ and $y \in \mb{Z}/n\mb{Z}$, we have</p>
+<script type="math/tex; mode=display">
+m(x \otimes y) = (mx) \otimes y = 0 \\
+n(x \otimes y) = x \otimes(ny) = 0</script><p>since, for example, $mx = 0$ for $x \in \mb{Z}/m\mb{Z}$ and $\varphi(0,y)=0$. If you have trouble understanding why $\varphi(0,y)=0$, just note that the submodule $N$ in our construction contains elements generated by $(0x,y)-0(x,y)$ already.</p>
+<p>By Bézout’s identity, for any $x \otimes y$, we see there are $a$ and $b$ such that $am+bn=1$, and therefore</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+x \otimes y &= (am+bn)(x \otimes y) \\
+            &=am(x \otimes y)+bn (x \otimes y) \\
+            &= 0.
+\end{aligned}</script><p>Hence the tensor product is trivial. This example gives us a lot of inspiration. For example, what if $m$ and $n$ are not necessarily coprime, say $\gcd(m,n)=d$? By Bézout’s identity still we have</p>
+<script type="math/tex; mode=display">
+d(x \otimes y) = (am+bn)(x \otimes y) = 0.</script><p>This inspires us to study the connection between $\mb{Z}/m\mb{Z} \otimes \mb{Z}/n\mb{Z}$ and $\mb{Z}/d\mb{Z}$. By the <strong>universal property</strong>, for the bilinear map $f:\mb{Z}/m\mb{Z} \times \mb{Z}/n\mb{Z} \to \mb{Z}/d\mb{Z}$ defined by </p>
+<script type="math/tex; mode=display">
+(a+m\mb{Z},b+n\mb{Z})\mapsto ab+d\mb{Z}</script><p>(there should be no difficulty to verify that $f$ is well-defined), there exists a unique morphism $h:\mb{Z}/m\mb{Z} \otimes \mb{Z}/n\mb{Z} \to \mb{Z}/d\mb{Z}$ such that</p>
+<script type="math/tex; mode=display">
+h \circ \varphi(a+m\mb{Z},b+n\mb{Z}) = h((a+m\mb{Z}) \otimes(b+n\mb{Z})) = ab+d\mb{Z}.</script><p>Next we show that it has a natural inverse defined by</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+g:\mb{Z}/d\mb{Z} &\to \mb{Z}/m\mb{Z} \otimes \mb{Z}/n\mb{Z} \\
+a+d\mb{Z} &\mapsto (a+m\mb{Z}) \otimes (1+n\mb{Z}).
+\end{aligned}</script><p>Taking $a’ = a+kd$, we show that $g(a+d\mb{Z})=g(a’+\mb{Z})$, that is, we need to show that</p>
+<script type="math/tex; mode=display">
+(a+m\mb{Z})\otimes(1+n\mb{Z}) = (a'+m\mb{Z}) \otimes (1+n\mb{Z}).</script><p>By Bézout’s identity, there exists some $r,s$ such that $rm+sn=d$. Hence $a’ = a + ksn+krm$, which gives</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+(a'+m\mb{Z}) \otimes (1+n\mb{Z}) &= (a+ksn+krm+m\mb{Z}) \otimes(1+n\mb{Z}) \\
+                                 &= (a+ksn+m\mb{Z}) \otimes (1+n\mb{Z}) \\
+                                 &=(a+m\mb{Z}) \otimes(1+n\mb{Z}) + (ksn+m\mb{Z})\otimes(1+n\mb{Z}) \\
+                                 &=(a+m\mb{Z}) \otimes (1+n\mb{Z})
+\end{aligned}</script><p>since</p>
+<script type="math/tex; mode=display">
+(ksn+m\mb{Z}) \otimes (1+n\mb{Z}) =n(ks+m\mb{Z}) \otimes (1+n\mb{Z}) = (ks+m\mb{Z}) \otimes(n+n\mb{Z}) = 0.</script><p>So $g$ is well-defined. Next we show that this is the inverse. Firstly</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+g \circ h((a+m\mb{Z}) \otimes(b+n\mb{Z})) &= g(ab+d\mb{Z})\\
+                                          &= (ab+m\mb{Z}) \otimes (1+n\mb{Z}) \\
+                                          &=b(a+m\mb{Z}) \otimes(1+n\mb{Z}) \\
+                                          &= (a+m\mb{Z}) \otimes (b+n\mb{Z}).
+\end{aligned}</script><p>Secondly,</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+h \circ g(a+d\mb{Z}) &= h((a+m\mb{Z}) \otimes(1+n\mb{Z})) \\
+                     &= a+d\mb{Z}.
+\end{aligned}</script><p>Hence $g = h^{-1}$ and we can say</p>
+<script type="math/tex; mode=display">
+\mb{Z}/m\mb{Z} \otimes \mb{Z} /n\mb{Z} \simeq \mb{Z} /\gcd(m,n)\mb{Z}.</script><p>If $m,n$ are coprime, then $\gcd(m,n)=1$, hence $\mb{Z}/m\mb{Z} \otimes \mb{Z}/n\mb{Z} \simeq \mb{Z}/\mb{Z}$ is trivial. More interestingly, $\mb{Z}/m\mb{Z}\otimes \mb{Z}/m\mb{Z}=\mb{Z}/m\mb{Z}$. But this elegant identity raised other questions. First of all, $\gcd(m,n)=\gcd(n,m)$, which implies</p>
+<script type="math/tex; mode=display">
+\mb{Z}/m\mb{Z} \otimes \mb{Z}/n\mb{Z} \simeq \mb{Z}/\gcd(m,n)\mb{Z} \simeq \mb{Z}/\gcd(n,m)\mb{Z} \simeq\mb{Z}/n\mb{Z}\otimes\mb{Z}/m\mb{Z}.</script><p>Further, for $m,n,r &gt;1$, we have $\gcd(\gcd(m,n),r)=\gcd(m,\gcd(n,r))=\gcd(m,n,r)$, which gives</p>
+<script type="math/tex; mode=display">
+(\mb{Z}/m\mb{Z}\otimes\mb{Z}/n\mb{Z})\otimes\mb{Z}/r\mb{Z} \simeq \mb{Z}/\gcd(m,n)\mb{Z}\otimes\mb{Z}/r\mb{Z} \simeq \mb{Z}/\gcd(m,n,r)\mb{Z} \\
+\mb{Z}/m\mb{Z}\otimes(\mb{Z}/n\mb{Z} \otimes\mb{Z}/r\mb{Z}) \simeq \mb{Z}/m\mb{Z} \otimes\mb{Z}/\gcd(n,r)\mb{Z} \simeq \mb{Z}/\gcd(m,n,r)\mb{Z}</script><p>hence</p>
+<script type="math/tex; mode=display">
+(\mb{Z}/m\mb{Z}\otimes\mb{Z}/n\mb{Z})\otimes\mb{Z}/r\mb{Z} \simeq \mb{Z}/m\mb{Z}\otimes(\mb{Z}/n\mb{Z}\otimes\mb{Z}/r\mb{Z}).</script><p>Hence for modules of the form $\mb{Z}/m\mb{Z}$, we see the tensor product operation is associative and commutative up to isomorphism. Does this hold for all modules? The universal property answers this question affirmatively. From now on we will be keep using the universal property. Make sure that you have got the point already.</p>
+<h2 id="Tensor-product-as-a-binary-operation"><a href="#Tensor-product-as-a-binary-operation" class="headerlink" title="Tensor product as a binary operation"></a>Tensor product as a binary operation</h2><blockquote>
+<p>Let $M_1,M_2,M_3$ be $R$-modules, then there exists a unique isomorphism</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+(M_1 \otimes M_2) \otimes M_3 &\xrightarrow{\simeq} M_1 \otimes (M_2 \otimes M_3) \\
+(x \otimes y) \otimes z &\mapsto x \otimes(y \otimes z)
+\end{aligned}</script><p>for $x \in M_1$, $y \in M_2$, $z \in M_3$.</p>
+</blockquote>
+<p><em>Proof.</em> Consider the map</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\lambda_x:M_2 \times M_3 &\to (M_1 \otimes M_2)\otimes M_3 \\
+          (y,z) &\mapsto (x \otimes y ) \otimes z
+\end{aligned}</script><p>where $x \in M_1$. Since $(\cdot\otimes\cdot)$ is bilinear, we see $\lambda_x$ is bilinear for all $x \in M_1$. Hence by the universal property there exists a unique map of the tensor product:</p>
+<script type="math/tex; mode=display">
+\overline{\lambda}_x:M_2 \otimes M_3 \to (M_1 \otimes M_2) \otimes M_3.</script><p>Next we have the map</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\mu_x: M_1 \times (M_2 \otimes M_3) &\to (M_1 \otimes M_2) \otimes M_3 \\
+(x,y \otimes z) &\mapsto \overline{\lambda}_x(y \otimes z)
+\end{aligned}</script><p>which is bilinear as well. Again by the universal property we have a unique map</p>
+<script type="math/tex; mode=display">
+\overline{\mu}_x: M_1 \otimes (M_2 \otimes M_3) \to (M_1 \otimes M_2) \otimes M_3.</script><p>This is indeed the isomorphism we want. The reverse is obtained by reversing the process. For the bilinear map</p>
+<script type="math/tex; mode=display">
+\lambda_x':M_1 \times M_2 \to M_1 \otimes (M_2 \otimes M_3)</script><p>we get a unique map</p>
+<script type="math/tex; mode=display">
+\overline{\lambda'}_x: M_1 \otimes M_2 \to M_1 \otimes (M_2 \otimes M_3).</script><p>Then from the bilinear map</p>
+<script type="math/tex; mode=display">
+\mu'_x:(M_1 \otimes M_2) \times M_3 \to M_1 \otimes (M_2 \otimes M_3)</script><p>we get the unique map, which is actually the reverse of $\overline{\mu}_x$:</p>
+<script type="math/tex; mode=display">
+\overline{\mu'}_x:(M_1 \otimes M_2) \otimes M_3 \to M_1 \otimes (M_2 \otimes M_3).</script><p>Hence the two tensor products are isomorphic. $\square$</p>
+<blockquote>
+<p>Let $M_1$ and $M_2$ be $R$-modules, then there exists a unique isomorphism</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+M_1 \otimes M_2 &\xrightarrow{\simeq} M_2 \otimes M_1  \\
+x_1 \otimes x_2 &\mapsto x_2 \otimes x_1
+\end{aligned}</script><p>where $x_1 \in M_1$ and $x_2 \in M_2$.</p>
+</blockquote>
+<p><em>Proof.</em> The map</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\lambda:M_1 \times M_2 &\to M_2 \otimes M_1 \\
+(x,y) &\mapsto y \otimes x
+\end{aligned}</script><p>is bilinear and gives us a unique map</p>
+<script type="math/tex; mode=display">
+\overline{\lambda}:M_1 \otimes M_2 \to M_2 \otimes M_1</script><p>given by $x \otimes y \mapsto y \otimes x$. Symmetrically, the map $\lambda’:M_2 \times M_1 \to M_1 \otimes M_2$ gives us a unique map</p>
+<script type="math/tex; mode=display">
+\overline{\lambda'}:M_2 \otimes M_1 \to M_1 \otimes M_2</script><p> which is the inverse of $\overline{\lambda}$. $\square$</p>
+<p>Therefore, we may view the set of all $R$-modules as a commutative semigroup with the binary operation $\otimes$. </p>
+<h2 id="Maps-between-tensor-products"><a href="#Maps-between-tensor-products" class="headerlink" title="Maps between tensor products"></a>Maps between tensor products</h2><p>Consider commutative diagram:</p>
+<p><img src="\img\tensor-functor.png" alt="tensor-prouct"></p>
+<p>Where $f_i:M_i \to M_i’$ are some module-homomorphism. What do we want here? On the left hand, we see $f_1 \times f_2$ sends $(x_1,x_2)$ to $(f_1(x_1),f_2(x_2))$, which is quite natural. The question is, is there a natural map sending $x_1 \otimes x_2$ to $f_1(x_1) \otimes f_2(x_2)$? This is what we want from the right hand. We know $T(f_1 \times f_2)$ exists, since we have a bilinear map by $\mu = \varphi’ \circ (f_1\times f_2)$. So for $(x_1,x_2) \in M_1 \times M_2$, we have $T(f_1 \times f_2)(x_1 \otimes x_2) = \varphi’ \circ (f_1 \times f_2)(x_1,x_2) = f_1(x_1) \otimes f_2(x_2)$ as what we want. </p>
+<p>But $T$ in this graph has more interesting properties. First of all, if $M_1 = M_1’$ an $M_2 = M_2’$, both $f_1$ and $f_2$ are identity maps, then we see $T(f_1 \times f_2)$ is the identity as well. Next, consider the following chain</p>
+<script type="math/tex; mode=display">
+\cdots \to M_1 \times M_2 \xrightarrow{(f_1 \times f_2)}M_1' \times M_2' \xrightarrow{(g_1 \times g_2)}M_1'' \times M_2''\to \cdots.</script><p>We can make it a double chain:</p>
+<p><img src="\img\tensor-double-chain.png" alt="tensor-double-chain"></p>
+<p>It is obvious that $(g_1 \circ f_1 \times g_2 \circ f_2)=(g_1 \times g_2) \circ (f_1 \times f_2)$, which also gives</p>
+<script type="math/tex; mode=display">
+T(g_1 \times g_2) \circ T(f_1 \times f_2) = T(g_1 \circ f_1 \times g_2 \circ f_2).</script><p>Hence we can say $T$ is functorial. Sometimes for simplicity we also write $T(f_1,f_2)$ or simply $f_1 \otimes f_2$, as it sends $x_1 \otimes x_2$ to $f_1(x_1) \otimes f_2(x_2)$. Indeed it can be viewed as a map </p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+T:L(M_1, M_1') \times L(M_2,M_2') &\to L(M_1 \otimes M_2, M_1' \otimes M_2') \\
+(f_1 \times f_2) &\mapsto f_1 \otimes f_2.
+\end{aligned}</script></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2021-01-13T16:26:18.000Z" title="14/01/2021, 00:26:18">2021-01-14</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-10-06T08:13:19.754Z" title="06/10/2021, 16:13:19">2021-10-06</time></span><span class="level-item"><a class="link-muted" href="../">Algebra</a><span> / </span><a class="link-muted" href="">Commutative Algebra</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../../2021/01/14/rings-of-fractions-and-localization/">Rings of Fractions and Localisation</a></h1><div class="content"><p>Is perhaps the most important technical tools in commutative algebra. In this post we are covering definitions and simple properties. Also we restrict ourselves into ring theories and no further than that. Throughout, we let $A$ be a commutative ring. With extra effort we can also make it to non-commutative rings for some results but we are not doing that here.</p>
+<p>In fact the construction of $\mathbb{Q}$ from $\mathbb{Z}$ has already been an example. For any $a \in \mathbb{Q}$, we have some $m,n \in \mathbb{Z}$ with $n \neq 0$ such that $a = \frac{m}{n}$. As a matter of notation we may also say an ordered pair $(m,n)$ determines $a$. Two ordered pairs $(m,n)$ and $(m’,n’)$ are <em>equivalent</em> if and only if</p>
+<script type="math/tex; mode=display">
+mn'-m'n=0.</script><p>But we are only using the ring structure of $\mathbb{Z}$. So it is natural to think whether it is possible to generalize this process to all rings. But we are also using the fact that $\mathbb{Z}$ is an entire ring (or  alternatively integral domain, they mean the same thing). However there is a way to generalize it. $\def\mfk{\mathfrak}$</p>
+<h2 id="Multiplicatively-closed-subset"><a href="#Multiplicatively-closed-subset" class="headerlink" title="Multiplicatively closed subset"></a>Multiplicatively closed subset</h2><blockquote>
+<p><strong>(Definition 1)</strong> A <em>multiplicatively closed subset</em> $S \subset A$ is a set that $1 \in S$ and if $x,y \in S$, then $xy \in S$. </p>
+</blockquote>
+<p>For example, for $\mathbb{Z}$ we have a multiplicatively closed subset</p>
+<script type="math/tex; mode=display">
+\{1,2,4,8,\cdots\} \subset \mathbb{Z}.</script><p>We can also insert $0$ here but it may produce some bad result. If $S$ is also an ideal then we must have $S=A$ so this is not very interesting. However the complement is interesting.</p>
+<blockquote>
+<p><strong>(Proposition 1)</strong> Suppose $A$ is a commutative ring such that $1 \neq 0$. Let $S$ be a multiplicatively closed set that does not contain $0$. Let $\mfk{p}$ be the maximal element of ideals contained in $A \setminus S$, then $\mfk{p}$ is prime.</p>
+</blockquote>
+<p><em>Proof.</em> Recall that $\mfk{p}$ is prime if for any $x,y \in A$ such that $xy \in \mfk{p}$, we have $x \in \mfk{p}$ or $y \in \mfk{p}$. But now we fix $x,y \in \mfk{p}^c$. Note we have a strictly bigger ideal $\mfk{q}_1=\mfk{p}+Ax$. Since $\mfk{p}$ is maximal in the ideals contained in $A \setminus S$, we see</p>
+<script type="math/tex; mode=display">
+\mfk{q}_1 \cap S \neq \varnothing.</script><p>Therefore there exist some $a \in A$ and $p \in \mfk{p}$ such that</p>
+<script type="math/tex; mode=display">
+p+ax \in S.</script><p>Also, $\mfk{q}_2=\mfk{p}+Ay$ has nontrivial intersection with $S$ (due to the maximality of $\mfk{p}$), there exist some $a’ \in A$ and $p’ \in \mfk{p}$ such that</p>
+<script type="math/tex; mode=display">
+p' + a'y \in S.</script><p>Since $S$ is closed under multiplication, we have</p>
+<script type="math/tex; mode=display">
+(p+ax)(p'+a'y) = pp'+p'ax+pa'y+aa'xy \in S.</script><p>But since $\mfk{p}$ is an ideal, we see $pp’+p’ax+pa’y \in \mfk{p}$. Therefore we must have $xy \notin \mfk{p}$ since if not, $(p+ax)(p’+a’y) \in \mfk{p}$, which gives $\mfk{p} \cap S \neq \varnothing$, and this is impossible. $\square$</p>
+<hr>
+<p>As a corollary, for an ideal $\mfk{p} \subset A$, if $A \setminus \mfk{p}$ is multiplicatively closed, then $\mfk{p}$ is prime. Conversely, if we are given a prime ideal $\mfk{p}$, then we also get a multiplicatively closed subset.</p>
+<blockquote>
+<p><strong>(Proposition 2)</strong> If $\mfk{p}$ is a prime ideal of $A$, then $S = A \setminus \mfk{p}$ is multiplicatively closed.</p>
+</blockquote>
+<p><em>Proof.</em> First $1 \in S$ since $\mfk{p} \neq A$. On the other hand, if $x,y \in S$ we see $xy \in S$ since $\mfk{p}$ is prime. $\square$</p>
+<hr>
+<h2 id="Ring-of-fractions-of-a-ring"><a href="#Ring-of-fractions-of-a-ring" class="headerlink" title="Ring of fractions of a ring"></a>Ring of fractions of a ring</h2><p>We define a equivalence relation on $A \times S$ as follows:</p>
+<script type="math/tex; mode=display">
+(a,s) \sim (b,t) \iff \exists u \in S, (at-bs)u=0.</script><blockquote>
+<p><strong>(Proposition 3)</strong> $\sim$ is an equivalence relation.</p>
+</blockquote>
+<p><em>Proof.</em> Since $(as-as)1=0$ while $1 \in S$, we see $(a,s) \sim (a,s)$. For being symmetric, note that</p>
+<script type="math/tex; mode=display">
+(at-bs)u=0 \implies (bs-at)u=0 \implies (b,t) \sim (a,s).</script><p>Finally, to show that it is transitive, suppose $(a,s) \sim (b,t)$ and $(b,t) \sim (c,u)$. There exist $u,v \in S$ such that</p>
+<script type="math/tex; mode=display">
+(at-bs)v=(bu-ct)w=0.</script><p>This gives $bsv=atv$ and $buw = ctw$, which implies</p>
+<script type="math/tex; mode=display">
+bsvuw=atvuw=ctwsv \implies (au-cs)tvw =0.</script><p>But $tvw \in S$ since $t,v,w \in S$ and $S$ is multiplicatively closed. Hence</p>
+<script type="math/tex; mode=display">
+[(a,s) \sim (b,t)] \land [(b,t) \sim (c,u)] \implies (a,s) \sim (c,u).</script><p>$\square$</p>
+<p>Let $a/s$ denote the equivalence class of $(a,s)$. Let $S^{-1}A$ denote the set of equivalence classes (it is not a good idea to write $A/S$ as it may coincide with the notation of factor group), and we put a ring structure on $S^{-1}A$ as follows:</p>
+<script type="math/tex; mode=display">
+(a/s)+(b/t)=(at+bs)/st, \\
+(a/s)(b/t)=ab/st.</script><p>There is no difference between this one and the one in elementary algebra. But first of all we need to show that $S^{-1}A$ indeed form a ring. </p>
+<blockquote>
+<p><strong>(Proposition 4)</strong> The addition and multiplication are well defined. Further, $S^{-1}A$ is a commutative ring with identity.</p>
+</blockquote>
+<p><em>Proof.</em> Suppose $(a,s) \sim (a’,s’)$ and $(b,t) \sim (b’,t’)$ we need to show that</p>
+<script type="math/tex; mode=display">
+(a/s)+(b/t)=(a'/s')+(b'/t')</script><p>or</p>
+<script type="math/tex; mode=display">
+(at+bs)/st = (a't'+b's')/s't'.</script><p>There exists $u,v \in S$ such that</p>
+<script type="math/tex; mode=display">
+(as'-a's)u=0 \quad (bt'-b't)v=0.</script><p>If we multiply the first equation by $vtt’$ and second equation by $uss’$, we see</p>
+<script type="math/tex; mode=display">
+as'uvtt'-a'suvtt'+bt'vuss'-b'tvuss'=[(at)s't'+(bs)s't'-(a't')st-(b's')st]uv,</script><p>which is exactly what we want.</p>
+<p>On the other hand, we need to show that</p>
+<script type="math/tex; mode=display">
+ab/st = a'b'/s't'.</script><p>That is,</p>
+<script type="math/tex; mode=display">
+\exists y \in S,(abs't'-a'b'st)y=0.</script><p>Again, we have </p>
+<script type="math/tex; mode=display">
+(as'-a's)u=(as'-a's)uvbt'=(abs't'-a'bst')uv=0, \\
+(bt'-b't)v=(bt'-b't)vua's=(a'bst'-a'b'st)uv=0.</script><p>Hence</p>
+<script type="math/tex; mode=display">
+(abs't'-a'bst')uv+(a'bst'-a'b'st)uv=(abs't'-a'b'st)uv=0.</script><p>Since $uv \in S$, we are done.</p>
+<p>Next we show that $S^{-1}A$ has a ring structure. If $0 \in S$, then $S^{-1}A$ contains exactly one element $0/1$ since in this case, all pairs are equivalent:</p>
+<script type="math/tex; mode=display">
+(at-bs)0=0.</script><p>We therefore only discuss the case when $0 \notin S$. First $0/1$ is the zero element with respect to addition since</p>
+<script type="math/tex; mode=display">
+0/1+a/s = (0s+1a)/1s = a/s.</script><p>On the other hand, we have the inverse $-a/s$:</p>
+<script type="math/tex; mode=display">
+-a/s+a/s = (-as+as)/ss=0/ss=0/1.</script><p>$1/1$ is the unit with respect to multiplication:</p>
+<script type="math/tex; mode=display">
+(1/1)(a/s)=1a/1s=a/s.</script><p>Multiplication is associative since</p>
+<script type="math/tex; mode=display">
+[(a/s)(b/t)](c/u)=(ab/st)(c/u)=abc/stu. \\
+(a/s)[(b/t)(c/u)]=(a/s)(bc/tu)=abc/stu.</script><p>Multiplication is commutative since</p>
+<script type="math/tex; mode=display">
+ab/st+(-ba)/st=(abst-bast)/s^2t^2=0.</script><p>Finally distributivity.</p>
+<script type="math/tex; mode=display">
+(a/s+b/t)(c/u)=(c/u)(a/s+b/t)=[(at+bs)/st](c/u)=(act+bcs)/stu \\
+(a/s)(c/u)+(b/t)(c/u)=ac/su+bc/tu=(actu+bcsu)/stu^2=(act/bcs)/stu</script><p>Note $ab/cb=a/c$ since $(abc-abc)1=0$. $\square$ $\def\mb{\mathbb}$</p>
+<h3 id="Cases-and-examples"><a href="#Cases-and-examples" class="headerlink" title="Cases and examples"></a>Cases and examples</h3><p>First we consider the case when $A$ is entire. If $0 \in S$, then $S^{-1}A$ is trivial, which is not so interesting. However, provided that $0 \notin S$, we get some well-behaved result:</p>
+<blockquote>
+<p><strong>(Proposition 5)</strong> Let $A$ be an entire ring, and let $S$ be a multiplicatively closed subset of $A$ that does not contain $0$, then the natural map</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\varphi_S: A &\to S^{-1}A \\
+           x &\mapsto x/1
+\end{aligned}</script><p>is injective. Therefore it can be considered as a natural inclusion. Further, every element of $\varphi_S(S)$ is invertible.</p>
+</blockquote>
+<p><em>Proof.</em> Indeed, if $x/1=0/1$, then there exists $s \in S$ such that $xs=0$. Since $A$ is entire and $s \neq 0$, we see $x=0$, hence $\varphi_S$ is entire. For $s \in S$, we see $\varphi_S(s)=s/1$. However $(1/s)\varphi_S(s)=(1/s)(s/1)=s/s=1$. $\square$</p>
+<p>Note since $A$ is entire we can also conclude that $S^{-1}A$ is entire. As a word of warning, the ring homomorphism $\varphi_S$ is <em>not</em> in general injective since, for example, when $0 \in S$, this map is the zero.</p>
+<p>If we go further, making $S$ contain all non-zero element, we have:</p>
+<blockquote>
+<p><strong>(Proposition 6)</strong> If $A$ is entire and $S$ contains all non-zero elements of $A$, then $S^{-1}A$ is a field, called the <strong>quotient field</strong> or the <strong>field of fractions</strong>. </p>
+</blockquote>
+<p><em>Proof.</em> First we need to show that $S^{-1}A$ is entire. Suppose $(a/s)(b/t)=ab/st =0/1$ but $a/s \neq 0/1$, we see however</p>
+<script type="math/tex; mode=display">
+ab/st=0/1 \implies \exists u \in S, (ab-0)u=0 \implies ab=0.</script><p>Since $A$ is entire, $b$ has to be $0$, which implies $b/t=0/1$. Second, if $a/s \neq 0/1$, we see $a \neq 0$ and therefore is in $S$, hence we’ve found the inverse $(a/s)^{-1}=s/a$. $\square$ </p>
+<p>In this case we can identify $A$ as a subset of $S^{-1}A$ and write $a/s=s^{-1}a$.</p>
+<p>Let $A$ be a commutative ring, an let $S$ be the set of invertible elements of $A$. If $u \in S$, then there exists some $v \in S$ such that $uv=1$. We see $1 \in S$ and if $a,b \in S$, we have $ab \in S$ since $ab$ has an inverse as well. This set is frequently denoted by $A^\ast$, and is called the group of <strong>invertible</strong> elements of $A$. For example for $\mb{Z}$ we see $\mb{Z}^\ast$ consists of $-1$ and $1$. If $A$ is a field, then $A^\ast$ is the multiplicative group of non-zero elements of $A$. For example $\mb{Q}^\ast$ is the set of all rational numbers without $0$. For $A^\ast$ we have</p>
+<blockquote>
+<p>If $A$ is a field, then $(A^\ast)^{-1}A \simeq A$.</p>
+</blockquote>
+<p><em>Proof.</em> Define</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\varphi_S:A &\to (A^\ast)^{-1}A \\
+          x &\mapsto x/1.
+\end{aligned}</script><p>Then as we have already shown, $\varphi_S$ is injective. Secondly we show that $\varphi_S$ is surjective. For any $a/s \in (A^\ast)^{-1}A$, we see $as^{-1}/1 = a/s$. Therefore $\varphi_S(as^{-1})=a/s$ as is shown. $\square$ </p>
+<hr>
+<p>Now let’s see a concrete example. If $A$ is entire, then the polynomial ring $A[X]$ is entire. If $K = S^{-1}A$ is the quotient field of $A$, we can denote the quotient field of $A[X]$ as $K(X)$. Elements in $K(X)$ can be naturally called <strong>rational polynomials</strong>, and can be written as $f(X)/g(X)$ where $f,g \in A[X]$. For $b \in K$, we say a rational function $f/g$ is <strong>defined</strong> at $b$ if $g(b) \neq 0$.  Naturally this process can be generalized to polynomials of $n$ variables. </p>
+<h2 id="Local-ring-and-localization"><a href="#Local-ring-and-localization" class="headerlink" title="Local ring and localization"></a>Local ring and localization</h2><p>We say a commutative ring $A$ is local if it has a unique maximal ideal. Let $\mfk{p}$ be a prime ideal of $A$, and $S = A \setminus \mfk{p}$, then $A_{\mfk{p}}=S^{-1}A$ is called the <strong>local ring of $A$ at $\mfk{p}$</strong>. Alternatively, we say the process of passing from $A$ to $A_\mfk{p}$ is <em>localization</em> at $\mfk{p}$. You will see it makes sense to call it localization:</p>
+<blockquote>
+<p><strong>(Proposition 7)</strong> $A_\mfk{p}$ is local. Precisely, the unique maximal ideal is </p>
+<script type="math/tex; mode=display">
+I=\mfk{p}A_\mfk{p}=\{a/s:a \in \mfk{p},s \in S\}.</script><p>Note $I$ is indeed equal to $\mfk{p}A_\mfk{p}$.</p>
+</blockquote>
+<p><em>Proof.</em> First we show that $I$ is an ideal. For $b/t \in A_\mfk{p}$ and $a/s \in I$, we see</p>
+<script type="math/tex; mode=display">
+(b/t)(a/s)=ba/ts \in A_\mfk{p}</script><p>since $a \in \mfk{p}$ implies $ba \in \mfk{p}$. Next we show that $I$ is maximal, which is equivalent to show that $A_\mfk{p}/I$ is a field.  For $b/t \notin I$, we have $b \in S$, hence it is legit to write $t/b$. This gives</p>
+<script type="math/tex; mode=display">
+(b/t+I)(t/b+I)=1/1+I.</script><p>Hence we have found the inverse. </p>
+<p>Finally we show that $I$ is the unique maximal ideal. Let $J$ be another maximal ideal. Suppose $J \neq I$, then we can pick $m/n \in J \setminus I$. This gives $m \in S$ since if not $m \in \mfk{p}$ and then $m/n \in I$. But for $n/m \in A_\mfk{p}$ we have</p>
+<script type="math/tex; mode=display">
+(m/n)(n/m)=1/1 \in J.</script><p>This forces $J$ to be $A_\mfk{p}$ itself, contradicting the assumption that $J$ is a maximal ideal. Hence $I$ is unique. $\square$</p>
+<h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><p>Let $p$ be a prime number, and we take $A=\mb{Z}$ and $\mfk{p}=p\mb{Z}$. We now try to determine what do $A_\mfk{p}$ and $\mfk{p}A_\mfk{p}$ look like. First $S = A \setminus \mfk{p}$ is the set of all entire numbers prime to $p$. Therefore $A_\mfk{p}$ can be considered as the ring of all rational numbers $m/n$ where $n$ is prime to $p$, and $\mfk{p}A_\mfk{p}$ can be considered as the set of all rational numbers $kp/n$ where $k \in \mb{Z}$ and $n$ is prime to $p$.</p>
+<p>$\mb{Z}$ is the simplest example of ring and $p\mb{Z}$ is the simplest example of prime ideal. And $A_\mfk{p}$ in this case shows what does localization do: $A$ is ‘expanded’ with respect to $\mfk{p}$. Every member of $A_\mfk{p}$ is related to $\mfk{p}$, and the maximal ideal is determined by $\mfk{p}$. </p>
+<hr>
+<p>Let $k$ be a infinite field. Let $A=k[x_1,\cdots,x_n]$ where $x_i$ are independent indeterminates, $\mfk{p}$ a prime ideal in $A$. Then $A_\mfk{p}$ is the ring of all rational functions $f/g$ where $g \notin \mfk{p}$. We have already defined rational functions. But we can go further and demonstrate the prototype of the local rings which arise in algebraic geometry. Let $V$ be the variety defined by $\mfk{p}$, that is,</p>
+<script type="math/tex; mode=display">
+V=\{x=(x_1,x_2,\cdots,x_n) \in k^n:\forall f \in \mfk{p}, f(x)=0\}.</script><p>Then what about $A_\mfk{p}$? We see since for $f/g \in A_\mfk{p}$ we have $g \notin \mfk{p}$, therefore for $g(x)$ is not equal to $0$ almost everywhere on $V$. That is, $A_\mfk{p}$ can be identified with the ring of all rational functions on $k^n$ which are defined at <em>almost all</em> points of $V$. We call this the local ring of $k^n$ <strong>along the variety</strong> $V$. </p>
+<h2 id="Universal-property"><a href="#Universal-property" class="headerlink" title="Universal property"></a>Universal property</h2><p>Let $A$ be a ring and $S^{-1}A$ a ring of fractions, then we shall see that $\varphi_S:S \to S^{-1}A$ has a universal property. </p>
+<blockquote>
+<p><strong>(Proposition 8)</strong> Let $g:A \to B$ be a ring homomorphism such that $g(s)$ is invertible in $B$ for all $s \in S$, then there exists a unique homomorphism $h:S^{-1}A \to B$ such that $g = h \circ \varphi_S$. </p>
+</blockquote>
+<p><em>Proof.</em> For $a/s \in S^{-1}A$, define $h(a/s)=g(a)g(s)^{-1}$. It looks immediate but we shall show that this is what we are looking for and is unique. </p>
+<p>Firstly we need to show that it is well defined. Suppose $a/s=a’/s’$, then there exists some $u \in S$ such that</p>
+<script type="math/tex; mode=display">
+(as'-a's)u=0.</script><p>Applying $g$ on both side yields</p>
+<script type="math/tex; mode=display">
+(g(a)g(s')-g(a')g(s))g(u)=0.</script><p>Since $g(x)$ is invertible for all $s \in S$, we therefore get</p>
+<script type="math/tex; mode=display">
+g(a)g(s)^{-1}=g(a')g(s')^{-1}.</script><p>It is a homomorphism since</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+h[(a/s)(a'/s')]&=g(a)g(a')g(s)^{-1}g(s')^{-1} \\
+h(a/s)h(a'/s')&=g(a)g(s)^{-1}g(a')g(s')^{-1},
+\end{aligned}</script><p>and</p>
+<script type="math/tex; mode=display">
+h(a/s+a'/s')=h((as'+a's)/ss')=g(as'+a's)g(ss')^{-1} \\
+h(a/s)+h(a'/s')=g(a)g(s)^{-1}+g(a')g(s')^{-1}</script><p>they are equal since</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+g(as'+a's)g(ss')^{-1}&=g(as')g(ss')^{-1}+g(a's)g(ss')^{-1} \\
+&=g(a)g(s')g(s)^{-1}g(s')^{-1}+g(a')g(s)g(s)^{-1}g(s')^{-1} \\
+&=g(a)g(s)^{-1}+g(a')g(s')^{-1}.
+\end{aligned}</script><p>Next we show that $g=h \circ \varphi_S$. For $a \in A$, we have</p>
+<script type="math/tex; mode=display">
+h(\varphi_S(a))=h(a/1)=g(a)g(1)^{-1}=g(a).</script><p>Finally we show that $h$ is unique. Let $h’$ be a homomorphism satisfying the condition, then for $a \in A$ we have</p>
+<script type="math/tex; mode=display">
+h'(a/1)=h'(\varphi_S(a))=g(a).</script><p>For $s \in S$, we also have</p>
+<script type="math/tex; mode=display">
+h'(1/s)=h'((s/1)^{-1})=h'(\varphi_S(s)^{-1})=h'(\varphi_S(s))^{-1}=g(s)^{-1}.</script><p>Since $a/s = (a/1)(1/s)$ for all $a/s \in S^{-1}A$, we get</p>
+<script type="math/tex; mode=display">
+h'(a/s)=h'((a/1)(1/s))=g(a)g(s)^{-1}.</script><p>That is, $h’$ (or $h$) is totally determined by $g$. $\square$</p>
+<hr>
+<p>Let’s restate it in the language of category theory (you can skip it if you have no idea what it is now). Let $\mfk{C}$ be the category whose objects are ring-homomorphisms</p>
+<script type="math/tex; mode=display">
+f:A \to B</script><p>such that $f(s)$ is invertible for all $s \in S$. Then according to proposition 5, $\varphi_S$ is an object of $\mfk{C}$. For two objects $f:A \to B$ and $f’:A \to B’$, a morphism $g \in \operatorname{Mor}(f,f’)$ is a homomorphism</p>
+<script type="math/tex; mode=display">
+g:B \to B'</script><p>such that $f’=g \circ f$. So here comes the question: what is the position of $\varphi_S$?</p>
+<p>Let $\mfk{A}$ be a category. an object $P$ of $\mfk{A}$ is called <strong>universally attracting</strong> if there exists a unique morphism of each object of $\mfk{A}$ into $P$, an is called <strong>universally repelling</strong> if for every object of $\mfk{A}$ there exists a unique morphism of $P$ into this object. Therefore we have the answer for $\mfk{C}$.</p>
+<blockquote>
+<p><strong>(Proposition 9)</strong> $\varphi_S$ is a universally repelling object in $\mfk{C}$.</p>
+</blockquote>
+<h2 id="Principal-and-factorial-ring"><a href="#Principal-and-factorial-ring" class="headerlink" title="Principal and factorial ring"></a>Principal and factorial ring</h2><p>An ideal  $\mfk{o} \in A$ is said to be <strong>principal</strong> if there exists some $a \in A$ such that $Aa = \mfk{o}$. For example for $\mb{Z}$, the ideal</p>
+<script type="math/tex; mode=display">
+\{\cdots,-2,0,2,4,\cdots\}</script><p>is principal and we may write $2\mb{Z}$. If every ideal of a <strong>commutative</strong> ring $A$ is principal, we say $A$ is principal. Further we say $A$ is a <strong>PID</strong> if $A$ is also an integral domain (entire). When it comes to ring of fractions, we also have the following proposition:</p>
+<blockquote>
+<p><strong>(Proposition 10)</strong> Let $A$ be a principal ring and $S$ a multiplicatively closed subset with $0 \notin S$, then $S^{-1}A$ is principal as well.</p>
+</blockquote>
+<p><em>Proof.</em> Let $I \subset S^{-1}A$ be an ideal. If $a \in S$ where $a/s \in I$, then we are done since then $(s/a)(a/s) = 1/1 \in I$, which implies $I=S^{-1}A$ itself, hence we shall assume $a \notin S$ for all $a/s \in I$. But for $a/s \in I$ we also have $(a/s)(s/1)=a/1 \in I$. Therefore $J=\varphi_S^{-1}(I)$ is not empty. $J$ is an ideal of $A$ since for $a \in A$ and $b \in J$, we have $\varphi_S(ab) =ab/1=(a/1)(b/1) \in I$ which implies $ab \in J$. But since $A$ is principal, there exists some $a$ such that $Aa = J$. We shall discuss the relation between $S^{-1}A(a/1)$ and $I$. For any $(c/u)(a/1)=ca/u \in S^{-1}A(a/1)$, clearly we have $ca/u \in I$, hence $S^{-1}A(a/1)\subset I$. On the other hand, for $c/u \in I$, we see $c/1=(c/u)(u/1) \in I$, hence $c \in J$, and there exists some $b \in A$ such that $c = ba$, which gives $c/u=ba/u=(b/u)(a/1) \in I$. Hence $I \subset S^{-1}A(a/1)$, and we have finally proved that $I = S^{-1}A(a/1)$. $\square$</p>
+<p>As an immediate corollary, if $A_\mfk{p}$ is the localization of $A$ at $\mfk{p}$, and if $A$ is principal, then $A_\mfk{p}$ is principal as well. Next we go through another kind of rings. A ring is called <strong>factorial</strong> (or a <strong>unique factorization ring</strong> or <strong>UFD</strong>) if it is entire and if every non-zero element has a unique factorization into irreducible elements. An element $a \neq 0$ is called <strong>irreducible</strong> if it is not a unit and whenever $a=bc$, then either $b$ or $c$ is a unit. For all non-zero elements in a factorial ring, we have</p>
+<script type="math/tex; mode=display">
+a=u\prod_{i=1}^{r}p_i,</script><p> where $u$ is a <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Unit_(ring_theory">unit</a>) (invertible).</p>
+<p>In fact, every PID is a UFD (<a target="_blank" rel="noopener" href="https://planetmath.org/everypidisaufd">proof here</a>). Irreducible elements in a factorial ring is called <strong>prime elements</strong> or simply <strong>prime</strong> (take $\mathbb{Z}$ and prime numbers as an example). Indeed, if $A$ is a factorial ring and $p$ a prime element, then $Ap$ is a prime ideal. But we are more interested in the ring of fractions of a factorial ring.</p>
+<blockquote>
+<p><strong>(Proposition 11)</strong> Let $A$ be a factorial ring and $S$ a multiplicatively closed subset with $0 \notin S$, then $S^{-1}A$ is factorial.</p>
+</blockquote>
+<p><em>Proof.</em> Pick $a/s \in S^{-1}A$. Since $A$ is factorial, we have $a=up_1 \cdots p_k$ where $p_i$ are primes and $u$ is a unit. But we have no idea what are irreducible elements of $S^{-1}A$. Naturally our first attack is $p_i/1$. And we have no need to restrict ourselves to $p_i$, we should work on all primes of $A$. Suppose $p$ is a prime of $A$. If $p \in S$, then $p/1 \in S$ is a unit, not prime. If $Ap \cap S \neq \varnothing$, then $rp \in S$ for some $r \in A$. But then</p>
+<script type="math/tex; mode=display">
+(p/1)(r/rp)=1,</script><p>again $p/1$ is a unit, not prime. Finally if $Ap \cap S = \varnothing$, then $p/1$ is prime in $S^{-1}A$. For any</p>
+<script type="math/tex; mode=display">
+(a/s)(b/t)=ab/st=p/1,</script><p>we see $ab=stp \not\in S$. But this also gives $ab \in Ap$ which is a prime ideal, hence we can assume $a \in Ap$ and write $a=rp$ for some $r \in A$. With this expansion we get</p>
+<script type="math/tex; mode=display">
+ab=stp \implies rbp=stp \implies rb=st \implies (r/s)(b/t)=1/1.</script><p>Hence $b/t$ is a unit, $p/1$ is a prime. </p>
+<p>Conversely, suppose $a/s$ is irreducible in $S^{-1}A$. Since $A$ is factorial, we may write $a=u\prod_{i}p_i$. $a$ cannot be an element of $S$ since $a/s$ is not a unit. We write</p>
+<script type="math/tex; mode=display">
+a/s=1/s[(u/1)(p_1/1)(p_2/1)\cdots(p_n/1)]</script><p>We see there is some $v \in A$ such that $uv=1$ and accordingly $(u/1)(v/1)=uv/1=1/1$, hence $u/1$ is a unit. We claim that there exist a unique $p_k$ such that $1 \leq k \leq n$ and $Ap \cap S = \varnothing$. If not exists, then all $p_j/1$ are units. If both $p_{k}$ and $p_{k’}$ satisfy the requirement and $p_k \neq p_k’$, then we can write $a/s$ as</p>
+<script type="math/tex; mode=display">
+a/s = \{1/s[(u/1)(p_1/1)\cdots(p_{k-1}/1)(p_{k+1}/1)\cdots(p_{k'-1}/1)(p_{k'+1}/1)\cdots(p_n/1)](p_k/1)\}(p_{k'}/1).</script><p>Neither the one in curly bracket nor $p_{k’}/1$ is unit, contradicting the fact that $a/s$ is irreducible. Next we show that $a/s=p_k/1$. For simplicity we write </p>
+<script type="math/tex; mode=display">
+b = u\prod_{i=1 \\ i \neq k}^{n} p_i, \quad a = bp_k.</script><p>Note $a/s = bp_k/s = (b/s)(p_k/1)$. Since $a/s$ is irreducible, $p_k/1$ is not a unit, we conclude that $b/s$ is a unit. We are done for the study of irreducible elements of $S^{-1}A$: it is of the form $p/1$ (up to a unit) where $p$ is prime in $A$ and $Ap \cap S = \varnothing$. </p>
+<p>Now we are close to the fact that $S^{-1}A$ is also factorial. For any $a/s \in S^{-1}A$, we have an expansion</p>
+<script type="math/tex; mode=display">
+a/s=1/s[(u/1)(p_1/1)(p_2/1)\cdots(p_n/1)].</script><p>Let $p’_1,p’_2,\cdots,p’_j$ be those whose generated prime ideal has nontrivial intersection with $S$, then $p’_1/1, p’_2/1,\cdots,p’_j/1$ are units of $S^{-1}A$. Let $q_1,q_2,\cdots,q_k$ be other $p_i$’s, then $q_1/1,q_2/1,\cdots,q_k/1$ are irreducible in $S^{-1}A$. This gives</p>
+<script type="math/tex; mode=display">
+a/s = [(1/s)(p'_1/1)(p'_2/1)\cdots(p'_j/1)]\prod_{i=1}^{k}(q_i/1).</script><p>Hence $S^{-1}A$ is factorial as well. $\square$</p>
+<p>We finish the whole post by a comprehensive proposition:</p>
+<blockquote>
+<p><strong>(Proposition 12)</strong> Let $A$ be a factorial ring and $p$ a prime element, $\mfk{p}=Ap$. The localization of $A$ at $\mfk{p}$ is principal.</p>
+</blockquote>
+<p><em>Proof.</em> For $a/s \in S^{-1}A$, we see $p$ does not divide $s$ since if $s = rp$ for some $r \in A$, then $s \in \mfk{p}$, contradicting the fact that $S = A \setminus \mfk{p}$. Since $A$ is factorial, we may write $a = cp^n$ for some $n \geq 0$ and $p$ does not divide $c$ as well (which gives $c \in S$. Hence $a/s = (c/s)(p^n/1)$. Note $(c/s)(s/c)=1/1$ and therefore $c/s$ is a unit. For every $a/s \in S^{-1}A$ we may write it as</p>
+<script type="math/tex; mode=display">
+a/s = u(p^n/1),</script><p> where $u$ is a unit of $S^{-1}A$. </p>
+<p>Let $I$ be any ideal in $S^{-1}A$, and </p>
+<script type="math/tex; mode=display">
+m = \min\{n:u(p^n/1) \in I, u \text{ is a unit }\}.</script><p>Let’s discuss the relation between $S^{-1}A(p^m/1)$ and $I$. First we see $S^{-1}A(p^m/1)=S^{-1}A(up^m/1)$ since if $v$ is the inverse of $u$, we get</p>
+<script type="math/tex; mode=display">
+vS^{-1}A(up^m/1)=S^{-1}A(p^m/1) \subset S^{-1}A(up^m/1), \\
+S^{-1}A(up^m/1)=uS^{-1}A(p^m/1)\subset S^{-1}A(p^m/1).</script><p>Any element of $S^{-1}A(up^m/1)$ is of the form</p>
+<script type="math/tex; mode=display">
+vup^{m+k}/1=v(p^k/1)up^m/1.</script><p>Since $up^m/1 \in I$, we see $vup^{m+k}/1 \in I$ as well, hence $S^{-1}A(up^m/1) \subset I$. On the other hand, any element of $I$ is of the form $wup^{m+n}/1=w(p^n/1)u(p^m/1)$ where $w$ is a unit and $n \geq 0$. This shows that $vup^{m+n}/1 \in S^{-1}A(up^m/1)$. Hence $S^{-1}A(p^m/1)=S^{-1}A(up^m/1)=I$ as we wanted. $\square$</p>
+</div></article></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="../../../img/avatar.png" alt="Desvl"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Desvl</p><p class="is-size-6 is-block">A blog mainly on graduate mathematics.</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>A Noetherian local ring</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="../../../archives"><p class="title">86</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="../../../categories"><p class="title">44</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="../../../tags"><p class="title">49</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="../../../redirect/newsletter" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Compose an Email" href="../../../redirect/email"><i class="fas fa-envelope"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="../../../atom.xml"><i class="fas fa-rss"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Mathstodon" href="https://mathstodon.xyz/@desvl"><i class="fa-brands fa-mastodon"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://arxiv.org/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">arXiv</span></span><span class="level-right"><span class="level-item tag">arxiv.org</span></span></a></li><li><a class="level is-mobile" href="https://stacks.math.columbia.edu/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">The Stack Project</span></span><span class="level-right"><span class="level-item tag">stacks.math.columbia.edu</span></span></a></li><li><a class="level is-mobile" href="https://ncatlab.org/nlab/show/mathematics" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">nLab (Mathematics)</span></span><span class="level-right"><span class="level-item tag">ncatlab.org</span></span></a></li><li><a class="level is-mobile" href="https://q.uiver.app/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">quiver: a modern commutative diagram editor</span></span><span class="level-right"><span class="level-item tag">q.uiver.app</span></span></a></li><li><a class="level is-mobile" href="https://www.symmetricfunctions.com/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">The Symmetric Functions Catalogue</span></span><span class="level-right"><span class="level-item tag">www.symmetricfunctions.com</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/speaking.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Speaking</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/writing.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Writing</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">How to study maths really quick (YouTube)</span></span><span class="level-right"><span class="level-item tag">www.youtube.com</span></span></a></li><li><a class="level is-mobile" href="https://www.bilibili.com/video/BV1GJ411x7h7" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">How to study maths really quick (Bilibili)</span></span><span class="level-right"><span class="level-item tag">www.bilibili.com</span></span></a></li></ul></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="../../../index.html"><img src="../../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a><p class="is-size-7"><span>&copy; 2022</span> <a rel="me noopener" target="_blank" href="https://mathstodon.xyz/@desvl">Desvl</a><br>Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="../../../js/column.js"></script><script src="../../../js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="../../../js/back_to_top.js" defer></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
+            },
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><!--!--><script src="../../../js/main.js" defer></script><!--!--></body></html>

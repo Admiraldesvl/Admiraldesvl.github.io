@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>The Grothendienck Group - Desvl&#039;s blog</title><link rel="manifest" href="../../../../manifest.json"><meta name="application-name" content="Desvl&#039;s blog"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Desvl&#039;s blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="Free groupLet $A$ be an abelian group. Let $(e_i)_{i \in I}$ be a family of elements of $A$. We say that this family is a basis for $A$ if the family is not empty, and if every element of $A$ has a un"><meta property="og:type" content="blog"><meta property="og:title" content="The Grothendienck Group"><meta property="og:url" content="https://desvl.xyz/2021/01/10/the-grothendieck-group/"><meta property="og:site_name" content="Desvl&#039;s blog"><meta property="og:description" content="Free groupLet $A$ be an abelian group. Let $(e_i)_{i \in I}$ be a family of elements of $A$. We say that this family is a basis for $A$ if the family is not empty, and if every element of $A$ has a un"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://desvl.xyz/img/avatar.png"><meta property="article:published_time" content="2021-01-10T15:25:25.000Z"><meta property="article:modified_time" content="2021-10-06T07:50:45.475Z"><meta property="article:author" content="Desvl"><meta property="article:tag" content="Serge Lang"><meta property="article:tag" content="Universal Property"><meta property="article:tag" content="Grothendieck"><meta property="twitter:card" content="summary_large_image"><meta property="twitter:image:src" content="https://desvl.xyz/img/avatar.png"><meta property="twitter:creator" content="@Desvl_"><meta property="twitter:site" content="{ https://desvl.xyz }"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://desvl.xyz/2021/01/10/the-grothendieck-group/"},"headline":"The Grothendienck Group","image":["https://desvl.xyz/img/avatar.png"],"datePublished":"2021-01-10T15:25:25.000Z","dateModified":"2021-10-06T07:50:45.475Z","author":{"@type":"Person","name":"Desvl"},"publisher":{"@type":"Organization","name":"Desvl","logo":{"@type":"ImageObject","url":"https://desvl.xyz/img/logo.svg"}},"description":"Free groupLet $A$ be an abelian group. Let $(e_i)_{i \\in I}$ be a family of elements of $A$. We say that this family is a basis for $A$ if the family is not empty, and if every element of $A$ has a un"}</script><link rel="canonical" href="https://desvl.xyz/2021/01/10/the-grothendieck-group/"><link rel="alternate" href="../../../../atom.xml" title="Desvl&#039;s blog" type="application/atom+xml"><link rel="icon" href="../../../../img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap"><link rel="stylesheet" href="../../../../css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="../../../../index.html"><img src="../../../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="../../../../index.html">Home</a><a class="navbar-item" href="../../../../archives">Archives</a><a class="navbar-item" href="../../../../categories">Categories</a><a class="navbar-item" href="../../../../tags">Tags</a><a class="navbar-item" href="../../../../about">About (Updated Aug. 2022)</a><a class="navbar-item" href="../../../../link-exchange">Link Exchange</a><a class="navbar-item" href="../../../../support-the-author">Support the Author</a></div><div class="navbar-end"><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2021-01-10T15:25:25.000Z" title="10/01/2021, 23:25:25">2021-01-10</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-10-06T07:50:45.475Z" title="06/10/2021, 15:50:45">2021-10-06</time></span><span class="level-item"><a class="link-muted" href="../../../../categories/Algebra/">Algebra</a><span> / </span><a class="link-muted" href="../../../../categories/Algebra/Group-Theory/">Group Theory</a></span></div></div><h1 class="title is-3 is-size-4-mobile">The Grothendienck Group</h1><div class="content"><h2 id="Free-group"><a href="#Free-group" class="headerlink" title="Free group"></a>Free group</h2><p>Let $A$ be an abelian group. Let $(e_i)_{i \in I}$ be a family of elements of $A$. We say that this family is a <strong>basis</strong> for $A$ if the family is not empty, and if every element of $A$ has a unique expression as a <strong>linear expression</strong> </p>
+<script type="math/tex; mode=display">
+x = \sum_{i \in I} x_i e_i</script><p>where $x_i \in \mathbb{Z}$ and almost all $x_i$ are equal to $0$. This means that the sum is actually finite. An abelian group is said to be <strong>free</strong> if it has a basis. Alternatively, we may write $A$ as a direct sum by</p>
+<script type="math/tex; mode=display">
+A \cong \bigoplus_{i \in I}\mathbb{Z}e_i.</script><h2 id="Free-abelian-group-generated-by-a-set"><a href="#Free-abelian-group-generated-by-a-set" class="headerlink" title="Free abelian group generated by a set"></a>Free abelian group generated by a set</h2><p>Let $S$ be a set. Say we want to get a group out of this for some reason, so how? It is not a good idea to endow $S$ with a binary operation beforehead since overall $S$ is merely a set. We shall <strong>generate</strong> a group out of $S$ in the most <strong>freely</strong> way.</p>
+<p>Let $\mathbb{Z}\langle S \rangle$ be the set of all <strong>maps</strong> $\varphi:S \to \mathbb{Z}$ such that, for only a <strong>finite</strong> number of $x \in S$, we have $\varphi(x) \neq 0$. For simplicity, we denote $k \cdot x$ to be some $\varphi_0 \in \mathbb{Z}\langle S \rangle$ such that $\varphi_0(x)=k$ but $\varphi_0(y) = 0$ if $y \neq x$. For any $\varphi$, we claim that $\varphi$ has a unique expression</p>
+<script type="math/tex; mode=display">
+\varphi=k_1 \cdot x_1 + k_2 \cdot x_2 + \cdots + k_n \cdot x_n.</script><p>One can consider these integers $k_i$ as the order of $x_i$, or simply the time that $x_i$ appears (may be negative). For $\varphi\in\mathbb{Z}\langle S \rangle$, let $I=\{x_1,x_2,\cdots,x_n\}$ be the set of elements of $S$ such that $\varphi(x_i) \neq 0$. If we denote $k_i=\varphi(x_i)$, we can show that $\psi=k_1 \cdot x_1 + k_2 \cdot x_2 + \cdots + k_n \cdot x_n$ is equal to $\varphi$. For $x \in I$, we have $\psi(x)=k$ for some $k=k_i\neq 0$ by definition of the ‘$\cdot$’; if $y \notin I$ however, we then have $\psi(y)=0$. This coincides with $\varphi$. $\blacksquare$</p>
+<p>By definition the zero map $\mathcal{O}=0 \cdot x \in \mathbb{Z}\langle S \rangle$ and therefore we may write any $\varphi$ by</p>
+<script type="math/tex; mode=display">
+\varphi=\sum_{x \in S}k_x\cdot x</script><p>where $k_x \in \mathbb{Z}$ and can be zero. Suppose now we have two expressions, for example</p>
+<script type="math/tex; mode=display">
+\varphi=\sum_{x \in S}k_x \cdot x=\sum_{x \in S}k_x'\cdot x</script><p>Then</p>
+<script type="math/tex; mode=display">
+\varphi-\varphi=\mathcal{O}=\sum_{x \in S}(k_x-k'_x)\cdot x</script><p>Suppose $k_y - k_y’ \neq 0$ for some $y \in S$, then</p>
+<script type="math/tex; mode=display">
+\mathcal{O}(y)=k_y-k_y'\neq 0</script><p>which is a contradiction. Therefore the expression is unique. $\blacksquare$</p>
+<p>This $\mathbb{Z}\langle S \rangle$ is what we are looking for. It is an additive group (which can be proved immediately) and, what is more important, every element can be expressed as a ‘sum’ associated with finite number of elements of $S$. We shall write $F_{ab}(S)=\mathbb{Z}\langle S \rangle$, and call it the <strong>free abelian group generated by $S$</strong>. For elements in $S$, we say they are <strong>free generators</strong> of $F_{ab}(S)$.  If $S$ is a finite set, we say $F_{ab}(S)$ is <strong>finitely generated</strong>.</p>
+<blockquote>
+<p>An abelian group is <strong>free</strong> if and only if it is isomorphic to a free abelian group $F_{ab}(S)$ for some set $S$.</p>
+</blockquote>
+<p><strong>Proof.</strong> First we shall show that $F_{ab}(S)$ is free. For $x \in M$, we denote $\varphi = 1 \cdot x$ by $[x]$. Then for any $k \in \mathbb{Z}$, we have $k[x]=k \cdot x$ and $k[x]+k’[y] = k\cdot x + k’ \cdot y$. By definition of $F_{ab}(S)$, any element $\varphi \in F_{ab}(S)$ has a unique expression</p>
+<script type="math/tex; mode=display">
+\varphi = k_1 \cdot x_1 + \cdots + k_n \cdot x_n =k_1[x_1]+\cdots+k_n[x_n]</script><p>Therefore $F_{ab}(S)$ is free since we have found the basis $([x])_{x \in S}$.</p>
+<p>Conversely, if $A$ is free, then it is immediate that its basis $(e_i)_{i \in I}$ generates $A$. Our statement is therefore proved. $\blacksquare$</p>
+<h3 id="The-connection-between-an-arbitrary-abelian-group-an-a-free-abelian-group"><a href="#The-connection-between-an-arbitrary-abelian-group-an-a-free-abelian-group" class="headerlink" title="The connection between an arbitrary abelian group an a free abelian group"></a>The connection between an arbitrary abelian group an a free abelian group</h3><blockquote>
+<p><strong>(Proposition 1)</strong> If $A$ is an abelian group, then there is a free group $F$ which has a subgroup $H$ such that $A \cong F/H$. </p>
+</blockquote>
+<p><strong>Proof.</strong> Let $S$ be any set containing $A$. Then we get a surjective map $\gamma: S \to A$ and a free group $F_{ab}(S)$. We also get a unique homomorphism $\gamma_\ast:F_{ab}(S) \to A$ by</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\gamma_\ast:F_{ab}(S) &\to A \\
+\varphi=\sum_{x \in S}k_x\cdot x &\mapsto \sum_{x \in S}k_x\gamma(x)
+\end{aligned}</script><p>which is also surjective. By the first isomorphism theorem, if we set $H=\ker(\gamma_\ast)$ and $F_{ab}(S)=F$, then</p>
+<script type="math/tex; mode=display">
+F/H \cong A.</script><p>$\blacksquare$</p>
+<blockquote>
+<p><strong>(Proposition 2)</strong> If $A$ is finitely generated, then $F$ can also be chosen to be finitely generated.</p>
+</blockquote>
+<p><strong>Proof.</strong> Let $S$ be the generator of $A$, and $S’$ is a set containing $S$. Note if $S$ is finite, which means $A$ is finitely generated, then $S’$ can also be finite by inserting one or any finite number more  of elements. We have a map from $S$ and $S’$ into $F_{ab}(S)$ and $F_{ab}(S’)$ respectively by $f_S(x)=1 \cdot x$ and $f_{S’}(x’)=1 \cdot x’$. Define $g=f_{S’} \circ \lambda:S’ \to F_{ab}(S)$ we get another homomorphism by</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+g_\ast:F_{ab}(S') &\to F_{ab}(S) \\
+\varphi'=\sum_{x \in S'}k_{x} \cdot x &\mapsto \sum_{x \in S'}k_{x}\cdot g(x)
+\end{aligned}</script><p>This defines a unique homomorphism such that $g_\ast \circ f_{S’} = g$. As one can also verify, this map is also surjective. Therefore by the first isomorphism theorem we have</p>
+<script type="math/tex; mode=display">
+A \cong F_{ab}(S) \cong F_{ab}(S')/\ker(g_\ast)</script><p>$\blacksquare$</p>
+<p>It’s worth mentioning separately that we have implicitly proved two statements with commutative diagrams:</p>
+<blockquote>
+<p><strong>(Proposition 3 | Universal property)</strong> If $g:S \to B$ is a mapping of $S$ into some abelian group $B$, then we can define a unique group-homomorphism making the following diagram commutative:</p>
+</blockquote>
+<p><img src="\img\f_ab-1.png" alt="diagram-000001"></p>
+<blockquote>
+<p><strong>(Proposition 4)</strong> If $\lambda:S \to S$ is a mapping of sets, there is a unique homomorphism $\overline{\lambda}$ making the following diagram commutative:</p>
+</blockquote>
+<p><img src="\img\free-abelian-group-cd.png" alt="diagram-000001"></p>
+<p>(In the proof of Proposition 2 we exchanged $S$ an $S’$.)</p>
+<h2 id="The-Grothendieck-group"><a href="#The-Grothendieck-group" class="headerlink" title="The Grothendieck group"></a>The Grothendieck group</h2><blockquote>
+<p><strong>(The Grothendieck group)</strong> Let $M$ be a commutative monoid written additively. We shall prove that there exists a commutative group $K(M)$  with a monoid homomorphism</p>
+<script type="math/tex; mode=display">
+\gamma:M \to K(M)</script><p>satisfying the following universal property: If $f:M \to A$ is a homomorphism from $M$ into a abelian group $A$, then there exists a unique homomorphism $f_\gamma:K(M) \to A$ such that $f=f_\gamma\circ\gamma$. This can be represented by a commutative diagram:</p>
+<p><img src="\img\grothendieck.png" alt="diagram-000001"></p>
+</blockquote>
+<p><strong>Proof.</strong> There is a commutative diagram describes what we are doing.</p>
+<p><img src="\img\grothendieck-group-universal-proof.png" alt="grothendieck-group-universal-proof"></p>
+<p>Let $F_{ab}(M)$ be the free abelian group generated by $M$. For $x \in M$, we denote $1 \cdot x \in F_{ab}(M)$ by $[x]$. Let $B$ be the group generated by all elements of the type</p>
+<script type="math/tex; mode=display">
+[x+y]-[x]-[y]</script><p>where $x,y \in M$. This can be considered as a subgroup of $F_{ab}(M)$. We let $K(M)=F_{ab}(M)/B$. Let $i=x \to [x]$ and $\pi$ be the canonical map </p>
+<script type="math/tex; mode=display">
+\pi:F_{ab}(M) \to F_{ab}(M)/B.</script><p>We are done by defining $\gamma: \pi \circ i$. Then we shall verify that $\gamma$ is our desired homomorphism satisfying the universal property. For $x,y \in M$, we have $\gamma(x+y)=\pi([x+y])$ and $\gamma(x)+\gamma(y) = \pi([x])+\pi([y])=\pi([x]+[y])$. However we have </p>
+<script type="math/tex; mode=display">
+[x+y]-[x]-[y] \in B,</script><p>which implies that</p>
+<script type="math/tex; mode=display">
+\gamma(x)+\gamma(y)=\pi([x]+[y])=\pi([x+y]) = \gamma(x+y).</script><p>Hence $\gamma$ is a monoid-homomorphism. Finally the universal property. By proposition 3, we have a unique homomorphism $f_\ast$ such that $f_\ast \circ i = f$. Note if $y \in B$, then $f_\ast(y) =0$. Therefore $B \subset \ker{f_\ast}$ Therefore we are done if we define $f_\gamma(x+B)=f_\ast (x)$. $\blacksquare$</p>
+<h3 id="Comments-of-the-proof"><a href="#Comments-of-the-proof" class="headerlink" title="Comments of the proof"></a>Comments of the proof</h3><p>Why such a $B$? Note in general $[x+y]$ is not necessarily equal to $[x]+[y]$ in $F_{ab}(M)$, but we don’t want it to be so. So instead we create a new <strong>equivalence relation</strong>, by factoring a subgroup generated by $[x+y]-[x]-[y]$. Therefore in $K(M)$ we see $[x+y]+B = [x]+[y]+B$, which finally makes $\gamma$ a homomorphism. We use the same strategy to generate the <strong>tensor product</strong> of two modules later. But at that time we have more than one relation to take care of. </p>
+<h3 id="Cancellative-monoid"><a href="#Cancellative-monoid" class="headerlink" title="Cancellative monoid"></a>Cancellative monoid</h3><p>If for all $x,y,z \in M$, $x+y=x+z$ implies $y=z$, then we say $M$ is a cancellative monoid, or the cancellation law holds in $M$. Note for the proof above we didn’t use any property of cancellation. However we still have an interesting property for cancellation law.</p>
+<blockquote>
+<p><strong>(Theorem)</strong> The cancellation law holds in $M$ if and only if $\gamma$ is injective.</p>
+</blockquote>
+<p><strong>Proof.</strong> This proof involves another approach to the Grothendieck group. We consider pairs $(x,y) \in M \times M$ with $x,y \in M$. Define</p>
+<script type="math/tex; mode=display">
+(x,y) \sim (x',y') \iff \exists \ell \in M, y+x'+\ell=x+y'+\ell.</script><p>Then we get a equivalence relation (try to prove it yourself!). We define the addition component-wise, that is, $(x,y)+(x’,y’)=(x+x’,y+y’)$, then the equivalence classes of pairs form a group $A$, where the zero element is $[(0,0)]$. We have a monoid-homomorphism</p>
+<script type="math/tex; mode=display">
+f:x \mapsto [(x,0)].</script><p>If cancellation law holds in $M$, then</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+f(x) = f(y) &\implies [(x,0)] = [(y,0)] \\
+                        &\implies 0+y+\ell=x+0+\ell \\
+                        &\implies x=y.
+\end{aligned}</script><p>Hence $f$ is injective. By the universal property of the Grothendieck group, we get a unique homomorphism $f_\gamma$ such that $f_\gamma \circ \gamma = f$. If $x \neq 0$ in $M$, then $f_\gamma \circ \gamma(x) \neq 0$ since $f$ is injective. This implies $\gamma(x) \neq 0$. Hence $\gamma$ is injective.</p>
+<p>Conversely, if $\gamma$ is injective, then $i$ is injective (this can be verified by contradiction). Then we see $f=f_\ast \circ i$ is injective. But $f(x)=f(y)$ if and only if $x+\ell = y+\ell$, hence $x+ \ell = y+ \ell$ implies $x=y$, the cancellation law holds on $M$.</p>
+<h3 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h3><p>Our first example is $\mathbb{N}$. Elements of $F_{ab}(\mathbb{N})$ are of the form</p>
+<script type="math/tex; mode=display">
+\varphi=k_1 \cdot n_1 + k_2 \cdot n_2+\cdots + k_m \cdot n_m.</script><p>For elements in $B$ they are generated by</p>
+<script type="math/tex; mode=display">
+\varphi=1\cdot (m+n)-1\cdot m - 1\cdot n</script><p>which we wish to represent $0$. Indeed, $K(\mathbb{N}) \simeq \mathbb{Z}$ since if we have a homomorphism</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+f:K(\mathbb{N}) &\to \mathbb{Z} \\
+    \sum_{j=1}^{m}k_j \cdot n_j +B &\mapsto \sum_{j=1}^{m}k_j n_j.
+\end{aligned}</script><p>For $r \in \mathbb{Z}$, we see $f(1 \cdot r+B)=r$. On the other hand, if $\sum_{j=1}^{m}k_j \cdot n_j \not\in B$, then its image under $f$ is not $0$.</p>
+<hr>
+<p>In the first example we ‘granted’ the natural numbers ‘subtraction’. Next we grant the division on multiplicative monoid. </p>
+<p>Consider $M=\mathbb{Z} \setminus 0$. Now for $F_{ab}(M)$ we write elements in the form</p>
+<script type="math/tex; mode=display">
+\varphi={}^{k_1}n_1{}^{k_2}n_2\cdots{}^{k_m}n_m</script><p>which denotes that $\varphi(n_j)=k_j$ and has no other differences. Then for elements in $B$ they are generated by</p>
+<script type="math/tex; mode=display">
+\varphi = {}^1(n_1n_2){}^{-1}(n_1)^{-1}(n_2)</script><p>which we wish to represent $1$. Then we see $K(M) \simeq \mathbb{Q} \setminus 0$ if we take the isomorphism</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+f:K(M) &\to \mathbb{Q} \setminus 0 \\
+\left(\prod_{j=1}^{m}{}^{k_j}n_j\right)B &\mapsto \prod_{j=1}^{m}n_j^{k_j}.
+\end{aligned}</script><hr>
+<p>Of course this is not the end of the Grothendieck group. But for further example we may need a lot of topology background. For example, we have the topological $K$-theory group of a topological space to be the Grothendieck group of isomorphism classes of topological vector bundles. But I think it is not a good idea to post these examples at this timing.</p>
+</div><div class="article-licensing box"><div class="licensing-title"><p>The Grothendienck Group</p><p><a href="https://desvl.xyz/2021/01/10/the-grothendieck-group/">https://desvl.xyz/2021/01/10/the-grothendieck-group/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>Desvl</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2021-01-10</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2021-10-06</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="../../../../tags/Serge-Lang/">Serge Lang</a><a class="link-muted mr-2" rel="tag" href="../../../../tags/Universal-Property/">Universal Property</a><a class="link-muted mr-2" rel="tag" href="../../../../tags/Grothendieck/">Grothendieck</a></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="../../14/rings-of-fractions-and-localization/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">Rings of Fractions and Localisation</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="../../../../2020/12/22/vector-bundle-2/"><span class="level-item">Study Vector Bundle in a Relatively Harder Way - Tangent Bundle</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="../../../../img/avatar.png" alt="Desvl"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Desvl</p><p class="is-size-6 is-block">A blog mainly on graduate mathematics.</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>A Noetherian local ring</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="../../../../archives"><p class="title">86</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="../../../../categories"><p class="title">44</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="../../../../tags"><p class="title">49</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="../../../../redirect/newsletter" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Compose an Email" href="../../../../redirect/email"><i class="fas fa-envelope"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="../../../../atom.xml"><i class="fas fa-rss"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Mathstodon" href="https://mathstodon.xyz/@desvl"><i class="fa-brands fa-mastodon"></i></a></div></div></div><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">Catalogue</h3><ul class="menu-list"><li><a class="level is-mobile" href="#Free-group"><span class="level-left"><span class="level-item">1</span><span class="level-item">Free group</span></span></a></li><li><a class="level is-mobile" href="#Free-abelian-group-generated-by-a-set"><span class="level-left"><span class="level-item">2</span><span class="level-item">Free abelian group generated by a set</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#The-connection-between-an-arbitrary-abelian-group-an-a-free-abelian-group"><span class="level-left"><span class="level-item">2.1</span><span class="level-item">The connection between an arbitrary abelian group an a free abelian group</span></span></a></li></ul></li><li><a class="level is-mobile" href="#The-Grothendieck-group"><span class="level-left"><span class="level-item">3</span><span class="level-item">The Grothendieck group</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#Comments-of-the-proof"><span class="level-left"><span class="level-item">3.1</span><span class="level-item">Comments of the proof</span></span></a></li><li><a class="level is-mobile" href="#Cancellative-monoid"><span class="level-left"><span class="level-item">3.2</span><span class="level-item">Cancellative monoid</span></span></a></li><li><a class="level is-mobile" href="#Examples"><span class="level-left"><span class="level-item">3.3</span><span class="level-item">Examples</span></span></a></li></ul></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="../../../../js/toc.js" defer></script></div><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://arxiv.org/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">arXiv</span></span><span class="level-right"><span class="level-item tag">arxiv.org</span></span></a></li><li><a class="level is-mobile" href="https://stacks.math.columbia.edu/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">The Stack Project</span></span><span class="level-right"><span class="level-item tag">stacks.math.columbia.edu</span></span></a></li><li><a class="level is-mobile" href="https://ncatlab.org/nlab/show/mathematics" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">nLab (Mathematics)</span></span><span class="level-right"><span class="level-item tag">ncatlab.org</span></span></a></li><li><a class="level is-mobile" href="https://q.uiver.app/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">quiver: a modern commutative diagram editor</span></span><span class="level-right"><span class="level-item tag">q.uiver.app</span></span></a></li><li><a class="level is-mobile" href="https://www.symmetricfunctions.com/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">The Symmetric Functions Catalogue</span></span><span class="level-right"><span class="level-item tag">www.symmetricfunctions.com</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/speaking.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Speaking</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/writing.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Writing</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">How to study maths really quick (YouTube)</span></span><span class="level-right"><span class="level-item tag">www.youtube.com</span></span></a></li><li><a class="level is-mobile" href="https://www.bilibili.com/video/BV1GJ411x7h7" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">How to study maths really quick (Bilibili)</span></span><span class="level-right"><span class="level-item tag">www.bilibili.com</span></span></a></li></ul></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="../../../../index.html"><img src="../../../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a><p class="is-size-7"><span>&copy; 2022</span> <a rel="me noopener" target="_blank" href="https://mathstodon.xyz/@desvl">Desvl</a><br>Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="../../../../js/column.js"></script><script src="../../../../js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="../../../../js/back_to_top.js" defer></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
+            },
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><!--!--><script src="../../../../js/main.js" defer></script><!--!--></body></html>

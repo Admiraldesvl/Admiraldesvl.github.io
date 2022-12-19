@@ -1,0 +1,790 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Desvl&#039;s blog</title><link rel="manifest" href="../../manifest.json"><meta name="application-name" content="Desvl&#039;s blog"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Desvl&#039;s blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta property="og:type" content="blog"><meta property="og:title" content="Desvl&#039;s blog"><meta property="og:url" content="https://desvl.xyz/"><meta property="og:site_name" content="Desvl&#039;s blog"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://desvl.xyz/img/avatar.png"><meta property="article:author" content="Desvl"><meta property="twitter:card" content="summary_large_image"><meta property="twitter:image:src" content="https://desvl.xyz/img/avatar.png"><meta property="twitter:creator" content="@Desvl_"><meta property="twitter:site" content="{ https://desvl.xyz }"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://desvl.xyz"},"headline":"Desvl's blog","image":["https://desvl.xyz/img/avatar.png"],"author":{"@type":"Person","name":"Desvl"},"publisher":{"@type":"Organization","name":"Desvl","logo":{"@type":"ImageObject","url":"https://desvl.xyz/img/logo.svg"}},"description":""}</script><link rel="alternate" href="../../atom.xml" title="Desvl&#039;s blog" type="application/atom+xml"><link rel="icon" href="../../img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap"><link rel="stylesheet" href="../../css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="../../index.html"><img src="../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="../../index.html">Home</a><a class="navbar-item" href="../../archives">Archives</a><a class="navbar-item" href="../../categories">Categories</a><a class="navbar-item" href="../../tags">Tags</a><a class="navbar-item" href="../../about">About (Updated Aug. 2022)</a><a class="navbar-item" href="../../link-exchange">Link Exchange</a><a class="navbar-item" href="../../support-the-author">Support the Author</a></div><div class="navbar-end"></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-03-23T04:13:44.000Z" title="23/03/2020, 12:13:44">2020-03-23</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-10-08T08:00:55.524Z" title="08/10/2022, 16:00:55">2022-10-08</time></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2020/03/23/fubini-counterex-and-why/">Counterexamples of Fubini&#039;s theorem</a></h1><div class="content"><h2 id="Hypotheses-in-Fubini’s-theorem-cannot-be-dispensed-with"><a href="#Hypotheses-in-Fubini’s-theorem-cannot-be-dispensed-with" class="headerlink" title="Hypotheses in Fubini’s theorem cannot be dispensed with"></a>Hypotheses in Fubini’s theorem cannot be dispensed with</h2><p>In <a href="/2020/03/22/fubini-theorem-in-euclidean-space/">this post</a> we proved Fubini’s theorem in the sense of Lebesgue measure, which makes it easier to evaluate multi variable integral. But these two classic counterexamples in this post prevent you from using Fubini’s theorem without enough consideration. </p>
+<h2 id="Counterexamples"><a href="#Counterexamples" class="headerlink" title="Counterexamples"></a>Counterexamples</h2><p>So we said $f(x,y)$ has to be integrable. What if $f$ is not? First let’s see this function.</p>
+<script type="math/tex; mode=display">
+f(x,y)=\frac{y^2-x^2}{(x^2+y^2)^2}=\frac{\partial^2}{\partial x \partial y}\arctan(\frac{y}{x})</script><p>This function is not Lebesgue integrable on $[0,1] \times [0,1]$, since we have</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+    \iint\limits_{D} |f(x,y)|dxdy 
+    & = \int_\varepsilon^1 \int_0^{\frac{\pi}{2}}\frac{r^2|\cos{2\theta}|}{r^4}rd\theta{dr} \\
+    &=\int_\varepsilon^1\frac{1}{r}dr \\
+    &\to \infty \quad (\varepsilon \to 0)
+\end{aligned}</script><p>where $D=\{(x,y):\varepsilon^2 \leq x^2+y^2 \leq 1, x \geq 0, y \geq 0\}$. Fubini’s theorem fails then since</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+    \int_0^1 dx \int_0^1 f(x,y)dy &= \int_0^1 \frac{-1}{1+x^2}dx \\
+    &= -\frac{\pi}{4}
+\end{aligned}</script><p>meanwhile</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+    \int_0^1 dy \int_0^1 f(x,y)dx &= \int_0^1\frac{1}{1+y^2}dy \\
+    &=\frac{\pi}{4}
+\end{aligned}</script><p>See, everything messes up, and the identity disappears. This function is too ‘large’ for Fubini’s theorem to work with, so is the next one.</p>
+<hr>
+<p>The following function is generated by series. First consider the sequence on $[0,1]$ generated by</p>
+<script type="math/tex; mode=display">
+0= \delta_1<\delta_2<\cdots,\delta_n \to 1</script><p>And a sequence of functions $g_n$ generated by $\int_0^1 g_ndx=1$ with supports in $(\delta_n,\delta_{n+1})$.</p>
+<p>Define $f(x,y)$ on $[0,1] \times [0,1]$ such that</p>
+<script type="math/tex; mode=display">
+f(x,y)=\sum_{n=1}^{\infty}[g_n(x)-g_{n+1}(x)]g_n(y)</script><p>The right hand is convergent since for each point $(x,y)$ there is at least one term in this sum that is different from $0$.</p>
+<p>An easy computation shows that</p>
+<script type="math/tex; mode=display">
+\int_0^1\int_0^1 |f(x,y)|dxdy = \infty</script><p>and</p>
+<script type="math/tex; mode=display">
+\int_0^1 dx \int_0^1 f(x,y)dy = 1 \neq 0 = \int_0^1 dy \int_0^1 f(x,y)dx</script></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-03-22T06:08:47.000Z" title="22/03/2020, 14:08:47">2020-03-22</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-02-23T11:08:21.378Z" title="23/02/2021, 19:08:21">2021-02-23</time></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2020/03/22/fubini-theorem-in-euclidean-space/">Fubini&#039;s theorem in Euclidean space (Understanding &#039;almost everywhere&#039;)</a></h1><div class="content"><h2 id="General-Idea"><a href="#General-Idea" class="headerlink" title="General Idea"></a>General Idea</h2><p>In elementary calculus, integrals of continuous functions of several variables are often calculated by iterating one-dimensional integrals. But the properties of measurability give rise to a lot of issues for Lebesgue integration on $\mathbb{R}^d$. What we are looking for is the equation</p>
+<script type="math/tex; mode=display">
+\int_{\mathbb{R}^m}\left(\int_{\mathbb{R}^n}f(x,y)dy\right)dx=\int_{\mathbb{R}^n}\left(\int_{\mathbb{R}^m}f(x,y)dx\right)dy=\int_{\mathbb{R}^d}fdm</script><p>where $d=m+n$ and $m,n$ are positive integers. If this equation holds for $f$, the integration would be relatively easy, as the iteration can be taken in any order. In fact, this equation can be generalized to some other abstract measure space, but that’s beyond what this post could cover.</p>
+<h3 id="Notations"><a href="#Notations" class="headerlink" title="Notations"></a>Notations</h3><p>For $d=m+n$, we write</p>
+<script type="math/tex; mode=display">
+\mathbb{R}^d=\mathbb{R}^m\times\mathbb{R}^n</script><p>A point in $\mathbb{R}^d$ therefore takes the form $(x,y)$, where $x\in\mathbb{R}^m$ and $y\in\mathbb{R}^n$. If $f$ is defined on $\mathbb{R}^d$, the <strong>slice</strong> of $f$ is respectively </p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+    f^y(x)&=f(x,y)\quad y\in\mathbb{R}^n \\
+    f_x(y)&=f(x,y)\quad x\in\mathbb{R}^m
+\end{aligned}</script><p>For $E \subset \mathbb{R}^m\times\mathbb{R}^n$, we defines its slices by</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+    E^y&=\{x\in\mathbb{R}^m:(x,y)\in{E}\} \\
+    E_x&=\{y\in\mathbb{R}^n:(x,y)\in{E}\}
+\end{aligned}</script><h3 id="But-why-‘almost-everywhere’"><a href="#But-why-‘almost-everywhere’" class="headerlink" title="But why ‘almost everywhere’?"></a>But why ‘almost everywhere’?</h3><p>Unfortunately, even if we assume that $f$ is measurable on $\mathbb{R}^d$, it can be shown that $f^y$ is not necessarily measurable for each $y$. It’s easy to construct a non-measurable set on $\mathbb{R}$ (x-axis), namely $A$. Then $A$ has Lebesgue measure $0$ in $\mathbb{R} \times \mathbb{R}$. But $E^y$ is not measurable for $y=0$. Nevertheless, the consideration of ‘almost everywhere’ is able to save us from this.</p>
+<h2 id="Fubini’s-Theorem"><a href="#Fubini’s-Theorem" class="headerlink" title="Fubini’s Theorem"></a>Fubini’s Theorem</h2><blockquote>
+<p>Suppose $f(x,y)$ is integrable on $\mathbb{R}^m \times \mathbb{R}^n$. Then for almost every $y \in \mathbb{R}^n$, we have</p>
+<ol>
+<li><p>$f^y$ is integrable on $\mathbb{R}^m$.</p>
+</li>
+<li><p>The function defined by $\int_{\mathbb{R}^m}f^y(x)dx$ is integrable on $\mathbb{R}^n$.</p>
+</li>
+<li><p>This equation holds ($m$ denotes the Lebesgue measure on $\mathbb{R}^d$):</p>
+<script type="math/tex; mode=display">
+\int_{\mathbb{R}^m}\left(\int_{\mathbb{R}^n}f(x,y)dx\right)dy=\int_{\mathbb{R}^n}\left(\int_{\mathbb{R}^m}f(x,y)dy\right)dx=\int_{\mathbb{R}^d}fdm</script><p>The symmetric conclusion can be obtained for $x$.</p>
+</li>
+</ol>
+</blockquote>
+<h3 id="General-and-more-rigorous-version"><a href="#General-and-more-rigorous-version" class="headerlink" title="General and more rigorous version"></a>General and more rigorous version</h3><p>The general version of Fubini’s theorem is developed in abstract product space, which will not be proved here. But it’s worth a peek. Of course, feel free to jump to the next section if you are not interested.</p>
+<blockquote>
+<p>Let $(X,\mathscr{S},\mu)$ and $(Y,\mathscr{T},\lambda)$ be $\sigma$-finite measure spaces, and let $f$ be an $(\mathscr{S} \times \mathscr{T})$-measurable function defined on $X \times Y$.</p>
+<ol>
+<li><p>If $f$ is an nonnegative real function, and if </p>
+<script type="math/tex; mode=display">
+\varphi(x)=\int_Y f_xd\lambda \quad \psi(y) = \int_X f^yd\mu\qquad (x\in X, y \in Y)</script><p>then $\varphi$ is $\mathscr{S}$-measurable, and $\psi$ is $\mathscr{T}$-measurable, and</p>
+<script type="math/tex; mode=display">
+\int_Xd\mu(x)\int_Yf(x,y)d\lambda(y)=\int_{Y}d\lambda(y)\int_{X}f(x,y)d\mu(x)</script></li>
+<li><p>If $f$ is complex and if</p>
+<script type="math/tex; mode=display">
+\varphi^\ast(x)=\int_Y|f|_xd\lambda\quad\text{and}\quad\int_{X}\varphi^\ast d\mu<\infty</script><p>then $f \in L^1(\mu\times\lambda)$.</p>
+</li>
+<li><p>If $f \in L^1(\mu \times \lambda)$, then $f_x \in L^1(\lambda)$ for almost all $x \in X$, $f^y \in L^1(\mu)$ for almost all $y \in Y$. The function therefore defined in 1 a.e. are in $L^1(\mu)$ and $L^1(\lambda)$ respectively, and the equation holds.</p>
+</li>
+</ol>
+</blockquote>
+<p>Clearly, if we replace $X$, $Y$ with $\mathbb{R}^m$ and $\mathbb{R}^n$, $\mathscr{S}$ and $\mathscr{T}$ with the respective Lebesgue $\sigma$-algebra, $\lambda$ and $\mu$ with Lebesgue measure, then we obtained the Euclidean version. Notice that $f$ is integrable means that $\int_X|f|d\mu &lt; \infty$.</p>
+<h3 id="Before-the-proof"><a href="#Before-the-proof" class="headerlink" title="Before the proof"></a>Before the proof</h3><p>The proof is relatively long. Instead of proving that $f$ as an integrable function satisfies the three conclusions, we shall show that, however, the family of functions satisfy the three conclusions (say, $\mathcal{F}$) <strong>contains</strong> all integrable functions. If you check the general version of Fubini’s theorem, you see that integrability was explicitly discussed.</p>
+<p>First, we shall show that $\mathcal{F}$ is not empty. This is important because we might have been discussing something that never exists. Second. Considering the fact that any integrable function can be “approximated” by simple functions, where simple functions  can be generated linear combination, it encourage us to discuss limits and linear combinations in $\mathcal{F}$. Finally, we shall show that if $f$ is integrable, then $f \in \mathcal{F}$. The power of almost-everywhere will show up along the proof.</p>
+<h2 id="Complete-proof-of-Fubini’s-Theorem-With-explanation"><a href="#Complete-proof-of-Fubini’s-Theorem-With-explanation" class="headerlink" title="Complete proof of Fubini’s Theorem (With explanation)"></a>Complete proof of Fubini’s Theorem (With explanation)</h2><h3 id="Step-1-mathcal-F-is-not-empty"><a href="#Step-1-mathcal-F-is-not-empty" class="headerlink" title="Step 1 - $\mathcal{F}$ is not empty"></a>Step 1 - $\mathcal{F}$ is not empty</h3><p>It’s somewhat absurd to discuss the property of $\mathcal{F}$ without proving that it’s not empty. But that can be done easily.</p>
+<blockquote>
+<p>Suppose $E$ is a bounded open cube in $\mathbb{R}^d$ such that $E = Q_1 \times Q_2$, where $Q_1$ and $Q_2$ are open cubes in $\mathbb{R}^m$ and $\mathbb{R}^n$. Then $\chi_E \in \mathcal{F}$.</p>
+</blockquote>
+<p>For each $y$, $\chi_E(x,y)$ is measurable. And the integrability of $\chi_E(x,y)$ follows with</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+g(y)=\int_{\mathbb{R}^m}\chi_E(x,y)dx=\begin{cases}\text{vol}(Q_1)\quad &y \in Q_2 \\
+0 \quad &y\notin Q_2\end{cases}
+\end{aligned}</script><p>It shows that $g(y)=\text{vol}(Q_1)\chi_{Q_2}$, which is measurable and integrable as well. Further,</p>
+<script type="math/tex; mode=display">
+\int_{\mathbb{R}^{n}}g(y)dy=\text{vol}(Q_1)\text{vol}(Q_2)</script><p>Since we initially have $\int_{\mathbb{R}^d}\chi_Edm=\text{vol}(E)=\text{vol}(Q_1)\text{vol}(Q_2)$, we see that $\chi_E$ satisfies these three properties, hence $\chi_E \in \mathcal{F}$.</p>
+<h3 id="Step-2-mathcal-F-is-closed-under-finite-linear-combination"><a href="#Step-2-mathcal-F-is-closed-under-finite-linear-combination" class="headerlink" title="Step 2 - $\mathcal{F}$ is closed under finite linear combination"></a>Step 2 - $\mathcal{F}$ is closed under finite linear combination</h3><p>We have only judged open cubes in $\mathbb{R}^d$, which are far from Lebesgue $\sigma$-algebra. To get there, we may have to check some $G_\delta$ sets, but we can’t do that since we have no idea about limits in $\mathcal{F}$. We are also looking for some simple functions, which are linear combinations of character functions.</p>
+<blockquote>
+<p>Any finite linear combination of functions in $\mathcal{F}$ also belongs to $\mathcal{F}$.</p>
+</blockquote>
+<p>Since there are arbitrarily many bounded open cubes in $\mathbb{R}^d$, we are able to find arbitrarily many members in $\mathcal{F}$. Say,</p>
+<script type="math/tex; mode=display">
+f_1,f_2,\cdots,f_n\in\mathcal{F}</script><p>Following the definition of $\mathcal{F}$, for each $1 \leq k \leq n$, we are able to find a set $A_k \subset \mathbb{R}^n$ such that $A_k$ has measure $0$ and whenever $y \notin A_k$, $f_k^y$ is integrable on $\mathbb{R}^m$. If we collect these sets altogether, namely $A=\cup A_k$, we see that in $\mathbb{R}^n-A$, all $f_k$’s has the desired property, so does their arbitrary finite linear combination (due to the linear property of Lebesgue integral). Since $A$ has measure zero as well, it turns out that the finite linear combinations belong to $\mathcal{F}$.</p>
+<h3 id="Step-3-Monotone-convergence-in-mathcal-F"><a href="#Step-3-Monotone-convergence-in-mathcal-F" class="headerlink" title="Step 3 - Monotone convergence in $\mathcal{F}$"></a>Step 3 - Monotone convergence in $\mathcal{F}$</h3><p>Limits and convergence come into play. One may think about something like complete metric space, where Cauchy sequences converges. In this step we show that the monotone limit does exist in $\mathcal{F}$. </p>
+<blockquote>
+<p>Suppose $f_k$ is a sequence of measurable functions in $\mathcal{F}$ so that $f_{k} \leq f_{k+1}$ or $f_k \geq f_{k+1}$ holds for all $k$, and $f_k \to f$ where $f$ is integrable on $\mathbb{R}^d$, then $f \in \mathcal{F}$.</p>
+</blockquote>
+<p>Without loss of generality, it suffices to assume that</p>
+<script type="math/tex; mode=display">
+0 \leq f_1 \leq f_2 \leq \cdots \leq f_n</script><p>Since for other situations, we can take some $-f_k$ or $f_k-f_1$ or something like that. An application of monotone convergence theorem yields that</p>
+<script type="math/tex; mode=display">
+\lim\limits_{k \to \infty}\int_{\mathbb{R}^d}f_kdm = \int_{\mathbb{R}^d}fdm</script><p>Also, we can find some sets with measure $0$, namely $A_k$, carrying the same meaning as is in Step 2. For $A=\bigcup_{k=1}^{\infty}A_k$, we also have $m(A)=0$ in $\mathbb{R}^n$. Also, for $y \in \mathbb{R}^n - A$, $f_k^y$ is integrable on $\mathbb{R}^m$ for all $k$. Thus by monotone convergence theorem, we see that</p>
+<script type="math/tex; mode=display">
+g_k(y)=\int_{\mathbb{R}^m}f_k^ydx \to g(y)=\int_{\mathbb{R}^m}f^ydx\quad(k\to\infty)</script><p>Clearly we have $g_k \leq g_{k+1}$ for all $k$, and by assumption, $g_k$ is integrable. Use monotone convergence theorem again, we see that</p>
+<script type="math/tex; mode=display">
+\int_{\mathbb{R}^n}g_kdy\to\int_{\mathbb{R}^n}gdy \quad (k\to\infty)</script><p>Combining these two limits, we see</p>
+<script type="math/tex; mode=display">
+\int_{\mathbb{R}^n}gdy =\int_{\mathbb{R}^d}fdm</script><p>We’ll show that $f \in \mathcal{F}$ by checking its properties one by one.</p>
+<ol>
+<li><p>Since $f$ is integrable, we see that $\int_{\mathbb{R}^n}g = \int_{\mathbb{R}^d}f&lt;\infty$. Thus $g$ is integrable. </p>
+</li>
+<li><p>Since $g$ is integrable, we have $g(y)&lt;\infty$ a.e. for $y$, consequently $f^y$ is integrable a.e. for $y$.</p>
+</li>
+<li><p>By the definition of $g$, we have</p>
+<script type="math/tex; mode=display">
+\int_{\mathbb{R}^n}\left(\int_{\mathbb{R}^m}f(x,y)dx\right)dy=\int_{\mathbb{R}^d}fdm</script></li>
+</ol>
+<p>Thus $f \in \mathcal{F}$ as proved.</p>
+<h3 id="Step-4-Characteristic-functions-of-measurable-sets"><a href="#Step-4-Characteristic-functions-of-measurable-sets" class="headerlink" title="Step 4 - Characteristic functions of measurable sets"></a>Step 4 - Characteristic functions of measurable sets</h3><h4 id="4-1-Final-destination"><a href="#4-1-Final-destination" class="headerlink" title="4.1 - Final destination"></a>4.1 - Final destination</h4><p>We are pretty close to simple functions now. To get rid of infinity, we are going to prove this:</p>
+<blockquote>
+<p>If $E$ is any measurable subset in $\mathbb{R}^d$ with $m(E)&lt;\infty$, then $\chi_E\in\mathcal{F}$.</p>
+</blockquote>
+<p>Once it’s done, we can construct simple functions, which approximate to any integrable functions, with ease. Fortunately, with the help of the property of Lebesgue measurable sets, we are able to break “measurable subsets” into several pieces. Recall the fact that</p>
+<blockquote>
+<p>$E \subset \mathbb{R}^d$ is Lebesgue measurable if and only if there are sets $A$ and $B\subset\mathbb{R}^d$ such that $A \subset E \subset B$, $A$ is a $F_{\sigma}$ and $B$ is a $G_{\delta}$, and $m(B-A)=0$.</p>
+</blockquote>
+<p>Since $B-E \subset B-A$, we also have $m(B-E)=0$. Also, since $E \cup (B-E)=B$, $E \cap (B-E) = \varnothing$, we have</p>
+<script type="math/tex; mode=display">
+\chi_B=\chi_E+\chi_{B-E}</script><p>which is equivalent to$\chi_{E}=\chi_{B}-\chi_{B-E}$. Notice that the right hand of this equation is a finite combination of functions (Step 2 comes into play). If we prove that $\chi_{B},\chi_{B-E} \in \mathcal{F}$, then we are done. </p>
+<p>We are going to prove that if $E$ is a $G_{\delta}$ set, or $E$ has measure $0$, then $\chi_{E}\in\mathcal{F}$. That is, we are going to generalize all Lebesgue measurable sets by proving these two key situations.</p>
+<h4 id="4-2-Finite-measure-G-delta-sets"><a href="#4-2-Finite-measure-G-delta-sets" class="headerlink" title="4.2 - Finite measure $G_{\delta}$ sets"></a>4.2 - Finite measure $G_{\delta}$ sets</h4><p>In Step 1 we proved $\chi_{E} \in \mathcal{F}$ if $E$ is a bounded open cube. Now we are going to generalize this to $G_\delta$, which is a countable intersection of open sets. Also, since every open sets can be a countable union of closed cubes ($\mathbb{R}^d$ is a locally compact Hausdorff space in which every open set is $\sigma$-compact). You will see how Step 2 and Step 3 play a role in this section.</p>
+<h5 id="4-2-1-Characteristic-function-of-closed-cubes"><a href="#4-2-1-Characteristic-function-of-closed-cubes" class="headerlink" title="4.2.1 - Characteristic function of closed cubes"></a>4.2.1 - Characteristic function of closed cubes</h5><blockquote>
+<p>If $Q$ a closed cube in $\mathbb{R}^d$, then $\chi_{Q} \in \mathcal{F}$.</p>
+</blockquote>
+<p>Since $Q = \text{int}(Q) \cup \partial{Q}$, where $\text{int}(Q)$ denotes its interior and $\partial{Q}$ denotes its boundary, we have</p>
+<script type="math/tex; mode=display">
+\chi_{Q}=\chi_{\text{int}(Q)}+\chi_{\partial{Q}}</script><p>As proved in Step 1, $\text{int}(Q) \in \mathcal{F}$. So we have to prove that $\chi_{\partial{Q}}\in\mathcal{F}$, and the conclusion follows from Step 2.</p>
+<p>Since $m(\partial{Q})=0$, we have $\int_{\mathbb{R}^d}\chi_{\partial{Q}}dm=0$. Also, it can be seen that for almost every $y$, we have $\partial{Q}^y$ has measure $0$ in $\mathbb{R}^m$, and therefore $g(y)=\int_{\mathbb{R}^m}\chi_{\partial{Q}}dx=0$ a.e. for $y$. Consequently, $\int_{\mathbb{R}^n}gdy=0$, therefore $\chi_{\partial{Q}} \in \mathcal{F}$.</p>
+<h5 id="4-2-2-Finitely-many-almost-disjoint-closed-cubes"><a href="#4-2-2-Finitely-many-almost-disjoint-closed-cubes" class="headerlink" title="4.2.2 - Finitely many almost disjoint closed cubes"></a>4.2.2 - Finitely many almost disjoint closed cubes</h5><blockquote>
+<p>Suppose $E = \bigcup_{k=1}^{K}Q_k$, where $Q_k$ is closed cube, and $\text{int}(Q_i)\cap\text{int}(Q_j)=\varnothing$ for $i \neq j$, then $\chi_{E} \in \mathcal{F}$.</p>
+</blockquote>
+<p>This conclusion is obvious if one notice that</p>
+<script type="math/tex; mode=display">
+\chi_{E} = \sum_{k=1}^{K}\chi_{Q_k}.</script><p>In 4.2.1 we showed that $\chi_{Q_k} \in \mathcal{F}$. Hence $\chi_{E} \in \mathcal{F}$ according to Step 2.</p>
+<h5 id="4-2-3-Arbitrary-open-sets-with-finite-measure"><a href="#4-2-3-Arbitrary-open-sets-with-finite-measure" class="headerlink" title="4.2.3 - Arbitrary open sets with finite measure"></a>4.2.3 - Arbitrary open sets with finite measure</h5><p>Since every open sets in $\mathbb{R}^d$ can be a countable union of almost disjoint cubes, we have</p>
+<script type="math/tex; mode=display">
+E = \bigcup_{k=1}^\infty Q_k</script><p>If we take $E_{K}=\bigcup_{k=1}^{K}Q_k$, we have $f_K=\chi_{E_K}=\sum_{k=1}^{K}\chi_{Q_k}$. And we are going to follow Step 3 to show that $\chi_{E} \in \mathcal{F}$ if $m(E)&lt;\infty$.</p>
+<p>Since the Lebesgue $\sigma$-measure contains all Borel sets, and $E$ is open, we see that $E$ is measurable. If $m(E)&lt;\infty$, then we see that $\chi_{E}$ is integrable. Also we have $f_{K+1} \geq f_{K}$ for all $K$, and $f_{K} \to \chi_{E}$; hence $f_{K}$ is what we described in Step 3. Say, $\chi_{E} \in \mathcal{F}$.</p>
+<h5 id="4-2-4-Arbitrary-G-delta-sets"><a href="#4-2-4-Arbitrary-G-delta-sets" class="headerlink" title="4.2.4 - Arbitrary $G_\delta$ sets"></a>4.2.4 - Arbitrary $G_\delta$ sets</h5><blockquote>
+<p>If $E$ is a $G_\delta$ set of finite measure, then $\chi_{E} \in \mathcal{F}$.</p>
+</blockquote>
+<p>By the definition of $G_\delta$ sets, we have</p>
+<script type="math/tex; mode=display">
+E=\bigcap_{k=1}^{\infty}R_k</script><p>where $R_k$ are open sets. Since $m(E)&lt;\infty$, $m$ is regular, we have a open set $S_0 \supset E$ such that $m(S_0)&lt;\infty$. Let</p>
+<script type="math/tex; mode=display">
+S_k = S_0 \cap \left(\bigcap_{j=1}^{k}R_j\right)</script><p>Then we have</p>
+<script type="math/tex; mode=display">
+E= \bigcap_{k=1}^{\infty}S_k</script><p>For $S_k$’s, observe that $S_0 \supset S_1 \supset \cdots$, we have $f_k=\chi_{S_k}$ decreases to the limit $f=\chi_E$. Following Step 3, we see that $\chi_E \in \mathcal{F}$.</p>
+<h4 id="4-3-Sets-with-measure-0"><a href="#4-3-Sets-with-measure-0" class="headerlink" title="4.3 - Sets with measure $0$"></a>4.3 - Sets with measure $0$</h4><blockquote>
+<p>If $m(E)=0$, then $\chi_{E} \in \mathcal{F}$</p>
+</blockquote>
+<p>If $E$ is a $G_{\delta}$ set, then we are done by following 4.2. If not, it comes to the issue of $m$’s being a complete measure.</p>
+<p>Again, by the regularity of $m$, we may choose a set $G$ of $G_\delta$ such that $E \subset G$ and that $m(G)=0$. As proved, $\chi_{G} \in \mathcal{F}$. Therefore</p>
+<script type="math/tex; mode=display">
+\int_{\mathbb{R}^m}\chi_{G}dx=0\quad\text{for a.e. }y</script><p>Thus, the slice $G^y$ has measure $0$ a.e. for $y$, since $E^y \subset G^y$, we have $E^y$ has measure $0$ a.e. for $y$. Therefore the fact that $\chi_{E}\in\mathcal{F}$ can be verified by simple calculation.</p>
+<h3 id="Step-5-All-integrable-functions"><a href="#Step-5-All-integrable-functions" class="headerlink" title="Step 5 - All integrable functions"></a>Step 5 - All integrable functions</h3><blockquote>
+<p>If $f$ is integrable, then $f \in \mathcal{F}$.</p>
+</blockquote>
+<p>Like the construction of Lebesgue integral, $f$ has the decomposition that $f= f^+-f^-$. Thus it suffice to prove this for nonnegative $f$ (by Step 1).</p>
+<p>There exists a sequence of integrable and nonnegative simple functions $s_k$ that monotonically converges to $f$. Since each integrable $s_k$ is a finite combination of sets with finite measure, by Step 2 and 4, $s_k \in \mathcal{F}$. By Step 3, clearly we have $f \in \mathcal{F}$.</p>
+<h2 id="Comments"><a href="#Comments" class="headerlink" title="Comments"></a>Comments</h2><p>Fubini’s theorem shows us that we might be able to evaluate multidimensional integrals in the sense of measure theory with ease (at least ‘almost everywhere’). However there are some counterexamples showing that Fubini’s theorem will fall, which will be discussed later.</p>
+<p>This proof is a good example of how to play with the elements of Lebesgue integral. Let’s take a rewind. We want to obtain all integrable functions in $\mathcal{F}$, which however can’t be done directly. So we are looking for simple functions, which are generated by characteristic functions. And luckily we obtained a wide enough range of characteristic functions. With linear combinations and limits, we finally achieved the goal to describe all integrable functions. The properties of ‘almost everywhere’ played a critical role.</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-03-14T11:00:00.000Z" title="14/03/2020, 19:00:00">2020-03-14</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-10-23T00:19:31.958Z" title="23/10/2021, 08:19:31">2021-10-23</time></span><span class="level-item"><a class="link-muted" href="../../categories/Analysis/">Analysis</a><span> / </span><a class="link-muted" href="../../categories/Analysis/Complex-Analysis/">Complex Analysis</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2020/03/14/topological-property-of-the-zeros-of-a-holomorphic-function/">Topological properties of the zeros of a holomorphic function</a></h1><div class="content"><h3 id="What’s-going-on"><a href="#What’s-going-on" class="headerlink" title="What’s going on"></a>What’s going on</h3><p>If for every $z_0 \in \Omega$ where $\Omega$ is a plane open set, the limit</p>
+<script type="math/tex; mode=display">
+    \lim_{z \to z_0}\frac{f(z)-f(z_0)}{z-z_0}</script><p>exists, we say that $f$ is holomorphic (a.k.a. analytic) in $\Omega$. If $f$ is holomorphic in the whole plane, it’s called <strong>entire</strong>. The class of all holomorphic functions (denoted by $H(\Omega)$) has many interesting properties. For example it does form a ring.</p>
+<p>But what happens if we talk about the points where $f$ is equal to $0$? Is it possible to find an entire function $g$ such that $g(z)=0$ if and only if $z$ is on the unit circle? The topological property we will discuss in this post answers this question negatively.</p>
+<h3 id="Zeros"><a href="#Zeros" class="headerlink" title="Zeros"></a>Zeros</h3><blockquote>
+<p>Suppose $\Omega$ is a region, the set</p>
+<script type="math/tex; mode=display">
+    Z(f)=\{z_0\in\Omega:f(z_0)=0\}</script><p>is a at most countable set without limit point, as long as $f$ is not identically equal to $0$ on $\Omega$. </p>
+</blockquote>
+<p>Trivially, if $f(\Omega)=\{0\}$, we have $Z(f)=\Omega$. The set of unit circle is not at most countable and every point is a limit point. Hence if an entire function is equal to $0$ on the unit circle, then the function equals to $0$ on the whole plane.</p>
+<p>Note: the connectivity of $\Omega$ is important. For example, for two disjoint open sets $\Omega_0$ and $\Omega_1$, define $f(z)=0$ on $\Omega_0$ and $f(z)=1$ on $\Omega_1$, then everything fails.</p>
+<h3 id="A-simple-application-Feat-Baire-Category-Theorem"><a href="#A-simple-application-Feat-Baire-Category-Theorem" class="headerlink" title="A simple application (Feat. Baire Category Theorem)"></a>A simple application (Feat. Baire Category Theorem)</h3><p>Before establishing the proof, let’s see what we can do using this result.</p>
+<blockquote>
+<p>Suppose that $f$ is an entire function, and that in every power series</p>
+<script type="math/tex; mode=display">
+    f(z)=\sum c_n(z-a)^n</script><p>has at leat one coefficient is $0$, then $f$ is a polynomial.</p>
+</blockquote>
+<p>Clearly we have $n!c_n=f^{(n)}(a)$, thus for <strong>every</strong> $a \in \mathbb{C}$, we can find a postivie integer $n_0$ such that $f^{(n_0)}(a)=0$. Thus we establish the identity:</p>
+<script type="math/tex; mode=display">
+    \bigcup_{n=0}^{\infty} Z(f^{(n)})=\mathbb{C}</script><p>Notice the fact that $f^{(n)}$ is entire. So $Z(f^{n})$ is either an at most countable set without limit point, or simply equal to $\mathbb{C}$.  If there exists a number $N$ such that $Z(f^{N})=\mathbb{C}$, then naturally $Z(f^{n})=\mathbb{C}$ holds for all $n \geq N$. Whilst we see that $f$’s power series has finitely many nonzero coefficients, thus polynomial.</p>
+<p>So the question is, is this $N$ always exist? Being an at most countable set without limit points , $Z(f^{(n)})$ has empty interior (nowhere dense). But according to <strong>Baire Category Theorem</strong>, $\mathbb{C}$ could not be a countable union of nowhere dense sets (of the first category if you say so). This forces the existence of $N$.</p>
+<h3 id="Proof"><a href="#Proof" class="headerlink" title="Proof"></a>Proof</h3><p>The proof will be finished using some basic topology techniques.</p>
+<p>Let $A$ be the set of all limit points of $Z(f)$ in $\Omega$. The continuity of $f$ shows that $A \subset Z(f)$. We’ll show that if $A \neq \varnothing$, then $Z(f)=\Omega$.</p>
+<p>First we claim that if $a \in A$, then $a \in \bigcap_{n \geq 0}Z(f^{(n)})$. That is, $f^{(k)}(a) = 0$ for all $k \geq 0$. Suppose this fails, then there is a smallest positive integer $m$ such that $c_m \neq 0$ for the power series on the disc $D(a;r)$:</p>
+<script type="math/tex; mode=display">
+    f(z)=\sum_{n=1}^{\infty}c_n(z-a)^{n}.</script><p>Define</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+​    g(z)=\begin{cases}
+​        (z-a)^{-m}f(z)\quad&(z\in\Omega-\{a\}) \\\
+​        c_m\quad&(z=a)
+​    \end{cases}
+\end{aligned}</script><p>It’s clear that $g \in H(D(a;r))$ since we have</p>
+<script type="math/tex; mode=display">
+    g(z)=\sum_{n=1}^{\infty}c_{m+n}(z-a)^{n}\quad(z\in D(a;r))</script><p>But the continuity shows that $g(a)=0$ while $c_m \neq 0$.  A contradiction.</p>
+<p>Next fix a point $b \in \Omega$. Choose a curve (continuous mapping) defined $\gamma$ on $[0,1]$ such that $\gamma(0)=a$ and $\gamma(1)=b$. Let</p>
+<script type="math/tex; mode=display">
+    \Gamma=\{t\in[0,1]:\gamma(t)\in\bigcap_{n \geq 0}Z(f^{(n)})\}</script><p>By hypothesis, $0 \in \Gamma$. We shall prove that $1 \in \Gamma$. Let</p>
+<script type="math/tex; mode=display">
+    s = \sup\Gamma</script><p>There exists a sequence $\{t_n\}\subset\Gamma$ such that $t_n \to s$. The continuity of $f^{(k)}$ and $\gamma$ shows that </p>
+<script type="math/tex; mode=display">
+    f^{(k)}(\gamma(s))=0</script><p>Hence $s \in \Gamma$. Choose a disc $D(\gamma(s);\delta)\subset\Omega$. On this disc, $f$ is represented by its power series but all coefficients are $0$. It follows that $f(z)=0$ for all $z \in D(\gamma(s);\delta)$. Further, $f^{(k)}(z)=0$ for all $z \subset D(\gamma(s);\delta)$ for all $k \geq 0$. Therefore by the continuity of $\gamma$, there exists $\varepsilon&gt;0$ such that $\gamma(s-\varepsilon,s+\varepsilon)\subset D(\gamma(s);\delta)$, which implies that $(s-\varepsilon, s+\varepsilon)\cap[0,1]\subset\Gamma$. Since $s=\sup\Gamma$, we have $s=1$, therefore $1 \in \Gamma$. </p>
+<p>So far we showed that $\Omega = \bigcap_{n \geq 0}Z(f^{(n)})$, which forces $Z(f)=\Omega$. This happens when $Z(f)$ contains limit points, which is equivalent to what we shall prove.</p>
+<p>When $Z(f)$ contains no limit point, all points of $Z(f)$ are isolated points; hence in each compact subset of $\Omega$, there are at most finitely many points in $Z(f)$. Since $\Omega$ is $\sigma$-compact, $Z(f)$ is at most countable. $Z(f)$ is also called a discrete set in this situation.</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-02-07T16:00:00.000Z" title="08/02/2020, 00:00:00">2020-02-08</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-10-23T00:19:31.959Z" title="23/10/2021, 08:19:31">2021-10-23</time></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2020/02/08/primary-decomposition/">准素分解与准素标准型</a></h1><div class="content"><h3 id="特征向量的推广"><a href="#特征向量的推广" class="headerlink" title="特征向量的推广"></a>特征向量的推广</h3><p>Matlab(以及很多支持矩阵运算的编程语言)里，知道了一个方阵的特征值，怎么计算特征向量? 有一个比较形象的解决方案:</p>
+<pre><code>null(A-c.*I)
+</code></pre><p>其中$A$表示矩阵，$c$表示一个特征值，$I$表示单位矩阵。(这篇博客里讨论的线性空间都是有限维线性空间$V$，讨论域$\mathbb{F}$。) 这个办法可能有点笨，但它解释了一个简单的概念。一个矩阵指定特征值的特征向量，正好是一个特殊线性变换的核。只需要注意下面的等式: </p>
+<script type="math/tex; mode=display">
+    \text{ker}(\mathscr{A}-c\mathscr{I})=\{\alpha|(\mathscr{A}-c\mathscr{I})\alpha=0\{</script><p>但是有一点很有意思: $\lambda-c$又是一个多项式。这就引导我们通过线性变换<strong>多项式</strong>的核这一概念推广特征子空间和特征向量。</p>
+<p> 对多项式形式$f\in\mathbb{F}[\lambda]$，记 </p>
+<script type="math/tex; mode=display">
+     \text{ker}(f)=\{\alpha\in{V}|f(\mathscr{A})\alpha=0\{</script><p>为属于$f$的<strong>广义特征子空间</strong>，其中的向量称为<strong>广义特征向量</strong>。结合线性空间和多项式的若干性质，不难得到如下几个基本结论。</p>
+<blockquote>
+<p>性质1: 设$f，g\in\mathbb{F}[\lambda]$，$m=m(\lambda)$是$\mathscr{A}$的极小多项式，则有如下结论:</p>
+<ol>
+<li>$\text{ker}(1)=0$，$\text{ker}(m)=V$</li>
+<li>若$g|f$，那么$\text{ker}(g)\subset\text{ker}(f)$</li>
+<li>$\text{ker}(f)\cap\text{ker}(g)=\text{ker}(\text{gcd}(f,g))$</li>
+<li>$\text{ker}(f)+\text{ker}(g)=\text{ker}(\text{lcm}(f,g))$</li>
+<li>若$\text{gcd}(f,g)=1$，那么$\text{ker}(fg)=\text{ker}(f)\oplus\text{ker}(g)$</li>
+</ol>
+</blockquote>
+<p>应该注意到，多项式的加法、乘法、最小公倍数、最大公因子等与线性空间子空间的基本性质在这里是互相融洽的。</p>
+<h3 id="空间准素分解——基于极小多项式的广义特征子空间分解"><a href="#空间准素分解——基于极小多项式的广义特征子空间分解" class="headerlink" title="空间准素分解——基于极小多项式的广义特征子空间分解"></a>空间准素分解——基于极小多项式的广义特征子空间分解</h3><p>再说一下最常见的特征值分解。这个分解主要是通过解<strong>特征多项式</strong>的根，找到一组特征向量构成的基，得到对角形。Cayley-Hamilton定理告诉我们，特征多项式是一个零化多项式。也就是说，设$\mathscr{A}:V\to{V}$，$f$是$\mathscr{A}$的特征多项式，那么对于$\alpha\in{V}$，有$f(\mathscr{A})\alpha=0$。</p>
+<p>满足$g(\mathscr{A})\alpha=0(\alpha\in{V})$的多项式$g(\lambda)$称为零化多项式，全体零化多项式中次数最低的首一多项式(最高次数项系数为$1$)称为极小多项式，记为$m(\lambda)$。不难验证，对于任一零化多项式$g(\lambda)$，都有$m(\lambda)|g(\lambda)$，也就是说，$g(\lambda)=m(\lambda)n(\lambda)$，其中$n(\lambda)$是一个多项式(次数可能为$0$)。而$m(\lambda)$的存在性与唯一性也可以很容易得到证明.</p>
+<p>准素分解就是通过对极小多项式进行分解得到的，和循环分解类似，是一个很稳定的分解.</p>
+<p>接下来我们回顾一下多项式的一个基本性质:</p>
+<blockquote>
+<p>域$\mathbb{F}$上任一非常数多项式$f\in\mathbb{F}[X]$均可以唯一分解成不可约多项式乘积，即 </p>
+<script type="math/tex; mode=display">
+    f=p_1p_2\cdots{}p_m</script><p>其中$p_i$是不可约多项式，且是唯一的(不考虑常数和次序)。对于$i\neq{j}$，一定有$\text{gcd}(p_i,p_j)=1$.</p>
+</blockquote>
+<p>那么我们就可以唯一分解$m$了。不妨设$m(\lambda)=\prod_{i=1}^{s}p_i(\lambda)^{r_i}$。又设$W_i=\text{ker}(p_i^{r_i})$，那么根据性质1，$V$就可以唯一分解(不考虑次序)成</p>
+<blockquote>
+<script type="math/tex; mode=display">
+    V=W_1\oplus W_2\oplus\cdots\oplus W_s.</script></blockquote>
+<p>而且不难验证，$W_i$是$\mathscr{A}$的不变子空间。此即准素分解。总而言之，将一个线性变换的极小多项式分解成互质因子的乘积，将整个线性空间分解成这些多项式因子的核的直和，即为准素分解.</p>
+<h3 id="矩阵的准素标准形"><a href="#矩阵的准素标准形" class="headerlink" title="矩阵的准素标准形"></a>矩阵的准素标准形</h3><p>现已将$V$分解成几个子空间的直和。如果分别在这几个子空间选取一组基，合成$V$的基，就能得到准素标准形。具体地说，</p>
+<blockquote>
+<p>存在$\mathbb{F}$上的可逆矩阵$P$使得$A=P\text{diag}(A_1，\cdots，A_s)P^{-1}$.</p>
+</blockquote>
+<p>其中$A_i$就是$\mathscr{A}$限制在$W_i$上的线性变换的矩阵。这里的基的选择是任意的，但是得到的准对角矩阵又是怎样的性质? 接下来从极小多项式和特征多项式入手。</p>
+<h4 id="准素分解与极小多项式"><a href="#准素分解与极小多项式" class="headerlink" title="准素分解与极小多项式"></a><strong>准素分解与极小多项式</strong></h4><hr>
+<p>我们肯定希望这样的分解比较”干净”。根据极小多项式分解子空间，那么子空间的性质也应该和极小多项式的分解相融洽。也就是说，</p>
+<blockquote>
+<p>$\mathscr{A}_i=\mathscr{A}\vert_{W_i}$的极小多项式为$p_i(\lambda)^{r_i}$.</p>
+</blockquote>
+<p>下面给出证明。</p>
+<hr>
+<p>因为$W_i=\text{ker}(p_i^{r_i})$，对$\alpha\in{W_i}$，一定有$p_i(\mathscr{A}_i)^{r_i}=0$，也就是说，$p_i(\lambda)^{r_i}$一定是$\mathscr{A}_i$的零化多项式。</p>
+<p>如果$r_i=1$，考虑到$p_i$不可约，那么已经有$p_i(\lambda)^{r_i}$是$\mathscr{A}_i$的极小多项式。对于$r_i&gt;1$，只需要证明$p_i^{r_i-1}$不是零化多项式，也就是说，证明$\text{ker}(p_i^{r_i})\neq\text{ker}(p_i^{r_i-1})$</p>
+<p>设$q=m/p_i^{r_i}$。那么$q$和$p_i^{r_i-1}$互质。假设$W_i=\text{ker}(p_i^{r_i-1})$，那么一定有 \begin{equation} \begin{aligned} \text{ker}(p_i^{r_i-1}q)&amp;=W_i\oplus\text{ker}(q) \\<br>&amp;=W_i\oplus(W_1\oplus\cdots\oplus W_{i-1}\oplus W_{i+1}\oplus\cdots\oplus W_s )\\<br>&amp;=V \end{aligned} \end{equation}</p>
+<p>但是注意到$\text{deg}(p_i^{r_i-1}q)&lt;\text{deg}(m)$，$\text{ker}(m)=V$，这和$m$的唯一性矛盾。命题得证。</p>
+<h4 id="准素分解和特征多项式"><a href="#准素分解和特征多项式" class="headerlink" title="准素分解和特征多项式"></a><strong>准素分解和特征多项式</strong></h4><p>在<a href="/post/2020-02-03-cyclic-decomposition-and-example/">这篇博客</a>里我们指出，一个线性变换的特征多项式和极小多项式有着相同的不可约因子。也就是说，对于本文中提到的极小多项式，一定有正整数$d_1，d_2，\cdots，d_s$使得$f(\lambda)=\prod_{i=1}^{s}p_i(\lambda)^{d_i}$，其中$d_i\geq r_i$。有意思的是，特征多项式的分解也和准素分解的子空间相洽.</p>
+<blockquote>
+<p>$\mathscr{A}_i$的特征多项式是$p_i(\lambda)^{d_i}$</p>
+</blockquote>
+<p>我们讨论准对角矩阵$B=\text{diag}(A_1，\cdots，A_s)$的特征多项式，因为这和$A$的特征多项式是相等的(为什么?).</p>
+<p>直接计算特征多项式，有 </p>
+<script type="math/tex; mode=display">
+    |\lambda{I}-B|=|\lambda{I_1}-A_1|\cdots|\lambda{I_s}-A_s|</script><p>(注意，这个等式可以看成一个Laplace展开的递归运用。)</p>
+<p>如果设$|\lambda{I_1}-A_1|=f_i(\lambda)$，那么就将$f(\lambda)$分解成了$\textbf{s}$个互质因子 </p>
+<script type="math/tex; mode=display">
+    f(\lambda)=f_1(\lambda)f_2(\lambda)\cdots{}f_s(\lambda)</script><p>其中$f_i(\lambda)$是$A_i$的特征多项式。而$f(\lambda)=\prod_{i=1}^{s}p_i(\lambda)^{d_i}$是唯一分解，不难得到$f_i(\lambda)=p_i(\lambda)^{d_i}$，此即所求结论。</p>
+<h3 id="准素分解的实例，以及如何判断矩阵是否可以对角化"><a href="#准素分解的实例，以及如何判断矩阵是否可以对角化" class="headerlink" title="准素分解的实例，以及如何判断矩阵是否可以对角化"></a>准素分解的实例，以及如何判断矩阵是否可以对角化</h3><p>设矩阵 </p>
+<script type="math/tex; mode=display">
+    A=\begin{bmatrix} 2&-1&2&2 \\  
+    1&0&-2&0 \\  
+    1&0&1&1 \\  
+    -1&1&-2&-1 \end{bmatrix}</script><p>对应线性变换$\mathscr{A}:x\mapsto{Ax}$。现在$\mathbb{R}^4$上进行准素分解.</p>
+<p>$A$的极小多项式为$m(\lambda)=(\lambda-1)^2(\lambda^2+1)$。那么$\mathbb{R}^4$应该分解为 <script type="math/tex">\mathbb{R}^4=\text{ker}[(\lambda-1)^2]\oplus\text{ker}(\lambda^2+1)</script></p>
+<p>在这两个核中分别选取一组基，即得准素分解。这个时候如果用matlab代码解第一个子空间，就可以是</p>
+<pre><code>null((A-I)^2)
+</code></pre><p>在$W_1$中取基$x_1=(0，0，0，1)^T$和$x_2=(2，0，1，0)^T$，在$W_2$中取基$(1，0，0，-1)^T$和$(1，1，0，-1)^T$，得到矩阵 </p>
+<script type="math/tex; mode=display">
+    P=\begin{bmatrix}
+    0&2&1&1 \\  
+    0&0&0&1 \\  
+    0&1&0&0 \\  
+    1&0&-1&-1 \end{bmatrix}</script><p>不难得到准素标准形 </p>
+<script type="math/tex; mode=display">
+    B=P^{-1}AP=\begin{bmatrix} 
+    -1&-4&0&0 \\  
+    1&3&0&0 \\  
+    0&0&-1&-2 \\  
+    0&0&1&1 \end{bmatrix}</script><p>准素分解的若干性质都可以在这个准对角形中得到验证。</p>
+<hr>
+<p>然而，矩阵$A$是不能被对角化的(无论是在$\mathbb{R}$中还是$\mathbb{C}$中)。然而，上篇博客中探讨的矩阵 </p>
+<script type="math/tex; mode=display">
+    C=\begin{bmatrix}
+    0&-1&2&0 \\
+    -1&0&-2&0 \\
+    0&0&-5&0 \\
+    1&1&-2&1 \end{bmatrix}</script><p>是一定可以对角化的(不论在$\mathbb{R}$中还是在$\mathbb{C}$中)。这时为什么? 有没有什么一般化的规则?</p>
+<p>注意$m_c(\lambda)=(\lambda-1)(\lambda+1)(\lambda+5)$，极小多项式的根互异。而$A$的极小多项式的根不是互异的(在$\mathbb{C}$中)。又想，如果一个矩阵的特征多项式的根互异，那么就一定有$n$个特征根，而属于不同特征根的特征向量又是线性无关的，那么就一定能选取一组特征向量构成的基，就一定能对角化。但是这个时候极小多项式一定和特征多项式相等。实际上</p>
+<blockquote>
+<p>域$\mathbb{F}$上的矩阵$A$可以对角化的充分必要条件是，$m(\lambda)$可以写成这种形式 </p>
+<p><script type="math/tex">m(\lambda)=(\lambda-\lambda_1)(\lambda-\lambda_2)\cdots(\lambda-\lambda_s)</script> 其中$\lambda_1，\cdots，\lambda_s\in\mathbb{F}$，且互异.</p>
+</blockquote>
+<p>如果有$P^{-1}AP=\text{diag}(\lambda_1{I_1}，\cdots，\lambda_s{I_s})$，那么通过简单的矩阵运算，可以发现</p>
+<script type="math/tex; mode=display">
+(A-\lambda_1I)(A-\lambda_2I)\cdots(A-\lambda_sI)=0</script><p>因此有</p>
+<script type="math/tex; mode=display">
+m|(\lambda-\lambda_1)\cdots(\lambda-\lambda_s)</script><p>同时，考虑到$\lambda_i$是$A$的特征值，因此是$m$的根，所以有</p>
+<script type="math/tex; mode=display">
+(\lambda-\lambda_1)\cdots(\lambda-\lambda_s)|m</script><p>此即$m=(\lambda-\lambda_1)\cdots(\lambda-\lambda_s)$。</p>
+<p>另一方面，如果$m(\lambda)=(\lambda-\lambda_1)(\lambda-\lambda_2)\cdots(\lambda-\lambda_s)$，那么对$A$进行准素分解能得到 </p>
+<script type="math/tex; mode=display">
+    P^{-1}AP=\text{diag}(A_1，\cdots，A_s)</script><p>接下来，考虑到$A_i$的极小多项式是$\lambda-\lambda_i$，那么就有 </p>
+<script type="math/tex; mode=display">
+    A_i-\lambda_i{I_i}=0</script><p>所以$A$可以被对角化。</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-02-02T16:00:00.000Z" title="03/02/2020, 00:00:00">2020-02-03</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-05-01T03:34:26.345Z" title="01/05/2022, 11:34:26">2022-05-01</time></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2020/02/03/cyclic-decomposition-and-example/">线性空间的循环分解</a></h1><div class="content"><h3 id="说在前面"><a href="#说在前面" class="headerlink" title="说在前面"></a>说在前面</h3><p><a href="/2020/01/22/cyclic-decomposition/">这篇博客</a>中仅仅引入了循环子空间的概念，遗留了很多问题没得到解决。这些问题会在这篇博客中得到解决。一个矩阵的有理标准形虽然不能得到与特征值、特征向量有关的内容，但是在分解期间只涉及到了加法和乘法，不会出现扩充数域的现象。可以说，有理标准形能得到一类相似矩阵更朴素的信息. </p>
+<h3 id="循环分解"><a href="#循环分解" class="headerlink" title="循环分解"></a>循环分解</h3><blockquote>
+<p>设$V$是$\mathbb{F}$上的$n$维线性空间，$\mathscr{A}$是$V$的线性变换，则 <script type="math/tex">V=\bigoplus_{i=1}^r\mathbb{F}\big[\mathscr{A}\big]\alpha_i</script> 其中，$\mathbb{F} [\mathscr{A}] \alpha_i\neq\{0\}$为$\alpha_i\in{V}$生成的循环子空间.</p>
+</blockquote>
+<p>注意，这里的<strong>直和</strong>告诉我们，$\alpha_1,\alpha_2,\cdots,\alpha_r$线性无关。</p>
+<p>这里我们会用到<a href="/2020/01/28/conductor/">这篇博客</a>里提到的导子。其实，这一节也可以看成导子性质的补充。我们会用到下面一个基本事实：设$U \subset W \subset V$，则有</p>
+<script type="math/tex; mode=display">
+P_{\text{cond }W,\mathscr{A}}(\lambda)|P_{\text{cond }U,\mathscr{A}}(\lambda).</script><p>这是因为，对于任意的$\alpha \in V$，我们有$P_{\text{cond }U,\mathscr{A}}(\lambda)\alpha \in U \subset W$，因此$P_{\text{cond }U,\mathscr{A}}(\lambda) \in I(W,\mathscr{A})$.</p>
+<p>从此还能得到的一个结论是$I(U,\mathscr{A}) \subset I(W,\mathscr{A})$. 在学习了交换代数，特别是Krull维度相关的内容，就会对这里有不一样的理解。但是这已经远远超出这篇博客的范围。</p>
+<h4 id="循环分解的证明"><a href="#循环分解的证明" class="headerlink" title="循环分解的证明"></a><strong>循环分解的证明</strong></h4><p>如果$V$本身是一个相对于$\mathscr{A}$的循环空间，那么证明结束。现在讨论另一种情况.</p>
+<p>讨论导子时我们了解到，存在$\alpha_1\in{V}$使得 </p>
+<script type="math/tex; mode=display">
+P_{\text{min }\mathscr{A}}(\lambda)=P_{\text{min }\mathscr{A},\alpha_1}(\lambda)</script><p>设$W_1=\mathbb{F}[\mathscr{A}]\alpha_1$，并为方便起见设$W_0=0$. 又可以选取$\beta_2 \in V \setminus W_1$使得 </p>
+<script type="math/tex; mode=display">
+R_2(\lambda)=P_{\text{cond }W_1,\mathscr{A}}(\lambda)=P_{\text{cond }W_1,\mathscr{A},\beta_2}(\lambda)</script><p>我们自然希望，$R_2(\lambda)$的“地位”和$P_{\text{min }\mathscr{A},\alpha_1}(\lambda)$ 类似。对此，我们断言，可以调整$\beta_2$至某$\alpha_2$，使得$R_2(\lambda)=P_{\text{min }\mathscr{A},\alpha_2}(\lambda)$. 证明此断言后，我们可以用类似的办法继续寻找后面的多项式，最终得到结论。</p>
+<p>首先，$R_2(\mathscr{A})\beta_2=Q_1(\mathscr{A})\alpha_1$. 我们首先感兴趣的是$Q_1$和$R_2$的关系。对此，设</p>
+<script type="math/tex; mode=display">
+Q_1(\lambda)=R_2(\lambda)h_1(\lambda)+r_1(\lambda),\quad \deg r_1 < \deg R_2.</script><p>则立刻得到$R_2(\mathscr{A})\beta_2=R_2(\mathscr{A})h_1(\mathscr{A})\alpha_1+r_1(\mathscr{A})\alpha_1$. 令</p>
+<script type="math/tex; mode=display">
+\alpha_2=\beta_2-h_1(\mathscr{A})\alpha_1 \in \beta+W_1.</script><p>则</p>
+<script type="math/tex; mode=display">
+R_2(\mathscr{A})\alpha_2=R_2(\mathscr{A})h_1(\mathscr{A})\alpha_1+r_1(\mathscr{A})\alpha_1-R_2(\mathscr{A})h_1(\mathscr{A})\alpha_1=r_1(\mathscr{A})\alpha_1 \in W_1.</script><p>这也说明了$R_2(\lambda)=P_{\text{cond }W_1,\mathscr{A},\beta_2}(\lambda)=P_{\text{ cond }W_1,\mathscr{A},\alpha_2 }(\lambda)$. 这是由导子的定义决定的</p>
+<p>由于$W_0 \subset W_1$, 我们又有</p>
+<script type="math/tex; mode=display">
+P_{\text{cond }W_1,\mathscr{A},\alpha_2}(\lambda)|P_{\text{cond }W_0,\mathscr{A},\alpha_2}(\lambda).</script><p>注意到$P_{\text{cond }W_0,\mathscr{A},\alpha_2}(\lambda)=P_{\text{min }\mathscr{A},\alpha_2}(\lambda)$. 从而我们可以整理成</p>
+<script type="math/tex; mode=display">
+R_2(\lambda)|P_{\text{min }\mathscr{A},\alpha_2}(\lambda).</script><p>对于上式我们可以写成</p>
+<script type="math/tex; mode=display">
+P_{\text{min }\mathscr{A},\alpha_2}(\lambda)=g(\lambda)R_2(\lambda).</script><p>从此可以得到</p>
+<script type="math/tex; mode=display">
+g(\mathscr{A})P_{\text{cond }W_0,\mathscr{A},\alpha_2}(\mathscr{A})\alpha_2=g(\mathscr{A})r_1(\mathscr{A})\alpha_1=0.</script><p>若$r_1 \ne 0$, 则$P_{\text{min }\mathscr{A},\alpha_1}(\lambda)|[g(\lambda)r_1(\lambda)]$. 从而</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\deg g(\lambda)r_1(\lambda) &\ge \deg P_{\text{min }\mathscr{A},\alpha_1}(\lambda) \\
+          &= \deg P_{\text{min }\mathscr{A}}(\lambda) \\
+          &\ge \deg P_{\text{min }\mathscr{A},\alpha_2}(\lambda) \\
+          &= \deg g(\lambda) R_2(\lambda).
+\end{aligned}</script><p> 因此$\deg r_1(\lambda) \ge \deg R_2(\lambda)$，这与$r_1(\lambda)$的定义相矛盾，故我们一定有$r_1(\lambda)=0$. 因此$R_2(\mathscr{A})\alpha_2=0$，从而$P_{\text{min }\mathscr{A},\alpha_2}(\lambda)|R_2(\lambda)$，这说明$R_2(\lambda)=P_{\text{min }\mathscr{A},\alpha_2}(\lambda)$. 我们的断言得到了证明.</p>
+<p>令$W_2=\mathbb{F}[\mathscr{A}]\alpha_1+\mathbb{F}[\mathscr{A}]\alpha_2$。现在证明子空间的和为直和。</p>
+<p>对于$\alpha\in W_1\cap\mathbb{F}[\mathscr{A}]\alpha_2$，可以设 <script type="math/tex">\alpha=P(\mathscr{A})\alpha_2</script> 而 </p>
+<script type="math/tex; mode=display">
+    P_{\text{cond }W_1,\mathscr{A},\alpha_2}(\lambda)|P(\lambda)</script><p>故$P(\lambda)$是一个零化多项式，因此$\alpha=0$。这说明，子空间的和为直和。因此得到了子空间的直和 </p>
+<script type="math/tex; mode=display">
+    W_2=\mathbb{F}[\mathscr{A}]\alpha_1\oplus\mathbb{F}[\mathscr{A}]\alpha_2</script><p>如果$W_2\neq{V}$，那么又取$\beta_3$使得 </p>
+<script type="math/tex; mode=display">
+R_3(\lambda)=P_{\text{cond }W_2,\mathscr{A}}(\lambda)=P_{\text{cond }W_2,\mathscr{A},\beta_3}(\lambda)</script><p>按照上面的办法，我们可以将$\beta_3$调整为我们想要的$\alpha_3$，这里需要注意的是，我们需要写</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+R_3(\mathscr{A})\beta_3 &=Q_1(\mathscr{A})\alpha_1+Q_2(\mathscr{A})\alpha_2 \\
+                         &=(R_2(\mathscr{A})h_1(\mathscr{A})\alpha_1+R_3(\mathscr{A})h_2(\mathscr{A})\alpha_2)+r_1(\mathscr{A})\alpha_1+r_2(\mathscr{A})\alpha_2
+\end{aligned}</script><p>从而按照同样的办法证明$r_1=r_2=0$. </p>
+<p>调整至$\alpha_1$后，我们得到子空间</p>
+<script type="math/tex; mode=display">
+W_3=\mathbb{F}[\mathscr{A}]\alpha_1\oplus\mathbb{F}[\mathscr{A}]\alpha_2\oplus\mathbb{F}[\mathscr{A}]\alpha_3.</script><p>如此继续下去，如果$W_k\neq{V}$，则可继续选择$\alpha_{k+1}$等，直到得到 </p>
+<script type="math/tex; mode=display">
+    V=\mathbb{F}[\mathscr{A}]\alpha_1\oplus\mathbb{F}[\mathscr{A}]\alpha_2\oplus\cdots\oplus\mathbb{F}[\mathscr{A}]\alpha_r</script><p>此即循环分解。导子的性质保证这个向量的选择可以进行下去。$V$是有限维的，所以这个过程总会结束。</p>
+<h3 id="不变因子与极小多项式"><a href="#不变因子与极小多项式" class="headerlink" title="不变因子与极小多项式"></a>不变因子与极小多项式</h3><p>这一节我们来探讨一下上一节中得到的各个若干多项式。设$\alpha_k$对应的多项式为$m_k(\lambda)$。那么，根据导子的唯一性，这些多项式都是唯一的(被$\mathscr{A}$唯一决定)，而且已经得到了$m_k|m_{k-1}$这一关系。也就是说，对于指定的有限维度线性空间$V$和线性变换$\mathscr{A}$，(在顺序上)唯一决定了一组多项式$m_1,m_2,\cdots,m_r$。这组多项式称为$\mathscr{A}$的<strong>不变因子</strong>。</p>
+<p>上面的证明中已经解释，$m_k$是$\alpha_k$的最小零化子。那么对于整个循环子空间$\mathbb{F}[\mathscr{A}]\alpha_k$又是怎样? 对于$\alpha\in\mathbb{F}[\mathscr{A}]\alpha_k$，可以设 </p>
+<script type="math/tex; mode=display">
+\alpha = P(\mathscr{A})\alpha_k</script><p>那么</p>
+<script type="math/tex; mode=display">
+m_k(\mathscr{A})\alpha=m_k(\mathscr{A})P(\mathscr{A})\alpha_k=0</script><p>也就是说，$m_k$也是$\mathscr{A}$限制在$\mathbb{F}[\mathscr{A}]\alpha_k$的极小多项式(次数不能再低，否则就不再是$\alpha_k$的零化子).</p>
+<h3 id="有理标准形与特征多项式"><a href="#有理标准形与特征多项式" class="headerlink" title="有理标准形与特征多项式"></a>有理标准形与特征多项式</h3><blockquote>
+<p>对域$\mathbb{F}$上任一方阵$A$，存在域$\mathbb{F}$上的可逆方阵$P$使得 <script type="math/tex">B=P^{-1}AP=\text{diag}(C(m_1),\cdots,C(m_r))</script> 其中，$C(m_k)$是$m_k$的友阵，$m_k$是由$A$决定的线性变换$x\mapsto{Ax}$决定的线性变换的不变因子.</p>
+</blockquote>
+<p>方阵$B$即为方阵$A$的有理标准形.</p>
+<p>在<a href="/2020/01/22/cyclic-decomposition/">这篇博客</a>里我们指出，对于循环子空间$W=\mathbb{F}[\mathscr{A}]\alpha$，$\mathscr{A}$限制在$W$上的矩阵$A_W=C(m)$。这时我们选取了一组$W$上的循环基。现在，我们已经把一个线性空间分解成若干个循环子空间的直和，如果我们选择每个子空间的一组循环基，即得到有理标准形.</p>
+<p>设$k_i=\text{deg }m_i$，则在对于基 </p>
+<script type="math/tex; mode=display">
+\alpha_1,\mathscr{A}\alpha_1,\cdots,\mathscr{A}^{k_1-1}\alpha_1,\cdots,\alpha_r,\mathscr{A}\alpha_r,\cdots,\mathscr{A}^{k_r-1}\alpha_r</script><p>而言，$\mathscr{A}$的方阵表示即为</p>
+<script type="math/tex; mode=display">
+A=\text{diag}(C(m_1),\cdots,C(m_r))</script><p>这里的$P$即为由这组基构成的矩阵。计算特征多项式不难发现有 </p>
+<script type="math/tex; mode=display">
+    f=m_1m_2\cdots m_r</script><h4 id="一些补充"><a href="#一些补充" class="headerlink" title="一些补充"></a><strong>一些补充</strong></h4><p>根据$f$和不变因子的关系，不难得到三条结论:</p>
+<ol>
+<li><p>$V$是循环空间当且仅当$f=m$。也就是说，极小多项式和特征多项式相等。</p>
+</li>
+<li><p>$m|f$且$m$和$f$有相同的不可约因子(尽管次数可能不同)。也就是说，对于$f$可以唯一分解成不可约因子<script type="math/tex">f=p_1^{d_1}\cdots p_s^{d_s}</script> 那么一定有正整数$r_1,\cdots,r_s$使得 </p>
+<script type="math/tex; mode=display">
+m=p_1^{r_1}\cdots p_s^{r_s}</script><p>其中$0&lt;r_i\leq d_i$。</p>
+</li>
+<li><p>循环分解也成了Cayley-Hamilton的证明。因为$m|f$，所以特征多项式$f$一定是零化多项式。</p>
+</li>
+</ol>
+<h3 id="循环分解的实例"><a href="#循环分解的实例" class="headerlink" title="循环分解的实例"></a>循环分解的实例</h3><blockquote>
+<p>求矩阵 </p>
+<script type="math/tex; mode=display">
+    A=\begin{pmatrix} 
+    0&-1&2&0 \\  
+    -1&0&-2&0 \\  
+    0&0&-5&0 \\  
+    1&1&-2&1 
+    \end{pmatrix}</script><p> 的有理标准形，对$\mathbb{R}^4$进行循环分解</p>
+</blockquote>
+<p>这是线性变换 $\mathscr{A}:x\mapsto{Ax}$在$\varepsilon_1,\varepsilon_2,\varepsilon_3,\varepsilon_4$下的方阵表示.</p>
+<p>可以算出$f$的特征多项式和极小多项式为 </p>
+<script type="math/tex; mode=display">
+f(\lambda)=(\lambda-1)^2(\lambda+1)(\lambda+5) \\  
+m(\lambda)=(\lambda-1)(\lambda+1)(\lambda+5)</script><p>这时其实已经完成了分解。因为<strong>不变因子已经被确定</strong>，也就是说，</p>
+<script type="math/tex; mode=display">
+    m_1=\lambda^3+5\lambda^2-\lambda-5 \\  
+    m_2=\lambda-1</script><p>那么有理标准形就有 </p>
+<script type="math/tex; mode=display">
+    B=\left(\begin{array}{c c c|c} 
+    0&0&\textbf{5}&0 \\  
+    1&0&\textbf{1}&0 \\  
+    0&1&\textbf{-5}&0 \\  
+    \hline 
+    0&0&0&\textbf{1} 
+    \end{array}\right)</script><p>接下来我们要求可逆矩阵$P$。首先讨论子空间$\mathbb{R}[\mathscr{A}]\alpha_2$。对于$m_2=\lambda-1$，只需要取$A$属于特征值$1$的特征向量即可。不妨直接取$\alpha_2=(0,0,0,1)^T$.</p>
+<p>对于另一个循环空间的生成元$\alpha_1$，只需要保证$\alpha_1,\mathscr{A}\alpha_1,\mathscr{A}^2\alpha_1,\alpha_2$线性无关(秩为$4$)，从而构成循环基，不妨取$\alpha_1=(1,1,1,1)^T$。此时$A\alpha_1=(1,-3,-5,1)^T$，$A^2\alpha_1=(-7,9,25,9)^T$。此时就得到矩阵</p>
+<script type="math/tex; mode=display">
+    P=\begin{pmatrix} 
+    1&1&-7&0 \\  
+    1&-3&9&0 \\  
+    1&-5&25&0 \\  
+    1&1&9&1 
+    \end{pmatrix}</script><p>且</p>
+<script type="math/tex; mode=display">
+    \mathbb{R}^4=\mathbb{R}[\mathscr{A}]{}(1,1,1,1)^T\oplus\mathbb{R}[\mathscr{A}] {}(0,0,0,1)^T</script><p>最后解释一下选择$\alpha_1$和$\alpha_2$的合理性(虽然完全可以验证$P^{-1}AP=B$)。已经知道,$m_k$一定是$\alpha_k$的最小零化子。对于$\alpha_2$，考虑 $ (A-I)\alpha_2=0 $ 即可。这刚好要求$\alpha_2$是$\mathscr{A}$关于特征值$1$下的特征向量。对于$\alpha_1$，因为$m=\lambda^3+5\lambda^2-\lambda-5$是最小零化子，所以$\alpha_1$，$\mathscr{A}\alpha_1$，$\mathscr{A}^2\alpha_1$必须线性无关，否则就说明此时$m_1$不是$\alpha_1$的最小零化子，这与$\mathbb{R}[\mathscr{A}]\alpha_1$的性质矛盾.</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-01-27T16:00:00.000Z" title="28/01/2020, 00:00:00">2020-01-28</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-05-01T00:44:38.177Z" title="01/05/2022, 08:44:38">2022-05-01</time></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2020/01/28/conductor/">线性变换不变子空间的导子及其性质</a></h1><div class="content"><h3 id="问题的引入"><a href="#问题的引入" class="headerlink" title="问题的引入"></a>问题的引入</h3><p>在研究循环子空间的时候，我们是从线性变换出发，对一个指定的向量进行反复作用，这恰好和多项式吻合。这是从线性变换和唯一指定向量的角度出发的。但是有的时候不能从向量出发，因为选取一个合适的向量不总是可行的，我们也不一定需要研究全体多项式。可能更需要研究一个特定的多项式。这就要求我们在另一个角度刻画不变子空间。</p>
+<p>循环空间是某个线性变换的最小不变子空间。那么可不可以研究某个子空间、某个指定线性变换的保证线性空间不变性的多项式？</p>
+<p>设$W\subset{V}$为$V$的子空间，如果对任意$\alpha\in{W}$都有$\mathscr{A}\alpha\in{W}$，那么$W$就是$\mathscr{A}$的<strong>不变子空间</strong>。设多项式$g(\lambda)=\lambda$，那么就有$g(\mathscr{A})\alpha\in{W}$。如果$g(\lambda)$更<strong>复杂</strong>一些会怎样？有没有什么特殊的例子和性质？对于所有$\alpha\in{V}$又是怎样？这就是这篇博客要关注的问题。线性空间的循环分解也要用到这一个工具。</p>
+<h3 id="导子多项式-Conductor"><a href="#导子多项式-Conductor" class="headerlink" title="导子多项式(Conductor)"></a>导子多项式(Conductor)</h3><blockquote>
+<p>设$V$是定义在数域$\mathbb{F}$上的有限维线性空间，定义线性变换$\mathscr{A}:V\to{V}$，设$W$为$\mathscr{A}$的线性子空间。取$\textbf{v}\in{V}$。那么将$\textbf{v}$映入$W$的导子多项式$P_{\text{cond }W,\mathscr{A},\textbf{v}}(\lambda)$是指满足$P(\mathscr{A})\textbf{v}\in{W}$的次数最小的首项系数为$1$的多项式(首一多项式，monic polynomial); 多项式$P_{\text{cond }W,\mathscr{A}}(\lambda)$是指将全体$\textbf{v}\in{V}$都有$P(\mathscr{A})\in{W}$的次数最小的首项系数为$1$的多项式。</p>
+</blockquote>
+<p>分别记所有满足$P(\mathscr{A})\textbf{v}\in{W}$的全体多项式为$I(W,\mathscr{A},\textbf{v})$（对于指定的$\mathbf{v}$）和$I(W,\mathscr{A})$（对于所有向量），称为引导多项式。这里$I$的意思是Ideal。因为这是$\mathbb{F}[\lambda]$的一个理想。</p>
+<p>这可以看作最小多项式的推广。实际上，对于指定向量和全体向量空间的多项式，只需要将定义中的$W$换成$\{\textbf{0}\}$即可，记为$P_{\text{min }\mathscr{A},\textbf{v}}$和$P_{\text{min }\mathscr{A}}$。</p>
+<p>另外可以考虑$V=\mathbb{R}^3$中的一个例子。设$W=\mathbb{R}^2$，定义矩阵 </p>
+<script type="math/tex; mode=display">A=\begin{pmatrix} 1&0&0 \\  
+0&1&0 \\  
+0&0&0 \end{pmatrix}</script><p> 和线性变换$\mathscr{A}:x\mapsto{Ax}$。那么显然$W$是$\mathscr{A}$的不变子空间，且$P(\lambda)=\lambda=P_{\text{cond }W,\mathscr{A}}(\lambda)$。它将$V$中全体向量都映入$W$。自然它也是$(0,0,1)^T$的引导多项式。</p>
+<p>如果$W\neq{V}$，对于$\textbf{v}\in{V-W}$，到底需要怎样的”代价”才能利用$\mathscr{A}$将$\textbf{v}$“导入”$W$？这”代价”就是导子。</p>
+<h4 id="两种导子多项式的存在性、唯一性"><a href="#两种导子多项式的存在性、唯一性" class="headerlink" title="两种导子多项式的存在性、唯一性"></a><strong>两种导子多项式的存在性、唯一性</strong></h4><p>好在这两种多项式是稳定存在的，这也为我们探讨后面的性质做了保证。</p>
+<p>首先是$P_{\text{cond }W,\mathscr{A},\textbf{v}}(\lambda)$的存在性。和循环子空间的零化子类似，通过讨论维数和线性无关性解决。假设导子不存在，设$\textbf{v}\in{V-W}$。则有$I(W,\mathscr{A},\textbf{v})=\varnothing$。设$V$的维度为$n$，那么向量$\textbf{v},\mathscr{A}\textbf{v},\cdots,\mathscr{A}^n\textbf{v}$必定线性相关。也就是说有 <script type="math/tex">\sum_{k=0}^{n}c_k\mathscr{A}^k\textbf{v}=\textbf{0}\in{W}</script> 其中$c_k\in\mathbb{F}$不全为$0$。那么$P(\lambda)=\sum_{k=0}^{n}c_k\lambda^k$就是一个非$0$多项式使得$P(\mathscr{A})\textbf{v}\in{W}$的多项式。这和假设矛盾。存在性得到证明。</p>
+<p>对线性空间的导子而言，考虑$V$的一组基$\{\textbf{e}_i\}(i=1,\cdots,n)$。那么只需要考虑 </p>
+<script type="math/tex; mode=display">P(\lambda)=\prod_{i=1}^{n}P_{\text{cond }W,\mathscr{A},\textbf{e}_i}(\lambda)</script><p>不妨验证一下，对任意$\textbf{v}\in{V}$，都有$P(\mathscr{A})\textbf{v}\in{W}$。因此$I(W,\mathscr{A})\neq\varnothing$。</p>
+<hr>
+<p>两种导子的唯一性讨论是类似的。设有最高次数相同的首一多项式$P(\lambda),Q(\lambda)\in{I(W,\mathscr{A})}$，那么$(P-Q)(\mathscr{A})\textbf{v}\in{W}$。而$P-Q$的次数更低，除以第一项次数又变成了首一多项式。因此唯一性得到了保证。$I(W,\mathscr{A},\textbf{v})$也可以类似进行讨论。</p>
+<h3 id="导子的性质"><a href="#导子的性质" class="headerlink" title="导子的性质"></a>导子的性质</h3><p>这一节中$V,W,\mathscr{A},\textbf{v}$和上一节相同。</p>
+<blockquote>
+<p><strong>定理0</strong>: 对任意$Q(\lambda)\in{I(W,\mathscr{A})}$，都有 <script type="math/tex">P_{\text{cond }W,\mathscr{A}}(\lambda)| Q(\lambda)。</script> 类似结果在$I(W,\mathscr{A},\textbf{v})$中也成立。</p>
+</blockquote>
+<p>这说明，导子是对应引导多项式的最小公因式。也可以用环论的语言理解。注意$\mathbb{F}[\lambda]$为PID，所有理想都存在唯一生成元。这个定理就是在说，$P_{\text{cond }W,\mathscr{A}}$为生成元</p>
+<p>这个结论看上去是显然的，证明也是很简单的。假设 <script type="math/tex">P_{\text{cond }W,\mathscr{A}}(\lambda) \nmid Q(\lambda)。</script></p>
+<p>那么有非零多项式$R(\lambda)$使得</p>
+<script type="math/tex; mode=display">Q(\lambda)=S(\lambda)P_{\text{cond }W,\mathscr{A}}(\lambda)+R(\lambda)</script><p>其中$R(\lambda)\in{I(W,\mathscr{A})}$，且最高次数小于$P_{\text{cond }W,\mathscr{A}}(\lambda)$。然而$P_{\text{cond }W,\mathscr{A}}(\lambda)$的次数是最低的。这得到了一个矛盾。$I(W,\mathscr{A},\textbf{v})$和$P_{\text{cond }W,\mathscr{A},\textbf{v}}(\lambda)$也用相同的办法进行证明。</p>
+<hr>
+<blockquote>
+<p><strong>定理1</strong>: 存在向量$\textbf{v}\in{V}$使得 <script type="math/tex">P_{\text{cond }W,\mathscr{A}}(\lambda)=P_{\text{cond }W,\mathscr{A},\textbf{v}}(\lambda)</script></p>
+</blockquote>
+<p>这个结论将两种导子充分地联系起来。显然有$P_{\text{cond }W,\mathscr{A}}(\lambda)\in{I(W,\mathscr{A},\textbf{v})}$，但是反过来又是怎样？这就需要证明这个结论。这个结论看似复杂，但是从多项式的性质出发，就不复杂了。这个定理的证明可以划分成证明这两个引理:</p>
+<blockquote>
+<p>（引理1）设两多项式满足$\text{gcd}(P(\lambda),Q(\lambda))=1$，对于向量$\textbf{u},\textbf{v}\in{V}$，有$P_{\text{cond }W,\mathscr{A},\textbf{u}}(\lambda)=P(\lambda)$和 $P_{\text{cond }W,\mathscr{A},\textbf{v}}(\lambda)=Q(\lambda)$，那么</p>
+<script type="math/tex; mode=display">P_{\text{cond }W,\mathscr{A},\textbf{u+v}}(\lambda)=P(\lambda)Q(\lambda)</script></blockquote>
+<p>这可以看成导子多项式关于生成向量的加法和多项式乘法的统一。还可以注意到，$P$和$Q$的互素也对应了$\textbf{u}$和$\textbf{v}$的线性无关性。</p>
+<p>首先有 </p>
+<script type="math/tex; mode=display">P(\mathscr{A})Q(\mathscr{A})(\textbf{u+v})=Q(\mathscr{A})P(\mathscr{A})\textbf{u}+P(\mathscr{A})Q(\mathscr{A})\textbf{v}\in{W}</script><p>根据定理0，一定有 <script type="math/tex">P_{\text{cond }W,\mathscr{A},\textbf{u+v}}(\lambda)|P(\lambda)Q(\lambda)</script> 此时就有$P_{\text{cond }W,\mathscr{A},\textbf{u+v}}(\lambda)R(\lambda)=P(\lambda)Q(\lambda)$。现在需要证明，$R(\lambda)=1$。</p>
+<p>不失一般性，不妨设$S(\lambda)=\frac{P(\lambda)}{R(\lambda)}$。那么经过简单的运算就有$P_{\text{cond }W,\mathscr{A},\textbf{u+v}}(\lambda)=S(\lambda)Q(\lambda)$。现在假设$\text{deg}R&gt;0$，那么$\text{deg}S&lt;\text{deg}P$。那么不难得到$Q(\mathscr{A})S(\mathscr{A})\textbf{u}\notin{W}$和$S(\mathscr{A})Q(\mathscr{A})\textbf{u}\in{W}$同时成立。但是</p>
+<script type="math/tex; mode=display">P_{\text{cond }W,\mathscr{A},\textbf{u+v}}(\mathscr{A})(\textbf{u}+\textbf{v})=S(\mathscr{A})Q(\mathscr{A})\textbf{v}+Q(\mathscr{A})S(\mathscr{A})\textbf{u}\in{W}</script><p>这得到了矛盾。因此$R=1$。引理1得证。</p>
+<hr>
+<blockquote>
+<p>（引理2）设$P(\lambda)$是一个在$\mathbb{F}$上不可约的多项式，设有正整数$m$使得$(P(\lambda))^m|P_{\text{cond }W,\mathscr{A}(\lambda)}$，那么存在$\textbf{v}\in{V}$使得$P_{\text{cond },W,\mathscr{A},\textbf{v}}(\lambda)=(P(\lambda))^m$</p>
+</blockquote>
+<p>由条件可以设</p>
+<script type="math/tex; mode=display">P_{\text{cond }W,\mathscr{A}}(\lambda)=(P(\lambda))^mQ(\lambda)</script><p>注意到一定存在$\textbf{v}_0$使得</p>
+<script type="math/tex; mode=display">(P(\mathscr{A}))^{m-1}Q(\mathscr{A})\textbf{v}_0\notin{W}</script><p>否则，有$(P(\lambda))^{m-1}Q(\lambda)\in{I(W,\mathscr{A})}$，而次数低于$P_{\text{cond }W,\mathscr{A}}(\lambda)$。已知$P_{\text{cond }W,\mathscr{A}}(\lambda)$是$I(W,\mathscr{A})$里次数最低的，所以这得到了矛盾.</p>
+<p>另一方面，$(P(\mathscr{A}))^mQ(\mathscr{A})\textbf{v}_0=P_{\text{cond }W,\mathscr{A}}(\mathscr{A})\in{W}$。令$\textbf{u}=Q(\mathscr{A})\textbf{v}_0$，那么就有 <script type="math/tex">(P(\mathscr{A}))^m\textbf{u}\in{W}</script></p>
+<p>已经验证，这里的$m$不能再低，同时也不难验证$P^m$为首一多项式。所以有 </p>
+<script type="math/tex; mode=display">P_{\text{cond },W,\mathscr{A},\textbf{u}}(\lambda)=(P(\lambda))^m</script><p>引理2得证</p>
+<hr>
+<p>最后来考虑定理1。首先，域$\mathbb{F}$上任意非常数多项式$f$都可以唯一分解为不可约因子，即 </p>
+<script type="math/tex; mode=display">f=\prod_{i=1}^{m}p_i</script><p>其中$p_i$是不可约的，且这种乘积是唯一的(不考虑常数项和次序).</p>
+<p>那么$P_{\text{cond },W,\mathscr{A}}(\lambda)$就可以进行分解(如果导子是常数，结论是显然的)，合并相同因子之后有 </p>
+<script type="math/tex; mode=display">P_{\text{cond },W,\mathscr{A}}(\lambda)=(P_1(\lambda))^{r_1}(P_2(\lambda))^{r_2}\cdots(P_n(\lambda))^{r_n}</script><p>那么根据引理2就有$\textbf{v}_1,\textbf{v}_2,\cdots,\textbf{v}_n\in{V}$使得 </p>
+<script type="math/tex; mode=display">P_{\text{cond }W,\mathscr{A}}(\lambda)=\prod_{i=1}^{n}P_{\text{cond }W,\mathscr{A},\textbf{v}_i}(\lambda)</script><p>又根据引理1，令$\textbf{v}_1+\textbf{v}_2+\cdots+\textbf{v}_n=\textbf{v}$，就能得到</p>
+<script type="math/tex; mode=display">P_{\text{cond }W,\mathscr{A}}(\lambda)=P_{\text{cond }W,\mathscr{A},\textbf{v}}(\lambda)</script><p>得证。</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-01-21T16:00:00.000Z" title="22/01/2020, 00:00:00">2020-01-22</time></span><span class="level-item">Updated&nbsp;<time dateTime="2020-04-05T09:13:01.148Z" title="05/04/2020, 17:13:01">2020-04-05</time></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2020/01/22/cyclic-decomposition/">线性空间的循环子空间与简单应用</a></h1><div class="content"><h3 id="矩阵的有理标准形"><a href="#矩阵的有理标准形" class="headerlink" title="矩阵的有理标准形"></a>矩阵的有理标准形</h3><p>矩阵对角化分解虽然会得到最简单的形式，但是条件是很苛刻的。它要求被分解的$n$阶矩阵有$n$个线性不相关的特征向量，具体地说，一个矩阵可对角化当且仅当对应特征值的几何重数等于对应的代数重数。还有可能需要扩张数域，例如实矩阵解出复根，考虑复特征向量。所以说这种分解不稳定。而且它并不能直接反映一个矩阵的所有性质。幸运的是，除了对角化分解之外还有一些不同的矩阵分解办法。虽然形式上不如对角矩阵一样简洁，但是却能体现不同的性质——例如对特征多项式的分解。而且，这些分解办法对任何矩阵都是可行的。</p>
+<p>首先要介绍的是<strong>有理标准形(rational form)</strong>。这里的“有理”和$\mathbb{Q}$没有关系。所谓“rational”是因为，不同于其他几种分解方式，这种分解不需要扩张数域。具体来说，对域$\mathbb{F}$上<strong>任意</strong>方阵$A$，存在$\mathbb{F}$上的可逆矩阵$P$使得 <script type="math/tex">B=P^{-1}AP=\text{diag}(C(m_1),\cdots,C(m_r))</script></p>
+<p>其中，$C(m_i)$是$m_i\in\mathbb{F}(\lambda)$的友阵(companion matrix)，是由$\mathbb{F}$上的多项式$m_i$唯一决定的。这些多项式也是由$A$唯一决定的，叫做矩阵的不变因子。</p>
+<p>这些多项式也有特殊的性质(这也是这种分解的意义所在)。首先，$m_1$是$A$的最小多项式，$A$的特征多项式可以表示为$f(\lambda)=m_1\cdots{m_r}$。在顺序上，应该有$m_i|m_{i-1}(i=2,3,\cdots，r)$。也就是说次数大的在前面小的在后面。</p>
+<p>一个多项式的友阵是指这样的一个方阵： </p>
+<script type="math/tex; mode=display">C(c_0+c_1t+\cdots+c_{n-1}t^{n-1}+t^n)=\begin{pmatrix} 0&0&\cdots&0&-c_0 \\  
+1&0&\cdots&0&-c_1 \\  
+0&1&\cdots&0&-c_2 \\  
+\vdots&\vdots&\ddots&\vdots&\vdots \\  
+0&0&\cdots&1&-c_{n-1} \end{pmatrix}</script><p>不难发现，一个多项式的方阵是被这一个方阵唯一决定的。讨论这个矩阵的特征多项式可以发现特征多项式$f$即为此多项式。</p>
+<p>这篇博客里会先介绍一下这种分解的背景和一些相对粗略简单的分解实例。矩阵有理标准形的完整论述会放到接下来的博客中。</p>
+<h3 id="循环空间"><a href="#循环空间" class="headerlink" title="循环空间"></a>循环空间</h3><p>需要指出，这样一个标准型涉及到线性空间的循环分解，而循环分解又涉及到循环空间这一概念。“循环”这一概念体现在被同一个线性变换<strong>反复</strong>作用。循环空间指的是对某一线性变换，某一向量的最小不变子空间。</p>
+<p>设$V$是数域$\mathbb{F}$上的线性空间，对于固定的线性变换$\mathscr{A}$，和一个指定的向量$\alpha \in V$，应该有 <script type="math/tex">\mathscr{A}\alpha, \mathscr{A}^2\alpha, \cdots\in{V}</script></p>
+<p>考虑到线性空间对向量的加法和数乘的封闭性，$\mathbb{F}$上的全体多项式就恰好固定了这些向量。也就是说，对于最小不变子空间$W$，应该包含$\mathbb{F}$上全体多项式$\mathbb{F}[\lambda]$的像 <script type="math/tex">\mathbb{F}[{\lambda}]{\alpha}=\mathbb{F}[\mathscr{A}]\alpha=\{g(\mathscr{A})\alpha :g(\lambda)\in\mathbb{F}[\lambda]\}</script></p>
+<p>另一方面，$\mathbb{F}[\lambda]\alpha$已经是不变子空间，因此有$W=\mathbb{F}[\lambda]\alpha$。$W$称为$\alpha$生成$\mathscr{A}$的<strong>循环子空间</strong>，如果有$W=V$，那么$V$称为<strong>循环空间</strong>，$\alpha$称为$V$的循环向量。</p>
+<h3 id="零化子"><a href="#零化子" class="headerlink" title="零化子"></a>零化子</h3><p>在接触循环分解之前，先需要考察一下循环空间的“大小”。一些线性空间的基本性质要在这里搞明白。这样一个线性空间的维数是多少? 怎样能找到这个线性空间的零向量? 线性空间的基怎么找到? 既然是不变子空间，那么限制线性变换的方阵表示又是怎样? 这些问题都需要通过分析零化子来解决。</p>
+<blockquote>
+<p>如果对多项式$g(\lambda)$有 <script type="math/tex">g(\lambda)\alpha=g(\mathscr{A})\alpha=0</script> 那么$g(\lambda)$称为$\alpha$的零化子(aka 零化多项式)。</p>
+</blockquote>
+<p>$\alpha$的次数最低的首一零化多项式称为最小零化子。显然，零化子是最小零化子的倍。注意这里的零化子是相对于$\alpha$，这和线性变换的零化子是两回事。接下来会通过分析线性相关性找出最小零化子。</p>
+<h4 id="如何找到最小零化子"><a href="#如何找到最小零化子" class="headerlink" title="如何找到最小零化子"></a><strong>如何找到最小零化子</strong></h4><p>选取循环向量$\alpha\in{W}$，再考察向量$\mathscr{A}\alpha$是否和$\alpha$线性相关，如果否，也将$\mathscr{A}\alpha$选取，再按照同样的办法选取$\mathscr{A}^2\alpha,\cdots,\mathscr{A}^{k-1}\alpha$，而$\alpha,\mathscr{A}\alpha,\mathscr{A}^2\alpha,\cdots,\mathscr{A}^{k-1}\alpha,\mathscr{A}^k\alpha$线性相关。根据线性空间的性质，$\mathscr{A}^k\alpha$可以被前面$(k-1)$个向量线性表示出来。也就是说有$c_0,\cdots,c_{k-1}\in\mathbb{F}$使得 <script type="math/tex">\mathscr{A}^{k}\alpha+c_{k-1}\mathscr{A}^{k-1}\alpha+\cdots+c_1\mathscr{A}\alpha+c_0\alpha=0</script></p>
+<p>如果令$m_{\alpha}(\lambda)=\lambda^k+c_{k-1}\lambda^{k-1}+\cdots+c_0$，那么就有$m_\alpha(\mathscr{A})\alpha=0$。也就是说，$m_\alpha$是$\alpha$的零化子。接下来需要验证这是次数最低的首一多项式。</p>
+<p>设$g(\lambda)$为$\alpha$的零化多项式。那么$g(\lambda)$可以写成 <script type="math/tex">g(\lambda)=m_{\alpha}(\lambda)q(\lambda)+r(\lambda)</script></p>
+<p>其中，$r=0$或$\text{deg}r&lt;k$。$r=0$时，显然$g(\lambda)$是$m_{\alpha}(\lambda)$的倍。而$\text{deg}r&lt;\text{deg}g$时不然。因此只需要证明第二种情况是不存在的即可。注意到 <script type="math/tex">0=g(\mathscr{A})\alpha=m_{\alpha}(\mathscr{A})q(\mathscr{A})\alpha+r(\mathscr{A})\alpha=r(\mathscr{A})\alpha</script></p>
+<p>如果有$r\neq{0}$，则$\text{deg}r&lt;k$，这和$\alpha,\mathscr{A}\alpha,\cdots,\mathscr{A}^{k-1}\alpha$线性无关矛盾。因此，$m_{\alpha}(\lambda)$即为所求最小零化子。</p>
+<h4 id="循环空间的维度、基"><a href="#循环空间的维度、基" class="headerlink" title="循环空间的维度、基"></a><strong>循环空间的维度、基</strong></h4><p>在求最小零化子的时候，我们找到了$k$个线性无关的向量。然后第$k+1$个可以用这$k$个向量表示。这里的$k$应该和这个循环空间有着特殊的关系。注意到这$k$个向量能表示$\mathscr{A}^{k}\alpha$。那么能不能表示$W$中全部向量? 如果是这样的话，这$k$个向量就是这个循环空间的基，$k$就是维度(这可以联想到抽象代数中的循环空间的阶)。</p>
+<p>已知 <script type="math/tex">\mathscr{A}^{k}\alpha=-(c_{k-1}\mathscr{A}^{k-1}\alpha+\cdots+c_1\mathscr{A}\alpha+c_0\alpha)</script></p>
+<p>两边分别用$\mathscr{A}$作用，那么左边是$\mathscr{A}^{k+1}\alpha$，右边是$\alpha,\mathscr{A}\alpha,\cdots,\mathscr{A}^{k-1}$的线性组合(注意，等式右边$\mathscr{A}$的次数分别为$k，k-1,\cdots，1$，而$\mathcal{A}^{k}$已经可以被线性表示)。递推下去可知，对于所有$n&gt;=0$，$A^{n}$都可以被$\alpha,\mathscr{A}\alpha,\mathscr{A}^{k-1}\alpha$线性表示。也就是说，$\alpha,\mathscr{A}\alpha,\mathscr{A}^{k-1}\alpha$是$W$的一组基，$W$的维度为$k$，也就是$\alpha$的最小零化子的最高次。</p>
+<p>此外不难验证，$\mathscr{A}$在$W$上的限制对应的矩阵$A_W$即为$C(m_\alpha)$。</p>
+<h3 id="循环空间的实例"><a href="#循环空间的实例" class="headerlink" title="循环空间的实例"></a>循环空间的实例</h3><p>不妨讨论一下特征向量。设非零向量$\alpha$是$\mathscr{A}$的特征向量。那么由$\alpha$生成的循环子空间的维度只能是$1$。</p>
+<p>首先$\alpha$和自己线性不相关，而$\mathscr{A}\alpha=\lambda\alpha$，故与$\alpha$已经线性相关。此时也得到极小零化子为$\mathscr{A}\alpha-\lambda\alpha$。而循环子空间也已经被确定，是$\alpha$所在的”直线”$\mathbb{F}\alpha$。假设$\alpha=(1,0)^T$，$V=\mathbb{R}^{(2)}$，那么这个循环空间就是$y$轴。</p>
+<hr>
+<p>为了体现循环空间对数域的”稳定性”，现在讨论线性空间$V=\mathbb{Q}^3$上的线性变换。也就是说，我们会尝试对有理数三阶方阵进行分解。</p>
+<p>设有矩阵 <script type="math/tex">A=\begin{pmatrix} 1&0&0 \\  
+0&1&1 \\  
+1&1&0 \end{pmatrix}</script></p>
+<p>和定义在$V$上的线性变换$\mathscr{A}(x)=Ax$。设$V$的自然基为$\varepsilon_1,\varepsilon_2,\varepsilon_3$。现在讨论一下由$\varepsilon_1$生成的循环空间$W_1$。显然$W_1$的维数不超过$3$。<strong>循环</strong>对$\varepsilon_1$作用$\mathscr{A}$，能得到</p>
+<script type="math/tex; mode=display">\mathscr{A}\varepsilon_1=(1,0,1)^T,\mathscr{A}^2\varepsilon_1=(1,1,1),\mathscr{A}^3\varepsilon_1=(1,2,2)</script><p>可以验证，$\varepsilon_1,\mathscr{A}\varepsilon_1,\mathscr{A}^2\varepsilon_1$线性不相关，又有$\mathscr{A}^3\varepsilon_1=-\varepsilon_1+2\mathscr{A}^2\varepsilon_1$可知，最小零化子为 <script type="math/tex">m_1(\lambda)=\lambda^3-2\lambda^2+1</script> 注意到系数全是整数。从而得到在$\varepsilon_1,\mathscr{A}\varepsilon_1,\mathscr{A}^2\varepsilon_1$下$\mathscr{A}$这个线性变换的方阵表示为$m_1(\lambda)$的友阵 </p>
+<script type="math/tex; mode=display">B=\begin{pmatrix} 0&0&-1 \\  
+1&0&0 \\  
+0&1&2 \end{pmatrix}</script><p>另一方面，自然基到$\varepsilon_1,\mathscr{A}\varepsilon_1,\mathscr{A}^2\varepsilon_1$这组基的过渡方阵又有</p>
+<script type="math/tex; mode=display">P=\begin{pmatrix} 1&1&1 \\  
+0&0&1 \\  
+0&1&1 \end{pmatrix}</script><p>不难验证，$B=P^{-1}AP$。整个运算推导过程没有脱离$\mathbb{Q}$。这是理所当然的。整个过程中只有域$\mathbb{Q}$上的加法和乘法运算。但是特征值分解不一定能这么”稳定”。矩阵$A$本身就是一个很有意思的反例： 特征值中出现了无理数。</p>
+<p>实际上，矩阵$B$就是矩阵$A$的有理标准形，而且特征多项式$f=m_1$。显然$m_1$被$A$唯一决定。这是一个比较特殊的例子(不妨试试用$\varepsilon_2$进行一下循环分解)。接下来的博客会讨论一下更普遍的结论和性质。</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-01-16T16:00:00.000Z" title="17/01/2020, 00:00:00">2020-01-17</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-10-23T00:19:31.958Z" title="23/10/2021, 08:19:31">2021-10-23</time></span><span class="level-item"><a class="link-muted" href="../../categories/Legacy-content/">Legacy content</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2020/01/17/abstract-lebesgue-integral/">抽象Lebesgue积分的构建</a></h1><div class="content"><h3 id="从一个”难题”入手"><a href="#从一个”难题”入手" class="headerlink" title="从一个”难题”入手"></a>从一个”难题”入手</h3><blockquote>
+<p>设$\{f_n\}$是一个定义在$[0，1]$上的连续函数列，且$0\leq f_n\leq 1$.  $n\to\infty$时，对任意$x\in[0，1]$有$f_n(x)\to{0}$. 求证 <script type="math/tex">\lim_{n\to\infty}\int_{0}^{1}f_n(x)dx=0</script></p>
+</blockquote>
+<p>在Riemann积分下这个命题的证明确实很头疼。虽然说有$\lim\limits_{n\to\infty}f_n(x)=0$，但是这里并不是一致收敛，所以不能直接将极限号和积分号交换。但是也没有别的信息，只能从连续性入手。</p>
+<p>Riemann积分在讨论函数列的时候往往需要考虑是否一致收敛，这往往很麻烦。19世纪末，很多数学家都主张，高等数学课中的Riemann积分(这也是每个人都要学的)应该被新的一种更普遍、更灵活、更方便解决极限问题的积分替代。那个时期很多的数学家都进行了尝试，Lebesgue的办法可以说是集大成者。粗略地说，Riemann积分是由下面这个和式逼近的: <script type="math/tex">\sum_{i=1}^{n}f(t_i)\Delta{x_i}</script></p>
+<p>也就是所谓面积的极限。$f(t_i)$是矩形的高，$\Delta{x_i}$是矩形的宽。当然还有Darboux上和、Darboux下和等等概念，然后讨论两者的差，在$\varepsilon-N$语言下严谨地逼近，这就是所谓可积性。讨论一个指定函数的积分，函数已经确定了，但这里的$\Delta{x_i}$还可以做文章。对于$\Delta{x_i}=x_i-x_{i-1}$，它代表了区间$[x_{i-1}，x_i]$的长度，而区间是一个集合。能不能通过讨论集合的”大小”来解决积分问题呢?</p>
+<p>这篇博客里讨论的集合是<strong>任意</strong>的(这也是博客标题里”抽象”所指)。既可以考虑经典的Euclidean空间，又可以考虑概率论中的事件空间，或者是其他。它们都可以统一到Lebesgue积分中，而Riemann积分在很多时候也可以通过Lebesgue测度”$m$“进行计算(粗略地说，$m(E)$就是$E$的“体积”)。另外，最开始的这个题在Lebesgue积分下也是很简单的。</p>
+<h3 id="pi-系统、-lambda-系统、-sigma-代数"><a href="#pi-系统、-lambda-系统、-sigma-代数" class="headerlink" title="$\pi$-系统、$\lambda$-系统、$\sigma$-代数"></a>$\pi$-系统、$\lambda$-系统、$\sigma$-代数</h3><h4 id="函数的值域"><a href="#函数的值域" class="headerlink" title="函数的值域"></a><strong>函数的值域</strong></h4><p>如果要给一个集合定义一个”大小”，也就是对应一个值，那么需要定义一个函数，这个函数建立起集合到实数或者复数的映射。例如定义$m([a，b])=b-a$，这就是集合$[a，b]$的长度，$b-a$就是一个实数。这个函数的值域可以是$\mathbb{R}$或者$\mathbb{R}^2$的一个子集，而定义域是怎样的呢? 首先，它应该是一个由集合构成的集合。比如一个集合$A$的幂集$\mathcal{P}(A)$。但是一定是幂集吗? 可不可以小一点或者大一点? 它又能不能保证一些运算的合理性? 这就是这里需要解决的问题。接下来，我们会一步步把这个”定义域”所需要满足的条件逐步勾勒出来。这也是Lebesgue积分的”主战场”。</p>
+<hr>
+<blockquote>
+<p>一个由集合$X$的<strong>子集</strong>构成的集合$\mathcal{P}$在满足如下条件时被称为$\pi$-系统: 如果$A\in{P}$且$B\in\mathcal{P}$，那么$A\cap{B}\in\mathcal{P}$.</p>
+</blockquote>
+<p>$\pi$-系统保证了这个集合族在有限次交运算的封闭性。一个最简单的$\pi$-系统是$\mathbb{R}$中所有闭区间(注意把$\varnothing$也算上)构成的集合。两个闭区间的并集必定是闭区间或$\varnothing$，而$\varnothing$和闭区间的并集是$\varnothing$。这就是一个$\pi$-系统。但是不一定保证无穷次运算的封闭，也不保证并集的封闭。</p>
+<p>概率论中的样本空间也是一个$\pi$-系统。两个事件的交也在一个样本空间中。这自然是合理的。但是只是$\pi$-系统肯定不够。就比如说，一个事件的否定该怎么办? 无穷个事件(这可能涉及到概率论中的收敛问题)又该怎么办? 如果积分是定义在$\pi$-系统上也不行，不能只考虑全体闭区间。接下来会引入另一个系统。</p>
+<blockquote>
+<p>一个由集合$X$的<strong>子集</strong>构成的集合$\mathcal{L}$在满足如下条件时被称为$\lambda$-系统:</p>
+<ol>
+<li>$X\in\mathcal{L}$.</li>
+<li>若$A, B\in\mathcal{L}$，且$B\subset{A}$，那么$A-B\in\mathcal{L}$.</li>
+<li>若$A_n\in\mathcal{L}$，且$A_n\subset{A_{n+1}}$，那么有$\bigcup_{n=1}^{\infty}A_n\in\mathcal{L}$.</li>
+</ol>
+</blockquote>
+<p>样本空间也是一个$\lambda$-系统，有了一些$\pi$-系统中没有的合理性质。比如全事件，两个事件的差，单调事件列的极限的封闭性。</p>
+<hr>
+<h4 id="sigma-代数，两个系统的结合"><a href="#sigma-代数，两个系统的结合" class="headerlink" title="$\sigma$-代数，两个系统的结合"></a><strong>$\sigma$-代数，两个系统的结合</strong></h4><p>已经看到，两种系统各有优劣，都只能锁定一部分性质。实际上，两种系统结合起来，就是一个合理定义的最精炼的”定义域”，也就是$\sigma$-代数。如果一个集合$X$的子集族$\mathfrak{M}$既是$\pi$-系统又是$\lambda$-系统，那么$\mathfrak{M}$被称为定义在$X$上的$\sigma$-代数。</p>
+<p>继续从样本空间出发考虑概率论中的例子。首先空集和全事件是肯定要有的。$\lambda$-系统就保证了这一点。根据1和2，$X-X=\varnothing\in\mathcal{L}$。如果将2中的$A$固定为$X$，那么又可以发现，任意子集的补集也在$\mathcal{L}$中。</p>
+<p>最后需要考虑可数个并集的情况(这涉及到加法)。考虑到De Morgan定律，这也就解决了交集的问题。$\pi$-系统只交代了有限个的交运算，$\lambda$-系统只解决了单调集合列的运算，这两个单独看局限性肯定是很大的。但是结合起来就能得到任意可数个并集的情况了。这一点的论证是一个非常有意思的集合运算技巧，在这里演示一下。</p>
+<p>设对于$n=1，2，\cdots$有$A_n\in\mathfrak{M}$，已经有$A_n^c\in\mathfrak{M}$。不难验证$B_n=\bigcup_{i=1}^{n}A_i=\left(\bigcap_{i=1}^{n}A_i^c\right)^c\in\mathfrak{M}$。又有$B_{n}\subset B_{n+1}$，所以$\bigcup_{n=1}^{\infty}B_n=\bigcup_{n=1}^{A_n}\in\mathfrak{M}$。</p>
+<p>综上，定义在$X$上的$\sigma$-代数$\mathfrak{M}$满足三个性质:</p>
+<blockquote>
+<ol>
+<li>$X\in\mathfrak{M}$.</li>
+<li>若$A\in\mathfrak{M}$，那么$A^c\in\mathfrak{M}$(这里$A^c=X-A$).</li>
+<li>若对$n=1, 2, \cdots$有$A_n\in\mathfrak{M}$，那么$\bigcup A_n\in\mathfrak{M}$.</li>
+</ol>
+</blockquote>
+<p>这时，$X$称为可测空间，$\mathfrak{M}$中的元素称为可测集合。</p>
+<h4 id="一些评注和补充"><a href="#一些评注和补充" class="headerlink" title="一些评注和补充"></a><strong>一些评注和补充</strong></h4><ol>
+<li>不难证明，$\sigma$-代数既是$\pi$-系统又是$\lambda$-系统。也就是说，它满足这两个系统本身的性质，所以集合的差，有限个集合的交、并自然不在话下。</li>
+<li>$\sigma$-代数中的元素可以有很多个，比如$\mathcal{P}(X)$，也可以有两个，比如$\{\varnothing，X\}$。实际上，$X$的任何子集族都可以生成一个最小的$\sigma$-代数。特别地，由$X$的全体开子集生成的$\sigma$-代数$\mathcal{B}$是一个有特殊地位的代数，它能和谐地处理连续函数(广义的)。$\mathcal{B}$的元素称为Borel集。</li>
+<li>$\pi-\lambda$定理(两种系统的关系)：设$\mathcal{P}$和$\mathcal{L}$分别是一个$\pi$-系统和一个$\lambda$-系统，而且$\mathcal{P}\subset\mathcal{L}$，设包含$\mathcal{P}$的最小$\sigma$-代数为$\sigma(\mathcal{P})$，那么有$\sigma(\mathcal{P})\subset\mathcal{L}$。</li>
+</ol>
+<h3 id="可测函数"><a href="#可测函数" class="headerlink" title="可测函数"></a>可测函数</h3><p>对于一个有界函数，如果这个函数Riemann可积，那么这个函数几乎处处连续。例如单调函数、有可数个甚至有限个间断点的函数。但是在这里讨论Lebesgue函数时并不考虑函数是否连续(尽管连续函数和可测函数有很多联系，这不是这篇博客的重点)。</p>
+<blockquote>
+<p>设函数$f:X\to{Y}$，定义在$X$上的$\sigma$代数为$\mathfrak{M}$，若对任意的开集$V\subset{Y}$都有$f^{-1}(V)\in\mathfrak{M}$。其中$f^{-1}(V)=\{x\in{X}:f(x)\in{V}\}$</p>
+</blockquote>
+<p>如果不了解什么是”<a target="_blank" rel="noopener" href="http://mathworld.wolfram.com/OpenSet.html">开集</a>”，可以先看作开区间的推广，即不包括边界点的集合。比如开区间、平面中不包含边界的集合，而开集的补集为闭集。开集是一个拓扑的基本元素，可测函数的定义保证这样的函数是”不病态”的。其实很好理解: 我们花好大功夫规定了$\sigma$-代数，是为了方便我们积分，结果值域里一个开区间就找不到$\sigma$-代数里对应的一个$X$的合理的子集，那肯定是不合理的。至于闭集。闭集是开集的补集，严格地说，一个集合是开集当且仅当其补集为闭集。又考虑到$\sigma$-代数对补集和并集的封闭性，可测函数的合理性就更清楚了。</p>
+<p>对于实函数，有一种很有用的判别方法:</p>
+<blockquote>
+<p>如果$f(x)$的值域为$\mathbb{R}$，对于任意的$\alpha\in\mathbb{R}$都有$\{x\in{X}:f(x)&gt;\alpha\}\in\mathfrak{M}$，那么$f$为可测函数。</p>
+</blockquote>
+<p>这也是一个最基本的限制条件。考虑到$\sigma$-代数的几条性质，不难对全体开区间进行分析。对于复函数，考虑$f=u+iv$。如果$u，v$都是可测函数，那么$f$是可测函数。</p>
+<p>对于连续函数，如果$\mathfrak{M}$包含全体Borel集，那么连续函数可测。因为对于连续函数$f$，$f^{-1}(V)$一定为开集(可以从$\varepsilon-\delta$语言的角度考虑一下)。</p>
+<h3 id="特征函数、简单函数"><a href="#特征函数、简单函数" class="headerlink" title="特征函数、简单函数"></a>特征函数、简单函数</h3><p>如果$E$为可测集，定义函数 </p>
+<script type="math/tex; mode=display">
+    \chi_E(x)=\begin{cases}1\quad{x\in{E}}\\
+    0\quad{x\notin{E}}\end{cases}</script><p>那么$\chi_E(x)$是一个可测函数。对于<a target="_blank" rel="noopener" href="http://mathworld.wolfram.com/DiscreteTopology.html">离散集合</a>，每个点都应该看成开集。$\chi$被称为特征函数。</p>
+<hr>
+<p>简单函数是指值域只有有限个点的函数，也就是所谓”阶梯函数”，但是要注意这里的阶梯并不一定是单调的。Lebesgue积分就是用阶梯函数的积分逼近的。如果找出每个取值点的原象，那么一个简单函数可以写成特征函数的形式。也就是说，设简单函数$s$的取值为$\alpha_1，\cdots，\alpha_n$，又令$A_i=\{x:s(x)=\alpha_i\}$，那么不难得到 </p>
+<script type="math/tex; mode=display">
+    s=\sum_{i=1}^{n}\alpha_i\chi_{A_i}</script><p>也不难发现，如果每个集合$A_i$都是可测集，那么$s$为可测函数。</p>
+<p>任意可测函数都可以用简单函数逼近。也就是说，</p>
+<blockquote>
+<p>设函数$f:X\to[0，+\infty]$为可测函数，存在定义在$X$上的可测简单函数$s_n(x)$使得</p>
+<ol>
+<li>$0\leq s_1\leq s_2\leq\cdots\leq f$.</li>
+<li>对任意$x\in{X}$有$s_n(x)\to f(x)(n\to\infty)$.</li>
+</ol>
+</blockquote>
+<p>如果$f$既有正值又有负值，那么可以讨论$f^{+}=\text{max}(f，0)$和$f^{-}=-\text{min}(f，0)$即可，这两部分分别逼近之后又可以通过$f=f^{+}-f^{-}$结合起来。</p>
+<h3 id="测度、测度空间"><a href="#测度、测度空间" class="headerlink" title="测度、测度空间"></a>测度、测度空间</h3><p>做完了被积函数的工作之后再回到集合的”大小”这个概念上。实际上概率论中某一事件的概率就 <strong>是</strong>一种测度。只不过这一测度的值域是$[0，1]$，而一般的测度的值域是$[0，+\infty]$。概率是一个从集合到$[0，1]$的映射，另外还有一点我想大家都很熟悉。如果$A\cap{B}=\varnothing$，那么$P(A\cup{B})=P(A)+P(B)$。这其实是基于测度定义的一个推广，严格地说，</p>
+<blockquote>
+<p>一个正测度是定义在一个$\sigma$-代数$\mathfrak{M}$上的<strong>函数</strong>$\mu$，其值域为$[0，+\infty]$，而且满足可列可加性。也就是说，对互不相交的集合列$\{A_k\}$，有 <script type="math/tex">\mu(\bigcup_{k=1}^{\infty}A_i)=\sum_{i=1}^{\infty}\mu(A_i)</script></p>
+</blockquote>
+<p>对于$\mu$，假设至少有一个$A\in\mathfrak{M}$使得$\mu(A)&lt;+\infty$。</p>
+<p>和Riemann积分最接近的测度就是Lebesgue积分$m$。粗略地说，$m([a，b])=b-a$。这代表了Euclidean空间中点集的”体积”。如果是离散集合，设$\mu(E)$表示$E$中元素的个数，那么$\mu$也构成一个测度。但是一个集合是不是Lebesgue可测是一个比较复杂的问题。这在以后会解释。</p>
+<p>一个测度空间指的是一个可测空间和一个定义在可测空间的$\sigma$-代数上的正测度。复测度是一个复值函数，定义域和正测度相同，而且满足可列可加性。</p>
+<p>不难发现，$\mu(\varnothing)=0$，对于有限个互不相交的集合，可列可加性也是成立的(对于$n$个集合，将$n+1$个以后的集合看成空集即可)。</p>
+<h3 id="Lebesgue积分的构造"><a href="#Lebesgue积分的构造" class="headerlink" title="Lebesgue积分的构造"></a>Lebesgue积分的构造</h3><p>终于到了Lebesgue积分了。在进行之前先回顾一下我们做了什么工作。首先，考虑到积分是在集合的子集上(可以考虑$\mathbb{R}$的一些子集)下文章，我们找到了这个子集族需要满足的条件，也就是说，是一个$\sigma$-代数。为了测量一个集合的”大小”，我们定义了测度这个概念。这是”区间长度”的非常和谐的抽象推广。从一般的函数到所有可测的实函数、复函数，主要会通过下面三步进行。</p>
+<h4 id="简单函数"><a href="#简单函数" class="headerlink" title="简单函数"></a><strong>简单函数</strong></h4><p>考虑非负可测简单函数(其他情况会另外考虑)$s=\sum_{i=1}^{n}\alpha_{i}\chi_{A_i}$。$s$为可测函数也就是说，对任意的$A_i$都有$A_i\in\mathfrak{M}$，这样的话$\mu(A_i)$就是存在的，否则运算没法进行，这也是函数可测性的意义体现。</p>
+<p>回到博客开头，考虑面积，就需要考虑函数值($\alpha_i$)和区间长度。这里的抽象的”区间长度”变成了$\mu(A_i)$。如果积分的集合是$E\in\mathfrak{M}$，那么就有$A_i\cap{E}\in\mathfrak{M}$(因为$\mathfrak{M}$是$\pi$-系统!)。那么直接求和就行了: </p>
+<script type="math/tex; mode=display">
+    \int_{E}sd\mu = \sum_{i=1}^{n}\alpha_{i}\mu(A_i\cap{E})</script><p>如果$\mu$表示的是实际的区间长度，那么这就是简单的面积求和; 如果$\mu$是一个概率测度，那么这就是计算了数学期望(随机变量是一个可测函数)。这里还有一个很有意思的例子:</p>
+<p>如果$X$表示了你全部的课程，每门课用$A_i$表示，$\mu(A_i)$表示了这门课的学分，$\alpha_i$表示了这门课的绩点，那么这个Lebesgue积分再除以总学分就是你的GPA。</p>
+<p>这里还需要定义$0*\infty=0$。可能有点别扭，但是这种情况还是要考虑的。比如有的时候$\alpha_i=0$(别考虑GPA了!)而$\mu(A_i\cap{E})=\infty$。这个定义也是有必要的。比如$f(x)=0$在$\mathbb{R}$上的积分应该是$0$而不是别的。</p>
+<h4 id="全体非负可测实函数"><a href="#全体非负可测实函数" class="headerlink" title="全体非负可测实函数"></a><strong>全体非负可测实函数</strong></h4><p>如果$f:X\to[0，+\infty]$为可测函数，那么对于$E\in\mathfrak{M}$定义 </p>
+<script type="math/tex; mode=display">
+    \int_{E}fd\mu=\sup\int_{E}sd\mu</script><p>其中上确界取遍所有$0\leq{s}\leq{f}$的可测简单函数。而我们已经知道，可测函数可以被简单函数逼近。所以这可以看成一个被简单函数逼近的过程。</p>
+<h4 id="全体复函数"><a href="#全体复函数" class="headerlink" title="全体复函数"></a><strong>全体复函数</strong></h4><p>最开始我们只讨论了非负实函数。其余两种情况，如果涉及到负数，可能计算上确界有点不合适; 对复数更不合适，因为复数没有大小。但是好在我们可以将这两种情况统一起来。设$f=u+iv$($v$可能恒等于$0$)，那么就设 </p>
+<script type="math/tex; mode=display">
+    \int_{E}fd\mu=\int_{E}u^+d\mu-\int_{E}u^-d\mu+i\left(\int_{E}v^+d\mu-\int_{E}v^-d\mu\right)</script><p>总而言之，从计算矩形面积，变成计算抽象的集合测度和函数值的乘积，推广之后就得到了Lebesgue积分。以后会详细论证Riemann积分和Lebesgue积分的具体关系。Lebesgue积分虽然在计算上并不一定有很好的优势，但是在抽象论证过程中有了更多的可能性。以后也会讲到，Lebesgue积分在处理收敛问题时的便利之处，最开始的一个题也就很简单了。</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2019-10-30T16:00:00.000Z" title="31/10/2019, 00:00:00">2019-10-31</time></span><span class="level-item">Updated&nbsp;<time dateTime="2020-10-18T03:20:05.130Z" title="18/10/2020, 11:20:05">2020-10-18</time></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2019/10/31/euler-reflection/">欧拉反射公式和利用Fourier级数的证明</a></h1><div class="content"><p>$\Gamma$函数将自然数和连续函数很自然地结合起来，在各个领域有着各种意想不到的作用。 它的细节绝对不是只言片语能解释完的。 在这里我会介绍一个很有意思的公式: 欧拉反射公式。 当然，如果视野仅仅停留在一个公式上，那肯定不行。</p>
+<h2 id="欧拉反射公式"><a href="#欧拉反射公式" class="headerlink" title="欧拉反射公式"></a>欧拉反射公式</h2><script type="math/tex; mode=display">
+\Gamma(x)\Gamma(1-x)=\frac{\pi}{\sin\pi{x}}\quad 0<x<1</script><h2 id="一些简单的应用"><a href="#一些简单的应用" class="headerlink" title="一些简单的应用"></a>一些简单的应用</h2><p>不如先看一下能直接利用它得到什么结论。 两个$\Gamma$函数的乘积，自然就和$B$函数能建立起联系。 显然我们有， </p>
+<script type="math/tex; mode=display">
+\Gamma(x)\Gamma(1-x)=\frac{\Gamma(x)\Gamma(1-x)}{\Gamma(x+1-x)}=B(x,1-x)</script><p>同时，再利用$B$函数的三角函数变形式，就有 </p>
+<script type="math/tex; mode=display">
+B(x,1-x)=2\int_{0}^{\pi/2}\cos^{2x-1}\theta\sin^{2(1-x)-1}\theta d\theta=2\int_{0}^{\pi/2}\cot^{2x-1}\theta d\theta</script><p>这时，一个很奇妙的结论就出现了: \</p>
+<script type="math/tex; mode=display">
+\int_{0}^{\pi/2}\cot^{2x-1}\theta d\theta=\frac{\pi}{2\sin\pi{x}}\quad 0<x<1</script><p>如果直接计算这个积分是很困难的。 但是，这两个欧拉积分却为我们提供了一个捷径。 那么正切函数的怎么计算?其实计算方式是一样的。 这是因为，$B(p,q)=B(q,p)$(为什么?)，如果计算$B(1-x,x)$，就能得到$\int_{0}^{\pi/2}\tan^{2x-1}\theta d\theta$的值了。</p>
+<p>接下来，我们试着算一下一个很“基本”的定积分 </p>
+<script type="math/tex; mode=display">
+I_p=\int_{0}^{\infty}\frac{1}{1+x^p}dx\quad p>1</script><p>这个时候因式分解已经不可行了。 实际上有理式因式分解本来就不一定是最靠谱的办法。 如果要分解$(1+x^{2019})$，那就太折磨人了（有2019个复根！）。 而如果利用余元公式，根本不需要这些工作。</p>
+<p>那么怎么才能通过欧拉反射公式解决呢? 首先将它转换成一个$B$函数。</p>
+<p>令$x^p=u\in[0,+\infty)$。 此时 </p>
+<script type="math/tex; mode=display">
+\begin{aligned} I_p &= \int_{0}^{+\infty}\frac{1}{1+u}du^{\frac{1}{p}} \\  
+&= \frac{1}{p}\int_{0}^{+\infty}\frac{u^{\frac{1}{p}-1}}{1+u}du \end{aligned}</script><p>再令$\frac{u}{1+u}=v\in[0,1)$，又能得到 </p>
+<script type="math/tex; mode=display">
+\begin{aligned} I_p &= \frac{1}{p}\int_{0}^{+\infty}\left(\frac{u}{1+u}\right)^{\frac{1}{p}-1}\left(\frac{1}{1+u}\right)^{2-\frac{1}{p}}du \\  
+&= \frac{1}{p}\int_{0}^{1}v^{\frac{1}{p}-1}(1-v)^{-\frac{1}{p}}dv \\  
+&= \frac{1}{p}B(\frac{1}{p},1-\frac{1}{p}) \\  
+&= \frac{\pi}{p\sin\frac{\pi}{p}} \end{aligned}</script><p>也就是说，对于这类积分，有一个普适性的结果: </p>
+<script type="math/tex; mode=display">
+\int_{0}^{\infty}\frac{1}{1+x^p}dx=\frac{\pi}{p\sin\frac{\pi}{p}} \quad p>1</script><p>繁杂的因式分解突然消失了（更何况如果$p$不是整数，根本没有多项式因式分解的说法）。</p>
+<p>这时还可以计算一个极限:</p>
+<script type="math/tex; mode=display">
+\lim_{p\to\infty}I_p=\lim_{p\to\infty}\frac{\frac{\pi}{p}}{\sin\frac{\pi}{p}}=1</script><p>最后我们利用这一个公式计算一个很“不基本”的反常积分。</p>
+<script type="math/tex; mode=display">
+\int_{0}^{1}\ln\Gamma(x)dx.</script><p>利用微积分换元公式，我们有</p>
+<script type="math/tex; mode=display">
+\int_0^1\ln\Gamma(x)dx=\int_1^0 \ln\Gamma(1-x)d(1-x)=\int_0^1\ln\Gamma(1-x)dx.</script><p>从而原积分可以写成自己和自己的和，也就是说，</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\int_0^1\ln\Gamma(x)dx&=\frac{1}{2}\int_0^1\ln\Gamma(x)\Gamma(1-x)dx \\
+                      &=\frac{1}{2}\int_0^1\ln\frac{\pi}{\sin\pi{x}}dx \\
+                      &=\frac{1}{2}\ln\pi-\frac{1}{2}\int_0^1\ln\sin{\pi{x}}dx \\
+                      &=\frac{1}{2}\ln(2\pi)
+\end{aligned}</script><h2 id="公式的证明"><a href="#公式的证明" class="headerlink" title="公式的证明"></a>公式的证明</h2><p>不得不说这是一件比较困难的事情。 我会在这里先介绍一种利用Arzela控制收敛定理进行证明的办法。</p>
+<h4 id="引理1-Arzela控制收敛定理-Arzela-dominated-convergence-theorem，1885"><a href="#引理1-Arzela控制收敛定理-Arzela-dominated-convergence-theorem，1885" class="headerlink" title="引理1: Arzela控制收敛定理(Arzela dominated convergence theorem，1885)"></a>引理1: Arzela控制收敛定理(Arzela dominated convergence theorem，1885)</h4><blockquote>
+<p>设${f_n}$是在$[a,b]$上收敛于$f$的可积函数列(并不要求一致收敛)，若$f$也可积，且${f_n}$在$[a,b]$上一致有界，即存在$M&gt;0$，使得对每个$n$和所有$x\in[a,b]$同时满足$|f_n(x)|\leq{M}$，则有 </p>
+<script type="math/tex; mode=display">
+\lim_{n\to\infty}\int_{a}^{b}f_n(x)dx=\int_{a}^{b}\lim_{n \to\infty} f_n(x)dx=\int_{a}^{b}f(x)dx</script></blockquote>
+<p>上面这个式子本来需要一致收敛(这是非常严苛的)，但是Arzela发现只需要收敛和一致有界。 但是这个定理登场一百多年来，一直没有一个让人满意的初等证明。 原因一个字:难。 如果感兴趣可以参考<a target="_blank" rel="noopener" href="https://sites.math.washington.edu/~morrow/335_15/dominated.pdf">这里</a>。</p>
+<h4 id="引理2-余割函数的部分分式展开"><a href="#引理2-余割函数的部分分式展开" class="headerlink" title="引理2: 余割函数的部分分式展开"></a>引理2: 余割函数的部分分式展开</h4><blockquote>
+<script type="math/tex; mode=display">
+\csc{x}=\frac{1}{x}+\sum_{n=1}^{\infty}(-1)^{n}\frac{2x}{x^2-n^2\pi^2}</script></blockquote>
+<p>怎么得到的这个公式? 利用傅里叶展开。</p>
+<p>注意到 </p>
+<script type="math/tex; mode=display">
+\cos\alpha{t} = \frac{\sin\pi\alpha}{\pi\alpha}+\sum_{n=1}^{\infty}(-1)^{n}\frac{2\alpha}{\pi(\alpha^2-n^2)}\sin\alpha\pi\cos{nt}</script><p>$\alpha$为整数时，$\csc\alpha\pi$不存在。 $\alpha$不是整数时，令$t=0$，$\alpha\pi=x$。 此时有 </p>
+<script type="math/tex; mode=display">
+1=\frac{\sin{x}}{x}+\sum_{n=1}^{\infty}(-1)^{n}\frac{2x}{x^2-n^2\pi^2}\sin{x}</script><p>移项之后即得结论。</p>
+<h3 id="证明的第一步-用定积分表示反射公式"><a href="#证明的第一步-用定积分表示反射公式" class="headerlink" title="证明的第一步: 用定积分表示反射公式"></a>证明的第一步: 用定积分表示反射公式</h3><p>我们已经知道$\Gamma(x)\Gamma(1-x)=B(x,1-x)$，但这是远远不够的。 两个幂还有一个减号不是很好处理。</p>
+<p>令$t=\frac{1}{1+y}$，那么就有</p>
+<script type="math/tex; mode=display">
+B(x,1-x)=\int_{0}^{\infty}t^{1-x}(1-t)^{-x}dt=\int_{0}^{\infty}\frac{1}{y^x(1+y)}dy</script><h3 id="证明的第二步-反常积分的计算"><a href="#证明的第二步-反常积分的计算" class="headerlink" title="证明的第二步: 反常积分的计算"></a>证明的第二步: 反常积分的计算</h3><p>实际上要做的就是证明第一步得到的结果等于$\pi\csc{\pi{x}}$。 这个时候上文给出的两个引理就能用上了。</p>
+<p>将这个积分分割成$(0,1)$和$[1,+\infty)$两个部分。 在$(0,1)$上，利用幂级数的知识，很容易得到 </p>
+<script type="math/tex; mode=display">
+\frac{1}{y^x(1+y)}=\sum_{n=0}^{\infty}(-1)^{n}y^{n-x}</script><p>等式右侧的函数虽然不是一致收敛，但是$n\geq{1}$时，这个级数的部分和一致有界，这时就可以用Arzela控制收敛定理了。 也就是说，可以直接交换极限符号: </p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\int_{0}^{1}\frac{dy}{y^x(1+y)}&=\int_{0}^{1}\left(\frac{1}{y^x}+\sum(-1)^{n}y^{n-x}\right)dy \\  
+&=\frac{1}{1-x}+\sum(-1)^n\int_{0}^{1}y^{n-x}dy \\  
+&=\sum\frac{(-1)^{n-1}}{n-x} 
+\end{aligned}</script><p>而$[1,+\infty)$的部分，只需令$u=\frac{1}{y}$，就回到了$(0,1)$上的情况了: </p>
+<script type="math/tex; mode=display">
+\begin{aligned} \int_{1}^{+\infty}\frac{dy}{y^x(1+y)}&=\int_{0}^{1}\frac{du}{u^{1-x}(1+u)} \\  
+&=\sum_{n=1}^{\infty}\frac{(-1)^{n-1}}{n-(1-x)}=\frac{1}{x}+\sum\frac{(-1)^{n}}{n+x} \end{aligned}</script><p>最后，将两部分接起来，就能得到 </p>
+<script type="math/tex; mode=display">
+\begin{aligned} \int_{0}^{+\infty}\frac{dy}{y^x(1+y)}&=\frac{1}{x}+\sum(-1)^{n}\left(\frac{1}{x-n}+\frac{1}{x+n}\right) \\  
+&=\frac{1}{x}+\sum(-1)^{n}\frac{2x}{x^2-n^2} \end{aligned}</script><p>而 </p>
+<script type="math/tex; mode=display">
+\begin{aligned} \pi\csc\pi{x}&=\pi\left(\frac{1}{\pi{x}}+\sum_{n=1}^{\infty}(-1)^{n}\frac{2\pi x}{\pi^2x^2-n^2\pi^2}\right) \\  
+&=\frac{1}{x}+\sum(-1)^{n}\frac{2x}{x^2-n^2} \end{aligned}</script><p>此即 </p>
+<script type="math/tex; mode=display">
+B(x,1-x)=\pi\csc\pi{x}</script><p>即为所求的结论。</p>
+<h2 id="最后要说的"><a href="#最后要说的" class="headerlink" title="最后要说的"></a>最后要说的</h2><p>在实数范围证明这个问题确实是要花好大的功夫——甚至都用到了傅里叶级数。 但是这一路上也可以看到很多重要的技巧，回顾了很多基础知识。 还是那句话，如果视野只局限在这个公式，是很不划算的。</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2019-10-01T16:00:00.000Z" title="02/10/2019, 00:00:00">2019-10-02</time></span><span class="level-item">Updated&nbsp;<time dateTime="2020-02-26T04:30:41.792Z" title="26/02/2020, 12:30:41">2020-02-26</time></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2019/10/02/productivity-overrated/">并不新颖的观点：不要追求生产力、效率了</a></h1><div class="content"><p>实际上，在十几年前，Get Things Done、Zen to Done等等“生产力圣经”闪亮登场并得到追捧以来，就有了反对的声音，所以我说，这是不是什么新颖的观点。随着互联网的发展，“生产力”的信奉者们开发了工具，所谓To-Do List，所谓“番茄钟”，这也算是一门生意。我也曾经是一个（比较失败）的追随者，用所谓Todoist，追求他们给我评价的Karma，这似乎代表了我的“效率”。我记得我也曾经到过不低的分数。但我现在觉得，我应该背叛了。</p>
+<p>有一种观点：科学发展的一大动力是“懒惰”。人们为了能更简单地实现更困难的事情，想尽了办法。就比如说，你现在直接在一个电子设备的屏幕上看到了这篇文章，而不是多少年以后才通过口耳相传听到这篇文章的不知道被改了多少次的版本。更简单地实现了更加困难的事情，人类也实现了进步。放心，我不是反对科技发展然后向往2000年前的生活。但我想问：“生产力工具”帮助我们实现了什么？更合理地把自己的日程塞成腊肠？这样做真的有用吗？所以追求“生产力”是为了什么？为了减轻负担，还是为了<strong>让自己更忙碌</strong>？天天高负荷运转是为了什么？</p>
+<p>超忆症患者的压力肯定很大——每天所有的对话、所有无关紧要的细节、某个人在何时何地穿着怎样，都能在许多年后很不情愿地和电影回放一样在脑海复现。追求“生产力”的时候是不是也在追求这种压力？不如问问自己，自己在追求着什么。我想，追求一种没有目的的忙碌，没有目的的成就感，不是好现象。还是说，追求“生产力工具”给打出的高分？这种高分真能说明什么吗？</p>
+<p>另外一个问题：把自己的生活交给一堆不认识的人写的计算机程序是个好主意吗？把购物清单、备忘录交给计算机程序（也可以交给纸笔），当然是个不错的主意。这好比说，我不想记住这些东西，交给你记吧，到时候给我报告一下。但是各种生产力工具扮演的角色就有点不一样了。最开始，它们也扮演着打杂的工作。渐渐地，它利用”成就感“当作诱饵，逐渐接管了用户的生活。用户追求着”生产力“、”效率“带来的成就感（想得到真正的满足是很困难的），换来的可能是莫名其妙的忙碌，从而对工具产生更大的依赖（我觉得很有必要审视一下那些付费内容）。我不否认，一些特殊的工作，可以减少一些不必要的麻烦。就好说，联合收割机的成本和效果通常比手动劳作高。但是，农民如果把精力用在过于追求联合收割机的美观性、驾驶操作体验，就显得很没必要。农忙之后我想没有谁会闲着没事碰它。</p>
+<p>19世纪末期，美国人泰勒提出了“科学管理”的理论，是西方管理学的源头之一。他的理论又被叫做“泰勒制（Taylorism）”（我更愿意叫做泰勒主义）。这套理论追求生产效率、商业效益，渐渐派生成了一个“宗教”：我工作，故我在。他认为，员工作为技术工具意义上的生产工具，是寻找最佳方案或者以最佳方案工作的机器。在生产管理中这样做自然是可以理解的。但是把自己的生活搞成这般是很不现实的。把自己的喜怒哀乐、人际交往、精神追求全关机（当然也就别说啥拼搏、奋斗、吃苦了），然后“高效工作”，到底为了什么？自己不能当作自己的工具或者机器。人们追求“生产力”、“效率”，把很久以后的事情提前完成，然后安排更多的事情忙。我觉得可以再写一条21世纪的教条：<strong>我忙，故我在</strong>。“生产力”、“效率”赐我们以成就感（还有成功？那不一定），但是我们祭上了自己的闲余时间，同时也要承受不该得的压力、焦虑。这种“宗教”非常“浪漫”，但问题是，工作量真的不能说明全部。</p>
+</div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="../7/">Previous</a></div><div class="pagination-next"><a href="../9/">Next</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="../../">1</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="../7/">7</a></li><li><a class="pagination-link is-current" href="">8</a></li><li><a class="pagination-link" href="../9/">9</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="../../img/avatar.png" alt="Desvl"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Desvl</p><p class="is-size-6 is-block">A blog mainly on graduate mathematics.</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>A Noetherian local ring</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="../../archives"><p class="title">86</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="../../categories"><p class="title">44</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="../../tags"><p class="title">49</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="../../redirect/newsletter" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Compose an Email" href="../../redirect/email"><i class="fas fa-envelope"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="../../atom.xml"><i class="fas fa-rss"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Mathstodon" href="https://mathstodon.xyz/@desvl"><i class="fa-brands fa-mastodon"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://arxiv.org/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">arXiv</span></span><span class="level-right"><span class="level-item tag">arxiv.org</span></span></a></li><li><a class="level is-mobile" href="https://stacks.math.columbia.edu/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">The Stack Project</span></span><span class="level-right"><span class="level-item tag">stacks.math.columbia.edu</span></span></a></li><li><a class="level is-mobile" href="https://ncatlab.org/nlab/show/mathematics" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">nLab (Mathematics)</span></span><span class="level-right"><span class="level-item tag">ncatlab.org</span></span></a></li><li><a class="level is-mobile" href="https://q.uiver.app/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">quiver: a modern commutative diagram editor</span></span><span class="level-right"><span class="level-item tag">q.uiver.app</span></span></a></li><li><a class="level is-mobile" href="https://www.symmetricfunctions.com/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">The Symmetric Functions Catalogue</span></span><span class="level-right"><span class="level-item tag">www.symmetricfunctions.com</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/speaking.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Speaking</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/writing.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Writing</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">How to study maths really quick (YouTube)</span></span><span class="level-right"><span class="level-item tag">www.youtube.com</span></span></a></li><li><a class="level is-mobile" href="https://www.bilibili.com/video/BV1GJ411x7h7" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">How to study maths really quick (Bilibili)</span></span><span class="level-right"><span class="level-item tag">www.bilibili.com</span></span></a></li></ul></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="../../index.html"><img src="../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a><p class="is-size-7"><span>&copy; 2022</span> <a rel="me noopener" target="_blank" href="https://mathstodon.xyz/@desvl">Desvl</a><br>Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="../../js/column.js"></script><script src="../../js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="../../js/back_to_top.js" defer></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
+            },
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><!--!--><script src="../../js/main.js" defer></script><!--!--></body></html>

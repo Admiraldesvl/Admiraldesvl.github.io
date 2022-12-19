@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>The Big Three Pt. 5 - The Hahn-Banach Theorem (Dominated Extension) - Desvl&#039;s blog</title><link rel="manifest" href="../../../../manifest.json"><meta name="application-name" content="Desvl&#039;s blog"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Desvl&#039;s blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="About this postThe Hahn-Banach theorem has been a central tool for functional analysis and therefore enjoys a wide variety, many of which have a numerous uses in other fields of mathematics. Therefore"><meta property="og:type" content="blog"><meta property="og:title" content="The Big Three Pt. 5 - The Hahn-Banach Theorem (Dominated Extension)"><meta property="og:url" content="https://desvl.xyz/2020/10/01/big-3-pt-5/"><meta property="og:site_name" content="Desvl&#039;s blog"><meta property="og:description" content="About this postThe Hahn-Banach theorem has been a central tool for functional analysis and therefore enjoys a wide variety, many of which have a numerous uses in other fields of mathematics. Therefore"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://desvl.xyz/img/avatar.png"><meta property="article:published_time" content="2020-10-01T06:51:22.000Z"><meta property="article:modified_time" content="2021-10-08T09:49:46.668Z"><meta property="article:author" content="Desvl"><meta property="article:tag" content="The big three"><meta property="twitter:card" content="summary_large_image"><meta property="twitter:image:src" content="https://desvl.xyz/img/avatar.png"><meta property="twitter:creator" content="@Desvl_"><meta property="twitter:site" content="{ https://desvl.xyz }"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://desvl.xyz/2020/10/01/big-3-pt-5/"},"headline":"The Big Three Pt. 5 - The Hahn-Banach Theorem (Dominated Extension)","image":["https://desvl.xyz/img/avatar.png"],"datePublished":"2020-10-01T06:51:22.000Z","dateModified":"2021-10-08T09:49:46.668Z","author":{"@type":"Person","name":"Desvl"},"publisher":{"@type":"Organization","name":"Desvl","logo":{"@type":"ImageObject","url":"https://desvl.xyz/img/logo.svg"}},"description":"About this postThe Hahn-Banach theorem has been a central tool for functional analysis and therefore enjoys a wide variety, many of which have a numerous uses in other fields of mathematics. Therefore"}</script><link rel="canonical" href="https://desvl.xyz/2020/10/01/big-3-pt-5/"><link rel="alternate" href="../../../../atom.xml" title="Desvl&#039;s blog" type="application/atom+xml"><link rel="icon" href="../../../../img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap"><link rel="stylesheet" href="../../../../css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="../../../../index.html"><img src="../../../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="../../../../index.html">Home</a><a class="navbar-item" href="../../../../archives">Archives</a><a class="navbar-item" href="../../../../categories">Categories</a><a class="navbar-item" href="../../../../tags">Tags</a><a class="navbar-item" href="../../../../about">About (Updated Aug. 2022)</a><a class="navbar-item" href="../../../../link-exchange">Link Exchange</a><a class="navbar-item" href="../../../../support-the-author">Support the Author</a></div><div class="navbar-end"><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-10-01T06:51:22.000Z" title="01/10/2020, 14:51:22">2020-10-01</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-10-08T09:49:46.668Z" title="08/10/2021, 17:49:46">2021-10-08</time></span><span class="level-item"><a class="link-muted" href="../../../../categories/Analysis/">Analysis</a><span> / </span><a class="link-muted" href="../../../../categories/Analysis/Functional-Analysis/">Functional Analysis</a></span></div></div><h1 class="title is-3 is-size-4-mobile">The Big Three Pt. 5 - The Hahn-Banach Theorem (Dominated Extension)</h1><div class="content"><h2 id="About-this-post"><a href="#About-this-post" class="headerlink" title="About this post"></a>About this post</h2><p>The Hahn-Banach theorem has been a central tool for functional analysis and therefore enjoys a wide variety, many of which have a numerous uses in other fields of mathematics. Therefore it’s not possible to cover all of them. In this post we are covering two ‘abstract enough’ results, which are sometimes called the dominated extension theorem. Both of them will be discussed in real vector space where topology is not endowed. This allows us to discuss any topological vector space.  </p>
+<p>Another interesting thing is, we will be using axiom of choice, or whatever equivalence you may like, for example Zorn’s lemma or well-ordering principle. Before everything, we need to examine more properties of vector spaces.</p>
+<h2 id="Vector-space"><a href="#Vector-space" class="headerlink" title="Vector space"></a>Vector space</h2><p>It’s obvious that every complex vector space is also a real vector space. Suppose $X$ is a complex vector space, and we shall give the definition of real-linear and complex-linear functionals.</p>
+<blockquote>
+<p>An addictive functional $\Lambda$ on $X$ is called <em>real-linear</em> (<em>complex-linear</em>) if $\Lambda(\alpha x)=\alpha\Lambda(x)$ for every $x \in X$ and for every real (complex) scalar $\alpha$.</p>
+</blockquote>
+<p>For *-linear functionals, we have two important but easy theorems.</p>
+<blockquote>
+<p>If $u$ is the real part of a complex-linear functional $f$ on $X$, then $u$ is real-linear and</p>
+<script type="math/tex; mode=display">
+f(x)=u(x)-iu(ix) \quad (x \in X).</script></blockquote>
+<p><em>Proof.</em> For complex $f(x)=u(x)+iv(x)$, it suffices to denote $v(x)$ correctly. But</p>
+<script type="math/tex; mode=display">
+if(x)=iu(x)-v(x),</script><p>we see $\Im(f(x)=v(x)=-\Re(if(x))$. Therefore</p>
+<script type="math/tex; mode=display">
+f(x)=u(x)-i\Re(if(x))=u(x)-i\Re(f(ix))</script><p>but $\Re(f(ix))=u(ix)$, we get</p>
+<script type="math/tex; mode=display">
+f(x)=u(x)-iu(ix).</script><p>To show that $u(x)$ is real-linear, note that </p>
+<script type="math/tex; mode=display">
+f(x+y)=u(x+y)+iv(x+y)=f(x)+f(y)=u(x)+u(y)+i(v(x)+v(y)).</script><p>Therefore $u(x)+u(y)=u(x+y)$. Similar process can be applied to real scalar $\alpha$. $\square$</p>
+<p>Conversely, we are able to generate a complex-linear functional by a real one.</p>
+<blockquote>
+<p>If $u$ is a real-linear functional, then $f(x)=u(x)-iu(ix)$ is a complex-linear functional</p>
+</blockquote>
+<p><em>Proof.</em> Direct computation. $\square$</p>
+<p>Suppose now $X$ is a complex topological vector space, we see a complex-linear functional on $X$ is continuous if and only if its real part is continuous. Every continuous real-linear $u: X \to \mathbb{R}$ is the real part of a unique complex-linear continuous functional $f$.</p>
+<h3 id="Sublinear-seminorm"><a href="#Sublinear-seminorm" class="headerlink" title="Sublinear, seminorm"></a>Sublinear, seminorm</h3><p>Sublinear functional is ‘almost’ linear but also ‘almost’ a norm. Explicitly, we say $p: X \to \mathbb{R}$ a sublinear functional when it satisfies</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+p(x)+p(y) &\leq p(x+y) \\
+    p(tx) &= tp(x) \\
+\end{aligned}</script><p>for all $t \geq 0$. As one can see, if $X$ is normable, then $p(x)=\lVert x \rVert$ is a sublinear functional. One should not be confused with semilinear functional, where inequality is not involved. Another thing worth noting is that $p$ is not restricted to be nonnegative.</p>
+<hr>
+<p>A seminorm on a vector space $X$ is a real-valued function $p$ on $X$ such that</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+p(x+y) &\leq p(x)+p(y) \\
+   p(\alpha x)&=|\alpha|p(x)
+\end{aligned}</script><p>for all $x,y \in X$ and scalar $\alpha$.</p>
+<p>Obviously a seminorm is also a sublinear functional. For the connection between norm and seminorm, one shall note that <em>$p$ is a norm if and only if it satisfies $p(x) \neq 0$ if $x \neq 0$.</em> </p>
+<h2 id="Dominated-extension-theorems"><a href="#Dominated-extension-theorems" class="headerlink" title="Dominated extension theorems"></a>Dominated extension theorems</h2><p>Are the results will be covered in this post. Generally speaking, we are able to extend a functional defined on a subspace to the whole space as long as it’s dominated by a sublinear functional. This is similar to the dominated convergence theorem, which states that if a convergent sequence of measurable functions are dominated by another function, then the convergence holds under the integral operator.</p>
+<blockquote>
+<p><strong>(Hahn-Banach)</strong> Suppose</p>
+<ol>
+<li>$M$ is a subspace of a real vector space $X$,</li>
+<li>$f: M \to \mathbb{R}$ is linear and $f(x) \leq p(x)$ on $M$ where $p$ is a sublinear functional on $X$</li>
+</ol>
+<p>Then there exists a linear $\Lambda: X \to \mathbb{R}$ such that</p>
+<script type="math/tex; mode=display">
+\Lambda(x)=f(x)</script><p>for all $x \in M$ and</p>
+<script type="math/tex; mode=display">
+-p(-x) \leq \Lambda(x) \leq p(x)</script><p>for all $x \in X$.</p>
+</blockquote>
+<h3 id="Step-1-Extending-the-function-by-one-dimension"><a href="#Step-1-Extending-the-function-by-one-dimension" class="headerlink" title="Step 1 - Extending the function by one dimension"></a>Step 1 - Extending the function by one dimension</h3><p>With that being said, if $f(x)$ is dominated by a sublinear functional, then we are able to extend this functional to the whole space with a relatively proper range.</p>
+<p><em>Proof.</em> If $M=X$ we have nothing to do. So suppose now $M$ is a nontrivial proper subspace of $X$. Choose $x_1 \in X-M$ and define</p>
+<script type="math/tex; mode=display">
+M_1=\{x+tx_1:x \in M,t \in R\}.</script><p>It’s easy to verify that $M_1$ satisfies all axioms of vector space (warning again: no topology is endowed). Now we will be using the properties of sublinear functionals.</p>
+<p>Since </p>
+<script type="math/tex; mode=display">
+f(x)+f(y)=f(x+y) \leq p(x+y) \leq p(x-x_1)+p(x_1+y)</script><p>for all $x,y \in M$, we have</p>
+<script type="math/tex; mode=display">
+f(x)-p(x-x_1) \leq p(x_1+y) -f(y).</script><p>Let</p>
+<script type="math/tex; mode=display">
+\alpha=\sup_{x}\{f(x)-p(x-x_1):x \in M\}.</script><p>By definition, we naturally get</p>
+<script type="math/tex; mode=display">
+f(x)-\alpha \leq p(x-x_1)</script><p>and</p>
+<script type="math/tex; mode=display">
+f(y)+\alpha \leq p(x_1+y).</script><p>Define $f_1$ on $M_1$ by</p>
+<script type="math/tex; mode=display">
+f_1(x+tx_1)=f(x)+t\alpha.</script><p>So when $x +tx_1 \in M$, we have $t=0$, and therefore $f_1=f$.</p>
+<p>To show that $f_1 \leq p$ on $M_1$, note that for $t&gt;0$, we have</p>
+<script type="math/tex; mode=display">
+f(x/t)-\alpha \leq p(x/t-x_1),</script><p>which implies</p>
+<script type="math/tex; mode=display">
+f(x)-t\alpha=f_1(x-t\alpha)\leq p(x-tx_1).</script><p>Similarly,</p>
+<script type="math/tex; mode=display">
+f(y/t)+\alpha \leq p(y/t+x_1),</script><p>and therefore</p>
+<script type="math/tex; mode=display">
+f(y)+t\alpha=f_1(y+tx_1) \leq p(y+tx_1).</script><p>Hence $f_1 \leq p$.</p>
+<h3 id="Step-2-An-application-of-Zorn’s-lemma"><a href="#Step-2-An-application-of-Zorn’s-lemma" class="headerlink" title="Step 2 - An application of Zorn’s lemma"></a>Step 2 - An application of Zorn’s lemma</h3><h4 id="Side-note-Why-Zorn’s-lemma"><a href="#Side-note-Why-Zorn’s-lemma" class="headerlink" title="Side note: Why Zorn’s lemma"></a>Side note: Why Zorn’s lemma</h4><p>It seems that we can never stop using step 1 to extend $M$ to a larger space, but we have to extend. (If $X$ is a finite dimensional space, then this is merely a linear algebra problem.) This meets exactly what William Timothy Gowers said in his blog post:</p>
+<blockquote>
+<p>If you are building a mathematical object in stages and find that (i) you have not finished even after infinitely many stages, and (ii) there seems to be nothing to stop you continuing to build, then Zorn’s lemma may well be able to help you.</p>
+<p>— How to use Zorn’s lemma</p>
+</blockquote>
+<p>And we will show that, as W. T. Gowers said,</p>
+<blockquote>
+<p>If the resulting partial order satisfies the chain condition and if a maximal element must be a structure of the kind one is trying to build, then the proof is complete.</p>
+</blockquote>
+<hr>
+<p>To apply Zorn’s lemma, we need to construct a partially ordered set. Let $\mathscr{P}$ be the collection of all ordered pairs $(M’,f’)$ where $M’$ is a subspace of $X$ containing $M$ and $f’$ is a linear functional on $M’$ that extends $f$ and satisfies $f’ \leq p$ on $M’$. For example we have</p>
+<script type="math/tex; mode=display">
+(M,f) , (M_1,f_1) \subset \mathscr{P}.</script><p>The partial order $\leq$ is defined as follows. By $(M’,f’) \leq (M’’,f’’)$, we mean $M’ \subset M’’$ and $f’ = f’’$ on $M’$. Obviously this is a partial order (you should be able to check this).</p>
+<p>Suppose now $\mathcal{F}$ is a chain (totally ordered subset of $\mathscr{P}$). We claim that $\mathcal{F}$ has an upper bound (which is required by Zorn’s lemma). Let</p>
+<script type="math/tex; mode=display">
+M_0=\bigcup_{(M',f') \in \mathcal{F}}M'</script><p>and</p>
+<script type="math/tex; mode=display">
+f_0(y)=f(y)</script><p>whenever $(M’,f’) \in \mathcal{F}$ and $y \in M’$. It’s easy to verify that $(M_0,f_0)$ is the upper bound we are looking for. But $\mathcal{F}$ is arbitrary, therefore by Zorn’s lemma, there exists a maximal element $(M^\ast,f^\ast)$ in $\mathscr{P}$. If $M^* \neq X$, according to step 1, we are able to extend $M^\ast$, which contradicts the maximality of $M^\ast$. And $\Lambda$ is defined to be $f^\ast$. By the linearity of $\Lambda$, we see</p>
+<script type="math/tex; mode=display">
+-p(-x) \leq -\Lambda(-x)=\Lambda{x}.</script><p>The theorem is proved. $\square$</p>
+<h3 id="How-this-proof-is-constructed"><a href="#How-this-proof-is-constructed" class="headerlink" title="How this proof is constructed"></a>How this proof is constructed</h3><p>This is a classic application of Zorn’s lemma (well-ordering principle, or Hausdorff maximality theorem). First, we showed that we are able to extend $M$ and $f$. But since we do not know the dimension or other properties of $X$, it’s not easy to control the extension which finally ‘converges’ to $(X,\Lambda)$. However, Zorn’s lemma saved us from this random exploration: Whatever happens, the maximal element is there, and take it to finish the proof. </p>
+<h2 id="Generalisation-onto-the-complex-field"><a href="#Generalisation-onto-the-complex-field" class="headerlink" title="Generalisation onto the complex field"></a>Generalisation onto the complex field</h2><p>Since inequality is appeared in the theorem above, we need more careful validation.</p>
+<blockquote>
+<p><strong>(Bohnenblust-Sobczyk-Soukhomlinoff)</strong> Suppose $M$ is a subspace of a vector space $X$, $p$ is a seminorm on $X$, and $f$ is a linear functional on $M$ such that</p>
+<script type="math/tex; mode=display">
+|f(x)| \leq p(x)</script><p>for all $x \in M$. Then $f$ extends to a linear functional $\Lambda$ on $X$ satisfying</p>
+<script type="math/tex; mode=display">
+|\Lambda (x)| \leq p(x)</script><p>for all $x \in X$.</p>
+</blockquote>
+<p><em>Proof.</em> If the scalar field is $\mathbb{R}$, then we are done, since $p(-x)=p(x)$ in this case (can you see why?). So we assume the scalar field is $\mathbb{C}$. </p>
+<p>Put $u = \Re f$. By dominated extension theorem, there is some real-linear functional $U$ such that $U(x)=u$ on $M$ and $U \leq p$ on $X$. And here we have</p>
+<script type="math/tex; mode=display">
+\Lambda(x)=U(x)-iU(ix)</script><p>where $\Lambda(x)=f(x)$ on $M$.</p>
+<p>To show that $|\Lambda(x)| \leq p(x)$ for $x \neq 0$, by taking $\alpha=\frac{|\Lambda(x)|}{\Lambda(x)}$, we have</p>
+<script type="math/tex; mode=display">
+U(\alpha{x})=\Lambda(\alpha{x})=|\Lambda(x)|\leq p(\alpha x)=p(x)</script><p>since $|\alpha|=1$ and $p(\alpha{x})=|\alpha|p(x)=p(x)$. $\square$</p>
+<h2 id="Extending-Hahn-Banach-theorem-under-linear-transform"><a href="#Extending-Hahn-Banach-theorem-under-linear-transform" class="headerlink" title="Extending Hahn-Banach theorem under linear transform"></a>Extending Hahn-Banach theorem under linear transform</h2><p>To end this post, we state a beautiful and useful extension of the Hahn-Banach theorem, which is done by R. P. Agnew and A. P. Morse.</p>
+<blockquote>
+<p><strong>(Agnew-Morse)</strong> Let $X$ denote a real vector space and $\mathcal{A}$ be a collection of linear maps $A_\alpha: X \to X$ that commute, or namely</p>
+<script type="math/tex; mode=display">
+A_\alpha A_\beta=A_\beta A_\alpha</script><p>for all $A_\alpha,A_\beta \in \mathcal{A}$. Let $p$ be a sublinear functional such that </p>
+<script type="math/tex; mode=display">
+p(A_\alpha{x})=p(x)</script><p>for all $A_\alpha \in \mathcal{A}$. Let $Y$ be a subspace of $X$ on which a linear functional $f$ is defined such that</p>
+<ol>
+<li>$f(y) \leq p(y)$ for all $y \in Y$.</li>
+<li>For each mapping $A$ and $y \in Y$, we have $Ay \in Y$.</li>
+<li>Under the hypothesis of 2, we have $f(Ay)=f(y)$.</li>
+</ol>
+<p>Then $f$ can be extended to $X$ by $\Lambda$ so that $-p(-x) \leq \Lambda(x) \leq p(x)$ for all $x \in X$, and</p>
+<script type="math/tex; mode=display">
+\Lambda(A_\alpha{x})=\Lambda{x}.</script></blockquote>
+<p>To prove this theorem, we need to construct a sublinear functional that dominates $f$. For the whole proof, see <em>Functional Analysis</em> by Peter Lax.</p>
+<h2 id="The-series"><a href="#The-series" class="headerlink" title="The series"></a>The series</h2><p>Since there is no strong reason to write more posts on this topic, i.e. the three fundamental theorems of linear functional analysis, I think it’s time to make a list of the series. It’s been around half a year.</p>
+<ul>
+<li><a href="/2020/06/06/big-3-pt-1/">The Big Three Pt. 1 - Baire Category Theorem Explained</a></li>
+<li><a href="/2020/06/30/big-3-pt-2/">The Big Three Pt. 2 - The Banach-Steinhaus Theorem</a></li>
+<li><a href="/2020/08/12/big-3-pt-3/">The Big Three Pt. 3 - The Open Mapping Theorem (Banach Space)</a></li>
+<li><a href="/2020/09/12/big-3-pt-4/">The Big Three Pt. 4 - The Open Mapping Theorem (F-Space)</a></li>
+<li>The Big Three Pt. 5 - The Hahn-Banach Theorem (Dominated Extension)</li>
+<li><a href="/2020/11/13/big-3-pt-6/">The Big Three Pt. 6 - Closed Graph Theorem with Applications</a></li>
+</ul>
+<h2 id="References-Further-Readings"><a href="#References-Further-Readings" class="headerlink" title="References / Further Readings"></a>References / Further Readings</h2><ol>
+<li>Walter Rudin, <em>Functional Analysis</em>.</li>
+<li>Peter Lax, <em>Functional Analysis</em>.</li>
+<li>William Timothy Gowers, <em><a target="_blank" rel="noopener" href="https://gowers.wordpress.com/2008/08/12/how-to-use-zorns-lemma/">How to use Zorn’s lemma</a></em>.</li>
+</ol>
+</div><div class="article-licensing box"><div class="licensing-title"><p>The Big Three Pt. 5 - The Hahn-Banach Theorem (Dominated Extension)</p><p><a href="https://desvl.xyz/2020/10/01/big-3-pt-5/">https://desvl.xyz/2020/10/01/big-3-pt-5/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>Desvl</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2020-10-01</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2021-10-08</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="../../../../tags/The-big-three/">The big three</a></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="../../15/G-K-Z-theorem/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">A proof of the ordinary Gleason-Kahane-Żelazko theorem for complex functionals</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="../../../09/27/diagram-chasing/"><span class="level-item">A long exact sequence of cohomology groups (zig-zag and diagram-chasing)</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="../../../../img/avatar.png" alt="Desvl"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Desvl</p><p class="is-size-6 is-block">A blog mainly on graduate mathematics.</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>A Noetherian local ring</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="../../../../archives"><p class="title">86</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="../../../../categories"><p class="title">44</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="../../../../tags"><p class="title">49</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="../../../../redirect/newsletter" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Compose an Email" href="../../../../redirect/email"><i class="fas fa-envelope"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="../../../../atom.xml"><i class="fas fa-rss"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Mathstodon" href="https://mathstodon.xyz/@desvl"><i class="fa-brands fa-mastodon"></i></a></div></div></div><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">Catalogue</h3><ul class="menu-list"><li><a class="level is-mobile" href="#About-this-post"><span class="level-left"><span class="level-item">1</span><span class="level-item">About this post</span></span></a></li><li><a class="level is-mobile" href="#Vector-space"><span class="level-left"><span class="level-item">2</span><span class="level-item">Vector space</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#Sublinear-seminorm"><span class="level-left"><span class="level-item">2.1</span><span class="level-item">Sublinear, seminorm</span></span></a></li></ul></li><li><a class="level is-mobile" href="#Dominated-extension-theorems"><span class="level-left"><span class="level-item">3</span><span class="level-item">Dominated extension theorems</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#Step-1-Extending-the-function-by-one-dimension"><span class="level-left"><span class="level-item">3.1</span><span class="level-item">Step 1 - Extending the function by one dimension</span></span></a></li><li><a class="level is-mobile" href="#Step-2-An-application-of-Zorn’s-lemma"><span class="level-left"><span class="level-item">3.2</span><span class="level-item">Step 2 - An application of Zorn’s lemma</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#Side-note-Why-Zorn’s-lemma"><span class="level-left"><span class="level-item">3.2.1</span><span class="level-item">Side note: Why Zorn’s lemma</span></span></a></li></ul></li><li><a class="level is-mobile" href="#How-this-proof-is-constructed"><span class="level-left"><span class="level-item">3.3</span><span class="level-item">How this proof is constructed</span></span></a></li></ul></li><li><a class="level is-mobile" href="#Generalisation-onto-the-complex-field"><span class="level-left"><span class="level-item">4</span><span class="level-item">Generalisation onto the complex field</span></span></a></li><li><a class="level is-mobile" href="#Extending-Hahn-Banach-theorem-under-linear-transform"><span class="level-left"><span class="level-item">5</span><span class="level-item">Extending Hahn-Banach theorem under linear transform</span></span></a></li><li><a class="level is-mobile" href="#The-series"><span class="level-left"><span class="level-item">6</span><span class="level-item">The series</span></span></a></li><li><a class="level is-mobile" href="#References-Further-Readings"><span class="level-left"><span class="level-item">7</span><span class="level-item">References / Further Readings</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="../../../../js/toc.js" defer></script></div><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://arxiv.org/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">arXiv</span></span><span class="level-right"><span class="level-item tag">arxiv.org</span></span></a></li><li><a class="level is-mobile" href="https://stacks.math.columbia.edu/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">The Stack Project</span></span><span class="level-right"><span class="level-item tag">stacks.math.columbia.edu</span></span></a></li><li><a class="level is-mobile" href="https://ncatlab.org/nlab/show/mathematics" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">nLab (Mathematics)</span></span><span class="level-right"><span class="level-item tag">ncatlab.org</span></span></a></li><li><a class="level is-mobile" href="https://q.uiver.app/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">quiver: a modern commutative diagram editor</span></span><span class="level-right"><span class="level-item tag">q.uiver.app</span></span></a></li><li><a class="level is-mobile" href="https://www.symmetricfunctions.com/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">The Symmetric Functions Catalogue</span></span><span class="level-right"><span class="level-item tag">www.symmetricfunctions.com</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/speaking.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Speaking</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/writing.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Writing</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">How to study maths really quick (YouTube)</span></span><span class="level-right"><span class="level-item tag">www.youtube.com</span></span></a></li><li><a class="level is-mobile" href="https://www.bilibili.com/video/BV1GJ411x7h7" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">How to study maths really quick (Bilibili)</span></span><span class="level-right"><span class="level-item tag">www.bilibili.com</span></span></a></li></ul></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="../../../../index.html"><img src="../../../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a><p class="is-size-7"><span>&copy; 2022</span> <a rel="me noopener" target="_blank" href="https://mathstodon.xyz/@desvl">Desvl</a><br>Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="../../../../js/column.js"></script><script src="../../../../js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="../../../../js/back_to_top.js" defer></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
+            },
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><!--!--><script src="../../../../js/main.js" defer></script><!--!--></body></html>

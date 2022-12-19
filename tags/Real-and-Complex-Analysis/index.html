@@ -1,0 +1,608 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="robots" content="noindex"><meta><title>Tag: Real and Complex Analysis - Desvl&#039;s blog</title><link rel="manifest" href="../../manifest.json"><meta name="application-name" content="Desvl&#039;s blog"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Desvl&#039;s blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta property="og:type" content="blog"><meta property="og:title" content="Desvl&#039;s blog"><meta property="og:url" content="https://desvl.xyz/"><meta property="og:site_name" content="Desvl&#039;s blog"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://desvl.xyz/img/avatar.png"><meta property="article:author" content="Desvl"><meta property="twitter:card" content="summary_large_image"><meta property="twitter:image:src" content="https://desvl.xyz/img/avatar.png"><meta property="twitter:creator" content="@Desvl_"><meta property="twitter:site" content="{ https://desvl.xyz }"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://desvl.xyz"},"headline":"Desvl's blog","image":["https://desvl.xyz/img/avatar.png"],"author":{"@type":"Person","name":"Desvl"},"publisher":{"@type":"Organization","name":"Desvl","logo":{"@type":"ImageObject","url":"https://desvl.xyz/img/logo.svg"}},"description":""}</script><link rel="alternate" href="../../atom.xml" title="Desvl&#039;s blog" type="application/atom+xml"><link rel="icon" href="../../img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap"><link rel="stylesheet" href="../../css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="../../index.html"><img src="../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="../../index.html">Home</a><a class="navbar-item" href="../../archives">Archives</a><a class="navbar-item" href="../../categories">Categories</a><a class="navbar-item" href="../../tags">Tags</a><a class="navbar-item" href="../../about">About (Updated Aug. 2022)</a><a class="navbar-item" href="../../link-exchange">Link Exchange</a><a class="navbar-item" href="../../support-the-author">Support the Author</a></div><div class="navbar-end"></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="../../tags">Tags</a></li><li class="is-active"><a href="#" aria-current="page">Real and Complex Analysis</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2021-10-02T04:20:51.000Z" title="02/10/2021, 12:20:51">2021-10-02</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-12-09T10:14:19.504Z" title="09/12/2021, 18:14:19">2021-12-09</time></span><span class="level-item"><a class="link-muted" href="../../categories/Analysis/">Analysis</a><span> / </span><a class="link-muted" href="../../categories/Analysis/Functional-Analysis/">Functional Analysis</a><span> / </span><a class="link-muted" href="../../categories/Analysis/Functional-Analysis/Banach-Algebra/">Banach Algebra</a><span> / </span><a class="link-muted" href="../../categories/Analysis/Integration-Theory/">Integration Theory</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2021/10/02/ba-algebra/">The Banach Algebra of Borel Measures on Euclidean Space</a></h1><div class="content"><p>This blog post is intended to deliver a quick explanation of the algebra of Borel measures on $\mathbb{R}^n$. It will be broken into pieces. All complex-valued complex Borel measures $M(\mathbb{R}^n)$ clearly form a vector space over $\mathbb{C}$. The main goal of this post is to show that this is a Banach space and also a Banach algebra.</p>
+<p>In fact, the $\mathbb{R}^n$ case can be generalised into any locally compact abelian group (see any abstract harmonic analysis books), this is because what really matters here is being locally compact and abelian. But at this moment we stick to Euclidean spaces. Note since $\mathbb{R}^n$ is $\sigma$-compact, all Borel measures are regular.</p>
+<p>To read this post you need to be familiar with some basic properties of Banach algebra, complex Borel measures, and the most important, Fubini’s theorem.</p></div><a class="article-more button is-small is-size-7" href="../../2021/10/02/ba-algebra/#more">Read more</a></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2021-03-30T09:28:33.000Z" title="30/03/2021, 17:28:33">2021-03-30</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-10-11T01:13:13.857Z" title="11/10/2021, 09:13:13">2021-10-11</time></span><span class="level-item"><a class="link-muted" href="../../categories/Analysis/">Analysis</a><span> / </span><a class="link-muted" href="../../categories/Analysis/Complex-Analysis/">Complex Analysis</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2021/03/30/quasi-analytic-classs/">Quasi-analytic Classes</a></h1><div class="content">We study the concept of quasi-analytic functions, which are quite close to being analytic.</div><a class="article-more button is-small is-size-7" href="../../2021/03/30/quasi-analytic-classs/#more">Read more</a></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2021-01-23T06:05:28.000Z" title="23/01/2021, 14:05:28">2021-01-23</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-10-06T07:53:03.766Z" title="06/10/2021, 15:53:03">2021-10-06</time></span><span class="level-item"><a class="link-muted" href="../../categories/Analysis/">Analysis</a><span> / </span><a class="link-muted" href="../../categories/Analysis/Functional-Analysis/">Functional Analysis</a><span> / </span><a class="link-muted" href="../../categories/Analysis/Functional-Analysis/L-p-space/">$L^p$-space</a><span> / </span><a class="link-muted" href="../../categories/Analysis/Integration-Theory/">Integration Theory</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2021/01/23/hardys-inequality/">Several ways to prove Hardy&#039;s inequality</a></h1><div class="content"><p>Suppose $1 &lt; p &lt; \infty$ and $f \in L^p((0,\infty))$ (with respect to Lebesgue measure of course) is a nonnegative function, take</p>
+<script type="math/tex; mode=display">
+F(x) = \frac{1}{x}\int_0^x f(t)dt \quad 0 < x <\infty,</script><p>we have Hardy’s inequality $\def\lrVert[#1]{\lVert #1 \rVert}$</p>
+<script type="math/tex; mode=display">
+\lrVert[F]_p \leq q\lrVert[f]_p</script><p>where $\frac{1}{p}+\frac{1}{q}=1$ of course.</p>
+<p>There are several ways to prove it. I think there are several good reasons to write them down thoroughly since that may be why you find this page. Maybe you are burnt out since it’s <em>left as exercise</em>. You are assumed to have enough knowledge of Lebesgue measure and integration.</p>
+<h2 id="Minkowski’s-integral-inequality"><a href="#Minkowski’s-integral-inequality" class="headerlink" title="Minkowski’s integral inequality"></a>Minkowski’s integral inequality</h2><blockquote>
+<p>Let $S_1,S_2 \subset \mathbb{R}$ be two measurable set, suppose $F:S_1 \times S_2 \to \mathbb{R}$ is measurable, then</p>
+<script type="math/tex; mode=display">
+\left[\int_{S_2} \left\vert\int_{S_1}F(x,y)dx \right\vert^pdy\right]^{\frac{1}{p}} \leq \int_{S_1} \left[\int_{S_2} |F(x,y)|^p dy\right]^{\frac{1}{p}}dx.</script><p>A proof can be found at <a target="_blank" rel="noopener" href="https://www.college-de-france.fr/media/en-pierre-louis-lions/UPL3685291072245700610_Persson___Lecture_2.pdf">here</a> by turning to Example A9. You may need to replace all measures with Lebesgue measure $m$.</p>
+</blockquote>
+<p>Now let’s get into it. For a measurable function in this place we should have $G(x,t)=\frac{f(t)}{x}$. If we put this function inside this inequality, we see</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+ \lrVert[F]_p &= \left[\int_0^\infty \left\vert \int_0^x \frac{f(t)}{x}dt \right\vert^p dx\right]^{\frac{1}{p}} \\
+                 &= \left[\int_0^\infty \left\vert \int_0^1 f(ux)du \right\vert^p dx\right]^{\frac{1}{p}} \\
+                 &\leq \int_0^1 \left[\int_0^\infty |f(ux)|^pdx\right]^{\frac{1}{p}}du \\
+                 &= \int_0^1 \left[\int_0^\infty |f(ux)|^pudx\right]^{\frac{1}{p}}u^{-\frac{1}{p}}du \\
+                 &= \lrVert[f]_p \int_0^1 u^{-\frac{1}{p}}du \\
+                 &=q\lrVert[f]_p.
+\end{aligned}</script><p>Note we have used change-of-variable twice and the inequality once. </p>
+<h2 id="A-constructive-approach"><a href="#A-constructive-approach" class="headerlink" title="A constructive approach"></a>A constructive approach</h2><p>I have no idea how people came up with this solution. Take $xF(x)=\int_0^x f(t)t^{u}t^{-u}dt$ where $0&lt;u&lt;1-\frac{1}{p}$. Hölder’s inequality gives us</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+xF(x) &= \int_0^x f(t)t^ut^{-u}dt \\
+      &\leq \left[\int_0^x t^{-uq}dt\right]^{\frac{1}{q}}\left[\int_0^xf(t)^pt^{up}dt\right]^{\frac{1}{p}} \\
+      &=\left(\frac{1}{1-uq}x^{1-uq}\right)^{\frac{1}{q}}\left[\int_0^xf(t)^pt^{up}dt\right]^{\frac{1}{p}}
+\end{aligned}</script><p>Hence</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+F(x)^p & \leq \frac{1}{x^p}\left\{\left(\frac{1}{1-uq}x^{1-uq}\right)^{\frac{1}{q}}\left[\int_0^xf(t)^pt^{up}dt\right]^{\frac{1}{p}}\right\}^{p} \\
+&= \left(\frac{1}{1-uq}\right)^{\frac{p}{q}}x^{\frac{p}{q}(1-uq)-p}\int_0^x f(t)^pt^{up}dt \\
+&= \left(\frac{1}{1-uq}\right)^{p-1}x^{-up-1}\int_0^x f(t)^pt^{up}dt
+\end{aligned}</script><p>Note we have used the fact that $\frac{1}{p}+\frac{1}{q}=1 \implies p+q=pq$ and $\frac{p}{q}=p-1$. Fubini’s theorem gives us the final answer:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\int_0^\infty F(x)^pdx &\leq \int_0^\infty\left[\left(\frac{1}{1-uq}\right)^{p-1}x^{-up-1}\int_0^x f(t)^pt^{up}dt\right]dx \\
+&=\left(\frac{1}{1-uq}\right)^{p-1}\int_0^\infty dx\int_0^x f(t)^pt^{up}x^{-up-1}dt \\
+&=\left(\frac{1}{1-uq}\right)^{p-1}\int_0^\infty dt\int_t^\infty f(t)^pt^{up}x^{-up-1}dx \\
+&=\left(\frac{1}{1-uq}\right)^{p-1}\frac{1}{up}\int_0^\infty f(t)^pdt.
+\end{aligned}</script><p>It remains to find the minimum of $\varphi(u) = \left(\frac{1}{1-uq}\right)^{p-1}\frac{1}{up}$. This is an elementary calculus problem. By taking its derivative, we see when $u=\frac{1}{pq}&lt;1-\frac{1}{p}$ it attains its minimum $\left(\frac{p}{p-1}\right)^p=q^p$. Hence we get</p>
+<script type="math/tex; mode=display">
+\int_0^\infty F(x)^pdx \leq q^p\int_0^\infty f(t)^pdt,</script><p>which is exactly what we want. Note the constant $q$ cannot be replaced with a smaller one. We simply proved the case when $f \geq 0$. For the general case, one simply needs to take absolute value.  </p>
+<h2 id="Integration-by-parts"><a href="#Integration-by-parts" class="headerlink" title="Integration by parts"></a>Integration by parts</h2><p>This approach makes use of properties of $L^p$ space. Still we assume that $f \geq 0$ but we also assume $f \in C_c((0,\infty))$, that is, $f$ is continuous and has compact support. Hence $F$ is differentiable in this situation. Integration by parts gives</p>
+<script type="math/tex; mode=display">
+\int_0^\infty F^p(x)dx=xF(x)^p\vert_0^\infty- p\int_0^\infty xdF^p = -p\int_0^\infty xF^{p-1}(x)F'(x)dx.</script><p>Note since $f$ has compact support, there are some $[a,b]$ such that $f &gt;0$ only if $0 &lt; a \leq x \leq b &lt; \infty$ and hence $xF(x)^p\vert_0^\infty=0$. Next it is natural to take a look at $F’(x)$. Note we have</p>
+<script type="math/tex; mode=display">
+F'(x) = \frac{f(x)}{x}-\frac{\int_0^x f(t)dt}{x^2},</script><p>hence $xF’(x)=f(x)-F(x)$. A substitution gives us</p>
+<script type="math/tex; mode=display">
+\int_0^\infty F^p(x)dx = -p\int_0^\infty F^{p-1}(x)[f(x)-F(x)]dx,</script><p>which is equivalent to say</p>
+<script type="math/tex; mode=display">
+\int_0^\infty F^p(x)dx = \frac{p}{p-1}\int_0^\infty F^{p-1}(x)f(x)dx.</script><p>Hölder’s inequality gives us</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\int_0^\infty F^{p-1}(x)f(x)dx &\leq \left[\int_0^\infty F^{(p-1)q}(x)dx\right]^{\frac{1}{q}}\left[\int_0^\infty f(x)^pdx\right]^{\frac{1}{p}} \\
+&=\left[\int_0^\infty F^{p}(x)dx\right]^{\frac{1}{q}}\left[\int_0^\infty f(x)^pdx\right]^{\frac{1}{p}}.
+\end{aligned}</script><p>Together with the identity above we get</p>
+<script type="math/tex; mode=display">
+\int_0^\infty F^p(x)dx = q\left[\int_0^\infty F^{p}(x)dx\right]^{\frac{1}{q}}\left[\int_0^\infty f(x)^pdx\right]^{\frac{1}{p}}</script><p>which is exactly what we want since $1-\frac{1}{q}=\frac{1}{p}$ and all we need to do is divide $\left[\int_0^\infty F^pdx\right]^{1/q}$ on both sides. So what’s next? Note $C_c((0,\infty))$ is dense in $L^p((0,\infty))$. For any $f \in L^p((0,\infty))$, we can take a sequence of functions $f_n \in C_c((0,\infty))$ such that $f_n \to f$ with respect to $L^p$-norm. Taking $F=\frac{1}{x}\int_0^x f(t)dt$ and $F_n = \frac{1}{x}\int_0^x f_n(t)dt$, we need to show that $F_n \to F$ pointwise, so that we can use Fatou’s lemma. For $\varepsilon&gt;0$, there exists some $m$ such that $\lrVert[f_n-f]_p &lt; \frac{1}{n}$. Thus</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+|F_n(x)-F(x)| &= \frac{1}{x}\left\vert \int_0^x f_n(t)dt - \int_0^x f(t)dt \right\vert \\
+              &\leq \frac{1}{x} \int_0^x |f_n(t)-f(t)|dt \\
+              &\leq \frac{1}{x} \left[\int_0^x|f_n(t)-f(t)|^pdt\right]^{\frac{1}{p}}\left[\int_0^x 1^qdt\right]^{\frac{1}{q}} \\
+              &=\frac{1}{x^{1/p}}\left[\int_0^x|f_n(t)-f(t)|^pdt\right]^{\frac{1}{p}} \\
+              &\leq \frac{1}{x^{1/p}}\lrVert[f_n-f]_p <\frac{\varepsilon}{x^{1/p}}.
+\end{aligned}</script><p>Hence $F_n \to F$ pointwise, which also implies that $|F_n|^p \to |F|^p$ pointwise. For $|F_n|$ we have</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\int_0^\infty |F_n(x)|^pdx &= \int_0^\infty \left\vert\frac{1}{x}\int_0^x f_n(t)dt\right\vert^p dx \\
+&\leq \int_0^\infty \left[\frac{1}{x}\int_0^x |f_n(t)|dt\right]^{p}dx \\
+&\leq q\int_0^\infty |f_n(t)|^pdt
+\end{aligned}</script><p>note the third inequality follows since we have already proved it for $f \geq 0$. By Fatou’s lemma, we have</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\int_0^\infty |F(x)|^pdx &= \int_0^\infty \lim_{n \to \infty}|F_n(x)|^pdx \\
+&\leq \lim_{n \to \infty} \int_0^\infty |F_n(x)|^pdx \\
+&\leq \lim_{n \to \infty}q^p\int_0^\infty |f_n(x)|^pdx \\
+&=q^p\int_0^\infty |f(x)|^pdx.
+\end{aligned}</script></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-11-28T11:42:55.000Z" title="28/11/2020, 19:42:55">2020-11-28</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-12-09T10:23:04.533Z" title="09/12/2021, 18:23:04">2021-12-09</time></span><span class="level-item"><a class="link-muted" href="../../categories/Analysis/">Analysis</a><span> / </span><a class="link-muted" href="../../categories/Analysis/Functional-Analysis/">Functional Analysis</a><span> / </span><a class="link-muted" href="../../categories/Analysis/Functional-Analysis/L-p-space/">$L^p$-space</a><span> / </span><a class="link-muted" href="../../categories/Analysis/Integration-Theory/">Integration Theory</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2020/11/28/A-continuous-function-sending-Lp-functions-to-L1/">A Continuous Function Sending L^p Functions to L^1</a></h1><div class="content"><p>Throughout, let $(X,\mathfrak{M},\mu)$ be a measure space where $\mu$ is positive.</p>
+<h2 id="The-question"><a href="#The-question" class="headerlink" title="The question"></a>The question</h2><p>If $f$ is of $L^p(\mu)$, which means $\lVert f \rVert_p=\left(\int_X |f|^p d\mu\right)^{1/p}&lt;\infty$, or equivalently $\int_X |f|^p d\mu&lt;\infty$, then we may say $|f|^p$ is of $L^1(\mu)$. In other words, we have a function</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\lambda: L^p(\mu) &\to L^1(\mu) \\
+        f &\mapsto |f|^p.
+\end{aligned}</script><p>This function does not have to be one to one due to absolute value. But we hope this function to be <em>fine</em> enough, at the very least, we hope it is continuous. </p>
+<p>Here, $f \sim g$ means that $f-g$ equals $0$ almost everywhere with respect to $\mu$. It can be easily verified that this is an equivalence relation.</p>
+<h2 id="Continuity"><a href="#Continuity" class="headerlink" title="Continuity"></a>Continuity</h2><p>We still use the $\varepsilon-\delta$ argument but it’s in a metric space. Suppose $(X,d_1)$ and $(Y,d_2)$ are two metric spaces and $f:X \to Y$ is a function. We say $f$ is continuous at $x_0 \in X$ if, for any $\varepsilon&gt;0$, there exists some $\delta&gt;0$ such that $d_2(f(x_0),f(x))&lt;\varepsilon$ whenever $d_1(x_0,x)&lt;\delta$. Further, we say $f$ is continuous on $X$ if $f$ is continuous at every point $x \in X$.</p>
+<h2 id="Metrics"><a href="#Metrics" class="headerlink" title="Metrics"></a>Metrics</h2><p>For $1\leq p&lt;\infty$, we already have a metric by</p>
+<script type="math/tex; mode=display">
+d(f,g)=\lVert f-g \rVert_p</script><p>given that $d(f,g)=0$ if and only if $f \sim g$. This is complete and makes $L^p$ a Banach space. But for $0&lt;p&lt;1$ (yes we are going to cover that), things are much more different, and there is one reason: Minkowski inequality holds reversely! In fact, we have</p>
+<script type="math/tex; mode=display">
+\lVert f+g \rVert_p \geq \lVert f \rVert_p + \lVert g \rVert_p</script><p>for $0&lt;p&lt;1$. $L^p$ space has too many weird things when $0&lt;p&lt;1$. Precisely,</p>
+<blockquote>
+<p>For $0&lt;p&lt;1$, $L^p(\mu)$ is locally convex if and only if $\mu$ assumes finitely many values. (<a target="_blank" rel="noopener" href="https://kconrad.math.uconn.edu/blurbs/analysis/lpspace.pdf">Proof.</a>)</p>
+</blockquote>
+<p>On the other hand, for example, $X=[0,1]$ and $\mu=m$ be the Lebesgue measure, then $L^p(\mu)$ has <em>no</em> open convex subset other than $\varnothing$ and $L^p(\mu)$ itself. However,</p>
+<blockquote>
+<p>A topological vector space $X$ is normable if and only if its origin has a convex bounded neighbourhood. (See Kolmogorov’s normability criterion.)</p>
+</blockquote>
+<p>Therefore $L^p(m)$ is not normable, hence not Banach.</p>
+<p>We have gone too far. We need a metric that is fine enough.</p>
+<h3 id="Metric-of-L-p-when-0-lt-p-lt-1"><a href="#Metric-of-L-p-when-0-lt-p-lt-1" class="headerlink" title="Metric of $L^p$ when $0&lt;p&lt;1$"></a>Metric of $L^p$ when $0&lt;p&lt;1$</h3><p>Define</p>
+<script type="math/tex; mode=display">
+\Delta(f)=\int_X |f|^p d\mu</script><p>for $f \in L^p(\mu)$. We will show that we have a metric by</p>
+<script type="math/tex; mode=display">
+d(f,g)=\Delta(f-g).</script><p>Fix $y\geq 0$, consider the function</p>
+<script type="math/tex; mode=display">
+f(x)=(x+y)^p-x^p.</script><p>We have $f(0)=y^p$ and</p>
+<script type="math/tex; mode=display">
+f'(x)=p(x+y)^{p-1}-px^{p-1} \leq px^{p-1}-px^{p-1}=0</script><p>when $x &gt; 0$ and hence $f(x)$ is nonincreasing on $[0,\infty)$, which implies that</p>
+<script type="math/tex; mode=display">
+(x+y)^p \leq x^p+y^p.</script><p>Hence for any $f$, $g \in L^p$, we have</p>
+<script type="math/tex; mode=display">
+\Delta(f+g)=\int_X |f+g|^p d\mu \leq \int_X |f|^p d\mu + \int_X |g|^p d\mu=\Delta(f)+\Delta(g).</script><p>This inequality ensures that</p>
+<script type="math/tex; mode=display">
+d(f,g)=\Delta(f-g)</script><p>is a metric. It’s immediate that $d(f,g)=d(g,f) \geq 0$ for all $f$, $g \in L^p(\mu)$. For the triangle inequality, note that</p>
+<script type="math/tex; mode=display">
+d(f,h)+d(g,h)=\Delta(f-h)+\Delta(h-g) \geq \Delta((f-h)+(h-g))=\Delta(f-g)=d(f,g).</script><p>This is translate-invariant as well since </p>
+<script type="math/tex; mode=display">
+d(f+h,g+h)=\Delta(f+h-g-h)=\Delta(f-g)=d(f,g)</script><p>The completeness can be verified in the same way as the case when $p&gt;1$. In fact, this metric makes $L^p$ a locally bounded F-space.</p>
+<h2 id="The-continuity-of-lambda"><a href="#The-continuity-of-lambda" class="headerlink" title="The continuity of $\lambda$"></a>The continuity of $\lambda$</h2><p>The metric of $L^1$ is defined by</p>
+<script type="math/tex; mode=display">
+d_1(f,g)=\lVert f-g \rVert_1=\int_X |f-g|d\mu.</script><p>We need to find a relation between $d_p(f,g)$ and $d_1(\lambda(f),\lambda(g))$, where $d_p$ is the metric of the corresponding $L^p$ space.</p>
+<h3 id="0-lt-p-lt-1"><a href="#0-lt-p-lt-1" class="headerlink" title="$0&lt;p&lt;1$"></a>$0&lt;p&lt;1$</h3><p>As we have proved,</p>
+<script type="math/tex; mode=display">
+(x+y)^p \leq x^p+y^p.</script><p>Without loss of generality we assume $x \geq y$ and therefore</p>
+<script type="math/tex; mode=display">
+x^p=(x-y+y)^p \leq (x-y)^p+y^p.</script><p>Hence</p>
+<script type="math/tex; mode=display">
+x^p-y^p \leq (x-y)^p.</script><p>By interchanging $x$ and $y$, we get</p>
+<script type="math/tex; mode=display">
+|x^p-y^p| \leq |x-y|^p.</script><p>Replacing $x$ and $y$ with $|f|$ and $|g|$ where $f$, $g \in L^p$, we get</p>
+<script type="math/tex; mode=display">
+\int_{X}\lvert |f|^p-|g|^p \rvert d\mu \leq \int_X |f-g|^p d\mu.</script><p>But </p>
+<script type="math/tex; mode=display">
+d_1(\lambda(f),\lambda(g))=\int_{X}\lvert |f|^p-|g|^p \rvert d\mu \\
+d_p(f,g)=\Delta(f-g)= d\mu \leq \int_X |f-g|^p d\mu</script><p>and we therefore have</p>
+<script type="math/tex; mode=display">
+d_1(\lambda(f),\lambda(g)) \leq d_p(f,g).</script><p>Hence $\lambda$ is continuous (and in fact, Lipschitz continuous and uniformly continuous) when $0&lt;p&lt;1$.</p>
+<h2 id="1-leq-p-lt-infty"><a href="#1-leq-p-lt-infty" class="headerlink" title="$1 \leq p &lt; \infty$"></a>$1 \leq p &lt; \infty$</h2><p>It’s natural to think about Minkowski’s inequality and Hölder’s inequality in this case since they are critical inequality enablers. You need to think about some examples of how to create the condition to use them and get a fine result. In this section we need to prove that</p>
+<script type="math/tex; mode=display">
+|x^p-y^p| \leq p|x-y|(x^{p-1}+y^{p-1}).</script><p>This inequality is surprisingly easy to prove however. We will use nothing but the mean value theorem. Without loss of generality we assume that $x &gt; y \geq 0$ and define $f(t)=t^p$. Then</p>
+<script type="math/tex; mode=display">
+\frac{f(x)-f(y)}{x-y}=f'(\zeta)=p\zeta^{p-1}</script><p>where $y &lt; \zeta &lt; x$. But since $p-1 \geq 0$, we see $\zeta^{p-1} &lt; x^{p-1} &lt;x^{p-1}+y^{p-1}$. Therefore</p>
+<script type="math/tex; mode=display">
+f(x)-f(y)=x^p-y^p=p(x-y)\zeta^{p-1}<p(x-y)(x^{p-1}-y^{p-1}).</script><p>For $x=y$ the equality holds.</p>
+<hr>
+<p>Therefore</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+d_1(\lambda(f),\lambda(g)) &= \int_X \left||f|^p-|g|^p\right|d\mu \\
+                          &\leq \int_Xp\left||f|-|g|\right|(|f|^{p-1}+|g|^{p-1})d\mu
+\end{aligned}</script><p>By <em>Hölder’s inequality</em>, we have</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\int_X ||f|-|g||(|f|^{p-1}+|g|^{p-1})d\mu & \leq \left[\int_X \left||f|-|g|\right|^pd\mu\right]^{1/p}\left[\int_X\left(|f|^{p-1}+|g|^{p-1}\right)^q\right]^{1/q} \\
+&\leq \left[\int_X \left|f-g\right|^pd\mu\right]^{1/p}\left[\int_X\left(|f|^{p-1}+|g|^{p-1}\right)^q\right]^{1/q} \\
+&=\lVert f-g \rVert_p \left[\int_X\left(|f|^{p-1}+|g|^{p-1}\right)^q\right]^{1/q}.
+\end{aligned}</script><p>By <em>Minkowski’s inequality</em>, we have</p>
+<script type="math/tex; mode=display">
+\left[\int_X\left(|f|^{p-1}+|g|^{p-1}\right)^q\right]^{1/q} \leq \left[\int_X|f|^{(p-1)q}d\mu\right]^{1/q}+\left[\int_X |g|^{(p-1)q}d\mu\right]^{1/q}</script><p>Now things are clear. Since $1/p+1/q=1$, or equivalently $1/q=(p-1)/p$, suppose $\lVert f \rVert_p$, $\lVert g \rVert_p \leq R$, then $(p-1)q=p$ and therefore</p>
+<script type="math/tex; mode=display">
+\left[\int_X|f|^{(p-1)q}d\mu\right]^{1/q}+\left[\int_X |g|^{(p-1)q}d\mu\right]^{1/q} = \lVert f \rVert_p^{p-1}+\lVert g \rVert_p^{p-1} \leq 2R^{p-1}.</script><p>Summing the inequalities above, we get</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+d_1(\lambda(f),\lambda(g)) \leq 2pR^{p-1}\lVert f-g \rVert_p =2pR^{p-1}d_p(f,g)
+\end{aligned}</script><p>hence $\lambda$ is continuous.</p>
+<h2 id="Conclusion-and-further"><a href="#Conclusion-and-further" class="headerlink" title="Conclusion and further"></a>Conclusion and further</h2><p>We have proved that $\lambda$ is continuous, and when $0&lt;p&lt;1$, we have seen that $\lambda$ is Lipschitz continuous. It’s natural to think about its differentiability afterwards, but the absolute value function is not even differentiable so we may have no chance. But this is still a fine enough result. For example we have no restriction to $(X,\mathfrak{M},\mu)$ other than the positivity of $\mu$. Therefore we may take $\mathbb{R}^n$ as the Lebesgue measure space here, or we can take something else.</p>
+<p>It’s also interesting how we use elementary Calculus to solve some much more abstract problems.</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-08-18T09:12:52.000Z" title="18/08/2020, 17:12:52">2020-08-18</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-12-09T10:10:01.092Z" title="09/12/2021, 18:10:01">2021-12-09</time></span><span class="level-item"><a class="link-muted" href="../../categories/Analysis/">Analysis</a><span> / </span><a class="link-muted" href="../../categories/Analysis/Elementary/">Elementary</a><span> / </span><a class="link-muted" href="../../categories/Analysis/Elementary/Continuity/">Continuity</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2020/08/18/Basic-facts-of-semicontinuous-functions/">Basic Facts of Semicontinuous Functions</a></h1><div class="content"><h2 id="Continuity"><a href="#Continuity" class="headerlink" title="Continuity"></a>Continuity</h2><p>We are restricting ourselves into $\mathbb{R}$ endowed with normal topology. Recall that a function is continuous if and only if for any open set $U \subset \mathbb{R}$, we have</p>
+<script type="math/tex; mode=display">
+\{x:f(x) \in U\}=f^{-1}(U)</script><p>to be open. One can rewrite this statement using $\varepsilon-\delta$ language. To say a function $f: \mathbb{R} \to \mathbb{R}$ continuous at $f(x)$, we mean for any $\varepsilon&gt;0$, there exists some $\delta&gt;0$ such that for $t \in (x-\delta,x+\delta)$, we have</p>
+<script type="math/tex; mode=display">
+|f(x)-f(t)|<\varepsilon.</script><p>$f$ is continuous on $\mathbb{R}$ if and only if $f$ is continuous at every point of $\mathbb{R}$.</p>
+<p>If $(x-\delta,x+\delta)$ is replaced with $(x-\delta,x)$ or $(x,x+\delta)$, we get left continuous and right continuous, one of which plays an important role in probability theory.</p>
+<p>But the problem is, sometimes continuity is too strong for being a restriction, but the ‘direction’ associated with left/right continuous functions are unnecessary as well. For example the function</p>
+<script type="math/tex; mode=display">
+f(x)=\chi_{(0,1)}(x)</script><p>is neither left nor right continuous (globally), but it is a thing. Left/right continuity is not a perfectly weakened version of continuity. We need something different.</p>
+<h2 id="Definition-of-semicontinuous"><a href="#Definition-of-semicontinuous" class="headerlink" title="Definition of semicontinuous"></a>Definition of semicontinuous</h2><p>Let $f$ be a real (or extended-real) function on $\mathbb{R}$. The semicontinuity of $f$ is defined as follows.</p>
+<blockquote>
+<p>If</p>
+<script type="math/tex; mode=display">
+\{x:f(x)>\alpha\}</script><p>is open for all real $\alpha$, we say $f$ is <em>lower</em> semicontinuous.</p>
+<p>If</p>
+<script type="math/tex; mode=display">
+\{x:f(x)<\alpha\}</script><p>is open for all real $\alpha$, we say $f$ is <em>upper</em> semicontinuous.</p>
+</blockquote>
+<p>Is it possible to rewrite these definitions à la $\varepsilon-\delta$? The answer is yes if we restrict ourselves in metric space.</p>
+<blockquote>
+<p>$f: \mathbb{R} \to \mathbb{R}$ is upper semicontinuous at $x$ if, for every $\varepsilon&gt;0$, there exists some $\delta&gt;0$ such that for $t \in (x-\delta,x+\delta)$, we have</p>
+<script type="math/tex; mode=display">
+f(t)<f(x)+\varepsilon</script><p>$f: \mathbb{R} \to \mathbb{R}$ is lower semicontinuous at $x$ if, for every $\varepsilon&gt;0$, there exists some $\delta&gt;0$ such that for $t \in (x-\delta,x+\delta)$, we have</p>
+<script type="math/tex; mode=display">
+f(t)>f(x)-\varepsilon</script></blockquote>
+<p>Of course, $f$ is upper/lower semicontinuous on $\mathbb{R}$ if and only if it is so on every point of $\mathbb{R}$. One shall find no difference between the definitions in different styles.</p>
+<h2 id="Relation-with-continuous-functions"><a href="#Relation-with-continuous-functions" class="headerlink" title="Relation with continuous functions"></a>Relation with continuous functions</h2><p>Here is another way to see it. For the continuity of $f$, we are looking for <em>arbitrary</em> open subsets $V$ of  $\mathbb{R}$, and $f^{-1}(V)$ is expected to be open. For the lower/upper semicontinuity of $f$, however, the open sets are restricted to be like $(\alpha,+\infty]$ and $[-\infty,\alpha)$. Since all open sets of $\mathbb{R}$ can be generated by the union or intersection of sets like $[-\infty,\alpha)$ and $(\beta,+\infty]$, we immediately get</p>
+<blockquote>
+<p>$f$ is continuous if and only if $f$ is both upper semicontinuous and lower semicontinuous.</p>
+</blockquote>
+<p><em>Proof.</em> If $f$ is continuous, then for any $\alpha \in \mathbb{R}$, we see $[-\infty,\alpha)$ is open, and therefore</p>
+<script type="math/tex; mode=display">
+f^{-1}([-\infty,\alpha))</script><p>has to be open. The upper semicontinuity is proved. The lower semicontinuity of $f$ is proved in the same manner.</p>
+<p>If $f$ is both upper and lower semicontinuous, we see</p>
+<script type="math/tex; mode=display">
+f^{-1}((\alpha,\beta))=f^{-1}([-\infty,\beta)) \cap f^{-1}((\alpha,+\infty])</script><p>is open. Since every open subset of $\mathbb{R}$ can be written as a countable union of segments of the above types, we see for any open subset $V$ of $\mathbb{R}$, $f^{-1}(V)$ is open. (If you have trouble with this part, it is recommended to review the definition of topology.) $\square$</p>
+<h2 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h2><p>There are two important examples.</p>
+<blockquote>
+<ol>
+<li>If $E \subset \mathbb{R}$ is open, then $\chi_E$ is lower semicontinuous.</li>
+<li>If $F \subset \mathbb{R}$ is closed, then $\chi_F$ is upper semicontinuous.</li>
+</ol>
+</blockquote>
+<p>We will prove the first one. The second one follows in the same manner of course. For $\alpha<0$, the set $A=\chi_E^{-1}((\alpha,+\infty])$ is equal to $\mathbb{R}$, which is open. For $\alpha \geq 1$, since $\chi_E \leq 1$, we see $A=\varnothing$. For $0 \leq \alpha < 1$ however, the set of $x$ where $\chi_E>\alpha$ has to be $E$, which is still open.</p>
+<p>When checking the semicontinuity of a function, we check from bottom to top or top to bottom. The function $\chi_E$ is defined by</p>
+<script type="math/tex; mode=display">
+\chi_E(x)=\begin{cases}
+1 \quad x \in E \\
+0 \quad x \notin E
+\end{cases}.</script><h2 id="Addition-of-semicontinuous-functions"><a href="#Addition-of-semicontinuous-functions" class="headerlink" title="Addition of semicontinuous functions"></a>Addition of semicontinuous functions</h2><blockquote>
+<p>If $f_1$ and $f_2$ are upper/lower semicontinuous, then so is $f_1+f_2$.</p>
+</blockquote>
+<p><em>Proof.</em> We are going to prove this using different tools. Suppose now both $f_1$ and $f_2$ are upper semicontinuous. For $\varepsilon&gt;0$, there exists some $\delta_1&gt;0$ and $\delta_2&gt;0$ such that</p>
+<script type="math/tex; mode=display">
+f_1(t) < f_1(x)+\varepsilon/2 \quad t \in (x-\delta_1,x+\delta_1), \\
+f_2(t) < f_2(x) + \varepsilon/2 \quad t \in (x-\delta_2,x+\delta_2).</script><p><em>Proof.</em> If we pick $\delta=\min(\delta_1,\delta_2)$, then we see for all $t \in (x-\delta,x+\delta)$, we have</p>
+<script type="math/tex; mode=display">
+f_1(t)+f_2(t)<f_1(x)+f_2(x)+\varepsilon.</script><p>The upper semicontinuity of $f_1+f_2$ is proved by considering all $x \in \mathbb{R}$.</p>
+<p>Now suppose both $f_1$ and $f_2$ are lower semicontinuous. We have an identity by</p>
+<script type="math/tex; mode=display">
+\{x:f_1+f_2>\alpha\}=\bigcup_{\beta\in\mathbb{R}}\{x:f_1>\beta\}\cap\{x:f_2>\alpha-\beta\}.</script><p>The set on the right side is always open. Hence $f_1+f_2$ is lower semicontinuous. $\square$</p>
+<hr>
+<p>However, when there are infinite many semicontinuous functions, things are different.</p>
+<blockquote>
+<p>Let $\{f_n\}$ be a sequence of nonnegative functions on $\mathbb{R}$, then</p>
+<ul>
+<li>If each $f_n$ is lower semicontinuous, then so is $\sum_{1}^{\infty}f_n$.</li>
+<li>If each $f_n$ is upper semicontinuous, then $\sum_{1}^{\infty}f_n$ is not necessarily upper semicontinuous.</li>
+</ul>
+</blockquote>
+<p><em>Proof.</em> To prove this we are still using the properties of open sets. Put $g_n=\sum_{1}^{n}f_k$. Now suppose all $f_k$ are lower. Since $g_n$ is a finite sum of lower functions, we see each $g_n$ is lower. Let $f=\sum_{n}f_n$. As $f_k$ are non-negative, we see $f(x)&gt;\alpha$ if and only if there exists some $n_0$ such that $g_{n_0}(x)&gt;\alpha$. Therefore</p>
+<script type="math/tex; mode=display">
+\{x:f(x)>\alpha\}=\bigcup_{n \geq n_0}\{x:g_n>\alpha\}.</script><p>The set on the right hand is open already. </p>
+<p>For the upper semicontinuity, it suffices to give a counterexample, but before that, we shall give the motivation.</p>
+<p>As said, the characteristic function of a closed set is upper semicontinuous. Suppose $\{E_n\}$ is a sequence of almost disjoint closed set, then $E=\cup_{n\geq 1}E_n$ is not necessarily closed, therefore $\chi_E=\sum\chi_{E_n}$ (a.e.) is not necessarily upper semicontinuous. Now we give a concrete example. Put $f_0=\chi_{[1,+\infty]}$ and $f_n=\chi_{E_n}$ for $n \geq 1$ where</p>
+<script type="math/tex; mode=display">
+E_n=\{x:\frac{1}{1+n} \leq x \leq \frac{1}{n}\}.</script><p>For $x &gt; 0$, we have $f=\sum_nf_n \geq 1$. Meanwhile, $f^{-1}([-\infty,1))=[-\infty,0]$, which is not open. $\square$</p>
+<p>Notice that $f$ can be defined on any topological space here.</p>
+<h2 id="Maximum-and-minimum"><a href="#Maximum-and-minimum" class="headerlink" title="Maximum and minimum"></a>Maximum and minimum</h2><p>There is one fact we already know about continuous functions.</p>
+<blockquote>
+<p>If $X$ is compact, $f: X \to \mathbb{R}$ is continuous, then there exists some $a,b \in X$ such that $f(a)=\min f(X)$, $f(b)=\max f(X)$.</p>
+</blockquote>
+<p>In fact, $f(X)$ is compact still. But for semicontinuous functions, things will be different but reasonable. For upper semicontinuous functions, we have the following fact.</p>
+<blockquote>
+<p>If $X$ is compact and $f: X \to (-\infty,+\infty)$ is upper semicontinuous, then there exists some $a \in X$ such that $f(a)=\max f(X)$. </p>
+</blockquote>
+<p>Notice that $X$ is not assumed to hold any other topological property. It can be Hausdorff or Lindelöf, but we are not asking for restrictions like this. The only property we will be using is that every open cover of $X$ has a finite subcover. Of course, one can replace $X$ with any compact subset of $\mathbb{R}$, for example, $[a,b]$.</p>
+<p><em>Proof.</em> Put $\alpha=\sup f(X)$, and define</p>
+<script type="math/tex; mode=display">
+E_n=\{x:f(x)<\alpha-\frac{1}{n}\}.</script><p>If $f$ attains no maximum, then for any $x \in X$, there exists some $n \geq 1$ such that $f(x)&lt;\alpha-\frac{1}{n}$. That is, $x \in E_n$ for some $n$. Therefore $\bigcup_{n \geq 1}E_n$ covers $X$. But this cover has no finite subcover of $X$. A contradiction since $X$ is compact. $\square$</p>
+<h2 id="Approximating-integrable-functions"><a href="#Approximating-integrable-functions" class="headerlink" title="Approximating integrable functions"></a>Approximating integrable functions</h2><p>This is a comprehensive application of several properties of semicontinuity. </p>
+<blockquote>
+<p>(<strong>Vitali–Carathéodory theorem</strong>) Suppose $f \in L^1(\mathbb{R})$, where $f$ is a real-valued function. For $\varepsilon&gt;0$, there exist some functions $u$ and $v$ on $\mathbb{R}$ such that $u \leq f \leq v$, $u$ is an upper semicontinuous function bounded above, and $v$ is lower semicontinuous bounded below, and</p>
+<script type="math/tex; mode=display">
+\boxed{\int_{\mathbb{R}}(v-u)dm<\varepsilon}</script></blockquote>
+<p>It suffices to prove this theorem for $f \geq 0$ (of course $f$ is not identically equal to $0$ since this case is trivial). Since $f$ is the pointwise limit of an increasing sequence of simple functions $s_n$, can to write $f$ as</p>
+<script type="math/tex; mode=display">
+f=s_1+\sum_{n=2}^{\infty}(s_n-s_{n-1}).</script><p>By putting $t_1=s_1$, $t_n=s_n-s_{n-1}$ for $n \geq 2$, we get $f=\sum_n t_n$. We can write $f$ as</p>
+<script type="math/tex; mode=display">
+f=\sum_{k=1}^{\infty}c_k\chi_{E_k}</script><p>where $E_k$ is measurable for all $k$. Also, we have</p>
+<script type="math/tex; mode=display">
+\int_X f d\mu = \sum_{k=1}^{\infty}c_km(E_k),</script><p>and the series on the right hand converges (since $f \in L^1$. By the properties of Lebesgue measure,  there exists a compact set $F_k$ and an open set $V_k$ such that $F_k \subset E_k \subset V_k$ and $c_km(V_k-F_k)&lt;\frac{\varepsilon}{2^{k+1}}$. Put</p>
+<script type="math/tex; mode=display">
+v=\sum_{k=1}^{\infty}c_k\chi_{V_k},\quad u=\sum_{k=1}^{N}c_k\chi_{F_k}</script><p>(now you can see $v$ is lower semicontinuous and $u$ is upper semicontinuous). The $N$ is chosen in such a way that</p>
+<script type="math/tex; mode=display">
+\sum_{k=N+1}^{\infty}c_km(E_K)<\frac{\varepsilon}{2}.</script><p>Since $V_k \supset E_k$, we have $\chi_{V_k} \geq \chi_{E_k}$. Therefore $v \geq f$. Similarly, $f \geq u$. Now we need to check the desired integral inequality. A simple recombination shows that</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+v-u&=\sum_{k=1}^{\infty}c_k\chi_{V_k}-\sum_{k=1}^{N}c_k\chi_{F_k} \\
+   &\leq \sum_{k=1}^{\infty}c_k\chi_{V_k}-\sum_{k=1}^{N}c_k\chi_{F_k}+\sum_{k=N+1}^{\infty}c_k(\chi_{E_k}-\chi_{F_k}) \\
+   &=\sum_{k=1}^{\infty}c_k(\chi_{V_k}-\chi_{F_k})+\sum_{k=N+1}^{\infty}c_k\chi_{E_k}.
+\end{aligned}.</script><p>If we integrate the function above, we get</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\int_{\mathbb{R}}(v-u)dm &\leq \sum_{k=1}^{\infty}c_k\mu(V_k-E_k)+\sum_{k=N+1}^{\infty}c_k\chi_{E_k} \\
+&< \sum_{k=1}^{\infty}\frac{\varepsilon}{2^{k+1}}+\frac{\varepsilon}{2} \\
+&=\varepsilon.
+\end{aligned}</script><p>This proved the case when $f \geq 0$. In the general case, we write $f=f^{+}-f^{-}$. Attach the semicontinuous functions to $f^{+}$ and $f^{-}$ respectively by $u_1 \leq f^{+} \leq v_1$ and $u_2 \leq f^{-} \leq v_2$. Put $u=u_1-v_2$, $v=v_1-u_2$. As we can see, $u$ is upper semicontinuous and $v$ is lower semicontinuous. Also, $u \leq f \leq v$ with the desired property since</p>
+<script type="math/tex; mode=display">
+\int_\mathbb{R}(v-u)dm=\int_\mathbb{R}(v_1-u_1)dm+\int_\mathbb{R}(v_2-u_2)dm<2\varepsilon,</script><p>and the theorem follows. $\square$</p>
+<h3 id="Generalisation"><a href="#Generalisation" class="headerlink" title="Generalisation"></a>Generalisation</h3><p>Indeed, the only property about measure used is the existence of $F_k$ and $V_k$. The domain $\mathbb{R}$ here can be replaced with $\mathbb{R}^k$ for $1 \leq k &lt; \infty$, and $m$ be replaced with the respective $m_k$. Much more generally, the domain can be replaced by any locally compact Hausdorff space $X$ and the measure by any measure associated with <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Riesz–Markov–Kakutani_representation_theorem">the Riesz-Markov-Kakutani representation theorem</a> on $C_c(X)$.</p>
+<h3 id="Is-the-reverse-approximation-always-possible"><a href="#Is-the-reverse-approximation-always-possible" class="headerlink" title="Is the reverse approximation always possible?"></a>Is the reverse approximation always possible?</h3><p>The answer is no. Consider the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Smith%E2%80%93Volterra%E2%80%93Cantor_set">fat Cantor set</a> $K$, which has Lebesgue measure $\frac{1}{2}$. We shall show that $\chi_K$ can not be approximated below by a lower semicontinuous function.</p>
+<blockquote>
+<p>If $v$ is a lower semicontinuous function such that $v \leq \chi_K$, then $v \leq 0$.</p>
+</blockquote>
+<p><em>Proof.</em> Consider the set $V=v^{-1}((0,1])=v^{-1}((0,+\infty))$. Since $v \leq \chi_K$, we have $V \subset K$. We will show that $V$ has to be empty.</p>
+<p>Pick $t \in V$. Since $V$ is open, there exists some neighbourhood $U$ containing $t$ such that $U \subset V$. But $U=\varnothing$ since $U \subset K$ and $K$ has an empty interior. Therefore $V = \varnothing$. That is, $v \leq 0$ for all $x$. $\square$</p>
+<p>Suppose $u$ is an upper semicontinuous function such that $u \geq f$. For $\varepsilon=\frac{1}{2}$, we have</p>
+<script type="math/tex; mode=display">
+\int_{\mathbb{R}}(u-v)dm \geq \int_\mathbb{R}(f-v)dm \geq \frac{1}{2}.</script><p>This example shows that there exist some integrable functions that are not able to reversely approximated in the sense of the Vitali–Carathéodory theorem.</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-05-20T12:11:12.000Z" title="20/05/2020, 20:11:12">2020-05-20</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-10-08T09:47:04.843Z" title="08/10/2021, 17:47:04">2021-10-08</time></span><span class="level-item"><a class="link-muted" href="../../categories/Analysis/">Analysis</a><span> / </span><a class="link-muted" href="../../categories/Analysis/Complex-Analysis/">Complex Analysis</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2020/05/20/zeros-of-entire-function/">More properties of zeros of an entire function</a></h1><div class="content"><h2 id="What’s-going-on-again"><a href="#What’s-going-on-again" class="headerlink" title="What’s going on again"></a>What’s going on again</h2><p>In <a href="/2020/03/14/topological-property-of-the-zeros-of-a-holomorphic-function/">this post</a> we discussed the topological properties of the zero points of an entire nonzero function, or roughly, how those points look like. The set of zero points contains no limit point, and at most countable (countable or finite). So if it’s finite, then we can find them out one by one. For example, the function $f(z)=z$ has simply one zero point. But what if it’s just countable? How fast the number grows?</p>
+<p>Another question. Suppose we have an entire function $f$, and the zeros of $f$, namely $z_1,z_2,\cdots,z_n$, are ordered increasingly by moduli:</p>
+<script type="math/tex; mode=display">
+|z_1| \leq |z_2| \leq \cdots \leq |z_n| \leq \cdots</script><p>Is it possible to get a fine enough estimation of $|z_n|$? Interesting enough, we can get there with the help of Jensen’s formula.</p>
+<h2 id="Jensen’s-formula"><a href="#Jensen’s-formula" class="headerlink" title="Jensen’s formula"></a>Jensen’s formula</h2><blockquote>
+<p>Suppose $\Omega=D(0;R)$, $f \in H(\Omega)$, $f(0) \neq 0$, $0&lt;r&lt;R$, and $z_1,z_2,\cdots,z_{n(r)}$ are the zeros of $f$ in $\overline{D}(0;R)$, then</p>
+<script type="math/tex; mode=display">
+|f(0)|\prod_{n=1}^{n(r)}\frac{r}{|z_n|}=\exp\left[\frac{1}{2\pi}\int_{-\pi}^{\pi}\log|f(re^{i\theta})|d\theta\right]</script></blockquote>
+<p>There is no need to worry about the assumption $f(0) \neq 0$. Take another look at  <a href="/2020/03/14/topological-property-of-the-zeros-of-a-holomorphic-function/#Proof">this proof</a>. Every zero point $a$ has a unique positive number $m$ such that $f(z)=(z-a)^mg(z)$ and $g \in H(\Omega)$ but $g(a) \neq 0$. The number $m$ is called the order of the zero at $a$. Therefore if we have $f(0)=0$ we can simply consider another function, namely $\frac{f}{z^m}$ where $m$ is the order of zero at $0$.</p>
+<p>We are not proving this identity at this point. But it can be done by considering the following function</p>
+<script type="math/tex; mode=display">
+g(z)=f(z)\prod_{n=1}^{m}\frac{r^2-\overline{z}_nz}{r(z_n-z)}\prod_{n=m+1}^{n(r)}\frac{z_n}{z_n-z}</script><p>where $m$ is found by ordering $z_j$ in such a way that $z_1,\cdots,z_m \in D(0;r)$ and $|z_{m+1}|=\cdots=|z_{n}|$. One can prove this identity by considering $|g(0)|$ as well as $\log|g(re^{i\theta})|$.</p>
+<h2 id="Several-applications"><a href="#Several-applications" class="headerlink" title="Several applications"></a>Several applications</h2><h3 id="The-number-of-zeros-of-f-in-overline-D-0-r"><a href="#The-number-of-zeros-of-f-in-overline-D-0-r" class="headerlink" title="The number of zeros of $f$ in $\overline{D}(0;r)$"></a>The number of zeros of $f$ in $\overline{D}(0;r)$</h3><p>For simplicity we shall assume $f(0)=1$ which has no loss of generality. Let</p>
+<script type="math/tex; mode=display">
+M(r)=\sup_{\theta}|f(re^{i\theta})|\quad 0<r<\infty</script><p>and $n(r)$ be the number of zeros of $f$ in $\overline{D}(0;r)$. By the maximum modulus theorem, we have</p>
+<script type="math/tex; mode=display">
+\log|f(2re^{i\theta})| \leq |f(2re^{i\theta})| \leq M(2r)</script><p>If we insert Jensen’s formula into this inequality and order $|z_n|$ by increasing moduli, we get</p>
+<script type="math/tex; mode=display">
+\log M(2r) \geq \frac{1}{2\pi}\int_{-\pi}^{\pi}\log|f(2re^{i\theta})|d\theta=\sum_{n=1}^{n(2r)}\log\frac{2r}{|z_n|}\geq\sum_{n=1}^{n(r)}\log\frac{2r}{|z_n|}\geq n(r)\log2</script><p>Which implies</p>
+<script type="math/tex; mode=display">
+n(r)\leq\log_2M(2r)</script><p>So $n(r)$ is controlled by $M(2r)$.  The second and third inequalities look tricky, which require more explanation.</p>
+<p>First we should notice the fact that $z_n \in \overline{D}(0;R)$ for all $R \in \mathbb{R}$. Hence we have $\log\frac{2r}{|z_n|} \geq \log1=0$ for all $z_n \in \overline{D}(0;R)$.   Hence the second inequality follows. For the third one, we simply have</p>
+<script type="math/tex; mode=display">
+\sum_{n=1}^{n(r)}\log\frac{2r}{|z_n|}=\sum_{n=1}^{n(r)}(\log2+\log\frac{r}{|z_n|}) \geq n(r)\log2.</script><p>So this is it, the rapidity with which $n(r)$ can grow is dominated by $M(r)$.  Namely, the number of zeros of $f$ in the closed disc with radius $r$ is controlled by the maximum modulus of $f$ on a circle with bigger radius. </p>
+<h3 id="Examples-based-on-different-M-r"><a href="#Examples-based-on-different-M-r" class="headerlink" title="Examples based on different $M(r)$"></a>Examples based on different $M(r)$</h3><p>Let’s begin with a simple example. Let $f(z)=1$, we have $M(r)=1$ for all $r$, but also we have $n(r)=0$, in which sense this estimation does nothing. Indeed, as long as $M(r)$ is bounded by a constant, which implies $f(z)$ is bounded, then by Liouville’s theorem, $f(z)$ is constant and this estimation is not available.</p>
+<p>But if $M(r)$ grows properly, things become interesting. For example, if we have</p>
+<script type="math/tex; mode=display">
+M(r) \leq \exp(Ar^k)</script><p>where $A$ and $k$ are given positive numbers, we have a good enough estimation by</p>
+<script type="math/tex; mode=display">
+n(r) \leq \frac{A+(2r)^k}{\log2}</script><p>This estimation becomes interesting if we consider the logarithm of $n(r)$ and $r$, that is</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\limsup_{r\to\infty}\frac{\log{n(r)}}{\log{r}} &\leq \lim_{r\to\infty} \frac{\log(A+(2r)^k)-\log{2}}{\log{r}} \\
+                                               & =k
+\end{aligned}</script><p>If we have $f(z)=1-\exp(z^k)$ where $k$ is a positive integer, we have $n(r) \sim \frac{kr^k}{\pi}$, also</p>
+<script type="math/tex; mode=display">
+\lim_{r\to\infty}\frac{\log{n(r)}}{\log r}=k</script><h3 id="Lower-bound-of-z-n-r"><a href="#Lower-bound-of-z-n-r" class="headerlink" title="Lower bound of $|z_{n(r)}|$"></a>Lower bound of $|z_{n(r)}|$</h3><p>We’ll see here, how to evaluate the lower bound of $|z_{n(r)}|$ using Jensen’s formula, provided that $M(r)$, or simply the upper bound of $f(z)$ is properly described. Without loss of generality we shall assume that $f(0)=1$. Also, we assume that the zero points of $f(z)$ are ordered by increasing moduli.</p>
+<p>First we still consider</p>
+<script type="math/tex; mode=display">
+M(r) \leq \exp(Ar^k)</script><p>and see what will happen.</p>
+<p>By Jensen’s, we have</p>
+<script type="math/tex; mode=display">
+\prod_{n=1}^{n(r)}\frac{r}{|z_n|}=\exp\left[\frac{1}{2\pi}\int_{-\pi}^{\pi}\log|f(re^{i\theta})|d\theta\right] \leq \exp{Ar^k}</script><p>This gives</p>
+<script type="math/tex; mode=display">
+\prod_{n=1}^{n(r)}|z_n| \geq r^{n(r)}\exp(-Ar^k)</script><p>By the arrangement of $\{z_n\}$, we have</p>
+<script type="math/tex; mode=display">
+|z_{n(r)}| \geq \sqrt[n(r)]{\prod_{n=1}^{n(r)}|z_n|}\geq r\exp(-Ar^{k-n(r)})</script><hr>
+<p>Another example is when we have</p>
+<script type="math/tex; mode=display">
+|f(z)| \leq \exp(A|\Im{z}|)</script><p>where $\Im{z}$ means the imagine part of $z$.</p>
+<p>We shall notice that in this case,</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\frac{1}{2\pi}\int_{-\pi}^{\pi}\log|f(re^{i\theta})|d\theta &\leq \frac{1}{2\pi}\int_{-\pi}^{\pi}A|r\sin\theta|d\theta=\frac{2Ar}{\pi}
+\end{aligned}</script><p>Following Jensen’s formula, we therefore have</p>
+<script type="math/tex; mode=display">
+|z_{n(r)}| \geq \exp(\frac{2A}{\pi}r^{1-n(r)})</script></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-03-29T02:08:44.000Z" title="29/03/2020, 10:08:44">2020-03-29</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-10-06T08:25:34.490Z" title="06/10/2021, 16:25:34">2021-10-06</time></span><span class="level-item"><a class="link-muted" href="../../categories/Analysis/">Analysis</a><span> / </span><a class="link-muted" href="../../categories/Analysis/Integration-Theory/">Integration Theory</a><span> / </span><a class="link-muted" href="../../categories/Analysis/Measure-Theory/">Measure Theory</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2020/03/29/lebesgue-radon-nikodym/">The Lebesgue-Radon-Nikodym theorem and how von Neumann proved it</a></h1><div class="content"><h2 id="An-introduction"><a href="#An-introduction" class="headerlink" title="An introduction"></a>An introduction</h2><p>If one wants to learn the fundamental theorem of Calculus in the sense of Lebesgue integral, properties of measures have to be taken into account. In elementary calculus, one may consider something like</p>
+<script type="math/tex; mode=display">
+df(x)=f'(x)dx</script><p>where $f$ is differentiable, say, everywhere on an interval. Now we restrict $f$ to be a differentiable and nondecreasing real function defined on $I=[a,b]$. There we got a one-to-one function defined by</p>
+<script type="math/tex; mode=display">
+g(x)=x+f(x)</script><p>For measurable sets $E\in\mathfrak{M}$, it can be seen that if $m(E)=0$, we have $m(g(E))=0$. Moreover, $g(E) \in \mathfrak{M}$, and $g$ is one-to-one. Therefore we can define a measure like</p>
+<script type="math/tex; mode=display">
+\mu(E)=m(g(E))</script><p>If we have a relation </p>
+<script type="math/tex; mode=display">
+\mu(E)=\int_{E}hdm</script><p>(in fact, this is the Radon-Nikodym theorem we will prove later), the fundamental theorem of calculus for $f$ becomes somewhat clear since if $E=[a,x]$, we got $g(E)=[a+f(a),x+f(x)]$, thus we got</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+    \mu(E)=m(g(E))&=g(x)-g(a)\\
+    &=f(x)-f(a)+\int_a^xdt \\
+    &=\int_a^xh(t)dt
+\end{aligned}</script><p>which trivially implies</p>
+<script type="math/tex; mode=display">
+f(x)-f(a)=\int_a^x[h(t)-1]dt</script><p>the function $h$ looks like to be $g’=f’+1$.</p>
+<p>We are not proving the fundamental theorem here. But this gives rise to a question. Is it possible to find a function such that</p>
+<script type="math/tex; mode=display">
+\mu(E)=\int_{E}hdm</script><p>one may write as</p>
+<script type="math/tex; mode=display">
+d\mu=hdm</script><p>or, more generally, a measure $\mu$ with respect to another measure $\lambda$? Does this $\mu$ exist with respect to $\lambda$? Does this $h$ exist? Lot of questions. Luckily the Lebesgue decomposition and Radon-Nikodym theorem make it possible.</p>
+<h3 id="Notations"><a href="#Notations" class="headerlink" title="Notations"></a>Notations</h3><p>Let $\mu$ be a positive measure on a $\sigma$-algebra $\mathfrak{M}$, let $\lambda$ be any arbitrary measure (positive or complex) defined on $\mathfrak{M}$.</p>
+<p>We write</p>
+<script type="math/tex; mode=display">
+\lambda \ll \mu</script><p>if $\lambda(E)=0$ for every $E\in\mathfrak{M}$ for which $\mu(E)=0$. (You may write $\mu \ll m$ in the previous section.) We say $\lambda$ is <em>absolutely continuous</em> with respect to $\mu$.</p>
+<p>Another relation between measures worth consideration is being mutually singular. If we have $\lambda(E)=\lambda(A \cap E)$ for every $E \in \mathfrak{M}$, we say $\lambda$ is <em>concentrated</em> on $A$.</p>
+<p>If we now have two measures $\mu_1$ and $\mu_2$, two disjoint sets $A$ and $B$ such that $\mu_1$ is concentrated on $A$, $\mu_2$ is concentrated on $B$, we say $\mu_1$ and $\mu_2$ are <em>mutually singular</em>, and write</p>
+<script type="math/tex; mode=display">
+\mu_1 \perp \mu_2</script><h2 id="The-Theorem-of-Lebesgue-Radon-Nikodym"><a href="#The-Theorem-of-Lebesgue-Radon-Nikodym" class="headerlink" title="The Theorem of Lebesgue-Radon-Nikodym"></a>The Theorem of Lebesgue-Radon-Nikodym</h2><blockquote>
+<p>Let $\mu$ be a positive $\sigma$-finite measure on $\mathfrak{M}$, and $\lambda$ a complex measure on $\mathfrak{M}$.</p>
+<ul>
+<li>There exists a unique pair of complex measures $\lambda_{ac}$ and $\lambda_{s}$ on $\mathfrak{M}$ such that</li>
+</ul>
+<script type="math/tex; mode=display">
+\lambda = \lambda_{ac}+\lambda_s \quad \lambda_{ac}\ll\mu\quad \lambda_s \perp \mu</script><ul>
+<li>There is a unique $h \in L^1(\mu)$ such that</li>
+</ul>
+<script type="math/tex; mode=display">
+\lambda_{ac}(E)=\int_{E}hd\mu</script><p>for every $E \in \mathfrak{M}$.</p>
+</blockquote>
+<p>The unique pair $(\lambda_{ac},\lambda_s)$ is called the Lebesgue decomposition; the existence of $h$ is called the Radon-Nikodym theorem, and $h$ is called the Radon-Nikodym derivative. One also writes $d\lambda_{ac}=hd\mu$ or $\frac{d\lambda_{ac}}{d\mu}=h$ in this situation.</p>
+<p>These are two separate theorems, but von Neumann gave the idea to prove these two at one stroke. </p>
+<p>If we already have $\lambda \ll \mu$, then $\lambda_s=0$ and the Radon-Nikodym derivative shows up in the natural of things.</p>
+<p>Also, one cannot ignore the fact that $m$ the Lebesgue measure is $\sigma$-finite. </p>
+<h2 id="Proof-explained"><a href="#Proof-explained" class="headerlink" title="Proof explained"></a>Proof explained</h2><h3 id="Step-1-Construct-a-bounded-functional"><a href="#Step-1-Construct-a-bounded-functional" class="headerlink" title="Step 1 - Construct a bounded functional"></a>Step 1 - Construct a bounded functional</h3><blockquote>
+<p>We are going to employ Hilbert space technique in this proof. Precisely speaking, we are going to construct a bounded linear functional to find another function, namely $g$, which is the epicentre of this proof.</p>
+<p>The boundedness of $\lambda$ is clear since it’s complex, but $\mu$ is only assumed to be $\sigma$-finite. Therefore we need some adjustment onto $\mu$.</p>
+</blockquote>
+<h4 id="1-1-Replacing-mu-with-a-finite-measure"><a href="#1-1-Replacing-mu-with-a-finite-measure" class="headerlink" title="1.1 Replacing $\mu$ with a finite measure"></a>1.1 Replacing $\mu$ with a finite measure</h4><blockquote>
+<p>If $\mu$ is a positive $\sigma$-finite measure on a $\sigma$-algebra $\mathfrak{M}$ in a set $X$, then there is a function $w$ such that $w \in L^1(\mu)$ and $0&lt;w(x)&lt;1$ for every $x \in X$.</p>
+</blockquote>
+<p>The $\sigma$-finiteness of $\mu$ denotes that, there exist some sets $E_n$ such that</p>
+<script type="math/tex; mode=display">
+X=\bigcup_{n=1}^{\infty}E_n</script><p>and that $\mu(E_n)&lt;\infty$ for all $n$.</p>
+<p>Define</p>
+<script type="math/tex; mode=display">
+w_n(x)=
+\begin{aligned}
+\begin{cases}
+\frac{1}{2^n(1+\mu(E_n))}\quad &x \in E_n \\
+0 \quad &x\notin E_n
+\end{cases}
+\end{aligned}</script><p>(you can also say that $w_n=\frac{1}{2^n(1+\mu(E_n))}\chi_{E_n}$), then we have</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+w &= \sum_{n=1}^{\infty}w_n \\
+\end{aligned}</script><p>satisfies $0&lt;w&lt;1$ for all $x$. With $w$, we are able to define a new measure, namely</p>
+<script type="math/tex; mode=display">
+\tilde{\mu}(E)=\int_{E}wd\mu.</script><p>The fact that $\tilde{\mu}(E)$ is a measure can be validated by considering $\int_{E}wd\mu=\int_{X}\chi_{E}wd\mu$. It’s more important that $\tilde{\mu}(E)$ is bounded and $\tilde{\mu}(E)=0$ if and only if $\mu(E)=0$. The second one comes from the strict positivity of $w$. For the first one, notice that</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\tilde{\mu}(X) &\leq \sum_{n=1}^{\infty}\tilde{\mu}(E_n) \\
+               &= \sum_{n=1}^{\infty}\frac{1}{2^n(1+\mu(E_n))} \\
+               &\leq \sum_{n=1}^{\infty}\frac{1}{2^n}
+\end{aligned}</script><h4 id="1-2-A-bounded-linear-functional-associated-with-lambda"><a href="#1-2-A-bounded-linear-functional-associated-with-lambda" class="headerlink" title="1.2 A bounded linear functional associated with $\lambda$"></a>1.2 A bounded linear functional associated with $\lambda$</h4><p>Since $\lambda$ is complex, without loss of generality, we are able to assume that $\lambda$ is a positive bounded measure on $\mathfrak{M}$. By 1.1, we are able to obtain a positive bounded measure by</p>
+<script type="math/tex; mode=display">
+\varphi=\lambda+\tilde{\mu}</script><p>Following the construction of Lebesgue measure, we have</p>
+<script type="math/tex; mode=display">
+\int_{X}fd\varphi=\int_{X}fd\lambda+\int_{X}fwd\mu</script><p>for all nonnegative measurable function $f$. Also, notice that $\lambda \leq \varphi$, we have</p>
+<script type="math/tex; mode=display">
+\left\vert \int_{X}fd\lambda \right\vert \leq \int_{X}|f|d\lambda \leq \int_{X}|f|d\varphi \leq \sqrt{\varphi(X)}\left\Vert f \right\Vert_2</script><p>for $f \in L^2(\varphi)$ by Schwarz inequality.</p>
+<p>Since $\varphi(X)&lt;\infty$, we have </p>
+<script type="math/tex; mode=display">
+\Lambda{f}=\int_{X}fd\lambda</script><p>to be a bounded linear functional on $L^2(\varphi)$.</p>
+<h3 id="Step-2-Find-the-associated-function-with-respect-to-lambda"><a href="#Step-2-Find-the-associated-function-with-respect-to-lambda" class="headerlink" title="Step 2 - Find the associated function with respect to $\lambda$"></a>Step 2 - Find the associated function with respect to $\lambda$</h3><p>Since $L^2(\varphi)$ is a Hilbert space, every bounded linear functional on a Hilbert space $H$ is given by an inner product with an element in $H$. That is, by the completeness of $L^2(\varphi)$, there exists a function $g$ such that</p>
+<script type="math/tex; mode=display">
+\Lambda{f}=\int_{X}fd\lambda=\int_{X}fgd\varphi=(f,g).</script><p>The properties of $L^2$ space shows that $g$ is determined <em>almost everywhere</em> with respect to $\varphi$.</p>
+<p>For $E \in \mathfrak{M}$, we got</p>
+<script type="math/tex; mode=display">
+0 \leq (\chi_{E},g)=\int_{E}gd\varphi=\int_{E}d\lambda=\lambda(E)\leq\varphi(E)</script><p>which implies $0 \leq g \leq 1$ for almost every $x$ with respect to $\varphi$. Therefore we are able to assume that $0 \leq g \leq 1$ without ruining the identity. The proof is in the bag once we define $A$ to be the set where $0 \leq g &lt; 1$ and $B$ the set where $g=1$.</p>
+<h3 id="Step-3-Generate-lambda-ac-and-lambda-s-and-the-Radon-Nikodym-derivative-at-one-stroke"><a href="#Step-3-Generate-lambda-ac-and-lambda-s-and-the-Radon-Nikodym-derivative-at-one-stroke" class="headerlink" title="Step 3 - Generate $\lambda_{ac}$ and $\lambda_{s}$ and the Radon-Nikodym derivative at one stroke"></a>Step 3 - Generate $\lambda_{ac}$ and $\lambda_{s}$ and the Radon-Nikodym derivative at one stroke</h3><p>We claim that $\lambda(A \cap E)$ and $\lambda(B \cap E)$ form the decomposition we are looking for, $\lambda_{ac}$ and $\lambda_s$, respectively. Namely, $\lambda_{ac}=\lambda(A \cap E)$, $\lambda_s=\lambda(B \cap E)$.</p>
+<h4 id="Proving-lambda-s-perp-mu"><a href="#Proving-lambda-s-perp-mu" class="headerlink" title="Proving $\lambda_s \perp \mu$"></a>Proving $\lambda_s \perp \mu$</h4><p>If we combine $\Lambda{f}=(f,g)$ and $\varphi=\lambda+\tilde{\mu}$ together, we have</p>
+<script type="math/tex; mode=display">
+\int_{X}(1-g)fd\lambda=\int_{X}fgwd\mu.</script><p>Put $f=\chi_{B}$, we have</p>
+<script type="math/tex; mode=display">
+\int_{B}wd\mu=0.</script><p>Since $w$ is <em>strictly</em> positive, we see that $\mu(B)=0$. Notice that $A \cap B = \varnothing$ and $A \cup B=X$. For $E \in \mathfrak{M}$, we write $E=E_A \cup E_B$, where $E_A \subset A$ and $E_B \subset B$. Therefore</p>
+<script type="math/tex; mode=display">
+\mu(E)=\mu(E_A)+\mu(E_B)=\mu(E \cap A)+\mu(E \cap B)=\mu(E \cap A).</script><p>Therefore $\mu$ is concentrated on $A$. </p>
+<p>For $\lambda_s$, observe that</p>
+<script type="math/tex; mode=display">
+\lambda_s(E)=\lambda(E \cap B)=\lambda((E \cap B) \cap B)=\lambda_s(E \cap B).</script><p>Hence $\lambda_s$ is concentrated on $B$. This observation shows that $\lambda_s \perp \mu$.</p>
+<h4 id="Proving-lambda-ac-ll-mu-by-the-Radon-Nikodym-derivative"><a href="#Proving-lambda-ac-ll-mu-by-the-Radon-Nikodym-derivative" class="headerlink" title="Proving $\lambda_{ac} \ll \mu$ by the Radon-Nikodym derivative"></a>Proving $\lambda_{ac} \ll \mu$ by the Radon-Nikodym derivative</h4><p>The relation that $\lambda_{ac} \ll \mu$ will be showed by the existence of the Radon-Nikodym derivative.</p>
+<p>If we replace $f$ by</p>
+<script type="math/tex; mode=display">
+(1+g+\cdots+g^n)\chi_E,</script><p>where $E \in \mathfrak{M}$, we have</p>
+<script type="math/tex; mode=display">
+\int_X(1-g)fd\lambda=\int_E(1-g^{n+1})d\lambda=\int_Eg(1+g+\cdots+g^n)wd\mu.</script><p>Notice that</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\int_{E}(1-g^{n+1})d\lambda &=\int\limits_{E \cap A}(1-g^{n+1})d\lambda + \int\limits_{E \cap B}(1-g^{n+1})d\lambda \\
+&=\int\limits_{E \cap A}(1-g^{n+1})d\lambda \\
+&\to\lambda(E \cap A) = \lambda_{ac}(E)\quad(n\to\infty)
+\end{aligned}</script><p>Define $h_n=g(1+g+g^2+\cdots+g^n)w$, we see that on $A$, $h_n$ converges monotonically to</p>
+<script type="math/tex; mode=display">
+h=
+\begin{aligned}
+\begin{cases}
+    \frac{gw}{1-g} \quad &x\in{A}\\
+    0 \quad &x\in{B}
+\end{cases}
+\end{aligned}</script><p>By monotone convergence theorem, we got</p>
+<script type="math/tex; mode=display">
+\lim_{n\to\infty}\int_{E}h_nd\mu = \int_{E}hd\mu=\lambda_{ac}(E).</script><p>for every $E\in\mathfrak{M}$.</p>
+<p>The measurable function $h$ is the desired Radon-Nikodym derivative once we show that $h \in L^1(\mu)$. Replacing $E$ with $X$, we see that</p>
+<script type="math/tex; mode=display">
+\int_{X}|h|d\mu=\int_{X}hd\mu=\lambda_{ac}(X)\leq\lambda(X)<\infty.</script><p>Clearly, if $\mu(E)=0$, we have</p>
+<script type="math/tex; mode=display">
+\lambda_{ac}(E)=\int_{E}hd\mu=0</script><p>which shows that </p>
+<script type="math/tex; mode=display">
+\lambda_{ac}\ll\mu</script><p>as desired.</p>
+<h3 id="Step-3-Generalization-onto-complex-measures"><a href="#Step-3-Generalization-onto-complex-measures" class="headerlink" title="Step 3 - Generalization onto complex measures"></a>Step 3 - Generalization onto complex measures</h3><p>By far we have proved this theorem for positive bounded measure. For real bounded measure, we can apply the proceeding case to the positive and negative part of it. For all complex measures, we have</p>
+<script type="math/tex; mode=display">
+\lambda=\lambda_1+i\lambda_2</script><p>where $\lambda_1$ and $\lambda_2$ are real.</p>
+<h3 id="Step-4-Uniqueness-of-the-decomposition"><a href="#Step-4-Uniqueness-of-the-decomposition" class="headerlink" title="Step 4 - Uniqueness of the decomposition"></a>Step 4 - Uniqueness of the decomposition</h3><p>If we have two Lebesgue decompositions of the same measure, namely $(\lambda_{ac},\lambda_s)$ and $(\lambda’_{ac},\lambda’_s)$, we shall show that</p>
+<script type="math/tex; mode=display">
+\lambda_{ac}-\lambda_{ac}'=\lambda_s'-\lambda_s=0</script><p>By the definition of the decomposition we got</p>
+<script type="math/tex; mode=display">
+\lambda_{ac}-\lambda'_{ac}=\lambda'_s-\lambda_s</script><p>with $\lambda_{ac}-\lambda_{ac}’ \ll \mu$ and $\lambda_{s}’-\lambda_{s}\perp\mu$. This implies that $\lambda’_{s}-\lambda_{s} \ll \mu$ as well. </p>
+<p>Since $\lambda’_s-\lambda_s\perp\mu$, there exists  a set with $\mu(A)=0$ on which $\lambda’_s-\lambda_s$ is concentrated; the absolute continuity shows that $\lambda’_s(E)-\lambda_s(E)=0$ for all $E \subset A$. Hence $\lambda_s’-\lambda_s$ is concentrated on $X-A$. Therefore we got $(\lambda’_s-\lambda_s)\perp(\lambda’_s-\lambda_s)$, which forces $\lambda’_s-\lambda_s=0$. The uniqueness is proved.</p>
+<p>(Following the same process one can also show that $\lambda_{ac}\perp\lambda_s$.)</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-03-14T11:00:00.000Z" title="14/03/2020, 19:00:00">2020-03-14</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-10-23T00:19:31.958Z" title="23/10/2021, 08:19:31">2021-10-23</time></span><span class="level-item"><a class="link-muted" href="../../categories/Analysis/">Analysis</a><span> / </span><a class="link-muted" href="../../categories/Analysis/Complex-Analysis/">Complex Analysis</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2020/03/14/topological-property-of-the-zeros-of-a-holomorphic-function/">Topological properties of the zeros of a holomorphic function</a></h1><div class="content"><h3 id="What’s-going-on"><a href="#What’s-going-on" class="headerlink" title="What’s going on"></a>What’s going on</h3><p>If for every $z_0 \in \Omega$ where $\Omega$ is a plane open set, the limit</p>
+<script type="math/tex; mode=display">
+    \lim_{z \to z_0}\frac{f(z)-f(z_0)}{z-z_0}</script><p>exists, we say that $f$ is holomorphic (a.k.a. analytic) in $\Omega$. If $f$ is holomorphic in the whole plane, it’s called <strong>entire</strong>. The class of all holomorphic functions (denoted by $H(\Omega)$) has many interesting properties. For example it does form a ring.</p>
+<p>But what happens if we talk about the points where $f$ is equal to $0$? Is it possible to find an entire function $g$ such that $g(z)=0$ if and only if $z$ is on the unit circle? The topological property we will discuss in this post answers this question negatively.</p>
+<h3 id="Zeros"><a href="#Zeros" class="headerlink" title="Zeros"></a>Zeros</h3><blockquote>
+<p>Suppose $\Omega$ is a region, the set</p>
+<script type="math/tex; mode=display">
+    Z(f)=\{z_0\in\Omega:f(z_0)=0\}</script><p>is a at most countable set without limit point, as long as $f$ is not identically equal to $0$ on $\Omega$. </p>
+</blockquote>
+<p>Trivially, if $f(\Omega)=\{0\}$, we have $Z(f)=\Omega$. The set of unit circle is not at most countable and every point is a limit point. Hence if an entire function is equal to $0$ on the unit circle, then the function equals to $0$ on the whole plane.</p>
+<p>Note: the connectivity of $\Omega$ is important. For example, for two disjoint open sets $\Omega_0$ and $\Omega_1$, define $f(z)=0$ on $\Omega_0$ and $f(z)=1$ on $\Omega_1$, then everything fails.</p>
+<h3 id="A-simple-application-Feat-Baire-Category-Theorem"><a href="#A-simple-application-Feat-Baire-Category-Theorem" class="headerlink" title="A simple application (Feat. Baire Category Theorem)"></a>A simple application (Feat. Baire Category Theorem)</h3><p>Before establishing the proof, let’s see what we can do using this result.</p>
+<blockquote>
+<p>Suppose that $f$ is an entire function, and that in every power series</p>
+<script type="math/tex; mode=display">
+    f(z)=\sum c_n(z-a)^n</script><p>has at leat one coefficient is $0$, then $f$ is a polynomial.</p>
+</blockquote>
+<p>Clearly we have $n!c_n=f^{(n)}(a)$, thus for <strong>every</strong> $a \in \mathbb{C}$, we can find a postivie integer $n_0$ such that $f^{(n_0)}(a)=0$. Thus we establish the identity:</p>
+<script type="math/tex; mode=display">
+    \bigcup_{n=0}^{\infty} Z(f^{(n)})=\mathbb{C}</script><p>Notice the fact that $f^{(n)}$ is entire. So $Z(f^{n})$ is either an at most countable set without limit point, or simply equal to $\mathbb{C}$.  If there exists a number $N$ such that $Z(f^{N})=\mathbb{C}$, then naturally $Z(f^{n})=\mathbb{C}$ holds for all $n \geq N$. Whilst we see that $f$’s power series has finitely many nonzero coefficients, thus polynomial.</p>
+<p>So the question is, is this $N$ always exist? Being an at most countable set without limit points , $Z(f^{(n)})$ has empty interior (nowhere dense). But according to <strong>Baire Category Theorem</strong>, $\mathbb{C}$ could not be a countable union of nowhere dense sets (of the first category if you say so). This forces the existence of $N$.</p>
+<h3 id="Proof"><a href="#Proof" class="headerlink" title="Proof"></a>Proof</h3><p>The proof will be finished using some basic topology techniques.</p>
+<p>Let $A$ be the set of all limit points of $Z(f)$ in $\Omega$. The continuity of $f$ shows that $A \subset Z(f)$. We’ll show that if $A \neq \varnothing$, then $Z(f)=\Omega$.</p>
+<p>First we claim that if $a \in A$, then $a \in \bigcap_{n \geq 0}Z(f^{(n)})$. That is, $f^{(k)}(a) = 0$ for all $k \geq 0$. Suppose this fails, then there is a smallest positive integer $m$ such that $c_m \neq 0$ for the power series on the disc $D(a;r)$:</p>
+<script type="math/tex; mode=display">
+    f(z)=\sum_{n=1}^{\infty}c_n(z-a)^{n}.</script><p>Define</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+​    g(z)=\begin{cases}
+​        (z-a)^{-m}f(z)\quad&(z\in\Omega-\{a\}) \\\
+​        c_m\quad&(z=a)
+​    \end{cases}
+\end{aligned}</script><p>It’s clear that $g \in H(D(a;r))$ since we have</p>
+<script type="math/tex; mode=display">
+    g(z)=\sum_{n=1}^{\infty}c_{m+n}(z-a)^{n}\quad(z\in D(a;r))</script><p>But the continuity shows that $g(a)=0$ while $c_m \neq 0$.  A contradiction.</p>
+<p>Next fix a point $b \in \Omega$. Choose a curve (continuous mapping) defined $\gamma$ on $[0,1]$ such that $\gamma(0)=a$ and $\gamma(1)=b$. Let</p>
+<script type="math/tex; mode=display">
+    \Gamma=\{t\in[0,1]:\gamma(t)\in\bigcap_{n \geq 0}Z(f^{(n)})\}</script><p>By hypothesis, $0 \in \Gamma$. We shall prove that $1 \in \Gamma$. Let</p>
+<script type="math/tex; mode=display">
+    s = \sup\Gamma</script><p>There exists a sequence $\{t_n\}\subset\Gamma$ such that $t_n \to s$. The continuity of $f^{(k)}$ and $\gamma$ shows that </p>
+<script type="math/tex; mode=display">
+    f^{(k)}(\gamma(s))=0</script><p>Hence $s \in \Gamma$. Choose a disc $D(\gamma(s);\delta)\subset\Omega$. On this disc, $f$ is represented by its power series but all coefficients are $0$. It follows that $f(z)=0$ for all $z \in D(\gamma(s);\delta)$. Further, $f^{(k)}(z)=0$ for all $z \subset D(\gamma(s);\delta)$ for all $k \geq 0$. Therefore by the continuity of $\gamma$, there exists $\varepsilon&gt;0$ such that $\gamma(s-\varepsilon,s+\varepsilon)\subset D(\gamma(s);\delta)$, which implies that $(s-\varepsilon, s+\varepsilon)\cap[0,1]\subset\Gamma$. Since $s=\sup\Gamma$, we have $s=1$, therefore $1 \in \Gamma$. </p>
+<p>So far we showed that $\Omega = \bigcap_{n \geq 0}Z(f^{(n)})$, which forces $Z(f)=\Omega$. This happens when $Z(f)$ contains limit points, which is equivalent to what we shall prove.</p>
+<p>When $Z(f)$ contains no limit point, all points of $Z(f)$ are isolated points; hence in each compact subset of $\Omega$, there are at most finitely many points in $Z(f)$. Since $\Omega$ is $\sigma$-compact, $Z(f)$ is at most countable. $Z(f)$ is also called a discrete set in this situation.</p>
+</div></article></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="../../img/avatar.png" alt="Desvl"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Desvl</p><p class="is-size-6 is-block">A blog mainly on graduate mathematics.</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>A Noetherian local ring</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="../../archives"><p class="title">86</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="../../categories"><p class="title">44</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="../../tags"><p class="title">49</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="../../redirect/newsletter" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Compose an Email" href="../../redirect/email"><i class="fas fa-envelope"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="../../atom.xml"><i class="fas fa-rss"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Mathstodon" href="https://mathstodon.xyz/@desvl"><i class="fa-brands fa-mastodon"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://arxiv.org/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">arXiv</span></span><span class="level-right"><span class="level-item tag">arxiv.org</span></span></a></li><li><a class="level is-mobile" href="https://stacks.math.columbia.edu/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">The Stack Project</span></span><span class="level-right"><span class="level-item tag">stacks.math.columbia.edu</span></span></a></li><li><a class="level is-mobile" href="https://ncatlab.org/nlab/show/mathematics" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">nLab (Mathematics)</span></span><span class="level-right"><span class="level-item tag">ncatlab.org</span></span></a></li><li><a class="level is-mobile" href="https://q.uiver.app/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">quiver: a modern commutative diagram editor</span></span><span class="level-right"><span class="level-item tag">q.uiver.app</span></span></a></li><li><a class="level is-mobile" href="https://www.symmetricfunctions.com/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">The Symmetric Functions Catalogue</span></span><span class="level-right"><span class="level-item tag">www.symmetricfunctions.com</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/speaking.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Speaking</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/writing.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Writing</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">How to study maths really quick (YouTube)</span></span><span class="level-right"><span class="level-item tag">www.youtube.com</span></span></a></li><li><a class="level is-mobile" href="https://www.bilibili.com/video/BV1GJ411x7h7" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">How to study maths really quick (Bilibili)</span></span><span class="level-right"><span class="level-item tag">www.bilibili.com</span></span></a></li></ul></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="../../index.html"><img src="../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a><p class="is-size-7"><span>&copy; 2022</span> <a rel="me noopener" target="_blank" href="https://mathstodon.xyz/@desvl">Desvl</a><br>Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="../../js/column.js"></script><script src="../../js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="../../js/back_to_top.js" defer></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
+            },
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><!--!--><script src="../../js/main.js" defer></script><!--!--></body></html>

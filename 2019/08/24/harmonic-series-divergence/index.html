@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>调和级数发散的若干证明 - Desvl&#039;s blog</title><link rel="manifest" href="../../../../manifest.json"><meta name="application-name" content="Desvl&#039;s blog"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Desvl&#039;s blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="命题的提出 设$S_n&amp;#x3D;1+\frac{1}{2}+\frac{1}{3}+\cdots+\frac{1}{n}$, 求证$\{S_n\}$发散  这个数列的发散是很难通过直觉猜出来的, 因为它的增长速度很慢, 会给人以收敛的错觉. 如果用计算机手动运算, 会发现直到$12367$项, 这个数列的值才超过$10$. 但缓慢的增长速度不能说明敛散性. 接下来会给出一系列精彩的证明, 从14~17世纪"><meta property="og:type" content="blog"><meta property="og:title" content="调和级数发散的若干证明"><meta property="og:url" content="https://desvl.xyz/2019/08/24/harmonic-series-divergence/"><meta property="og:site_name" content="Desvl&#039;s blog"><meta property="og:description" content="命题的提出 设$S_n&amp;#x3D;1+\frac{1}{2}+\frac{1}{3}+\cdots+\frac{1}{n}$, 求证$\{S_n\}$发散  这个数列的发散是很难通过直觉猜出来的, 因为它的增长速度很慢, 会给人以收敛的错觉. 如果用计算机手动运算, 会发现直到$12367$项, 这个数列的值才超过$10$. 但缓慢的增长速度不能说明敛散性. 接下来会给出一系列精彩的证明, 从14~17世纪"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://desvl.xyz/img/avatar.png"><meta property="article:published_time" content="2019-08-23T16:00:00.000Z"><meta property="article:modified_time" content="2022-05-06T10:06:45.370Z"><meta property="article:author" content="Desvl"><meta property="twitter:card" content="summary_large_image"><meta property="twitter:image:src" content="https://desvl.xyz/img/avatar.png"><meta property="twitter:creator" content="@Desvl_"><meta property="twitter:site" content="{ https://desvl.xyz }"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://desvl.xyz/2019/08/24/harmonic-series-divergence/"},"headline":"调和级数发散的若干证明","image":["https://desvl.xyz/img/avatar.png"],"datePublished":"2019-08-23T16:00:00.000Z","dateModified":"2022-05-06T10:06:45.370Z","author":{"@type":"Person","name":"Desvl"},"publisher":{"@type":"Organization","name":"Desvl","logo":{"@type":"ImageObject","url":"https://desvl.xyz/img/logo.svg"}},"description":"命题的提出 设$S_n&#x3D;1+\\frac{1}{2}+\\frac{1}{3}+\\cdots+\\frac{1}{n}$, 求证$\\{S_n\\}$发散  这个数列的发散是很难通过直觉猜出来的, 因为它的增长速度很慢, 会给人以收敛的错觉. 如果用计算机手动运算, 会发现直到$12367$项, 这个数列的值才超过$10$. 但缓慢的增长速度不能说明敛散性. 接下来会给出一系列精彩的证明, 从14~17世纪"}</script><link rel="canonical" href="https://desvl.xyz/2019/08/24/harmonic-series-divergence/"><link rel="alternate" href="../../../../atom.xml" title="Desvl&#039;s blog" type="application/atom+xml"><link rel="icon" href="../../../../img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap"><link rel="stylesheet" href="../../../../css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="../../../../index.html"><img src="../../../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="../../../../index.html">Home</a><a class="navbar-item" href="../../../../archives">Archives</a><a class="navbar-item" href="../../../../categories">Categories</a><a class="navbar-item" href="../../../../tags">Tags</a><a class="navbar-item" href="../../../../about">About (Updated Aug. 2022)</a><a class="navbar-item" href="../../../../link-exchange">Link Exchange</a><a class="navbar-item" href="../../../../support-the-author">Support the Author</a></div><div class="navbar-end"></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2019-08-23T16:00:00.000Z" title="24/08/2019, 00:00:00">2019-08-24</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-05-06T10:06:45.370Z" title="06/05/2022, 18:06:45">2022-05-06</time></span></div></div><h1 class="title is-3 is-size-4-mobile">调和级数发散的若干证明</h1><div class="content"><h3 id="命题的提出"><a href="#命题的提出" class="headerlink" title="命题的提出"></a>命题的提出</h3><blockquote>
+<p>设$S_n=1+\frac{1}{2}+\frac{1}{3}+\cdots+\frac{1}{n}$, 求证$\{S_n\}$发散</p>
+</blockquote>
+<p>这个数列的发散是很难通过直觉猜出来的, 因为它的增长速度很慢, 会给人以收敛的错觉. 如果用计算机手动运算, 会发现直到$12367$项, 这个数列的值才超过$10$. 但缓慢的增长速度不能说明敛散性. 接下来会给出一系列精彩的证明, 从14~17世纪纯粹的分式不等式到近现代涉及到微积分等方法.</p>
+<h3 id="遥远的中世纪-Nicole-Oresme-1350-1360"><a href="#遥远的中世纪-Nicole-Oresme-1350-1360" class="headerlink" title="遥远的中世纪: Nicole Oresme(1350?-1360?)"></a>遥远的中世纪: Nicole Oresme(1350?-1360?)</h3><p>这个证明方式是历史上最早的证明, 涉及到简单的不等式放缩和数学归纳.</p>
+<p>考虑到不等式 </p>
+<script type="math/tex; mode=display">
+    \underbrace{\frac{1}{n+1}+\frac{1}{n+2}+\cdots+\frac{1}{2n}}_{\text{$n$项}}>n\cdot\frac{1}{2n}=\frac{1}{2}</script><p>我们分析$\{S_{2^n}\}$这个数列, 发现 </p>
+<script type="math/tex; mode=display">
+    S_1=1+0\cdot\frac{1}{2}</script><script type="math/tex; mode=display">
+    S_2=1+1\cdot\frac{1}{2}</script><script type="math/tex; mode=display">
+    S_4=1+\frac{1}{2}+\frac{1}{2+1}+\frac{1}{2\cdot{2}}>1+\frac{1}{2}+\frac{1}{2}=1+2\cdot\frac{1}{2}</script><script type="math/tex; mode=display">
+    S_8=S_4+\frac{1}{4+1}+\cdots+\frac{1}{4\cdot{2}}>1+3\cdot\frac{1}{2}</script><p>递推下去, 我们能得到 </p>
+<script type="math/tex; mode=display">
+    S_{2^n}\geq 1+n\cdot\frac{1}{2}</script><p>这说明$S_n$有一个子列无界, 故原数列发散. 证毕.</p>
+<p>其实不用局限在$2^n$这一部分, 用同样的办法, 我们能得到 </p>
+<script type="math/tex; mode=display">
+    S_{M^n}\geq 1+n\cdot\frac{M-1}{M}</script><h3 id="Pietro-Mengoli-17世纪中叶"><a href="#Pietro-Mengoli-17世纪中叶" class="headerlink" title="Pietro Mengoli(17世纪中叶)"></a>Pietro Mengoli(17世纪中叶)</h3><p>考虑不等式 </p>
+<script type="math/tex; mode=display">
+    \frac{1}{n-1}+\frac{1}{n}+\frac{1}{n+1}=\frac{1}{n}+\frac{2n}{n^2-1}>\frac{1}{n}+\frac{2n}{n^2}=\frac{3}{n}</script><p>假设原级数收敛到$S$, 那么有 </p>
+<script type="math/tex; mode=display">
+    \begin{aligned}
+        S&=1+\left(\frac{1}{2}+\frac{1}{3}+\frac{1}{4}\right)+\left(\frac{1}{5}+\frac{1}{6}+\frac{1}{7}\right)+\cdots\\  
+         &>1+\frac{3}{3}+\frac{3}{6}+\frac{3}{9}+\cdots\\  
+         &=1+S \end{aligned}</script><p>而$S&gt;1+S$无解, 这说明极限不存在. 证毕.</p>
+<h3 id="Bernoulli兄弟-1689"><a href="#Bernoulli兄弟-1689" class="headerlink" title="Bernoulli兄弟(1689)"></a>Bernoulli兄弟(1689)</h3><p>Bernoulli兄弟的证明发布于 <em>Tractatus de se-riebus infinitis</em> 一书中.</p>
+<h4 id="Jacob-Bernoulli"><a href="#Jacob-Bernoulli" class="headerlink" title="Jacob Bernoulli"></a>Jacob Bernoulli</h4><p>对任意正整数有 </p>
+<script type="math/tex; mode=display">
+    \underbrace{\frac{1}{n+1}+\frac{1}{n+2}+\cdots+\frac{1}{n^2}}_\text{$n^2-n$项}>\frac{n^2-n}{n^2}=1-\frac{1}{n}</script><p>也就是说 </p>
+<script type="math/tex; mode=display">
+    \frac{1}{n}+\frac{1}{n+1}+\cdots+\frac{1}{n^2}>1</script><p>因此有 </p>
+<script type="math/tex; mode=display">
+    \begin{aligned} 
+        \sum_{n=1}^{\infty}\frac{1}{n}&=1+\left(\frac{1}{2}+\frac{1}{3}+\frac{1}{4}\right)+\left(\frac{1}{5}+\cdots+\frac{1}{25}\right)+\cdots\\  
+        &>1+1+1+\cdots 
+    \end{aligned}</script><p>原级数发散. 证毕.</p>
+<h4 id="Johann-Bernoulli"><a href="#Johann-Bernoulli" class="headerlink" title="Johann Bernoulli"></a>Johann Bernoulli</h4><p>考虑级数 </p>
+<script type="math/tex; mode=display">
+    \sum_{n=k}^{\infty}\left(\frac{1}{n}-\frac{1}{n+1}\right)=\sum_{n=k}^{\infty}\frac{1}{n(n+1)}=\frac{1}{k}</script><p>同样, 我们假设级数收敛于$S$ </p>
+<script type="math/tex; mode=display">
+    \begin{aligned} 
+    S&=1+\frac{1}{2}+\frac{1}{3}+\frac{1}{4}+\frac{1}{5}+\cdots\\  
+    &=1+\frac{1}{2}+\frac{2}{6}+\frac{3}{12}+\frac{4}{20}+\frac{5}{30}+\cdots\\  
+    &=1+\left(\frac{1}{2}+\frac{1}{6}+\frac{1}{12}+\cdots\right)+\left(\frac{1}{6}+\frac{1}{12}+\frac{1}{20}+\cdots\right)+\cdots\\  
+    &=1+1+\frac{1}{2}+\frac{1}{3}+\cdots\\  
+    &=1+S \end{aligned}</script><p>而$S=1+S$无解, 这说明极限不存在.</p>
+<h3 id="三种Cauchy判别法"><a href="#三种Cauchy判别法" class="headerlink" title="三种Cauchy判别法"></a>三种Cauchy判别法</h3><p>Cauchy的三种判别法是比较常见且应用非常广泛的, 在微积分课程中也是常客, 现将三种方法列在下面</p>
+<h4 id="Cauchy积分判别法"><a href="#Cauchy积分判别法" class="headerlink" title="Cauchy积分判别法"></a>Cauchy积分判别法</h4><blockquote>
+<p>设$f$在$[1,+\infty)$单调减少, 则级数$\sum_{n=1}^{\infty}f(n)$与广义积分$\int_{1}^{\infty}f(x)dx$同敛散</p>
+</blockquote>
+<p>代入$f(x)=\frac{1}{x}$即可.</p>
+<h4 id="Cauchy凝聚判别法"><a href="#Cauchy凝聚判别法" class="headerlink" title="Cauchy凝聚判别法"></a>Cauchy凝聚判别法</h4><blockquote>
+<p>设$\{a_n\}$是单调减少的整数列, 则正项级数$\sum_{n=1}^{\infty}a_n$收敛的充分必要条件是凝聚项级数$\sum_{n=1}^{\infty}2^na_{2^n}$收敛</p>
+</blockquote>
+<p>这个判别法可以很简单地对$a_n=\frac{1}{n^p}$对应级数的敛散性进行讨论.</p>
+<h4 id="Cauchy收敛准则"><a href="#Cauchy收敛准则" class="headerlink" title="Cauchy收敛准则"></a>Cauchy收敛准则</h4><p>可以发现, $S_{2n}-S_n=\frac{1}{n}+\frac{1}{n+1}+\cdots+\frac{1}{2n}&gt;\frac{n}{2n}=\frac{1}{2}$.</p>
+<p>这说明, 存在$\varepsilon=\frac{1}{2}$, 总有$|S_{2n}-S_n|&gt;\varepsilon$. 这说明了这个级数的发散.</p>
+<h3 id="Honsberger-1976"><a href="#Honsberger-1976" class="headerlink" title="Honsberger(1976)"></a>Honsberger(1976)</h3><p>这个证明是$e^{x}\geq{1+x}$的巧用.</p>
+<p>考虑$e^{S_n}$这个数列, 有</p>
+<script type="math/tex; mode=display">
+    \begin{aligned} 
+        e^{S_n}&=\text{exp}\left(1+\frac{1}{2}+\frac{1}{3}+\frac{1}{4}+\cdots+\frac{1}{n}\right)\\  
+        &=e^{1}e^{\frac{1}{2}}e^{\frac{1}{3}}e^{\frac{1}{4}}\cdots e^{\frac{1}{n}}\\  
+        &>\left(1+1\right)\left(1+\frac{1}{2}\right)\cdots\left(1+\frac{1}{n}\right)\\  
+        &=n+1 \end{aligned}</script><p>$e^{S_n}$的发散便说明了$S_n$的发散.</p>
+</div><div class="article-licensing box"><div class="licensing-title"><p>调和级数发散的若干证明</p><p><a href="https://desvl.xyz/2019/08/24/harmonic-series-divergence/">https://desvl.xyz/2019/08/24/harmonic-series-divergence/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>Desvl</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2019-08-24</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2022-05-06</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="../../../09/07/sup-inf/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">高等数学入门：上下确界及其极限形式</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="../../19/l-hopital-proof/"><span class="level-item">洛必达法则的几种不同的证明</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="../../../../img/avatar.png" alt="Desvl"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Desvl</p><p class="is-size-6 is-block">A blog mainly on graduate mathematics.</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>A Noetherian local ring</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="../../../../archives"><p class="title">86</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="../../../../categories"><p class="title">44</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="../../../../tags"><p class="title">49</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="../../../../redirect/newsletter" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Compose an Email" href="../../../../redirect/email"><i class="fas fa-envelope"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="../../../../atom.xml"><i class="fas fa-rss"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Mathstodon" href="https://mathstodon.xyz/@desvl"><i class="fa-brands fa-mastodon"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://arxiv.org/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">arXiv</span></span><span class="level-right"><span class="level-item tag">arxiv.org</span></span></a></li><li><a class="level is-mobile" href="https://stacks.math.columbia.edu/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">The Stack Project</span></span><span class="level-right"><span class="level-item tag">stacks.math.columbia.edu</span></span></a></li><li><a class="level is-mobile" href="https://ncatlab.org/nlab/show/mathematics" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">nLab (Mathematics)</span></span><span class="level-right"><span class="level-item tag">ncatlab.org</span></span></a></li><li><a class="level is-mobile" href="https://q.uiver.app/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">quiver: a modern commutative diagram editor</span></span><span class="level-right"><span class="level-item tag">q.uiver.app</span></span></a></li><li><a class="level is-mobile" href="https://www.symmetricfunctions.com/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">The Symmetric Functions Catalogue</span></span><span class="level-right"><span class="level-item tag">www.symmetricfunctions.com</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/speaking.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Speaking</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/writing.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Writing</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">How to study maths really quick (YouTube)</span></span><span class="level-right"><span class="level-item tag">www.youtube.com</span></span></a></li><li><a class="level is-mobile" href="https://www.bilibili.com/video/BV1GJ411x7h7" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">How to study maths really quick (Bilibili)</span></span><span class="level-right"><span class="level-item tag">www.bilibili.com</span></span></a></li></ul></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="../../../../index.html"><img src="../../../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a><p class="is-size-7"><span>&copy; 2022</span> <a rel="me noopener" target="_blank" href="https://mathstodon.xyz/@desvl">Desvl</a><br>Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="../../../../js/column.js"></script><script src="../../../../js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="../../../../js/back_to_top.js" defer></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
+            },
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><!--!--><script src="../../../../js/main.js" defer></script><!--!--></body></html>

@@ -1,0 +1,1415 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Desvl&#039;s blog</title><link rel="manifest" href="../../manifest.json"><meta name="application-name" content="Desvl&#039;s blog"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Desvl&#039;s blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta property="og:type" content="blog"><meta property="og:title" content="Desvl&#039;s blog"><meta property="og:url" content="https://desvl.xyz/"><meta property="og:site_name" content="Desvl&#039;s blog"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://desvl.xyz/img/avatar.png"><meta property="article:author" content="Desvl"><meta property="twitter:card" content="summary_large_image"><meta property="twitter:image:src" content="https://desvl.xyz/img/avatar.png"><meta property="twitter:creator" content="@Desvl_"><meta property="twitter:site" content="{ https://desvl.xyz }"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://desvl.xyz"},"headline":"Desvl's blog","image":["https://desvl.xyz/img/avatar.png"],"author":{"@type":"Person","name":"Desvl"},"publisher":{"@type":"Organization","name":"Desvl","logo":{"@type":"ImageObject","url":"https://desvl.xyz/img/logo.svg"}},"description":""}</script><link rel="alternate" href="../../atom.xml" title="Desvl&#039;s blog" type="application/atom+xml"><link rel="icon" href="../../img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap"><link rel="stylesheet" href="../../css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="../../index.html"><img src="../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="../../index.html">Home</a><a class="navbar-item" href="../../archives">Archives</a><a class="navbar-item" href="../../categories">Categories</a><a class="navbar-item" href="../../tags">Tags</a><a class="navbar-item" href="../../about">About (Updated Aug. 2022)</a><a class="navbar-item" href="../../link-exchange">Link Exchange</a><a class="navbar-item" href="../../support-the-author">Support the Author</a></div><div class="navbar-end"></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-10-15T13:37:52.000Z" title="15/10/2020, 21:37:52">2020-10-15</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-10-06T07:56:18.896Z" title="06/10/2021, 15:56:18">2021-10-06</time></span><span class="level-item"><a class="link-muted" href="../../categories/Analysis/">Analysis</a><span> / </span><a class="link-muted" href="../../categories/Analysis/Functional-Analysis/">Functional Analysis</a><span> / </span><a class="link-muted" href="../../categories/Analysis/Functional-Analysis/Banach-Algebra/">Banach Algebra</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2020/10/15/G-K-Z-theorem/">A proof of the ordinary Gleason-Kahane-Żelazko theorem for complex functionals</a></h1><div class="content"><h2 id="The-Theorem"><a href="#The-Theorem" class="headerlink" title="The Theorem"></a>The Theorem</h2><blockquote>
+<p><strong>(Gleason-Kahane-Żelazko)</strong> If $\phi$ is a complex linear functional on a unitary Banach algebra $A$, such that $\phi(e)=1$ and $\phi(x) \neq 0$ for every invertible $x \in A$, then</p>
+<script type="math/tex; mode=display">
+\phi(xy)=\phi(x)\phi(y)</script><p>Namely, $\phi$ is a complex homomorphism. </p>
+</blockquote>
+<h3 id="Notations-and-remarks"><a href="#Notations-and-remarks" class="headerlink" title="Notations and remarks"></a>Notations and remarks</h3><p>Suppose $A$ is a complex unitary Banach algebra and $\phi: A \to \mathbb{C}$ is a linear functional which is not identically $0$ (for convenience), and if </p>
+<script type="math/tex; mode=display">
+\phi(xy)=\phi(x)\phi(y)</script><p>for all $x \in A$ and $y \in A$, then $\phi$ is called a <em>complex homomorphism</em> on $A$. Note that a unitary Banach algebra (with $e$ as multiplicative unit) is also a ring, so is $\mathbb{C}$, we may say in this case $\phi$ is a ring-homomorphism. For such $\phi$, we have an instant proposition:</p>
+<blockquote>
+<p><strong>Proposition 0</strong> $\phi(e)=1$ and $\phi(x) \neq 0$ for every invertible $x \in A$.</p>
+</blockquote>
+<p><em>Proof.</em> Since $\phi(e)=\phi(ee)=\phi(e)\phi(e)$, we have $\phi(e)=0$ or $\phi(e)=1$. If $\phi(e)=0$ however, for any $y \in A$, we have $\phi(y)=\phi(ye)=\phi(y)\phi(e)=0$, which is an excluded case. Hence $\phi(e)=1$. </p>
+<p>For invertible $x \in A$, note that $\phi(xx^{-1})=\phi(x)\phi(x^{-1})=\phi(e)=1$. This can’t happen if $\phi(x)=0$. $\square$</p>
+<p>The theorem reveals that Proposition $0$ actually characterizes the complex homomorphisms (ring-homomorphisms) among the linear functionals (group-homomorphisms).</p>
+<p>This theorem was proved by Andrew M. Gleason in 1967 and later independently by J.-P. Kahane and W. Żelazko in 1968. Both of them worked mainly on commutative Banach algebras, and the non-commutative version, which focused on complex homomorphism, was by W. Żelazko. In this post we will follow the third one.</p>
+<p>Unfortunately, one cannot find an educational proof on the Internet with ease, which may be the reason why I write this post and why you read this.</p>
+<h3 id="Equivalences"><a href="#Equivalences" class="headerlink" title="Equivalences"></a>Equivalences</h3><p>Following definitions of Banach algebra and some logic manipulation, we have several equivalences worth noting.</p>
+<h3 id="Subspace-and-ideal-version"><a href="#Subspace-and-ideal-version" class="headerlink" title="Subspace and ideal version"></a>Subspace and ideal version</h3><blockquote>
+<p><strong>(Stated by Gleason)</strong> Let $M$ be a linear subspace of codimension one in a commutative Banach algebra $A$ having an identity. Suppose no element of $M$ is invertible, then $M$ is an ideal.</p>
+<p><strong>(Stated by Kahane and Żelazko)</strong> A subspace $X \subset A$ of codimension $1$ is a maximal ideal if and only if it consists of non-invertible elements.</p>
+</blockquote>
+<h3 id="Spectrum-version"><a href="#Spectrum-version" class="headerlink" title="Spectrum version"></a>Spectrum version</h3><blockquote>
+<p><strong>(Stated by Kahane and Żelazko)</strong> Let $A$ be a commutative complex Banach algebra with unit element. Then a functional $f \in A^\ast$ is a multiplicative linear functional if and only if $f(x)=\sigma(x)$ holds for all $x \in A$.</p>
+</blockquote>
+<p>Here $\sigma(x)$ denotes the spectrum of $x$.</p>
+<h3 id="The-connection"><a href="#The-connection" class="headerlink" title="The connection"></a>The connection</h3><p>Clearly any maximal ideal contains no invertible element (if so, then it contains $e$, then it’s the ring itself). So it suffices to show that it has codimension 1, and if it consists of non-invertible elements. Also note that every maximal ideal is the kernel of some complex homomorphism. For such a subspace $X \subset A$, since $e \notin X$, we may define $\phi$ so that $\phi(e)=1$, and $\phi(x) \in \sigma(x)$ for all $x \in A$. Note that $\phi(e)=1$ holds if and only if $\phi(x) \in \sigma(x)$. As we will show, $\phi$ has to be a complex homomorphism.</p>
+<h2 id="Tools-to-prove-the-theorem"><a href="#Tools-to-prove-the-theorem" class="headerlink" title="Tools to prove the theorem"></a>Tools to prove the theorem</h2><blockquote>
+<p><strong>Lemma 0</strong> Suppose $A$ is a unitary Banach algebra, $x \in A$, $\lVert x \rVert&lt;1$, then $e-x$ is invertible.</p>
+</blockquote>
+<p>This lemma can be found in any functional analysis book introducing Banach algebra.</p>
+<blockquote>
+<p><strong>Lemma 1</strong> Suppose $f$ is an entire function of one complex variable, $f(0)=1$, $f’(0)=0$, and</p>
+<script type="math/tex; mode=display">
+0<|f(\lambda)| \leq e^{|\lambda|}</script><p>for all complex $\lambda$, then $f(\lambda)=1$ for all $\lambda \in \mathbb{C}$.</p>
+</blockquote>
+<p>Note that there is an entire function $g$ such that $f=\exp(g)$. It can be shown that $g=0$. Indeed, if we put</p>
+<script type="math/tex; mode=display">
+h_r(\lambda) = \frac{r^2g(\lambda)}{\lambda^2[2r-g(\lambda)]}</script><p>then we see $h_r$ is holomorphic in the open disk centred at $0$ with radius $2r$. Besides, $|h_r(\lambda)| \leq 1$ if $|\lambda|=r$. By the maximum modulus theorem, we have</p>
+<script type="math/tex; mode=display">
+|h_r(\lambda)| \leq 1</script><p>whenever $|\lambda| \leq r$. Fix $\lambda$ and let $r \to \infty$, by definition of $h_r(\lambda)$, we must have $g(\lambda)=0$. </p>
+<h3 id="Jordan-homomorphism"><a href="#Jordan-homomorphism" class="headerlink" title="Jordan homomorphism"></a>Jordan homomorphism</h3><p>A mapping $\phi$ from one ring $R$ to another ring $R’$ is said to be a <strong>Jordan homomorphism</strong> from $R$ to $R’$ if</p>
+<script type="math/tex; mode=display">
+\phi(a+b)=\phi(a)+\phi(b)</script><p>and</p>
+<script type="math/tex; mode=display">
+\phi(ab+ba)=\phi(a)\phi(b)+\phi(b)\phi(a).</script><p>It’s of course clear that every homomorphism is Jordan. Note if $R’$ is not of characteristic $2$, the second identity is equivalent to</p>
+<script type="math/tex; mode=display">
+\phi(a^2)=\phi(a)^2.</script><p><em>To show the equivalence, one let $b=a$ in the first case and puts $a+b$ in place of $a$ in the second case.</em></p>
+<p>Since in this case $R=A$ and $R’=\mathbb{C}$, the latter of which is commutative, we also write</p>
+<script type="math/tex; mode=display">
+\phi(ab+ba)=2\phi(a)\phi(b).</script><p>As we will show, the $\phi$ in the theorem is a Jordan homomorphism. </p>
+<h2 id="The-proof"><a href="#The-proof" class="headerlink" title="The proof"></a>The proof</h2><p>We will follow an unusual approach. By keep ‘downgrading’ the goal, one will see this algebraic problem be transformed into a pure analysis problem neatly.</p>
+<p>To begin with, let $N$ be the kernel of $\phi$.</p>
+<h3 id="Step-1-It-suffices-to-prove-that-phi-is-a-Jordan-homomorphism"><a href="#Step-1-It-suffices-to-prove-that-phi-is-a-Jordan-homomorphism" class="headerlink" title="Step 1 - It suffices to prove that $\phi$ is a Jordan homomorphism"></a>Step 1 - It suffices to prove that $\phi$ is a Jordan homomorphism</h3><p>If $\phi$ is a complex homomorphism, it is immediate that $\phi$ is a Jordan homomorphism. Conversely, if $\phi$ is Jordan, we have</p>
+<script type="math/tex; mode=display">
+\phi(xy+yx) =2\phi(x)\phi(y).</script><p>If $x\in N$, the right hand becomes $0$, and therefore</p>
+<script type="math/tex; mode=display">
+xy+yx \in N \quad \text{if } x \in N, y \in A.</script><p>Consider the identity</p>
+<script type="math/tex; mode=display">
+(xy-yx)^2+(xy+yx)^2=2[x(yxy)+(yxy)x]</script><p>Therefore</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\phi((xy-yx)^2+(xy+yx)^2)&=\phi((xy-yx)^2)+\phi((xy+yx)^2) \\
+                         &=\phi(xy-yx)^2+\phi(xy+yx)^2 \\
+                         &= \phi(xy-yx)^2 \\
+                         &=2\phi[x(yxy)+(yxy)x] \\
+                         &=0
+\end{aligned}</script><p>Since $x \in N$ and $yxy \in A$, we see $x(yxy)+(yxy)x \in N$. Therefore $\phi(xy-yx)=0$ and</p>
+<script type="math/tex; mode=display">
+xy-yx \in N</script><p>if $x \in N$ and $y \in A$. Further we see</p>
+<script type="math/tex; mode=display">
+xy-yx+xy+yx=2xy \in N \quad \text {and}\quad xy+yx-xy+yx = 2yx \in N,</script><p>which implies that $N$ is an ideal. This may remind you of this classic diagram (we will not use it since it is additive though):</p>
+<p><img src="\img\ring-homomorphism.png" alt="Ring Homomorphism"></p>
+<p>For $x,y \in A$, we have $x \in \phi(x)e+N$ and $y \in \phi(y)e+N$. As a result, $xy \in \phi(x)\phi(y)e+N$, and therefore </p>
+<script type="math/tex; mode=display">
+\phi(xy)=\phi(x)\phi(y)+0.</script><h3 id="Step-2-It-suffices-to-prove-that-phi-a-2-0-if-phi-a-0"><a href="#Step-2-It-suffices-to-prove-that-phi-a-2-0-if-phi-a-0" class="headerlink" title="Step 2 - It suffices to prove that $\phi(a^2)=0$ if $\phi(a)=0$."></a>Step 2 - It suffices to prove that $\phi(a^2)=0$ if $\phi(a)=0$.</h3><p>Again, if $\phi$ is Jordan, we have $\phi(x^2)=\phi(x)^2$ for all $x \in A$. Conversely, if $\phi(a^2)=0$ for all $a \in N$, we may write $x$ by</p>
+<script type="math/tex; mode=display">
+x=\phi(x)e+a</script><p>where $a \in N$ for all $x \in A$. Therefore</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\phi(x^2)&=\phi((\phi(x)e+a)^2)=\phi(x)^2+2\phi(x)\phi(a)+\phi(a)^2=\phi(x)^2,
+\end{aligned}</script><p>which also shows that $\phi$ is Jordan.</p>
+<h3 id="Step-3-It-suffices-to-show-that-the-following-function-is-constant"><a href="#Step-3-It-suffices-to-show-that-the-following-function-is-constant" class="headerlink" title="Step 3 - It suffices to show that the following function is constant"></a>Step 3 - It suffices to show that the following function is constant</h3><p>Fix $a \in N$, assume $\lVert a \rVert = 1$ without loss of generality, and define </p>
+<script type="math/tex; mode=display">
+f(\lambda)=\sum_{n=0}^{\infty}\frac{\phi(a^n)}{n!}\lambda^n</script><p>for all complex $\lambda$. If this function is constant (lemma 1), we immediately have $f’’(0)=\phi(a^2)=0$. This is purely a complex analysis problem however.</p>
+<h3 id="Step-4-It-suffices-to-describe-the-behaviour-of-an-entire-function"><a href="#Step-4-It-suffices-to-describe-the-behaviour-of-an-entire-function" class="headerlink" title="Step 4 - It suffices to describe the behaviour of an entire function"></a>Step 4 - It suffices to describe the behaviour of an entire function</h3><p>Note in the definition of $f$, we have</p>
+<script type="math/tex; mode=display">
+\lvert \phi(a^n) \rvert \leq \lVert \phi \rVert \lVert a^n \rVert \leq \lVert \phi \rVert \lVert a \rVert^n=\lVert \phi \rVert.</script><p>So we expect the norm of $\phi$ to be finite, which ensures that $f$ is entire. By <em>reductio ad absurdum</em>, if $\lVert e-a \rVert &lt; 1$ for $a \in N$, by lemma 0, we have $e-e+a=a$ to be invertible, which is impossible. Hence $\lVert e-a \rVert \geq 1$ for all $a \in N$. On the other hand, for $\lambda \in \mathbb{C}$, we have the following inequality:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\lVert \lambda e-a \rVert = \lambda\lVert e-\lambda^{-1}a \rVert &\geq|\lambda| \\
+                          &=  |\phi(\lambda e)-\phi(a)| \\
+                          &=  |\phi(\lambda e-a)|
+\end{aligned}</script><p>Therefore $\phi$ is <em>continuous</em> with norm less than $1$. The continuity of $\phi$ is not assumed at the beginning but proved here.</p>
+<p>For $f$ we have some immediate facts. Since each coefficient in the series of $f$ has finite norm, $f$ is entire with $f’(0)=\phi(a)=0$. Also, since $\phi$ has norm $1$, we also have</p>
+<script type="math/tex; mode=display">
+|f(\lambda)|=\left|\sum_{n=0}^{\infty}\frac{\phi(a^n)}{n!}\lambda^n\right| \leq \sum_{n=0}^{\infty}\frac{|\lambda^n|}{n!}=e^{|\lambda|}.</script><p>All we need in the end is to show that $f(\lambda) \neq 0$ for all $\lambda \in \mathbb{C}$.</p>
+<p>The series</p>
+<script type="math/tex; mode=display">
+E(\lambda)=\exp(a\lambda)=\sum_{n=0}^{\infty}\frac{(\lambda a)^n}{n!}</script><p>converges since $\lVert a \rVert=1$. The continuity of $\phi$ shows now</p>
+<script type="math/tex; mode=display">
+f(\lambda)=\phi(E(\lambda)).</script><p>Note </p>
+<script type="math/tex; mode=display">
+E(-\lambda)E(\lambda)=\left(\sum_{n=0}^{\infty}\frac{(-\lambda a)^n}{n!}\right)\left(\sum_{n=0}^{\infty}\frac{(\lambda a)^n}{n!}\right)=e.</script><p>Hence $E(\lambda)$ <em>is</em> invertible for all $\lambda \in C$, hence $f(\lambda)=\phi(E(\lambda)) \neq 0$. By lemma 1, $f(\lambda)=1$ is constant. The proof is completed by reversing the steps. $\square$</p>
+<h2 id="References-Further-reading"><a href="#References-Further-reading" class="headerlink" title="References / Further reading"></a>References / Further reading</h2><ul>
+<li>Walter Rudin, <em>Real and Complex Analysis</em></li>
+<li>Walter Rudin, <em>Functional Analysis</em></li>
+<li>Andrew M. Gleason, <em>A Characterization of Maximal Ideals</em></li>
+<li>J.-P. Kahane and W. Żelazko, <em>A Characterization of Maximal Ideals in Commutative Banach Algebras</em></li>
+<li>W. Żelazko <em>A Characterization of Multiplicative linear functionals in Complex Banach Algebras</em></li>
+<li>I. N. Herstein, <em>Jordan Homomorphisms</em></li>
+</ul>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-10-01T06:51:22.000Z" title="01/10/2020, 14:51:22">2020-10-01</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-10-08T09:49:46.668Z" title="08/10/2021, 17:49:46">2021-10-08</time></span><span class="level-item"><a class="link-muted" href="../../categories/Analysis/">Analysis</a><span> / </span><a class="link-muted" href="../../categories/Analysis/Functional-Analysis/">Functional Analysis</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2020/10/01/big-3-pt-5/">The Big Three Pt. 5 - The Hahn-Banach Theorem (Dominated Extension)</a></h1><div class="content"><h2 id="About-this-post"><a href="#About-this-post" class="headerlink" title="About this post"></a>About this post</h2><p>The Hahn-Banach theorem has been a central tool for functional analysis and therefore enjoys a wide variety, many of which have a numerous uses in other fields of mathematics. Therefore it’s not possible to cover all of them. In this post we are covering two ‘abstract enough’ results, which are sometimes called the dominated extension theorem. Both of them will be discussed in real vector space where topology is not endowed. This allows us to discuss any topological vector space.  </p>
+<p>Another interesting thing is, we will be using axiom of choice, or whatever equivalence you may like, for example Zorn’s lemma or well-ordering principle. Before everything, we need to examine more properties of vector spaces.</p>
+<h2 id="Vector-space"><a href="#Vector-space" class="headerlink" title="Vector space"></a>Vector space</h2><p>It’s obvious that every complex vector space is also a real vector space. Suppose $X$ is a complex vector space, and we shall give the definition of real-linear and complex-linear functionals.</p>
+<blockquote>
+<p>An addictive functional $\Lambda$ on $X$ is called <em>real-linear</em> (<em>complex-linear</em>) if $\Lambda(\alpha x)=\alpha\Lambda(x)$ for every $x \in X$ and for every real (complex) scalar $\alpha$.</p>
+</blockquote>
+<p>For *-linear functionals, we have two important but easy theorems.</p>
+<blockquote>
+<p>If $u$ is the real part of a complex-linear functional $f$ on $X$, then $u$ is real-linear and</p>
+<script type="math/tex; mode=display">
+f(x)=u(x)-iu(ix) \quad (x \in X).</script></blockquote>
+<p><em>Proof.</em> For complex $f(x)=u(x)+iv(x)$, it suffices to denote $v(x)$ correctly. But</p>
+<script type="math/tex; mode=display">
+if(x)=iu(x)-v(x),</script><p>we see $\Im(f(x)=v(x)=-\Re(if(x))$. Therefore</p>
+<script type="math/tex; mode=display">
+f(x)=u(x)-i\Re(if(x))=u(x)-i\Re(f(ix))</script><p>but $\Re(f(ix))=u(ix)$, we get</p>
+<script type="math/tex; mode=display">
+f(x)=u(x)-iu(ix).</script><p>To show that $u(x)$ is real-linear, note that </p>
+<script type="math/tex; mode=display">
+f(x+y)=u(x+y)+iv(x+y)=f(x)+f(y)=u(x)+u(y)+i(v(x)+v(y)).</script><p>Therefore $u(x)+u(y)=u(x+y)$. Similar process can be applied to real scalar $\alpha$. $\square$</p>
+<p>Conversely, we are able to generate a complex-linear functional by a real one.</p>
+<blockquote>
+<p>If $u$ is a real-linear functional, then $f(x)=u(x)-iu(ix)$ is a complex-linear functional</p>
+</blockquote>
+<p><em>Proof.</em> Direct computation. $\square$</p>
+<p>Suppose now $X$ is a complex topological vector space, we see a complex-linear functional on $X$ is continuous if and only if its real part is continuous. Every continuous real-linear $u: X \to \mathbb{R}$ is the real part of a unique complex-linear continuous functional $f$.</p>
+<h3 id="Sublinear-seminorm"><a href="#Sublinear-seminorm" class="headerlink" title="Sublinear, seminorm"></a>Sublinear, seminorm</h3><p>Sublinear functional is ‘almost’ linear but also ‘almost’ a norm. Explicitly, we say $p: X \to \mathbb{R}$ a sublinear functional when it satisfies</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+p(x)+p(y) &\leq p(x+y) \\
+    p(tx) &= tp(x) \\
+\end{aligned}</script><p>for all $t \geq 0$. As one can see, if $X$ is normable, then $p(x)=\lVert x \rVert$ is a sublinear functional. One should not be confused with semilinear functional, where inequality is not involved. Another thing worth noting is that $p$ is not restricted to be nonnegative.</p>
+<hr>
+<p>A seminorm on a vector space $X$ is a real-valued function $p$ on $X$ such that</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+p(x+y) &\leq p(x)+p(y) \\
+   p(\alpha x)&=|\alpha|p(x)
+\end{aligned}</script><p>for all $x,y \in X$ and scalar $\alpha$.</p>
+<p>Obviously a seminorm is also a sublinear functional. For the connection between norm and seminorm, one shall note that <em>$p$ is a norm if and only if it satisfies $p(x) \neq 0$ if $x \neq 0$.</em> </p>
+<h2 id="Dominated-extension-theorems"><a href="#Dominated-extension-theorems" class="headerlink" title="Dominated extension theorems"></a>Dominated extension theorems</h2><p>Are the results will be covered in this post. Generally speaking, we are able to extend a functional defined on a subspace to the whole space as long as it’s dominated by a sublinear functional. This is similar to the dominated convergence theorem, which states that if a convergent sequence of measurable functions are dominated by another function, then the convergence holds under the integral operator.</p>
+<blockquote>
+<p><strong>(Hahn-Banach)</strong> Suppose</p>
+<ol>
+<li>$M$ is a subspace of a real vector space $X$,</li>
+<li>$f: M \to \mathbb{R}$ is linear and $f(x) \leq p(x)$ on $M$ where $p$ is a sublinear functional on $X$</li>
+</ol>
+<p>Then there exists a linear $\Lambda: X \to \mathbb{R}$ such that</p>
+<script type="math/tex; mode=display">
+\Lambda(x)=f(x)</script><p>for all $x \in M$ and</p>
+<script type="math/tex; mode=display">
+-p(-x) \leq \Lambda(x) \leq p(x)</script><p>for all $x \in X$.</p>
+</blockquote>
+<h3 id="Step-1-Extending-the-function-by-one-dimension"><a href="#Step-1-Extending-the-function-by-one-dimension" class="headerlink" title="Step 1 - Extending the function by one dimension"></a>Step 1 - Extending the function by one dimension</h3><p>With that being said, if $f(x)$ is dominated by a sublinear functional, then we are able to extend this functional to the whole space with a relatively proper range.</p>
+<p><em>Proof.</em> If $M=X$ we have nothing to do. So suppose now $M$ is a nontrivial proper subspace of $X$. Choose $x_1 \in X-M$ and define</p>
+<script type="math/tex; mode=display">
+M_1=\{x+tx_1:x \in M,t \in R\}.</script><p>It’s easy to verify that $M_1$ satisfies all axioms of vector space (warning again: no topology is endowed). Now we will be using the properties of sublinear functionals.</p>
+<p>Since </p>
+<script type="math/tex; mode=display">
+f(x)+f(y)=f(x+y) \leq p(x+y) \leq p(x-x_1)+p(x_1+y)</script><p>for all $x,y \in M$, we have</p>
+<script type="math/tex; mode=display">
+f(x)-p(x-x_1) \leq p(x_1+y) -f(y).</script><p>Let</p>
+<script type="math/tex; mode=display">
+\alpha=\sup_{x}\{f(x)-p(x-x_1):x \in M\}.</script><p>By definition, we naturally get</p>
+<script type="math/tex; mode=display">
+f(x)-\alpha \leq p(x-x_1)</script><p>and</p>
+<script type="math/tex; mode=display">
+f(y)+\alpha \leq p(x_1+y).</script><p>Define $f_1$ on $M_1$ by</p>
+<script type="math/tex; mode=display">
+f_1(x+tx_1)=f(x)+t\alpha.</script><p>So when $x +tx_1 \in M$, we have $t=0$, and therefore $f_1=f$.</p>
+<p>To show that $f_1 \leq p$ on $M_1$, note that for $t&gt;0$, we have</p>
+<script type="math/tex; mode=display">
+f(x/t)-\alpha \leq p(x/t-x_1),</script><p>which implies</p>
+<script type="math/tex; mode=display">
+f(x)-t\alpha=f_1(x-t\alpha)\leq p(x-tx_1).</script><p>Similarly,</p>
+<script type="math/tex; mode=display">
+f(y/t)+\alpha \leq p(y/t+x_1),</script><p>and therefore</p>
+<script type="math/tex; mode=display">
+f(y)+t\alpha=f_1(y+tx_1) \leq p(y+tx_1).</script><p>Hence $f_1 \leq p$.</p>
+<h3 id="Step-2-An-application-of-Zorn’s-lemma"><a href="#Step-2-An-application-of-Zorn’s-lemma" class="headerlink" title="Step 2 - An application of Zorn’s lemma"></a>Step 2 - An application of Zorn’s lemma</h3><h4 id="Side-note-Why-Zorn’s-lemma"><a href="#Side-note-Why-Zorn’s-lemma" class="headerlink" title="Side note: Why Zorn’s lemma"></a>Side note: Why Zorn’s lemma</h4><p>It seems that we can never stop using step 1 to extend $M$ to a larger space, but we have to extend. (If $X$ is a finite dimensional space, then this is merely a linear algebra problem.) This meets exactly what William Timothy Gowers said in his blog post:</p>
+<blockquote>
+<p>If you are building a mathematical object in stages and find that (i) you have not finished even after infinitely many stages, and (ii) there seems to be nothing to stop you continuing to build, then Zorn’s lemma may well be able to help you.</p>
+<p>— How to use Zorn’s lemma</p>
+</blockquote>
+<p>And we will show that, as W. T. Gowers said,</p>
+<blockquote>
+<p>If the resulting partial order satisfies the chain condition and if a maximal element must be a structure of the kind one is trying to build, then the proof is complete.</p>
+</blockquote>
+<hr>
+<p>To apply Zorn’s lemma, we need to construct a partially ordered set. Let $\mathscr{P}$ be the collection of all ordered pairs $(M’,f’)$ where $M’$ is a subspace of $X$ containing $M$ and $f’$ is a linear functional on $M’$ that extends $f$ and satisfies $f’ \leq p$ on $M’$. For example we have</p>
+<script type="math/tex; mode=display">
+(M,f) , (M_1,f_1) \subset \mathscr{P}.</script><p>The partial order $\leq$ is defined as follows. By $(M’,f’) \leq (M’’,f’’)$, we mean $M’ \subset M’’$ and $f’ = f’’$ on $M’$. Obviously this is a partial order (you should be able to check this).</p>
+<p>Suppose now $\mathcal{F}$ is a chain (totally ordered subset of $\mathscr{P}$). We claim that $\mathcal{F}$ has an upper bound (which is required by Zorn’s lemma). Let</p>
+<script type="math/tex; mode=display">
+M_0=\bigcup_{(M',f') \in \mathcal{F}}M'</script><p>and</p>
+<script type="math/tex; mode=display">
+f_0(y)=f(y)</script><p>whenever $(M’,f’) \in \mathcal{F}$ and $y \in M’$. It’s easy to verify that $(M_0,f_0)$ is the upper bound we are looking for. But $\mathcal{F}$ is arbitrary, therefore by Zorn’s lemma, there exists a maximal element $(M^\ast,f^\ast)$ in $\mathscr{P}$. If $M^* \neq X$, according to step 1, we are able to extend $M^\ast$, which contradicts the maximality of $M^\ast$. And $\Lambda$ is defined to be $f^\ast$. By the linearity of $\Lambda$, we see</p>
+<script type="math/tex; mode=display">
+-p(-x) \leq -\Lambda(-x)=\Lambda{x}.</script><p>The theorem is proved. $\square$</p>
+<h3 id="How-this-proof-is-constructed"><a href="#How-this-proof-is-constructed" class="headerlink" title="How this proof is constructed"></a>How this proof is constructed</h3><p>This is a classic application of Zorn’s lemma (well-ordering principle, or Hausdorff maximality theorem). First, we showed that we are able to extend $M$ and $f$. But since we do not know the dimension or other properties of $X$, it’s not easy to control the extension which finally ‘converges’ to $(X,\Lambda)$. However, Zorn’s lemma saved us from this random exploration: Whatever happens, the maximal element is there, and take it to finish the proof. </p>
+<h2 id="Generalisation-onto-the-complex-field"><a href="#Generalisation-onto-the-complex-field" class="headerlink" title="Generalisation onto the complex field"></a>Generalisation onto the complex field</h2><p>Since inequality is appeared in the theorem above, we need more careful validation.</p>
+<blockquote>
+<p><strong>(Bohnenblust-Sobczyk-Soukhomlinoff)</strong> Suppose $M$ is a subspace of a vector space $X$, $p$ is a seminorm on $X$, and $f$ is a linear functional on $M$ such that</p>
+<script type="math/tex; mode=display">
+|f(x)| \leq p(x)</script><p>for all $x \in M$. Then $f$ extends to a linear functional $\Lambda$ on $X$ satisfying</p>
+<script type="math/tex; mode=display">
+|\Lambda (x)| \leq p(x)</script><p>for all $x \in X$.</p>
+</blockquote>
+<p><em>Proof.</em> If the scalar field is $\mathbb{R}$, then we are done, since $p(-x)=p(x)$ in this case (can you see why?). So we assume the scalar field is $\mathbb{C}$. </p>
+<p>Put $u = \Re f$. By dominated extension theorem, there is some real-linear functional $U$ such that $U(x)=u$ on $M$ and $U \leq p$ on $X$. And here we have</p>
+<script type="math/tex; mode=display">
+\Lambda(x)=U(x)-iU(ix)</script><p>where $\Lambda(x)=f(x)$ on $M$.</p>
+<p>To show that $|\Lambda(x)| \leq p(x)$ for $x \neq 0$, by taking $\alpha=\frac{|\Lambda(x)|}{\Lambda(x)}$, we have</p>
+<script type="math/tex; mode=display">
+U(\alpha{x})=\Lambda(\alpha{x})=|\Lambda(x)|\leq p(\alpha x)=p(x)</script><p>since $|\alpha|=1$ and $p(\alpha{x})=|\alpha|p(x)=p(x)$. $\square$</p>
+<h2 id="Extending-Hahn-Banach-theorem-under-linear-transform"><a href="#Extending-Hahn-Banach-theorem-under-linear-transform" class="headerlink" title="Extending Hahn-Banach theorem under linear transform"></a>Extending Hahn-Banach theorem under linear transform</h2><p>To end this post, we state a beautiful and useful extension of the Hahn-Banach theorem, which is done by R. P. Agnew and A. P. Morse.</p>
+<blockquote>
+<p><strong>(Agnew-Morse)</strong> Let $X$ denote a real vector space and $\mathcal{A}$ be a collection of linear maps $A_\alpha: X \to X$ that commute, or namely</p>
+<script type="math/tex; mode=display">
+A_\alpha A_\beta=A_\beta A_\alpha</script><p>for all $A_\alpha,A_\beta \in \mathcal{A}$. Let $p$ be a sublinear functional such that </p>
+<script type="math/tex; mode=display">
+p(A_\alpha{x})=p(x)</script><p>for all $A_\alpha \in \mathcal{A}$. Let $Y$ be a subspace of $X$ on which a linear functional $f$ is defined such that</p>
+<ol>
+<li>$f(y) \leq p(y)$ for all $y \in Y$.</li>
+<li>For each mapping $A$ and $y \in Y$, we have $Ay \in Y$.</li>
+<li>Under the hypothesis of 2, we have $f(Ay)=f(y)$.</li>
+</ol>
+<p>Then $f$ can be extended to $X$ by $\Lambda$ so that $-p(-x) \leq \Lambda(x) \leq p(x)$ for all $x \in X$, and</p>
+<script type="math/tex; mode=display">
+\Lambda(A_\alpha{x})=\Lambda{x}.</script></blockquote>
+<p>To prove this theorem, we need to construct a sublinear functional that dominates $f$. For the whole proof, see <em>Functional Analysis</em> by Peter Lax.</p>
+<h2 id="The-series"><a href="#The-series" class="headerlink" title="The series"></a>The series</h2><p>Since there is no strong reason to write more posts on this topic, i.e. the three fundamental theorems of linear functional analysis, I think it’s time to make a list of the series. It’s been around half a year.</p>
+<ul>
+<li><a href="/2020/06/06/big-3-pt-1/">The Big Three Pt. 1 - Baire Category Theorem Explained</a></li>
+<li><a href="/2020/06/30/big-3-pt-2/">The Big Three Pt. 2 - The Banach-Steinhaus Theorem</a></li>
+<li><a href="/2020/08/12/big-3-pt-3/">The Big Three Pt. 3 - The Open Mapping Theorem (Banach Space)</a></li>
+<li><a href="/2020/09/12/big-3-pt-4/">The Big Three Pt. 4 - The Open Mapping Theorem (F-Space)</a></li>
+<li>The Big Three Pt. 5 - The Hahn-Banach Theorem (Dominated Extension)</li>
+<li><a href="/2020/11/13/big-3-pt-6/">The Big Three Pt. 6 - Closed Graph Theorem with Applications</a></li>
+</ul>
+<h2 id="References-Further-Readings"><a href="#References-Further-Readings" class="headerlink" title="References / Further Readings"></a>References / Further Readings</h2><ol>
+<li>Walter Rudin, <em>Functional Analysis</em>.</li>
+<li>Peter Lax, <em>Functional Analysis</em>.</li>
+<li>William Timothy Gowers, <em><a target="_blank" rel="noopener" href="https://gowers.wordpress.com/2008/08/12/how-to-use-zorns-lemma/">How to use Zorn’s lemma</a></em>.</li>
+</ol>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-09-27T03:35:28.000Z" title="27/09/2020, 11:35:28">2020-09-27</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-10-06T08:11:29.678Z" title="06/10/2021, 16:11:29">2021-10-06</time></span><span class="level-item"><a class="link-muted" href="../../categories/Algebra/">Algebra</a><span> / </span><a class="link-muted" href="../../categories/Algebra/Homological-Algebra/">Homological Algebra</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2020/09/27/diagram-chasing/">A long exact sequence of cohomology groups (zig-zag and diagram-chasing)</a></h1><div class="content"><h2 id="Exterior-differentiation"><a href="#Exterior-differentiation" class="headerlink" title="Exterior differentiation"></a>Exterior differentiation</h2><p><em>(This section is intended to introduce the background. Feel free to skip if you already know exterior differentiation.)</em></p>
+<p>There are several useful tools for vector calculus on $\mathbb{R}^3,$ namely gradient, curl, and divergence. It is possible to treat the gradient of a differentiable function $f$ on $\mathbb{R}^3$ at a point $x_0$ as the <a href="/2020/07/31/frechet-derivative/">Fréchet derivative</a> at $x_0$. But it does not work for curl and divergence at all. Fortunately there is another abstraction that works for all of them. It comes from differential forms.</p>
+<p>Let $x_1,\cdots,x_n$ be the linear coordinates on $\mathbb{R}^n$ as usual. We define an <em><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Algebra_over_a_field">algebra</a></em> $\Omega^{\ast}$ over $\mathbb{R}$ generated by $dx_1,\cdots,dx_n$ with the following relations:</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+dx_idx_i=0 \\
+dx_idx_j = -dx_jdx_i \quad i \neq j
+\end{cases}</script><p>This is a vector space as well, and it’s easy to derive that it has a basis by</p>
+<script type="math/tex; mode=display">
+1,dx_i,dx_idx_j,dx_idx_jdx_k,\cdots,dx_1\dots dx_n</script><p>where $i&lt;j&lt;k$. The $C^{\infty}$ differential <em>forms</em> on $\mathbb{R}^n$ are defined to be the tensor product</p>
+<script type="math/tex; mode=display">
+\Omega^*(\mathbb{R}^n)=\{C^{\infty}\text{ functions on }\mathbb{R}^n\} \otimes_\mathbb{R}\Omega^*.</script><p>As is can be shown, for $\omega \in \Omega^{\ast}(\mathbb{R}^n)$, we have a unique representation by</p>
+<script type="math/tex; mode=display">
+\omega=\sum f_{i_1\cdots i_k}dx_{i_1}\dots dx_{i_k},</script><p>and in this case we also say $\omega$ is a $C^{\infty}$ $k$-form on $\mathbb{R}^n$ (for simplicity we also write $\omega=\sum f_Idx_I$). The algebra of all $k$-forms will be denoted by $\Omega^k(\mathbb{R}^n)$. And naturally we have $\Omega^{\ast}(\mathbb{R}^n)$ to be graded since</p>
+<script type="math/tex; mode=display">
+\Omega^{*}(\mathbb{R}^n)=\bigoplus_{k=0}^{n}\Omega^k(\mathbb{R}^n).</script><h3 id="The-operator-d"><a href="#The-operator-d" class="headerlink" title="The operator $d$"></a>The operator $d$</h3><p>But if we have $\omega \in \Omega^0(\mathbb{R}^n)$, we see $\omega$ is merely a $C^{\infty}$ function. As taught in multivariable calculus course, for the differential of $\omega$ we have</p>
+<script type="math/tex; mode=display">
+d\omega=\sum_{i}\partial\omega/\partial x_idx_i</script><p>and it turns out that $d\omega\in\Omega^{1}(\mathbb{R}^n)$. This inspires us to obtain a generalization onto the differential operator $d$:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+d:\Omega^{k}(\mathbb{R}^n) &\to \Omega^{k+1}(\mathbb{R}^n) \\
+\omega &\mapsto d\omega
+\end{aligned}</script><p>and $d\omega$ is defined as follows. The case when $k=0$ is defined as usual (just the one above). For $k&gt;0$ and $\omega=\sum f_I dx_I,$ $d\omega$ is defined ‘inductively’ by</p>
+<script type="math/tex; mode=display">
+d\omega=\sum df_I dx_I.</script><p>This $d$ is the so-called <em>exterior differentiation</em>, which serves as the ultimate abstract extension of gradient, curl, divergence, etc. If we restrict ourself to $\mathbb{R}^3$, we see these vector calculus tools comes up in the nature of things.</p>
+<p><strong>Functions</strong></p>
+<script type="math/tex; mode=display">
+df=\frac{\partial f}{\partial x}dx+\frac{\partial f}{\partial y}dy+\frac{\partial f}{\partial z}dz.</script><p><strong>$1$-forms</strong></p>
+<script type="math/tex; mode=display">
+d(f_1dx+f_2dy+f_3dz)=\left(\frac{\partial f_3}{\partial y}-\frac{\partial f_2}{\partial z}\right)dydz-\left(\frac{\partial f_1}{\partial z}-\frac{\partial f_3}{\partial x}\right)dxdz+\left(\frac{\partial f_2}{\partial x}-\frac{\partial f_1}{\partial y}\right)dxdy.</script><p><strong>$2$-forms</strong></p>
+<script type="math/tex; mode=display">
+d(f_1dydz-f_2dxdz+f_3dxdy)=\left(\frac{\partial f_1}{\partial x}+\frac{\partial f_2}{\partial y}+ \frac{\partial f_3}{\partial z}\right)dxdydz.</script><p>The calculation is tedious but a nice exercise to understand the definition of $d$ and $\Omega^{\ast}$.</p>
+<h3 id="Conservative-field-on-the-kernel-and-image-of-d"><a href="#Conservative-field-on-the-kernel-and-image-of-d" class="headerlink" title="Conservative field - on the kernel and image of $d$"></a>Conservative field - on the kernel and image of $d$</h3><p>By elementary computation we are also able to show that $d^2\omega=0$ for all $\omega \in \Omega^{\ast}(\mathbb{R}^n)$ (<em>Hint: $\frac{\partial^2 f}{\partial x_i \partial x_j}=\frac{\partial^2 f}{\partial x_j \partial x_i}$ but $dx_idx_j=-dx_idx_j$)</em>. Now we consider a vector field $\overrightarrow{v}=(v_1,v_2)$ of dimension $2$. If $C$ is an arbitrary simply closed smooth curve in $\mathbb{R}^2$, then we expect</p>
+<script type="math/tex; mode=display">
+\oint_C\overrightarrow{v}d\overrightarrow{r}=\oint_C v_1dx+v_2dy</script><p>to be $0$. If this happens (note the arbitrary of $C$), we say $\overrightarrow{v}$ to be a conservative field (path independent).</p>
+<p>So when conservative? It happens when there is a function $f$ such that</p>
+<script type="math/tex; mode=display">
+\nabla f=\overrightarrow{v}=(v_1,v_2)=(\partial{f}/\partial{x},\partial{f}/\partial{y}).</script><p>This is equivalent to say that</p>
+<script type="math/tex; mode=display">
+df=v_1dx+v_2dy.</script><p>If we use $C^{\ast}$ to denote the area enclosed by $C$, by Green’s theorem, we have</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\oint_C v_1dx+v_2dy&=\iint_{C^*}\left(\frac{\partial{v_2}}{\partial{x}}-\frac{\partial{v_1}}{\partial{y}}\right)dxdy \\
+                   &=\iint_{C^*}d(v_1dx+v_2dy) \\
+                   &=\iint_{C^*}d^2f \\
+                   &=0
+\end{aligned}</script><p>If you translate what you’ve learned in multivariable calculus course (path independence) into the language of differential form, you will see that the set of all conservative fields is precisely the <em>image</em> of $d_0:\Omega^0(\mathbb{R}^2) \to \Omega^1(\mathbb{R}^2)$. Also, they are in the <em>kernel</em> of the next $d_1:\Omega^1(\mathbb{R}^2) \to \Omega^2(\mathbb{R}^2)$. These $d$’s are naturally homomorphism, so it’s natural to discuss the <em>factor group</em>. But before that, we need some terminologies. </p>
+<h2 id="de-Rham-complex-and-de-Rham-cohomology-group"><a href="#de-Rham-complex-and-de-Rham-cohomology-group" class="headerlink" title="de Rham complex and de Rham cohomology group"></a>de Rham complex and de Rham cohomology group</h2><p>The complex $\Omega^{\ast}(\mathbb{R}^n)$ together with $d$ is called the <em>de Rham complex</em> on $\mathbb{R}^n$. Now consider the sequence</p>
+<script type="math/tex; mode=display">
+\Omega^0(\mathbb{R}^n)\xrightarrow{d_0}\Omega^1(\mathbb{R}^n)\xrightarrow{d_1}\cdots\xrightarrow{d_{n-2}}\Omega^{n-1}(\mathbb{R}^n)\xrightarrow{d_{n-1}}\Omega^{n}(\mathbb{R^n}).</script><p>We say $\omega \in \Omega^k(\mathbb{R}^n)$ is <em>closed</em> if $d_k\omega=0$, or equivalently, $\omega \in \ker d_k$. Dually, we say $\omega$ is <em>exact</em> if there exists some $\mu \in \Omega^{k-1}(\mathbb{R}^n)$ such that $d\mu=\omega$, that is, $\omega \in \operatorname{im}d_{k-1}$. Of course all $d_k$’s can be written as $d$ but the index makes it easier to understand. Instead of doing integration or differentiation, which is ‘uninteresting’, we are going to discuss the abstract structure of it.</p>
+<p>The $k$-th <em>de Rham cohomology</em> in $\mathbb{R}^n$ is defined to be the factor space</p>
+<script type="math/tex; mode=display">
+H_{DR}^{k}(\mathbb{R}^n)=\frac{\ker d_k}{\operatorname{im} d_{k-1}}.</script><p>As an example, note that by the fundamental theorem of calculus, every $1$-form is exact, therefore $H_{DR}^1(\mathbb{R})=0$.</p>
+<p>Since de Rham complex is a special case of <em>differential complex</em>, and other restrictions of de Rham complex plays no critical role thereafter, we are going discuss the algebraic structure of differential complex directly. </p>
+<h2 id="The-long-exact-sequence-of-cohomology-groups"><a href="#The-long-exact-sequence-of-cohomology-groups" class="headerlink" title="The long exact sequence of cohomology groups"></a>The long exact sequence of cohomology groups</h2><p>We are going to show that, there exists a long exact sequence of cohomology groups after a short exact sequence is defined. For the convenience let’s recall here some basic definitions</p>
+<h3 id="Exact-sequence"><a href="#Exact-sequence" class="headerlink" title="Exact sequence"></a>Exact sequence</h3><p>A sequence of vector spaces (or groups)</p>
+<script type="math/tex; mode=display">
+\cdots \rightarrow G_{k-1} \xrightarrow{f_{k-1}} G_k \xrightarrow{f_k} G_{k+1} \xrightarrow{f_{k+1}}\cdots</script><p>is said to be <em>exact</em> if the image of $f_{k-1}$ is the kernel of $f_k$ for all $k$. Sometimes we need to discuss a extremely short one by</p>
+<script type="math/tex; mode=display">
+0 \rightarrow A \xrightarrow{f} B \xrightarrow{g} C \rightarrow 0.</script><p>As one can see, $f$ is injective and $g$ is surjective.</p>
+<h3 id="Differential-complex"><a href="#Differential-complex" class="headerlink" title="Differential complex"></a>Differential complex</h3><p>A direct sum of vector spaces $C=\oplus_{k \in \mathbb{Z}}C^k$ is called a <em>differential complex</em> if there are homomorphisms by</p>
+<script type="math/tex; mode=display">
+\cdots \rightarrow C^{k-1} \xrightarrow{d_{k-1}} C^k \xrightarrow{d_k} C^{k+1} \xrightarrow{d_{k+1}}\cdots</script><p>such that $d_{k-1}d_k=0$. Sometimes we write $d$ instead of $d_{k}$ since this <em>differential operator</em> of $C$ is universal. Therefore we may also say that $d^2=0$. The cohomology of $C$ is the direct sum of vector spaces $H(C)=\oplus_{k \in \mathbb{Z}}H^k(C) $ where</p>
+<script type="math/tex; mode=display">
+H^k(C)=\frac{\ker d_{k}}{\operatorname{im}d_{k-1}}.</script><p>A map $f: A \to B$ where $A$ and $B$ are differential complexes, is called a <em>chain map</em> if we have $fd_A=d_Bf$.</p>
+<h3 id="The-sequence"><a href="#The-sequence" class="headerlink" title="The sequence"></a>The sequence</h3><p>Now consider a short exact sequence of differential complexes</p>
+<script type="math/tex; mode=display">
+0 \rightarrow A \xrightarrow{f} B \xrightarrow{g} C \rightarrow 0</script><p>where both $f$ and $g$ are chain maps (this is important). Then there exists a long exact sequence by</p>
+<script type="math/tex; mode=display">
+\cdots\rightarrow H^q(A) \xrightarrow{f^*} H^{q}(B) \xrightarrow{g^*} H^q(C)\xrightarrow{d^{*}}H^{q+1}(A) \xrightarrow{f^*}\cdots.</script><p>Here, $f^{\ast}$ and $g^{\ast}$ are the naturally induced maps. For $c \in C^q$, $d^{\ast}[c]$ is defined to be the cohomology class $[a]$ where $a \in A^{q+1}$, and that $f(a)=db$, and that $g(b)=c$. The sequence can be described using the two-layer commutative diagram below.</p>
+<p><img src="\img\layer-000001.png" alt="layer-000001"></p>
+<p>The long exact sequence is actually the purple one (you see why people may call this zig-zag lemma). This sequence is ‘based on’ the blue diagram, which can be considered naturally as an expansion of the short exact sequence. The method that will be used in the following proof is called diagram-chasing, whose importance has already been described by Professor James Munkres: <em>master</em> this. We will be <em>abusing</em> the properties of almost every homomorphism and group appeared in this commutative diagram to trace the elements.</p>
+<h4 id="Proof"><a href="#Proof" class="headerlink" title="Proof"></a>Proof</h4><p>First, we give a precise definition of $d^{\ast}$. For a closed $c \in C^q$, by the surjectivity of $g$ (note this sequence is exact), there exists some $b \in B^q$ such that $g(b)=c$. But $g(db)=d(g(b))=dc=0$, we see for $db \in B^{q+1}$ we have $db \in \ker g$. By the exactness of the sequence, we see $db \in \operatorname{im}{f}$, that is, there exists some $a \in A^{q+1}$ such that $f(a)=db$.  Further, $a$ is closed since</p>
+<script type="math/tex; mode=display">
+f(da)=d(f(a))=d^2b=0</script><p>and we already know that $f$ has trivial kernel (which contains $da$).</p>
+<p>$d^{\ast}$ is therefore defined by</p>
+<script type="math/tex; mode=display">
+d^*[c]=[a],</script><p>where $[\cdot]$ means “the homology class of”.</p>
+<p>But it is expected that $d^{\ast}$ is a well-defined homomorphism. Let $c_q$ and $c_q’$ be two closed forms in $C^q$. To show $d^{\ast}$ is well-defined, we suppose $[c_q]=[c_q’]$ (i.e. they are homologous). Choose $b_q$ and $b_q’$ so that $g(b_q)=c_q$ and $g(b_q’)=c_q’$. Accordingly, we also pick $a_{q+1}$ and $a_{q+1}’$ such that $f(a_{q+1})=db_q$ and $f(a_{q+1}’)=db_q’$. By definition of $d^{\ast}$, we need to show that $[a_{q+1}]=[a_{q+1}’]$.</p>
+<p>Recall the properties of factor group. $[c_q]=[c_q’]$ if and only if $c_q-c_q’ \in \operatorname{im}d$. Therefore we can pick some $c_{q-1} \in C^{q-1}$ such that $c_q-c_q’=dc_{q-1}$. Again, by the surjectivity of $g$, there is some $b_{q-1}$ such that $g(b_{q-1})=c_{q-1}$.</p>
+<p>Note that</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+g(b_q-b_q'-db_{q-1})&=c_q-c_{q}'-g(db_{q-1}) \\
+                    &=dc_{q-1}-d(g(b_{q-1})) \\
+                    &=dc_{q-1}-dc_{q-1} \\
+                    &= 0.
+\end{aligned}</script><p>Therefore $b_q-b_q’-db_{q-1} \in \operatorname{im} f$. We are able to pick some $a_q \in A^{q}$ such that $f(a_q)=b_q-b_q’-db_{q-1}$. But now we have</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+f(da_q)=df(a_q)&=d(b_q-b_q'-db_{q-1}) \\
+               &=db_q-db_q'-d^2b_{q-1} \\
+               &=db_q-db_q' \\
+               &=f(a_{q+1}-a_{q+1}').
+\end{aligned}</script><p>Since $f$ is injective, we have $da_q=a_{q+1}-a_{q+1}’$, which implies that $a_{q+1}-a_{q+1}’ \in \operatorname{im}d$. Hence $[a_{q+1}]=[a_{q+1}’]$. </p>
+<p>To show that $d^{\ast}$ is a homomorphism, note that $g(b_q+b_q’)=c_q+c_q’$ and $f(a_{q+1}+a_{q+1}’)=d(b_q+b_q’)$. Thus we have</p>
+<script type="math/tex; mode=display">
+d^*[c_q+c_q']=[a_{q+1}+a_{q+1}'].</script><p>The latter equals $[a_{q+1}]+[a_{q+1}’]$ since the canonical map is a homomorphism. Therefore we have</p>
+<script type="math/tex; mode=display">
+d^*[c_q+c_q']=d^*[c_q]+d^*[c_q'].</script><p>Therefore the long sequence exists. It remains to prove exactness. Firstly we need to prove exactness at $H^q(B)$. Pick $[b] \in H^q(B)$. If there is some $a \in A^q$ such that $f(a)=b$, then $g(f(a))=0$. Therefore $g^{\ast}[b]=g^{\ast}[f(a)]=[g(f(a))]=[0]$; hence $\operatorname{im}f \subset \ker g$. </p>
+<p>Conversely, suppose now $g^{\ast}[b]=[0]$, we shall show that there exists some $[a] \in H^q(A)$ such that $f^{\ast}[a]=[b]$. Note $g^{\ast}[b]=\operatorname{im}d$ where $d$ is the differential operator of $C$ (why?). Therefore there exists some $c_{q-1} \in C^{q-1}$ such that $g(b)=dc_{q-1}$. Pick some $b_{q-1}$ such that $g(b_{q-1})=c_{q-1}$. Then we have</p>
+<script type="math/tex; mode=display">
+g(b-db_{q-1})=g(b)-d(g(b_{q-1}))=g(b)-dc_{q-1}=0.</script><p>Therefore $f(a)=b-db_{q-1}$ for some $a \in A^q$. Note $a$ is closed since</p>
+<script type="math/tex; mode=display">
+f(da)=df(a)=d(b-db_{q-1})=db-d^2b_{q-1}=db=0</script><p>and $f$ is injective. $db=0$ since we have</p>
+<script type="math/tex; mode=display">
+g(db)=d(g(b))=d(dc_{q-1})=0.</script><p>Furthermore,</p>
+<script type="math/tex; mode=display">
+f^*[a]=[f(a)]=[b-dc_{q-1}]=[b]-[0]=[b].</script><p>Therefore $\ker g^{\ast} \subset \operatorname{im} f$ as desired.</p>
+<p>Now we prove exactness at $H^q(C)$. (Notation:) pick $[c_q] \in H^q(C)$, there exists some $b_q$ such that $g(b_q)=c_q$; choose $a_{q+1}$ such that $f(a_{q+1})=db_q$. Then $d^{\ast}[c_q]=[a_{q+1}]$ by definition.</p>
+<p>If $[c_q] \in \operatorname{im}g^{\ast}$, we see $[c_q]=[g(b_q)]=g^{\ast}[b_q]$. But $b_q$ is closed since $[b_q] \in H^q(B)$, we see $f(a_{q+1})=db_q=0$, therefore $d^{\ast}[c_q]=[a_{q+1}]=[0]$ since $f$ is injective. Therefore $\operatorname{im}g^{\ast} \subset \ker d^{\ast}$.</p>
+<p>Conversely, suppose $d^{\ast}[c^q]=[0]$. By definition of $H^{q+1}(A)$, there is some $a_q \in A$ such that $da_q = a_{q+1}$ (can you see why?). We claim that $b_q-f(a_q)$ is closed and we have $[c_q]=g^{\ast}[b_q-f(a_q)]$.</p>
+<p>By direct computation,</p>
+<script type="math/tex; mode=display">
+d(b_q-f(a_q))=db_q-d(f(a_q))=db_q-f(d(a_q))=db_q-f(a_{q+1})=0.</script><p>Meanwhile</p>
+<script type="math/tex; mode=display">
+g^*[b_q-f(a_q)]=[g(b_q)]-[g(f(a_q))]=[c_q].</script><p>Therefore $\ker d^{\ast} \subset \operatorname{im}g^{\ast}$. Note that $g(f(a_q))=0$ by exactness.</p>
+<p>Finally, we prove exactness at $H^{q+1}(A)$. Pick $\alpha \in H^{q+1}(A)$. If $\alpha \in \operatorname{im}d^{\ast}$, then $\alpha=[a_{q+1}]$ where $f(a_{q+1})=db_q$ by definition. Then</p>
+<script type="math/tex; mode=display">
+f^*(\alpha)=[f(a_{q+1})]=[db_q]=[0].</script><p>Therefore $\alpha \in \ker f^{\ast}$. Conversely, if we have $f^{\ast}(\alpha)=[0]$, pick the representative element of $\alpha$, namely we write $\alpha=[a]$; then $[f(a)]=[0]$. But this implies that $f(a) \in \operatorname{im}d$ where $d$ denotes the differential operator of $B$. There exists some $b_{q+1} \in B^{q+1}$ and $b_q \in B^q$ such that $db_{q}=b_{q+1}$. Suppose now $c_q=g(b_q)$. $c_q$ is closed since $dc_q=g(db_q)=g(b_{q+1})=g(f(a))=0$. By definition, $\alpha=d^{\ast}[c_q]$. Therefore $\ker f^{\ast} \subset \operatorname{im}d^{\ast}$.</p>
+<h3 id="Remarks"><a href="#Remarks" class="headerlink" title="Remarks"></a>Remarks</h3><p>As you may see, almost every property of the diagram has been used. The exactness at $B^q$ ensures that $g(f(a))=0$. The definition of $H^q(A)$ ensures that we can simplify the meaning of $[0]$. We even use the injectivity of $f$ and the surjectivity of $g$. </p>
+<p>This proof is also a demonstration of diagram-chasing technique. As you have seen, we keep running through the diagram to ensure that there is “someone waiting” at the destination. </p>
+<p>This long exact group is useful. Here is an example.</p>
+<h2 id="Application-Mayer-Vietoris-Sequence"><a href="#Application-Mayer-Vietoris-Sequence" class="headerlink" title="Application: Mayer-Vietoris Sequence"></a>Application: Mayer-Vietoris Sequence</h2><p>By differential forms on a open set $U \subset \mathbb{R}^n$, we mean</p>
+<script type="math/tex; mode=display">
+\Omega^*(U)=\{C^{\infty}\text{ functions on }U\}\otimes_\mathbb{R}\Omega^*.</script><p>And the de Rham cohomology of $U$ comes up in the nature of things.</p>
+<p>We are able to compute the cohomology of the union of two open sets. Suppose $M=U \cup V$ is a manifold with $U$ and $V$ open, and $U \amalg V$ is the disjoint union of $U$ and $V$ (the coproduct in the category of sets). $\partial_0$ and $\partial_1$ are inclusions of $U \cap V$ in $U$ and $V$ respectively. We have a natural sequence of inclusions</p>
+<script type="math/tex; mode=display">
+M \leftarrow U\amalg V \leftleftarrows^{\partial_0}_{\partial_1}\leftleftarrows U \cap V.</script><p>Since $\Omega^{*}$ can also be treated as a contravariant functor from the category of Euclidean spaces with smooth maps to the category of commutative differential graded algebras and their homomorphisms, we have</p>
+<script type="math/tex; mode=display">
+\Omega^*(M) \rightarrow \Omega^*(U) \oplus \Omega^*(V) \rightrightarrows^{\partial^*_0}_{\partial^*_1}\rightrightarrows\Omega^*({U \cap V}).</script><p>By taking the difference of the last two maps, we have</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+0 \rightarrow \Omega^*(M) \rightarrow \Omega^*(U) \oplus \Omega^*(V) &\rightarrow \Omega^*(U \cap V) \rightarrow 0 \\
+(\omega,\tau) &\mapsto \tau-\omega
+\end{aligned}</script><p>The sequence above is a short exact sequence. Therefore we may use the zig-zag lemma to find a long exact sequence (which is also called the Mayer-Vietoris sequence) by</p>
+<script type="math/tex; mode=display">
+\cdots\to H^q(M) \to H^q(U) \oplus H^q(V) \to H^q(U \cap V)  \xrightarrow{d^*} H^{q+1}(M) \to \cdots</script><h3 id="An-example"><a href="#An-example" class="headerlink" title="An example"></a>An example</h3><p>This sequence allows one to compute the cohomology of two union of two open sets. For example, for $H^{*}_{DR}(\mathbb{R}^2-P-Q)$, where $P(x_p,y_p)$ and $Q(x_q,y_q)$ are two distinct points in $\mathbb{R}^2$, we may write</p>
+<script type="math/tex; mode=display">
+(\mathbb{R}^2-P)\cap(\mathbb{R}^2-Q)=\mathbb{R}^2-P-Q</script><p>and</p>
+<script type="math/tex; mode=display">
+(\mathbb{R}^2-P)\cup(\mathbb{R}^2-Q)=\mathbb{R}^2.</script><p>Therefore we may write $M=\mathbb{R}^2$, $U=\mathbb{R}^2-P$ and $V=\mathbb{R}^2-Q$. For $U$ and $V$, we have another decomposition by</p>
+<script type="math/tex; mode=display">
+\mathbb{R}^2-P=(\mathbb{R}^2-P_x)\cup(\mathbb{R}^2-P_y)</script><p>where</p>
+<script type="math/tex; mode=display">
+P_x=\{(x,y_p):x \in \mathbb{R}\}.</script><p>But</p>
+<script type="math/tex; mode=display">
+(\mathbb{R}^2-P_x)\cap(\mathbb{R}^2-P_y)</script><p>is a four-time (homeomorphic) copy of $\mathbb{R}^2$. So things become clear after we compute $H^{\ast}_{DR}(\mathbb{R}^2)$.</p>
+<h2 id="References-Further-reading"><a href="#References-Further-reading" class="headerlink" title="References / Further reading"></a>References / Further reading</h2><ul>
+<li>Raoul Bott, Loring W. Tu, <em>Differential Forms in Algebraic Topology</em></li>
+<li>Munkres J. R., <em>Elements of Algebraic Topology</em></li>
+<li>Micheal Spivak, <em>Calculus on Manifolds</em></li>
+<li>Serge Lang, <em>Algebra</em></li>
+</ul>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-09-24T13:46:57.000Z" title="24/09/2020, 21:46:57">2020-09-24</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-12-06T02:34:54.895Z" title="06/12/2022, 10:34:54">2022-12-06</time></span><span class="level-item"><a class="link-muted" href="../../categories/Analysis/">Analysis</a><span> / </span><a class="link-muted" href="../../categories/Analysis/Complex-Analysis/">Complex Analysis</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2020/09/24/two-fourier-transforms/">The Fourier transform of sinx/x and (sinx/x)^2 and more</a></h1><div class="content">In this post we compute the Fourier transform of $\sin{x}/x$ and $(\sin{x}/x)^2$ through contour integration.</div><a class="article-more button is-small is-size-7" href="../../2020/09/24/two-fourier-transforms/#more">Read more</a></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-09-19T00:57:10.000Z" title="19/09/2020, 08:57:10">2020-09-19</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-11-27T03:59:52.385Z" title="27/11/2021, 11:59:52">2021-11-27</time></span><span class="level-item"><a class="link-muted" href="../../categories/Analysis/">Analysis</a><span> / </span><a class="link-muted" href="../../categories/Analysis/Functional-Analysis/">Functional Analysis</a><span> / </span><a class="link-muted" href="../../categories/Analysis/Integration-Theory/">Integration Theory</a><span> / </span><a class="link-muted" href="../../categories/Analysis/Functional-Analysis/Linear-Functional/">Linear Functional</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2020/09/19/The-Riesz-Markov-Kakutani-Representation-Theorem/">The Riesz-Markov-Kakutani Representation Theorem</a></h1><div class="content"><h2 id="This-post"><a href="#This-post" class="headerlink" title="This post"></a>This post</h2><p>Is intended to establish the existence of the Lebesgue measure in the future, which is often denoted by $m$. In fact, the Lebesgue measure follows as a special case of R-M-K representation theorem. You may not believe it, but euclidean properties of $\mathbb{R}^k$ plays no role in the existence of $m$. The only topological property that works is the fact that $\mathbb{R}^k$ is a locally compact Hausdorff space.</p>
+<p>The theorem is named after F. Riesz who introduced it for continuous functions on $[0,1]$ (with respect to Riemann-Steiltjes integral). Years later, after the generalization done by A. Markov and S. Kakutani, we are able to view it on a locally compact Hausdorff space.</p>
+<p>You may find there are some over-generalized properties, but this is intended to have you being able to enjoy more alongside (there are some tools related to differential geometry). Also there are many topology and analysis tricks worth your attention.</p>
+<h2 id="Tools"><a href="#Tools" class="headerlink" title="Tools"></a>Tools</h2><h3 id="Different-kinds-of-topological-spaces"><a href="#Different-kinds-of-topological-spaces" class="headerlink" title="Different kinds of topological spaces"></a>Different kinds of topological spaces</h3><p>Again, euclidean topology plays no role in this proof. We need to specify the topology for different reasons. This is similar to what we do in linear functional analysis. Throughout, let $X$ be a topological space.</p>
+<p><strong>0.0 Definition.</strong> $X$ is a <em>Hausdorff space</em> if the following is true: If $p \in X$, $q\in X$ but $p \neq q$, then there are two <strong>disjoint</strong> open sets $U$ and $V$ such that $p \in U$ and $q \in V$.</p>
+<p><strong>0.1 Definition.</strong> $X$ is <em>locally compact</em> if every point of $X$ has a neighborhood whose closure is compact.</p>
+<p><strong>0.2 Remarks.</strong> A Hausdorff space is also called a $T_2$ space (see Kolmogorov classification) or a separated space. There is a classic example of locally compact Hausdorff space: $\mathbb{R}^n$. It is trivial to verify this. But this is far from being enough. In the future we will see, we can construct some ridiculous but mathematically valid measures.</p>
+<p><strong>0.3 Definition.</strong> A set $E \subset X$ is called <em>$\sigma$-compact</em> if $E$ is a countable union of compact sets. Note that every open subset in a euclidean space $\mathbb{R}^n$ is $\sigma$-compact since it can always be a countable union of closed balls (which is compact).</p>
+<p><strong>0.4 Definition.</strong> A covering of $X$ is <em>locally finite</em> if every point has a neighborhood which intersects only finitely many elements of the covering. Of course, if the covering is already finite, it’s also locally finite.</p>
+<p><strong>0.5 Definition.</strong> A <em>refinement</em> of a covering of $X$ is a second covering, each element of which is contained in an element of the first covering.</p>
+<p><strong>0.6 Definition.</strong> $X$ is <em>paracompact</em> if it is Hausdorff, and every open covering has a locally finite open refinement. Obviously any compact space is paracompact.</p>
+<p><strong>0.7 Theorem.</strong> If $X$ is a second countable Hausdorff space and is locally compact, then $X$ is paracompact. For proof, see <a target="_blank" rel="noopener" href="https://math.stanford.edu/~conrad/diffgeomPage/handouts/paracompact.pdf">this [Theorem 2.6]</a>. One uses this to prove that a differentiable manifold admits a partition of unity.</p>
+<p><strong>0.8 Theorem.</strong> If $X$ is locally compact and sigma compact, then $X=\bigcup_{i=1}^{\infty}K_i$ where for all $i \in \mathbb{N}$, $K_i$ is compact and $K_i \subset\operatorname{int}K_{i+1}$.</p>
+<h3 id="Partition-of-unity"><a href="#Partition-of-unity" class="headerlink" title="Partition of unity"></a>Partition of unity</h3><p>The basic technical tool in the theory of differential manifolds is the existence of a partition of unity. We will steal this tool for the application of analysis theory. </p>
+<p><strong>1.0 Definition.</strong> A <strong>partition of unity</strong> on $X$ is a collection $(g_i)$ of continuous real valued functions on $X$ such that</p>
+<ol>
+<li>$g_i \geq 0$ for each $i$.</li>
+<li>every $x \in X$ has a neighborhood $U$ such that $U \cap \operatorname{supp}(g_i)=\varnothing$ for all but finitely many of $g_i$.</li>
+<li>for each $x \in X$, we have $\sum_{i}g_i(x)=1$. (That’s why you see the word ‘unity’.)</li>
+</ol>
+<p>One should be reminded that, partition of unity is frequently used in many other fields. For example, in differential geometry, one uses it to find Riemannian structure on a smooth manifold. In generalised function theory, one uses it to find the connection between local property and global property as well.</p>
+<p><strong>1.1 Definition.</strong> A partition of unity $(g_i)$ on $X$ is <em>subordinate</em> to an open cover of $X$ if and only if for each $g_i$ there is an element $U$ of the cover such that $\operatorname{supp}(g_i) \subset U$. We say $X$ <em>admits</em> partitions of unity if and only if for every open cover of $X$, there exists a partition of unity subordinate to the cover. </p>
+<p><strong>1.2 Theorem.</strong> A Hausdorff space admits a partition of unity if and only if it is paracompact (the ‘only if’ part is by considering the definition of partition of unity. For the ‘if’ part, see <a target="_blank" rel="noopener" href="https://wikivisually.com/wiki/Paracompact_space#Proof_that_paracompact_Hausdorff_spaces_admit_partitions_of_unity">here</a>). As a corollary, we have:</p>
+<p><strong>1.3 Corollary.</strong> Suppose $V_1,\cdots,V_n$ are open subsets of a locally compact Hausdorff space $X$, $K$ is compact, and</p>
+<script type="math/tex; mode=display">
+K \subset \bigcup_{k=1}^{n}V_k.</script><p>Then there exists a partition of unity $(h_i)$ that is subordinate to the cover $(V_n)$ such that $\operatorname{supp}(h_i) \subset V_i$ and $\sum_{i=1}^{n}h_i=1$ for all $x \in K$.</p>
+<h3 id="Urysohn’s-lemma-for-locally-compact-Hausdorff-spaces"><a href="#Urysohn’s-lemma-for-locally-compact-Hausdorff-spaces" class="headerlink" title="Urysohn’s lemma (for locally compact Hausdorff spaces)"></a>Urysohn’s lemma (for locally compact Hausdorff spaces)</h3><p><strong>2.0 Notation.</strong> The notation</p>
+<script type="math/tex; mode=display">
+K \prec f</script><p>will mean that $K$ is a compact subset of $X$, that $f \in C_c(X)$, that $f(X) \subset [0,1]$, and that $f(x)=1$ for all $x \in K$. The notation</p>
+<script type="math/tex; mode=display">
+f \prec V</script><p>will mean that $V$ is open, that $f \in C_c(X)$, that $f(X) \subset [0,1]$ and that $\operatorname{supp}(f) \subset V$. If both hold, we write</p>
+<script type="math/tex; mode=display">
+K \prec f \prec V.</script><p><strong>2.1 Remarks.</strong> Clearly, with this notation, we are able to simplify the statement of being subordinate. We merely need to write $g_i \prec U$ in 1.1 instead of $\operatorname{supp}(g_i) \subset U$.</p>
+<p><strong>2.2 Urysohn’s Lemma for locally compact Hausdorff space.</strong> Suppose $X$ is locally compact and Hausdorff, $V$ is open in $X$ and $K \subset V$ is a compact set. Then there exists an $f \in C_c(X)$ such that</p>
+<script type="math/tex; mode=display">
+K \prec f \prec V.</script><p><strong>2.3 Remarks.</strong> By $f \in C_c(X)$ we shall mean $f$ is a continuous function with a compact support.  This relation also says that $\chi_K \leq f \leq \chi_V$. For more details and the proof, visit <a target="_blank" rel="noopener" href="https://planetmath.org/applicationsofurysohnslemmatolocallycompacthausdorffspaces">this page</a>. This lemma is generally for normal space, for a proof on that level, see <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1910.10381.pdf">arXiv:1910.10381</a>. (Question: why we consider two disjoint closed subsets thereafter?)</p>
+<h3 id="The-varepsilon-definitions-of-sup-and-inf"><a href="#The-varepsilon-definitions-of-sup-and-inf" class="headerlink" title="The $\varepsilon$-definitions of $\sup$ and $\inf$"></a>The $\varepsilon$-definitions of $\sup$ and $\inf$</h3><p>We will be using the $\varepsilon$-definitions of $\sup$ and $\inf$, which will makes the proof easier in this case, but if you don’t know it would be troublesome. So we need to put it down here.</p>
+<blockquote>
+<p>Let $S$ be a nonempty subset of the real numbers that is bounded below. The lower bound $w$ is to be the infimum of $S$ if and only if for any $\varepsilon&gt;0$, there exists an element $x_\varepsilon \in S$ such that $x_\varepsilon&lt;w+\varepsilon$.</p>
+</blockquote>
+<p>This definition of $\inf$ is equivalent to the if-then definition by</p>
+<blockquote>
+<p>Let $S$ be a set that is bounded below. We say $w=\inf S$ when $w$ satisfies the following condition.</p>
+<ol>
+<li>$w$ is a lower bound of $S$.</li>
+<li>If $t$ is also a lower bound of $S$, then $t \leq s$.</li>
+</ol>
+</blockquote>
+<p>We have the analogous definition for $\sup$.</p>
+<h2 id="The-main-theorem"><a href="#The-main-theorem" class="headerlink" title="The main theorem"></a>The main theorem</h2><p>Analysis is full of vector spaces and linear transformations. We already know that the Lebesgue integral induces a linear functional. That is, for example, $L^1([0,1])$ is a vector space, and we have a linear functional by</p>
+<script type="math/tex; mode=display">
+f \mapsto \int_0^1 f(x)dx.</script><p>But what about the reverse? Given a linear functional, is it guaranteed that we have a measure to establish the integral? The R-M-K theorem answers this question affirmatively. The functional to be discussed is <em>positive</em>, which means that if $\Lambda$ is positive and $f(X) \subset [0,\infty)$, then $\Lambda{f} \in [0,\infty)$.</p>
+<blockquote>
+<p>Let $X$ be a locally compact Hausdorff space, and let $\Lambda$ be a positive <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Linear_form#:~:text=A%20linear%20functional%20on%20X,%E2%84%82%20(valued%20in%20%E2%84%82">linear functional</a>.) on $C_c(X)$. Then there exists a $\sigma$-algebra $\mathfrak{M}$ on $X$ which contains all Borel sets in $X$, and there exists a unique positive measure $\mu$ on $\mathfrak{M}$ which represents $\Lambda$ in the sense that </p>
+<script type="math/tex; mode=display">
+\Lambda{f}=\int_X fd\mu</script><p>for all $f \in C_c(X)$.</p>
+<p>For the measure $\mu$ and the $\sigma$-algebra $\mathfrak{M}$, we have four assertions:</p>
+<ol>
+<li>$\mu(K)&lt;\infty$ for every compact set $K \subset X$.</li>
+<li>For every $E \in \mathfrak{M}$, we have </li>
+</ol>
+<script type="math/tex; mode=display">
+\mu(E)=\{\mu(V):E \subset V, V\text{ open}\}.</script><ol>
+<li>For every open set $E$ and every $E \in \mathfrak{M}$, we have</li>
+</ol>
+<script type="math/tex; mode=display">
+\mu(E)=\sup\{\mu(K):K \subset E, K\text{ compact}\}.</script><ol>
+<li>If $E \in \mathfrak{M}$, $A \subset E$, and $\mu(E)=0$, then $A \in \mathfrak{M}$.</li>
+</ol>
+</blockquote>
+<p><strong>Remarks before proof.</strong> It would be great if we can establish the Lebesgue measure $m$ by putting $X=\mathbb{R}^n$. But we need a little more extra work to get this result naturally. If 2 is satisfied, we say $\mu$ is <em>outer</em> regular, and <em>inner</em> regular for 3. If both hold, we say $\mu$ is <em>regular</em>. The partition of unity and Urysohn’s lemma will be heavily used in the proof of the main theorem, so make sure you have no problem with it. It can also be extended to complex space, but that requires much non-trivial work. </p>
+<h3 id="Proving-the-theorem"><a href="#Proving-the-theorem" class="headerlink" title="Proving the theorem"></a>Proving the theorem</h3><p>The proof is rather long so we will split it into several steps. I will try my best to make every line clear enough.</p>
+<h4 id="Step-0-Construction-of-mu-and-mathfrak-M"><a href="#Step-0-Construction-of-mu-and-mathfrak-M" class="headerlink" title="Step 0 - Construction of $\mu$ and $\mathfrak{M}$"></a>Step 0 - Construction of $\mu$ and $\mathfrak{M}$</h4><p>For every open set $V \in X$, define</p>
+<script type="math/tex; mode=display">
+\mu(V)=\sup\{\Lambda{f}:f \prec V\}.</script><p>If $V_1 \subset V_2$ and both are open, we claim that $\mu(V_1) \leq \mu(V_2)$. For $f \prec V_1$, since $\operatorname{supp}f \subset V_1 \subset V_2$, we see $f \prec V_2$. But we are able to find some $g \prec V_2$ such that $g \geq f$, or more precisely, $\operatorname{supp}(g) \supset \operatorname{supp}(f)$. By taking another look at the proof of Urysohn’s lemma for locally compact Hausdorff space, we see there is an open set G with compact closure such that</p>
+<script type="math/tex; mode=display">
+\operatorname{supp}(f) \subset G \subset \overline{G} \subset V_2.</script><p>By Urysohn’s lemma to the pair $(\overline{G},V_2)$, we see there exists a function $g \in C_c(X)$ such that</p>
+<script type="math/tex; mode=display">
+\overline{G} \prec g \prec V_2.</script><p>Therefore </p>
+<script type="math/tex; mode=display">
+\operatorname{supp}(f) \subset \overline{G} \subset \operatorname{supp}(g).</script><p>Thus for any $f \prec V_1$ and $g \prec V_2$, we have $\Lambda{g} \geq \Lambda{f}$ (monotonic) since $\Lambda{g}-\Lambda{f}=\Lambda{(g-f)}\geq 0$. By taking the supremum over $f$ and $g$, we see</p>
+<script type="math/tex; mode=display">
+\mu(V_1) \leq \mu(V_2).</script><p>The ‘monotonic’ property of such $\mu$ enables us to <em>define</em> $\mu(E)$ for all $E \subset X$ by</p>
+<script type="math/tex; mode=display">
+\mu(E)=\inf \{\mu(V):E \subset V, V\text{ open}\}.</script><p>The definition above is trivial to valid for open sets. Sometimes people say $\mu$ is the outer measure. We will discuss other kind of sets thoroughly in the following steps. Warning: we are not saying that $\mathfrak{M} = 2^X$. The crucial property of $\mu$, namely countable additivity, will be proved only on a certain $\sigma$-algebra. </p>
+<p>It follows from the definition of $\mu$ that if $E_1 \subset E_2$, then $\mu(E_1) \leq \mu(E_2)$.</p>
+<p>Let $\mathfrak{M}_F$ be the class of all $E \subset X$ which satisfy the two following conditions:</p>
+<ol>
+<li><p>$\mu(E) &lt;\infty$.</p>
+</li>
+<li><p>‘Inner regular’:</p>
+<script type="math/tex; mode=display">
+\mu(E)=\sup\{\mu(K):K \subset E, K\text{ compact}\}.</script></li>
+</ol>
+<p>One may say here $\mu$ is the ‘inner measure’. Finally, let $\mathfrak{M}$ be the class of all $E \subset X$ such that for every compact $K$, we have $E \cap K \in \mathfrak{M}_F$. We shall show that $\mathfrak{M}$ is the desired $\sigma$-algebra.</p>
+<hr>
+<p><strong>Remarks of Step 0.</strong> So far, we have only proved that $\mu(E) \geq 0$ for all $E {\color\red{\subset}}X$. What about the countable additivity?  It’s clear that $\mathfrak{M}_F$ and $\mathfrak{M}$ has some strong relation. We need to get a clearer view of it. Also, if we restrict $\mu$ to $\mathfrak{M}_F$, we restrict ourself to finite numbers. In fact, we will show finally $\mathfrak{M}_F \subset \mathfrak{M}$.</p>
+<h4 id="Step-1-The-‘measure’-of-compact-sets-outer"><a href="#Step-1-The-‘measure’-of-compact-sets-outer" class="headerlink" title="Step 1 - The ‘measure’ of compact sets (outer)"></a>Step 1 - The ‘measure’ of compact sets (outer)</h4><blockquote>
+<p>If $K$ is compact, then $K \in \mathfrak{M}_F$, and</p>
+<script type="math/tex; mode=display">
+\mu(K)=\inf\{\Lambda{f}:K \prec f\}<\infty</script></blockquote>
+<p>Define $V_\alpha=f^{-1}(\alpha,1]$ for $K \prec f$ and $0 &lt; \alpha &lt; 1$. Since $f(x)=1$ for all $x \in K$, we have $K \subset V_{\alpha}$. Therefore by definition of $\mu$ for all $E \subset X$, we have</p>
+<script type="math/tex; mode=display">
+\mu(K) \leq \mu(V_\alpha)=\sup\{\Lambda{g}:g \prec V_{\alpha}\} < \frac{1}{\alpha}\Lambda{f}.</script><p>Note that $f \geq \alpha{g}$ whenever $g \prec V_{\alpha}$ since $\alpha{g} \leq \alpha &lt; f$. Since $\mu(K)$ is an lower bound of $\frac{1}{\alpha}\Lambda{f}$ with $0&lt;\alpha&lt;1$, we see</p>
+<script type="math/tex; mode=display">
+\mu(K) \leq \inf_{\alpha \in (0,1)}\{\frac{1}{\alpha}\Lambda{f}\}=\Lambda{f}.</script><p>Since $f(X) \in [0,1]$, we have $\Lambda{f}$ to be finite. Namely $\mu(K) &lt;\infty$. Since $K$ itself is compact, we see $K \in \mathfrak{M}_F$.</p>
+<p>To prove the identity, note that there exists some $V \supset K$ such that $\mu(V)&lt;\mu(K)+\varepsilon$ for some $\varepsilon&gt;0$. By Urysohn’s lemma, there exists some $h \in C_c(X)$ such that $K \prec h \prec V$. Therefore</p>
+<script type="math/tex; mode=display">
+\Lambda{h} \leq \mu(V) < \mu(K)+\varepsilon</script><p>Therefore $\mu(K)$ is the infimum of $\Lambda{h}$ with $K \prec h$.</p>
+<hr>
+<p><strong>Remarks of Step 1.</strong> We have just proved assertion 1 of the property of $\mu$. The hardest part of this proof is the inequality </p>
+<script type="math/tex; mode=display">
+\mu(V)<\mu(K)+\varepsilon.</script><p>But this is merely the $\varepsilon$-definition of $\inf$. Note that $\mu(K)$ is the infimum of $\mu(V)$ with $V \supset K$. For any $\varepsilon&gt;0$, there exists some open $V$ for what? Under certain conditions, this definition is much easier to use. Now we will examine the relation between $\mathfrak{M}_F$ and $\tau_X$, namely the topology of $X$.</p>
+<h4 id="Step-2-The-‘measure’-of-open-sets-inner"><a href="#Step-2-The-‘measure’-of-open-sets-inner" class="headerlink" title="Step 2 - The ‘measure’ of open sets (inner)"></a>Step 2 - The ‘measure’ of open sets (inner)</h4><blockquote>
+<p>$\mathfrak{M}_F$ contains every open set $V$ with $\mu(V)&lt;\infty$.</p>
+</blockquote>
+<p>It suffices to show that for open set $V$, we have</p>
+<script type="math/tex; mode=display">
+\mu(V)=\sup\{\mu(K):K \subset E, K\text{ compact}\}.</script><p>For $0&lt;\varepsilon&lt;\mu(V)$, we see there exists an $f \prec V$ such that $\Lambda{f}&gt;\mu(V)-\varepsilon$. If $W$ is any open set which contains $K= \operatorname{supp}(f)$, then $f \prec W$, and therefore $\Lambda{f} \leq \mu(W)$. Again by definition of $\mu(K)$, we see</p>
+<script type="math/tex; mode=display">
+\Lambda{f}\leq\mu(K).</script><p>Therefore</p>
+<script type="math/tex; mode=display">
+\mu(V)-\varepsilon<\Lambda{f}\leq\mu(K)\leq\mu(V).</script><p>This is exactly the definition of $\sup$. The identity is proved.</p>
+<hr>
+<p><strong>Remarks of Step 2.</strong> It’s important to that this identity can only be satisfied by open sets and sets $E$ with $\mu(E)&lt;\infty$, the latter of which will be proved in the following steps. This is the <em>flaw</em> of this theorem. With these preparations however, we are able to show the countable additivity of $\mu$ on $\mathfrak{M}_F$.</p>
+<h4 id="Step-3-The-subadditivity-of-mu-on-2-X"><a href="#Step-3-The-subadditivity-of-mu-on-2-X" class="headerlink" title="Step 3 - The subadditivity of $\mu$ on $2^X$"></a>Step 3 - The subadditivity of $\mu$ on $2^X$</h4><blockquote>
+<p>If $E_1,E_2,E_3,\cdots$ are arbitrary subsets of $X$, then</p>
+<script type="math/tex; mode=display">
+\mu\left(\bigcup_{k=1}^{\infty}E_k\right) \leq \sum_{k=1}^{\infty}\mu(E_k)</script></blockquote>
+<p>First we show this holds for finitely many open sets. This is tantamount to show that</p>
+<script type="math/tex; mode=display">
+\mu(V_1 \cup V_2)\leq \mu(V_1)+\mu(V_2)</script><p>if $V_1$ and $V_2$ are open. Pick $g \prec V_1 \cup V_2$. This is possible due to Urysohn’s lemma. By corollary 1.3, there is a partition of unity $(h_1,h_2)$ subordinate to $(V_1,V_2)$ in the sense of corollary 1.3. Therefore,</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\Lambda(g)&=\Lambda((h_1+h_2)g) \\
+          &=\Lambda(h_1g)+\Lambda(h_2g) \\
+          &\leq\mu(V_1)+\mu(V_2).
+\end{aligned}</script><p>Notice that $h_1g \prec V_1$ and $h_2g \prec V_2$. By taking the supremum, we have</p>
+<script type="math/tex; mode=display">
+\mu(V_1 \cup V_2)\leq \mu(V_1)+\mu(V_2).</script><p>Now we back to arbitrary subsets of $X$. If $\mu(E_i)=\infty$ for some $i$, then there is nothing to prove. Therefore we shall assume that $\mu(E_i)&lt;\infty$ for all $i$. By definition of $\mu(E_i)$, we see there are open sets $V_i \supset E_i$ such that</p>
+<script type="math/tex; mode=display">
+\mu(V_i)<\mu(E_i)+\frac{\varepsilon}{2^i}.</script><p>Put $V=\bigcup_{i=1}^{\infty}V_i$, and choose $f \prec V_i$. Since $f \in C_c(X)$, there is a finite collection of $V_i$ that covers the support of $f$. Therefore without loss of generality, we may say that</p>
+<script type="math/tex; mode=display">
+f \prec V_1 \cup V_2 \cup \cdots \cup V_n</script><p>for some $n$. We therefore obtain</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\Lambda{f} &\leq \mu(V_1 \cup V_2 \cup \cdots \cup V_n) \\
+           &\leq \mu(V_1)+\mu(V_2)+\cdots+\mu(V_n) \\
+           &\leq \sum_{i=1}^{n}\left(\mu(E_i)+\frac{\varepsilon}{2^i}\right) \\
+           &\leq \sum_{i=1}^{\infty}\mu(E_i)+\varepsilon,
+\end{aligned}</script><p>for all $f \prec V$. Since $\bigcup E_i \subset V$, we have $\mu(\bigcup E_i) \leq \mu(V)$. Therefore</p>
+<script type="math/tex; mode=display">
+\mu(\bigcup_{i=1}^{\infty}E_i)\leq\mu(V)=\sup\{\Lambda{f}\}\leq\sum_{i=1}^{\infty}\mu(E_i)+\varepsilon.</script><p>Since $\varepsilon$ is arbitrary, the inequality is proved.</p>
+<hr>
+<p><strong>Remarks of Step 3.</strong> Again, we are using the $\varepsilon$-definition of $\inf$. One may say this step showed the subaddtivity of the outer measure. Also note the geometric series by $\sum_{k=1}^{\infty}\frac{\varepsilon}{2^k}=\varepsilon$.</p>
+<h4 id="Step-4-Additivity-of-mu-on-mathfrak-M-F"><a href="#Step-4-Additivity-of-mu-on-mathfrak-M-F" class="headerlink" title="Step 4 - Additivity of $\mu$ on $\mathfrak{M}_F$"></a>Step 4 - Additivity of $\mu$ on $\mathfrak{M}_F$</h4><blockquote>
+<p>Suppose $E=\bigcup_{i=1}^{\infty}E_i$, where $E_1,E_2,\cdots$ are pairwise disjoint members of $\mathfrak{M}_F$, then</p>
+<script type="math/tex; mode=display">
+\mu(E)=\sum_{i=1}^{\infty}\mu(E_i).</script><p>If $\mu(E)&lt;\infty$, we also have $E \in \mathfrak{M}_F$.</p>
+</blockquote>
+<p>As a dual to Step 3, we firstly show this holds for finitely many compact sets. As proved in Step 1, compact sets are in $\mathfrak{M}_F$. Suppose now $K_1$ and $K_2$ are disjoint compact sets. We want to show that</p>
+<script type="math/tex; mode=display">
+\mu(K_1 \cup K_2)=\mu(K_1)+\mu(K_2).</script><p>Note that <a target="_blank" rel="noopener" href="http://mathonline.wikidot.com/compact-sets-in-hausdorff-topological-spaces">compact sets in a Hausdorff space is closed</a>. Therefore we are able to apply Urysohn’s lemma to the pair $(K_1,K_2^c)$. That said, there exists a $f \in C_c(X)$ such that</p>
+<script type="math/tex; mode=display">
+K_1 \prec f \prec K_2^c.</script><p>In other words, $f(x)=1$ for all $x \in K_1$ and $f(x)=0$ for all $x \in K_2$, since $\operatorname{supp}(f) \cap K_2 = \varnothing$. By Step 1, since $K_1 \cup K_2$ is compact, there exists some $g \in C_c(X)$ such that</p>
+<script type="math/tex; mode=display">
+K_1 \cup K_2 \prec g \quad \text{and} \quad \Lambda(g) < \mu(K_1 \cup K_2)+\varepsilon.</script><p>Now things become tricky. We are able to write $g$ by</p>
+<script type="math/tex; mode=display">
+g=fg+(1-f)g.</script><p>But $K_1 \prec fg$ and $K_2 \prec (1-f)g$ by the properties of $f$ and $g$. Also since $\Lambda$ is linear, we have</p>
+<script type="math/tex; mode=display">
+\mu(K_1)+\mu(K_2) \leq \Lambda(fg)+\Lambda((1-f)g)=\Lambda(g) < \mu(K_1 \cup K_2)+\varepsilon.</script><p>Therefore we have</p>
+<script type="math/tex; mode=display">
+\mu(K_1)+\mu(K_2) \leq \mu(K_1 \cup K_2).</script><p>On the other hand, by Step 3, we have</p>
+<script type="math/tex; mode=display">
+\mu(K_1 \cup K_2) \leq \mu(K_1)+\mu(K_2).</script><p>Therefore they must equal.</p>
+<p>If $\mu(E)=\infty$, there is nothing to prove. So now we should assume that $\mu(E)&lt;\infty$. Since $E_i \in \mathfrak{M}_F$, there are compact sets $K_i \subset E_i$ with</p>
+<script type="math/tex; mode=display">
+\mu(K_i) > \mu(E_i)-\frac{\varepsilon}{2^i}.</script><p>Putting $H_n=K_1 \cup K_2 \cup \cdots \cup K_n$, we see $E \supset H_n$ and</p>
+<script type="math/tex; mode=display">
+\mu(E) \geq \mu(H_n)=\sum_{i=1}^{n}\mu(H_i)>\sum_{i=1}^{n}\mu(E_i)-\varepsilon.</script><p>This inequality holds for all $n$ and $\varepsilon$, therefore</p>
+<script type="math/tex; mode=display">
+\mu(E) \geq \sum_{i=1}^{\infty}\mu(E_i).</script><p>Therefore by Step 3, the identity holds.</p>
+<p>Finally we shall show that $E \in \mathfrak{M}_F$ if $\mu(E) &lt;\infty$. To make it more understandable, we will use elementary calculus notation. If we write $\mu(E)=x$ and $x_n=\sum_{i=1}^{n}\mu(E_i)$, we see</p>
+<script type="math/tex; mode=display">
+\lim_{n \to \infty}x_n=x.</script><p>Therefore, for any $\varepsilon&gt;0$, there exists some $N \in \mathbb{N}$ such that</p>
+<script type="math/tex; mode=display">
+x-x_N<\varepsilon.</script><p>This is tantamount to</p>
+<script type="math/tex; mode=display">
+\mu(E)<\sum_{i=1}^{N}\mu(E_i)+\varepsilon.</script><p>But by definition of the <em>compact</em> set $H_N$ above, we see</p>
+<script type="math/tex; mode=display">
+\mu(E)<{\color\red{\sum_{i=1}^{N}\mu(E_i)}}+\varepsilon<{\color\red {\mu(H_N)+\varepsilon}}+\varepsilon=\mu(H_N)+2\varepsilon.</script><p>Hence $E$ satisfies the requirements of $\mathfrak{M}_F$, thus an element of it.</p>
+<hr>
+<p><strong>Remarks of Step 4.</strong> You should realize that we are heavily using the $\varepsilon$-definition of $\sup$ and $\inf$. As you may guess, $\mathfrak{M}_F$ should be a subset of $\mathfrak{M}$ though we don’t know whether it is a $\sigma$-algebra or not. In other words, we hope that the countable additivity of $\mu$ holds on a $\sigma$-algebra that is <em>properly extended</em> from $\mathfrak{M}_F$. However it’s still difficult to show that $\mathfrak{M}$ is a $\sigma$-algebra. We need more properties of $\mathfrak{M}_F$ to go on.</p>
+<h4 id="Step-5-The-‘continuity’-of-mathfrak-M-F"><a href="#Step-5-The-‘continuity’-of-mathfrak-M-F" class="headerlink" title="Step 5 - The ‘continuity’ of $\mathfrak{M}_F$."></a>Step 5 - The ‘continuity’ of $\mathfrak{M}_F$.</h4><blockquote>
+<p> If $E \in \mathfrak{M}_F$ and $\varepsilon&gt;0$, there is a compact $K$ and an open $V$ such that $K \subset E \subset V$ and $\mu(V-K)&lt;\varepsilon$.</p>
+</blockquote>
+<p>There are two ways to write $\mu(E)$, namely</p>
+<script type="math/tex; mode=display">
+\mu(E)=\sup\{\mu(K):K \subset E\} \quad \text{and} \quad \mu(E)=\inf\{\mu(V):V\supset E\}</script><p>where $K$ is compact and $V$ is open. Therefore there exists some $K$ and $V$ such that</p>
+<script type="math/tex; mode=display">
+\mu(V)-\frac{\varepsilon}{2}<\mu(E)<\mu(K)+\frac{\varepsilon}{2}.</script><p>Since $V-K$ is open, and $\mu(V-K)&lt;\infty$, we have $V-K \in \mathfrak{M}_F$. By Step 4, we have</p>
+<script type="math/tex; mode=display">
+\mu(K)+\mu(V-K)=\mu(V) <\mu(K)+\varepsilon.</script><p>Therefore $\mu(V-K)&lt;\varepsilon$ as proved.</p>
+<hr>
+<p><strong>Remarks of Step 5.</strong> You should be familiar with the $\varepsilon$-definitions of $\sup$ and $\inf$ now. Since $V-K =V\cap K^c \subset V$, we have $\mu(V-K)\leq\mu(V)&lt;\mu(E)+\frac{\varepsilon}{2}&lt;\infty$.</p>
+<h4 id="Step-6-mathfrak-M-F-is-closed-under-certain-operations"><a href="#Step-6-mathfrak-M-F-is-closed-under-certain-operations" class="headerlink" title="Step 6 - $\mathfrak{M}_F$ is closed under certain operations"></a>Step 6 - $\mathfrak{M}_F$ is closed under certain operations</h4><blockquote>
+<p>If $A,B \in \mathfrak{M}_F$, then $A-B,A\cup B$ and $A \cap B$ are elements of $\mathfrak{M}_F$.</p>
+</blockquote>
+<p>This shows that $\mathfrak{M}_F$ is closed under union, intersection and relative complement. In fact, we merely need to prove $A-B \in \mathfrak{M}_F$, since $A \cup B=(A-B) \cup B$ and $A\cap B = A-(A-B)$.</p>
+<p>By Step 5, for $\varepsilon&gt;0$, there are sets $K_A$, $K_B$, $V_A$, $V_B$ such that $K_A \subset A \subset V_A$, $K_B \subset B \subset V_B$, and for $A-B$ we have</p>
+<script type="math/tex; mode=display">
+A-B \subset V_A-K_B \subset (V_A-K_A) \cup (K_A-V_B) \cup (V_B-K_B).</script><p>With an application of Step 3 and 5, we have</p>
+<script type="math/tex; mode=display">
+\mu(A-B) \leq \mu(V_A-K_A)+\mu(K_A-V_B)+\mu(V_B-K_B)< \varepsilon+\mu(K_A-V_B)+\varepsilon.</script><p>Since $K_A-V_B$ is a closed subset of $K_A$, we see $K_A-V_B$ is compact as well (<a target="_blank" rel="noopener" href="https://www.math.upenn.edu/~kazdan/508F14/Notes/compactness.pdf">a closed subset of a compact set is compact</a>). But $K_A-V_B \subset A-B$, and $\mu(A-B) &lt;\mu(K_A-V_B)+2\varepsilon$, we see $A-B$ meet the requirement of $\mathfrak{M}_F$ (, the fact that $\mu(A-B)&lt;\infty$ is trivial since $\mu(A-B)&lt;\mu(A)$). </p>
+<p>Since $A-B$ and $B$ are pairwise disjoint members of $\mathfrak{M}_F$, we see</p>
+<script type="math/tex; mode=display">
+\mu(A \cup B)=\mu(A-B)+\mu(B)<\infty.</script><p>Thus $A \cup B \in \mathfrak{M}_F$. Since $A,A-B \in \mathfrak{M}_F$, we see $A \cap B = A-(A-B) \in \mathfrak{M}_F$.</p>
+<hr>
+<p><strong>Remarks of Step 6.</strong> In this step, we demonstrated several ways to express a set, all of which end up with a huge simplification. Now we are able to show that $\mathfrak{M}_F$ is a subset of $\mathfrak{M}$. </p>
+<h4 id="Step-7-mathfrak-M-F-subset-mathfrak-M"><a href="#Step-7-mathfrak-M-F-subset-mathfrak-M" class="headerlink" title="Step 7 - $\mathfrak{M}_F \subset \mathfrak{M}$"></a>Step 7 - $\mathfrak{M}_F \subset \mathfrak{M}$</h4><blockquote>
+<p>There is a precise relation between $\mathfrak{M}$ and $\mathfrak{M}_F$  given by</p>
+<script type="math/tex; mode=display">
+\mathfrak{M}_F=\{E \in \mathfrak{M}:\mu(E)<\infty\} \subset \mathfrak{M}.</script></blockquote>
+<p>If $E \in \mathfrak{M}_F$, we shall show that $E \in \mathfrak{M}$. For compact $K\in\mathfrak{M}_F$ (Step 1), by Step 6, we see $K \cap E \in \mathfrak{M}_F$, therefore $E \in \mathfrak{M}$.</p>
+<p>If $E \in \mathfrak{M}$ with $\mu(E)&lt;\infty$ however, we need to show that $E \in \mathfrak{M}_F$. By definition of $\mu$, for $\varepsilon&gt;0$, there is an open $V$ such that</p>
+<script type="math/tex; mode=display">
+\mu(V)<\mu(E)+\varepsilon<\infty.</script><p>Therefore $V \in \mathfrak{M}_F$. By Step 5, there is a compact set $K$ such that $\mu(V-K)&lt;\varepsilon$ (the open set containing $V$ should be $V$ itself). Since $E \cap K \in \mathfrak{M}_F$, there exists a compact set $H \subset E \cap K$ with</p>
+<script type="math/tex; mode=display">
+\mu(E \cap K)<\mu(H)+\varepsilon.</script><p>Since $E \subset (E \cap K) \cup (V-K)$, it follows from Step 1 that</p>
+<script type="math/tex; mode=display">
+\mu(E) \leq {\color\red{\mu(E\cap K)}}+\mu(V-K)<{\color\red{\mu(H)+\varepsilon}}+\varepsilon=\mu(H)+2\varepsilon.</script><p>Therefore $E \in \mathfrak{M}_F$.</p>
+<hr>
+<p><strong>Remarks of Step 7.</strong> Several tricks in the preceding steps are used here. Now we are pretty close to the fact that $(X,\mathfrak{M},\mu)$ is a measure space. Note that for $E \in \mathfrak{M}-\mathfrak{M}_F$, we have $\mu(E)=\infty$, but we have already proved the countable additivity for $\mathfrak{M}_F$. Is it ‘almost trivial’ for $\mathfrak{M}$? Before that, we need to show that $\mathfrak{M}$ is a $\sigma$-algebra. Note that assertion 3 of $\mu$ has been proved. </p>
+<h4 id="Step-8-mathfrak-M-is-a-sigma-algebra-in-X-containing-all-Borel-sets"><a href="#Step-8-mathfrak-M-is-a-sigma-algebra-in-X-containing-all-Borel-sets" class="headerlink" title="Step 8 - $\mathfrak{M}$ is a $\sigma$-algebra in $X$ containing all Borel sets"></a>Step 8 - $\mathfrak{M}$ is a $\sigma$-algebra in $X$ containing all Borel sets</h4><p>We will validate the definition of $\sigma$-algebra one by one.</p>
+<blockquote>
+<p>$X \in \mathfrak{M}$.</p>
+</blockquote>
+<p>For any compact $K \subset X$, we have $K \cap X=K$. But as proved in Step 1, $K \in \mathfrak{M}_F$, therefore $X \in \mathfrak{M}$.</p>
+<blockquote>
+<p>If $A \in \mathfrak{M}$, then $A^c \in\mathfrak{M}$.</p>
+</blockquote>
+<p>If $A \in \mathfrak{M}$, then $A \cap K \in \mathfrak{M}_F$. But</p>
+<script type="math/tex; mode=display">
+K-(A \cap K)=K \cap(A^c \cup K^c)=K\cap A^c \cup \varnothing=K \cap A^c.</script><p>By Step 1 and Step 6, we see $K \cap A^c \in \mathfrak{M}_F$, thus $A^c \in \mathfrak{M}$.</p>
+<blockquote>
+<p>If $A_n \in \mathfrak{M}$ for all $n \in \mathbb{N}$, then $A=\bigcup_{n=1}^{\infty}A_n \in \mathfrak{M}$. </p>
+</blockquote>
+<p>We assign an auxiliary sequence of sets inductively. For $n=1$, we write $B_1=A_1 \cap K$ where $K$ is compact. Then $B_1 \in \mathfrak{M}_F$. For $n \geq 2$, we write</p>
+<script type="math/tex; mode=display">
+B_n=(A_n \cap K)-(B_1 \cup \cdots\cup B_{n-1}).</script><p>Since $A_n \cap K \in \mathfrak{M}_F$, $B_1,B_2,\cdots,B_{n-1} \in \mathfrak{M}_F$, by Step 6, $B_n \in \mathfrak{M}_F$. Also $B_n$ is pairwise disjoint.</p>
+<p>Another set-theoretic manipulation shows that</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+A \cap K&=K \cap\left(\bigcup_{n=1}^{\infty}A_n\right) \\
+        &=\bigcup_{n=1}^{\infty}(K \cap A_n) \\
+        &=\bigcup_{n=1}^{\infty}B_n \cup(B_1 \cup \cdots\cup B_{n-1}) \\
+        &=\bigcup_{n=1}^{\infty}B_n.
+\end{aligned}</script><p>Now we are able to evaluate $\mu(A \cap K)$ by Step 4.</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\mu(A \cap K)&=\sum_{n=1}^{\infty}\mu(B_n) \\
+             &= \lim_{n \to \infty}(A_n \cap K) <\infty.
+\end{aligned}</script><p>Therefore $A \cap K \in \mathfrak{M}_F$, which implies that $A \in \mathfrak{M}$.</p>
+<blockquote>
+<p>$\mathfrak{M}$ contains all Borel sets.</p>
+</blockquote>
+<p>Indeed, it suffices to prove that $\mathfrak{M}$ contains all open sets and/or closed sets. We’ll show two different paths. Let $K$ be a compact set.</p>
+<ol>
+<li>If $C$ is closed, then $C \cap K$ is compact, therefore $C$ is an element of $\mathfrak{M}_F$. (By Step 2.)</li>
+<li>If $D$ is open, then $D \cap K \subset K$. Therefore $\mu(D \cap K) \leq \mu(K)&lt;\infty$, which shows that $D$ is an element of $\mathfrak{M}_F$ (step 7).</li>
+</ol>
+<p>Therefore by 1 or 2, $\mathfrak{M}$ contains all Borel sets.</p>
+<h4 id="Step-9-mu-is-a-positive-measure-on-mathfrak-M"><a href="#Step-9-mu-is-a-positive-measure-on-mathfrak-M" class="headerlink" title="Step 9 - $\mu$ is a positive measure on $\mathfrak{M}$"></a>Step 9 - $\mu$ is a positive measure on $\mathfrak{M}$</h4><p>Again, we will verify all properties of $\mu$ one by one.</p>
+<blockquote>
+<p>$\mu(E) \geq 0$ for all $E \in \mathfrak{M}$.</p>
+</blockquote>
+<p>This follows immediately from the definition of $\mu$, since $\Lambda$ is positive and $0 \leq f \leq 1$.</p>
+<blockquote>
+<p>$\mu$ is countably additive.</p>
+</blockquote>
+<p>If $A_1,A_2,\cdots$ form a disjoint countable collection of members of $\mathfrak{M}$, we need to show that</p>
+<script type="math/tex; mode=display">
+\mu\left(\bigcup_{n=1}^{\infty}A_n\right)=\sum_{n=1}^{\infty}\mu(A_n).</script><p>If $A_n \in \mathfrak{M}_F$ for all $n$, then this is merely what we have just proved in Step 4. If $A_j \in \mathfrak{M}-\mathfrak{M}_F$ however, we have $\mu(A_j)=\infty$. So $\sum_n\mu(A_n)=\infty$. For $\mu(\cup_n A_n)$, notice that $\cup_n A_n \supset A_j$, we have $\mu(\cup_n A_n) \geq \mu(A_j)=\infty$. The identity is now proved.</p>
+<h4 id="Step-10-The-completeness-of-mu"><a href="#Step-10-The-completeness-of-mu" class="headerlink" title="Step 10 - The completeness of $\mu$"></a>Step 10 - The completeness of $\mu$</h4><p>So far assertion 1-3 have been proved. But the final assertion has not been proved explicitly. We do that since this property will be used when discussing the Lebesgue measure $m$. In fact, this will show that $(X,\mathfrak{M},\mu)$ is a complete measure space.</p>
+<blockquote>
+<p>If $E \in \mathfrak{M}$, $A \subset E$, and $\mu(E)=0$, then $A \in \mathfrak{M}$.</p>
+</blockquote>
+<p>It suffices to show that $A \in \mathfrak{M}_F$. By definition, $\mu(A)=0$ as well. If $K \subset A$, where $K$ is compact, then $\mu(K)=\mu(A)=0$. Therefore $0$ is the supremum of $\mu(K)$. It follows that $A \in \mathfrak{M}_F \subset \mathfrak{M}$.</p>
+<h4 id="Step-11-The-functional-and-the-measure"><a href="#Step-11-The-functional-and-the-measure" class="headerlink" title="Step 11 - The functional and the measure"></a>Step 11 - The functional and the measure</h4><blockquote>
+<p>For every $f \in C_c(X)$, $\Lambda{f}=\int_X fd\mu$.</p>
+</blockquote>
+<p>This is the absolute main result of the theorem. It suffices to prove the inequality</p>
+<script type="math/tex; mode=display">
+\Lambda f \leq \int_X fd\mu</script><p>for all $f \in C_c(X)$. What about the other side? By the linearity of $\Lambda$ and $\int_X \cdot d\mu$, once inequality above proved, we have</p>
+<script type="math/tex; mode=display">
+\Lambda(-f)=-\Lambda{f}\leq\int_{X}-fd\mu=-\int_Xfd\mu.</script><p>Therefore</p>
+<script type="math/tex; mode=display">
+\Lambda{f} \geq \int_X fd\mu</script><p>holds as well, and this establish the equality.</p>
+<p>Notice that since $K=\operatorname{supp}(f)$ is compact, we see <a target="_blank" rel="noopener" href="https://proofwiki.org/wiki/Continuous_Image_of_Compact_Space_is_Compact">the range of $f$ has to be compact</a>. Namely we may assume that $[a,b]$ contains the range of $f$. For $\varepsilon&gt;0$, we are able to pick a partition around $[a,b]$ such that $y_n - y_{n-1}&lt;\varepsilon$ and</p>
+<script type="math/tex; mode=display">
+y_0 < a < y_1<\cdots<y_n=b.</script><p>Put</p>
+<script type="math/tex; mode=display">
+E_i=\{x:y_{i-1}< f(x) \leq y_i\}\cap K.</script><p>Since $f$ is continuous, $f$ is Borel measurable. The sets $E_i$ are trivially pairwise disjoint Borel sets. Again, there are open sets $V_i \supset E_i$ such that</p>
+<script type="math/tex; mode=display">
+\mu(V_i) < \mu(E_i)+\frac{\varepsilon}{n}</script><p>for $i=1,2,\cdots,n$, and such that $f(x)&lt;y_i + \varepsilon$ for all $x \in V_i$. Notice that $(V_i)$ covers $K$, therefore by the partition of unity, there are a sequence of functions $(h_i)$ such that $h_i \prec V_i$ for all $i$ and $\sum h_i=1$ on $K$. By Step 1 and the fact that $f=\sum_i h_i$, we see</p>
+<script type="math/tex; mode=display">
+\mu(K) \leq \Lambda(\sum_i h_i)=\sum_i \Lambda{h_i}.</script><p>By the way we picked $V_i$, we see $h_if \leq (y_i+\varepsilon)h_i$. We have the following inequality:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\Lambda{f} &= \sum_{i=1}^{n}\Lambda(h_if) \leq\sum_{i=1}^{n}(y_i+\varepsilon)\Lambda{h_i} \\
+           &= \sum_{i=1}^{n}\left(|a|-|a|+y_i+\varepsilon\right)\Lambda{h_i} \\
+           &=\sum_{i=1}^{n}(|a|+y_i+\varepsilon)\Lambda{h_i}-|a|\sum_{i=1}^{n}\Lambda{h_i}.
+\end{aligned}</script><p>Since $h_i \prec V_i$, we have $\mu(E_i)+\frac{\varepsilon}{n}&gt;\mu(V_i) \geq \Lambda{h_i}$. And we already get $\sum_i \Lambda{h_i} \geq \mu(K)$. If we put them into the inequality above, we get</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\Lambda{f} &\leq \sum_{i=1}^{n}(|a|+y_i+\varepsilon)\Lambda{h_i}-|a|\sum_{i=1}^{n}\Lambda{h_i} \\
+           &\leq \sum_{i=1}^{n}(|a|+y_i+\varepsilon){\color\red{(\mu(E_i)+\frac{\varepsilon}{n})}}-|a|\color\red{\mu(K)}.
+\end{aligned}</script><p>Observe that $\cup_i E_i=K$, by Step 9 we have $\sum_{i}\mu(E_i)=\mu(K)$. A slight manipulation shows that</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\sum_{i=1}^{n}(|a|+y_i+\varepsilon)\mu(E_i)-|a|\mu(K)&=|a|\sum_{i=1}^{n}\mu(E_i)-|a|\mu(K)+\sum_{i=1}^{n}(y_i+\varepsilon)\mu(E_i) \\
+         &=\sum_{i=1}^{n}(y_i-\varepsilon)\mu(E_i)+2\varepsilon\mu(K).
+\end{aligned}</script><p>Therefore for $\Lambda f$ we get</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\Lambda{f} &\leq\sum_{i=1}^{n}(|a|+y_i+\varepsilon)(\mu(E_i)+\frac{\varepsilon}{n})-|a|\mu(K) \\
+           &=\sum_{i=1}^{n}(y_i-\varepsilon)\mu(E_i)+2\varepsilon\mu(K)+\frac{\varepsilon}{n}\sum_{i=1}^n(|a|+y_i+\varepsilon).
+\end{aligned}</script><p>Now here comes the trickiest part of the whole blog post. By definition of $E_i$, we see $f(x) &gt; y_{i-1}&gt;y_{i}-\varepsilon$ for $x \in E_i$. Therefore we get simple function $s_n$ by</p>
+<script type="math/tex; mode=display">
+s_n=\sum_{i=1}^{n}(y_i-\varepsilon)\chi_{E_i}.</script><p>If we evaluate the Lebesgue integral of $f$ with respect to $\mu$, we see</p>
+<script type="math/tex; mode=display">
+\int_X s_nd\mu={\color\red{\sum_{i=1}^{n}(y_i-\varepsilon)\mu(E_i)}} \leq {\color\red{\int_X fd\mu}}.</script><p>For $2\varepsilon\mu(K)$, things are simple since $0\leq\mu(K)&lt;\infty$. Therefore $2\varepsilon\mu(K) \to 0$ as $\varepsilon \to 0$. Now let’s estimate the final part of the inequality. It’s trivial that $\frac{\varepsilon}{n}\sum_{i=1}^{n}(|a|+\varepsilon)=\varepsilon(\varepsilon+|a|)$. For $y_i$, observe that $y_i \leq b$ for all $i$, therefore $\frac{\varepsilon}{n}\sum_{i=1}^{n}y_i \leq \frac{\varepsilon}{n}nb=\varepsilon b$. Thus</p>
+<script type="math/tex; mode=display">
+{\color\green{\frac{\varepsilon}{n}\sum_{i=1}^{n}(|a|+y_i+\varepsilon)}} \color\black\leq {\color\green {\varepsilon(|a|+b+\varepsilon)}}\color\black{.}</script><p>Notice that $b+|a| \geq 0$ since $b \geq a \geq -|a|$. Our estimation of $\Lambda{f}$ is finally done:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\Lambda{f} &\leq{\color\red{\sum_{i=1}^{n}(y_i-\varepsilon)\mu(E_i)}}+2\varepsilon\mu(K)+{\color\green{\frac{\varepsilon}{n}\sum_{i=1}^n(|a|+y_i+\varepsilon)}} \\
+           &\leq{\color\red {\int_Xfd\mu}}+2\varepsilon\mu(K)+{\color\green{\varepsilon(|a|+b+\varepsilon)}} \\
+           &= \int_X fd\mu+\varepsilon(2\mu(K)+|a|+b+\varepsilon).
+\end{aligned}</script><p>Since $\varepsilon$ is arbitrary, we see $\Lambda{f} \leq \int_X fd\mu$. The identity is proved.</p>
+<h4 id="Step-12-The-uniqueness-of-mu"><a href="#Step-12-The-uniqueness-of-mu" class="headerlink" title="Step 12 - The uniqueness of $\mu$"></a>Step 12 - The uniqueness of $\mu$</h4><blockquote>
+<p>If there are two measures $\mu_1$ and $\mu_2$ that satisfy assertion 1 to 4 and are correspond to $\Lambda$, then $\mu_1=\mu_2$.</p>
+</blockquote>
+<p>In fact, according to assertion 2 and 3, $\mu$ is determined by the values on compact subsets of $X$. It suffices to show that</p>
+<blockquote>
+<p>If $K$ is a compact subset of $X$, then $\mu_1(K)=\mu_2(K)$.</p>
+</blockquote>
+<p>Fix $K$ compact and $\varepsilon&gt;0$. By Step 1, there exists an open $V \supset K$ such that $\mu_2(V)&lt;\mu_2(K)+\varepsilon$. By Urysohn’s lemma, there exists some $f$ such that $K \prec f \prec V$. Hence</p>
+<script type="math/tex; mode=display">
+\mu_1(K)=\int_X\chi_kd\mu \leq\int_X fd\mu=\Lambda{f}=\int_X fd\mu_2 \\
+\leq \int_X \chi_V fd\mu_2=\mu_2(V)<\mu_2(V)+\varepsilon.</script><p>Thus $\mu_1(K) \leq \mu_2(K)$. If $\mu_1$ and $\mu_2$ are exchanged, we see $\mu_2(K) \leq \mu_1(K)$. The uniqueness is proved.</p>
+<h2 id="The-flaw"><a href="#The-flaw" class="headerlink" title="The flaw"></a>The flaw</h2><p>Can we simply put $X=\mathbb{R}^k$ right now? The answer is no. Note that the outer regularity is for all sets but inner is only for open sets and members of $\mathfrak{M}_F$. But we expect the outer and inner regularity to be ‘symmetric’. There is an example showing that <em>locally compact</em> is far from being enough to offer the ‘symmetry’.</p>
+<h3 id="A-weird-example"><a href="#A-weird-example" class="headerlink" title="A weird example"></a>A weird example</h3><p>Define $X=\mathbb{R}_1 \times \mathbb{R}_2$, where $\mathbb{R}_1$ is the real line equipped with <a target="_blank" rel="noopener" href="http://mathonline.wikidot.com/the-discrete-metric">discrete metric</a> $d_1$, and $\mathbb{R}_2$ is the real line equipped with euclidean metric $d_2$. The metric of $X$ is defined by</p>
+<script type="math/tex; mode=display">
+d_X((x_1,y_1),(x_2,y_2))=d_1(x_1,x_2)+d_2(x_1,x_2).</script><p>The topology $\tau_X$ induced by $d_X$ is naturally Hausdorff and locally compact by considering the vertical segments. So what would happen to this weird locally compact Hausdorff space?</p>
+<p>If $f \in C_c(X)$, let $x_1,x_2,\cdots,x_n$ be those values of $x$ for which $f(x,y) \neq 0$ for at least one $y$. Since $f$ has compact support, it is ensured that there are only finitely many $x_i$’s. We are able to define a positive linear functional by</p>
+<script type="math/tex; mode=display">
+\Lambda f=\sum_{i=1}^{n}\int_{-\infty}^{+\infty}f(x_i,y)dy=\int_X fd\mu,</script><p>where $\mu$ is the measure associated with $\Lambda$ in the sense of R-M-K theorem. Let</p>
+<script type="math/tex; mode=display">
+E=\mathbb{R}_1 \times \{0\}.</script><p>By squeezing the disjoint vertical segments around $(x_i,0)$, we see $\mu(K)=0$ for all compact $K \subset E$ but $\mu(E)=\infty$.</p>
+<p>This is in violent contrast to what we do expect. However, if $X$ is required to be $\sigma$-compact (note that the space in this example is not), this kind of problems disappear neatly.</p>
+<h2 id="References-Further-reading"><a href="#References-Further-reading" class="headerlink" title="References / Further reading"></a>References / Further reading</h2><ol>
+<li>Walter Rudin, <em>Real and Complex Analysis</em></li>
+<li>Serge Lang, <em>Fundamentals of Differential Geometry</em></li>
+<li>Joel W. Robbin, <em><a target="_blank" rel="noopener" href="https://www.math.wisc.edu/~robbin/partitions_of_unity.pdf">Partition of Unity</a></em></li>
+<li>Brian Conrad, <em><a target="_blank" rel="noopener" href="http://math.stanford.edu/~conrad/diffgeomPage/handouts/paracompact.pdf">Paracompactness and local compactness</a></em></li>
+<li>Raoul Bott &amp;  Loring W. Tu, <em>Differential Forms in Algebraic Topology</em></li>
+</ol>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-09-12T03:35:13.000Z" title="12/09/2020, 11:35:13">2020-09-12</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-10-06T08:17:31.067Z" title="06/10/2021, 16:17:31">2021-10-06</time></span><span class="level-item"><a class="link-muted" href="../../categories/Analysis/">Analysis</a><span> / </span><a class="link-muted" href="../../categories/Analysis/Functional-Analysis/">Functional Analysis</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2020/09/12/big-3-pt-4/">The Big Three Pt. 4 - The Open Mapping Theorem (F-Space)</a></h1><div class="content"><h2 id="The-Open-Mapping-Theorem"><a href="#The-Open-Mapping-Theorem" class="headerlink" title="The Open Mapping Theorem"></a>The Open Mapping Theorem</h2><p>We are finally going to prove the open mapping theorem in $F$-space. In this version, only metric and completeness are required. Therefore it contains the Banach space version naturally.</p>
+<blockquote>
+<p><strong>(Theorem 0)</strong> Suppose we have the following conditions:</p>
+<ol>
+<li>$X$ is a $F$-space,</li>
+<li>$Y$ is a topological space,</li>
+<li>$\Lambda: X \to Y$ is continuous and linear, and</li>
+<li>$\Lambda(X)$ is of the second category in $Y$.</li>
+</ol>
+<p>Then $\Lambda$ is an open mapping.</p>
+</blockquote>
+<p><em>Proof.</em> Let $B$ be a neighborhood of $0$ in $X$. Let $d$ be an invariant metric on $X$ that is compatible with the $F$-topology of $X$. Define a sequence of balls by</p>
+<script type="math/tex; mode=display">
+B_n=\{x:d(x,0) < \frac{r}{2^n}\}</script><p>where $r$ is picked in such a way that $B_0 \subset B$. To show that $\Lambda$ is an open mapping, we need to prove that there exists some neighborhood $W$ of $0$ in $Y$ such that</p>
+<script type="math/tex; mode=display">
+W \subset \Lambda(B).</script><p>To do this however, we need an auxiliary set. In fact, we will show that there exists some $W$ such that</p>
+<script type="math/tex; mode=display">
+W \subset \overline{\Lambda(B_1)} \subset \Lambda(B).</script><p>We need to prove the inclusions one by one.</p>
+<hr>
+<p>The first inclusion requires BCT. Since $B_2 -B_2 \subset B_1$, and $Y$ is a topological space, we get</p>
+<script type="math/tex; mode=display">
+\overline{\Lambda(B_2)}-\overline{\Lambda(B_2)} \subset \overline{\Lambda(B_2)-\Lambda(B_2)} \subset \overline{\Lambda(B_1)}</script><p>Since</p>
+<script type="math/tex; mode=display">
+\Lambda(X)=\bigcup_{k=1}^{\infty}k\Lambda(B_2),</script><p>according to BCT, at least one $k\Lambda(B_2)$ is of the second category in $Y$. But scalar multiplication $y\mapsto ky$ is a homeomorphism of $Y$ onto $Y$, we see $k\Lambda(B_2)$ is of the second category for all $k$, especially for $k=1$. Therefore $\overline{\Lambda(B_2)}$ has nonempty interior, which implies that there exists some open neighborhood $W$ of $0$ in $Y$ such that $W \subset \overline{\Lambda(B_1)}$. By replacing the index, it’s easy to see this holds for all $n$. That is, for $n \geq 1$, there exists some neighborhood $W_n$ of $0$ in $Y$ such that $W_n \subset \overline{\Lambda(B_n)}$.</p>
+<hr>
+<p>The second inclusion requires the completeness of $X$. Fix $y_1 \in \overline{\Lambda(B_1)}$, we will show that $y_1 \in \Lambda(B)$. Pick $y_n$ inductively. Assume $y_n$ has been chosen in $\overline{\Lambda(B_n)}$. As stated before, there exists some neighborhood $W_{n+1}$ of $0$ in $Y$ such that $W_{n+1} \subset \overline{\Lambda(B_{n+1})}$. Hence</p>
+<script type="math/tex; mode=display">
+(y_n-W_{n+1}) \cap \Lambda(B_n) \neq \varnothing</script><p>Therefore there exists some $x_n \in B_n$ such that</p>
+<script type="math/tex; mode=display">
+\Lambda x_n = y_n - W_{n+1}.</script><p>Put $y_{n+1}=y_n-\Lambda x_n$, we see $y_{n+1} \in W_{n+1} \subset \overline{\Lambda(B_{n+1})}$. Therefore we are able to pick $y_n$ naturally for all $n \geq 1$.</p>
+<p>Since $d(x_n,0)&lt;\frac{r}{2^n}$ for all $n \geq 0$, the sums $z_n=\sum_{k=1}^{n}x_k$ converges to some $z \in X$ since $X$ is a $F$-space. Notice we also have</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+d(z,0)& \leq d(x_1,0)+d(x_2,0)+\cdots \\
+      & <  \frac{r}{2}+\frac{r}{4}+\cdots \\
+      & = r
+\end{aligned}</script><p>we have $z \in B_0 \subset B$. </p>
+<p>By the continuity of $\Lambda$, we see $\lim_{n \to \infty}y_n = 0$. Notice we also have</p>
+<script type="math/tex; mode=display">
+\sum_{k=1}^{n} \Lambda x_k = \sum_{k=1}^{n}(y_k-y_{k+1})=y_1-y_{n+1} \to y_1 \quad (n \to \infty),</script><p>we see $y_1 = \Lambda z \in \Lambda(B)$.</p>
+<p>The whole theorem is now proved, that is, $\Lambda$ is an open mapping. $\square$</p>
+<h3 id="Remarks"><a href="#Remarks" class="headerlink" title="Remarks"></a>Remarks</h3><p>You may think the following relation comes from nowhere:</p>
+<script type="math/tex; mode=display">
+(y_n - W_{n+1}) \cap \Lambda(B_{n}) \neq \varnothing.</script><p>But it’s not. We need to review some set-point topology definitions. Notice that $y_n$ is a limit point of $\Lambda(B_n)$, and $y_n-W_{n+1}$ is a open neighborhood of $y_n$. If $(y_n - W_{n+1}) \cap \Lambda(B_{n})$ is empty, then $y_n$ cannot be a limit point.</p>
+<p>The geometric series by</p>
+<script type="math/tex; mode=display">
+\frac{\varepsilon}{2}+\frac{\varepsilon}{4}+\cdots+\frac{\varepsilon}{2^n}+\cdots=\varepsilon</script><p>is widely used when sum is taken into account. It is a good idea to keep this technique in mind.</p>
+<h2 id="Corollaries"><a href="#Corollaries" class="headerlink" title="Corollaries"></a>Corollaries</h2><p>The formal proof will not be put down here, but they are quite easy to be done.</p>
+<blockquote>
+<p><strong>(Corollary 0)</strong> $\Lambda(X)=Y$.</p>
+</blockquote>
+<p>This is an immediate consequence of the fact that $\Lambda$ is open. Since $Y$ is open, $\Lambda(X)$ is an open subspace of $Y$. But the only open subspace of $Y$ is $Y$ itself.</p>
+<blockquote>
+<p><strong>(Corollary 1)</strong> $Y$ is a $F$-space as well.</p>
+</blockquote>
+<p>If you have already see <a href="/2020/08/16/An-Introduction-to-Quotient-Space/#A-commutative-diagram-by-quotient-space">the commutative diagram by quotient space</a> (put $N=\ker\Lambda$), you know that the induced map $f$ is open and continuous. By treating topological spaces as groups, by corollary 0 and the first isomorphism theorem, we have</p>
+<script type="math/tex; mode=display">
+X/\ker\Lambda \simeq \Lambda(X)=Y.</script><p>Therefore $f$ is a isomorphism; hence one-to-one. Therefore $f$ is a homeomorphism as well. In <a href="/2020/09/03/quotient-f-space/">this post</a> we showed that $X/\ker{\Lambda}$ is a $F$-space, therefore $Y$ has to be a $F$-space as well. (We are using the fact that $\ker{\Lambda}$ is a closed set. But why closed?)</p>
+<blockquote>
+<p><strong>(Corollary 2)</strong> If $\Lambda$ is a continuous linear mapping of an $F$-space $X$ onto a $F$-space $Y$, then $\Lambda$ is open.</p>
+</blockquote>
+<p>This is a direct application of BCT and open mapping theorem. Notice that $Y$ is now of the second category.</p>
+<blockquote>
+<p><strong>(Corollary 3)</strong> If the linear map $\Lambda$ in Corollary 2 is injective, then $\Lambda^{-1}:Y \to X$ is continuous.</p>
+</blockquote>
+<p>This comes from corollary 2 directly since $\Lambda$ is open.</p>
+<blockquote>
+<p><strong>(Corollary 4)</strong> If $X$ and $Y$ are Banach spaces, and if $\Lambda: X \to Y$ is a continuous linear bijective map, then there exist positive real numbers $a$ and $b$ such that</p>
+<script type="math/tex; mode=display">
+a \lVert x \rVert \leq \lVert \Lambda{x} \rVert \leq b\rVert x \rVert</script><p>for every $x \in X$.</p>
+</blockquote>
+<p>This comes from corollary 3 directly since both $\Lambda$ and $\Lambda^{-1}$ are bounded as they are continuous.</p>
+<blockquote>
+<p><strong>(Corollary 5)</strong> If $\tau_1 \subset \tau_2$ are vector topologies on a vector space $X$ and if both $(X,\tau_1)$ and $(X,\tau_2)$ are $F$-spaces, then $\tau_1 = \tau_2$.</p>
+</blockquote>
+<p>This is obtained by applying corollary 3 to the identity mapping $\iota:(X,\tau_2) \to (X,\tau_1)$.</p>
+<blockquote>
+<p><strong>(Corollary 6)</strong>  If $\lVert \cdot \rVert_1$ and $\lVert \cdot \rVert_2$ are two norms in a vector space $X$ such that</p>
+<ul>
+<li>$\lVert\cdot\rVert_1 \leq K\lVert\cdot\rVert_2$.</li>
+<li>$(X,\lVert\cdot\rVert_1)$ and $(X,\lVert\cdot\rVert_2)$ are Banach</li>
+</ul>
+<p>Then $\lVert\cdot\rVert_1$ and $\lVert\cdot\rVert_2$ are equivalent.</p>
+</blockquote>
+<p>This is merely a more restrictive version of corollary 5.</p>
+<h2 id="The-series"><a href="#The-series" class="headerlink" title="The series"></a>The series</h2><p>Since there is no strong reason to write more posts on this topic, i.e. the three fundamental theorems of linear functional analysis, I think it’s time to make a list of the series. It’s been around half a year.</p>
+<ul>
+<li><a href="/2020/06/06/big-3-pt-1/">The Big Three Pt. 1 - Baire Category Theorem Explained</a></li>
+<li><a href="/2020/06/30/big-3-pt-2/">The Big Three Pt. 2 - The Banach-Steinhaus Theorem</a></li>
+<li><a href="/2020/08/12/big-3-pt-3/">The Big Three Pt. 3 - The Open Mapping Theorem (Banach Space)</a></li>
+<li>The Big Three Pt. 4 - The Open Mapping Theorem (F-Space)</li>
+<li><a href="/2020/10/01/big-3-pt-5/">The Big Three Pt. 5 - The Hahn-Banach Theorem (Dominated Extension)</a></li>
+<li><a href="/2020/11/13/big-3-pt-6/">The Big Three Pt. 6 - Closed Graph Theorem with Applications</a></li>
+</ul>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-09-03T15:11:51.000Z" title="03/09/2020, 23:11:51">2020-09-03</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-10-08T09:51:34.260Z" title="08/10/2021, 17:51:34">2021-10-08</time></span><span class="level-item"><a class="link-muted" href="../../categories/Analysis/">Analysis</a><span> / </span><a class="link-muted" href="../../categories/Analysis/Functional-Analysis/">Functional Analysis</a><span> / </span><a class="link-muted" href="../../categories/Analysis/Functional-Analysis/Topological-Vector-Space/">Topological Vector Space</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2020/09/03/quotient-f-space/">The completeness of the quotient space (topological vector space)</a></h1><div class="content"><h2 id="The-Goal"><a href="#The-Goal" class="headerlink" title="The Goal"></a>The Goal</h2><p>We are going to show the completeness of $X/N$ where $X$ is a TVS and $N$ a closed subspace. Alongside, a bunch of useful analysis tricks will be demonstrated (and that’s why you may find this blog post a little tedious.). But what’s more important, the theorem proved here will be used in the future.</p>
+<h2 id="The-main-process"><a href="#The-main-process" class="headerlink" title="The main process"></a>The main process</h2><p>To make it clear, we should give a formal definition of $F$-space.</p>
+<blockquote>
+<p>A topological space $X$ is an $F$-space if its topology $\tau$ is induced by a complete invariant metric $d$.</p>
+</blockquote>
+<p>A metric $d$ on a vector space $X$ will be called invariant if for all $x,y,z \in X$, we have</p>
+<script type="math/tex; mode=display">
+d(x+z,y+z)=d(x,y).</script><p>By complete we mean every Cauchy sequence of $(X,d)$ converges.</p>
+<h3 id="Defining-the-quotient-metric-rho"><a href="#Defining-the-quotient-metric-rho" class="headerlink" title="Defining the quotient metric $\rho$"></a>Defining the quotient metric $\rho$</h3><p>The metric can be inherited to the quotient space naturally (we will use this fact latter), that is</p>
+<blockquote>
+<p>If $X$ is a $F$-space, $N$ is a closed subspace of a topological vector space $X$, then $X/N$ is still a $F$-space.</p>
+</blockquote>
+<p>Suppose $d$ is a complete invariant metric compatible with $\tau_X$. The metric on $X/N$ is defined by</p>
+<script type="math/tex; mode=display">
+\boxed{\rho(\pi(x),\pi(y))=\inf_{z \in N}d(x-y,z)}</script><h3 id="rho-is-a-metric"><a href="#rho-is-a-metric" class="headerlink" title="$\rho$ is a metric"></a>$\rho$ is a metric</h3><p><em>Proof.</em> First, if $\pi(x)=\pi(y)$, that is, $x-y \in N$, we see</p>
+<script type="math/tex; mode=display">
+\rho(\pi(x),\pi(y))=\inf_{z \in N}d(x-y,z)=d(x-y,x-y)=0.</script><p>If $\pi(x) \neq \pi(y)$ however, we shall show that $\rho(\pi(x),\pi(y))&gt;0$. In this case, we have $x-y \notin N$. Since $N$ is closed, $N^c$ is open, and $x-y$ is an interior point of $X-N$. Therefore there exists an open ball  $B_r(x-y)$ centered at $x-y$ with radius $r&gt;0$ such that $B_r(x-y) \cap N = \varnothing$. Notice we have $d(x-y,z)&gt;r$ since otherwise $z \in B_r(x-y)$. By putting</p>
+<script type="math/tex; mode=display">
+r_0=\sup\{r:B_r(x-y) \cap N = \varnothing\},</script><p>we see $d(x-y,z) \geq r_0$ for all $z \in N$ and indeed $r_0=\inf_{z \in N}d(x-y,z)&gt;0$ (the verification can be done by contradiction). In general, $\inf_z d(x-y,z)=0$ if and only if $x-y \in \overline{N}$.</p>
+<p>Next, we shall show that $\rho(\pi(x),\pi(y))=\rho(\pi(y),\pi(x))$, and it suffices to assume that $\pi(x) \neq \pi(y)$. Sgince $d$ is translate invariant, we get</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+d(x-y,z)&=d(x-y-z,0) \\
+        &=d(0,y-x+z) \\
+        &=d(-z,y-x) \\
+        &=d(y-x,-z).
+\end{aligned}</script><p>Therefore the $\inf$ of the left hand is equal to the one of the right hand. The identity is proved.</p>
+<p>Finally, we need to verify the triangle inequality. Let $r,s,t \in X$. For any $\varepsilon&gt;0$, there exist some $z_\varepsilon$ and $z_\varepsilon’$ such that</p>
+<script type="math/tex; mode=display">
+d(r-s,z_\varepsilon)<\rho(\pi(r),\pi(s))+\frac{\varepsilon}{2},\quad d(s-t,z'_\varepsilon)<\rho(\pi(s),\pi(t))+\frac{\varepsilon}{2}.</script><p>Since $d$ is invariant, we see</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+d(r-t,z_\varepsilon+z'_\varepsilon)&=d((r-s)+(s-t)-(z_\varepsilon+z'_\varepsilon),0) \\
+                                   &=d([(r-s)-z_\varepsilon]+[(s-t)-z'_\varepsilon],0) \\
+                                   &=d(r-s-z_\varepsilon,t-s+z'_\varepsilon) \\
+                                   &\leq d(r-s-z_\varepsilon,0)+d(t-s+z'_\varepsilon,0) \\
+                                   &=d(r-s,z_\varepsilon)+d(s-t,z'_\varepsilon)
+\end{aligned}</script><p><em>(I owe <a target="_blank" rel="noopener" href="https://onp4.com/@leechlattice">@LeechLattice</a> for the inequality above.)</em></p>
+<p>Therefore</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+d(r-t,z_\varepsilon+z'_\varepsilon)&\leq d(r-s,z_\varepsilon)+d(s-t,z'_\varepsilon) \\
+    &<\rho(\pi(r),\pi(s))+\rho(\pi(s),\pi(t))+\varepsilon.
+\end{aligned}</script><p><em>(Warning: This does not imply that $\rho(\pi(r),\pi(s))+\rho(\pi(s),\pi(t))=\inf_z d(r-t,z)$ since we don’t know whether it is the lower bound or not.)</em></p>
+<p>If $\rho(\pi(r),\pi(s))+\rho(\pi(s),\pi(t))&lt;\rho(\pi(r),\pi(t))$ however, let</p>
+<script type="math/tex; mode=display">
+0<\varepsilon<\rho(\pi(r),\pi(t))-(\rho(\pi(r),\pi(s))+\rho(\pi(s),\pi(t)))</script><p>then there exists some $z’’_\varepsilon=z_\varepsilon+z’_\varepsilon$ such that</p>
+<script type="math/tex; mode=display">
+d(r-t,z''_\varepsilon)<\rho(\pi(r),\pi(t))</script><p>which is a contradiction since $\rho(\pi(r),\pi(t)) \leq d(r-t,z)$ for all $z \in N$.</p>
+<p><em>(We are using the $\varepsilon$ definition of $\inf$. See <a target="_blank" rel="noopener" href="http://mathonline.wikidot.com/epsilon-definition-of-the-supremum-and-infimum-of-a-bounded#:~:text=Epsilon%20Definition%20of%20The%20Supremum%20and%20Infimum%20of%20a%20Bounded%20Set,-Recall%20from%20The&amp;text=We%20say%20that%20the%20infimum,a%20lower%20bound%20of%20then%20.">here</a>.)</em></p>
+<h3 id="rho-is-translate-invariant"><a href="#rho-is-translate-invariant" class="headerlink" title="$\rho$ is translate invariant"></a>$\rho$ is translate invariant</h3><p>Since $\pi$ is surjective, we see if $u \in X/N$, there exists some $a \in X$ such that $\pi(a)=u$. Therefore</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\rho(\pi(x)+u,\pi(y)+u) &=\rho(\pi(x)+\pi(a),\pi(y)+\pi(a)) \\
+                        &=\rho(\pi(x+a),\pi(y+a)) \\
+                        &=\inf_{z \in N}d(x+a-y-a,z) \\
+                        &=\rho(\pi(x),\pi(y)).
+\end{aligned}</script><h3 id="rho-is-well-defined"><a href="#rho-is-well-defined" class="headerlink" title="$\rho$ is well-defined"></a>$\rho$ is well-defined</h3><p>If $\pi(x)=\pi(x’)$ and $\pi(y)=\pi(y’)$, we have to show that $\rho(\pi(x),\pi(y))=\rho(\pi(x’),\pi(y’))$. In fact,</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\rho(\pi(x),\pi(y)) &\leq \rho(\pi(x),\pi(x'))+\rho(\pi(x'),\pi(y'))+\rho(\pi(y'),\pi(y)) \\
+                    &=\rho(\pi(x'),\pi(y'))
+\end{aligned}</script><p>since $\rho(\pi(x),\pi(x’))=0$ as $\pi(x)=\pi(x’)$. Meanwhile</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\rho(\pi(x'),\pi(y')) &\leq \rho(\pi(x'),\pi(x)) + \rho(\pi(x),\pi(y)) + \rho(\pi(y),\pi(y')) \\
+                      &= \rho(\pi(x),\pi(y)).
+\end{aligned}</script><p>therefore $\rho(\pi(x),\pi(y))=\rho(\pi(x’),\pi(y’))$.</p>
+<h3 id="rho-is-compatible-with-tau-N"><a href="#rho-is-compatible-with-tau-N" class="headerlink" title="$\rho$ is compatible with $\tau_N$"></a>$\rho$ is compatible with $\tau_N$</h3><p>By proving this, we need to show that a set $E \subset X/N$ is open with respect to $\tau_N$ if and only if $E$ is a union of open balls. But we need to show a generalized version:</p>
+<blockquote>
+<p>If $\mathscr{B}$ is a local base for $\tau$, then the collection $\mathscr{B}_N$, which contains all sets $\pi(V)$ where $V \in \mathscr{B}$, forms a local base for $\tau_N$.</p>
+</blockquote>
+<p><em>Proof.</em> We already know that $\pi$ is continuous, linear and open. Therefore $\pi(V)$ is open for all $V \in \mathscr{B}$. For any open set around $E \subset X/N$ containing $\pi(0)$, we see $\pi^{-1}(E)$ is open, and we have</p>
+<script type="math/tex; mode=display">
+\pi^{-1}(E)=\bigcup_{V\in\mathscr{B}}V</script><p>and therefore</p>
+<script type="math/tex; mode=display">
+E=\bigcup_{V \in \mathscr{B}}\pi(V).</script><hr>
+<p>Now consider the local base $\mathscr{B}$ containing all open balls around $0 \in X$. Since</p>
+<script type="math/tex; mode=display">
+\pi(\{x:d(x,0)<r\})=\{u:\rho(u,\pi(0))<r\}</script><p>we see $\rho$ determines $\mathscr{B}_N$. But we have already proved that $\rho$ is invariant; hence $\mathscr{B}_N$ determines $\tau_N$. </p>
+<h3 id="If-d-is-complete-then-rho-is-complete"><a href="#If-d-is-complete-then-rho-is-complete" class="headerlink" title="If $d$ is complete, then $\rho$ is complete."></a>If $d$ is complete, then $\rho$ is complete.</h3><p>Once this is proved, we are able to claim that, if $X$ is a $F$-space, then $X/N$ is still a $F$-space, since its topology is induced by a complete invariant metric $\rho$.</p>
+<p><em>Proof.</em> Suppose $(x_n)$ is a Cauchy sequence in $X/N$, relative to $\rho$. There is a subsequence $(x_{n_k})$ with $\rho(x_{n_k},x_{n_{k+1}})&lt;2^{-k}$.  Since $\pi$ is surjective, we are able to pick some $z_k \in X$ such that $\pi(z_k) = x_{n_k}$ and such that</p>
+<script type="math/tex; mode=display">
+d(z_{k},z_{k+1})<2^{-k}.</script><p>(The existence can be verified by contradiction still.) By the inequality above, we see $(z_k)$ is Cauchy (can you see why?). Since $X$ is complete, $z_k \to z$ for some $z \in X$. By the <strong>continuity</strong> of $\pi$, we also see $x_{n_k} \to \pi(z)$ as $k \to \infty$. Therefore $(x_{n_k})$ converges. Hence $(x_n)$ converges since it has a convergent subsequence. $\rho$ is complete.</p>
+<h2 id="Remarks"><a href="#Remarks" class="headerlink" title="Remarks"></a>Remarks</h2><p>This fact will be used to prove some corollaries in the open mapping theorem. For instance, for any continuous linear map $\Lambda:X \to Y$, we see $\ker(\Lambda)$ is closed, therefore if $X$ is a $F$-space, then $X/\ker(\Lambda)$ is a $F$-space as well. We will show in the future that $X/\ker(\Lambda)$ and $\Lambda(X)$ are homeomorphic if $\Lambda(X)$ is of the second category.</p>
+<p>There are more properties that can be inherited by $X/N$ from $X$. For example, normability, metrizability, local convexity. In particular, if $X$ is Banach, then $X/N$ is Banach as well. To do this, it suffices to define the quotient norm by</p>
+<script type="math/tex; mode=display">
+\lVert \pi(x) \rVert = \inf\{\lVert x-z \rVert:z \in N\}.</script></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-08-26T09:56:08.000Z" title="26/08/2020, 17:56:08">2020-08-26</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-10-25T14:37:16.353Z" title="25/10/2022, 22:37:16">2022-10-25</time></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2020/08/26/r-s-integral/">Introducing Riemann-Stieltjes Integral</a></h1><div class="content"><h2 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h2><p>Riemann-Stieltjes integral is a generalisation of Riemann integral, the one every college student studies in their calculus class, and is a little bit more difficult to understand. Nevertheless it has advantages of its own, as we will show below. Before seeing the definition and properties of this integral, we first raise some questions that will can motivate our study.</p>
+<p>When talking about $\int_a^b fdg$, one may simply think about $\int_a^b fg’dx$. But is it even necessary that $g$ is differentiable? What would happen if $g$ is simply continuous, or even not continuous? Further, given that $g$ is differentiable, can we prove that</p>
+<script type="math/tex; mode=display">
+\int_a^b f(x)dg(x)=\int_a^bf(x)g'(x)dx</script><p>in a general way(without assuming $f$ is differentiable)? Although integration can be connected to differentiation, it should not be mandatory to lock ourselves into $C^1$ functions, $C^2$ functions or smooth functions all the time.</p>
+<p>Another motivation comes from probability theory. Oftentimes one need to consider discrete case ($\sum$) and continuous case ($\int$) separately. One may say that integral is the limit of summation, but it would be weird to write $\int$ as $\lim\sum$ every time. However, if we have a way to write a sum, for example the expected value of a discrete variable ($E(X)$), as an integral, things would be easier. Of course, we don’t want to write such a sum as another sum by adding up the integral on several disjoint segments. That would be weirder.</p>
+<p>If you have learned measure theory, you will know that Lebesgue integral does not perfectly cover Riemann integral. For example, $\int_{0}^{\infty}\frac{\sin{x}}{x}dx$ is not integrable in the sense of Lebesgue but Riemann. We cannot treat Lebesgue integral as a perfect generalization of Riemann integral. In this blog post however, we will be studying a faithful generalization of Riemann integral, adding the name of Stieltjes. </p>
+<p>We are trying our best to prevent ourselves from using $\sup$, $\inf$, and differentiation theory. But $\varepsilon-\delta$ language is heavily used here, so make sure that you are good at it.</p>
+<h2 id="Riemann-Stieltjes-Integral"><a href="#Riemann-Stieltjes-Integral" class="headerlink" title="Riemann-Stieltjes Integral"></a>Riemann-Stieltjes Integral</h2><p>By a partition $P$ on $[a,b]$ we mean a sequence of numbers $(x_n)$ such that</p>
+<script type="math/tex; mode=display">
+a=x_0 \leq x_1 \leq \cdots \leq x_n=b</script><p>and we associate its size by</p>
+<script type="math/tex; mode=display">
+\sigma(P)=\max_{k}(x_{k+1}-x_k).</script><p>Let $f$, $g$ be bounded real function on $[a,b]$ (again, no continuity or differentiability required). Given a partition $P$ and numbers $c_k$ with $x_k \leq c_k \leq x_{k+1}$, we define the Riemann-Stieltjes sum (RS-sum) by</p>
+<script type="math/tex; mode=display">
+S(P,f,g)=\sum_{k=0}^{n-1}f(c_k)[g(x_{k+1})-g(x_k)].</script><p>We say that the <strong>limit</strong></p>
+<script type="math/tex; mode=display">
+\lim_{\sigma(P) \to 0}S(P,f,g)</script><p>exists if there exists some $L \in \mathbb{R}$ such that give $\varepsilon&gt;0$, there exists $\delta&gt;0$ such that whenever $\sigma(P)&lt;\delta$, we have</p>
+<script type="math/tex; mode=display">
+|S(P,f,g)-L|<\varepsilon.</script><p>In this case, we say $f$ is $RS(g)$-integrable, and the limit is denoted by</p>
+<script type="math/tex; mode=display">
+\int_a^bfdg.</script><p>This is the so-called <strong>Riemann-Stieltjes</strong> integral. When $g(x)=x$, we get <strong>Riemann integral</strong> naturally. </p>
+<h3 id="Remarks-Further-generalization-still-available"><a href="#Remarks-Further-generalization-still-available" class="headerlink" title="Remarks: Further generalization still available"></a>Remarks: Further generalization still available</h3><p>This integral method can be generalized to Banach space. Let $f$, $g$ be bounded maps of $[a,b]$ into Banach spaces $E$, $F$ respectively. Assume we have a product $E \times F \to G$ denoted by $(u,v) \mapsto uv$ with $\lVert uv \rVert \leq \lVert u \rVert \lVert v \rVert$. Then by replacing the absolute value by norm, still we get the Riemann-Stieltjes integral, although in this case we have</p>
+<script type="math/tex; mode=display">
+\int_a^b fdg \in G</script><p>and $G$ is not necessary to be $\mathbb{R}$. This is different from Bochner integral, since no measure theory evolved here.</p>
+<h2 id="Linearity-with-respect-to-f-and-g"><a href="#Linearity-with-respect-to-f-and-g" class="headerlink" title="Linearity with respect to $f$ and $g$"></a>Linearity with respect to $f$ and $g$</h2><p>First, we shall show that RS(g)-integrable functions form a vector space. To do this, it suffices to show that</p>
+<script type="math/tex; mode=display">
+f \mapsto S(P,f,g)</script><p>and</p>
+<script type="math/tex; mode=display">
+g \mapsto S(P,f,g)</script><p>are linear. This follows directly from the definition of RS-sum. Let’s see the result.</p>
+<p>Suppose we have</p>
+<script type="math/tex; mode=display">
+\int_a^b fdg=I, \quad \int_a^b hdg=J, \int_a^b fdu=K</script><p>Then we have the following identities for $\alpha \in I$.</p>
+<ol>
+<li>$\int_a^b \alpha fdg=\alpha I$.</li>
+<li>$\int_a^b (f+h)dg=I+J$.</li>
+<li>$\int_a^bfd(g+u)=I+K$.</li>
+<li>$\int_a^b fd(\alpha g)=\alpha I$.</li>
+</ol>
+<p><em>Proof.</em> We shall show 2 for example. Other three identities follows in the same way.</p>
+<p>Notice that the existence of the limit of RS-sum depends only on the size of $P$. For $\varepsilon&gt;0$, there exists some $\delta_1,\delta_2&gt;0$ such that</p>
+<script type="math/tex; mode=display">
+|S(P,f,g)-I|<\frac{\varepsilon}{2},\quad |S(P,h,g)-J| < \frac{\varepsilon}{2}</script><p>when $\sigma(P)&lt;\delta_1$ and $\sigma(P)&lt;\delta_2$ respectively. By picking $\delta=\min(\delta_1,\delta_2)$, we see for $\sigma(P)&lt;\delta$, we have</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+|S(P,f+h,g)-(I+J)|&=|(S(P,f,g)-I)+(S(P,h,g)-J)| \\
+                  &\leq |S(P,f,g)-I| + |S(P,h,g)-J| \\
+                  &< \frac{\varepsilon}{2}+\frac{\varepsilon}{2}=\varepsilon.
+\end{aligned}</script><h2 id="Integration-by-parts-but-no-differentiation"><a href="#Integration-by-parts-but-no-differentiation" class="headerlink" title="Integration by parts but no differentiation"></a>Integration by parts but no differentiation</h2><blockquote>
+<p>$f \in RS(g)$ if and only if $g \in RS(f)$. In this case, we also have integration by parts:</p>
+<script type="math/tex; mode=display">
+\int_a^b fdg + \int_a^b gdf=f(b)g(b)-f(a)g(a)</script></blockquote>
+<p>You may not believe it, but differentiation does not play any role here, as promised at the beginning.</p>
+<p><em>Proof.</em> Using the summation by parts (by Abel), we have</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+S(P,f,g)&=\sum_{k=0}^{n-1}f(c_k)[g(x_{k+1})-g(x_k)] \\
+        &=-\sum_{k=1}^{n-1}g(x_k)[f(c_k)-f(c_{k-1})]+f(c_{n-1})g(b)-f(c_0)g(a). \\
+\end{aligned}</script><p>By writing </p>
+<script type="math/tex; mode=display">
+S(P,f,g)=S(P,f,g)+f(a)g(a)-f(a)g(a)+f(b)g(b)-f(b)g(b)</script><p>we have</p>
+<script type="math/tex; mode=display">
+S(P,f,g)=f(b)g(b)-f(a)g(a)-S(Q,g,f)</script><p>where</p>
+<script type="math/tex; mode=display">
+S(Q,g,f)=\sum_{k=1}^{n-1}g(x_k)[f(c_k)-f(c_{k-1})]+[f(b)-f(c_{n-1})]g(b)+[f(c_0)-f(a)]g(a).</script><p>Consider the partition $Q$ by</p>
+<script type="math/tex; mode=display">
+y_k=\begin{cases}
+a &\quad k=0 \\
+c_{k-1}&\quad k<n \\
+b &\quad k=n
+\end{cases}</script><p>we have $x_0,x_1,\cdots,x_{n-1},x_k$ to be intermediate points, and</p>
+<script type="math/tex; mode=display">
+S(Q,g,f)=\sum_{k=0}^{n-1}g(x_k)[f(y_{k+1})-f(y_k)].</script><p>Since $0 &lt; \sigma(Q) \leq 2\sigma(P) \leq 4\sigma(Q)$, when $\sigma(P) \to 0$, we also have $\sigma(Q) \to 0$ and vice versa. Suppose now $\int_a^b gdf$ exists, we have</p>
+<script type="math/tex; mode=display">
+\lim_{\sigma(P) \to 0}S(P,f,g)=f(b)g(b)-f(a)g(a)-\int_a^bgdf=\int_a^bfdg.</script><p>And integration by parts follows.</p>
+<p>Suppose $\int_a^bfdg$ exists, then</p>
+<script type="math/tex; mode=display">
+\lim_{\sigma(Q) \to 0}S(Q,g,f)=f(b)g(b)-f(a)g(a)-\int_a^b fdg=\int_a^b gdf.</script><p>This proves the proposition. $\square$</p>
+<h2 id="The-flexibility-of-Riemann-Stieltjes-integral"><a href="#The-flexibility-of-Riemann-Stieltjes-integral" class="headerlink" title="The flexibility of Riemann-Stieltjes integral"></a>The flexibility of Riemann-Stieltjes integral</h2><p>As said before, we want to represent both continuous and discrete case using integral. For measure theory, we have Lebesgue measure and counting measure. But in some cases, this can be done using Riemann-Stieltjes integral as well. Ordinary Riemann integral and finite or infinite series are all special cases of Riemann-Stieltjes integral.</p>
+<h3 id="From-integral-to-series-discrete-case"><a href="#From-integral-to-series-discrete-case" class="headerlink" title="From integral to series (discrete case)"></a>From integral to series (discrete case)</h3><p>To do this, we need the unit step function by</p>
+<script type="math/tex; mode=display">
+I(x)=\begin{cases} 0 \quad x \leq 0, \\ 1 \quad x > 0 .\end{cases}</script><blockquote>
+<p>If $a&lt;s&lt;b$, $f$ is bounded on $[a,b]$ and continuous at $s$, by putting $g(x)=I(x-s)$, we have</p>
+<script type="math/tex; mode=display">
+\int_a^b fdg=f(s)</script></blockquote>
+<p><em>Proof.</em> A simple verification shows that $\int_a^b fdg=\int_s^b fdg$ (by unwinding the RS-sum, one see immediately that $g(x_k)=0$ for all $x_k\leq s$, therefore the partition before $s$ has no tribute to the value of the integral). Now consider the partition $P$ by</p>
+<script type="math/tex; mode=display">
+s=x_0<x_1<\cdots<x_n=b.</script><p>We see</p>
+<script type="math/tex; mode=display">
+S(P,f,g)=\sum_{k=0}^{n-1}f(c_k)(g(x_{k+1})-g(x_k))=f(c_0)(g(x_1)-g(x_0))=f(c_0).</script><p>As $x_1 \to s$, we have $c_0 \to s$, since $f$ is continuous at $s$, we have $f(c_0) \to f(s)$ as desired. $\square$</p>
+<p>By the linearity of RS integral, it is easy to generalize this to the case of finite linear combination. Namely, for $g(x)=\sum_{k=1}^{n}c_nI(x-s_n)$, we have</p>
+<script type="math/tex; mode=display">
+\int_a^b fdg=\sum_{k=1}^{n}c_nf(s_n).</script><p>But now we are discussing the infinite case.</p>
+<blockquote>
+<p>Suppose $c_n \geq 0$ for all $n \ge 0$ and $\sum_{n \ge 0} c_n$ converges, $(s_n)$ is a sequence of distinct points in $(a,b)$, and</p>
+<script type="math/tex; mode=display">
+g(x)=\sum_{n \ge 0}c_nI(x-s_n).</script><p>Let $f$ be continuous on $[a,b]$. Then</p>
+<script type="math/tex; mode=display">
+\int_a^b fdg=\sum_{n}c_nf(s_n)</script></blockquote>
+<p><em>Proof.</em> First it’s easy to see that $g(x)$ converges for every $x$, and is monotonic with $g(a)=0$, $g(b)=\sum_n c_n$. For given $\varepsilon&gt;0$, there exists some $N$ such that</p>
+<script type="math/tex; mode=display">
+\sum_{N+1}^{\infty}c_n<\varepsilon.</script><p>Putting</p>
+<script type="math/tex; mode=display">
+g_1(x)=\sum_{n=1}^{N}c_nI(x-s_n),\quad g_2(x)=\sum_{N+1}^{\infty}c_nI(x-s_n)=g(x)-g_1(x)</script><p>we have</p>
+<script type="math/tex; mode=display">
+\int_a^b fdg_1=\sum_{n=1}^{N}c_nf(s_n).</script><p>By putting $M=\sup|f(x)|$, we see</p>
+<script type="math/tex; mode=display">
+\left\vert\int_a^b fdg_2 \right\vert=\left\vert\int_a^b fdg-\int_a^bfdg_1 \right\vert=\left\vert\int_a^b fdg-\sum_{n=1}^{N}c_nf(s_n)\right\vert \leq M\varepsilon</script><p>The inequality holds since $|g_2(b)-g_2(a)|&lt;\varepsilon$. Since $M$ is finite, when $N \to \infty$, we have the desired result. $\square$</p>
+<h3 id="Transformed-into-ordinary-Riemann-integral-continuous-case"><a href="#Transformed-into-ordinary-Riemann-integral-continuous-case" class="headerlink" title="Transformed into ordinary Riemann integral (continuous case)"></a>Transformed into ordinary Riemann integral (continuous case)</h3><p>Finally we will discuss differentiation. The following theorem shows the connection between RS integral and Riemann integral.</p>
+<blockquote>
+<p>Let $f$ be continuous and suppose that $g$ is real differentiable on $[a,b]$ while $g’$ is Riemann integrable as well, then $f \in RS(g)$ and</p>
+<script type="math/tex; mode=display">
+\int_a^b fdg=\int_a^b fg'dx</script></blockquote>
+<p><em>Proof.</em> By mean value theorem, for each $k$, we have</p>
+<script type="math/tex; mode=display">
+g(x_{k+1})-g(x_k)=g'(\zeta_k)(x_{k+1}-x_k).</script><p>The RS-sum can be written as</p>
+<script type="math/tex; mode=display">
+S(P,f,g)=\sum_{k=0}^{n-1}f(c_k)[g(x_{k+1})-g(x_k)]=\sum_{k=0}^{n-1}f(c_k)g'(\zeta_k)(x_{k+1}-x_k).</script><p>Since $g’$ is Riemann integrable, we have</p>
+<script type="math/tex; mode=display">
+\sum_{k=0}^{n-1}|g'(c_k)-g'(\zeta_k)|(x_{k+1}-x_k) <\varepsilon</script><p>given that $|S(P,g’,x)-\int_a^b g’dx|&lt;\varepsilon$. Therefore</p>
+<script type="math/tex; mode=display">
+\left\vert\sum_{k=0}^{n-1}f(c_k)g'(\zeta_k)(x_{k+1}-x_k)-\sum_{k=0}^{n-1}f(c_k)g'(c_k)(x_{k+1}-x_k)\right\vert\leq M\varepsilon</script><p>where $M=\sup|f(x)|&lt;\infty$ ($f$ is assumed to be bounded.) . Also notice that $fg’$ is integrable since $f$ is continuous. Therefore</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\left\vert S(P,f,g)-\int_a^bfg'dx \right\vert&=\left\vert S(P,f,g)-S(P,fg',x)+S(P,fg',x)-\int_a^bfg'dx \right\vert \\
+&\leq \left\vert S(P,f,g)-S(P,fg',x) \right\vert+\left\vert S(P,fg',x)-\int_a^bfg'dx \right\vert \\
+&< (M+1)\varepsilon.
+\end{aligned}</script><p>Therefore,</p>
+<script type="math/tex; mode=display">
+\int_a^bfdg=\int_a^b fg'dx,</script><p>which proves the theorem. $\square$</p>
+<p>To sum up, given $\varepsilon&gt;0$, there exists some $\delta&gt;0$ such that if $\sigma(P)&lt;\delta$, we have</p>
+<script type="math/tex; mode=display">
+\left|S(P,g',x)-\int_a^b g'dx\right|<\varepsilon/(M+1)</script><p>and</p>
+<script type="math/tex; mode=display">
+\left\vert S(P,fg',x)-\int_a^bfg'dx \right\vert<\varepsilon/(M+1).</script><p>After some estimation, we get</p>
+<script type="math/tex; mode=display">
+\left|S(P,f,g)-\int_{a}^{b}fg'dx \right|<(M+1)\frac{\varepsilon}{M+1}=\varepsilon.</script></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-08-18T09:12:52.000Z" title="18/08/2020, 17:12:52">2020-08-18</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-12-09T10:10:01.092Z" title="09/12/2021, 18:10:01">2021-12-09</time></span><span class="level-item"><a class="link-muted" href="../../categories/Analysis/">Analysis</a><span> / </span><a class="link-muted" href="../../categories/Analysis/Elementary/">Elementary</a><span> / </span><a class="link-muted" href="../../categories/Analysis/Elementary/Continuity/">Continuity</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2020/08/18/Basic-facts-of-semicontinuous-functions/">Basic Facts of Semicontinuous Functions</a></h1><div class="content"><h2 id="Continuity"><a href="#Continuity" class="headerlink" title="Continuity"></a>Continuity</h2><p>We are restricting ourselves into $\mathbb{R}$ endowed with normal topology. Recall that a function is continuous if and only if for any open set $U \subset \mathbb{R}$, we have</p>
+<script type="math/tex; mode=display">
+\{x:f(x) \in U\}=f^{-1}(U)</script><p>to be open. One can rewrite this statement using $\varepsilon-\delta$ language. To say a function $f: \mathbb{R} \to \mathbb{R}$ continuous at $f(x)$, we mean for any $\varepsilon&gt;0$, there exists some $\delta&gt;0$ such that for $t \in (x-\delta,x+\delta)$, we have</p>
+<script type="math/tex; mode=display">
+|f(x)-f(t)|<\varepsilon.</script><p>$f$ is continuous on $\mathbb{R}$ if and only if $f$ is continuous at every point of $\mathbb{R}$.</p>
+<p>If $(x-\delta,x+\delta)$ is replaced with $(x-\delta,x)$ or $(x,x+\delta)$, we get left continuous and right continuous, one of which plays an important role in probability theory.</p>
+<p>But the problem is, sometimes continuity is too strong for being a restriction, but the ‘direction’ associated with left/right continuous functions are unnecessary as well. For example the function</p>
+<script type="math/tex; mode=display">
+f(x)=\chi_{(0,1)}(x)</script><p>is neither left nor right continuous (globally), but it is a thing. Left/right continuity is not a perfectly weakened version of continuity. We need something different.</p>
+<h2 id="Definition-of-semicontinuous"><a href="#Definition-of-semicontinuous" class="headerlink" title="Definition of semicontinuous"></a>Definition of semicontinuous</h2><p>Let $f$ be a real (or extended-real) function on $\mathbb{R}$. The semicontinuity of $f$ is defined as follows.</p>
+<blockquote>
+<p>If</p>
+<script type="math/tex; mode=display">
+\{x:f(x)>\alpha\}</script><p>is open for all real $\alpha$, we say $f$ is <em>lower</em> semicontinuous.</p>
+<p>If</p>
+<script type="math/tex; mode=display">
+\{x:f(x)<\alpha\}</script><p>is open for all real $\alpha$, we say $f$ is <em>upper</em> semicontinuous.</p>
+</blockquote>
+<p>Is it possible to rewrite these definitions à la $\varepsilon-\delta$? The answer is yes if we restrict ourselves in metric space.</p>
+<blockquote>
+<p>$f: \mathbb{R} \to \mathbb{R}$ is upper semicontinuous at $x$ if, for every $\varepsilon&gt;0$, there exists some $\delta&gt;0$ such that for $t \in (x-\delta,x+\delta)$, we have</p>
+<script type="math/tex; mode=display">
+f(t)<f(x)+\varepsilon</script><p>$f: \mathbb{R} \to \mathbb{R}$ is lower semicontinuous at $x$ if, for every $\varepsilon&gt;0$, there exists some $\delta&gt;0$ such that for $t \in (x-\delta,x+\delta)$, we have</p>
+<script type="math/tex; mode=display">
+f(t)>f(x)-\varepsilon</script></blockquote>
+<p>Of course, $f$ is upper/lower semicontinuous on $\mathbb{R}$ if and only if it is so on every point of $\mathbb{R}$. One shall find no difference between the definitions in different styles.</p>
+<h2 id="Relation-with-continuous-functions"><a href="#Relation-with-continuous-functions" class="headerlink" title="Relation with continuous functions"></a>Relation with continuous functions</h2><p>Here is another way to see it. For the continuity of $f$, we are looking for <em>arbitrary</em> open subsets $V$ of  $\mathbb{R}$, and $f^{-1}(V)$ is expected to be open. For the lower/upper semicontinuity of $f$, however, the open sets are restricted to be like $(\alpha,+\infty]$ and $[-\infty,\alpha)$. Since all open sets of $\mathbb{R}$ can be generated by the union or intersection of sets like $[-\infty,\alpha)$ and $(\beta,+\infty]$, we immediately get</p>
+<blockquote>
+<p>$f$ is continuous if and only if $f$ is both upper semicontinuous and lower semicontinuous.</p>
+</blockquote>
+<p><em>Proof.</em> If $f$ is continuous, then for any $\alpha \in \mathbb{R}$, we see $[-\infty,\alpha)$ is open, and therefore</p>
+<script type="math/tex; mode=display">
+f^{-1}([-\infty,\alpha))</script><p>has to be open. The upper semicontinuity is proved. The lower semicontinuity of $f$ is proved in the same manner.</p>
+<p>If $f$ is both upper and lower semicontinuous, we see</p>
+<script type="math/tex; mode=display">
+f^{-1}((\alpha,\beta))=f^{-1}([-\infty,\beta)) \cap f^{-1}((\alpha,+\infty])</script><p>is open. Since every open subset of $\mathbb{R}$ can be written as a countable union of segments of the above types, we see for any open subset $V$ of $\mathbb{R}$, $f^{-1}(V)$ is open. (If you have trouble with this part, it is recommended to review the definition of topology.) $\square$</p>
+<h2 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h2><p>There are two important examples.</p>
+<blockquote>
+<ol>
+<li>If $E \subset \mathbb{R}$ is open, then $\chi_E$ is lower semicontinuous.</li>
+<li>If $F \subset \mathbb{R}$ is closed, then $\chi_F$ is upper semicontinuous.</li>
+</ol>
+</blockquote>
+<p>We will prove the first one. The second one follows in the same manner of course. For $\alpha<0$, the set $A=\chi_E^{-1}((\alpha,+\infty])$ is equal to $\mathbb{R}$, which is open. For $\alpha \geq 1$, since $\chi_E \leq 1$, we see $A=\varnothing$. For $0 \leq \alpha < 1$ however, the set of $x$ where $\chi_E>\alpha$ has to be $E$, which is still open.</p>
+<p>When checking the semicontinuity of a function, we check from bottom to top or top to bottom. The function $\chi_E$ is defined by</p>
+<script type="math/tex; mode=display">
+\chi_E(x)=\begin{cases}
+1 \quad x \in E \\
+0 \quad x \notin E
+\end{cases}.</script><h2 id="Addition-of-semicontinuous-functions"><a href="#Addition-of-semicontinuous-functions" class="headerlink" title="Addition of semicontinuous functions"></a>Addition of semicontinuous functions</h2><blockquote>
+<p>If $f_1$ and $f_2$ are upper/lower semicontinuous, then so is $f_1+f_2$.</p>
+</blockquote>
+<p><em>Proof.</em> We are going to prove this using different tools. Suppose now both $f_1$ and $f_2$ are upper semicontinuous. For $\varepsilon&gt;0$, there exists some $\delta_1&gt;0$ and $\delta_2&gt;0$ such that</p>
+<script type="math/tex; mode=display">
+f_1(t) < f_1(x)+\varepsilon/2 \quad t \in (x-\delta_1,x+\delta_1), \\
+f_2(t) < f_2(x) + \varepsilon/2 \quad t \in (x-\delta_2,x+\delta_2).</script><p><em>Proof.</em> If we pick $\delta=\min(\delta_1,\delta_2)$, then we see for all $t \in (x-\delta,x+\delta)$, we have</p>
+<script type="math/tex; mode=display">
+f_1(t)+f_2(t)<f_1(x)+f_2(x)+\varepsilon.</script><p>The upper semicontinuity of $f_1+f_2$ is proved by considering all $x \in \mathbb{R}$.</p>
+<p>Now suppose both $f_1$ and $f_2$ are lower semicontinuous. We have an identity by</p>
+<script type="math/tex; mode=display">
+\{x:f_1+f_2>\alpha\}=\bigcup_{\beta\in\mathbb{R}}\{x:f_1>\beta\}\cap\{x:f_2>\alpha-\beta\}.</script><p>The set on the right side is always open. Hence $f_1+f_2$ is lower semicontinuous. $\square$</p>
+<hr>
+<p>However, when there are infinite many semicontinuous functions, things are different.</p>
+<blockquote>
+<p>Let $\{f_n\}$ be a sequence of nonnegative functions on $\mathbb{R}$, then</p>
+<ul>
+<li>If each $f_n$ is lower semicontinuous, then so is $\sum_{1}^{\infty}f_n$.</li>
+<li>If each $f_n$ is upper semicontinuous, then $\sum_{1}^{\infty}f_n$ is not necessarily upper semicontinuous.</li>
+</ul>
+</blockquote>
+<p><em>Proof.</em> To prove this we are still using the properties of open sets. Put $g_n=\sum_{1}^{n}f_k$. Now suppose all $f_k$ are lower. Since $g_n$ is a finite sum of lower functions, we see each $g_n$ is lower. Let $f=\sum_{n}f_n$. As $f_k$ are non-negative, we see $f(x)&gt;\alpha$ if and only if there exists some $n_0$ such that $g_{n_0}(x)&gt;\alpha$. Therefore</p>
+<script type="math/tex; mode=display">
+\{x:f(x)>\alpha\}=\bigcup_{n \geq n_0}\{x:g_n>\alpha\}.</script><p>The set on the right hand is open already. </p>
+<p>For the upper semicontinuity, it suffices to give a counterexample, but before that, we shall give the motivation.</p>
+<p>As said, the characteristic function of a closed set is upper semicontinuous. Suppose $\{E_n\}$ is a sequence of almost disjoint closed set, then $E=\cup_{n\geq 1}E_n$ is not necessarily closed, therefore $\chi_E=\sum\chi_{E_n}$ (a.e.) is not necessarily upper semicontinuous. Now we give a concrete example. Put $f_0=\chi_{[1,+\infty]}$ and $f_n=\chi_{E_n}$ for $n \geq 1$ where</p>
+<script type="math/tex; mode=display">
+E_n=\{x:\frac{1}{1+n} \leq x \leq \frac{1}{n}\}.</script><p>For $x &gt; 0$, we have $f=\sum_nf_n \geq 1$. Meanwhile, $f^{-1}([-\infty,1))=[-\infty,0]$, which is not open. $\square$</p>
+<p>Notice that $f$ can be defined on any topological space here.</p>
+<h2 id="Maximum-and-minimum"><a href="#Maximum-and-minimum" class="headerlink" title="Maximum and minimum"></a>Maximum and minimum</h2><p>There is one fact we already know about continuous functions.</p>
+<blockquote>
+<p>If $X$ is compact, $f: X \to \mathbb{R}$ is continuous, then there exists some $a,b \in X$ such that $f(a)=\min f(X)$, $f(b)=\max f(X)$.</p>
+</blockquote>
+<p>In fact, $f(X)$ is compact still. But for semicontinuous functions, things will be different but reasonable. For upper semicontinuous functions, we have the following fact.</p>
+<blockquote>
+<p>If $X$ is compact and $f: X \to (-\infty,+\infty)$ is upper semicontinuous, then there exists some $a \in X$ such that $f(a)=\max f(X)$. </p>
+</blockquote>
+<p>Notice that $X$ is not assumed to hold any other topological property. It can be Hausdorff or Lindelöf, but we are not asking for restrictions like this. The only property we will be using is that every open cover of $X$ has a finite subcover. Of course, one can replace $X$ with any compact subset of $\mathbb{R}$, for example, $[a,b]$.</p>
+<p><em>Proof.</em> Put $\alpha=\sup f(X)$, and define</p>
+<script type="math/tex; mode=display">
+E_n=\{x:f(x)<\alpha-\frac{1}{n}\}.</script><p>If $f$ attains no maximum, then for any $x \in X$, there exists some $n \geq 1$ such that $f(x)&lt;\alpha-\frac{1}{n}$. That is, $x \in E_n$ for some $n$. Therefore $\bigcup_{n \geq 1}E_n$ covers $X$. But this cover has no finite subcover of $X$. A contradiction since $X$ is compact. $\square$</p>
+<h2 id="Approximating-integrable-functions"><a href="#Approximating-integrable-functions" class="headerlink" title="Approximating integrable functions"></a>Approximating integrable functions</h2><p>This is a comprehensive application of several properties of semicontinuity. </p>
+<blockquote>
+<p>(<strong>Vitali–Carathéodory theorem</strong>) Suppose $f \in L^1(\mathbb{R})$, where $f$ is a real-valued function. For $\varepsilon&gt;0$, there exist some functions $u$ and $v$ on $\mathbb{R}$ such that $u \leq f \leq v$, $u$ is an upper semicontinuous function bounded above, and $v$ is lower semicontinuous bounded below, and</p>
+<script type="math/tex; mode=display">
+\boxed{\int_{\mathbb{R}}(v-u)dm<\varepsilon}</script></blockquote>
+<p>It suffices to prove this theorem for $f \geq 0$ (of course $f$ is not identically equal to $0$ since this case is trivial). Since $f$ is the pointwise limit of an increasing sequence of simple functions $s_n$, can to write $f$ as</p>
+<script type="math/tex; mode=display">
+f=s_1+\sum_{n=2}^{\infty}(s_n-s_{n-1}).</script><p>By putting $t_1=s_1$, $t_n=s_n-s_{n-1}$ for $n \geq 2$, we get $f=\sum_n t_n$. We can write $f$ as</p>
+<script type="math/tex; mode=display">
+f=\sum_{k=1}^{\infty}c_k\chi_{E_k}</script><p>where $E_k$ is measurable for all $k$. Also, we have</p>
+<script type="math/tex; mode=display">
+\int_X f d\mu = \sum_{k=1}^{\infty}c_km(E_k),</script><p>and the series on the right hand converges (since $f \in L^1$. By the properties of Lebesgue measure,  there exists a compact set $F_k$ and an open set $V_k$ such that $F_k \subset E_k \subset V_k$ and $c_km(V_k-F_k)&lt;\frac{\varepsilon}{2^{k+1}}$. Put</p>
+<script type="math/tex; mode=display">
+v=\sum_{k=1}^{\infty}c_k\chi_{V_k},\quad u=\sum_{k=1}^{N}c_k\chi_{F_k}</script><p>(now you can see $v$ is lower semicontinuous and $u$ is upper semicontinuous). The $N$ is chosen in such a way that</p>
+<script type="math/tex; mode=display">
+\sum_{k=N+1}^{\infty}c_km(E_K)<\frac{\varepsilon}{2}.</script><p>Since $V_k \supset E_k$, we have $\chi_{V_k} \geq \chi_{E_k}$. Therefore $v \geq f$. Similarly, $f \geq u$. Now we need to check the desired integral inequality. A simple recombination shows that</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+v-u&=\sum_{k=1}^{\infty}c_k\chi_{V_k}-\sum_{k=1}^{N}c_k\chi_{F_k} \\
+   &\leq \sum_{k=1}^{\infty}c_k\chi_{V_k}-\sum_{k=1}^{N}c_k\chi_{F_k}+\sum_{k=N+1}^{\infty}c_k(\chi_{E_k}-\chi_{F_k}) \\
+   &=\sum_{k=1}^{\infty}c_k(\chi_{V_k}-\chi_{F_k})+\sum_{k=N+1}^{\infty}c_k\chi_{E_k}.
+\end{aligned}.</script><p>If we integrate the function above, we get</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\int_{\mathbb{R}}(v-u)dm &\leq \sum_{k=1}^{\infty}c_k\mu(V_k-E_k)+\sum_{k=N+1}^{\infty}c_k\chi_{E_k} \\
+&< \sum_{k=1}^{\infty}\frac{\varepsilon}{2^{k+1}}+\frac{\varepsilon}{2} \\
+&=\varepsilon.
+\end{aligned}</script><p>This proved the case when $f \geq 0$. In the general case, we write $f=f^{+}-f^{-}$. Attach the semicontinuous functions to $f^{+}$ and $f^{-}$ respectively by $u_1 \leq f^{+} \leq v_1$ and $u_2 \leq f^{-} \leq v_2$. Put $u=u_1-v_2$, $v=v_1-u_2$. As we can see, $u$ is upper semicontinuous and $v$ is lower semicontinuous. Also, $u \leq f \leq v$ with the desired property since</p>
+<script type="math/tex; mode=display">
+\int_\mathbb{R}(v-u)dm=\int_\mathbb{R}(v_1-u_1)dm+\int_\mathbb{R}(v_2-u_2)dm<2\varepsilon,</script><p>and the theorem follows. $\square$</p>
+<h3 id="Generalisation"><a href="#Generalisation" class="headerlink" title="Generalisation"></a>Generalisation</h3><p>Indeed, the only property about measure used is the existence of $F_k$ and $V_k$. The domain $\mathbb{R}$ here can be replaced with $\mathbb{R}^k$ for $1 \leq k &lt; \infty$, and $m$ be replaced with the respective $m_k$. Much more generally, the domain can be replaced by any locally compact Hausdorff space $X$ and the measure by any measure associated with <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Riesz–Markov–Kakutani_representation_theorem">the Riesz-Markov-Kakutani representation theorem</a> on $C_c(X)$.</p>
+<h3 id="Is-the-reverse-approximation-always-possible"><a href="#Is-the-reverse-approximation-always-possible" class="headerlink" title="Is the reverse approximation always possible?"></a>Is the reverse approximation always possible?</h3><p>The answer is no. Consider the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Smith%E2%80%93Volterra%E2%80%93Cantor_set">fat Cantor set</a> $K$, which has Lebesgue measure $\frac{1}{2}$. We shall show that $\chi_K$ can not be approximated below by a lower semicontinuous function.</p>
+<blockquote>
+<p>If $v$ is a lower semicontinuous function such that $v \leq \chi_K$, then $v \leq 0$.</p>
+</blockquote>
+<p><em>Proof.</em> Consider the set $V=v^{-1}((0,1])=v^{-1}((0,+\infty))$. Since $v \leq \chi_K$, we have $V \subset K$. We will show that $V$ has to be empty.</p>
+<p>Pick $t \in V$. Since $V$ is open, there exists some neighbourhood $U$ containing $t$ such that $U \subset V$. But $U=\varnothing$ since $U \subset K$ and $K$ has an empty interior. Therefore $V = \varnothing$. That is, $v \leq 0$ for all $x$. $\square$</p>
+<p>Suppose $u$ is an upper semicontinuous function such that $u \geq f$. For $\varepsilon=\frac{1}{2}$, we have</p>
+<script type="math/tex; mode=display">
+\int_{\mathbb{R}}(u-v)dm \geq \int_\mathbb{R}(f-v)dm \geq \frac{1}{2}.</script><p>This example shows that there exist some integrable functions that are not able to reversely approximated in the sense of the Vitali–Carathéodory theorem.</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-08-16T11:49:37.000Z" title="16/08/2020, 19:49:37">2020-08-16</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-12-09T10:20:15.951Z" title="09/12/2021, 18:20:15">2021-12-09</time></span><span class="level-item"><a class="link-muted" href="../../categories/Analysis/">Analysis</a><span> / </span><a class="link-muted" href="../../categories/Analysis/Functional-Analysis/">Functional Analysis</a><span> / </span><a class="link-muted" href="../../categories/Analysis/Functional-Analysis/Topological-Vector-Space/">Topological Vector Space</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2020/08/16/An-Introduction-to-Quotient-Space/">An Introduction to Quotient Space</a></h1><div class="content"><p><em>I’m assuming the reader has some abstract algebra and functional analysis background. You may have learned this already in your linear algebra class, but we are making our way to functional analysis problems.</em></p>
+<h2 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h2><h3 id="The-trouble-with-L-p-spaces"><a href="#The-trouble-with-L-p-spaces" class="headerlink" title="The trouble with $L^p$ spaces"></a>The trouble with $L^p$ spaces</h3><p>Fix $p$ with $1 \leq p \leq \infty$. It’s easy to see that $L^p(\mu)$ is a topological vector space. But it is not a metric space if we define</p>
+<script type="math/tex; mode=display">
+d(f,g)=\lVert f-g \rVert_p.</script><p>The reason is, if $d(f,g)=0$, we can only get $f=g$ a.e., but they are not strictly equal. With that being said, this function $d$ is actually a pseudo metric. This is unnatural. However, the relation $\sim$ by $f \sim g \mathbb{R}ightarrow d(f,g)=0$ is a equivalence relation. This inspires us to take the quotient set into consideration.</p>
+<h3 id="Vector-spaces-are-groups-anyway"><a href="#Vector-spaces-are-groups-anyway" class="headerlink" title="Vector spaces are groups anyway"></a>Vector spaces are groups anyway</h3><p>For a vector space $V$, every subspace of $V$ is a normal subgroup. There is no reason to prevent ourselves from considering the quotient group and looking for some interesting properties. Further, a vector space is an abelian group, therefore any subspace is automatically normal.</p>
+<h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><p>Let $N$ be a subspace of a vector space $X$. For every $x \in X$, let $\pi(x)$ be the coset of $N$ that contains $x$, that is</p>
+<script type="math/tex; mode=display">
+\pi(x)=x+N.</script><p>Trivially, $\pi(x)=\pi(y)$ if and only if $x-y \in N$ (say, $\pi$ is well-defined since $N$ is a vector space). This is a linear function since we also have the addition and multiplication by</p>
+<script type="math/tex; mode=display">
+\pi(x)+\pi(y)=\pi(x+y) \quad \alpha\pi(x)=\pi(\alpha{x}).</script><p>These cosets are the elements of a vector space $X/N$, which reads, the quotient space of $X$ modulo $N$. The map $\pi$ is called the canonical map as we all know.</p>
+<h2 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h2><p><img src="/img/R2-quotient-space.jpg" alt="R^2-quotient"></p>
+<p>First, we shall treat $\mathbb{R}^2$ as a vector space, and the subspace $\mathbb{R}$, which is graphically represented by $x$-axis, as a subspace (we will write it as $X$). For a vector $v=(2,3)$, which is represented by $AB$, we see the coset $v+X$ has something special. Pick any $u \in X$, for example, $AE$, $AC$, or $AG$. We see $v+u$ has the same $y$ value. The reason is simple since we have $v+u=(2+x,3)$, where the $y$ value remains fixed however $u$ may vary.</p>
+<p>With that being said, the set $v+X$, which is not a vector space, can be represented by $\overrightarrow{AD}$. This proceed can be generalized to $\mathbb{R}^n$ with $\mathbb{R}^m$ as a subspace with ease.</p>
+<hr>
+<p>We now consider a fancy example. Consider all rational Cauchy sequences, that is</p>
+<script type="math/tex; mode=display">
+(a_n)=(a_1,a_2,\cdots)</script><p>where $a_k\in\mathbb{Q}$ for all $k$. In analysis class, we learned two facts.</p>
+<ol>
+<li>Any Cauchy sequence is bounded.</li>
+<li>If $(a_n)$ converges, then $(a_n)$ is Cauchy.</li>
+</ol>
+<p>However, the reverse of 2 does not hold in $\mathbb{Q}$. For example, if we put $a_k=(1+\frac{1}{k})^k$, we should have the limit to be $e$, but $e \notin \mathbb{Q}$.</p>
+<p>If we define the addition and multiplication term by term, namely</p>
+<script type="math/tex; mode=display">
+(a_n)+(b_n)=(a_1+b_1,a_2+b_2,\cdots)</script><p>and</p>
+<script type="math/tex; mode=display">
+(\alpha a_n)=(\alpha a_1,\alpha a_2,\cdots)</script><p>where $\alpha \in \mathbb{Q}$, we get a vector space (the verification is easy). The zero vector is defined by</p>
+<script type="math/tex; mode=display">
+(0)=(0,0,\cdots).</script><p>This vector space is denoted by $\overline{\mathbb{Q}}$. The subspace containing all sequences converges to $0$ will be denoted by $\overline{\mathbb{O}}$. Again, $(a_n)+\overline{\mathbb{O}}=(b_n)+\overline{\mathbb{O}}$ if and only if $(a_n-b_n) \in \overline{\mathbb{O}}$. Using the language of equivalence relation, we also say $(a_n)$ and $(b_n)$ are equivalent if $(a_n-b_n) \in \overline{\mathbb{O}}$. For example, the two following sequences are equivalent:</p>
+<script type="math/tex; mode=display">
+(1,1,1,\cdots,1,\cdots)\quad\quad (0.9,0.99,0.999,\cdots).</script><p>Actually, we will get $\mathbb{R} \simeq \overline{\mathbb{Q}}/\overline{\mathbb{O}}$ in the end. But to make sure that this quotient space is exactly the one we meet in our analysis class, there are a lot of verifications should be done.</p>
+<p>We shall give more definitions for calculation. The multiplication of two Cauchy sequences is defined term by term à la the addition. For $\overline{\mathbb{Q}}/\overline{\mathbb{O}}$ we have</p>
+<script type="math/tex; mode=display">
+((a_n)+\overline{\mathbb{O}})+((b_n)+\overline{\mathbb{O}})=(a_n+b_n) + \overline{\mathbb{O}}</script><p>and</p>
+<script type="math/tex; mode=display">
+((a_n)+\overline{\mathbb{O}})((b_n)+\overline{\mathbb{O}})=(a_nb_n)+\overline{\mathbb{O}}.</script><p>As for inequality, a partial order has to be defined. We say $(a_n) &gt; (0)$ if there exists some $N&gt;0$ such that $a_n&gt;0$ for all $n \geq N$. By $(a_n) &gt; (b_n)$ we mean $(a_n-b_n)&gt;(0)$ of course. For cosets, we say $(a_n)+\overline{\mathbb{O}}&gt;\overline{\mathbb{O}}$ if $(x_n) &gt; (0)$ for some $(x_n) \in (a_n)+\overline{\mathbb{O}}$. This is well defined. That is, if $(x_n)&gt;(0)$,  then $(y_n)&gt;(0)$ for all $(y_n) \in (a_n)+\overline{\mathbb{O}}$.</p>
+<p>With these operations being defined, it can be verified that $\overline{\mathbb{Q}}/\overline{\mathbb{O}}$ has the desired properties, for example, the least-upper-bound property. But this goes too far from the topic, we are not proving it here. If you are interested, you may visit <a target="_blank" rel="noopener" href="http://www.math.ucsd.edu/~tkemp/140A/Construction.of.R.pdf">here</a> for more details.</p>
+<hr>
+<p>Finally, we are trying to make $L^p$ a Banach space. Fix $p$ with $1 \leq p &lt; \infty$. There is a seminorm defined for all Lebesgue measurable functions on $[0,1]$ by</p>
+<script type="math/tex; mode=display">
+p(f)=\lVert f \rVert_p=\left\{\int_{0}^{1}|f(t)|^pdt\right\}^{1/p}</script><p>$L^p$ is a vector space containing all functions $f$ with $p(f)&lt;\infty$. But it’s not a normed space by $p$, since $p(f)=0$ only implies $f=0$ almost everywhere. However, the set $N$ which contains all functions that equal $0$ is also a vector space. Now consider the quotient space by</p>
+<script type="math/tex; mode=display">
+\tilde{p}(\pi(f))=p(f),</script><p>where $\pi$ is the canonical map of $L^p$ into $L^p/N$. We shall prove that $\tilde{p}$ is well-defined here. If $\pi(f)=\pi(g)$, we have $f-g \in N$, therefore</p>
+<script type="math/tex; mode=display">
+0=p(f-g)\geq |p(f)-p(g)|,</script><p>which forces $p(f)=p(g)$. Therefore in this case we also have $\tilde{p}(\pi(f))=\tilde{p}(\pi(g))$. This indeed ensures that $\tilde{p}$ is a <em>norm</em>, and $L^p/N$ a Banach space. There are some topological facts required to prove this, we are going to cover a few of them.</p>
+<h2 id="Topology-of-quotient-space"><a href="#Topology-of-quotient-space" class="headerlink" title="Topology of quotient space"></a>Topology of quotient space</h2><h3 id="Definition-1"><a href="#Definition-1" class="headerlink" title="Definition"></a>Definition</h3><p>We know if $X$ is a topological vector space with a topology $\tau$, then the addition and scalar multiplication are continuous. Suppose now $N$ is a closed subspace of $X$. Define $\tau_N$ by</p>
+<script type="math/tex; mode=display">
+\tau_N=\{E \subset X/N:\pi^{-1}(E)\in \tau\}.</script><p>We are expecting $\tau_N$ to be properly-defined. And fortunately, it is. Some interesting techniques will be used in the following section.</p>
+<h3 id="tau-N-is-a-vector-topology"><a href="#tau-N-is-a-vector-topology" class="headerlink" title="$\tau_N$ is a vector topology"></a>$\tau_N$ is a vector topology</h3><p>There will be two steps to get this done.</p>
+<blockquote>
+<p>$\tau_N$ is a topology.</p>
+</blockquote>
+<p>It is trivial that $\varnothing$ and $X/N$ are elements of $\tau_N$. Other properties are immediate as well since we have</p>
+<script type="math/tex; mode=display">
+\pi^{-1}(A \cap B) = \pi^{-1}(A) \cap \pi^{-1}(B)</script><p>and</p>
+<script type="math/tex; mode=display">
+\pi^{-1}(\cup A_\alpha)=\cup\pi^{-1}( A_{\alpha}).</script><p>That said, if we have $A,B\in \tau_N$, then $A \cap B \in \tau_N$ since $\pi^{-1}(A \cap B)=\pi^{-1}(A) \cap \pi^{-1}(B) \in \tau$.</p>
+<p>Similarly, if $A_\alpha \in \tau_N$ for all $\alpha$, we have $\cup A_\alpha \in \tau_N$. Also, by definition of $\tau_N$, $\pi$ is continuous.</p>
+<blockquote>
+<p>$\tau_N$ is a vector topology.</p>
+</blockquote>
+<p>First, we show that a point in $X/N$, which can be written as $\pi(x)$, is closed. Notice that $N$ is assumed to be closed, and</p>
+<script type="math/tex; mode=display">
+\pi^{-1}(\pi(x))=x+N</script><p>therefore has to be closed.</p>
+<p>In fact, $F \subset X/N$ is $\tau_N$-closed if and only if $\pi^{-1}(F)$ is $\tau$-closed. To prove this, one needs to notice that $\pi^{-1}(F^c)=(\pi^{-1}(F))^{c}$.</p>
+<p>Suppose $V$ is open, then</p>
+<script type="math/tex; mode=display">
+\pi^{-1}(\pi(V))=N+V</script><p>is open. By definition of $\tau_N$, we have $\pi(V) \in \tau_N$. Therefore $\pi$ is an open mapping.</p>
+<p>If now $W$ is a neighbourhood of $0$ in $X/N$, there exists a neighbourhood $V$ of $0$ in $X$ such that</p>
+<script type="math/tex; mode=display">
+V + V \subset \pi^{-1}(W).</script><p>Hence $\pi(V)+\pi(V) \subset W$. Since $\pi$ is open, $\pi(V)$ is a neighbourhood of $0$ in $X/N$, this shows that the addition is continuous.</p>
+<p>The continuity of scalar multiplication will be shown in a direct way (so can the addition, but the proof above is intended to offer some special technique). We already know, the scalar multiplication on $X$ by </p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\varphi:\Phi \times X &\to X \\
+           (\alpha,x) &\mapsto \alpha{x}
+\end{aligned}</script><p>is continuous, where $\Phi$ is the scalar field (usually $\mathbb{R}$ or $\mathbb{C}$. Now the scalar multiplication on $X/N$ is by</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\psi: \Phi \times X/N &\to X/N \\
+        (\alpha,x+N) &\mapsto \alpha{x}+N.
+\end{aligned}</script><p>We see $\psi(\alpha,x+N)=\pi(\varphi(\alpha,x))$. But the composition of two continuous functions is continuous, therefore $\psi$ is continuous.</p>
+<h2 id="A-commutative-diagram-by-quotient-space"><a href="#A-commutative-diagram-by-quotient-space" class="headerlink" title="A commutative diagram by quotient space"></a>A commutative diagram by quotient space</h2><p>We are going to talk about a classic commutative diagram that you already see in algebra class.</p>
+<p><img src="/img/diagram-000001.png" alt="diagram-000001"></p>
+<p>There are some assumptions.</p>
+<blockquote>
+<ol>
+<li>$X$ and $Y$ are topological vector spaces.</li>
+<li>$\Lambda$ is linear.</li>
+<li>$\pi$ is the canonical map.</li>
+<li>$N$ is a closed subspace of $X$ and $N \subset \ker\Lambda$.</li>
+</ol>
+</blockquote>
+<p>Algebraically, there exists a unique map $f: X/N \to Y$ by $x+N \mapsto \Lambda(x)$. Namely,  the diagram above is commutative. But now we are interested in some analysis facts.</p>
+<blockquote>
+<p>$f$ is linear.</p>
+</blockquote>
+<p>This is obvious. Since $\pi$ is <strong>surjective</strong>, for $u,v \in X/N$, we are able to find some $x,y \in X$ such that $\pi(x)=u$ and $\pi(y)=v$. Therefore we have</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+f(u+v)=f(\pi(x)+\pi(y))&=f(\pi(x+y)) \\
+                       &=\Lambda(x+y) \\
+                       &=\Lambda(x)+\Lambda(y) \\
+                       &= f(\pi(x))+f(\pi(y)) \\
+                       &=f(u)+f(v)
+\end{aligned}</script><p>and</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+f(\alpha{u})=f(\alpha\pi(x))&=f(\pi(\alpha{x})) \\
+                            &= \Lambda(\alpha{x}) \\
+                            &= \alpha\Lambda(x) \\
+                            &= \alpha{f(\pi(x))} \\
+                            &= \alpha{f(u)}.
+\end{aligned}</script><blockquote>
+<p>$\Lambda$ is open if and only if $f$ is open.</p>
+</blockquote>
+<p>If $f$ is open, then for any open set $U \subset X$, we have</p>
+<script type="math/tex; mode=display">
+\Lambda(U)=f(\pi(U))</script><p>to be an open set since $\pi$ is open, and $\pi(U)$ is an open set.</p>
+<p>If $f$ is not open, then there exists some $V \subset X/N$ such that $f(V)$ is closed. However, since $\pi$ is continuous, we have $\pi^{-1}(V)$ to be open. In this case, we have</p>
+<script type="math/tex; mode=display">
+f(\pi(\pi^{-1}(V)))=f(V)=\Lambda(\pi^{-1}(V))</script><p>to be closed. $\Lambda$ is therefore not open. This shows that if $\Lambda$ is open, then $f$ is open.</p>
+<blockquote>
+<p>$\Lambda$ is continuous if and only if $f$ is continuous.</p>
+</blockquote>
+<p>If $f$ is continuous, for any open set $W \subset Y$, we have $\pi^{-1}(f^{-1}(W))=\Lambda^{-1}(W)$ to be open. Therefore $\Lambda$ is continuous.</p>
+<p>Conversely, if $\Lambda$ is continuous, for any open set $W \subset Y$, we have $\Lambda^{-1}(W)$ to be open. Therefore $f^{-1}(W)=\pi(\Lambda^{-1}(W))$ has to be open since $\pi$ is open. </p>
+</div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="../4/">Previous</a></div><div class="pagination-next"><a href="../6/">Next</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="../../">1</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="../4/">4</a></li><li><a class="pagination-link is-current" href="">5</a></li><li><a class="pagination-link" href="../6/">6</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="../9/">9</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="../../img/avatar.png" alt="Desvl"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Desvl</p><p class="is-size-6 is-block">A blog mainly on graduate mathematics.</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>A Noetherian local ring</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="../../archives"><p class="title">86</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="../../categories"><p class="title">44</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="../../tags"><p class="title">49</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="../../redirect/newsletter" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Compose an Email" href="../../redirect/email"><i class="fas fa-envelope"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="../../atom.xml"><i class="fas fa-rss"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Mathstodon" href="https://mathstodon.xyz/@desvl"><i class="fa-brands fa-mastodon"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://arxiv.org/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">arXiv</span></span><span class="level-right"><span class="level-item tag">arxiv.org</span></span></a></li><li><a class="level is-mobile" href="https://stacks.math.columbia.edu/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">The Stack Project</span></span><span class="level-right"><span class="level-item tag">stacks.math.columbia.edu</span></span></a></li><li><a class="level is-mobile" href="https://ncatlab.org/nlab/show/mathematics" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">nLab (Mathematics)</span></span><span class="level-right"><span class="level-item tag">ncatlab.org</span></span></a></li><li><a class="level is-mobile" href="https://q.uiver.app/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">quiver: a modern commutative diagram editor</span></span><span class="level-right"><span class="level-item tag">q.uiver.app</span></span></a></li><li><a class="level is-mobile" href="https://www.symmetricfunctions.com/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">The Symmetric Functions Catalogue</span></span><span class="level-right"><span class="level-item tag">www.symmetricfunctions.com</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/speaking.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Speaking</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/writing.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Writing</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">How to study maths really quick (YouTube)</span></span><span class="level-right"><span class="level-item tag">www.youtube.com</span></span></a></li><li><a class="level is-mobile" href="https://www.bilibili.com/video/BV1GJ411x7h7" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">How to study maths really quick (Bilibili)</span></span><span class="level-right"><span class="level-item tag">www.bilibili.com</span></span></a></li></ul></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="../../index.html"><img src="../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a><p class="is-size-7"><span>&copy; 2022</span> <a rel="me noopener" target="_blank" href="https://mathstodon.xyz/@desvl">Desvl</a><br>Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="../../js/column.js"></script><script src="../../js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="../../js/back_to_top.js" defer></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
+            },
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><!--!--><script src="../../js/main.js" defer></script><!--!--></body></html>

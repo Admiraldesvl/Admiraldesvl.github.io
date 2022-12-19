@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>The Big Three Pt. 4 - The Open Mapping Theorem (F-Space) - Desvl&#039;s blog</title><link rel="manifest" href="../../../../manifest.json"><meta name="application-name" content="Desvl&#039;s blog"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Desvl&#039;s blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="The Open Mapping TheoremWe are finally going to prove the open mapping theorem in $F$-space. In this version, only metric and completeness are required. Therefore it contains the Banach space version"><meta property="og:type" content="blog"><meta property="og:title" content="The Big Three Pt. 4 - The Open Mapping Theorem (F-Space)"><meta property="og:url" content="https://desvl.xyz/2020/09/12/big-3-pt-4/"><meta property="og:site_name" content="Desvl&#039;s blog"><meta property="og:description" content="The Open Mapping TheoremWe are finally going to prove the open mapping theorem in $F$-space. In this version, only metric and completeness are required. Therefore it contains the Banach space version"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://desvl.xyz/img/avatar.png"><meta property="article:published_time" content="2020-09-12T03:35:13.000Z"><meta property="article:modified_time" content="2021-10-06T08:17:31.067Z"><meta property="article:author" content="Desvl"><meta property="article:tag" content="The big three"><meta property="twitter:card" content="summary_large_image"><meta property="twitter:image:src" content="https://desvl.xyz/img/avatar.png"><meta property="twitter:creator" content="@Desvl_"><meta property="twitter:site" content="{ https://desvl.xyz }"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://desvl.xyz/2020/09/12/big-3-pt-4/"},"headline":"The Big Three Pt. 4 - The Open Mapping Theorem (F-Space)","image":["https://desvl.xyz/img/avatar.png"],"datePublished":"2020-09-12T03:35:13.000Z","dateModified":"2021-10-06T08:17:31.067Z","author":{"@type":"Person","name":"Desvl"},"publisher":{"@type":"Organization","name":"Desvl","logo":{"@type":"ImageObject","url":"https://desvl.xyz/img/logo.svg"}},"description":"The Open Mapping TheoremWe are finally going to prove the open mapping theorem in $F$-space. In this version, only metric and completeness are required. Therefore it contains the Banach space version"}</script><link rel="canonical" href="https://desvl.xyz/2020/09/12/big-3-pt-4/"><link rel="alternate" href="../../../../atom.xml" title="Desvl&#039;s blog" type="application/atom+xml"><link rel="icon" href="../../../../img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap"><link rel="stylesheet" href="../../../../css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="../../../../index.html"><img src="../../../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="../../../../index.html">Home</a><a class="navbar-item" href="../../../../archives">Archives</a><a class="navbar-item" href="../../../../categories">Categories</a><a class="navbar-item" href="../../../../tags">Tags</a><a class="navbar-item" href="../../../../about">About (Updated Aug. 2022)</a><a class="navbar-item" href="../../../../link-exchange">Link Exchange</a><a class="navbar-item" href="../../../../support-the-author">Support the Author</a></div><div class="navbar-end"><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-09-12T03:35:13.000Z" title="12/09/2020, 11:35:13">2020-09-12</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-10-06T08:17:31.067Z" title="06/10/2021, 16:17:31">2021-10-06</time></span><span class="level-item"><a class="link-muted" href="../../../../categories/Analysis/">Analysis</a><span> / </span><a class="link-muted" href="../../../../categories/Analysis/Functional-Analysis/">Functional Analysis</a></span></div></div><h1 class="title is-3 is-size-4-mobile">The Big Three Pt. 4 - The Open Mapping Theorem (F-Space)</h1><div class="content"><h2 id="The-Open-Mapping-Theorem"><a href="#The-Open-Mapping-Theorem" class="headerlink" title="The Open Mapping Theorem"></a>The Open Mapping Theorem</h2><p>We are finally going to prove the open mapping theorem in $F$-space. In this version, only metric and completeness are required. Therefore it contains the Banach space version naturally.</p>
+<blockquote>
+<p><strong>(Theorem 0)</strong> Suppose we have the following conditions:</p>
+<ol>
+<li>$X$ is a $F$-space,</li>
+<li>$Y$ is a topological space,</li>
+<li>$\Lambda: X \to Y$ is continuous and linear, and</li>
+<li>$\Lambda(X)$ is of the second category in $Y$.</li>
+</ol>
+<p>Then $\Lambda$ is an open mapping.</p>
+</blockquote>
+<p><em>Proof.</em> Let $B$ be a neighborhood of $0$ in $X$. Let $d$ be an invariant metric on $X$ that is compatible with the $F$-topology of $X$. Define a sequence of balls by</p>
+<script type="math/tex; mode=display">
+B_n=\{x:d(x,0) < \frac{r}{2^n}\}</script><p>where $r$ is picked in such a way that $B_0 \subset B$. To show that $\Lambda$ is an open mapping, we need to prove that there exists some neighborhood $W$ of $0$ in $Y$ such that</p>
+<script type="math/tex; mode=display">
+W \subset \Lambda(B).</script><p>To do this however, we need an auxiliary set. In fact, we will show that there exists some $W$ such that</p>
+<script type="math/tex; mode=display">
+W \subset \overline{\Lambda(B_1)} \subset \Lambda(B).</script><p>We need to prove the inclusions one by one.</p>
+<hr>
+<p>The first inclusion requires BCT. Since $B_2 -B_2 \subset B_1$, and $Y$ is a topological space, we get</p>
+<script type="math/tex; mode=display">
+\overline{\Lambda(B_2)}-\overline{\Lambda(B_2)} \subset \overline{\Lambda(B_2)-\Lambda(B_2)} \subset \overline{\Lambda(B_1)}</script><p>Since</p>
+<script type="math/tex; mode=display">
+\Lambda(X)=\bigcup_{k=1}^{\infty}k\Lambda(B_2),</script><p>according to BCT, at least one $k\Lambda(B_2)$ is of the second category in $Y$. But scalar multiplication $y\mapsto ky$ is a homeomorphism of $Y$ onto $Y$, we see $k\Lambda(B_2)$ is of the second category for all $k$, especially for $k=1$. Therefore $\overline{\Lambda(B_2)}$ has nonempty interior, which implies that there exists some open neighborhood $W$ of $0$ in $Y$ such that $W \subset \overline{\Lambda(B_1)}$. By replacing the index, it’s easy to see this holds for all $n$. That is, for $n \geq 1$, there exists some neighborhood $W_n$ of $0$ in $Y$ such that $W_n \subset \overline{\Lambda(B_n)}$.</p>
+<hr>
+<p>The second inclusion requires the completeness of $X$. Fix $y_1 \in \overline{\Lambda(B_1)}$, we will show that $y_1 \in \Lambda(B)$. Pick $y_n$ inductively. Assume $y_n$ has been chosen in $\overline{\Lambda(B_n)}$. As stated before, there exists some neighborhood $W_{n+1}$ of $0$ in $Y$ such that $W_{n+1} \subset \overline{\Lambda(B_{n+1})}$. Hence</p>
+<script type="math/tex; mode=display">
+(y_n-W_{n+1}) \cap \Lambda(B_n) \neq \varnothing</script><p>Therefore there exists some $x_n \in B_n$ such that</p>
+<script type="math/tex; mode=display">
+\Lambda x_n = y_n - W_{n+1}.</script><p>Put $y_{n+1}=y_n-\Lambda x_n$, we see $y_{n+1} \in W_{n+1} \subset \overline{\Lambda(B_{n+1})}$. Therefore we are able to pick $y_n$ naturally for all $n \geq 1$.</p>
+<p>Since $d(x_n,0)&lt;\frac{r}{2^n}$ for all $n \geq 0$, the sums $z_n=\sum_{k=1}^{n}x_k$ converges to some $z \in X$ since $X$ is a $F$-space. Notice we also have</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+d(z,0)& \leq d(x_1,0)+d(x_2,0)+\cdots \\
+      & <  \frac{r}{2}+\frac{r}{4}+\cdots \\
+      & = r
+\end{aligned}</script><p>we have $z \in B_0 \subset B$. </p>
+<p>By the continuity of $\Lambda$, we see $\lim_{n \to \infty}y_n = 0$. Notice we also have</p>
+<script type="math/tex; mode=display">
+\sum_{k=1}^{n} \Lambda x_k = \sum_{k=1}^{n}(y_k-y_{k+1})=y_1-y_{n+1} \to y_1 \quad (n \to \infty),</script><p>we see $y_1 = \Lambda z \in \Lambda(B)$.</p>
+<p>The whole theorem is now proved, that is, $\Lambda$ is an open mapping. $\square$</p>
+<h3 id="Remarks"><a href="#Remarks" class="headerlink" title="Remarks"></a>Remarks</h3><p>You may think the following relation comes from nowhere:</p>
+<script type="math/tex; mode=display">
+(y_n - W_{n+1}) \cap \Lambda(B_{n}) \neq \varnothing.</script><p>But it’s not. We need to review some set-point topology definitions. Notice that $y_n$ is a limit point of $\Lambda(B_n)$, and $y_n-W_{n+1}$ is a open neighborhood of $y_n$. If $(y_n - W_{n+1}) \cap \Lambda(B_{n})$ is empty, then $y_n$ cannot be a limit point.</p>
+<p>The geometric series by</p>
+<script type="math/tex; mode=display">
+\frac{\varepsilon}{2}+\frac{\varepsilon}{4}+\cdots+\frac{\varepsilon}{2^n}+\cdots=\varepsilon</script><p>is widely used when sum is taken into account. It is a good idea to keep this technique in mind.</p>
+<h2 id="Corollaries"><a href="#Corollaries" class="headerlink" title="Corollaries"></a>Corollaries</h2><p>The formal proof will not be put down here, but they are quite easy to be done.</p>
+<blockquote>
+<p><strong>(Corollary 0)</strong> $\Lambda(X)=Y$.</p>
+</blockquote>
+<p>This is an immediate consequence of the fact that $\Lambda$ is open. Since $Y$ is open, $\Lambda(X)$ is an open subspace of $Y$. But the only open subspace of $Y$ is $Y$ itself.</p>
+<blockquote>
+<p><strong>(Corollary 1)</strong> $Y$ is a $F$-space as well.</p>
+</blockquote>
+<p>If you have already see <a href="/2020/08/16/An-Introduction-to-Quotient-Space/#A-commutative-diagram-by-quotient-space">the commutative diagram by quotient space</a> (put $N=\ker\Lambda$), you know that the induced map $f$ is open and continuous. By treating topological spaces as groups, by corollary 0 and the first isomorphism theorem, we have</p>
+<script type="math/tex; mode=display">
+X/\ker\Lambda \simeq \Lambda(X)=Y.</script><p>Therefore $f$ is a isomorphism; hence one-to-one. Therefore $f$ is a homeomorphism as well. In <a href="/2020/09/03/quotient-f-space/">this post</a> we showed that $X/\ker{\Lambda}$ is a $F$-space, therefore $Y$ has to be a $F$-space as well. (We are using the fact that $\ker{\Lambda}$ is a closed set. But why closed?)</p>
+<blockquote>
+<p><strong>(Corollary 2)</strong> If $\Lambda$ is a continuous linear mapping of an $F$-space $X$ onto a $F$-space $Y$, then $\Lambda$ is open.</p>
+</blockquote>
+<p>This is a direct application of BCT and open mapping theorem. Notice that $Y$ is now of the second category.</p>
+<blockquote>
+<p><strong>(Corollary 3)</strong> If the linear map $\Lambda$ in Corollary 2 is injective, then $\Lambda^{-1}:Y \to X$ is continuous.</p>
+</blockquote>
+<p>This comes from corollary 2 directly since $\Lambda$ is open.</p>
+<blockquote>
+<p><strong>(Corollary 4)</strong> If $X$ and $Y$ are Banach spaces, and if $\Lambda: X \to Y$ is a continuous linear bijective map, then there exist positive real numbers $a$ and $b$ such that</p>
+<script type="math/tex; mode=display">
+a \lVert x \rVert \leq \lVert \Lambda{x} \rVert \leq b\rVert x \rVert</script><p>for every $x \in X$.</p>
+</blockquote>
+<p>This comes from corollary 3 directly since both $\Lambda$ and $\Lambda^{-1}$ are bounded as they are continuous.</p>
+<blockquote>
+<p><strong>(Corollary 5)</strong> If $\tau_1 \subset \tau_2$ are vector topologies on a vector space $X$ and if both $(X,\tau_1)$ and $(X,\tau_2)$ are $F$-spaces, then $\tau_1 = \tau_2$.</p>
+</blockquote>
+<p>This is obtained by applying corollary 3 to the identity mapping $\iota:(X,\tau_2) \to (X,\tau_1)$.</p>
+<blockquote>
+<p><strong>(Corollary 6)</strong>  If $\lVert \cdot \rVert_1$ and $\lVert \cdot \rVert_2$ are two norms in a vector space $X$ such that</p>
+<ul>
+<li>$\lVert\cdot\rVert_1 \leq K\lVert\cdot\rVert_2$.</li>
+<li>$(X,\lVert\cdot\rVert_1)$ and $(X,\lVert\cdot\rVert_2)$ are Banach</li>
+</ul>
+<p>Then $\lVert\cdot\rVert_1$ and $\lVert\cdot\rVert_2$ are equivalent.</p>
+</blockquote>
+<p>This is merely a more restrictive version of corollary 5.</p>
+<h2 id="The-series"><a href="#The-series" class="headerlink" title="The series"></a>The series</h2><p>Since there is no strong reason to write more posts on this topic, i.e. the three fundamental theorems of linear functional analysis, I think it’s time to make a list of the series. It’s been around half a year.</p>
+<ul>
+<li><a href="/2020/06/06/big-3-pt-1/">The Big Three Pt. 1 - Baire Category Theorem Explained</a></li>
+<li><a href="/2020/06/30/big-3-pt-2/">The Big Three Pt. 2 - The Banach-Steinhaus Theorem</a></li>
+<li><a href="/2020/08/12/big-3-pt-3/">The Big Three Pt. 3 - The Open Mapping Theorem (Banach Space)</a></li>
+<li>The Big Three Pt. 4 - The Open Mapping Theorem (F-Space)</li>
+<li><a href="/2020/10/01/big-3-pt-5/">The Big Three Pt. 5 - The Hahn-Banach Theorem (Dominated Extension)</a></li>
+<li><a href="/2020/11/13/big-3-pt-6/">The Big Three Pt. 6 - Closed Graph Theorem with Applications</a></li>
+</ul>
+</div><div class="article-licensing box"><div class="licensing-title"><p>The Big Three Pt. 4 - The Open Mapping Theorem (F-Space)</p><p><a href="https://desvl.xyz/2020/09/12/big-3-pt-4/">https://desvl.xyz/2020/09/12/big-3-pt-4/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>Desvl</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2020-09-12</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2021-10-06</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="../../../../tags/The-big-three/">The big three</a></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="../../19/The-Riesz-Markov-Kakutani-Representation-Theorem/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">The Riesz-Markov-Kakutani Representation Theorem</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="../../03/quotient-f-space/"><span class="level-item">The completeness of the quotient space (topological vector space)</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="../../../../img/avatar.png" alt="Desvl"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Desvl</p><p class="is-size-6 is-block">A blog mainly on graduate mathematics.</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>A Noetherian local ring</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="../../../../archives"><p class="title">86</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="../../../../categories"><p class="title">44</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="../../../../tags"><p class="title">49</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="../../../../redirect/newsletter" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Compose an Email" href="../../../../redirect/email"><i class="fas fa-envelope"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="../../../../atom.xml"><i class="fas fa-rss"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Mathstodon" href="https://mathstodon.xyz/@desvl"><i class="fa-brands fa-mastodon"></i></a></div></div></div><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">Catalogue</h3><ul class="menu-list"><li><a class="level is-mobile" href="#The-Open-Mapping-Theorem"><span class="level-left"><span class="level-item">1</span><span class="level-item">The Open Mapping Theorem</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#Remarks"><span class="level-left"><span class="level-item">1.1</span><span class="level-item">Remarks</span></span></a></li></ul></li><li><a class="level is-mobile" href="#Corollaries"><span class="level-left"><span class="level-item">2</span><span class="level-item">Corollaries</span></span></a></li><li><a class="level is-mobile" href="#The-series"><span class="level-left"><span class="level-item">3</span><span class="level-item">The series</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="../../../../js/toc.js" defer></script></div><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://arxiv.org/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">arXiv</span></span><span class="level-right"><span class="level-item tag">arxiv.org</span></span></a></li><li><a class="level is-mobile" href="https://stacks.math.columbia.edu/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">The Stack Project</span></span><span class="level-right"><span class="level-item tag">stacks.math.columbia.edu</span></span></a></li><li><a class="level is-mobile" href="https://ncatlab.org/nlab/show/mathematics" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">nLab (Mathematics)</span></span><span class="level-right"><span class="level-item tag">ncatlab.org</span></span></a></li><li><a class="level is-mobile" href="https://q.uiver.app/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">quiver: a modern commutative diagram editor</span></span><span class="level-right"><span class="level-item tag">q.uiver.app</span></span></a></li><li><a class="level is-mobile" href="https://www.symmetricfunctions.com/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">The Symmetric Functions Catalogue</span></span><span class="level-right"><span class="level-item tag">www.symmetricfunctions.com</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/speaking.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Speaking</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/writing.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Writing</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">How to study maths really quick (YouTube)</span></span><span class="level-right"><span class="level-item tag">www.youtube.com</span></span></a></li><li><a class="level is-mobile" href="https://www.bilibili.com/video/BV1GJ411x7h7" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">How to study maths really quick (Bilibili)</span></span><span class="level-right"><span class="level-item tag">www.bilibili.com</span></span></a></li></ul></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="../../../../index.html"><img src="../../../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a><p class="is-size-7"><span>&copy; 2022</span> <a rel="me noopener" target="_blank" href="https://mathstodon.xyz/@desvl">Desvl</a><br>Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="../../../../js/column.js"></script><script src="../../../../js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="../../../../js/back_to_top.js" defer></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
+            },
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><!--!--><script src="../../../../js/main.js" defer></script><!--!--></body></html>

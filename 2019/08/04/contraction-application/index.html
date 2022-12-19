@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>压缩定理和其应用 - Desvl&#039;s blog</title><link rel="manifest" href="../../../../manifest.json"><meta name="application-name" content="Desvl&#039;s blog"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Desvl&#039;s blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="什么是压缩压缩(contraction)的准确描述是这样的：  取完备度量空间$X$, 度量$d$, 函数$\varphi$是$X$到本身的映射, 且满足          d(\varphi(x),\varphi(y)) \leq cd(x,y). 其中$x,y\in{X}$, $c&amp;lt;1$. 那么$\varphi$就是一个从$X$到本身的压缩.  一个最简单的例子是, $y&amp;#x3D;\frac{x"><meta property="og:type" content="blog"><meta property="og:title" content="压缩定理和其应用"><meta property="og:url" content="https://desvl.xyz/2019/08/04/contraction-application/"><meta property="og:site_name" content="Desvl&#039;s blog"><meta property="og:description" content="什么是压缩压缩(contraction)的准确描述是这样的：  取完备度量空间$X$, 度量$d$, 函数$\varphi$是$X$到本身的映射, 且满足          d(\varphi(x),\varphi(y)) \leq cd(x,y). 其中$x,y\in{X}$, $c&amp;lt;1$. 那么$\varphi$就是一个从$X$到本身的压缩.  一个最简单的例子是, $y&amp;#x3D;\frac{x"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://desvl.xyz/img/avatar.png"><meta property="article:published_time" content="2019-08-03T16:00:00.000Z"><meta property="article:modified_time" content="2022-06-26T11:36:49.486Z"><meta property="article:author" content="Desvl"><meta property="twitter:card" content="summary_large_image"><meta property="twitter:image:src" content="https://desvl.xyz/img/avatar.png"><meta property="twitter:creator" content="@Desvl_"><meta property="twitter:site" content="{ https://desvl.xyz }"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://desvl.xyz/2019/08/04/contraction-application/"},"headline":"压缩定理和其应用","image":["https://desvl.xyz/img/avatar.png"],"datePublished":"2019-08-03T16:00:00.000Z","dateModified":"2022-06-26T11:36:49.486Z","author":{"@type":"Person","name":"Desvl"},"publisher":{"@type":"Organization","name":"Desvl","logo":{"@type":"ImageObject","url":"https://desvl.xyz/img/logo.svg"}},"description":"什么是压缩压缩(contraction)的准确描述是这样的：  取完备度量空间$X$, 度量$d$, 函数$\\varphi$是$X$到本身的映射, 且满足          d(\\varphi(x),\\varphi(y)) \\leq cd(x,y). 其中$x,y\\in{X}$, $c&lt;1$. 那么$\\varphi$就是一个从$X$到本身的压缩.  一个最简单的例子是, $y&#x3D;\\frac{x"}</script><link rel="canonical" href="https://desvl.xyz/2019/08/04/contraction-application/"><link rel="alternate" href="../../../../atom.xml" title="Desvl&#039;s blog" type="application/atom+xml"><link rel="icon" href="../../../../img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap"><link rel="stylesheet" href="../../../../css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="../../../../index.html"><img src="../../../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="../../../../index.html">Home</a><a class="navbar-item" href="../../../../archives">Archives</a><a class="navbar-item" href="../../../../categories">Categories</a><a class="navbar-item" href="../../../../tags">Tags</a><a class="navbar-item" href="../../../../about">About (Updated Aug. 2022)</a><a class="navbar-item" href="../../../../link-exchange">Link Exchange</a><a class="navbar-item" href="../../../../support-the-author">Support the Author</a></div><div class="navbar-end"></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2019-08-03T16:00:00.000Z" title="04/08/2019, 00:00:00">2019-08-04</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-06-26T11:36:49.486Z" title="26/06/2022, 19:36:49">2022-06-26</time></span></div></div><h1 class="title is-3 is-size-4-mobile">压缩定理和其应用</h1><div class="content"><h2 id="什么是压缩"><a href="#什么是压缩" class="headerlink" title="什么是压缩"></a>什么是压缩</h2><p>压缩(contraction)的准确描述是这样的：</p>
+<blockquote>
+<p>取完备度量空间$X$, 度量$d$, 函数$\varphi$是$X$到本身的映射, 且满足</p>
+<script type="math/tex; mode=display">
+        d(\varphi(x),\varphi(y)) \leq cd(x,y).</script><p> 其中$x,y\in{X}$, $c&lt;1$. 那么$\varphi$就是一个从$X$到本身的压缩.</p>
+</blockquote>
+<p>一个最简单的例子是, $y=\frac{x}{2}$. 这是一个“平缓”的函数. 平缓的程度是怎样呢? 斜率小于1.</p>
+<p>而压缩定理指出, 对于这个函数, 有且仅有一个$x$使得$\varphi(x)=x$. 例如上面的例子, 只有$0=0$这一个点. 接下来要给出证明.</p>
+<h2 id="压缩的证明"><a href="#压缩的证明" class="headerlink" title="压缩的证明"></a>压缩的证明</h2><p>任取$x_0\in{X}$, 按照如下方法定义数列$x_n$:</p>
+<script type="math/tex; mode=display">
+    x_{n+1}=\varphi(x_n)</script><p>从而会有</p>
+<script type="math/tex; mode=display">d(x_2,x_1)=d(\varphi(x_1),\varphi(x_0))\leq cd(x_1,x_0)$$ (如果你不理解这里的$d(x,y)$,
+可以简单地看成$|x-y|$) 推广下去, 就有
+
+$$d(x_{n+1},x_n)\leq c^nd(x_1,x_0)</script><p>对于$n&lt;m$, 就有 \begin{equation} \begin{aligned} d(x_n,x_m)\leq\sum_{i=n+1}^m<br>d(x_i,x_{i+1})\leq(c^n+c^{n+1}+\cdots+c^{m-1})d(x_1,x_0)\leq\frac{c^n}{1-c}d(x_1,x_0)<br>\end{aligned} \end{equation} 这说明, $x_n$是一个Cauchy数列, 又考虑到$X$是完备空间, 因此$x_n$收敛.<br>设$x_n$的极限为$x$. 由压缩的定义可知, $\varphi$为一致连续的函数, 从而有 </p>
+<script type="math/tex; mode=display">
+\varphi(x)=\lim\limits_{n\to\infty}\varphi(x_n)=\lim\limits_{n\to\infty}x_{n+1}=x</script><p>至于唯一性的证明, 可设$\varphi(x)=x$, $\varphi(y)=y$.<br>从而有$d(\varphi(x),\varphi(y))=d(x,y)\leq cd(x,y)$ 这只有在$d(x,y)=0$时成立. 唯一性得到证明.</p>
+<h2 id="简单应用"><a href="#简单应用" class="headerlink" title="简单应用"></a>简单应用</h2><p>下面是一道数学专业研究生入学考试题. 在这个题中可以发现, 在指定的条件下, 利用“压缩”这个工具, 问题的解决变得非常简单.</p>
+<blockquote>
+<p>已知$0\leq a\leq 1, b \geq2$, 有数列${x_n}$ 满足$x_0=0$,<br>且有递推关系<script type="math/tex">x_{n+1}=x_n-\frac{1}{b}(x_n^2-a),</script>求证此数列收敛, 并求出极限.</p>
+</blockquote>
+<p>在这里设$\phi(x)=x-\frac{1}{b}(x^2-a)$, 那么有$x_{n+1}=\varphi(x_n)$.<br>如果能证出$\varphi$为一个压缩, 极限的问题就迎刃而解了.</p>
+<p><strong>证明</strong></p>
+<p>设$\varphi(x)=x-\frac{1}{b}(x^2-a)$. 则$x_{n+1}=\varphi(x_n)$.<br>在这里$x_1=\varphi(x_0)=\frac{a}{b}$. 现证明对所有$n&gt;0$ 有$\frac{a}{b}\leq x_n\leq 1$,<br>对$n$进行归纳.</p>
+<p>$n=1$时, 不等式已成立.</p>
+<p>假设$n=k$时成立, 则$n=k+1$时, 有 <script type="math/tex">x_{k+1}=\frac{a}{b}-\frac{bx_k-x_k^2}{b}</script><br>考虑到$y=bx-x^2$在$[\frac{a}{b},\frac{b}{2}]$单调递减, 而$\frac{b}{2}\geq1$, 故有 <script type="math/tex">x_{n+1}\leq\frac{a}{b} +\frac{b-1}{b}\leq 1</script> 而$y(\frac{a}{b})\geq y(0)=0$,<br>故$x_{n+1}\geq\frac{a}{b}$.</p>
+<p>因此不等式对所有$n&gt;0$成立.</p>
+<p>利用这个不等式, 得到 <script type="math/tex">|f(x)-f(y)|=|x-y||1-\frac{x+y}{b}|\leq|x-y||1-\frac{2a}{b^2}|,
+\quad \frac{a}{b}\leq x,y \leq 1</script></p>
+<p>$a=0$时, 得到$x_1=x_2=\cdots=0$, 故极限存在且为$0$.</p>
+<p>$a\neq 0$时, 令$c=|1-\frac{2a}{b^2}|$, 则始终有$c&lt;1$. 此时就是上文中所提到的压缩. 收敛的证明略去.</p>
+<p>设$\lim\limits_{n\to\infty}x_n=x$, 则$x=\varphi(x)$. 解得$x=\sqrt{a}$.<br>这在$a=0$时也成立.</p>
+<p>综上, $\lim\limits_{n\to\infty}x_n$存在, 且值为$\sqrt{a}$.</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>压缩映射在处理迭代生成的数列时很有效, 而且可以推广到多维甚至无穷维中. 但是要注意, 这个映射实质上是在处理局部性质, 大范围的非线性的问题则不能处理.<br>处理迭代数列是它在离散形式下的基本应用, 但压缩在连续形式下也有很多重要的应用, 例如在$\mathbb{R}^n$中证明隐函数定理</p>
+<h2 id="关于度量"><a href="#关于度量" class="headerlink" title="关于度量"></a>关于度量</h2><p>度量函数$d(x,y)$即表示两点之间的距离, 满足以下三个条件：</p>
+<ul>
+<li><p>$d(x,y)\geq 0$, 等号成立当且仅当$x=y$.</p>
+</li>
+<li><p>$d(x,y)=d(y,x)$.</p>
+</li>
+<li><p>$d(x,y) + d(y,z) \leq d(x,z)$ (三角形不等式)</p>
+</li>
+</ul>
+<p>而度量空间即一个有度量函数的集合. 度量空间的完备性指, 这个空间的任意Cauchy列都收敛. 一个简单的例子是, 全体实数$\mathbb{R}$, 度量函数$d(x,y)=|x-y|$. </p>
+<p>而$\mathbb{Q}$在这个相同的度量下是发散的. 例如Cauchy数列$\{\left(1+\frac{1}{n}\right)^n\}$这个数列收敛到$e$, 而$e\notin{\mathbb{Q}}$.</p>
+</div><div class="article-licensing box"><div class="licensing-title"><p>压缩定理和其应用</p><p><a href="https://desvl.xyz/2019/08/04/contraction-application/">https://desvl.xyz/2019/08/04/contraction-application/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>Desvl</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2019-08-04</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2022-06-26</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="../../05/beautiful-fourier-001/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">优美的Fourier级数（一）: 绝对不只是求表达式的问题</span></a></div></nav><!--!--></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="../../../../img/avatar.png" alt="Desvl"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Desvl</p><p class="is-size-6 is-block">A blog mainly on graduate mathematics.</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>A Noetherian local ring</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="../../../../archives"><p class="title">86</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="../../../../categories"><p class="title">44</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="../../../../tags"><p class="title">49</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="../../../../redirect/newsletter" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Compose an Email" href="../../../../redirect/email"><i class="fas fa-envelope"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="../../../../atom.xml"><i class="fas fa-rss"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Mathstodon" href="https://mathstodon.xyz/@desvl"><i class="fa-brands fa-mastodon"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://arxiv.org/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">arXiv</span></span><span class="level-right"><span class="level-item tag">arxiv.org</span></span></a></li><li><a class="level is-mobile" href="https://stacks.math.columbia.edu/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">The Stack Project</span></span><span class="level-right"><span class="level-item tag">stacks.math.columbia.edu</span></span></a></li><li><a class="level is-mobile" href="https://ncatlab.org/nlab/show/mathematics" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">nLab (Mathematics)</span></span><span class="level-right"><span class="level-item tag">ncatlab.org</span></span></a></li><li><a class="level is-mobile" href="https://q.uiver.app/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">quiver: a modern commutative diagram editor</span></span><span class="level-right"><span class="level-item tag">q.uiver.app</span></span></a></li><li><a class="level is-mobile" href="https://www.symmetricfunctions.com/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">The Symmetric Functions Catalogue</span></span><span class="level-right"><span class="level-item tag">www.symmetricfunctions.com</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/speaking.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Speaking</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/writing.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Writing</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">How to study maths really quick (YouTube)</span></span><span class="level-right"><span class="level-item tag">www.youtube.com</span></span></a></li><li><a class="level is-mobile" href="https://www.bilibili.com/video/BV1GJ411x7h7" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">How to study maths really quick (Bilibili)</span></span><span class="level-right"><span class="level-item tag">www.bilibili.com</span></span></a></li></ul></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="../../../../index.html"><img src="../../../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a><p class="is-size-7"><span>&copy; 2022</span> <a rel="me noopener" target="_blank" href="https://mathstodon.xyz/@desvl">Desvl</a><br>Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="../../../../js/column.js"></script><script src="../../../../js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="../../../../js/back_to_top.js" defer></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
+            },
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><!--!--><script src="../../../../js/main.js" defer></script><!--!--></body></html>

@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="robots" content="noindex"><meta><title>Tag: Profinite Groups - Desvl&#039;s blog</title><link rel="manifest" href="../../manifest.json"><meta name="application-name" content="Desvl&#039;s blog"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Desvl&#039;s blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta property="og:type" content="blog"><meta property="og:title" content="Desvl&#039;s blog"><meta property="og:url" content="https://desvl.xyz/"><meta property="og:site_name" content="Desvl&#039;s blog"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://desvl.xyz/img/avatar.png"><meta property="article:author" content="Desvl"><meta property="twitter:card" content="summary_large_image"><meta property="twitter:image:src" content="https://desvl.xyz/img/avatar.png"><meta property="twitter:creator" content="@Desvl_"><meta property="twitter:site" content="{ https://desvl.xyz }"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://desvl.xyz"},"headline":"Desvl's blog","image":["https://desvl.xyz/img/avatar.png"],"author":{"@type":"Person","name":"Desvl"},"publisher":{"@type":"Organization","name":"Desvl","logo":{"@type":"ImageObject","url":"https://desvl.xyz/img/logo.svg"}},"description":""}</script><link rel="alternate" href="../../atom.xml" title="Desvl&#039;s blog" type="application/atom+xml"><link rel="icon" href="../../img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap"><link rel="stylesheet" href="../../css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="../../index.html"><img src="../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="../../index.html">Home</a><a class="navbar-item" href="../../archives">Archives</a><a class="navbar-item" href="../../categories">Categories</a><a class="navbar-item" href="../../tags">Tags</a><a class="navbar-item" href="../../about">About (Updated Aug. 2022)</a><a class="navbar-item" href="../../link-exchange">Link Exchange</a><a class="navbar-item" href="../../support-the-author">Support the Author</a></div><div class="navbar-end"></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="../../tags">Tags</a></li><li class="is-active"><a href="#" aria-current="page">Profinite Groups</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-07-21T10:47:18.000Z" title="21/07/2020, 18:47:18">2020-07-21</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-10-08T09:52:18.247Z" title="08/10/2021, 17:52:18">2021-10-08</time></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2020/07/21/profinite-group/">An elementary introduction to profinite groups</a></h1><div class="content"><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>This blog serves as an introduction to profinite groups without touching anything other than elementary group theory (no ring, field, Galois theory, topological group, etc.), though we may not be able to go for further application.</p>
+<h3 id="Number-system"><a href="#Number-system" class="headerlink" title="Number system"></a>Number system</h3><p>We begin with an easy-to-understand motivation by introducing $\mathbb{Z}_p$. Consider the binary expansion of an integer</p>
+<script type="math/tex; mode=display">
+a=\sum_{k=0}^{n}a_k2^k</script><p>where $a_k=0,1$. For example we may have</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+88&=8+16+64 \\
+  &=0\cdot2^0+0\cdot2^1+0\cdot2^2+1\cdot2^3+1\cdot2^4+0\cdot2^5+1\cdot2^6 \\
+&=(1011000)_2.
+\end{aligned}</script><p>You must be familiar with binary expansion if you write codes. As a topology exercise, show that the set containing all such $a$ is uncountable. In the octal number system you may also write</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+88&=24+64 \\
+  &=0\cdot8^0+3\cdot8^1+1\cdot8^2 \\
+  &=(130)_8.
+\end{aligned}</script><p>This notation is pretty useful in some real life occasions but not here. We are looking for connections between number systems and <strong>prime</strong> numbers (you will see why later)), but number systems with bases like $8,10,16$ definitely won’t work.</p>
+<h3 id="p-adic-integer"><a href="#p-adic-integer" class="headerlink" title="$p$-adic integer"></a>$p$-adic integer</h3><p>Fix a prime number $p$, a $p$-adic integer $\alpha$ is defined by a sequence of integers $x_k$ for which we writes</p>
+<script type="math/tex; mode=display">
+\alpha=(x_k)_{k=1}^{\infty}</script><p>satisfying</p>
+<script type="math/tex; mode=display">
+x_{k+1}\equiv x_k\mod{p^k}\text{ for all $k \geq 1$}</script><p>For example, we write $88$ as a $2$-adic number by</p>
+<script type="math/tex; mode=display">
+88=(88,88,\cdots)=(0,0,0,8,24,24,88,88,\cdots,88,\cdots)</script><p>As you may realize, $x_k$ can be written by</p>
+<script type="math/tex; mode=display">
+x_k=a_0+a_1p+\cdots+a_{k-1}p^{k-1}</script><p>where $a_i=0,1,\cdots,p-1$ for $i \leq k-1$, where $a_i$ is called the $p$-adic digits.</p>
+<p>In fact, if we define the addition componentwise, i.e.</p>
+<script type="math/tex; mode=display">
+(x_k)+(y_k)=(x_k+y_k)</script><p>then it’s a group. Further, if we define the multiplication componentwise, we get a ring. The group of all $p$-adic numbers is denoted by $\mathbb{Z}_p$. But this blog won’t touch anything other than group theory.</p>
+<p>As you may wonder, it doesn’t seems to work for ‘negative’ one. For example if we have</p>
+<script type="math/tex; mode=display">
+\alpha=(1,1,\cdots,1,\cdots),</script><p>how do we get $-\alpha$? In fact we have</p>
+<script type="math/tex; mode=display">
+-\alpha=(p-1,p^2-1,\cdots,p^n-1,\cdots)</script><p>which suggests the limit value of $x_k$ associated to $-\alpha$ as $k\to\infty$ is</p>
+<script type="math/tex; mode=display">
+(p-1)(1+p+p^2+\cdots).</script><p>It doesn’t converge in the usual sense. But if it does, we have</p>
+<script type="math/tex; mode=display">
+\lim_{k\to\infty}x_k=(p-1)/(1-p)=-1.</script><p>But this is valid under such circumstance. We can check this using $p$-adic digits. In fact, the $p$-adic digits of $1$ is</p>
+<script type="math/tex; mode=display">
+(1,0,\cdots,0,\cdots)</script><p>if we add $p-1$ to each component, we get</p>
+<script type="math/tex; mode=display">
+(1,0,\cdots)+(p-1,p-1,\cdots)=(0,0,\cdots,0)</script><p>(there are infinitely many $p-1$!).</p>
+<p>With all these stuff being said, you can treat $\alpha=(x_1,x_2,\cdots)$ as a <strong>limit</strong>:</p>
+<script type="math/tex; mode=display">
+\alpha=\lim_{k\to\infty}x_k</script><p>which makes everything natural. We are not digging into $\mathbb{Z}_p$ further. But keep two words in mind: limit and group.</p>
+<h3 id="mathbb-Z-p-and-mathbb-Z-p-k-mathbb-Z"><a href="#mathbb-Z-p-and-mathbb-Z-p-k-mathbb-Z" class="headerlink" title="$\mathbb{Z}_p$ and $\mathbb{Z}/p^k\mathbb{Z}$"></a>$\mathbb{Z}_p$ and $\mathbb{Z}/p^k\mathbb{Z}$</h3><p>The definition of $\mathbb{Z}_p$ by $x_{k+1} \equiv x_k\mod{p^k}$ might remind you of $\mathbb{Z}/p^k\mathbb{Z}$. Let’s give a review of $\mathbb{Z}/p^k\mathbb{Z}$.</p>
+<p>For integers $x,y$, we have</p>
+<script type="math/tex; mode=display">
+x \equiv 0 \mod p^k\mathbb{Z}</script><p>if $x \in p^k\mathbb{Z}$. Further we have</p>
+<script type="math/tex; mode=display">
+x \equiv y \mod p^k\mathbb{Z}</script><p>if $(x-y)\in p^k\mathbb{Z}$. We also may write $x \equiv y \mod p^k$. So there are infinitely many $x_{k+1} \equiv x_k \mod p^k\mathbb{Z}$, shall we associate infinitely many $\mathbb{Z}/p^k\mathbb{Z}$? If it works, we may treat $\mathbb{Z}_p$ as the ‘limit’ of $\mathbb{Z}/p^k\mathbb{Z}$. But we need some proper <strong>operation</strong> to do that. </p>
+<p>Let $G_n=\mathbb{Z}/p^{n+1}\mathbb{Z}$ for each $n \geq 0$. Let </p>
+<script type="math/tex; mode=display">
+f_n: G_n \to G_{n-1}</script><p>be the canonical homomorphism. Notice that $f_n$ is surjective. Now consider a $p$-adic integer</p>
+<script type="math/tex; mode=display">
+\alpha=(x_1,x_2,\cdots)</script><p>we have</p>
+<script type="math/tex; mode=display">
+f_n(x_n)=x_{n-1}</script><p>Therefore we got a expression of $\mathbb{Z}_p$ by</p>
+<script type="math/tex; mode=display">
+\mathbb{Z}_p=\{(x_n)_{n=0}^{\infty}\in\prod_{n\geq0}\mathbb{Z}/p^n\mathbb{Z}:f_n(x_n)=x_{n-1}\}</script><p>We will write $\mathbb{Z}_p=\varprojlim\mathbb{Z}/p^n\mathbb{Z}$ since it’s an example of a inverse limit. It’s <em>inverse</em> since $f_n$ goes ‘back’ by associating each $x_n$ to $x_{n-1}$. Since $f_n$ is <strong>surjective</strong>, we can always raise $x_{n-1}$ to $G_{n}$ via $f_{n}$. We treated one group as a limit of a sequence of groups. We don’t want to limit ourself in number theory. In the following section we are offering a much more generalized definition where even numbers are generalized.</p>
+<h2 id="Definition-of-profinite-group"><a href="#Definition-of-profinite-group" class="headerlink" title="Definition of profinite group"></a>Definition of profinite group</h2><p>We are going to give a generalized definition for profinite group. Notice that in the example of $\mathbb{Z}_p$, the sequence is indexed by $\mathbb{N}$. It’s easy to understand but this index set prevents profinite group from being further applied. Of course, the index $\mathbb{N}$ is not excluded.</p>
+<h3 id="Directed-partially-ordered-set"><a href="#Directed-partially-ordered-set" class="headerlink" title="Directed partially ordered set"></a>Directed partially ordered set</h3><p>A set $I$ is <strong>directed partially ordered</strong> if it’s associated with a partial order $\geq$ such that for any two elements $i,j \in I,$ there exists a $k \in I$ such that $k \geq i$ and $k \geq j$.</p>
+<p>$\mathbb{Z}$ with the natural inequality is of course directed partially ordered. However we can define another partial order by division. If we define $n \geq m$ if $m|n$, then we have $\operatorname{lcm}(m,n) \geq m,n$.</p>
+<p>As another example, consider the family of all subgroups $\mathcal{F}$ of a group $G$. The partial order is defined by inclusion. i.e. for $M,N \in \mathcal{F}$, we have $M \geq N$ if $M \supset N$. In this case $M \cup N \geq M,N$.</p>
+<h3 id="Projective-system"><a href="#Projective-system" class="headerlink" title="Projective system"></a>Projective system</h3><p>A <strong>projective system</strong> is a collection of groups $G_i$ ($i \in I$), together with group homomorphisms $f^{j}_i: G_j \to G_i$ for $i,j\in {I}$ with $j \geq i$ such that</p>
+<ol>
+<li>$f_{i}^{i}=\operatorname{id}_{G_i}$ for every $i \in I$.</li>
+<li>$f_{i}^{j}\circ f_{j}^{k}=f_{i}^{k}$ for $k \geq j \geq i$.</li>
+</ol>
+<h3 id="Inverse-limit-and-profinite-group"><a href="#Inverse-limit-and-profinite-group" class="headerlink" title="Inverse limit and profinite group"></a>Inverse limit and profinite group</h3><p>Given any such projective system with a directed partially ordered index set, we has the <strong>inverse limit</strong> (or projective limit) defined by</p>
+<script type="math/tex; mode=display">
+\varprojlim_{i}G_i=\left\{(x_i)_{i\in{I}}\in\prod_{i\in{I}}G_i:f_i^j(x_j)=x_i,j\geq i\right\}</script><p>It’s easy to see that $\mathbb{Z}_p$ can be defined with the same manner, although we have $I = \mathbb{N}$. It also can be verified that the inverse limit forms a group (also topological group, but we are not discussing that here). </p>
+<p>A group is <strong>profinite</strong> if it is a <strong>pro</strong>jective limit of <strong>finite</strong> groups (up to isomorphism).</p>
+<h3 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h3><p>For any $g \in \mathbb{N}_+$, it would be interesting to consider the following projective limit by</p>
+<script type="math/tex; mode=display">
+\mathbb{Z}_g=\varprojlim_{n}\mathbb{Z}/g^n\mathbb{Z}.</script><p>It can be verified that we have</p>
+<script type="math/tex; mode=display">
+\mathbb{Z}_g \simeq \prod_{p|g}\mathbb{Z}_p.</script><p>That said, base $8$ number system is ‘useless’ since it’s isomorphic to base $2$ number system. That’s why we focus on prime first. We will give another ‘generalization’ of $p$-adic numbers.</p>
+<hr>
+<p>Suppose we have a sequence of normal subgroups $(H_n)$ of $G$ such that $H_n \supset H_{n+1}$ for all $n$. It doesn’t matter whether $G$ is finite. Let</p>
+<script type="math/tex; mode=display">
+f_n:G/H_n \to G/H_{n-1}</script><p>be the canonical homomorphisms. Then the inverse limit follows:</p>
+<script type="math/tex; mode=display">
+\varprojlim_n G/H_n=\left\{(x_i)_{i\in\mathbb{N}}\in\prod_{i\in\mathbb{N}}G/H_i:f_n(x_n)=x_{n-1}\right\}.</script><p>We also have a natural homomorphism</p>
+<script type="math/tex; mode=display">
+g:G \to \varprojlim_{n}G/H_n</script><p>by sending $x$ to the sequence $(x_i)$, where $x_n$ is the image of $x$ in $G/H_n$. Notice that we don’t have to use $\mathbb{N}$ as the index. This inverse limit can also be indexed by the set containing all $H_n$.</p>
+<h2 id="Further"><a href="#Further" class="headerlink" title="Further"></a>Further</h2><p>You may think this is like, algebraists stole something from analysts and made it up with the magic of algebra. There are many other applications that I want to show you in the future (not beyond elementary group theory). If you learned functional analysis you may know that $L^p$ space for $1 \leq p &lt; \infty$ is not a Banach space due to the functions equal to $0$ a.e.. But $L^p/N$ can be a Banach space where $N$ contains all functions equal to $0$ a.e.. Both $L^p$ and $N$ are groups, and we ‘completed’ $L^p$ by defining a factor space which still is a group. In fact, in algebra, we also have <strong>Cauchy sequence</strong> and <strong>completion</strong> of a group, which are associated with inverse limit still.</p>
+<h2 id="References-Further-readings"><a href="#References-Further-readings" class="headerlink" title="References / Further readings"></a>References / Further readings</h2><ul>
+<li>Luis Ribes, <em>Introduction to Profinite Groups</em></li>
+<li>Hendrik Lenstra, <em>Profinite Groups</em></li>
+<li>Serge Lang, <em>Algebra Revised Third Edition</em></li>
+</ul>
+</div></article></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="../../img/avatar.png" alt="Desvl"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Desvl</p><p class="is-size-6 is-block">A blog mainly on graduate mathematics.</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>A Noetherian local ring</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="../../archives"><p class="title">86</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="../../categories"><p class="title">44</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="../../tags"><p class="title">49</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="../../redirect/newsletter" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Compose an Email" href="../../redirect/email"><i class="fas fa-envelope"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="../../atom.xml"><i class="fas fa-rss"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Mathstodon" href="https://mathstodon.xyz/@desvl"><i class="fa-brands fa-mastodon"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://arxiv.org/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">arXiv</span></span><span class="level-right"><span class="level-item tag">arxiv.org</span></span></a></li><li><a class="level is-mobile" href="https://stacks.math.columbia.edu/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">The Stack Project</span></span><span class="level-right"><span class="level-item tag">stacks.math.columbia.edu</span></span></a></li><li><a class="level is-mobile" href="https://ncatlab.org/nlab/show/mathematics" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">nLab (Mathematics)</span></span><span class="level-right"><span class="level-item tag">ncatlab.org</span></span></a></li><li><a class="level is-mobile" href="https://q.uiver.app/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">quiver: a modern commutative diagram editor</span></span><span class="level-right"><span class="level-item tag">q.uiver.app</span></span></a></li><li><a class="level is-mobile" href="https://www.symmetricfunctions.com/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">The Symmetric Functions Catalogue</span></span><span class="level-right"><span class="level-item tag">www.symmetricfunctions.com</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/speaking.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Speaking</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/writing.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Writing</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">How to study maths really quick (YouTube)</span></span><span class="level-right"><span class="level-item tag">www.youtube.com</span></span></a></li><li><a class="level is-mobile" href="https://www.bilibili.com/video/BV1GJ411x7h7" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">How to study maths really quick (Bilibili)</span></span><span class="level-right"><span class="level-item tag">www.bilibili.com</span></span></a></li></ul></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="../../index.html"><img src="../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a><p class="is-size-7"><span>&copy; 2022</span> <a rel="me noopener" target="_blank" href="https://mathstodon.xyz/@desvl">Desvl</a><br>Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="../../js/column.js"></script><script src="../../js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="../../js/back_to_top.js" defer></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
+            },
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><!--!--><script src="../../js/main.js" defer></script><!--!--></body></html>

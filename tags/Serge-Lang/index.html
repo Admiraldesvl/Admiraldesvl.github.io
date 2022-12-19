@@ -1,0 +1,570 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="robots" content="noindex"><meta><title>Tag: Serge Lang - Desvl&#039;s blog</title><link rel="manifest" href="../../manifest.json"><meta name="application-name" content="Desvl&#039;s blog"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Desvl&#039;s blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta property="og:type" content="blog"><meta property="og:title" content="Desvl&#039;s blog"><meta property="og:url" content="https://desvl.xyz/"><meta property="og:site_name" content="Desvl&#039;s blog"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://desvl.xyz/img/avatar.png"><meta property="article:author" content="Desvl"><meta property="twitter:card" content="summary_large_image"><meta property="twitter:image:src" content="https://desvl.xyz/img/avatar.png"><meta property="twitter:creator" content="@Desvl_"><meta property="twitter:site" content="{ https://desvl.xyz }"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://desvl.xyz"},"headline":"Desvl's blog","image":["https://desvl.xyz/img/avatar.png"],"author":{"@type":"Person","name":"Desvl"},"publisher":{"@type":"Organization","name":"Desvl","logo":{"@type":"ImageObject","url":"https://desvl.xyz/img/logo.svg"}},"description":""}</script><link rel="alternate" href="../../atom.xml" title="Desvl&#039;s blog" type="application/atom+xml"><link rel="icon" href="../../img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap"><link rel="stylesheet" href="../../css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="../../index.html"><img src="../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="../../index.html">Home</a><a class="navbar-item" href="../../archives">Archives</a><a class="navbar-item" href="../../categories">Categories</a><a class="navbar-item" href="../../tags">Tags</a><a class="navbar-item" href="../../about">About (Updated Aug. 2022)</a><a class="navbar-item" href="../../link-exchange">Link Exchange</a><a class="navbar-item" href="../../support-the-author">Support the Author</a></div><div class="navbar-end"></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="../../tags">Tags</a></li><li class="is-active"><a href="#" aria-current="page">Serge Lang</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-12-02T08:27:19.000Z" title="02/12/2022, 16:27:19">2022-12-02</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-12-03T02:29:39.540Z" title="03/12/2022, 10:29:39">2022-12-03</time></span><span class="level-item"><a class="link-muted" href="../../categories/Algebra/">Algebra</a><span> / </span><a class="link-muted" href="../../categories/Algebra/Polynomials/">Polynomials</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2022/12/02/The-abc-Theorem-of-Polynomials/">The abc Theorem of Polynomials</a></h1><div class="content">In this post we show the Mason-Stothers theorem, the so-called $abc$ theorem for polynomials, and derive Fermat's Last theorem and Davenport's inequality for polynomials. These three theorems correspond to the $abc$ conjecture, Fermat's Last Theorem and Hall's conjecture in number theory.</div><a class="article-more button is-small is-size-7" href="../../2022/12/02/The-abc-Theorem-of-Polynomials/#more">Read more</a></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-09-22T08:21:25.000Z" title="22/09/2022, 16:21:25">2022-09-22</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-09-22T08:53:09.536Z" title="22/09/2022, 16:53:09">2022-09-22</time></span><span class="level-item"><a class="link-muted" href="../../categories/Algebra/">Algebra</a><span> / </span><a class="link-muted" href="../../categories/Algebra/Galois-Theory/">Galois Theory</a><span> / </span><a class="link-muted" href="../../categories/Algebra/Field-Theory/">Field Theory</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2022/09/22/cyclotomic-polynomial-elementary/">Properties of Cyclotomic Polynomials</a></h1><div class="content">In this post we study cyclotomic polynomials in field theory and deduce some baisc properties of it. We will also use it to solve some problems in field theory.</div><a class="article-more button is-small is-size-7" href="../../2022/09/22/cyclotomic-polynomial-elementary/#more">Read more</a></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-01-18T10:58:55.000Z" title="18/01/2022, 18:58:55">2022-01-18</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-01-24T10:15:14.770Z" title="24/01/2022, 18:15:14">2022-01-24</time></span><span class="level-item"><a class="link-muted" href="../../categories/Algebra/">Algebra</a><span> / </span><a class="link-muted" href="../../categories/Algebra/Representation-Theory/">Representation Theory</a><span> / </span><a class="link-muted" href="../../categories/Algebra/Group-Algebra/">Group Algebra</a><span> / </span><a class="link-muted" href="../../categories/Algebra/Non-Commutative-Ring/">Non-Commutative Ring</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2022/01/18/group-algebra/">The Group Algebra of A Finite Group and Maschke&#039;s Theorem</a></h1><div class="content">In this post we give several forms of Masher's theorem by studying group algebra, which eventually becomes a study of semisimple rings. One can consider this post a chaotic evil introduction to representation theory or something.</div><a class="article-more button is-small is-size-7" href="../../2022/01/18/group-algebra/#more">Read more</a></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2021-02-07T06:43:22.000Z" title="07/02/2021, 14:43:22">2021-02-07</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-08-21T12:38:07.937Z" title="21/08/2022, 20:38:07">2022-08-21</time></span><span class="level-item"><a class="link-muted" href="../../categories/Algebra/">Algebra</a><span> / </span><a class="link-muted" href="../../categories/Algebra/Commutative-Algebra/">Commutative Algebra</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2021/02/07/dedekind-domain/">Dedekind Domain and Properties in an Elementary Approach</a></h1><div class="content"><p>You can find contents about Dedekind domain (or Dedekind ring) in <em>almost all</em> algebraic number theory books. But many properties can be proved inside ring theory. I hope you can find the solution you need in this post, and this post will not go further than elementary ring theory. With that being said, you are assumed to have enough knowledge of ring and ring of fractions (<a href="/2021/01/14/rings-of-fractions-and-localization/">this post</a> serves well), but not too much mathematics maturity is assumed (at the very least you are assumed to be familiar with terminologies in the linked post).$\def\mb{\mathbb}$ $\def\mfk{\mathfrak}$</p>
+<h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><p>There are several ways to define Dedekind domain since there are several equivalent statements of it. We will start from the one based on ring of fractions. As a friendly reminder, $\mb{Z}$ or any principal integral domain is already a Dedekind domain. In fact Dedekind domain may be viewed as a generalization of principal integral domain. </p>
+<p>Let $\mfk{o}$ be an integral domain (a.k.a. entire ring), and $K$ be its quotient field. A <strong>Dedekind domain</strong> is an integral domain $\mfk{o}$ such that the fractional ideals form a group under multiplication. Let’s have a breakdown. By a <strong>fractional ideal</strong> $\mfk{a}$ we mean a nontrivial additive subgroup of $K$ such that</p>
+<ul>
+<li>$\mfk{o}\mfk{a}=\mfk{a}$,</li>
+<li>there exists some nonzero element $c \in \mfk{o}$ such that $c\mfk{a} \subset \mfk{o}$.</li>
+</ul>
+<p>What does the group look like? As you may guess, the unit element is $\mfk{o}$. For a fractional ideal $\mfk{a}$, we have the inverse to be another fractional ideal $\mfk{b}$ such that $\mfk{ab}=\mfk{ba}=\mfk{o}$. Note we regard $\mfk{o}$ as a subring of $K$. For $a \in \mfk{o}$, we treat it as $a/1 \in K$. This makes sense because the map $i:a \mapsto a/1$ is injective. For the existence of $c$, you may consider it as a restriction that the ‘denominator’ is <em>bounded</em>. Alternatively, we say that fractional ideal of $K$ is a finitely generated $\mfk{o}$-submodule of $K$. But in this post it is not assumed that you have learned module theory.</p>
+<p>Let’s take $\mb{Z}$ as an example. The quotient field of $\mb{Z}$ is $\mb{Q}$. We have a fractional ideal $P$ where all elements are of the type $\frac{np}{2}$ with $p$ prime and $n \in \mb{Z}$. Then indeed we have $\mb{Z}P=P$. On the other hand, take $2 \in \mb{Z}$, we have $2P \subset \mb{Z}$. For its inverse we can take a fractional ideal $Q$ where all elements are of the type $\frac{2n}{p}$. As proved in algebraic number theory, the ring of algebraic integers in a number field is a Dedekind domain.</p>
+<p>Before we go on we need to clarify the definition of ideal multiplication. Let $\mfk{a}$ and $\mfk{b}$ be two ideals, we define $\mfk{ab}$ to be the set of all sums</p>
+<script type="math/tex; mode=display">
+x_1y_1+\cdots+x_ny_n</script><p>where $x_i \in \mfk{a}$ and $y_i \in \mfk{b}$. Here the number $n$ means finite but is not fixed. Alternatively we cay say $\mfk{ab}$ contains all finite sum of products of $\mfk{a}$ and $\mfk{b}$.</p>
+<h2 id="Propositions"><a href="#Propositions" class="headerlink" title="Propositions"></a>Propositions</h2><blockquote>
+<p><strong>(Proposition 1)</strong> A Dedekind domain $\mfk{o}$ is Noetherian. </p>
+</blockquote>
+<p>By Noetherian ring we mean that every ideal in a ring is finitely generated. Precisely, we will prove that for every ideal $\mfk{a} \subset \mfk{o}$ there are $a_1,a_2,\cdots,a_n \in \mfk{a}$ such that, for every $r \in \mfk{a}$, we have an expression</p>
+<script type="math/tex; mode=display">
+r = c_1a_1 + c_2a_2 + \cdots + c_na_n \qquad c_1,c_2,\cdots,c_n \in \mfk{o}.</script><p>Also note that any ideal $\mfk{a} \subset \mfk{o}$ can be viewed as a fractional ideal.</p>
+<p><strong>Proof.</strong> Since $\mfk{a}$ is an ideal of $\mfk{o}$, let $K$ be the quotient field of $\mfk{o}$, we see since $\mfk{oa}=\mfk{a}$, we may also view $\mfk{a}$ as a fractional ideal. Since $\mfk{o}$ is a Dedekind domain, and fractional ideals of $\mfk{a}$ is a group, there is an fractional ideal $\mfk{b}$ such that $\mfk{ab}=\mfk{ba}=\mfk{o}$. Since $1 \in \mfk{o}$, we may say that there exists some $a_1,a_2,\cdots, a_n \in \mfk{a}$ and $b_1,b_2,\cdots,b_n \in \mfk{o}$ such that $\sum_{i = 1 }^{n}a_ib_i=1$. For any $r \in \mfk{a}$, we have an expression</p>
+<script type="math/tex; mode=display">
+r = rb_1a_1+rb_2a_2+\cdots+rb_na_n.</script><p>On the other hand, any element of the form $c_1a_1+c_2a_2+\cdots+c_na_n$, by definition, is an element of $\mfk{a}$. $\blacksquare$</p>
+<p>From now on, the inverse of an fractional ideal $\mfk{a}$ will be written like $\mfk{a}^{-1}$.</p>
+<blockquote>
+<p><strong>(Proposition 2)</strong> For ideals $\mfk{a},\mfk{b} \subset \mfk{o}$, $\mfk{b}\subset\mfk{a}$ if and only if there exists some $\mfk{c}$ such that $\mfk{ac}=\mfk{b}$ (or we simply say $\mfk{a}|\mfk{b}$)</p>
+</blockquote>
+<p><strong>Proof.</strong> If $\mfk{b}=\mfk{ac}$, simply note that $\mfk{ac} \subset \mfk{a} \cap \mfk{c} \subset \mfk{a}$. For the converse, suppose that $a \supset \mfk{b}$, then $\mfk{c}=\mfk{a}^{-1}\mfk{b}$ is an ideal of $\mfk{o}$ since $\mfk{c}=\mfk{a}^{-1}\mfk{b} \subset \mfk{a}^{-1}\mfk{a}=\mfk{o}$, hence we may write $\mfk{b}=\mfk{a}\mfk{c}$. $\blacksquare$</p>
+<blockquote>
+<p><strong>(Proposition 3)</strong> If $\mfk{a}$ is an ideal of $\mfk{o}$, then there are prime ideals $\mfk{p}_1,\mfk{p}_2,\cdots,\mfk{p}_n$ such that</p>
+<script type="math/tex; mode=display">
+\mfk{a}=\mfk{p}_1\mfk{p}_2\cdots\mfk{p}_n.</script></blockquote>
+<p><strong>Proof.</strong> For this problem we use a classical technique: contradiction on maximality. Suppose this is not true, let $\mfk{A}$ be the set of ideals of $\mfk{o}$ that cannot be written as the product of prime ideals. By assumption $\mfk{U}$ is non-empty. Since as we have proved, $\mfk{o}$ is Noetherian, we can pick a maximal element $\mfk{a}$ of $\mfk{A}$ with respect to inclusion. If $\mfk{a}$ is maximal, then since all maximal ideals are prime, $\mfk{a}$ itself is prime as well. If $\mfk{a}$ is properly contained in an ideal $\mfk{m}$, then we write $\mfk{a}=\mfk{m}\mfk{m}^{-1}\mfk{a}$. We have $\mfk{m}^{-1}\mfk{a} \supsetneq \mfk{a}$ since if not, we have $\mfk{a}=\mfk{ma}$, which implies that $\mfk{m}=\mfk{o}$. But by maximality, $\mfk{m}^{-1}\mfk{a}\not\in\mfk{U}$, hence it can be written as a product of prime ideals. But $\mfk{m}$ is prime as well, we have a prime factorization for $\mfk{a}$, contradicting the definition of $\mfk{U}$.</p>
+<p>Next we show unicity up to a permutation. If</p>
+<script type="math/tex; mode=display">
+\mfk{p}_1\mfk{p}_2\cdots\mfk{p}_k=\mfk{q}_1\mfk{q}_2\cdots\mfk{q}_j,</script><p>since $\mfk{p}_1\mfk{p}_2\cdots\mfk{p}_k\subset\mfk{p}_1$ and $\mfk{p}_1$ is prime, we may assume that $\mfk{q}_1 \subset \mfk{p}_1$. By the property of fractional ideal we have $\mfk{q}_1=\mfk{p}_1\mfk{r}_1$ for some fractional ideal $\mfk{r}_1$. However we also have $\mfk{q}_1 \subset \mfk{r}_1$. Since $\mfk{q}_1$ is prime, we either have $\mfk{q}_1 \supset \mfk{p}_1$ or $\mfk{q}_1 \supset \mfk{r}_1$. In the former case we get $\mfk{p}_1=\mfk{q}_1$, and we finish the proof by continuing inductively. In the latter case we have $\mfk{r}_1=\mfk{q}_1=\mfk{p}_1\mfk{q}_1$, which shows that $\mfk{p}_1=\mfk{o}$, which is impossible. $\blacksquare$</p>
+<blockquote>
+<p><strong>(Proposition 4)</strong> Every nontrivial prime ideal $\mfk{p}$ is maximal. </p>
+</blockquote>
+<p><strong>Proof.</strong> Let $\mfk{m}$ be an maximal ideal containing $\mfk{p}$. By proposition 2 we have some $\mfk{c}$ such that $\mfk{p}=\mfk{mc}$. If $\mfk{m} \neq \mfk{p}$, then $\mfk{c} \neq \mfk{o}$, and we may write $\mfk{c}=\mfk{p}_1\cdots\mfk{p}_n$, hence $\mfk{p}=\mfk{m}\mfk{p}_1\cdots\mfk{p}_n$, which is a prime factorisation, contradicting the fact that $\mfk{p}$ has a unique prime factorisation, which is $\mfk{p}$ itself. Hence any maximal ideal containing $\mfk{p}$ is $\mfk{p}$ itself. $\blacksquare$</p>
+<blockquote>
+<p><strong>(Proposition 5)</strong> Suppose the Dedekind domain $\mfk{o}$ only contains one prime (and maximal) ideal $\mfk{p}$, let $t \in \mfk{p}$ and $t \not\in \mfk{p}^2$, then $\mfk{p}$ is generated by $t$.</p>
+</blockquote>
+<p><strong>Proof.</strong> Let $\mfk{t}$ be the ideal generated by $t$. By proposition 3 we have a factorisation</p>
+<script type="math/tex; mode=display">
+\mfk{t}=\mfk{p}^n</script><p>for some $n$ since $\mfk{o}$ contains only one prime ideal. According to proposition 2, if $n \geq 3$, we write $\mfk{p}^n=\mfk{p}^2\mfk{p}^{n-2}$, we see $\mfk{p}^2 \supset \mfk{p}^n$. But this is impossible since if so we have $t \in \mfk{p}^n \subset \mfk{p}^2$ contradicting our assumption. Hence $0&lt;n&lt;3$. But If $n=2$ we have $t \in \mfk{p}^2$ which is also not possible. So $\mfk{t}=\mfk{p}$ provided that such $t$ exists. </p>
+<p>For the existence of $t$, note if not, then for all $t \in \mfk{p}$ we have $t \in \mfk{p}^2$, hence $\mfk{p} \subset \mfk{p}^2$. On the other hand we already have $\mfk{p}^2 = \mfk{p}\mfk{p}$, which implies that $\mfk{p}^2 \subset \mfk{p}$ (proposition 2), hence $\mfk{p}^2=\mfk{p}$, contradicting proposition 3. Hence such $t$ exists and our proof is finished. $\blacksquare$</p>
+<h2 id="Characterisation-of-Dedekind-domain"><a href="#Characterisation-of-Dedekind-domain" class="headerlink" title="Characterisation of Dedekind domain"></a>Characterisation of Dedekind domain</h2><p>In fact there is another equivalent definition of Dedekind domain:</p>
+<blockquote>
+<p>A domain $\mfk{o}$ is Dedekind if and only if</p>
+<ul>
+<li>$\mfk{o}$ is Noetherian.</li>
+<li>$\mfk{o}$ is integrally closed.</li>
+<li>$\mfk{o}$​ has Krull dimension $1$​ (i.e. every non-zero prime ideals are maximal).</li>
+</ul>
+</blockquote>
+<p>This is equivalent to say that faction ideals form a group and is frequently used by mathematicians as well. But we need some more advanced techniques to establish the equivalence. Presumably there will be a post about this in the future.</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2021-01-15T09:40:01.000Z" title="15/01/2021, 17:40:01">2021-01-15</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-04-11T10:21:33.536Z" title="11/04/2022, 18:21:33">2022-04-11</time></span><span class="level-item"><a class="link-muted" href="../../categories/Algebra/">Algebra</a><span> / </span><a class="link-muted" href="../../categories/Algebra/Module-Theory/">Module Theory</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2021/01/15/vector-space-and-basis/">Why Does a Vector Space Have a Basis (Module Theory)</a></h1><div class="content"><h2 id="Module-and-vector-space"><a href="#Module-and-vector-space" class="headerlink" title="Module and vector space"></a>Module and vector space</h2><p>First we recall some backgrounds. Suppose $A$ is a ring with multiplicative identity $1_A$. A <strong>left module</strong> of $A$ is an additive abelian group $(M,+)$, together with an <a target="_blank" rel="noopener" href="https://proofwiki.org/wiki/Definition:Linear_Ring_Action">ring operation</a> $A \times M \to M$ such that</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+(a+b)x &= ax+bx \\
+a(x+y) &= ax+ay \\
+a(bx) &= (ab)x \\
+1_Ax &= x
+\end{aligned}</script><p>for $x,y \in M$ and $a,b \in A$. As a corollary, we see $(0_A+0_A)x=0_Ax=0_Ax+0_Ax$, which shows $0_Ax=0_M$ for all $x \in M$. On the other hand, $a(x-x)=0_M$ which implies $a(-x)=-(ax)$. We can also define right $A$-modules but we are not discussing them here.</p>
+<p>Let $S$ be a subset of $M$. We say $S$ is a <strong>basis</strong> of $M$ if $S$ generates $M$ and $S$ is linearly independent. That is, for all $m \in M$, we can pick $s_1,\cdots,s_n \in S$ and $a_1,\cdots,a_n \in A$ such that</p>
+<script type="math/tex; mode=display">
+m = a_1s_1+a_2s_2+\cdots+a_ns_n,</script><p>and, for any $s_1,\cdots,s_n \in S$, we have</p>
+<script type="math/tex; mode=display">
+a_1s_1+a_2s_2+\cdots+a_ns_n=0_M \implies a_1=a_2=\cdots=a_n=0_A.</script><p>Note this also shows that $0_M\notin S$ (what happens if $0_M \in S$?). We say $M$ is <strong>free</strong> if it has a basis. The case when $M$ or $A$ is trivial is excluded. </p>
+<p>If $A$ is a field, then $M$ is called a <strong>vector space</strong>, which has no difference from the one we learn in linear algebra and functional analysis. Mathematicians in functional analysis may be interested in the cardinality of a vector space, for example, when a vector space is of finite dimension, or when the basis is countable. But the basis does not come from nowhere. In fact we can prove that vector spaces have basis, but modules are not so lucky. $\def\mb{\mathbb}$</p>
+<h2 id="Examples-of-non-free-modules"><a href="#Examples-of-non-free-modules" class="headerlink" title="Examples of non-free modules"></a>Examples of non-free modules</h2><p>First of all let’s consider the cyclic group $\mb{Z}/n\mb{Z}$ for $n \geq 2$. If we define </p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\mb{Z} \times \mb{Z}/n\mb{Z} &\to \mb{Z}/n\mb{Z} \\
+(m,k+n\mb{Z}) &\mapsto mk+n\mb{Z}
+\end{aligned}</script><p>which is actually $m$ copies of an element, then we get a module, which will be denoted by $M$. For any $x=k+n\mb{Z} \in M$, we see $nk+n\mb{Z}=0_M$. Therefore for <strong>any</strong> subset $S \subset M$, if $x_1,\cdots,x_k \in M$, we have</p>
+<script type="math/tex; mode=display">
+nx_1+nx_2+\cdots+nx_k = 0_M,</script><p>which gives the fact that $M$ has no basis. In fact this can be generalized further. If $A$ is a ring but not a field, let $I$ be a nontrivial proper ideal, then $A/I$ is a module that has no basis. </p>
+<p>Following $\mb{Z}/n\mb{Z}$ we also have another example on finite order. Indeed, <strong>any finite abelian group is not free as a module over $\mb{Z}$.</strong> More generally, </p>
+<blockquote>
+<p>Let $G$ be a abelian group, and $G_{tor}$ be its <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Torsion_subgroup">torsion subgroup</a>. If $G_{tor}$ is non-trival, then $G$ cannot be a free module over $\mb{Z}$.</p>
+</blockquote>
+<hr>
+<p>Next we shall take a look at infinite rings. Let $F[X]$ be the polynomial ring over a field $F$ and $F’[X]$ be the polynomial sub-ring that have coefficient of $X$ equal to $0$. Then $F[X]$ is a $F’[X]$-module. However it is not free.</p>
+<p>Suppose we have a basis $S$ of $F[X]$, then we claim that $|S|&gt;1$. If $|S|=1$, say $P \in S$, then $P$ cannot generate $F[X]$ since if $P$ is constant then we cannot generate a polynomial contains $X$ with power $1$; If $P$ is not constant, then the constant polynomial cannot be generate. Hence $S$ contains at least two polynomials, say $P_1 \neq 0$ and $P_2 \neq 0$. However, note $-X^2P_1 \in F’[X]$ and $X^2P_2 \in F’[X]$, which gives</p>
+<script type="math/tex; mode=display">
+(X^2P_2)P_1-(X^2P_1)P_2=0.</script><p>Hence $S$ cannot be a basis. </p>
+<h2 id="Why-does-a-vector-space-have-a-basis"><a href="#Why-does-a-vector-space-have-a-basis" class="headerlink" title="Why does a vector space have a basis"></a>Why does a vector space have a basis</h2><p>I hope those examples have convinced you that basis is not a universal thing. We are going to prove that every vector space has a basis. More precisely,</p>
+<blockquote>
+<p>Let $V$ be a nontrivial vector space over a field $K$. Let $\Gamma$ be a set of generators of $V$ over $K$ and $S \subset \Gamma$ is a subset which is linearly independent, then there exists a basis of $V$ such that $S \subset B \subset \Gamma$. </p>
+</blockquote>
+<p>Note we can always find such $\Gamma$ and $S$. For the extreme condition, we can pick $\Gamma=V$ and $S$ be a set containing any single non-zero element of $V$. Note this also gives that we can generate a basis by expanding any linearly independent set. The proof relies on a fact that every non-zero element in a field is invertible, and also, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Zorn%27s_lemma">Zorn’s lemma</a>. In fact, axiom of choice is equivalent to the statement that every vector has a set of basis. The converse can be found <a target="_blank" rel="noopener" href="http://www.math.lsa.umich.edu/~ablass/bases-AC.pdf">here</a>. $\def\mfk{\mathfrak}$</p>
+<p><em>Proof.</em> Define</p>
+<script type="math/tex; mode=display">
+\mfk{T} =\{T \subset \Gamma:S \subset T, \text{ $T$ is linearly independent}\}.</script><p>Then $\mfk{T}$ is not empty since it contains $S$. If $T_1 \subset T_2 \subset \cdots$ is a totally ordered chain in $\mfk{T}$, then $T=\bigcup_{i=1}^{\infty}T_i$ is again linearly independent and contains $S$. To show that $T$ is linearly independent, note that if $x_1,x_2,\cdots,x_n \in T$, we can find some $k_1,\cdots,k_n$ such that $x_i \in T_{k_i}$ for $i=1,2,\cdots,n$. If we pick $k = \max(k_1,\cdots,k_n)$, then </p>
+<script type="math/tex; mode=display">
+x_1,x_2,\cdots,x_n \in \bigcup_{i=1}^{n}T_{k_i}=T_k.</script><p>But we already know that $T_k$ is linearly independent, so $a_1x_1+\cdots+a_nx_n=0_V$ implies $a_1=\cdots=a_n=0_K$. </p>
+<p>By Zorn’s lemma, let $B$ be the maximal element of $\mfk{T}$, then $B$ is also linearly independent since it is an element of $\mfk{T}$. Next we show that $B$ generates $V$. Suppose not, then we can pick some $x \in \Gamma$ that is not generated by $B$. Define $B’=B \cup \{x\}$, we see $B’$ is linearly independent as well, because if we pick $y_1,y_2,\cdots,y_n \in B$, and if</p>
+<script type="math/tex; mode=display">
+\sum_{k=1}^{n}a_ky_k+bx=0_V,</script><p>then if $b \neq 0$ we have</p>
+<script type="math/tex; mode=display">
+x = -\sum_{k=1}^{n}b^{-1}a_ky_k \in B,</script><p>contradicting the assumption that $x$ is not generated by $B$. Hence $b=0_K$. However, we have proved that $B’$ is a linearly independent set containing $B$ and contained in $S$, contradicting the maximality of $B$ in $\mfk{T}$. Hence $B$ generates $V$. $\square$</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2021-01-10T15:25:25.000Z" title="10/01/2021, 23:25:25">2021-01-10</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-10-06T07:50:45.475Z" title="06/10/2021, 15:50:45">2021-10-06</time></span><span class="level-item"><a class="link-muted" href="../../categories/Algebra/">Algebra</a><span> / </span><a class="link-muted" href="../../categories/Algebra/Group-Theory/">Group Theory</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2021/01/10/the-grothendieck-group/">The Grothendienck Group</a></h1><div class="content"><h2 id="Free-group"><a href="#Free-group" class="headerlink" title="Free group"></a>Free group</h2><p>Let $A$ be an abelian group. Let $(e_i)_{i \in I}$ be a family of elements of $A$. We say that this family is a <strong>basis</strong> for $A$ if the family is not empty, and if every element of $A$ has a unique expression as a <strong>linear expression</strong> </p>
+<script type="math/tex; mode=display">
+x = \sum_{i \in I} x_i e_i</script><p>where $x_i \in \mathbb{Z}$ and almost all $x_i$ are equal to $0$. This means that the sum is actually finite. An abelian group is said to be <strong>free</strong> if it has a basis. Alternatively, we may write $A$ as a direct sum by</p>
+<script type="math/tex; mode=display">
+A \cong \bigoplus_{i \in I}\mathbb{Z}e_i.</script><h2 id="Free-abelian-group-generated-by-a-set"><a href="#Free-abelian-group-generated-by-a-set" class="headerlink" title="Free abelian group generated by a set"></a>Free abelian group generated by a set</h2><p>Let $S$ be a set. Say we want to get a group out of this for some reason, so how? It is not a good idea to endow $S$ with a binary operation beforehead since overall $S$ is merely a set. We shall <strong>generate</strong> a group out of $S$ in the most <strong>freely</strong> way.</p>
+<p>Let $\mathbb{Z}\langle S \rangle$ be the set of all <strong>maps</strong> $\varphi:S \to \mathbb{Z}$ such that, for only a <strong>finite</strong> number of $x \in S$, we have $\varphi(x) \neq 0$. For simplicity, we denote $k \cdot x$ to be some $\varphi_0 \in \mathbb{Z}\langle S \rangle$ such that $\varphi_0(x)=k$ but $\varphi_0(y) = 0$ if $y \neq x$. For any $\varphi$, we claim that $\varphi$ has a unique expression</p>
+<script type="math/tex; mode=display">
+\varphi=k_1 \cdot x_1 + k_2 \cdot x_2 + \cdots + k_n \cdot x_n.</script><p>One can consider these integers $k_i$ as the order of $x_i$, or simply the time that $x_i$ appears (may be negative). For $\varphi\in\mathbb{Z}\langle S \rangle$, let $I=\{x_1,x_2,\cdots,x_n\}$ be the set of elements of $S$ such that $\varphi(x_i) \neq 0$. If we denote $k_i=\varphi(x_i)$, we can show that $\psi=k_1 \cdot x_1 + k_2 \cdot x_2 + \cdots + k_n \cdot x_n$ is equal to $\varphi$. For $x \in I$, we have $\psi(x)=k$ for some $k=k_i\neq 0$ by definition of the ‘$\cdot$’; if $y \notin I$ however, we then have $\psi(y)=0$. This coincides with $\varphi$. $\blacksquare$</p>
+<p>By definition the zero map $\mathcal{O}=0 \cdot x \in \mathbb{Z}\langle S \rangle$ and therefore we may write any $\varphi$ by</p>
+<script type="math/tex; mode=display">
+\varphi=\sum_{x \in S}k_x\cdot x</script><p>where $k_x \in \mathbb{Z}$ and can be zero. Suppose now we have two expressions, for example</p>
+<script type="math/tex; mode=display">
+\varphi=\sum_{x \in S}k_x \cdot x=\sum_{x \in S}k_x'\cdot x</script><p>Then</p>
+<script type="math/tex; mode=display">
+\varphi-\varphi=\mathcal{O}=\sum_{x \in S}(k_x-k'_x)\cdot x</script><p>Suppose $k_y - k_y’ \neq 0$ for some $y \in S$, then</p>
+<script type="math/tex; mode=display">
+\mathcal{O}(y)=k_y-k_y'\neq 0</script><p>which is a contradiction. Therefore the expression is unique. $\blacksquare$</p>
+<p>This $\mathbb{Z}\langle S \rangle$ is what we are looking for. It is an additive group (which can be proved immediately) and, what is more important, every element can be expressed as a ‘sum’ associated with finite number of elements of $S$. We shall write $F_{ab}(S)=\mathbb{Z}\langle S \rangle$, and call it the <strong>free abelian group generated by $S$</strong>. For elements in $S$, we say they are <strong>free generators</strong> of $F_{ab}(S)$.  If $S$ is a finite set, we say $F_{ab}(S)$ is <strong>finitely generated</strong>.</p>
+<blockquote>
+<p>An abelian group is <strong>free</strong> if and only if it is isomorphic to a free abelian group $F_{ab}(S)$ for some set $S$.</p>
+</blockquote>
+<p><strong>Proof.</strong> First we shall show that $F_{ab}(S)$ is free. For $x \in M$, we denote $\varphi = 1 \cdot x$ by $[x]$. Then for any $k \in \mathbb{Z}$, we have $k[x]=k \cdot x$ and $k[x]+k’[y] = k\cdot x + k’ \cdot y$. By definition of $F_{ab}(S)$, any element $\varphi \in F_{ab}(S)$ has a unique expression</p>
+<script type="math/tex; mode=display">
+\varphi = k_1 \cdot x_1 + \cdots + k_n \cdot x_n =k_1[x_1]+\cdots+k_n[x_n]</script><p>Therefore $F_{ab}(S)$ is free since we have found the basis $([x])_{x \in S}$.</p>
+<p>Conversely, if $A$ is free, then it is immediate that its basis $(e_i)_{i \in I}$ generates $A$. Our statement is therefore proved. $\blacksquare$</p>
+<h3 id="The-connection-between-an-arbitrary-abelian-group-an-a-free-abelian-group"><a href="#The-connection-between-an-arbitrary-abelian-group-an-a-free-abelian-group" class="headerlink" title="The connection between an arbitrary abelian group an a free abelian group"></a>The connection between an arbitrary abelian group an a free abelian group</h3><blockquote>
+<p><strong>(Proposition 1)</strong> If $A$ is an abelian group, then there is a free group $F$ which has a subgroup $H$ such that $A \cong F/H$. </p>
+</blockquote>
+<p><strong>Proof.</strong> Let $S$ be any set containing $A$. Then we get a surjective map $\gamma: S \to A$ and a free group $F_{ab}(S)$. We also get a unique homomorphism $\gamma_\ast:F_{ab}(S) \to A$ by</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\gamma_\ast:F_{ab}(S) &\to A \\
+\varphi=\sum_{x \in S}k_x\cdot x &\mapsto \sum_{x \in S}k_x\gamma(x)
+\end{aligned}</script><p>which is also surjective. By the first isomorphism theorem, if we set $H=\ker(\gamma_\ast)$ and $F_{ab}(S)=F$, then</p>
+<script type="math/tex; mode=display">
+F/H \cong A.</script><p>$\blacksquare$</p>
+<blockquote>
+<p><strong>(Proposition 2)</strong> If $A$ is finitely generated, then $F$ can also be chosen to be finitely generated.</p>
+</blockquote>
+<p><strong>Proof.</strong> Let $S$ be the generator of $A$, and $S’$ is a set containing $S$. Note if $S$ is finite, which means $A$ is finitely generated, then $S’$ can also be finite by inserting one or any finite number more  of elements. We have a map from $S$ and $S’$ into $F_{ab}(S)$ and $F_{ab}(S’)$ respectively by $f_S(x)=1 \cdot x$ and $f_{S’}(x’)=1 \cdot x’$. Define $g=f_{S’} \circ \lambda:S’ \to F_{ab}(S)$ we get another homomorphism by</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+g_\ast:F_{ab}(S') &\to F_{ab}(S) \\
+\varphi'=\sum_{x \in S'}k_{x} \cdot x &\mapsto \sum_{x \in S'}k_{x}\cdot g(x)
+\end{aligned}</script><p>This defines a unique homomorphism such that $g_\ast \circ f_{S’} = g$. As one can also verify, this map is also surjective. Therefore by the first isomorphism theorem we have</p>
+<script type="math/tex; mode=display">
+A \cong F_{ab}(S) \cong F_{ab}(S')/\ker(g_\ast)</script><p>$\blacksquare$</p>
+<p>It’s worth mentioning separately that we have implicitly proved two statements with commutative diagrams:</p>
+<blockquote>
+<p><strong>(Proposition 3 | Universal property)</strong> If $g:S \to B$ is a mapping of $S$ into some abelian group $B$, then we can define a unique group-homomorphism making the following diagram commutative:</p>
+</blockquote>
+<p><img src="\img\f_ab-1.png" alt="diagram-000001"></p>
+<blockquote>
+<p><strong>(Proposition 4)</strong> If $\lambda:S \to S$ is a mapping of sets, there is a unique homomorphism $\overline{\lambda}$ making the following diagram commutative:</p>
+</blockquote>
+<p><img src="\img\free-abelian-group-cd.png" alt="diagram-000001"></p>
+<p>(In the proof of Proposition 2 we exchanged $S$ an $S’$.)</p>
+<h2 id="The-Grothendieck-group"><a href="#The-Grothendieck-group" class="headerlink" title="The Grothendieck group"></a>The Grothendieck group</h2><blockquote>
+<p><strong>(The Grothendieck group)</strong> Let $M$ be a commutative monoid written additively. We shall prove that there exists a commutative group $K(M)$  with a monoid homomorphism</p>
+<script type="math/tex; mode=display">
+\gamma:M \to K(M)</script><p>satisfying the following universal property: If $f:M \to A$ is a homomorphism from $M$ into a abelian group $A$, then there exists a unique homomorphism $f_\gamma:K(M) \to A$ such that $f=f_\gamma\circ\gamma$. This can be represented by a commutative diagram:</p>
+<p><img src="\img\grothendieck.png" alt="diagram-000001"></p>
+</blockquote>
+<p><strong>Proof.</strong> There is a commutative diagram describes what we are doing.</p>
+<p><img src="\img\grothendieck-group-universal-proof.png" alt="grothendieck-group-universal-proof"></p>
+<p>Let $F_{ab}(M)$ be the free abelian group generated by $M$. For $x \in M$, we denote $1 \cdot x \in F_{ab}(M)$ by $[x]$. Let $B$ be the group generated by all elements of the type</p>
+<script type="math/tex; mode=display">
+[x+y]-[x]-[y]</script><p>where $x,y \in M$. This can be considered as a subgroup of $F_{ab}(M)$. We let $K(M)=F_{ab}(M)/B$. Let $i=x \to [x]$ and $\pi$ be the canonical map </p>
+<script type="math/tex; mode=display">
+\pi:F_{ab}(M) \to F_{ab}(M)/B.</script><p>We are done by defining $\gamma: \pi \circ i$. Then we shall verify that $\gamma$ is our desired homomorphism satisfying the universal property. For $x,y \in M$, we have $\gamma(x+y)=\pi([x+y])$ and $\gamma(x)+\gamma(y) = \pi([x])+\pi([y])=\pi([x]+[y])$. However we have </p>
+<script type="math/tex; mode=display">
+[x+y]-[x]-[y] \in B,</script><p>which implies that</p>
+<script type="math/tex; mode=display">
+\gamma(x)+\gamma(y)=\pi([x]+[y])=\pi([x+y]) = \gamma(x+y).</script><p>Hence $\gamma$ is a monoid-homomorphism. Finally the universal property. By proposition 3, we have a unique homomorphism $f_\ast$ such that $f_\ast \circ i = f$. Note if $y \in B$, then $f_\ast(y) =0$. Therefore $B \subset \ker{f_\ast}$ Therefore we are done if we define $f_\gamma(x+B)=f_\ast (x)$. $\blacksquare$</p>
+<h3 id="Comments-of-the-proof"><a href="#Comments-of-the-proof" class="headerlink" title="Comments of the proof"></a>Comments of the proof</h3><p>Why such a $B$? Note in general $[x+y]$ is not necessarily equal to $[x]+[y]$ in $F_{ab}(M)$, but we don’t want it to be so. So instead we create a new <strong>equivalence relation</strong>, by factoring a subgroup generated by $[x+y]-[x]-[y]$. Therefore in $K(M)$ we see $[x+y]+B = [x]+[y]+B$, which finally makes $\gamma$ a homomorphism. We use the same strategy to generate the <strong>tensor product</strong> of two modules later. But at that time we have more than one relation to take care of. </p>
+<h3 id="Cancellative-monoid"><a href="#Cancellative-monoid" class="headerlink" title="Cancellative monoid"></a>Cancellative monoid</h3><p>If for all $x,y,z \in M$, $x+y=x+z$ implies $y=z$, then we say $M$ is a cancellative monoid, or the cancellation law holds in $M$. Note for the proof above we didn’t use any property of cancellation. However we still have an interesting property for cancellation law.</p>
+<blockquote>
+<p><strong>(Theorem)</strong> The cancellation law holds in $M$ if and only if $\gamma$ is injective.</p>
+</blockquote>
+<p><strong>Proof.</strong> This proof involves another approach to the Grothendieck group. We consider pairs $(x,y) \in M \times M$ with $x,y \in M$. Define</p>
+<script type="math/tex; mode=display">
+(x,y) \sim (x',y') \iff \exists \ell \in M, y+x'+\ell=x+y'+\ell.</script><p>Then we get a equivalence relation (try to prove it yourself!). We define the addition component-wise, that is, $(x,y)+(x’,y’)=(x+x’,y+y’)$, then the equivalence classes of pairs form a group $A$, where the zero element is $[(0,0)]$. We have a monoid-homomorphism</p>
+<script type="math/tex; mode=display">
+f:x \mapsto [(x,0)].</script><p>If cancellation law holds in $M$, then</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+f(x) = f(y) &\implies [(x,0)] = [(y,0)] \\
+                        &\implies 0+y+\ell=x+0+\ell \\
+                        &\implies x=y.
+\end{aligned}</script><p>Hence $f$ is injective. By the universal property of the Grothendieck group, we get a unique homomorphism $f_\gamma$ such that $f_\gamma \circ \gamma = f$. If $x \neq 0$ in $M$, then $f_\gamma \circ \gamma(x) \neq 0$ since $f$ is injective. This implies $\gamma(x) \neq 0$. Hence $\gamma$ is injective.</p>
+<p>Conversely, if $\gamma$ is injective, then $i$ is injective (this can be verified by contradiction). Then we see $f=f_\ast \circ i$ is injective. But $f(x)=f(y)$ if and only if $x+\ell = y+\ell$, hence $x+ \ell = y+ \ell$ implies $x=y$, the cancellation law holds on $M$.</p>
+<h3 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h3><p>Our first example is $\mathbb{N}$. Elements of $F_{ab}(\mathbb{N})$ are of the form</p>
+<script type="math/tex; mode=display">
+\varphi=k_1 \cdot n_1 + k_2 \cdot n_2+\cdots + k_m \cdot n_m.</script><p>For elements in $B$ they are generated by</p>
+<script type="math/tex; mode=display">
+\varphi=1\cdot (m+n)-1\cdot m - 1\cdot n</script><p>which we wish to represent $0$. Indeed, $K(\mathbb{N}) \simeq \mathbb{Z}$ since if we have a homomorphism</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+f:K(\mathbb{N}) &\to \mathbb{Z} \\
+    \sum_{j=1}^{m}k_j \cdot n_j +B &\mapsto \sum_{j=1}^{m}k_j n_j.
+\end{aligned}</script><p>For $r \in \mathbb{Z}$, we see $f(1 \cdot r+B)=r$. On the other hand, if $\sum_{j=1}^{m}k_j \cdot n_j \not\in B$, then its image under $f$ is not $0$.</p>
+<hr>
+<p>In the first example we ‘granted’ the natural numbers ‘subtraction’. Next we grant the division on multiplicative monoid. </p>
+<p>Consider $M=\mathbb{Z} \setminus 0$. Now for $F_{ab}(M)$ we write elements in the form</p>
+<script type="math/tex; mode=display">
+\varphi={}^{k_1}n_1{}^{k_2}n_2\cdots{}^{k_m}n_m</script><p>which denotes that $\varphi(n_j)=k_j$ and has no other differences. Then for elements in $B$ they are generated by</p>
+<script type="math/tex; mode=display">
+\varphi = {}^1(n_1n_2){}^{-1}(n_1)^{-1}(n_2)</script><p>which we wish to represent $1$. Then we see $K(M) \simeq \mathbb{Q} \setminus 0$ if we take the isomorphism</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+f:K(M) &\to \mathbb{Q} \setminus 0 \\
+\left(\prod_{j=1}^{m}{}^{k_j}n_j\right)B &\mapsto \prod_{j=1}^{m}n_j^{k_j}.
+\end{aligned}</script><hr>
+<p>Of course this is not the end of the Grothendieck group. But for further example we may need a lot of topology background. For example, we have the topological $K$-theory group of a topological space to be the Grothendieck group of isomorphism classes of topological vector bundles. But I think it is not a good idea to post these examples at this timing.</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-12-22T04:34:14.000Z" title="22/12/2020, 12:34:14">2020-12-22</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-10-08T09:50:54.230Z" title="08/10/2021, 17:50:54">2021-10-08</time></span><span class="level-item"><a class="link-muted" href="../../categories/Geometry/">Geometry</a><span> / </span><a class="link-muted" href="../../categories/Geometry/Differential-Geometry/">Differential Geometry</a><span> / </span><a class="link-muted" href="../../categories/Geometry/Differential-Geometry/Vector-Bundles/">Vector Bundles</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2020/12/22/vector-bundle-2/">Study Vector Bundle in a Relatively Harder Way - Tangent Bundle</a></h1><div class="content"><h2 id="Tangent-line-and-tangent-surface-as-vector-spaces"><a href="#Tangent-line-and-tangent-surface-as-vector-spaces" class="headerlink" title="Tangent line and tangent surface as vector spaces"></a>Tangent line and tangent surface as vector spaces</h2><p>We begin our study by some elementary Calculus. Now we have the function $f(x)=x^2+\frac{e^x}{x^2+1}$ as our example. It should not be a problem to find its tangent line at point $(0,1)$, by calculating its derivative, we have $l:x-y+1=0$ as the tangent line.</p>
+<p>$l$ is not a vector space since it does not get cross the origin, in general. But $l-\overrightarrow{OA}$ is a vector space. In general, suppose $P(x,y)$ is a point on the curve determined by $f$, i.e. $y=f(x)$, then we obtain a vector space $l_p-\overrightarrow{OP} \simeq \mathbb{R}$. But the action of moving the tangent line to the origin is superfluous so naturally we consider the tangent line at $P$ as a vector space <strong>determined</strong> by $P$. In this case, the induced vector space (tangent line) is always of dimension $1$.</p>
+<p><img src="\img\tangent-line.png" alt="image-20201211153752166"></p>
+<p>Now we move to two-variable functions. We have a function $a(x,y)=x^2+y^2-x-y+xy$ as our example. Some elementary Calculus work gives us the tangent surface of $z=a(x,y)$ at $A(1,1,1)$, which can be identified by $S:2x+2y-z=3\simeq\mathbb{R}^2$. Again, this can be considered as a vector space <strong>determined</strong> by $A$, or roughly speaking it is one if we take $A$ as the origin. Further we have a base $(\overrightarrow{AB},\overrightarrow{AC})$. Other vectors on $S$, for example $\overrightarrow{AD}$, can be written as a linear combination of $\overrightarrow{AB}$ and $\overrightarrow{AC}$. In other words, $S$ is “spanned” by $(\overrightarrow{AB},\overrightarrow{AC})$.</p>
+<p><img src="\img\tangent-surface.png" alt="image-20201211153513707"></p>
+<p>Tangent line and tangent surface play an important role in differentiation. But sometimes we do not have a chance to use it with ease, for example $S^1:x^2+y^2=1$ cannot be represented by a single-variable function. However the implicit function theorem, which you have already learned in Calculus, gives us a chance to find a satisfying function locally. Here in this post we will try to generalize this concept, trying to find the tangent <strong>space</strong> at some point of a manifold. (The two examples above have already determined two manifolds and two tangent spaces.)</p>
+<h2 id="Definition-of-tangent-vectors"><a href="#Definition-of-tangent-vectors" class="headerlink" title="Definition of tangent vectors"></a>Definition of tangent vectors</h2><p>We will introduce the abstract definition of a tangent vector at beginning. You may think it is way too abstract but actually it is not. Surprisingly, the following definition can simplify our work in the future. But before we go, make sure that you have learned about <a href="/2020/07/31/frechet-derivative/">Fréchet derivative</a> (along with some functional analysis knowledge). </p>
+<p>Let $M$ be a manifold of class $C^p$ with $p \geq 1$ and let $x$ be a point of $M$. Let $(U,\varphi)$ be a chart at $x$ and $v$ be a element of the vector space $\mathbf{E}$ where $\varphi(U)$ lies (for example, if $M$ is a $d$-dimensional manifold, then $v \in \mathbb{R}^d$). Next we consider the triple $(U,\varphi,v)$. Suppose $(U,\varphi,v)$ and $(V,\psi,w)$ are two such triples. We say these two triples are <strong>equivalent</strong> if the following identity holds:</p>
+<script type="math/tex; mode=display">
+{\color\green{[}}{\color\red{(}}{\color\red{\psi\circ\varphi^{-1}}}{\color\red{)'}}{\color\red{(}}{\color\purple{\varphi(x)}}{\color\red)}{\color\green{]}}(v)=w.</script><p>This identity looks messy so we need to explain how to read it. First we consider the function in red: the derivative of $\psi\circ\varphi^{-1}$. The derivative of $\psi\circ\varphi^{-1}$ at point $\varphi(x)$ (in purple) is a linear transform, and the transform is embraced with green brackets. Finally, this linear transform maps $v$ to $w$. In short we read, the derivative of $\psi\circ\varphi^{-1}$ at $\varphi(x)$ maps $v$ on $w$. You may recall that you have meet something like $\psi\circ\varphi^{-1}$ in the definition of manifold. It is not likely that these ‘triples’ should be associated to tangent vectors. But before we explain it, we need to make sure that we indeed defined an equivalent relation. </p>
+<blockquote>
+<p><strong>(Theorem 1)</strong> The relation</p>
+<script type="math/tex; mode=display">
+(U,\varphi,v) \sim (V,\psi,w)\\
+[(\psi\circ\varphi^{-1})'(\varphi(x))](v)=w</script><p>is an equivalence relation.</p>
+</blockquote>
+<p><em>Proof.</em> This will not go further than elementary Calculus, in fact, chain rule:</p>
+<blockquote>
+<p><strong>(Chain rule)</strong> If $f:U \to V$ is differentiable at $x_0 \in U$, if $g: V \to W$ is differentiable at $f(x_0)$, then $g \circ f$ is differentiable at $x_0$, and</p>
+<script type="math/tex; mode=display">
+(g\circ f)'(x_0)=g'(f(x_0))\circ f'(x_0)</script></blockquote>
+<ol>
+<li>$(U,\varphi,v)\sim(U,\varphi,v)$.</li>
+</ol>
+<p>Since $\varphi\circ\varphi^{-1}=\operatorname{id}$, whose derivative is still the identity everywhere, we have</p>
+<script type="math/tex; mode=display">
+[(\varphi\circ\varphi^{-1})'(\varphi(x))](v)=\operatorname{id}(v)=v</script><ol>
+<li>If $(U,\varphi,v) \sim (V,\psi,w)$, then $(V,\psi,w)\sim(U,\varphi,v)$.</li>
+</ol>
+<p>So now we have</p>
+<script type="math/tex; mode=display">
+[(\psi\circ\varphi^{-1})'(\varphi(x))](v)=w.</script><p>To prove that $[(\varphi\circ\psi^{-1})’(\psi(x))]{}(w)=v$, we need some implementation of chain rule.</p>
+<p>Note first</p>
+<script type="math/tex; mode=display">
+(\psi\circ\varphi^{-1})'(\varphi(x))=\psi'(\varphi^{-1}(\varphi(x)))\circ\varphi^{-1}{'}(\varphi(x))=\psi'(x)\circ(\varphi^{-1})'(\varphi(x))</script><p>while</p>
+<script type="math/tex; mode=display">
+(\varphi\circ\psi^{-1})'(\psi(x))=\varphi'(x)\circ(\psi^{-1})'(\psi(x)).</script><p>But also by the chain rule, if $f$ is a diffeomorphism, we have</p>
+<script type="math/tex; mode=display">
+(f\circ f^{-1})'(x)=(f^{-1})'(f(x))\circ f'(x)=\operatorname{id}</script><p>or equivalently</p>
+<script type="math/tex; mode=display">
+f'(x)=[(f^{-1})'(f(x))]^{-1} \quad (f^{-1})'(f(x))=[f'(x)]^{-1}</script><p>Therefore</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\{(\psi\circ\varphi^{-1})'(\varphi(x))\}^{-1} &=\{\psi'(x)\circ(\varphi^{-1})'(\varphi(x))\}^{-1} \\
+&=\{(\varphi^{-1})'(\varphi(x))\}^{-1}\circ\{\psi'(x)\}^{-1} \\
+&=\varphi'(x)\circ(\psi^{-1})'(\psi(x)) \\
+&=(\varphi\circ\psi^{-1})'(\psi(x))
+\end{aligned}</script><p>which implies</p>
+<script type="math/tex; mode=display">
+(\varphi\circ\psi^{-1})'(\psi(x))(w)=\{(\psi\circ\varphi^{-1})'(\varphi(x))\}^{-1}(w)=v.</script><ol>
+<li>If $(U,\varphi,v)\sim(V,\psi,w)$ and $(V,\psi,w)\sim(W,\lambda,z)$, then $(U,\varphi,v)\sim(W,\lambda,z)$.</li>
+</ol>
+<p>We are given identities</p>
+<script type="math/tex; mode=display">
+[(\psi\circ\varphi^{-1})'(\varphi(x))](v)=w</script><p>and</p>
+<script type="math/tex; mode=display">
+[(\lambda\circ\psi^{-1})'(\psi(x))](w)=z.</script><p>By canceling $w$, we get</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+z = [(\lambda\circ\psi^{-1})'(\psi(x))] \circ [(\psi\circ\varphi^{-1})'(\varphi(x))] (v)
+\end{aligned}.</script><p>On the other hand,</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+(\lambda\circ\varphi^{-1})'(\varphi(x))&=(\lambda\circ\psi^{-1}\circ\psi\circ\varphi^{-1})'(\varphi(x)) \\
+&=(\lambda\circ\psi^{-1})'(\psi\circ\varphi^{-1}\circ\varphi(x))\circ(\psi\circ\varphi^{-1})'(\varphi(x)) \\
+&=(\lambda\circ\psi^{-1})'(\psi(x))\circ(\psi\circ\varphi^{-1})'(\varphi(x))
+\end{aligned}</script><p>which is what we needed. $\square$</p>
+<p>An <strong>equivalence class</strong> of such triples $(U,\varphi,v)$ is called a <strong>tangent vector</strong> of $X$ at $x$. The set of such tangent vectors is called the <strong>tangent space</strong> to $X$ at $x$, which is denoted by $T_x(X)$. But it seems that we have gone too far. Is the triple even a ‘vector’? To get a clear view let’s see Euclidean submanifolds first.</p>
+<h3 id="Definition-of-tangent-vectors-of-Euclidean-submanifolds"><a href="#Definition-of-tangent-vectors-of-Euclidean-submanifolds" class="headerlink" title="Definition of tangent vectors of Euclidean submanifolds"></a>Definition of tangent vectors of Euclidean submanifolds</h3><blockquote>
+<p>Suppose $M$ is a submanifold of $\mathbb{R}^n$. We say $z$ is the <strong>tangent vector</strong> of $M$ at point $x$ if there exists a curve $\alpha$ of class $C^1$, which is defined on $\mathbb{R}$ and where there exists an interval $I$ such that $\alpha(I) \subset M$, such that $\alpha(t_0)=x$ and $\alpha’(t_0)=z$. (For convenience we often take $t_0=0$.)</p>
+</blockquote>
+<p>This definition is immediate if we check some examples. For the curve $M: x^2+1+\frac{e^x}{x^2+1}-y=0$, we can show that $(1,1)^T$ is a tangent vector of $M$ at $(0,1)$, which is identical to our first example. Taking</p>
+<script type="math/tex; mode=display">
+\alpha(t)=(t,t^2+1+\frac{e^t}{t^2+1})</script><p>we get $\alpha(0)=(0,1)$ and </p>
+<script type="math/tex; mode=display">
+\alpha'(t)=(1,2t+\frac{e^t(t-1)^2}{(t^2+1)^2})^T.</script><p>Therefore $\alpha’(0)=(1,1)^T$. $\square$</p>
+<h4 id="Coordinate-system-and-tangent-vector"><a href="#Coordinate-system-and-tangent-vector" class="headerlink" title="Coordinate system and tangent vector"></a>Coordinate system and tangent vector</h4><blockquote>
+<p>Let $\mathbf{E}$ and $\mathbf{F}$ be two Banach spaces and $U$ an open subset of $\mathbf{E}$. A $C^p$ map $f: U \to \mathbf{F}$ is called an <strong>immersion</strong> at $x$ if $f’(x)$ is injective.</p>
+</blockquote>
+<p>For example, if we take $\mathbf{E}=\mathbf{F}=\mathbb{R}=U$ and $f(x)=x^2$, then $f$ is an immersion at almost all point on $\mathbb{R}$ except $0$ since $f’(0)=0$ is not injective. This may lead you to <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Sard%27s_theorem">Sard’s theorem</a>.</p>
+<blockquote>
+<p><strong>(Theorem 2)</strong> Let $M$ be a subset of $\mathbb{R}^n$, then $M$ is a $d$-dimensional $C^p$ submanifold of $\mathbb{R}^n$ if and only if for every $x \in M$ there exists an open neighborhood $U \subset \mathbb{R}^n$ of $x$, an open neighborhood $\Omega \subset \mathbb{R}^d$ of $0$ and a $C^p$ map $g: \Omega \to \mathbb{R}^n$ such that $g$ is immersion at $0$ such that $g(0)=x$, and $g$ is a homeomorphism between $\Omega$ and $M \cap U$ with the topology induced from $\mathbb{R}^n$.</p>
+</blockquote>
+<p>This follows from the definition of manifold and should not be difficult to prove. But it is not what this blog post should cover. For a proof you can check <em>Differential Geometry: Manifolds, Curves, and Surfaces</em> by Marcel Berger and Bernard Gostiaux. The proof is located in section 2.1. </p>
+<blockquote>
+<p>A coordinate system on a $d$-dimensional $C^p$ submanifold $M$ of $\mathbb{R}^n$ is a pair $(\Omega,g)$ consisting of an open set $\Omega \subset \mathbb{R}^d$ and a $C^p$ function $g:\Omega \to \mathbb{R}^n$ such that $g(\Omega)$ is open in $V$ and $g$ induces a homeomorphism between $\Omega$ and $g(\Omega)$.</p>
+</blockquote>
+<p>For convenience, we say $(\Omega,g)$ is centered at $x$ if $g(0)=x$ and $g$ is an immersion at $x$. By theorem 2 it is always possible to find such a coordinate system centered at a given point $x \in M$. The following theorem will show that we can get a easier approach to tangent vector.</p>
+<blockquote>
+<p><strong>(Theorem 3)</strong> Let $\mathbf{E}$ and $\mathbf{F}$ be two finite-dimensional vector spaces, $U \subset \mathbf{E}$ an open set, $f:U \to \mathbf{F}$ a $C^1$ map, $M$ a submanifold of $\mathbf{E}$ contained in $U$ and $W$ a submanifold of $\mathbf{F}$ such that $f(M) \subset W$. Take $x \in M$ and set $y=f(x)$, If $z$ is a tangent vector to $M$ at $x$, the image $f’(x)(z)$ is a tangent vector to $W$ at $y=f(x)$.</p>
+</blockquote>
+<p><em>Proof.</em> Since $z$ is a tangent vector, we see there exists a curve $\alpha: J \to M$ such that $\alpha(0)=x$ and $\alpha’(0)=z$ where $J$ is an open interval containing $0$. The function $\beta = f \circ \alpha: J \to W$ is also a curve satisfying $\beta(0)=f(\alpha(0))=f(x)$ and</p>
+<script type="math/tex; mode=display">
+\beta'(0)=f'(\alpha(0))\alpha'(0)=f'(x)(z),</script><p>which is our desired curve. $\square$</p>
+<h3 id="Why-we-use-‘equivalence-relation’"><a href="#Why-we-use-‘equivalence-relation’" class="headerlink" title="Why we use ‘equivalence relation’"></a>Why we use ‘equivalence relation’</h3><p>We shall show that equivalence relation makes sense. Suppose $M$ is a $d$-submanifold of $\mathbb{R}^n$, $x \in M$ and $z$ is a tangent vector to $M$ at $x$. Let $(\Omega,g)$ be a coordinate system centered at $x$. Since $g \in C^p(\mathbb{R}^d;\mathbb{R}^n)$, we see $g’(0)$ is a $n \times d$ matrix, and injectivity ensures that $\operatorname{rank}(g’(0))=d$. </p>
+<p>Every open set $\Omega \subset \mathbb{R}^d$ is a $d$-dimensional submanifold of $\mathbb{R}^d$ (of $C^p$). Suppose now $v \in \mathbb{R}^d$ is a tangent vector to $\Omega$ at $0$ (determined by a curve $\alpha$), then by Theorem 3, $g \circ \alpha$ determines a tangent vector to $M$ at $x$, which is $z_x=g’(0)(v)$. Suppose $(\Lambda,h)$ is another coordinate system centered at $x$. If we want to obtain $z_x$ as well, we must have</p>
+<script type="math/tex; mode=display">
+h'(0)(w)=g'(0)(v),</script><p>which is equivalent to</p>
+<script type="math/tex; mode=display">
+w = (h'(0)^{-1} \circ g'(0))(v)=(h^{-1}\circ g)'(0)(v),</script><p>for some $w \in \mathbb{R}^d$ which is the tangent vector to $\Lambda$ at $0 \in \Lambda$. <em>(The inverse makes sense since we implicitly restricted ourself to $\mathbb{R}^d$)</em></p>
+<p>However, we also have two charts by $(U,\varphi)=(g(\Omega),g^{-1})$ and $(V,\psi) = (h(\Lambda),h^{-1})$, which gives</p>
+<script type="math/tex; mode=display">
+(h^{-1} \circ g)'(0)(v)=[(\psi \circ \varphi^{-1})'(\varphi(x))](v)=w</script><p>and this is just our equivalence relation (don’t forget that $g(0)=x$ hence $g^{-1}(x)=\varphi(x)=0$!). There we have our reason for equivalence relation: If $(U,\varphi,v) \sim (V,\psi,w)$, then $(U,\varphi,u)$ and $(V,\psi,v)$ determines the same tangent vector but we do not have to evaluate it manually. In general, all elements in an equivalence class represent a single vector, so the vector is (algebraically) a equivalence class. This still holds when talking about Banach manifold since topological properties of Euclidean spaces do not play a role. The generalized proof can be implemented with little difficulty.</p>
+<h2 id="Tangent-space"><a href="#Tangent-space" class="headerlink" title="Tangent space"></a>Tangent space</h2><p>The tangent vectors at $x \in M$ span a vector space (which is based at $x$). We do hope that because if not our definition of  tangent vector would be incomplete and cannot even hold for an trivial example (such as what we mentioned at the beginning). We shall show, satisfyingly, the set of tangent vectors to $M$ at $x$ (which we write $T_xM$) forms a vector space that is toplinearly isomorphic to $\mathbf{E}$, on which $M$ is modeled. </p>
+<blockquote>
+<p><strong>(Theorem 4)</strong> $T_xM \simeq \mathbf{E}$. In other words, $T_xM$ can be given the structure of topological vector space given by the chart.</p>
+</blockquote>
+<p><em>Proof.</em> Let $(U,\varphi)$ be a chart at $x$. For $v \in \mathbf{E}$, we see $(\varphi^{-1})’(x)(v)$ is a tangent vector at $x$. On the other hand, pick $\mathbf{w} \in T_xM$, which can be represented by $(V,\psi,w)$. Then</p>
+<script type="math/tex; mode=display">
+v=(\varphi\circ\psi^{-1})'(\psi(x))(w)</script><p>makes $(U,\varphi,v) \sim (V,\psi,w)$ uniquely, and therefore we get some $v \in \mathbf{E}$. To conclude,</p>
+<script type="math/tex; mode=display">
+T_xM \xrightarrow[(\varphi^{-1})'(x)]{\simeq}\mathbf{E}</script><p>which proves our theorem. Note that this does not depend on the choice of charts. $\square$</p>
+<p>For many reasons it is not a good idea to identify $T_xM$ as $\mathbf{E}$ without mentioning the point $x$. For example we shouldn’t identify the tangent line of a curve as $x$-axis. Instead, it would be better to identify or visualize $T_xM$ as $(x,\mathbf{E})$, that is, a linear space with origin at $x$.</p>
+<h2 id="Tangent-bundle"><a href="#Tangent-bundle" class="headerlink" title="Tangent bundle"></a>Tangent bundle</h2><p>Now we treat <em>all</em> tangent spaces as a vector bundle. Let $M$ be a manifold of class $C^p$ with $p \geq 1$, define the tangent bundle by the disjoint union</p>
+<script type="math/tex; mode=display">
+T(M)=\bigsqcup_{x \in M}T_xM.</script><p>This is a vector bundle if we define the projection by</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\pi: T(M) &\to M \\
+    y \in T_xM &\mapsto x
+\end{aligned}</script><p>and we will verify it soon. First let’s see an example. Below is a visualization of the tangent bundle of $\frac{x^2}{4}+\frac{y^2}{3}=1$, denoted by red lines:</p>
+<p><img src="\img\tangent-bundle" alt="image-20201219160517699"></p>
+<p>Also we can see $\pi$ maps points on the blue line to a point on the curve, which is $B$. </p>
+<p>To show that a tangent bundle of a manifold is a vector bundle, we need to verify that it satisfies three conditions we mentioned in previous post. Let $(U,\varphi)$ be a chart of $M$ such that $\varphi(U)$ is open in $\mathbf{E}$, then tangent vectors can be represented by $(U,\varphi,v)$. We get a bijection</p>
+<script type="math/tex; mode=display">
+\tau_U:\pi^{-1}(U) = T(U) \to U \times \mathbf{E}</script><p>by definition of tangent vectors as equivalence classes. Let $z_x$ be a tangent vector to $U$ at $x$, then there exists some $v \in \mathbf{E}$ such that $(U,\varphi,v)$ represents $z$. On the other hand, for some $v \in \mathbf{E}$ and $x \in U$, $(U,\varphi,v)$ represents some tangent vector at $x$. Explicitly,</p>
+<script type="math/tex; mode=display">
+\tau_{U}(z_x)=(x,v)=(\pi(z_x),[(\varphi^{-1})'(\pi(z_x))]^{-1}(z_x))</script><p>Further we get the following diagram commutative (which establishes <strong>VB 1</strong>):</p>
+<p><img src="\img\tangent-diagram" alt="diagram-000001"></p>
+<p>For <strong>VB 2</strong> and <strong>VB 3</strong> we need to check different charts. Let $(U_i,\varphi_i)$, $(U_j,\varphi_j)$ be two charts. Define $\varphi_{ji}=\varphi_j \circ \varphi_i^{-1}$ on $\varphi_i(U_i \cap U_j)$, and respectively we write $\tau_{U_i}=\tau_i$ and $\tau_{U_j}=\tau_j$. Then we get a transition mapping</p>
+<script type="math/tex; mode=display">
+\tau_{ji}:(\tau_j \circ \tau_i^{-1}):(U_i \cap U_j) \times \mathbf{E} \to (U_i \cap U_j) \times \mathbf{E}.</script><p>One can verify that</p>
+<script type="math/tex; mode=display">
+\tau_{ji}(x,v)=(\varphi_{ji}(x),D\varphi_{ji}(x) \cdot v)</script><p>for $x \in U_i \cap U_j$ and $v \in \mathbf{E}$. Since $D\varphi_{ji} \in C^{p-1}$ and $D\varphi_{ji}(x)$ is a toplinear isomorphism, we see</p>
+<script type="math/tex; mode=display">
+x \mapsto (\tau_j \circ \tau_i^{-1})_x=(\varphi_{ji}(x),D\varphi_{ji}(x)\cdot(\cdot))</script><p>is a morphism, which goes for <strong>VB 3</strong>. It remains to verify <strong>VB 2</strong>. To do this we need a fact from Banach space theory:</p>
+<blockquote>
+<p>If $f:U \to L(\mathbf{E},\mathbf{F})$ is a $C^k$-morphism, then the map of $U \times \mathbf{E}$ into $\mathbf{F}$ given by</p>
+<script type="math/tex; mode=display">
+(x,v) \mapsto [f(x)](v)</script><p>is a $C^k$-morphism.</p>
+</blockquote>
+<p>Here, we have $f(x)=\tau_{ji}(x,\cdot)$ and to conclude, $\tau_{ji}$ is a $C^{p-1}$-morphism. It is also an isomorphism since it has an inverse $\tau_{ij}$. Following the definition of manifold, we can conclude that $T(U)$ has a unique <strong>manifold structure</strong> such that $\tau_i$ are morphisms (there will be a formal proof in next post about any total space of a vector bundle). By <strong>VB 1</strong>, we also have $\pi=\tau_i\circ pr$, which makes it a morphism as well. On each fiber $\pi^{-1}(x)$, we can freely transport the topological vector space structure of any $\mathbf{E}$ such that $x$ lies in $U_i$, by means of $\tau_{ix}$. Since $f(x)$ is a toplinear isomorphism, the result is independent of the choice of $U_i$. <strong>VB 2</strong> is therefore established. </p>
+<hr>
+<p>Using some fancier word, we can also say that $T:M \to T(M)$ is a <strong>functor</strong> from the category of $C^p$-manifolds to the category of vector bundles of class $C^{p-1}$.</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-11-27T10:22:57.000Z" title="27/11/2020, 18:22:57">2020-11-27</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-10-08T09:50:48.898Z" title="08/10/2021, 17:50:48">2021-10-08</time></span><span class="level-item"><a class="link-muted" href="../../categories/Geometry/">Geometry</a><span> / </span><a class="link-muted" href="../../categories/Geometry/Differential-Geometry/">Differential Geometry</a><span> / </span><a class="link-muted" href="../../categories/Geometry/Differential-Geometry/Vector-Bundles/">Vector Bundles</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2020/11/27/vector-bundle-1/">Study Vector Bundle in a Relatively Harder Way - Definition</a></h1><div class="content"><h2 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h2><p>Direction is a considerable thing. For example take a look at this picture (by David Gunderman):</p>
+<p><img src="\img\mobius.gif" alt="mobius"></p>
+<p>The position of the red ball and black ball shows that this triple of balls turns upside down every time they finish one round. This wouldn’t happen if this triple were on a normal band, which can be denoted by $S^1 \times (0,1)$. What would happen if we try to describe their velocity on the Möbius band, both locally and globally? There must be some significant difference from a normal band. If we set some move pattern on balls, for example let them run horizontally or zig-zagly, hopefully we get different <em>set</em> of vectors. those vectors can span some vector spaces as well. </p>
+<h2 id="A-Formal-Construction"><a href="#A-Formal-Construction" class="headerlink" title="A Formal Construction"></a>A Formal Construction</h2><p>Here and in the forgoing posts, we will try to develop purely formally certain functorial constructions having to do with vector bundles. It may be overly generalized, but we will offer some examples to make it concrete.</p>
+<p>Let $M$ be a manifold (of class $C^p$, where $p \geq 0$ and can be set to $\infty$) modeled on a Banach space $\mathbf{E}$. Let $E$ be another topological space and $\pi: E \to M$ a surjective $C^p$-morphism. A <strong>vector bundle</strong> is a topological construction associated with $M$ (base space), $E$ (total space) and $\pi$ (bundle projection) such that, roughly speaking, $E$ is locally a product of $M$ and $\mathbf{E}$.</p>
+<p>We use $\mathbf{E}$ instead of $\mathbb{R}^n$ to include the infinite dimensional cases. We will try to distinguish finite-dimensional and infinite-dimensional Banach spaces here. There are a lot of things to do, since, for example, infinite dimensional Banach spaces have no countable Hamel basis, while the finite-dimensional ones have finite ones (this can be proved by using the Baire category theorem). </p>
+<p>Next we will show precisely how $E$ locally becomes a product space. Let $\mathfrak{U}=(U_i)_i$ be an open covering of $M$, and for each $i$, suppose that we are <em>given</em> a mapping</p>
+<script type="math/tex; mode=display">
+\tau_i:\pi^{-1}(U_i)\to U_i \times E</script><p>satisfying the following three conditions.</p>
+<p><strong>VB 1</strong> $\tau_i$ is a $C^p$ diffeomorphism making the following diagram commutative:</p>
+<p><img src="\img\vector-bundle.png" alt="diagram-000001"></p>
+<p>where $pr$ is the projection of the first component: $(x,y) \mapsto x$. By restricting $\tau_i$ on one point of $U_i$, we obtain an isomorphism on each fiber $\pi^{-1}(x)$:</p>
+<script type="math/tex; mode=display">
+\tau_{ix}:\pi^{-1}(x) \xrightarrow{\simeq} \{x\} \times \mathbf{E}</script><p><strong>VB 2</strong> For each pair of open sets $U_i$, $U_j \in \mathfrak{U}$, we have the map</p>
+<script type="math/tex; mode=display">
+\tau_{jx} \circ \tau_{ix}^{-1}: \mathbf{E} \to \mathbf{E}</script><p>to be a toplinear isomorphism (that is, it preserves $\mathbf{E}$ for being a <em>topological</em> vector space).</p>
+<p><strong>VB 3</strong> For any two members $U_i$, $U_j \in \mathfrak{U}$, we have the following function to be a $C^p$-morphism:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\varphi:U_i \cap U_j &\to L(\mathbf{E},\mathbf{E}) \\
+                x &\mapsto \left(\tau_j\circ \tau_i^{-1}\right)_x
+\end{aligned}</script><p><strong>REMARKS.</strong> As with manifold, we call the set of 2-tuples $(U_i,\tau_i)_i$ a <strong>trivializing covering</strong> of $\pi$, and that $(\tau_i)$ are its <strong>trivializing maps</strong>. Precisely, for $x \in U_i$, we say $U_i$ or $\tau_i$ trivializes at $x$.</p>
+<p>Two trivializing <em>coverings</em> for $\pi$ is said to be <strong>VB-equivalent</strong> if taken together they also satisfy conditions of <strong>VB 2</strong> and <strong>VB 3</strong>. It’s immediate that <strong>VB-equivalence</strong> is an equivalence relation and we leave the verification to the reader. It is this VB-equivalence <em>class</em> of trivializing coverings that determines a structure of <strong>vector bundle</strong> on $\pi$. With respect to the Banach space $\mathbf{E}$, we say that the vector bundle has <strong>fiber</strong> $\mathbf{E}$, or is <strong>modeled on</strong> $\mathbf{E}$. </p>
+<p>Next we shall give some motivations of each condition. Each pair $(U_i,\tau_i)$ determines a local product of ‘a part of the manifold’ and the model space, on the latter of which we can deploy the direction with ease. This is what <strong>VB 1</strong> tells us. But that’s far from enough if we want our vectors fine enough. We do want the total space $E$ to actually be able to qualify our requirements.  As for <strong>VB 2</strong>, it is ensured that using two different trivializing maps will give the same structure of some Banach spaces (with <em>equivalent</em> norms). According to the image of $\tau_{ix}$, we can say, for each point $x \in X$, which can be determined by a fiber $\pi^{-1}(x)$ (the pre-image of $\tau_{ix}$), can be given another Banach space by being sent via $\tau_{jx}$ for some $j$. Note that $\pi^{-1}(x) \in E$, the total space. In fact, <strong>VB 2</strong> has an equivalent alternative:</p>
+<p><strong>VB 2’</strong> On each fiber $\pi^{-1}(x)$ we are given a structure of Banach space as follows. For $x \in U_i$, we have a toplinear isomorphism which is in fact the trivializing map:</p>
+<script type="math/tex; mode=display">
+\tau_{ix}:\pi^{-1}(x)=E_x \to \mathbf{E}.</script><p>As stated, <strong>VB 2</strong> implies <strong>VB 2’</strong>. Conversely, if <strong>VB 2’</strong> is satisfied, then for open sets $U_i$, $U_j \in \mathfrak{U}$, and $x \in U_i \cap U_j$, we have $\tau_{jx} \circ \tau_{ix}^{-1}:\mathbf{E} \to \mathbf{E}$ to be an toplinear isomorphism. Hence, we can consider <strong>VB 2</strong> or <strong>VB 2’</strong> as the refinement of <strong>VB 1</strong>.</p>
+<p>In finite dimensional case, one can omit <strong>VB 3</strong> since it can be implied by <strong>VB 2</strong>, and we will prove it below.</p>
+<blockquote>
+<p><strong>(Lemma)</strong> Let $\mathbf{E}$ and $\mathbf{F}$ be two finite dimensional Banach spaces. Let $U$ be open in some Banach space. Let</p>
+<script type="math/tex; mode=display">
+f:U \times \mathbf{E} \to \mathbf{F}</script><p>be a $C^p$-morphism such that for each $x \in U$, the map</p>
+<script type="math/tex; mode=display">
+f_x: \mathbf{E} \to \mathbf{F}</script><p>given by $f_x(v)=f(x,v)$ is a linear map. Then the map of $U$ into $L(\mathbf{E},\mathbf{F})$ given by $x \mapsto f_x$ is a $C^p$-morphism.</p>
+</blockquote>
+<p><strong>PROOF.</strong> Since $L(\mathbf{E},\mathbf{F})=L(\mathbf{E},\mathbf{F_1}) \times L(\mathbf{E},\mathbf{F_2}) \times \cdots \times L(\mathbf{E},\mathbf{F_n})$ where $\mathbf{F}=\mathbf{F_1} \times \cdots \times \mathbf{F_n}$, by induction on the dimension of $\mathbf{F}$ and $\mathbf{E}$, it suffices to assume that $\mathbf{E}$ and $\mathbf{F}$ are toplinearly isomorphic to $\mathbb{R}$. But in that case, the function $f(x,v)$ can be written $g(x)v$ for some $g:U \to \mathbb{R}$. Since $f$ is a morphism, it follows that as a function of each argument $x$, $v$ is also a morphism, Putting $v=1$ shows that $g$ is also a morphism, which finishes the case when both the dimension of $\mathbf{E}$ and $\mathbf{F}$ are equal to $1$, and the proof is completed by induction. $\blacksquare$ </p>
+<p>To show that <strong>VB 3</strong> is implied by <strong>VB 2</strong>, put $\mathbf{E}=\mathbf{F}$ as in the lemma. Note that $\tau_j \circ \tau_i^{-1}$ maps $U_i \cap U_j \times \mathbf{E}$ to $\mathbf{E}$, and $U_i \cap U_j$ is open, and for each $x \in U_i \cap U_j$, the map $(\tau_j \circ \tau_i^{-1})_x=\tau_{jx} \circ \tau_{ix}^{-1}$ is toplinear, hence linear. Then the fact that $\varphi$ is a morphism follows from the lemma.</p>
+<h2 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h2><h3 id="Trivial-bundle"><a href="#Trivial-bundle" class="headerlink" title="Trivial bundle"></a>Trivial bundle</h3><p>Let $M$ be any $n$-dimensional smooth manifold that you are familiar with, then $pr:M \times \mathbb{R}^n \to M$ is actually a vector bundle. Here the total space is $M \times \mathbb{R}^n$ and the base is $M$ and $pr$ is the bundle projection but in this case it is simply a projection. Intuitively, on a total space, we can determine a point $x \in M$, and another component can be any direction in $\mathbb{R}^n$, hence a <em>vector</em>. </p>
+<p>We need to verify three conditions carefully. Let $(U_i,\varphi_i)_i$ be any atlas of $M$, and $\tau_i$ is the identity map on $U_i$ (which is naturally of $C^p$). We claim that $(U_i,\tau_i)_i$ satisfy the three conditions, thus we get a vector bundle. </p>
+<p>For <strong>VB 1</strong> things are clear: since $pr^{-1}(U_i)=U_i \times \mathbb{R}^n$, the diagram is commutative. Each fiber $pr^{-1}(x)$ is essentially $(x) \times \mathbb{R}^n$, and still, $\tau_{jx} \circ \tau_{ix}^{-1}$ is the identity map between $(x) \times \mathbb{R}^n$ and $(x) \times \mathbb{R}^n$, under the same Euclidean topology, hence <strong>VB 2</strong> is verified, and we have no need to verify <strong>VB 3</strong>.</p>
+<h3 id="Mobius-band"><a href="#Mobius-band" class="headerlink" title="Möbius band"></a>Möbius band</h3><p>First of all, imagine you have embedded a circle into a Möbius band. Now we try to give some formal definition. As with quotient topology, $S^1$ can be defined as</p>
+<script type="math/tex; mode=display">
+S^1=I/\sim_1,</script><p>where $I$ is the unit interval and $0 \sim_1 1$ (identifying two ends). On the other hand, the infinite Möbius band can be defined by</p>
+<script type="math/tex; mode=display">
+B= (I \times \mathbb{R})/\sim_2</script><p>where $(0,v) \sim_2 (1,-v)$ for all $v \in \mathbb{R}$ (not only identifying two ends of $I$ but also ‘flips’ the vertical line). Then all we need is a natural projection on the first component:</p>
+<script type="math/tex; mode=display">
+\pi:B \to S^1.</script><p>And the verification has few difference from the trivial bundle. Quotient topology of Banach spaces follows naturally in this case, but things might be troublesome if we restrict ourself in $\mathbb{R}^n$.</p>
+<h3 id="Tangent-bundle-of-the-sphere"><a href="#Tangent-bundle-of-the-sphere" class="headerlink" title="Tangent bundle of the sphere"></a>Tangent bundle of the sphere</h3><p>The first example is relatively rare in many senses. By $S^n$ we mean the set in $\mathbb{R}^{n+1}$ with</p>
+<script type="math/tex; mode=display">
+S^n=\{(x_0,x_1,\dots,x_n):x_0^2+x_1^2+\cdots+x_n^2=1\}</script><p>and the tangent bundle can be defined by</p>
+<script type="math/tex; mode=display">
+TS^n=\{(\mathbf{x},\mathbf{y}):\langle\mathbf{x},\mathbf{y}\rangle=0\} \subset S^{n} \times\mathbb{R}^{n+1},</script><p>where, of course, $\mathbf{x} \in S^n$ and $\mathbf{y} \in \mathbb{R}^{n+1}$. The vector bundle is given by $pr:TS^n \to S^n$ where $pr$ is the projection of the first factor. This total space is of course much finer than $M \times \mathbb{R}^n$ in the first example. Each point in the manifold now is associated with a <em>tangent space</em> $T_x(M)$ at this point.</p>
+<p>More generally, we can define it in any Hilbert space $H$, for example, $L^2$ space:</p>
+<script type="math/tex; mode=display">
+TS=\{(x,y):\langle x , y \rangle=0\} \subset S \times H</script><p>where</p>
+<script type="math/tex; mode=display">
+S=\{x:\langle x , x \rangle = 1\}.</script><p>The projection is natural:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\pi: TM &\to M \\
+T_x(M) & \mapsto x
+\end{aligned}</script><p>But we will not cover the verification in this post since it is required to introduce the abstract definition of tangent vectors. This will be done in the following post.</p>
+<h2 id="There-are-still-many-things-remain-undiscovered"><a href="#There-are-still-many-things-remain-undiscovered" class="headerlink" title="There are still many things remain undiscovered"></a>There are still many things remain undiscovered</h2><p>We want to study those ‘vectors’ associated to some manifold both globally and locally. For example we may want to describe the tangent line of some curves at some point without heavily using elementary calculus stuff. Also, we may want to describe the vector bundle of a manifold globally, for example, when will we have a trivial one? Can we classify the manifold using the behavior of the bundle? Can we make it a little more abstract, for example, consider the class of all isomorphism bundles? How do one bundle <em>transform</em> to another? But to do this we need a big amount of definitions and propositions.</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-08-01T07:52:06.000Z" title="01/08/2020, 15:52:06">2020-08-01</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-10-06T08:02:53.863Z" title="06/10/2021, 16:02:53">2021-10-06</time></span><span class="level-item"><a class="link-muted" href="../../categories/Algebra/">Algebra</a><span> / </span><a class="link-muted" href="../../categories/Algebra/Group-Theory/">Group Theory</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2020/08/01/cauchy-sequence-in-group-theory/">Cauchy sequence in group theory</a></h1><div class="content"><h2 id="Recall-Cauchy-sequence-in-analysis"><a href="#Recall-Cauchy-sequence-in-analysis" class="headerlink" title="Recall - Cauchy sequence in analysis"></a>Recall - Cauchy sequence in analysis</h2><p>Before we go into group theory, let’s recall how Cauchy sequence is defined in analysis.</p>
+<h3 id="Real-complex-number"><a href="#Real-complex-number" class="headerlink" title="Real/complex number"></a>Real/complex number</h3><p>A sequence $(x_n)_{n=1}^{\infty}$ of real/complex numbers is called a Cauchy sequence if, for every $\varepsilon&gt;0$, there is a positive integer $N$ such that for all $m,n&gt;N$, we have</p>
+<script type="math/tex; mode=display">
+|x_m-x_n|<\varepsilon.</script><p>That said, the <strong>distance</strong> between two numbers is always ‘too close’. Notice that only distance is involved, the definition of Cauchy sequence in metric space comes up in the natural of things.</p>
+<h3 id="Metric-space"><a href="#Metric-space" class="headerlink" title="Metric space"></a>Metric space</h3><p>Given a metric space $(X,d)$, a sequence $(x_n)_{n=1}^{\infty}$ is Cauchy if for every real number $\varepsilon&gt;0$, there is a positive integer $N$ such that, for all $m,n&gt;N$, the distance by</p>
+<script type="math/tex; mode=display">
+d(x_m,x_n)<\varepsilon.</script><h3 id="Topological-vector-space"><a href="#Topological-vector-space" class="headerlink" title="Topological vector space"></a>Topological vector space</h3><p>By considering the topology induced by metric, we see that $x_n$ lies in a neighborhood of $x_m$ with radius $\varepsilon$. But a topology can be constructed by neighborhood, hence the Cauchy sequence for topological vector space follows.</p>
+<p>For a topological vector space $X$, pick a local base $\mathcal{B}$, then $(x_n)_{n=1}^{\infty}$ is a Cauchy sequence if for each member $U \in \mathcal{B}$, there exists some number $N$ such that for $m,n&gt;N$, we have</p>
+<script type="math/tex; mode=display">
+x_m-x_n \in U.</script><p>But in a topological space, it’s not working. Consider two topological space by</p>
+<script type="math/tex; mode=display">
+X=(0,1)\quad Y=(1,+\infty)</script><p>with usual topology. We have $X \simeq Y$ since we have the map by</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+h:X &\to Y \\
+  x &\mapsto \frac{1}{x}
+\end{aligned}</script><p>as a homeomorphism. Consider the Cauchy sequence $(\frac{1}{n+1})_{n=1}^{\infty}$, we see $(h(\frac{1}{n+1}))_{n=1}^{\infty}=(n+1)_{n=1}^{\infty}$ which is not Cauchy. This counterexample shows that being a Cauchy sequence is not preserved by homeomorphism. </p>
+<h3 id="Topological-group"><a href="#Topological-group" class="headerlink" title="Topological group"></a>Topological group</h3><p>Similarly, one can have a Cauchy sequence in a topological group (bu considering subtraction as inverse).</p>
+<p>A sequence $(x_n)_{n=1}^{\infty}$ in a topological group $G$ is a Cauchy sequence if for every open neighborhood $U$ of the identity $G$, there exists some number $N$ such that whenever $m,n&gt;N$, we have</p>
+<script type="math/tex; mode=display">
+x_nx_m^{-1} \in U</script><h2 id="Completeness"><a href="#Completeness" class="headerlink" title="Completeness"></a>Completeness</h2><p>A metric space $(X,d)$ where every Cauchy sequence converges is complete.</p>
+<p>Spaces like $\mathbb{R}$, $\mathbb{C}$ are complete with Euclid metric. But consider the sequence in $\mathbb{Q}$ by</p>
+<script type="math/tex; mode=display">
+a_n=\left(1+\frac{1}{n}\right)^{n}</script><p>we have $a_n\in\mathbb{Q}$ for all $n$ but the sequence does not converge in $\mathbb{Q}$. Indeed in $\mathbb{R}$ we can naturally write $a_n \to e$ but $e \notin \mathbb{Q}$ as we all know.</p>
+<p>There are several ways to construct $\mathbb{R}$ from $\mathbb{Q}$. One of the most famous methods is Dedekind’s cut. However you can find no explicit usage of Cauchy sequence. There is another method by using Cauchy sequence explicitly. We are following that way algebraically.</p>
+<h2 id="Completing-a-group"><a href="#Completing-a-group" class="headerlink" title="Completing a group"></a>Completing a group</h2><p>Suppose we are given a group $G$ with a sequence of normal subgroups $(H_n)_{n=1}^{\infty}$ with $H_n \supset H_{n+1}$ for all $n$, all of which has finite index. We are going to complete this group.</p>
+<h3 id="Cauchy-sequence"><a href="#Cauchy-sequence" class="headerlink" title="Cauchy sequence"></a>Cauchy sequence</h3><p>A sequence $(x_n)_{n=1}^{\infty}$ in $G$ will be called <strong>Cauchy sequence</strong> if given $H_k$, there exists some $N&gt;0$ such that for $m,n&gt;N$, we have</p>
+<script type="math/tex; mode=display">
+x_nx_m^{-1} \in H_k</script><p>Indeed, this looks very similar to what we see in topological group, but we don’t want to grant a topology to the group anyway. This definition does not go to far from the original definition of Cauchy sequence in $\mathbb{R}$ as well. If you treat $H_k$ as some ‘small’ thing, it shows that $x_m$ and $x_n$ are close enough (by considering $x_nx_m^{-1}$ as their difference).</p>
+<h3 id="Null-sequence"><a href="#Null-sequence" class="headerlink" title="Null sequence"></a>Null sequence</h3><p>A sequence $(x_n)_{n=1}^{\infty}$ in $G$ will be called <strong>null sequence</strong> if given $k$, there exists some $N&gt;0$ such that for all $n&gt;N$, we have</p>
+<script type="math/tex; mode=display">
+x_n\in H_k</script><p>or you may write $x_ne^{-1} \in H_k$. It can be considered as being <em>arbitrarily close to the identity $e$</em>.</p>
+<h3 id="Cauchy-sequence-and-null-sequence-as-groups"><a href="#Cauchy-sequence-and-null-sequence-as-groups" class="headerlink" title="Cauchy sequence and null sequence as groups"></a>Cauchy sequence and null sequence as groups</h3><blockquote>
+<p>The Cauchy sequences (of $G$) form a group under termwise product</p>
+</blockquote>
+<p><em>Proof.</em> Let $C$ be the set of Cauchy sequences, we shall show that $C$ forms a group. For $(x_1,x_2,\cdots),(y_1,y_2,\cdots)\in C$, the product is defined by</p>
+<script type="math/tex; mode=display">
+(x_1,x_2,\cdots)(y_1,y_2,\cdots)=(x_1y_1,x_2y_2,\cdots)</script><p>The associativity follows naturally from the associativity of $G$. To show that $(x_1y_1,x_2y_2,\cdots)$ is still a Cauchy sequence, notice that for big enough $m$, $n$ and some $k$, we have</p>
+<script type="math/tex; mode=display">
+x_nx_m^{-1}\in H_k \quad y_ny_m^{-1}\in H_k.</script><p>But $(x_ny_n)(x_my_m)^{-1}=x_ny_ny_m^{-1}x_m^{-1}$. To show that this is an element of $H_k$, notice that</p>
+<script type="math/tex; mode=display">
+x_ny_ny_m^{-1}x_m^{-1}=(x_ny_ny_m^{-1}{\color{red}{x_n^{-1}}})({\color{red}{x_n}}x_m^{-1})</script><p>Since $y_ny_m^{-1}\in H_k$, $H_k$ is normal, we have $x_ny_ny_mx_n^{-1} \in H_k$. Since $x_nx_m^{-1} \in H_k$, $(x_ny_n)(x_my_m)^{-1}$ can be viewed as a product of two elements of $H_k$, therefore is an element of $H_k$.</p>
+<p>Obviously, if we define $e_C=(e_G,e_G,\cdots)$, where $e_G$ is the identity of $G$, $e_C$ becomes the identity of $C$, since</p>
+<script type="math/tex; mode=display">
+(x_1,x_2,\cdots)(e_G,e_G,\cdots)=(x_1,x_2,\cdots)=(e_G,e_G,\cdots)(x_1,x_2,\cdots).</script><p>Finally the inverse. We need to show that</p>
+<script type="math/tex; mode=display">
+(x_1,x_2,\cdots)^{-1}=(x_1^{-1},x_2^{-1},\cdots)</script><p>is still an element of $C$. This is trivial since if we have</p>
+<script type="math/tex; mode=display">
+x_nx_m^{-1} \in H_k</script><p>then</p>
+<script type="math/tex; mode=display">
+(x_n^{-1})(x_m^{-1})^{-1}=x_n^{-1}x_m \in H_k</script><p>as $H_k$ is a group.</p>
+<hr>
+<blockquote>
+<p>The null sequences (of $G$) form a group, further, it’s a normal subgroup of $C$, that is, the group of Cauchy sequences.</p>
+</blockquote>
+<p>Let $N$ be the set of null sequences of $G$. Still, the identity is defined by $(e_G,e_G,\cdots)$, and there is no need to duplicate the validation. And the associativity still follows from $G$. To show that $N$ is closed under termwise product, namely if $(x_n),(y_n) \in N$, then $(x_ny_n)\in N$, one only need to notice that, for big $n$, we already have</p>
+<script type="math/tex; mode=display">
+x_n,y_n \in H_k.</script><p>Therefore $x_ny_n \in H_k$ since $x_n$ and $y_n$ are two elements of $H_k$.</p>
+<p>To show that $(x_n^{-1})$, which should be treated as the inverse of $(x_n)$, is still in $N$, notice that if $x_n \in H_k$, then $x_n^{-1} \in H_k$.</p>
+<p>Next, we shall show that $N$ is a subgroup of $C$, which is equivalent to show that every null sequence is Cauchy. Given $H_p \supset H_q$, for $(x_n)\in{N}$, there are some big enough $m$ and $n$ such that</p>
+<script type="math/tex; mode=display">
+x_n \in H_p \quad x_m \in H_q</script><p>therefore</p>
+<script type="math/tex; mode=display">
+x_nx_m^{-1} \in H_p</script><p>as desired. Finally, pick $(p_n) \in N$ and $(q_n) \in C$, we shall show that $(q_n)(p_n)(q_n)^{-1} \in N$. That is, the sequence $(q_np_nq_n^{-1})$ is a null sequence. Given $H_k$, we have some big $n$ such that</p>
+<script type="math/tex; mode=display">
+p_n \in H_k</script><p>therefore</p>
+<script type="math/tex; mode=display">
+q_np_nq_n^{-1} \in H_k</script><p>since $H_k$ is normal. Our statement is proved.</p>
+<h3 id="The-factor-group"><a href="#The-factor-group" class="headerlink" title="The factor group"></a>The factor group</h3><blockquote>
+<p>The factor group $C/N$ is called the <strong>completion</strong> of $G$ (with respect to $(H_n)$).</p>
+</blockquote>
+<p>As we know, the elements of $C/N$ are cosets. A coset can be considered as an element of $G$’s completion. Let’s head back to some properties of factor group. Pick $x,y \in C$, then $xN=yN$ if and only if $x^{-1}y \in N$. With that being said, two Cauchy sequences are equivalent if their ‘difference’ is a null sequence. </p>
+<p>Informally, consider the addictive group $\mathbb{Q}$. There are two Cauchy sequence by</p>
+<script type="math/tex; mode=display">
+(1,1,1,\cdots,1,\cdots) \\
+(0.9,0.99,0.999,0.9999,\cdots).</script><p>They are equivalent since</p>
+<script type="math/tex; mode=display">
+(0.1,0.01,0.001,\cdots)</script><p>is a null sequence. That’s why people say $0.99999… = 1$ (in analysis, the difference is convergent to $0$; but in algebra, we say the two sequences are equivalent). Another example, $\ln{2}$ can be represented by the equivalent class of</p>
+<script type="math/tex; mode=display">
+(0.6,0.69,0.693,\cdots).</script><hr>
+<h2 id="Remarks"><a href="#Remarks" class="headerlink" title="Remarks"></a>Remarks</h2><p>We made our completion using Cauchy sequences. The completion is filled with some Cauchy sequence and some additions of ‘nothing’, whence the gap disappears.</p>
+<p>Again, the sequence of normal subgroups does not have to be indexed by $\mathbb{N}$. It can be indexed by any directed partially ordered set, or simply partially ordered set. Removing the restriction of index set gives us a great variety of implementation.</p>
+<p>However, can we finished everything about completing $\mathbb{Q}$ using this? The answer is, no - the multiplication is not verified! To finish this, field theory have to be taken into consideration.</p>
+</div></article></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="../../img/avatar.png" alt="Desvl"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Desvl</p><p class="is-size-6 is-block">A blog mainly on graduate mathematics.</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>A Noetherian local ring</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="../../archives"><p class="title">86</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="../../categories"><p class="title">44</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="../../tags"><p class="title">49</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="../../redirect/newsletter" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Compose an Email" href="../../redirect/email"><i class="fas fa-envelope"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="../../atom.xml"><i class="fas fa-rss"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Mathstodon" href="https://mathstodon.xyz/@desvl"><i class="fa-brands fa-mastodon"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://arxiv.org/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">arXiv</span></span><span class="level-right"><span class="level-item tag">arxiv.org</span></span></a></li><li><a class="level is-mobile" href="https://stacks.math.columbia.edu/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">The Stack Project</span></span><span class="level-right"><span class="level-item tag">stacks.math.columbia.edu</span></span></a></li><li><a class="level is-mobile" href="https://ncatlab.org/nlab/show/mathematics" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">nLab (Mathematics)</span></span><span class="level-right"><span class="level-item tag">ncatlab.org</span></span></a></li><li><a class="level is-mobile" href="https://q.uiver.app/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">quiver: a modern commutative diagram editor</span></span><span class="level-right"><span class="level-item tag">q.uiver.app</span></span></a></li><li><a class="level is-mobile" href="https://www.symmetricfunctions.com/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">The Symmetric Functions Catalogue</span></span><span class="level-right"><span class="level-item tag">www.symmetricfunctions.com</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/speaking.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Speaking</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/writing.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Writing</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">How to study maths really quick (YouTube)</span></span><span class="level-right"><span class="level-item tag">www.youtube.com</span></span></a></li><li><a class="level is-mobile" href="https://www.bilibili.com/video/BV1GJ411x7h7" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">How to study maths really quick (Bilibili)</span></span><span class="level-right"><span class="level-item tag">www.bilibili.com</span></span></a></li></ul></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="../../index.html"><img src="../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a><p class="is-size-7"><span>&copy; 2022</span> <a rel="me noopener" target="_blank" href="https://mathstodon.xyz/@desvl">Desvl</a><br>Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="../../js/column.js"></script><script src="../../js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="../../js/back_to_top.js" defer></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
+            },
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><!--!--><script src="../../js/main.js" defer></script><!--!--></body></html>

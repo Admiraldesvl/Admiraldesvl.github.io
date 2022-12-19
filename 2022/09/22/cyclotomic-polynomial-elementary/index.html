@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Properties of Cyclotomic Polynomials - Desvl&#039;s blog</title><link rel="manifest" href="../../../../manifest.json"><meta name="application-name" content="Desvl&#039;s blog"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Desvl&#039;s blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="In this post we study cyclotomic polynomials in field theory and deduce some baisc properties of it. We will also use it to solve some problems in field theory."><meta property="og:type" content="blog"><meta property="og:title" content="Properties of Cyclotomic Polynomials"><meta property="og:url" content="https://desvl.xyz/2022/09/22/cyclotomic-polynomial-elementary/"><meta property="og:site_name" content="Desvl&#039;s blog"><meta property="og:description" content="In this post we study cyclotomic polynomials in field theory and deduce some baisc properties of it. We will also use it to solve some problems in field theory."><meta property="og:locale" content="en_US"><meta property="og:image" content="https://desvl.xyz/img/avatar.png"><meta property="article:published_time" content="2022-09-22T08:21:25.000Z"><meta property="article:modified_time" content="2022-09-22T08:53:09.536Z"><meta property="article:author" content="Desvl"><meta property="article:tag" content="Exercise solution"><meta property="article:tag" content="Serge Lang"><meta property="twitter:card" content="summary_large_image"><meta property="twitter:image:src" content="https://desvl.xyz/img/avatar.png"><meta property="twitter:creator" content="@Desvl_"><meta property="twitter:site" content="{ https://desvl.xyz }"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://desvl.xyz/2022/09/22/cyclotomic-polynomial-elementary/"},"headline":"Properties of Cyclotomic Polynomials","image":["https://desvl.xyz/img/avatar.png"],"datePublished":"2022-09-22T08:21:25.000Z","dateModified":"2022-09-22T08:53:09.536Z","author":{"@type":"Person","name":"Desvl"},"publisher":{"@type":"Organization","name":"Desvl","logo":{"@type":"ImageObject","url":"https://desvl.xyz/img/logo.svg"}},"description":"In this post we study cyclotomic polynomials in field theory and deduce some baisc properties of it. We will also use it to solve some problems in field theory."}</script><link rel="canonical" href="https://desvl.xyz/2022/09/22/cyclotomic-polynomial-elementary/"><link rel="alternate" href="../../../../atom.xml" title="Desvl&#039;s blog" type="application/atom+xml"><link rel="icon" href="../../../../img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap"><link rel="stylesheet" href="../../../../css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="../../../../index.html"><img src="../../../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="../../../../index.html">Home</a><a class="navbar-item" href="../../../../archives">Archives</a><a class="navbar-item" href="../../../../categories">Categories</a><a class="navbar-item" href="../../../../tags">Tags</a><a class="navbar-item" href="../../../../about">About (Updated Aug. 2022)</a><a class="navbar-item" href="../../../../link-exchange">Link Exchange</a><a class="navbar-item" href="../../../../support-the-author">Support the Author</a></div><div class="navbar-end"><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-09-22T08:21:25.000Z" title="22/09/2022, 16:21:25">2022-09-22</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-09-22T08:53:09.536Z" title="22/09/2022, 16:53:09">2022-09-22</time></span><span class="level-item"><a class="link-muted" href="../../../../categories/Algebra/">Algebra</a><span> / </span><a class="link-muted" href="../../../../categories/Algebra/Galois-Theory/">Galois Theory</a><span> / </span><a class="link-muted" href="../../../../categories/Algebra/Field-Theory/">Field Theory</a></span></div></div><h1 class="title is-3 is-size-4-mobile">Properties of Cyclotomic Polynomials</h1><div class="content"><h1 id="Background-in-Basic-Field-Theory"><a href="#Background-in-Basic-Field-Theory" class="headerlink" title="Background in Basic Field Theory"></a>Background in Basic Field Theory</h1><p>Let $K$ be a field (in this post we mostly assume that $K \supset \mathbb{Q}$) and $n$ an integer $&gt;1$ which is not divisible by the characteristic of $K$. Then the polynomial</p>
+<script type="math/tex; mode=display">
+X^n-1</script><p>is separable because its derivative is $nX^{n-1} \ne 0$. Hence in the algebraic closure $\overline{K}$, the polynomial has $n$ distinct roots, which forms a group $U$, and is cyclic. In fact, as an exercise, one can show that, for a field $k$, any subgroup $U$ of the multiplicative group $k^\ast$ is a cyclic group.</p>
+<p>The generator $\zeta_n$ of $U$ is called the primitive $n$-th root of unity. Let $K=\mathbb{Q}$ and $L$ be the smallest extension that contains all elements of $U$, then we have $L=\mathbb{Q}(\zeta_n)$. As a matter of fact, $L/K$ is a Galois extension (to be shown later), and the cyclotomic polynomial $\Phi_n(X)$ is the irreducible polynomial of $\zeta_n$ over $\mathbb{Q}$. We first need to find the degree $[L:K]$.</p>
+<blockquote>
+<p><strong>Proposition 1.</strong> Notation being above, $L/K$ is Galois, the Galois group $\operatorname{Gal}(L/K) \cong (\mathbb{Z}/n\mathbb{Z})^\ast$ (the group of units in $\mathbb{Z}/n\mathbb{Z}$) and $[L:K]=\varphi(n)$.</p>
+</blockquote>
+<p>Let’s first elaborate the fact that $|(\mathbb{Z}/n\mathbb{Z})^\ast|=\varphi(n)$. Let $[0],[1],\dots,[n-1]$ be representatives of $\mathbb{Z}/n\mathbb{Z}$. An element $[x]$ in $\mathbb{Z}/n\mathbb{Z}$ is a unit if and only if there exists $[y]$ such that $[xy]=[1]$, which is to say, $xy \equiv 1 \mod n$. Notice that $xy \equiv 1 \mod n$ if and only if $xy+mn=1$ for some $y,n \in \mathbb{Z}$, if and only if $\gcd(x,n)=1$. Therefore $|(\mathbb{Z}/n\mathbb{Z})^\ast|=\varphi(n)$ is proved.</p>
+<p>The proof can be produced by two lemmas, the first of which is independent to the characteristic of the field.</p>
+<blockquote>
+<p><strong>Lemma 1.</strong> Let $k$ be a field and $n$ be not divisible by the characteristic $p$. Let $\zeta=\zeta_n$ be a primitive $n$-th root of unity in $\overline{k}$, then $(\mathbb{Z}/n\mathbb{Z})^\ast \supset \operatorname{Gal}(k(\zeta)/k)$ and therefore $[k(\zeta):k] \le \varphi(n)$. Besides, $k(\zeta)/k$ is a normal abelian extension.</p>
+</blockquote>
+<p><em>Proof.</em> Let $\sigma$ be an embedding of $k(\zeta)$ in $\overline{k}$ over $k$, then</p>
+<script type="math/tex; mode=display">
+(\sigma\zeta)^n=\sigma(\zeta^n)=\sigma(1)=1</script><p>so that $\sigma\zeta$ is also an $n$-th root of unity also. Hence $\sigma\zeta=\zeta^i$ for some $i=i(\sigma)$, uniquely determined modulo $n$. It follows that $\sigma$ maps $k(\zeta)$ into itself. This is to say, $k(\zeta)$ is normal over $k$. Let $\tau$ be another automorphism of $k(\zeta)$ over $k$ then</p>
+<script type="math/tex; mode=display">
+\sigma\tau\zeta=\zeta^{i(\sigma)i(\tau)}.</script><p>It follows that $i(\sigma)$ and $i(\tau)$ are prime to $n$ (otherwise, $\sigma\zeta$ would have a period smaller than $n$, implying that the period of $\zeta$ is smaller than $n$, which is absurd). Therefore for each $\sigma \in \operatorname{Gal}(k(\zeta)/k)$, $i(\sigma)$ can be embedded into $(\mathbb{Z}/n\mathbb{Z})^\ast$, thus proving our theorem. $\square$</p>
+<p>It is easy to find an example with strict inclusion. One only needs to look at $k=\mathbb{R}$ or $\mathbb{C}$.</p>
+<blockquote>
+<p><strong>Lemma 2.</strong> Let $\zeta=\zeta_n$ be a primitive $n$-th root of polynomial over $\mathbb{Q}$, then for any $p \nmid n$, $\zeta^p$ is also a primitive $n$-th root of unity.</p>
+</blockquote>
+<p><em>Proof.</em> Let $f(X)$ be the irreducible polynomial of $\zeta$ over $\mathbb{Q}$, then $f(X)|(X^n-1)$ by definition. As a result we can write $X^n-1=f(X)h(X)$ where $h(X)$ has leading coefficient $1$. By Gauss’s lemma, both $f$ and $h$ have integral coefficients.</p>
+<p>Suppose $\zeta^p$ is not a root of $f$. Since $(\zeta^p)^n-1=(\zeta^n)^p-1=0$, it follows that $\zeta^p$ is a root of $h$, and $\zeta$ is a root of $h(X^p)$. As a result, $f(X)$ divides $h(X^p)$ and we write</p>
+<script type="math/tex; mode=display">
+h(X^p)=f(X)g(X).</script><p>Again by Gauss’s lemma, $g(X)$ has integral coefficients. </p>
+<p>Next we reduce these equations in $\mathbf{F}_p=\mathbb{Z}/p\mathbb{Z}$. We firstly have</p>
+<script type="math/tex; mode=display">
+\overline{f}(X)\overline{g}(X)=\overline{h}(X^p).</script><p>By Fermat’s little theorem $a^p=a$ for all $a \in \mathbf{F}_q$, we also have</p>
+<script type="math/tex; mode=display">
+\overline{h}(X^p)=\overline{h}(X)^p.</script><p>Therefore</p>
+<script type="math/tex; mode=display">
+\overline{f}(X)\overline{g}(X)=\overline{h}(X)^p,</script><p>which implies that $\overline{f}(X)|\overline{h}(X)^p$. Hence $\overline{f}$ and $\overline{h}$ must have a common factor. As a result, $X^n-\overline{1}=\overline{f}(X)\overline{h}(X)$ has multiple roots in $\mathbf{F}_p$, which is impossible because of our choice of $p$. $\square$</p>
+<p>Now we are ready for Proposition 1.</p>
+<p><em>Proof of Proposition 1.</em> Since $\mathbb{Q}$ is a perfect field, $\mathbb{Q}(\zeta)/\mathbb{Q}$ is automatically separable. This extension is Galois because of lemma 1. By lemma 1, it suffices to show that $[\mathbb{Q}(\zeta):\mathbb{Q}] \ge \varphi(n)$.</p>
+<p>Recall in elementary group theory, if $G$ is a finite cyclic group of order $m$ and $x$ is a generator of $G$, then the set of generators consists elements of the form $x^\nu$ where $\nu \nmid m$. In this occasion, if $\zeta$ generates $U$, then $\zeta^p$ also generates $U$ because $p \nmid n$. It follows that every primitive $n$-th root of unity can be obtained by raising $\zeta$ to a succession of prime numbers that do not divide $n$ (as a result we obtain exactly $\varphi(n)$ such primitive  roots). By lemma 2, all these numbers are roots of $f$ in the proof of lemma 2. Therefore $\deg f = [L:K] \ge \varphi(n)$. Hence the proposition is proved. $\square$</p>
+<p>We will show that $f$ in the proof lemma 2 is actually the cyclotomic polynomial $\Phi_n(x)$ you are looking for. The following procedure works for all fields where the characteristic does not divide $n$, but we assume characteristic to be $0$ for simplicity.</p>
+<p>We have</p>
+<script type="math/tex; mode=display">
+X^n-1=\prod_{\zeta}(X-\zeta),</script><p>where the product is taken over all $n$-th roots of unity. Collecting all roots with the same period $d$ (i.e., those $\zeta$ such that $\zeta^d=1$), we put</p>
+<script type="math/tex; mode=display">
+\Phi_d(X)=\prod_{\operatorname{period} \zeta=d}(X-\zeta).</script><p>Then</p>
+<script type="math/tex; mode=display">
+X^n-1=\prod_{d|n}\Phi_d(X).</script><p>It follows that $\Phi_1(X)=X-1$ and</p>
+<script type="math/tex; mode=display">
+\Phi_n(X)=\frac{X^n-1}{\prod_{d\mid n}^{d<n}\Phi_d(X)}.</script><p>This presentation makes our computation much easier. But to understand $\Phi_n$, we still should keep in mind that the $n$-th cyclotomic polynomial is defined to be</p>
+<script type="math/tex; mode=display">
+\Phi_n(X)=\prod_{\operatorname{period}\zeta=n}(X-\zeta),</script><p>whose roots are all primitive $n$-th roots of unity. As stated in the proof of proposition 1, there are $\varphi(n)$ primitive $n$-th roots of unity, and therefore $\deg\Phi_n(X)=\varphi(n)$. Besides, $f|\Phi_n$. Since both have the same degree, these two polynomials equal. It also follows that $\sum_{d|n}\varphi(n)=n$.</p>
+<blockquote>
+<p><strong>Proposition 2.</strong> The cyclotomic polynomial is irreducible and is the irreducible polynomial of $\zeta$ over $\mathbb{Q}$, where $\zeta$ is a primitive $n$-th root of unity.</p>
+</blockquote>
+<p>We end this section by a problem in number fields, making use of what we have studied above.</p>
+<blockquote>
+<p><strong>Problem 0.</strong> A number field $F$ only contains finitely many roots of unity.</p>
+</blockquote>
+<p><em>Solution.</em> Let $\zeta \in F$ be a root of unity with period $n$. Then $\Phi_n(\zeta)=0$ and therefore $[\mathbb{Q}(\zeta):\mathbb{Q}]$ has degree $\varphi(n)$. Since $\mathbb{Q}(\zeta)$ is also a subfield of $F$, we also have $\varphi(n) \le [F:\mathbb{Q}]$. Since $\{n:\varphi(n) \le [F:\mathbb{Q}]\}$ is certainly a finite set, the number of roots of unity lie in $F$ is finite. $\square$</p>
+<h1 id="Technical-Computations"><a href="#Technical-Computations" class="headerlink" title="Technical Computations"></a>Technical Computations</h1><p>We will do some dirty computation in this section.</p>
+<blockquote>
+<p><strong>Problem 1.</strong> If $p$ is prime, then $\Phi_p(X)=X^{p-1}+X^{p-2}+\dots+1$, and for an integer $\nu \ge 1$, $\Phi_{p^\nu}(X)=\Phi_p(X^{p^{\nu-1}})$.</p>
+</blockquote>
+<p><em>Solution.</em> The only integer $d$ that divides $p$ is $1$ and we can only have</p>
+<script type="math/tex; mode=display">
+\Phi_p(X)=\frac{X^p-1}{\Phi_1(X)}=X^{p-1}+\dots+1.</script><p>For the second statement, we use induction on $\nu$. When $\nu=1$ we have nothing to prove. Suppose now</p>
+<script type="math/tex; mode=display">
+\Phi_{p^\nu}(X)=\Phi_p(X^{p^{\nu-1}})
+=\frac{X^{p^{\nu}}-1}{X^{p^{\nu-1}}-1}
+=\frac{X^{p^{\nu}}-1}{\prod_{r=0}^{\nu-1}\Phi_{p^{r}}(X)}</script><p>is proved, then $X^{p^\nu}-1=\prod_{r=0}^{\nu}\Phi_{p^r}(X)$ and therefore</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\Phi_{p^{\nu+1}}(X)&=\frac{X^{p^{\nu+1}}-1}{\prod_{r=0}^{\nu}\Phi_{p^r}(X)} \\
+                   &=\frac{X^{p^{\nu+1}}-1}{X^{p^{\nu}}-1} \\
+                   &=\Phi_p(X^{p^\nu}).
+\end{aligned}</script><blockquote>
+<p><strong>Problem 2.</strong> Let $p$ be a prime number. If $p \nmid n$, then</p>
+<script type="math/tex; mode=display">
+\Phi_{pn}(X)=\frac{\Phi_n(X^p)}{\Phi_n(X)}.</script></blockquote>
+<p><em>Solution.</em> Assume $p \nmid n$ first. It holds clearly for $n=1$. Suppose now the statement holds for all integers $&lt;n$ that are prime to $p$. We see</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\frac{\Phi_n(X^p)}{\Phi_n(X)} &= \frac{X^{pn}-1}
+{\prod_{d|n}^{d<n}\Phi_d(X^p)}\frac{\prod_{d|n}^{d<n}\Phi_d(X)}{X^n-1} \\
+&= \frac{X^{pn}-1}{(X^n-1)\prod_{d|n}^{d<n}\Phi_{dp}(X)} \\
+&= \frac{X^{pn}-1}{\prod_{d|n}\Phi_d(X)\prod_{d|n}^{d<n}\Phi_{dp}(X)} \\
+&=\Phi_{np}(X).
+\end{aligned}</script><blockquote>
+<p><strong>Problem 3.</strong> If $n$ is an odd number $&gt;1$, then $\Phi_{2n}(X)=\Phi_n(-X)$.</p>
+</blockquote>
+<p><em>Solution.</em> By problem 2, $\Phi_{2n}(X)=\Phi_n(X^2)/\Phi_n(X)$. To show the identity it suffices to show that</p>
+<script type="math/tex; mode=display">
+\Phi_n(X)\Phi_n(-X)=\Phi_n(X^2).</script><p>For $n=3$ we see</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\Phi_3(X)\Phi_3(-X) &= (X^2+X+1)(X^2-X+1) \\
+&=(X^2+1)^2-X^2 \\
+&=X^4+X^2+1 \\
+&=\Phi_3(X^2).
+\end{aligned}</script><p>Now suppose it holds for all odd numbers $3 \le d &lt; n$, then</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\Phi_n(X)\Phi_n(-X) &= \frac{(X^n-1)(-X^n-1)}{
+    (X-1)(-X-1)\prod_{3\le d < n}^{d|n}\Phi_d(X)\Phi_d(-X)
+} \\
+&=  \frac{-(X^{2n}-1)}{-(X^2-1)\prod_{3 \le d < n}^{d|n}
+    \Phi_d(X^2)} \\
+&= \Phi_n(X^2).
+\end{aligned}</script><p>The following problem would not be very easy without the Möbius inversion formula so we will use it anyway. Problems above can also be deduced from this formula. Let $f:\mathbb{Z}_{\ge 0} \to \mathbb{Z}_{\ge 0}$ be a function and $F(n)=\prod_{d|n}f(d)$, then the Möbius inversion formula states that</p>
+<script type="math/tex; mode=display">
+f(n)=\prod_{d|n}F(n/d)^{\mu(d)}</script><p>with</p>
+<script type="math/tex; mode=display">
+\mu(n)=\begin{cases}
+0 & \text{if $n$ is divisible by $p^2$ for some prime $p$}, \\
+(-1)^r & \text{if $n$ is a product of $r$ distinct primes,} \\
+1 & \text{if $n=1$.}
+\end{cases}</script><p>Putting $f(d)=\Phi_d(X)$, we see</p>
+<script type="math/tex; mode=display">
+\Phi_n(X)=\prod_{d|n}(X^{n/d}-1)^{\mu(d)}.</script><p>Now we proceed.</p>
+<blockquote>
+<p><strong>Problem 4.</strong> If $p|n$, then $\Phi_{pn}(X)=\Phi_n(X^p)$.</p>
+</blockquote>
+<p><em>Solution.</em> By the Möbius inversion formula, we see</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\Phi_{pn}(X) &= \prod_{d|pn}(X^{pn/d}-1)^{\mu(d)} \\
+             &= \left(\prod_{d|n}(X^{pn/d}-1)^{\mu(d)} \right) 
+                \left(\prod_{d|np}^{d\nmid n}(X^{pn/d}-1)^{\mu(d)}\right) \\
+             &= \Phi_n(X^p)
+\end{aligned}</script><p>because all $d$ that divides $np$ but not $n$ must be divisible by $p^2$. Problem 2 can also follow from here.</p>
+<blockquote>
+<p><strong>Problem 5.</strong> Let $n=p_1^{r_1}\dots p_s^{r_s}$, then</p>
+<script type="math/tex; mode=display">
+\Phi_n(X)=\Phi_{p_1 \dots p_s}(X^{p_1^{r_1-1}\dots 
+p_s^{r_s-1}}).</script></blockquote>
+<p><em>Solution.</em> This problem can be solved by induction on the number of primes. For $s=1$ it is problem 1. Suppose it has been proved for $s-1$ primes, then for</p>
+<script type="math/tex; mode=display">
+n_{s-1}=p_1^{r_1}\dots p_{s-1}^{r_{s-1}}</script><p>and a prime $p_s$, we have</p>
+<script type="math/tex; mode=display">
+\Phi_{n_{s-1}p_s}(X)=\frac{\Phi_{n_{s-1}}(X^{p_s})}{\Phi_{n_{s-1}}(X)}</script><p>On the other hand,</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\frac{\Phi_{n_{s-1}}(X^{p_s})}{\Phi_{n_{s-1}}(X)}&=\frac{\Phi_{p_1\dots p_{s-1}}(X^{
+    p_1^{r_1-1}\dots p_{s-1}^{r_{s-1}-1}p_s
+})}{\Phi_{p_1\dots p_{s-1}}(X^{
+    p_1^{r_1-1}\dots p_{s-1}^{r_{s-1}-1}
+})} \\
+&=\Phi_{p_1 \dots p_{s-1}p_s}(X^{p_1^{r_1-1}\dots p_{s-1}^{r_{s-1}-1}p_s^{1-1}})
+\end{aligned}</script><p>if we put $Y=X^{p_1^{r_1-1}\dots p_{s-1}^{r_{s-1}-1}}$. When it comes to higher degree of $p_s$, it’s merely problem 2. Therefore we have shown what we want.</p>
+<h1 id="Computing-the-Norm"><a href="#Computing-the-Norm" class="headerlink" title="Computing the Norm"></a>Computing the Norm</h1><p>Let $\zeta$ be a primitive $n$-th root of unity, put $K=\mathbb{Q}(\zeta)$ and $G$ the Galois group.. We will compute the norm of $1-\zeta$ with respect to the extension $K/\mathbb{Q}$. Since this extension is separable, we have</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+N_\mathbb{Q}^K(1-\zeta)&=\prod_{\sigma \in G}\sigma(1-\zeta) \\
+&=\prod_{\sigma \in G}(1-\sigma\zeta) \\
+\end{aligned}</script><p>Since $G$ acts on the set of primitive roots transitively, $\{\sigma\zeta\}_{\sigma \in G}$ is exactly the set of primitive roots of unity, which are roots of $\Phi_n(X)$. It follows that</p>
+<script type="math/tex; mode=display">
+N_\mathbb{Q}^K(1-\zeta)=\Phi_n(1).</script><p>If $n=p^r$, then $N_\mathbb{Q}^K(1-\zeta)=\Phi_p(1^{p^{r-1}})=\Phi_p(1)=p$. On the other hand, if</p>
+<script type="math/tex; mode=display">
+n=p_1^{r_1}\dots p_s^{r_s},</script><p>then</p>
+<script type="math/tex; mode=display">
+\Phi_n(1)=\Phi_{p_1\dots p_s}(1)=1.</script></div><div class="article-licensing box"><div class="licensing-title"><p>Properties of Cyclotomic Polynomials</p><p><a href="https://desvl.xyz/2022/09/22/cyclotomic-polynomial-elementary/">https://desvl.xyz/2022/09/22/cyclotomic-polynomial-elementary/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>Desvl</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2022-09-22</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2022-09-22</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="../../../../tags/Exercise-solution/">Exercise solution</a><a class="link-muted mr-2" rel="tag" href="../../../../tags/Serge-Lang/">Serge Lang</a></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="../../../11/24/riemann-zeta-continuation/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">A Step-by-step of the Analytic Continuation of the Riemann Zeta Function</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="../../04/height-polynomial/"><span class="level-item">Calculus on Fields - Heights of Polynomials, Mahler&#039;s Measure and Northcott&#039;s Theorem</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="../../../../img/avatar.png" alt="Desvl"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Desvl</p><p class="is-size-6 is-block">A blog mainly on graduate mathematics.</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>A Noetherian local ring</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="../../../../archives"><p class="title">86</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="../../../../categories"><p class="title">44</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="../../../../tags"><p class="title">49</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="../../../../redirect/newsletter" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Compose an Email" href="../../../../redirect/email"><i class="fas fa-envelope"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="../../../../atom.xml"><i class="fas fa-rss"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Mathstodon" href="https://mathstodon.xyz/@desvl"><i class="fa-brands fa-mastodon"></i></a></div></div></div><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">Catalogue</h3><ul class="menu-list"><li><a class="level is-mobile" href="#Background-in-Basic-Field-Theory"><span class="level-left"><span class="level-item">1</span><span class="level-item">Background in Basic Field Theory</span></span></a></li><li><a class="level is-mobile" href="#Technical-Computations"><span class="level-left"><span class="level-item">2</span><span class="level-item">Technical Computations</span></span></a></li><li><a class="level is-mobile" href="#Computing-the-Norm"><span class="level-left"><span class="level-item">3</span><span class="level-item">Computing the Norm</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="../../../../js/toc.js" defer></script></div><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://arxiv.org/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">arXiv</span></span><span class="level-right"><span class="level-item tag">arxiv.org</span></span></a></li><li><a class="level is-mobile" href="https://stacks.math.columbia.edu/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">The Stack Project</span></span><span class="level-right"><span class="level-item tag">stacks.math.columbia.edu</span></span></a></li><li><a class="level is-mobile" href="https://ncatlab.org/nlab/show/mathematics" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">nLab (Mathematics)</span></span><span class="level-right"><span class="level-item tag">ncatlab.org</span></span></a></li><li><a class="level is-mobile" href="https://q.uiver.app/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">quiver: a modern commutative diagram editor</span></span><span class="level-right"><span class="level-item tag">q.uiver.app</span></span></a></li><li><a class="level is-mobile" href="https://www.symmetricfunctions.com/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">The Symmetric Functions Catalogue</span></span><span class="level-right"><span class="level-item tag">www.symmetricfunctions.com</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/speaking.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Speaking</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/writing.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Writing</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">How to study maths really quick (YouTube)</span></span><span class="level-right"><span class="level-item tag">www.youtube.com</span></span></a></li><li><a class="level is-mobile" href="https://www.bilibili.com/video/BV1GJ411x7h7" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">How to study maths really quick (Bilibili)</span></span><span class="level-right"><span class="level-item tag">www.bilibili.com</span></span></a></li></ul></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="../../../../index.html"><img src="../../../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a><p class="is-size-7"><span>&copy; 2022</span> <a rel="me noopener" target="_blank" href="https://mathstodon.xyz/@desvl">Desvl</a><br>Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="../../../../js/column.js"></script><script src="../../../../js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="../../../../js/back_to_top.js" defer></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
+            },
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><!--!--><script src="../../../../js/main.js" defer></script><!--!--></body></html>

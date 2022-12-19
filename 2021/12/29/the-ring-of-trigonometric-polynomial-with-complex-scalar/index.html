@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>The ring of trigonometric polynomials with complex scalars - Desvl&#039;s blog</title><link rel="manifest" href="../../../../manifest.json"><meta name="application-name" content="Desvl&#039;s blog"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Desvl&#039;s blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="This post is a continuation of a previous post about the ring of trigonometric polynomials over the real field. Now we have jumped into the complex field, and the extension is not a trivial matter."><meta property="og:type" content="blog"><meta property="og:title" content="The ring of trigonometric polynomials with complex scalars"><meta property="og:url" content="https://desvl.xyz/2021/12/29/the-ring-of-trigonometric-polynomial-with-complex-scalar/"><meta property="og:site_name" content="Desvl&#039;s blog"><meta property="og:description" content="This post is a continuation of a previous post about the ring of trigonometric polynomials over the real field. Now we have jumped into the complex field, and the extension is not a trivial matter."><meta property="og:locale" content="en_US"><meta property="og:image" content="https://desvl.xyz/img/avatar.png"><meta property="article:published_time" content="2021-12-29T11:04:49.000Z"><meta property="article:modified_time" content="2021-12-29T13:08:08.450Z"><meta property="article:author" content="Desvl"><meta property="article:tag" content="Study new content"><meta property="twitter:card" content="summary_large_image"><meta property="twitter:image:src" content="https://desvl.xyz/img/avatar.png"><meta property="twitter:creator" content="@Desvl_"><meta property="twitter:site" content="{ https://desvl.xyz }"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://desvl.xyz/2021/12/29/the-ring-of-trigonometric-polynomial-with-complex-scalar/"},"headline":"The ring of trigonometric polynomials with complex scalars","image":["https://desvl.xyz/img/avatar.png"],"datePublished":"2021-12-29T11:04:49.000Z","dateModified":"2021-12-29T13:08:08.450Z","author":{"@type":"Person","name":"Desvl"},"publisher":{"@type":"Organization","name":"Desvl","logo":{"@type":"ImageObject","url":"https://desvl.xyz/img/logo.svg"}},"description":"This post is a continuation of a previous post about the ring of trigonometric polynomials over the real field. Now we have jumped into the complex field, and the extension is not a trivial matter."}</script><link rel="canonical" href="https://desvl.xyz/2021/12/29/the-ring-of-trigonometric-polynomial-with-complex-scalar/"><link rel="alternate" href="../../../../atom.xml" title="Desvl&#039;s blog" type="application/atom+xml"><link rel="icon" href="../../../../img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap"><link rel="stylesheet" href="../../../../css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="../../../../index.html"><img src="../../../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="../../../../index.html">Home</a><a class="navbar-item" href="../../../../archives">Archives</a><a class="navbar-item" href="../../../../categories">Categories</a><a class="navbar-item" href="../../../../tags">Tags</a><a class="navbar-item" href="../../../../about">About (Updated Aug. 2022)</a><a class="navbar-item" href="../../../../link-exchange">Link Exchange</a><a class="navbar-item" href="../../../../support-the-author">Support the Author</a></div><div class="navbar-end"><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2021-12-29T11:04:49.000Z" title="29/12/2021, 19:04:49">2021-12-29</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-12-29T13:08:08.450Z" title="29/12/2021, 21:08:08">2021-12-29</time></span><span class="level-item"><a class="link-muted" href="../../../../categories/Algebra/">Algebra</a><span> / </span><a class="link-muted" href="../../../../categories/Algebra/Commutative-Algebra/">Commutative Algebra</a><span> / </span><a class="link-muted" href="../../../../categories/Geometry/">Geometry</a><span> / </span><a class="link-muted" href="../../../../categories/Geometry/Algebraic-Geometry/">Algebraic Geometry</a></span></div></div><h1 class="title is-3 is-size-4-mobile">The ring of trigonometric polynomials with complex scalars</h1><div class="content"><p>In <a href="/2021/07/12/The-ring-of-real-trigonometric-polynomials/">this post</a> we have investigated some basic facts of $\mathbb{R}[\cos{x},\sin{x}]$ (henceforth notations used there will be here as well). It is a half factorial domain with ideal class group $\mathbb{Z}/2\mathbb{Z}$, and hence not a UFD. Next, we jump to the complex scalar field, and there are many nontrivial results. We will be discussing the ring</p>
+<script type="math/tex; mode=display">
+R'=\mathbb{C}[\cos{x},\sin{x}].</script><p>in a different style.</p>
+<h1 id="Now-we-have-a-UFD-and-an-Euler’s-formula-in-disguise"><a href="#Now-we-have-a-UFD-and-an-Euler’s-formula-in-disguise" class="headerlink" title="Now we have a UFD  (and an Euler’s formula in disguise)"></a>Now we have a UFD  (and an Euler’s formula in disguise)</h1><p>Again, if we consider the map</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\Phi:\mathbb{C}[X,Y] &\to \mathbb{C}[\cos{x},\sin{x}] \\
+        f(X,Y) &\mapsto f(\cos{x},\sin{x})
+\end{aligned}</script><p>we will see that $\ker\Phi=(X^2+Y^2-1)$ and therefore</p>
+<script type="math/tex; mode=display">
+\mathbb{C}[\cos{x},\sin{x}] \cong \mathbb{C}[X,Y]/(X^2+Y^2-1).</script><p>Following the same step as in the previous post, we can show that $R’=\mathbb{C}[\cos{x},\sin{x}]$ is Dedekind. However, the map</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\Psi:\mathbb{C}[U,V] &\to \mathbb{C}[X,Y]/(X^2+Y^2-1) \\
+            g(U,V) &\mapsto \overline{g(X+iY,X-iY)}
+\end{aligned}</script><p>shows that</p>
+<blockquote>
+<p><strong>(Proposition 1)</strong></p>
+<script type="math/tex; mode=display">
+\mathbb{C}[X,Y]/(X^2+Y^2-1) \cong \mathbb{C}[U,V]/(UV-1) \cong \mathbb{C}[T,T^{-1}] \cong \mathbb{C}[T]_T.</script></blockquote>
+<p>The localisation of a UFD is a UFD, hence we see $\mathbb{C}[\sin{x},\cos{x}]$ is a UFD. There are other ways to do it. For example, we can directly put $\mathbb{C}[\sin{x},\cos{x}]=\mathbb{C}[e^{ix},e^{-ix}]$. And this is even quicker. As another way, since $\cos{x}=\frac{e^{ix}+e^{-ix}}{2}$ and $\sin{x} = \frac{e^{ix}-e^{-ix}}{2i}$, all trigonometric polynomials can be decomposed into the following form</p>
+<script type="math/tex; mode=display">
+f(\cos{x},\sin{x}) = e^{-inx}P(e^{ix})</script><p>where $P(X) \in \mathbb{C}[X]$.  Conversely, All elements of the form $e^{-inx}P(e^{ix})$ is in $\mathbb{C}[\cos{x},\sin{x}]$ and therefore we have an isomorphism</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\Lambda: \mathbb{C}[T]_{T} &\to \mathbb{C}[\cos{x},\sin{x}], \\
+                    T &\mapsto \cos{x}+i\sin{x}.
+\end{aligned}</script><p>Note it follows that $T^{-1}$ maps to $\cos{x}-i\sin{x}$.</p>
+<h2 id="Irreducible-elements-in-this-ring"><a href="#Irreducible-elements-in-this-ring" class="headerlink" title="Irreducible elements in this ring"></a>Irreducible elements in this ring</h2><p>Now we return to the identity</p>
+<script type="math/tex; mode=display">
+\sin^2{x}=(1-\cos{x})(1+\cos{x}).</script><p>In $\mathbb{R}[\cos{x},\sin{x}]$, since $\sin{x}$, $1-\cos{x}$, $1+\cos{x}$ are all irreducible, or more precisely, elements of the form $a+b\sin{x}+c\cos{x}$ are irreducible where $(b,c) \ne (0,0)$, we see $\mathbb{R}[\cos{x},\sin{x}]$ is a UFD. In fact, we can deduce the fact that $R$ is not a UFD by the fact that $Cl(R) \cong \mathbb{Z}/2\mathbb{Z}$, i.e., the ideal class group is nontrivial (<a target="_blank" rel="noopener" href="https://math.mit.edu/classes/18.785/2017fa/LectureNotes3.pdf">corollary 3.22</a>). </p>
+<p>However, since $R’$ is a UFD, $\sin^2{x}=(1-\cos{x})(1+\cos{x})$ tells us <em>nothing</em>. We need to figure out why and what is going on. To work with it we consider the form $R’=\mathbb{C}[T,T^{-1}]$. What are irreducible elements in this ring? We will make use of the fact that $\mathbb{C}$ is algebraically closed (why not!). Since $T$ and $T^{-1}$ are units in this ring, we can use them to modify the degree of an element. More precisely, as an application of the fundamental theorem of classical algebra,</p>
+<blockquote>
+<p> $P(T)=\sum_{j=m}^{n}a_jT^{j}$ (you should be reminded of Laurent series!) is irreducible where $m,n \in \mathbb{Z}$  if and only if $Q(T)=T^{-m}P(T)$ is irreducible. However, $Q(T) \in \mathbb{C}[T]$ is irreducible if and only if $Q$ is of degree $1$), which is equivalent to say that $n-m=1$ in $P(T)$. </p>
+</blockquote>
+<p>Therefore irreducible elements in the form $aT^m+bT^{m+1}$ where $a,b \ne 0$ . Dropping $bT^m$ because it is a unit, we obtain a finer result:</p>
+<blockquote>
+<p><strong>(Proposition 2)</strong> Irreducible elements of $R’$ is of the form</p>
+<script type="math/tex; mode=display">
+\cos{x}+i\sin{x}+a, a \in \mathbb{C}^\ast.</script></blockquote>
+<p>With this being said, $\sin{x}$, $1-\cos{x}$ and $1+\cos{x}$ are all <em>not</em> irreducible. For example, for $\sin{x}$ we actually have</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\sin{x}&=\frac{1}{2i}(e^{ix}-e^{-ix})\\
+ & = \frac{1}{2ie^{ix}}(e^{2ix}-1) \\
+ & = \frac{1}{2ie^{ix}}(e^{ix}+1)(e^{ix}-1) \\
+ & = \frac{1}{2ie^{ix}}(\cos{x}+i\sin{x}+1)(\cos{x}+i\sin{x}-1)
+\end{aligned}</script><h1 id="Quotient-fields"><a href="#Quotient-fields" class="headerlink" title="Quotient fields"></a>Quotient fields</h1><p>We can find some obvious facts about these two rings. For example, $R$ is a free $\mathbb{R}[\cos{x}]$-algebra with basis $\{1,\sin{x}\}$ (note all $\sin^nx$ of even degree can be transformed into $\cos{x}$ by the relation $\sin^2{x}=1-\cos^2{x}$). Likewise $R’$ is a free $\mathbb{C}[\cos{x}]$-algebra with basis $\{1,\sin{x}\}$. We can also write $R’$ as $R \oplus iR$ or $R[i]$. That is, $R’$ is a free $R$-algebra with basis $\{1,i\}$.  These are quite elementary and don’t touch the structure of polynomial pretty much. Now we touch it by studying the quotient field of $R$ and $R’$ respectively.</p>
+<p>Treating $R$ as a free $\mathbb{R}[\cos{x}]$-algebra, we can write any polynomial $f(\cos{x},\sin{x})$ as</p>
+<script type="math/tex; mode=display">
+f(\cos{x},\sin{x})=P(\cos{x})+Q(\cos{x})\sin{x}</script><p>where $P,Q \in \mathbb{R}[X]$. For simplicity we write $f=P+Q\sin{x}$. Suppose we now have $f=P_1+Q_1\sin{x}$ and $g=P_2+Q_2\sin{x}$ with $g \ne 0$, then</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\frac{f}{g} &= \frac{P_1+Q_1\sin{x}}{P_2+Q_2\sin{x}} \\
+            &= \frac{(P_1+Q_1\sin{x})(P_2-Q_2\sin{x})}{(P_2+Q_2\sin{x})(P_2-Q_2\sin{x})} \\
+            &=\frac{P_1P_2-Q_1Q_2(1-\cos^2{x})+(P_2Q_1-P_1Q_2)\sin{x}}{P_2^2+Q_2^2(1-\cos^{2}{x})}
+\end{aligned}</script><p>Therefore every element of $K(R)$ can be written in the form $U(\cos{x})+V(\cos{x})\sin{x}$ where $U,V \in \mathbb{R}(\cos{x})$, the rational field of $\cos{x}$ over $\mathbb{R}$. Since $\sin^2{x} \in \mathbb{R}(\cos{x})$, we obtain:</p>
+<blockquote>
+<p><strong>(Proposition 3)</strong> The quotient field of $R$ is</p>
+<script type="math/tex; mode=display">
+K(R)=\mathbb{R}(\cos{x})[\sin{x}].</script><p>Likewise,</p>
+<script type="math/tex; mode=display">
+K(R')=\mathbb{C}(\cos{x})[\sin{x}]</script><p>can be proved in exactly the same way.</p>
+</blockquote>
+<p>Since $R$ is Dedekind, it is integrally closed in $K(R)$. But what about its relation with $K(R’)$? For this we have an elegant result:</p>
+<blockquote>
+<p><strong>(Proposition 4)</strong> $R’$ is the integral closure of $R$ in $K(R’)$.</p>
+</blockquote>
+<p><em>Proof.</em> Let $C$ be the closure of $R$ in $K(R’)$. Note $K(R’)=K(R)[i]$. For any $f+ig \in C$, we see $f \in R$ and $g \in R$ and hence $f+ig \in R’$ because $f,g \in K(R)$ and $R$ is integrally closed. Therefore $C \subset R’$. Conversely, any $f+ig \in R’$ is in $C$ because $f,g \in R \subset C$ and $i \in C$. Therefore $R’ \subset C$. $\square$</p>
+<h1 id="Study-the-ring-in-the-setting-of-elementary-algebraic-geometry"><a href="#Study-the-ring-in-the-setting-of-elementary-algebraic-geometry" class="headerlink" title="Study the ring in the setting of elementary algebraic geometry"></a>Study the ring in the setting of elementary algebraic geometry</h1><p><em>We are using the notation that Hartshorne used in his book Algebraic Geometry.</em></p>
+<p>Put $f(X,Y)=X^2+Y^2-1$, then $Y=Z(f)$ is an irreducible affine curve in the affine space $A^2_{\mathbb{C}}$. This curve is non-singular everywhere because the matrix</p>
+<script type="math/tex; mode=display">
+\begin{pmatrix}
+\partial f/\partial X \\
+\partial f/\partial Y
+\end{pmatrix} = 
+\begin{pmatrix}
+2X \\
+2Y
+\end{pmatrix}</script><p>has rank $1$. The coordinate ring $A(Y)$ is exactly $R’$. </p>
+<p>Let $P$ be a point on $Y$, which, by Hilbert’s Nullstelensatz, corresponds to a unique maximal ideal $\mathfrak{m}_P \subset A(Y)\cong R’$. Since $R’$ is a PID, and by proposition 2, $\mathfrak{m}_P=(\cos{x}+i\sin{x}+a)$ where $a \ne 0$. Hence $P$ corresponds to a nonzero complex number $a$.</p>
+<blockquote>
+<p><strong>(Proposition 5)</strong> Every point $P$ on the curve $Z(X^2+Y^2-1)$ corresponds to a unique nonzero complex number $a \in C^\ast$.</p>
+</blockquote>
+<p>Since $Y$ is nonsingular, it also follows that $\dim_{\mathbb{C}}\mathfrak{m}/\mathfrak{m}^2=\dim R’=1$ for all maximal ideal of $R’$. This is to say, the tangent space is always of dimension $1$ as a $\mathbb{C}$-vector space, or $2$ as a $\mathbb{R}$-space. Besides, if we localise it at $\mathfrak{m}_P$, we see $\mathcal{O}_{P,Y} \cong R’_{\mathfrak{m}_P}$ is always a regular local ring.</p>
+<h1 id="References-Further-Readings"><a href="#References-Further-Readings" class="headerlink" title="References / Further Readings"></a>References / Further Readings</h1><ul>
+<li><p><em>Introduction to Commutative Algebra</em>, M. F. Atiyah &amp; I. G. MacDonald.</p>
+</li>
+<li><p><em>Algebraic Geometry</em>, Robin Hartshorne.</p>
+</li>
+<li><p><em>Commutative Ring Theory and Applications</em>, edited by Marco Fontana, Salah-Eddine Kabbaj and Sylvia Wiegand. </p>
+</li>
+</ul>
+</div><div class="article-licensing box"><div class="licensing-title"><p>The ring of trigonometric polynomials with complex scalars</p><p><a href="https://desvl.xyz/2021/12/29/the-ring-of-trigonometric-polynomial-with-complex-scalar/">https://desvl.xyz/2021/12/29/the-ring-of-trigonometric-polynomial-with-complex-scalar/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>Desvl</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2021-12-29</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2021-12-29</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="../../../../tags/Study-new-content/">Study new content</a></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="../../../../2022/01/18/group-algebra/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">The Group Algebra of A Finite Group and Maschke&#039;s Theorem</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="../../24/The-ring-of-real-trigonometric-polynomials/"><span class="level-item">The ring of real trigonometric polynomials</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="../../../../img/avatar.png" alt="Desvl"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Desvl</p><p class="is-size-6 is-block">A blog mainly on graduate mathematics.</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>A Noetherian local ring</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="../../../../archives"><p class="title">86</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="../../../../categories"><p class="title">44</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="../../../../tags"><p class="title">49</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="../../../../redirect/newsletter" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Compose an Email" href="../../../../redirect/email"><i class="fas fa-envelope"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="../../../../atom.xml"><i class="fas fa-rss"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Mathstodon" href="https://mathstodon.xyz/@desvl"><i class="fa-brands fa-mastodon"></i></a></div></div></div><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">Catalogue</h3><ul class="menu-list"><li><a class="level is-mobile" href="#Now-we-have-a-UFD-and-an-Euler’s-formula-in-disguise"><span class="level-left"><span class="level-item">1</span><span class="level-item">Now we have a UFD  (and an Euler’s formula in disguise)</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#Irreducible-elements-in-this-ring"><span class="level-left"><span class="level-item">1.1</span><span class="level-item">Irreducible elements in this ring</span></span></a></li></ul></li><li><a class="level is-mobile" href="#Quotient-fields"><span class="level-left"><span class="level-item">2</span><span class="level-item">Quotient fields</span></span></a></li><li><a class="level is-mobile" href="#Study-the-ring-in-the-setting-of-elementary-algebraic-geometry"><span class="level-left"><span class="level-item">3</span><span class="level-item">Study the ring in the setting of elementary algebraic geometry</span></span></a></li><li><a class="level is-mobile" href="#References-Further-Readings"><span class="level-left"><span class="level-item">4</span><span class="level-item">References / Further Readings</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="../../../../js/toc.js" defer></script></div><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://arxiv.org/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">arXiv</span></span><span class="level-right"><span class="level-item tag">arxiv.org</span></span></a></li><li><a class="level is-mobile" href="https://stacks.math.columbia.edu/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">The Stack Project</span></span><span class="level-right"><span class="level-item tag">stacks.math.columbia.edu</span></span></a></li><li><a class="level is-mobile" href="https://ncatlab.org/nlab/show/mathematics" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">nLab (Mathematics)</span></span><span class="level-right"><span class="level-item tag">ncatlab.org</span></span></a></li><li><a class="level is-mobile" href="https://q.uiver.app/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">quiver: a modern commutative diagram editor</span></span><span class="level-right"><span class="level-item tag">q.uiver.app</span></span></a></li><li><a class="level is-mobile" href="https://www.symmetricfunctions.com/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">The Symmetric Functions Catalogue</span></span><span class="level-right"><span class="level-item tag">www.symmetricfunctions.com</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/speaking.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Speaking</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/writing.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Writing</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">How to study maths really quick (YouTube)</span></span><span class="level-right"><span class="level-item tag">www.youtube.com</span></span></a></li><li><a class="level is-mobile" href="https://www.bilibili.com/video/BV1GJ411x7h7" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">How to study maths really quick (Bilibili)</span></span><span class="level-right"><span class="level-item tag">www.bilibili.com</span></span></a></li></ul></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="../../../../index.html"><img src="../../../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a><p class="is-size-7"><span>&copy; 2022</span> <a rel="me noopener" target="_blank" href="https://mathstodon.xyz/@desvl">Desvl</a><br>Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="../../../../js/column.js"></script><script src="../../../../js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="../../../../js/back_to_top.js" defer></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
+            },
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><!--!--><script src="../../../../js/main.js" defer></script><!--!--></body></html>

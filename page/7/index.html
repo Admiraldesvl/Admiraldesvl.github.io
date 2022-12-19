@@ -1,0 +1,862 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Desvl&#039;s blog</title><link rel="manifest" href="../../manifest.json"><meta name="application-name" content="Desvl&#039;s blog"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Desvl&#039;s blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta property="og:type" content="blog"><meta property="og:title" content="Desvl&#039;s blog"><meta property="og:url" content="https://desvl.xyz/"><meta property="og:site_name" content="Desvl&#039;s blog"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://desvl.xyz/img/avatar.png"><meta property="article:author" content="Desvl"><meta property="twitter:card" content="summary_large_image"><meta property="twitter:image:src" content="https://desvl.xyz/img/avatar.png"><meta property="twitter:creator" content="@Desvl_"><meta property="twitter:site" content="{ https://desvl.xyz }"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://desvl.xyz"},"headline":"Desvl's blog","image":["https://desvl.xyz/img/avatar.png"],"author":{"@type":"Person","name":"Desvl"},"publisher":{"@type":"Organization","name":"Desvl","logo":{"@type":"ImageObject","url":"https://desvl.xyz/img/logo.svg"}},"description":""}</script><link rel="alternate" href="../../atom.xml" title="Desvl&#039;s blog" type="application/atom+xml"><link rel="icon" href="../../img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap"><link rel="stylesheet" href="../../css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="../../index.html"><img src="../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="../../index.html">Home</a><a class="navbar-item" href="../../archives">Archives</a><a class="navbar-item" href="../../categories">Categories</a><a class="navbar-item" href="../../tags">Tags</a><a class="navbar-item" href="../../about">About (Updated Aug. 2022)</a><a class="navbar-item" href="../../link-exchange">Link Exchange</a><a class="navbar-item" href="../../support-the-author">Support the Author</a></div><div class="navbar-end"></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-05-21T10:02:34.000Z" title="21/05/2020, 18:02:34">2020-05-21</time></span><span class="level-item">Updated&nbsp;<time dateTime="2020-05-21T10:03:09.137Z" title="21/05/2020, 18:03:09">2020-05-21</time></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2020/05/21/jordan-decomposition/">矩阵Jordan标准形的原理</a></h1><div class="content"><h2 id="说在前面"><a href="#说在前面" class="headerlink" title="说在前面"></a>说在前面</h2><p>我们在处理较大规模线性运算（主要涉及加法、乘法）时，总是希望能对计算进行简化。例如需要讨论若干个线性方程的解，或者解一个高阶微分方程，再或者是一些非线性问题在局部的线性拟合估计。一个经典的办法是矩阵对角化。但是，不是所有矩阵都能对角化的。例如矩阵$\begin{bmatrix}1&amp;0\\1&amp;1\end{bmatrix}$在$\mathbb{R}$和$\mathbb{C}$中都不能对角化，因为其最小多项式是$(\lambda-1)^2$。而矩阵</p>
+<script type="math/tex; mode=display">
+A=\begin{bmatrix}0&-1&2&0 \\1&0&-2&0\\0&0&1&0\\1&1&-2&1\end{bmatrix}</script><p>在$\mathbb{R}$中不可以对角化，在$\mathbb{C}$中可以对角化，因为最小多项式是$(\lambda-1)(\lambda^2+1)$。那么有没有什么稳妥的简化矩阵的办法？对角阵可能是简化的极限，那么能不能退而求其次，得到一个比较简单的形式 ，同时又把对角形当作一个特殊情况？</p>
+<p>幸运的是，Jordan标准形给了我们这样一个机会。事实上，只要我们约定矩阵中的元素都是复数（实数看成虚部为$0$），那么就能保证，这个矩阵一定可以简化成Jordan标准形，是一个三角形矩阵，而且元素全部集中在对角线附近，而且如果这个矩阵能对角化，那么这个对角形，其实就是一个“极端”的Jordan标准形。</p>
+<p>如果你觉得这两个例子很莫名其妙，不知道我这个判据从何而来，甚至不是很了解什么是最小多项式，那么你对接下来所要用到的最基本的技术不是很了解。如果想看接下来的内容，请务必了解如何将矩阵对角化，以及准素分解和循环分解。我已经有两篇博客专门对其进行了解释，可供参阅。</p>
+<blockquote>
+<ul>
+<li><a href="/2020/01/22/cyclic-decomposition/">线性空间的循环子空间与简单应用</a></li>
+<li><a href="/2020/01/28/conductor/">线性变换不变子空间的导子及其性质</a></li>
+<li><a href="/2020/02/03/cyclic-decomposition-and-example/">线性空间的循环分解</a></li>
+<li><a href="/2020/02/08/primary-decomposition/">准素分解与准素标准型</a></li>
+</ul>
+</blockquote>
+<h2 id="Jordan标准形的形式，以及和对角形的关系"><a href="#Jordan标准形的形式，以及和对角形的关系" class="headerlink" title="Jordan标准形的形式，以及和对角形的关系"></a>Jordan标准形的形式，以及和对角形的关系</h2><p>实际上，$\begin{bmatrix}1&amp;0\\1&amp;1\end{bmatrix}$就是一个Jordan标准形的简单例子。Jordan标准形已经是简化的极限，所以很不幸，对角化和它无关。我们定义$n$阶矩阵</p>
+<script type="math/tex; mode=display">
+L_n=\begin{pmatrix}0&&& \\ 1&\ddots&&\\&\ddots&\ddots&\\&&1&0\end{pmatrix}</script><p>也就是一个对角线下方全是1的矩阵下三角形矩阵。又定义Jordan块（Jordan标准形的组成元素）如下</p>
+<script type="math/tex; mode=display">
+J_n(\lambda)=\lambda{I}+L_n=\begin{pmatrix}\lambda&&& \\ 1&\ddots&&\\&\ddots&\ddots&\\&&1&\lambda\end{pmatrix}</script><p>而Jordan标准形，就是由这些Jordan块作为对角元素的准对角矩阵，也就是</p>
+<script type="math/tex; mode=display">
+J=\text{diag}(J_{n_1}(\lambda_1),J_{n_2}(\lambda_2),\cdots,J_{n_k}(\lambda_k))</script><p>其中$\text{diag}(\cdots)$表示将括号内元素放在对角线上的对角矩阵。一个Jordan标准形可能是</p>
+<script type="math/tex; mode=display">
+\begin{pmatrix}
+\lambda_1&&\\
+&\ddots& \\
+&&\lambda_k
+\end{pmatrix}</script><p>也就是$n_1=n_2=\cdots=n_k=1$，这个时候就已经得到了一个对角阵。对角阵和Jordan标准形的关系就很清晰了。</p>
+<p>也可能是</p>
+<script type="math/tex; mode=display">
+\begin{pmatrix}2&0&0\\1&2&0\\0&0&7\end{pmatrix}</script><p>我们不妨写成$J=\text{diag}(J_2(2),J_1(7))$。</p>
+<p>当然，这个地方的$J$写成上三角矩阵，也是可以的。原因在后面会解释。</p>
+<h2 id="复方阵的Jordan标准形总是存在"><a href="#复方阵的Jordan标准形总是存在" class="headerlink" title="复方阵的Jordan标准形总是存在"></a>复方阵的Jordan标准形总是存在</h2><p>我们在这一节要证明这一个结论：</p>
+<blockquote>
+<p>对任一复方阵$A$，总是存在可逆复方阵$P$使得</p>
+<script type="math/tex; mode=display">
+P^{-1}AP=\text{diag}(J_{n_1}(\lambda_1),J_{n_2}(\lambda_2),\cdots,J_{n_k}(\lambda_k))=J</script></blockquote>
+<p>实际上，只要矩阵$A$的特征多项式，有$n$个特征值（这些特征值可以重复，可以不重复），那么这个矩阵就可以通过上面这个公式，转化成一个Jordan标准形。所以，实矩阵可能不需要要求把每个数都看成虚部为$0$的数，就可以对角化。而根据古典代数学基本定理，一个$n$阶复多项式一定有$n$个根，所以复矩阵一定是可以Jordan化的。这篇博客里只会讨论复数域的情况。下面提供两种不同的角度进行理解。但是整体思路是一样的。先对矩阵进行准素分解，又进行循环分解，再把循环分解的那一部分进行“错位”，得到Jordan标准形。</p>
+<h3 id="从线性空间的角度理解"><a href="#从线性空间的角度理解" class="headerlink" title="从线性空间的角度理解"></a>从线性空间的角度理解</h3><p>首先，我们定义一个线性变换（在$\mathbb{C}^n$下的标准基$\{(1,0,\cdots,0),(0,1,\cdots,0),\cdots,(0,0,\cdots,1)\}$下）</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\mathscr{A}:\mathbb{C}^n &\to \mathbb{C}^n \\
+x &\mapsto Ax
+\end{aligned}</script><p>不妨设$\mathscr{A}$和$A$的特征多项式为</p>
+<script type="math/tex; mode=display">
+f(\lambda)=(\lambda-\lambda_1)^{d_1}\cdots(\lambda-\lambda_s)^{d_s}</script><p>首先，对$\mathbb{C}^n$进行准素分解，得到</p>
+<script type="math/tex; mode=display">
+\mathbb{C}^n=\bigoplus_{i=1}^{n}V_i</script><p>我们又可以对每个子空间$V_i$进行循环分解，得到</p>
+<script type="math/tex; mode=display">
+\mathbb{C}^n=\bigoplus_{i=1}^{n}V_i=\bigoplus_{i,j}V_{ij}</script><p>设$\mathscr{A}$限制在$V_i$和$V_{ij}$上的线性变换分别是$\mathscr{A}_i$和$\mathscr{A}_{ij}$，特征多项式分别是$(\lambda-\lambda_i)^{d_i}$和$(\lambda-\lambda_i)^{r_{ij}}$。为方便起见，我们记$V_{ij}=V$，$r_{ij}=r$， $\mathscr{A}_{ij}=\mathscr{A}_V$。定义新的线性变换</p>
+<script type="math/tex; mode=display">
+\mathscr{B}_V=\mathscr{A}_V-\lambda_i\mathscr{I}_V</script><p>其中$\mathscr{I}_V$是$V$中的恒等变换。因为不会产生歧义，我们简记成$\mathscr{B}_V=\mathscr{A}_V-\lambda_i$。因为$\mathscr{A}_V$的最小多项式是$(\lambda-\lambda_i)^r$，所以不难发现$\mathscr{B}^r_V$的极小多项式是$\lambda^r$，也就是说$\mathscr{B}^{r}_V=\mathscr{O}$，是一个零变换。</p>
+<p>我们又知道，$V$是由$\mathscr{A}_V$张成的循环子空间。不妨设$V$的循环基是</p>
+<script type="math/tex; mode=display">
+\alpha_1=\alpha,\alpha_2=\mathscr{A}_V\alpha,\cdots,\alpha_r=\mathscr{A}^{r-1}_V\alpha</script><p>我们会证明，如果把$\mathscr{A}_V$换成$\mathscr{B}_V$，得到的一组向量仍然是一组基。也就是说，我们需要证明</p>
+<script type="math/tex; mode=display">
+\beta_1=\alpha,\beta_2=\mathscr{B}_V\alpha,\cdots,\beta_r=\mathscr{B}^{r-1}_V\alpha</script><p>这组基线性无关。我们只需要证明从$\{\alpha_i\}$到$\{\beta_i\}$的过渡矩阵是可逆矩阵；或者说，用$\beta_i$表示$\alpha_i$的矩阵的行列式不等于$0$；或者说，$\{\beta_i\}$这组向量的秩为$r$，这些说法都是等价的。我们不难发现（也可以用归纳证明）</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\beta_1&=\alpha_1 \\
+\beta_2&=\alpha_2-\lambda_i\alpha_1 \\
+\beta_3&=\alpha_3-2\lambda_i\alpha_2+\lambda_i^2\alpha_1 \\
+\cdots&\cdots\cdots\cdots\\
+\beta_k&=\sum_{j=0}^{k-1}C_k^{j}(-\lambda_i)^j\alpha_{k-j+1}
+\end{aligned}</script><p>用矩阵的形式表示，设$\beta=\begin{bmatrix}\beta_1\\ \beta_2 \\ \vdots \\\beta_n\end{bmatrix}$，$\alpha=\begin{bmatrix}\alpha_1\\ \alpha_2 \\ \vdots \\\alpha_n\end{bmatrix}$，那么就有</p>
+<script type="math/tex; mode=display">
+\beta=\begin{pmatrix}
+1 \\
+-\lambda&1 \\
+\lambda^2&-2\lambda&1\\
+\vdots&\vdots&\vdots&\ddots\\
+(-\lambda)^{r-1}&(-1)^{r-1}r\lambda&\cdots&\cdots&1
+\end{pmatrix}\alpha</script><p>也就是说，过渡矩阵（不妨设为$B$）的每一行，都是$(1-\lambda)^k$的对应项。显然，$\det{B} \neq 0$。这说明，这组向量线性无关，是$V$的一组基。对于这组基，我们有</p>
+<script type="math/tex; mode=display">
+(\mathscr{A}-\lambda_i)\beta_1=\beta_2,(\mathscr{A}-\lambda_i)\beta_2=\beta_3,\cdots,(\mathscr{A}-\lambda_i)\beta_{r-1}=\beta_r,(\mathscr{A}-\lambda_i)\beta_r=0</script><p>最后一个成立是因为$(\mathscr{A}-\lambda_i)\beta_r=\mathscr{B}_V^{r}\beta_1=0$。这组$\beta_i$又称作Jordan链，因为关系又可以写成一个链性关系：</p>
+<script type="math/tex; mode=display">
+\mathscr{A}\beta_1=\lambda_i\beta_1+\beta_2,\mathscr{A}\beta_2=\lambda_i\beta_2+\beta_3,\cdots,\mathscr{A}\beta_{r-1}=\lambda_{i}\beta_{r-1}+\beta_r,\mathscr{A}\beta_r=\lambda_i\beta_r</script><p>如果我们用$\{\beta_i\}$作为基，那么$\mathscr{A}_V$的矩阵表示恰好就是一个Jordan块$J_{r}(\lambda_i)$。这是我们对任意一个循环子空间$V_{ij}$进行的操作，将所有的子空间都选择一组Jordan链之后，将所有的Jordan链作为$\mathbb{C}^n$的一组新基，即为$P$，根据矩阵相似的原理，将标准基变换为全体Jordan链，就得到了Jordan标准形。</p>
+<h4 id="证明的进一步理解：为什么要进行准素分解和循环分解？"><a href="#证明的进一步理解：为什么要进行准素分解和循环分解？" class="headerlink" title="证明的进一步理解：为什么要进行准素分解和循环分解？"></a>证明的进一步理解：为什么要进行准素分解和循环分解？</h4><p>在这里进行准素分解和循环分解，并非空穴来风。准素分解是根据矩阵的特征值进行分解。把特征值相等的部分切割开来，保证每个子空间，对应的每个子矩阵，都在操作相同的特征值，这保证了<strong>特征值还能在这个分解中派上用场</strong>。</p>
+<p>接下来，对每个准素分解子空间进行循环分解，<strong>把不变子空间这个概念充分直接运用</strong>（而不是只求特征向量这一丁点关于不变子空间的信息），再将每个子空间分解成循环子空间。但是循环分解得到的是一个友阵，这个友阵不够简洁。因为最后一列与$(\lambda-\lambda_i)^r$的二项式展开的系数有关系。如果我们对循环基进行合适的偏移，发现子空间也是$\mathscr{B}_V = \mathscr{A}_V-\lambda$这个线性变换张成的子空间，而$\mathscr{B}_V$的友阵恰好是一个$L_n$，就得到了一个非常简洁的表示形式了。</p>
+<p>如果我们把Jordan链的顺序完全颠倒，从$\beta_1,\beta_2,\cdots,\beta_n$颠倒成$\beta_n,\beta_{n-1},\cdots,\beta_1$，那么得到的标准形$J’$就是$J$的转置。所以，$J$和$J^{T}$都可以用来表示Jordan标准形。</p>
+<h3 id="从矩阵运算的角度理解"><a href="#从矩阵运算的角度理解" class="headerlink" title="从矩阵运算的角度理解"></a>从矩阵运算的角度理解</h3><p>设$A$的特征多项式为$f(\lambda)=(\lambda-\lambda_1)^{d_1}\cdots(\lambda-\lambda_s)^{d_s}$（其中,$\lambda_1,\lambda_2,\cdots,\lambda_s$互异）。首先，对矩阵$A$进行准素分解，也就是说首先我们有</p>
+<script type="math/tex; mode=display">
+T^{-1}AT=\text{diag}(A_1,\cdots,A_s)</script><p>其中$A_i$的特征多项式为$(\lambda-\lambda_i)^{d_i}$。</p>
+<p>再对$A_i$进行准素分解，也就是说</p>
+<script type="math/tex; mode=display">
+S_i^{-1}A_iS_i=\text{diag}(A_{i1},A_{i2},\cdots,A_{ij},\cdots,A_{ir_i})</script><p>然后讨论$A_{ij}$。首先，$A_{ij}$的最小多项式必定是$(\lambda-\lambda_i)^{k_{ij}}$的形式，如果令$B_{ij}=A_{ij}-\lambda_iI$，那么$B_{ij}$的最小多项式是$\lambda_i^{k_{ij}}$，故根据循环分解，它相似与$C(\lambda_i^{k_{ij}})$，也就是说，存在可逆矩阵$U_{ij}$，使得</p>
+<script type="math/tex; mode=display">
+U_{ij}^{-1}B_{ij}U_{ij}=\begin{pmatrix}0\\1&\ddots\\&\ddots&\ddots\\&&1&0\end{pmatrix}</script><p>从而</p>
+<script type="math/tex; mode=display">
+U_{ij}^{-1}A_{ij}U_{ij}=U_{ij}^{-1}(\lambda_iI+B_{ij})U_{ij}=\lambda_{i}I+C(\lambda_{i}^{k_{ij}})</script><p>此即一个Jordan块。将所有$U_{ij}$都求出来之后，就能得到Jordan标准形。选取$U_{ij}$的过程就是选取Jordan链的过程。</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-05-20T12:11:12.000Z" title="20/05/2020, 20:11:12">2020-05-20</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-10-08T09:47:04.843Z" title="08/10/2021, 17:47:04">2021-10-08</time></span><span class="level-item"><a class="link-muted" href="../../categories/Analysis/">Analysis</a><span> / </span><a class="link-muted" href="../../categories/Analysis/Complex-Analysis/">Complex Analysis</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2020/05/20/zeros-of-entire-function/">More properties of zeros of an entire function</a></h1><div class="content"><h2 id="What’s-going-on-again"><a href="#What’s-going-on-again" class="headerlink" title="What’s going on again"></a>What’s going on again</h2><p>In <a href="/2020/03/14/topological-property-of-the-zeros-of-a-holomorphic-function/">this post</a> we discussed the topological properties of the zero points of an entire nonzero function, or roughly, how those points look like. The set of zero points contains no limit point, and at most countable (countable or finite). So if it’s finite, then we can find them out one by one. For example, the function $f(z)=z$ has simply one zero point. But what if it’s just countable? How fast the number grows?</p>
+<p>Another question. Suppose we have an entire function $f$, and the zeros of $f$, namely $z_1,z_2,\cdots,z_n$, are ordered increasingly by moduli:</p>
+<script type="math/tex; mode=display">
+|z_1| \leq |z_2| \leq \cdots \leq |z_n| \leq \cdots</script><p>Is it possible to get a fine enough estimation of $|z_n|$? Interesting enough, we can get there with the help of Jensen’s formula.</p>
+<h2 id="Jensen’s-formula"><a href="#Jensen’s-formula" class="headerlink" title="Jensen’s formula"></a>Jensen’s formula</h2><blockquote>
+<p>Suppose $\Omega=D(0;R)$, $f \in H(\Omega)$, $f(0) \neq 0$, $0&lt;r&lt;R$, and $z_1,z_2,\cdots,z_{n(r)}$ are the zeros of $f$ in $\overline{D}(0;R)$, then</p>
+<script type="math/tex; mode=display">
+|f(0)|\prod_{n=1}^{n(r)}\frac{r}{|z_n|}=\exp\left[\frac{1}{2\pi}\int_{-\pi}^{\pi}\log|f(re^{i\theta})|d\theta\right]</script></blockquote>
+<p>There is no need to worry about the assumption $f(0) \neq 0$. Take another look at  <a href="/2020/03/14/topological-property-of-the-zeros-of-a-holomorphic-function/#Proof">this proof</a>. Every zero point $a$ has a unique positive number $m$ such that $f(z)=(z-a)^mg(z)$ and $g \in H(\Omega)$ but $g(a) \neq 0$. The number $m$ is called the order of the zero at $a$. Therefore if we have $f(0)=0$ we can simply consider another function, namely $\frac{f}{z^m}$ where $m$ is the order of zero at $0$.</p>
+<p>We are not proving this identity at this point. But it can be done by considering the following function</p>
+<script type="math/tex; mode=display">
+g(z)=f(z)\prod_{n=1}^{m}\frac{r^2-\overline{z}_nz}{r(z_n-z)}\prod_{n=m+1}^{n(r)}\frac{z_n}{z_n-z}</script><p>where $m$ is found by ordering $z_j$ in such a way that $z_1,\cdots,z_m \in D(0;r)$ and $|z_{m+1}|=\cdots=|z_{n}|$. One can prove this identity by considering $|g(0)|$ as well as $\log|g(re^{i\theta})|$.</p>
+<h2 id="Several-applications"><a href="#Several-applications" class="headerlink" title="Several applications"></a>Several applications</h2><h3 id="The-number-of-zeros-of-f-in-overline-D-0-r"><a href="#The-number-of-zeros-of-f-in-overline-D-0-r" class="headerlink" title="The number of zeros of $f$ in $\overline{D}(0;r)$"></a>The number of zeros of $f$ in $\overline{D}(0;r)$</h3><p>For simplicity we shall assume $f(0)=1$ which has no loss of generality. Let</p>
+<script type="math/tex; mode=display">
+M(r)=\sup_{\theta}|f(re^{i\theta})|\quad 0<r<\infty</script><p>and $n(r)$ be the number of zeros of $f$ in $\overline{D}(0;r)$. By the maximum modulus theorem, we have</p>
+<script type="math/tex; mode=display">
+\log|f(2re^{i\theta})| \leq |f(2re^{i\theta})| \leq M(2r)</script><p>If we insert Jensen’s formula into this inequality and order $|z_n|$ by increasing moduli, we get</p>
+<script type="math/tex; mode=display">
+\log M(2r) \geq \frac{1}{2\pi}\int_{-\pi}^{\pi}\log|f(2re^{i\theta})|d\theta=\sum_{n=1}^{n(2r)}\log\frac{2r}{|z_n|}\geq\sum_{n=1}^{n(r)}\log\frac{2r}{|z_n|}\geq n(r)\log2</script><p>Which implies</p>
+<script type="math/tex; mode=display">
+n(r)\leq\log_2M(2r)</script><p>So $n(r)$ is controlled by $M(2r)$.  The second and third inequalities look tricky, which require more explanation.</p>
+<p>First we should notice the fact that $z_n \in \overline{D}(0;R)$ for all $R \in \mathbb{R}$. Hence we have $\log\frac{2r}{|z_n|} \geq \log1=0$ for all $z_n \in \overline{D}(0;R)$.   Hence the second inequality follows. For the third one, we simply have</p>
+<script type="math/tex; mode=display">
+\sum_{n=1}^{n(r)}\log\frac{2r}{|z_n|}=\sum_{n=1}^{n(r)}(\log2+\log\frac{r}{|z_n|}) \geq n(r)\log2.</script><p>So this is it, the rapidity with which $n(r)$ can grow is dominated by $M(r)$.  Namely, the number of zeros of $f$ in the closed disc with radius $r$ is controlled by the maximum modulus of $f$ on a circle with bigger radius. </p>
+<h3 id="Examples-based-on-different-M-r"><a href="#Examples-based-on-different-M-r" class="headerlink" title="Examples based on different $M(r)$"></a>Examples based on different $M(r)$</h3><p>Let’s begin with a simple example. Let $f(z)=1$, we have $M(r)=1$ for all $r$, but also we have $n(r)=0$, in which sense this estimation does nothing. Indeed, as long as $M(r)$ is bounded by a constant, which implies $f(z)$ is bounded, then by Liouville’s theorem, $f(z)$ is constant and this estimation is not available.</p>
+<p>But if $M(r)$ grows properly, things become interesting. For example, if we have</p>
+<script type="math/tex; mode=display">
+M(r) \leq \exp(Ar^k)</script><p>where $A$ and $k$ are given positive numbers, we have a good enough estimation by</p>
+<script type="math/tex; mode=display">
+n(r) \leq \frac{A+(2r)^k}{\log2}</script><p>This estimation becomes interesting if we consider the logarithm of $n(r)$ and $r$, that is</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\limsup_{r\to\infty}\frac{\log{n(r)}}{\log{r}} &\leq \lim_{r\to\infty} \frac{\log(A+(2r)^k)-\log{2}}{\log{r}} \\
+                                               & =k
+\end{aligned}</script><p>If we have $f(z)=1-\exp(z^k)$ where $k$ is a positive integer, we have $n(r) \sim \frac{kr^k}{\pi}$, also</p>
+<script type="math/tex; mode=display">
+\lim_{r\to\infty}\frac{\log{n(r)}}{\log r}=k</script><h3 id="Lower-bound-of-z-n-r"><a href="#Lower-bound-of-z-n-r" class="headerlink" title="Lower bound of $|z_{n(r)}|$"></a>Lower bound of $|z_{n(r)}|$</h3><p>We’ll see here, how to evaluate the lower bound of $|z_{n(r)}|$ using Jensen’s formula, provided that $M(r)$, or simply the upper bound of $f(z)$ is properly described. Without loss of generality we shall assume that $f(0)=1$. Also, we assume that the zero points of $f(z)$ are ordered by increasing moduli.</p>
+<p>First we still consider</p>
+<script type="math/tex; mode=display">
+M(r) \leq \exp(Ar^k)</script><p>and see what will happen.</p>
+<p>By Jensen’s, we have</p>
+<script type="math/tex; mode=display">
+\prod_{n=1}^{n(r)}\frac{r}{|z_n|}=\exp\left[\frac{1}{2\pi}\int_{-\pi}^{\pi}\log|f(re^{i\theta})|d\theta\right] \leq \exp{Ar^k}</script><p>This gives</p>
+<script type="math/tex; mode=display">
+\prod_{n=1}^{n(r)}|z_n| \geq r^{n(r)}\exp(-Ar^k)</script><p>By the arrangement of $\{z_n\}$, we have</p>
+<script type="math/tex; mode=display">
+|z_{n(r)}| \geq \sqrt[n(r)]{\prod_{n=1}^{n(r)}|z_n|}\geq r\exp(-Ar^{k-n(r)})</script><hr>
+<p>Another example is when we have</p>
+<script type="math/tex; mode=display">
+|f(z)| \leq \exp(A|\Im{z}|)</script><p>where $\Im{z}$ means the imagine part of $z$.</p>
+<p>We shall notice that in this case,</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\frac{1}{2\pi}\int_{-\pi}^{\pi}\log|f(re^{i\theta})|d\theta &\leq \frac{1}{2\pi}\int_{-\pi}^{\pi}A|r\sin\theta|d\theta=\frac{2Ar}{\pi}
+\end{aligned}</script><p>Following Jensen’s formula, we therefore have</p>
+<script type="math/tex; mode=display">
+|z_{n(r)}| \geq \exp(\frac{2A}{\pi}r^{1-n(r)})</script></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-05-17T11:30:00.000Z" title="17/05/2020, 19:30:00">2020-05-17</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-10-23T00:19:31.958Z" title="23/10/2021, 08:19:31">2021-10-23</time></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2020/05/17/linear-ode-but-quotient-space/">Linear ODE but Quotient Spaces</a></h1><div class="content"><h2 id="What-does-this-blog-do"><a href="#What-does-this-blog-do" class="headerlink" title="What does this blog do"></a>What does this blog do</h2><p>We are treating linear ODE problems as an example of quotient space in this blog post. You are assumed to be able to solve linear ODEs without theoretical problems, and have some basic understanding of normal subgroups. </p>
+<h2 id="General-theories"><a href="#General-theories" class="headerlink" title="General theories"></a>General theories</h2><h3 id="Quotient-Space"><a href="#Quotient-Space" class="headerlink" title="Quotient Space"></a>Quotient Space</h3><p>Let $X$ be a vector space, and $N$ a subspace of it. Naturally $N$ is normal in $X$ since $X$ is abelian. Define</p>
+<script type="math/tex; mode=display">
+\pi(x)=x+N</script><p>for $x \in X$, then the collection of sets $\{\pi(x):x \in X\}$ is the <em>quotient space</em> of $X$ <em>modulo</em> $N$, in which case we write $X/N$. Addition and scalar multiplication are defined by</p>
+<script type="math/tex; mode=display">
+\pi(x+y)=\pi(x)+\pi(y)\quad \pi(\alpha x)=\alpha\pi(x)</script><p>This is well-defined since $N$ is a vector space. The kernel of $\pi$ or the origin of $X/N$ has to be $N=0+N$. People call $\pi$ the <strong>canonical map</strong>.</p>
+<h3 id="Linear-ODE"><a href="#Linear-ODE" class="headerlink" title="Linear ODE"></a>Linear ODE</h3><p>If one solves a linear ODE problem of order $n$ on an interval $(a,b)$, namely</p>
+<script type="math/tex; mode=display">
+\frac{d\mathbf{y}}{dx}=\mathbf{Ay}+\mathbf{f} \quad a<x<b</script><p>where $\mathbf{A}$ is a constant matrix, they will find that the solution can be</p>
+<script type="math/tex; mode=display">
+\mathbf{y}=\mathbf{\Phi}(x)\mathbf{c}+\mathbf{\Phi}(x)\int_0^x\mathbf{\Phi^{-1}}(s)\mathbf{f}(s)ds</script><p>where $\mathbf{c}$ is a given constant vector and $\mathbf{\Phi}(x)=\begin{bmatrix}\mathbf{\varphi_1},\mathbf{\varphi_2},\cdots,\mathbf{\varphi_n}\end{bmatrix}$ and $\{\mathbf{\varphi_i}\}$ are the fundamental solutions of $\frac{d\mathbf{y}}{dx}=\mathbf{Ay}$. We’ll translate this into the language of quotient space. We have to show that <strong>the solutions of the equation forms an element of  $X/N$</strong>.</p>
+<h2 id="Steps-to-quotient-space"><a href="#Steps-to-quotient-space" class="headerlink" title="Steps to quotient space"></a>Steps to quotient space</h2><p>So where is the $X$? It suffices to pick $\mathcal{C}^n$, the space of all functions $\mathbf{y}=(y_1,y_2,\cdots,y_n)^T$ such that $y_k$ is $n$-time differentiable. The crux therefore becomes finding $N$. And we’ll show that it’s denoted by $\mathbf{\Phi}(x)\mathbf{c}$.</p>
+<h3 id="The-solutions-of-frac-d-mathbf-y-dx-mathbf-Ay-form-a-vector-space"><a href="#The-solutions-of-frac-d-mathbf-y-dx-mathbf-Ay-form-a-vector-space" class="headerlink" title="The solutions of $\frac{d\mathbf{y}}{dx}=\mathbf{Ay}$ form a vector space"></a>The solutions of $\frac{d\mathbf{y}}{dx}=\mathbf{Ay}$ form a vector space</h3><p>Indeed,  it’s trivially verified since $\frac{d}{dx}$ and matrix multiplication are linear. The question is, how does this vector space <em>look</em> like? Why the fundamental solutions to this equation has and only has $n$ elements? Does that mean this space (denoted by $N$), has dimension $n$? Fortunately, the following isomorphism answers this question in the affirmative.</p>
+<blockquote>
+<p><strong>Theorem</strong> The vector space $N$ is isomorphic to $\mathbb{R}^n$</p>
+</blockquote>
+<p>Pick and fix $x_0 \in (a,b)$. <a href="/2020/05/16/ivp-picard-differnt-level/">Picard’s existence and uniqueness theorem</a> ensures that, the initial value problem</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+\frac{d\mathbf{y}}{dx}=\mathbf{Ay}\\
+\mathbf{y}(x_0)=\mathbf{y}_0
+\end{cases}</script><p>has a unique solution. Therefore we have a bijection</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+H: N &\mapsto \mathbb{R}^n \\
+\mathbf{y}(x)&\to \mathbf{y}_0
+\end{aligned}</script><p>It suffices to prove that $H$ is linear. Namely, we need to show that</p>
+<script type="math/tex; mode=display">
+H(C_1\mathbf{y}_1+C_2\mathbf{y}_2)=C_1\mathbf{y}_1(x_0)+C_2\mathbf{y}_2(x_0)</script><p>which is trivial, since</p>
+<script type="math/tex; mode=display">
+(C_1\mathbf{y}_1+C_2\mathbf{y}_2)(x_0)=C_1\mathbf{y}_1(x_0)+C_2\mathbf{y}_2(x_0)</script><h3 id="Quotient-space-and-coset-are-there"><a href="#Quotient-space-and-coset-are-there" class="headerlink" title="Quotient space and coset are there"></a>Quotient space and coset are there</h3><p>Let’s see this solution again</p>
+<script type="math/tex; mode=display">
+\mathbf{y}=\mathbf{\Phi}(x)\mathbf{c}+\mathbf{\Phi}(x)\int_{x_0}^x\mathbf{\Phi^{-1}}(s)\mathbf{f}(s)ds</script><p>For $\mathbf{c}=(c_1,c_2,\cdots,c_n)^T$, we have</p>
+<script type="math/tex; mode=display">
+\mathbf{\Phi}(x)\mathbf{c}=\sum_{k=1}^{n}c_k\mathbf{\varphi}_k</script><p>Notice that $\{\mathbf{\varphi_k}\}$ is a <strong>basis</strong> of $N$ and there we have it. $\mathbf{c}$ can be any element of $\mathbb{R}^n$, hence $\mathbf{\Phi}(x)\mathbf{c}$ goes through all elements of $N$. Also we know, the function</p>
+<script type="math/tex; mode=display">
+\mathbf{z}=\mathbf{\Phi}(x)\int_{x_0}^x\mathbf{\Phi^{-1}}(s)\mathbf{f}(s)ds</script><p>is a special solution to $\frac{d\mathbf{y}}{dx}=\mathbf{Ay}+\mathbf{f}$. Thus we have the coset</p>
+<script type="math/tex; mode=display">
+\mathbf{z}+N=\pi(\mathbf{z})</script><p>to be the set of all solutions where $\pi(\mathbf{z}) \in X/N$.</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-05-16T11:41:33.000Z" title="16/05/2020, 19:41:33">2020-05-16</time></span><span class="level-item">Updated&nbsp;<time dateTime="2020-06-17T01:43:56.648Z" title="17/06/2020, 09:43:56">2020-06-17</time></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2020/05/16/ivp-picard-differnt-level/">Prove Picard&#039;s Existence and Uniqueness Theorem on Different Levels</a></h1><div class="content"><h2 id="IVP-and-Picard’s"><a href="#IVP-and-Picard’s" class="headerlink" title="IVP and Picard’s"></a>IVP and Picard’s</h2><p>By IVP (Initial Value Problem), we mean the problem about solving</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+\frac{dy}{dx}=f(x,y) \\
+y(x_0)=y_0
+\end{cases}</script><p>Of course we do hope we can solve this problem easily with a simple result. But that won’t happen if the function $f$ is ‘ugly’ enough. Hence the problem is, generally and theoretically, when we can get a unique solution? When does some solution exist? Fortunately Picard ensured that</p>
+<blockquote>
+<p>If $f$ is uniformly Lipschitz continuous in $y$ and continuous in $x$ on $R=\{(x,y):|x-x_0| \leq a,|y-y_0| \leq b\}$, then for some $\varepsilon&gt;0$, there exists a unique solution $y$ to the IVP on the interval $[x_0-\varepsilon,x_0+\varepsilon]$.</p>
+</blockquote>
+<p>Interesting enough, there are several ways to prove it on different levels. This blog post offers two proofs.</p>
+<h2 id="Proving-Picard’s-existence-and-uniqueness-theorem"><a href="#Proving-Picard’s-existence-and-uniqueness-theorem" class="headerlink" title="Proving Picard’s existence and uniqueness theorem"></a>Proving Picard’s existence and uniqueness theorem</h2><h3 id="Some-preparation"><a href="#Some-preparation" class="headerlink" title="Some preparation"></a>Some preparation</h3><p>By uniformly Lipschitz continuous, we mean that for all $y \in R$, $f$ satisfies</p>
+<script type="math/tex; mode=display">
+\left\vert f(x,y_1) - f(x,y_2)\right\vert \leq L\left\vert y_1 - y_2 \right\vert</script><p>for some $L &gt; 0$. This condition is useful in many different branch of mathematics.</p>
+<p>Also, it’s trivial to verify that the IVP is equivalent to</p>
+<script type="math/tex; mode=display">
+y=y_0+\int_{x_0}^{x}f(x,y)dx</script><p>And yes, our job becomes finding such a $y$ satisfying this equation.</p>
+<h3 id="A-sketch-of-the-proof-in-elementary-calculus"><a href="#A-sketch-of-the-proof-in-elementary-calculus" class="headerlink" title="A sketch of the proof in elementary calculus"></a>A sketch of the proof in elementary calculus</h3><p>Honestly the proof is kind of long. I’ll leave the basic steps here. First, we define the Picard sequence by</p>
+<script type="math/tex; mode=display">
+y_{n+1}(x)=y_0+\int_{x_0}^{x}f(x,y_n(x))dx \quad |x-x_0| \leq \varepsilon</script><p>for $n=0,1,\cdots$. It can be shown by induction that</p>
+<script type="math/tex; mode=display">
+|y_n(x)-y_0| \leq M|x-x_0|</script><p>where $M = \sup\limits_{(x,y) \in R}|f(x,y)|$ and $\varepsilon = \min\left(a,\frac{b}{M}\right)$. We want to prove that</p>
+<script type="math/tex; mode=display">
+\lim_{n \to \infty}y_n=\sum_{n=1}^{\infty}(y_{n+1}(x)-y_n(x))=y</script><p>is the solution to the IVP, where Lipschitz condition comes into play by considering</p>
+<script type="math/tex; mode=display">
+|y_{n+1}(x)-y_n(x)| \leq \frac{M}{L}\frac{(L|x-x_0|)^{n+1}}{(n+1)!}</script><p>Finally, it should be shown that $y$ is the unique solution. To do this, it can be shown that, if we have two solutions, say $y=u(x)$ and $y=v(x)$, then $u(x)-v(x)=0$.</p>
+<h3 id="Osgood’s-condition-ensures-uniqueness"><a href="#Osgood’s-condition-ensures-uniqueness" class="headerlink" title="Osgood’s condition ensures uniqueness"></a>Osgood’s condition ensures uniqueness</h3><p>Osgood’s condition is much weaker than Lipschitz’s. Under Osgood’s condition, it’s easy to check the uniqueness (existence is not guaranteed), but there is no way to get the result (while Lipschitz’s show you the way) through this condition.</p>
+<blockquote>
+<p>$f(x,y)$ has <strong>at most one</strong> solution in every point in $R$ if $f$ is continuous and satisfies the <strong>Osgood’s condition</strong>, namely</p>
+<script type="math/tex; mode=display">
+|f(x,y_1)-f(x,y_2)| \leq F(|y_1-y_2|)</script><p>in $R$ where $F$ is a continuous function such that $F(t)&gt;0$ for all $r&gt;0$.  Also, $F$ is defined in such a way that</p>
+<script type="math/tex; mode=display">
+\int_{0}^{r_1}\frac{1}{F(r)}dr=\infty</script><p>for some $r_1&gt;0$. </p>
+</blockquote>
+<p>Naturally, if we define $F(r)=Lr$, we have $\int_{0}^{r_1}\frac{1}{Lr}dr=\infty$. </p>
+<h4 id="Proof-of-Osgood’s"><a href="#Proof-of-Osgood’s" class="headerlink" title="Proof of Osgood’s"></a>Proof of Osgood’s</h4><p>We’ll prove this theorem indirectly. That is, if there exists some point $(x_0,y_0) \in R$ such that $f$ has at least two solutions, then $f$ does not satisfy Osgood’s condition, which is equivalent to the statement that if $f$ satisfies Osgood’s, then $f$ has no more than solution.</p>
+<hr>
+<p>Suppose now there exists a point $(x_0,y_0) \in R$ such that $y’=f(x,y)$ has two distinct solutions</p>
+<script type="math/tex; mode=display">
+y_1(x)\quad y_2(x)</script><p>and $y_1 \neq y_2$ for at $x_1 \neq x_0$. W.L.O.G. we suppose that $x_1 &gt; x_0$. Define</p>
+<script type="math/tex; mode=display">
+x_s = \sup_{x \in [x_0,x_1]}\{x:y_1(x)=y_2(x)\}</script><p>and $r(x)=y_1(x)-y_2(x)$ on $[x_s,x_1]$. The derivative of $r$ is interesting since we have</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+r'(x)&=y_1'(x)-y_2'(x) \\
+&=f(x,y_1(x))-f(x,y_2(x)) \\
+& \leq |f(x,y_1)-f(x,y_2)| \\
+& \leq F(|y_1-y_2|)=F(r)
+\end{aligned}</script><p>Then the desired improper integral converges since we have</p>
+<script type="math/tex; mode=display">
+\int_{0}^{r_1}\frac{dr}{F(r)}=\int_{x_s}^{x_1}\frac{r'(x)dx}{F(r(x))} \leq x_1-x_s</script><p>Therefore $f$ does not satisfy Osgood’s condition. </p>
+<h3 id="Banach-FPT-is-applied-onto-Picard’s"><a href="#Banach-FPT-is-applied-onto-Picard’s" class="headerlink" title="Banach FPT is applied onto Picard’s"></a>Banach FPT is applied onto Picard’s</h3><h4 id="What-is-Banach-FPT-Fixed-Point-Theorem"><a href="#What-is-Banach-FPT-Fixed-Point-Theorem" class="headerlink" title="What is Banach FPT (Fixed Point Theorem)"></a>What is Banach FPT (Fixed Point Theorem)</h4><p>A map $T: X \mapsto X$ defined on a complete metric space $(X,d)$ is a contraction if there exists some $k \in [0,1)$ such that</p>
+<script type="math/tex; mode=display">
+d(T(x),T(y)) \leq k(x,y)</script><p>Banach Fixed Point Theorem states that, $T$ admits a fixed point, namely $T(x)=x$ for some $x \in X$. </p>
+<p>The proof is an application of Cauchy sequence (notice that $(X,d)$ is complete). Pick an arbitrary $x_0 \in X$, by defining $T(x_n)=x_{n+1}$, we have</p>
+<script type="math/tex; mode=display">
+d(x_{n},x_{n-1})=d(T(x_{n-1}),T(x_{n-2})) \leq kd(x_{n-1},x_{n-2})</script><p>which finally goes to</p>
+<script type="math/tex; mode=display">
+d(x_n,x_{n-1}) \leq k^{n-1}d(x_1,x_0)</script><p>$\{x_n\}$ is Cauchy then since we have</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+d(x_m,x_n) &\leq d(x_m,x_{m-1})+d(x_{m-1},x_{m-2})+\cdots+d(x_{n+1},x_n) \\
+&\leq (k^{m-1}+k^{m-2}+\cdots+k^{n})d(x_1,x_0) \\
+&\leq \frac{q^n}{1-q}d(x_1,x_0) \\
+& \to 0 \quad(n \to\infty)
+\end{aligned}</script><p>Since $(X,d)$ is complete, we see $\{x_n\}$ converges. Also, $T$ is (uniformly) continuous, therefore</p>
+<script type="math/tex; mode=display">
+\lim_{n \to \infty}x_n=\lim_{n \to \infty}x_{n+1}=x=T(x)</script><p>Uniqueness of the fixed point follows from the uniqueness of limit.</p>
+<h4 id="Proving-Picard’s-using-Banach-FPT"><a href="#Proving-Picard’s-using-Banach-FPT" class="headerlink" title="Proving Picard’s using Banach FPT"></a>Proving Picard’s using Banach FPT</h4><p>Fortunately, Picard’s existence and uniqueness theorem can be directly proved using Banach FPT. All we need is a proper translation. </p>
+<h5 id="Complete-metric-space"><a href="#Complete-metric-space" class="headerlink" title="Complete metric space"></a>Complete metric space</h5><p>Let $\mathcal{C_B}(R)$ be all bounded continuous function on $R$, then $\mathcal{C_B}(R)$ is complete considering the metric by </p>
+<script type="math/tex; mode=display">
+d(f,g)=\sup|f(x)-g(x)|</script><h5 id="Contraction-map"><a href="#Contraction-map" class="headerlink" title="Contraction map"></a>Contraction map</h5><p>The functional $T:\mathcal{C_B}(R)\mapsto\mathcal{C_B}(R)$ by</p>
+<script type="math/tex; mode=display">
+T(y)=y_0+\int_{x_0}^{x}f(x,y)dx</script><p>is the contraction we are looking for, if we take uniform Lipschitz’s condition into consideration. Namely, if we have $\varepsilon&lt;\frac{1}{L}$, we can see that</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+d(T(r),T(s)) &= \sup\left\vert \int_{x_0}^{x}(f(x,r)-f(x,s))dx \right\vert \\
+             &\leq\sup\int_{x_0}^{x}|f(x,r)-f(x,s)|dx \\
+             &\leq L\varepsilon d(r,s)
+\end{aligned}</script><p>Therefore by Banach FPT, the functional $T$ has a unique fixed point, which is equivalent to Picard’s existence and uniqueness theorem. Further, the solution can be obtained by taking</p>
+<script type="math/tex; mode=display">
+y_{n+1}=T(y_n)</script><p>where $y(x_0)=y_0$ comes from the initial value problem. Picard’s follows from FPT.</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-05-12T11:00:00.000Z" title="12/05/2020, 19:00:00">2020-05-12</time></span><span class="level-item">Updated&nbsp;<time dateTime="2020-05-17T11:28:23.861Z" title="17/05/2020, 19:28:23">2020-05-17</time></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2020/05/12/linear-ode-chapter-3/">线性ODE（三）——初探高阶线性方程</a></h1><div class="content"><h2 id="一些让步"><a href="#一些让步" class="headerlink" title="一些让步"></a>一些让步</h2><p>直接解释方程计算办法，看似很实在，但是反而会让问题变得更复杂，因为对结构很不清楚，只剩下一个空穴来风的公式。但是，<strong>接下来我们不得不假设我们能很轻松地算出一个方程的解</strong>(就当是超能力吧！)——因为有的方程本来就没有什么普遍的解决办法。这篇博客的目的在于，让读者认识到，就算没有具体的解决办法，也能宏观上对方程进行一些合适的处理。这篇博客中也不是解释如何解方程，而是关于如何利用矩阵和一些常见的数学理论，分析未知的问题。解方程的具体办法会在下一篇博客。</p>
+<h2 id="解结构的分析"><a href="#解结构的分析" class="headerlink" title="解结构的分析"></a>解结构的分析</h2><h3 id="从一阶一次线性方程中得到的启示"><a href="#从一阶一次线性方程中得到的启示" class="headerlink" title="从一阶一次线性方程中得到的启示"></a>从一阶一次线性方程中得到的启示</h3><p>最开始我们分析的是这种方程</p>
+<script type="math/tex; mode=display">
+y'+a(x)y=b(x)</script><p>如果我们有一个解$y_1(x)$使得</p>
+<script type="math/tex; mode=display">
+y_1'(x)+a(x)y_1(x)=0</script><p>而且有一个特殊的解$y_2(x)$使得</p>
+<script type="math/tex; mode=display">
+y_2'(x)+a(x)y_2'(x)=b(x)</script><p>那么全体解就可以表示成$Cy_1(x)+y_2(x)$，有</p>
+<script type="math/tex; mode=display">
+(Cy_1(x)+y_2(x))'+a(x)(Cy_1(x)+y_2(x))=b(x)</script><p>所以如果是$n$个未知数呢？会不会是得到$n$个解，然后再有一个特解？但是一定得是$n$个吗？会不会是更多，或者更少个？如果是$n$个，会不会和一般研究的$n$维欧几里得空间建立联系？比如处理一个$2$元方程，是不是可以投影到二维平面？幸运的是，我们可以很轻松地把欧几里得空间和线性方程的解建立起联系。</p>
+<h3 id="线性方程与欧几里得空间的联系"><a href="#线性方程与欧几里得空间的联系" class="headerlink" title="线性方程与欧几里得空间的联系"></a>线性方程与欧几里得空间的联系</h3><p>这篇博客（和接下来的博客）中，加粗的数学符号都代表列向量或者矩阵。如果觉得不适应，可以自己写成向量和矩阵方便理解。</p>
+<h3 id="解的存在性和唯一性"><a href="#解的存在性和唯一性" class="headerlink" title="解的存在性和唯一性"></a>解的存在性和唯一性</h3><p>线性方程组</p>
+<script type="math/tex; mode=display">
+\frac{d\mathbf{y}}{dx}=\mathbf{A}(x)\mathbf{y}+\mathbf{f}(x)</script><p>的满足条件</p>
+<script type="math/tex; mode=display">
+\mathbf{y}(x_0)=\mathbf{y_0}</script><p>的解是存在且唯一的(这里要求$\mathbf{f}$和$\mathbf{A}$中的函数都是连续的)。这个问题的证明是一个比较麻烦的事情，涉及到Banach不动点问题，在这里就不做证明了。但是也是很好理解的：这里的$\mathbf{A}$和$\mathbf{f}$都是连续的，都不是“病态”的，所以这个方程不会有“病态的”形式，解是很自然的。</p>
+<h3 id="和欧氏空间的一一对应"><a href="#和欧氏空间的一一对应" class="headerlink" title="和欧氏空间的一一对应"></a>和欧氏空间的一一对应</h3><p>我们宣称，线性方程组</p>
+<script type="math/tex; mode=display">
+\frac{d\mathbf{y}}{dx}=\mathbf{A}(x)\mathbf{y}</script><p>的解和$n$维欧氏空间是一一对应的。也就是说，<strong>对每个$\mathbf{y}(x)$，都对应$n$维欧氏空间的唯一一个向量；反之，对$n$维欧氏空间的每一个向量，都对应着一个方程组的唯一一个解</strong>。</p>
+<p>这其实就是所谓解的存在性和唯一性的直接应用。在定义域固定一个$x_0$，然后我们选择$\mathbb{R}^n$的自然基，也就是</p>
+<script type="math/tex; mode=display">
+\{\mathbf{e_1},\mathbf{e_2},\cdots,\mathbf{e_n}\}</script><p>其中$\mathbf{e_1}=(1,0,\cdots,0)$, $\mathbf{e_n}=(0,\cdots,0,1)$。</p>
+<p>那么满足</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\begin{cases}
+\mathbf{y_i}'(x)&=\mathbf{A}(x)\mathbf{y_i} \\
+\mathbf{y_i}(x_0)&=\mathbf{e_i}
+\end{cases}
+\end{aligned}</script><p>的解就是存在且唯一的。如果这个对应，所以我们也选择了</p>
+<script type="math/tex; mode=display">
+\{\mathbf{y_1}(x),\mathbf{y_2}(x),\cdots,\mathbf{y_n}(x)\}</script><p>这样一组“基”(这里我们假设我们已经有一下子求出解的超能力)，那么能不能建立一个$\mathbb{R}^n$的平行版？答案是可以的。对于$\mathbb{R}^n$ ，我们肯定有</p>
+<script type="math/tex; mode=display">
+C_1\mathbf{e_1}+C_2\mathbf{e_2} \in \mathbb{R}^n</script><p>我们设这一节中方程的全体解集合为$\mathfrak{R}^n$，那么我们已经有了$\mathbf{y_i} \in \mathfrak{R}^n$，我们希望</p>
+<script type="math/tex; mode=display">
+C_1\mathbf{y_1}+C_2\mathbf{y_2} \in \mathfrak{R}^n</script><p>这其实利用求导的性质和矩阵的性质，就可以解决。因为</p>
+<script type="math/tex; mode=display">
+\frac{d(C_1\mathbf{y_1}+C_2\mathbf{y_2})}{dx}=C_1\frac{d\mathbf{y_1}}{dx}+C_2\frac{d\mathbf{y_2}}{dx}=C_1\mathbf{A}(x)\mathbf{y_1}+C_2\mathbf{A}(x)\mathbf{y_2}=\mathbf{A}(x)(C_1\mathbf{y_1}+C_2\mathbf{y_2})</script><p>而且不难验证，$C_1\mathbb{y_1}+C_2\mathbf{y_2}$和$C_1\mathbf{e_1}+C_2\mathbf{e_2}$也是一一对应的。所以，我们可以很自然地构建一个和$\mathbb{R}^n$一一对应的平行的空间，尽管这个空间我们可能没法可视化。</p>
+<p>我们知道，$\{\mathbf{e_1},\mathbf{e_2},\cdots,\mathbf{e_n}\}$这组向量，能很自然地用加法和数乘表示出$\mathbb{R}^n$中任意一个向量，而我们建立的等价关系也已经保证，$\{\mathbf{y_1}(x),\mathbf{y_2}(x),\cdots,\mathbf{y_n}(x)\}$也能用加法和数乘，表示出$\mathfrak{R}^n$中的任意一个解。换句话说，本节的方程的全体解$\mathfrak{R}^n$，其中的任意一个解，都可以表示成</p>
+<script type="math/tex; mode=display">
+\mathbf{y_0}=\sum_{k=1}^{n}C_k\mathbf{y_k}</script><p>其中$C_i$为常数。这里其实是一个同构(isomorphism)关系，如果了解这个概念，可以很轻松的写出严格的证明，但在这里就不深入了。</p>
+<p>注意，我们这里已经强迫$\mathbf{f}=\mathbf{0}$. 这样一个$\mathbf{y_0}$，就能保证$\mathbf{y’=Ay+f}$的普遍性。如果我们已经得到了一个$\mathbf{y’=Ay+f}$的特殊解$\mathbf{y_1}$，保证了准确性，那么，$\mathbf{y_0+y_1}$，总共$n+1$个函数，就能表示出所有解了。$\mathbf{f}=0$时，我们的$\mathbf{y_1}=0$也是很和谐的。我们在解决多元微分方程时，处理的问题和一元一次情况下，是很类似的。</p>
+<h2 id="尝试解决高阶方程"><a href="#尝试解决高阶方程" class="headerlink" title="尝试解决高阶方程"></a>尝试解决高阶方程</h2><p>我们现在还有那个超能力，能一下子解决$\frac{d\mathbf{y}}{dx}=\mathbf{A}(x)\mathbf{y}$这样的方程，能求出一组基对应的解。如果我们令</p>
+<script type="math/tex; mode=display">
+\mathbf{A}=
+\begin{pmatrix}
+0&1&0&\cdots&0 \\
+0&0&1&\cdots&0 \\
+\vdots&\vdots&\vdots&\ddots&\vdots\\
+0&0&0&\cdots&1\\
+-a_n(x)&-a_{n-1}(x)&-a_{n-2}(x)&\cdots&-a_1(x)
+\end{pmatrix}</script><p>那么我们就可以得到一个方程</p>
+<script type="math/tex; mode=display">
+y^{(n)}+a_1(x)y^{(n-1)}+\cdots+a_n(x)y=0</script><p>所以我们已经得到了$n$个不同的解，不妨设这组解是$y_1,y_2,\cdots,y_n$。分别对这些$y_i$求导$n-1$次，就能得到上一节中的$n$维列向量。</p>
+<p>那么如果是</p>
+<script type="math/tex; mode=display">
+y^{(n)}+a_1(x)y^{(n-1)}+\cdots+a_n(x)y=f(x)</script><p>这种方程，该怎么求解呢？我们还是通过类似于之前一阶线性方程的办法，通过求导运算，间接求出来。假设有一个函数$y$满足这个方程。</p>
+<p>我们不妨设</p>
+<script type="math/tex; mode=display">
+\mathbf{y}=\begin{bmatrix}y_1\\ \vdots \\ y_n\end{bmatrix}</script><p>以及</p>
+<script type="math/tex; mode=display">
+\mathbf{c}=(c_1,c_2,\cdots,c_n)</script><p>其中满足$y_p=\mathbf{c \cdot y}$(利用行向量、列向量的乘法规则)。所以我们接下来的工作就是求出这样一个$\mathbf{c}$。我们会尝试用线性代数的语言进行描述，可以看到，表述变得非常简单。在这里，对向量求导、求积分的意思是</p>
+<script type="math/tex; mode=display">
+\mathbf{y}'=\begin{bmatrix}y_1'\\ \vdots \\ y_n'\end{bmatrix} \\
+\int\mathbf{y}dx=\begin{bmatrix}\int y_1dx\\ \vdots \\\int y_ndx\end{bmatrix}</script><p>但是直接进行下去也似乎漫无边际。我们希望，能把这个$c$给稳定下来，所以我们会尝试加一些限制条件。这样的限制应该是$n-1$条。这就好比，如果要在平面中确定，和一条直线垂直的直线，那么只需要一个向量就行了。如果要在空间中确定，和一个平面垂直的一条直线，确定两个向量就行了——所谓两条相交直线确定一个平面。</p>
+<p>我们来分析一下怎么确定会更好。对$y$求导，我们有</p>
+<script type="math/tex; mode=display">
+y_p'=\mathbf{c'\cdot y+c\cdot y'}</script><p>如果我们令$c’y=0$，那么就有</p>
+<script type="math/tex; mode=display">
+y''_p=(\mathbf{c \cdot y'})'=\mathbf{c' \cdot y'}+\mathbf{c \cdot y''}</script><p>如果再令$\mathbf{c’ \cdot y’}=0$，继续下去，甚至是$\mathbf{c’ \cdot y^{(k)}}=0$，其中$0 \leq k \leq n-2$，那么对应就有$y_p^{(k)}=cy^{(k)}$。而且接下来求导就变得比较简单。但是，如果我们令$\mathbf{c \cdot y^{(p)}}=0$，就很麻烦了，因为接下来多了像是$c’,c’’,\cdots$这种未知量。这会让等式越来越长，没法表达。所以，我们选择限制条件</p>
+<script type="math/tex; mode=display">
+\mathbf{c' \cdot y^{(k)}}=0\quad 0 \leq k \leq n-2</script><p>已经选择了$n-1$个限制条件，那么能不能凑个整，得到第$n$个式子？那样的话，有$n$个未知数，有$n$个等式，像是再搞矩阵了。我们还有一点根本没用上：最开始的方程。对于$0 \leq k \leq n-1$，我们已经已经有(可以手动验算一下)：</p>
+<script type="math/tex; mode=display">
+y_{p}^{(k)}=\mathbf{c \cdot y^{(k)}}</script><p>所以就有</p>
+<script type="math/tex; mode=display">
+y_p^{(n)}=\mathbf{c' \cdot y^{(n-1)}}+\mathbf{c \cdot y^{(n)}}</script><p>这个时候，回到最开始的方程，代入这$n$个等式，有</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+y_p^{(n)}+a_1y_p^{(n-1)}+\cdots+a_ny_p&=f\\
+\mathbf{c' \cdot y^{(n-1)}}+\mathbf{c \cdot y^{(n)}}+a_1\mathbf{c\cdot y^{(n-1)}}+\cdots+a_n\mathbf{c \cdot y}&=f\\
+\mathbf{c' \cdot y^{(n-1)}}+\mathbf{c \cdot}\left(\mathbf{y^{(n)}}+a_1\mathbf{y^{(n-1)}}+\cdots+a_n\mathbf{y}\right)&=f \\
+\mathbf{c' \cdot y^{(n-1)}}&=f
+\end{aligned}</script><p>最后一个等号成立是因为，在$\mathbb{y}$中，每个分量$y_k$都满足$y_k+a_1y_k^{(n-1)}+\cdot+a_ny_k=0$。所以这些向量加起来是一个$0$向量。</p>
+<p>所以我们有了关于$\mathbf{c’}$的$n$个等式，也就是说</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+c_1'y_1+\cdots+c_n'y_n&=&0 \\
+c_1'y_1'+\cdots+c_n'y_n'&=&0 \\
+\cdots\cdots\cdots\cdots\\
+c_1'y_1^{(n-2)}+\cdots+c_n'y_{n}^{(n-2)}&=&0 \\
+c_1'y_1^{(n-1)}+\cdots+c_n'y_{n}^{(n-1)}&=&f
+\end{cases}</script><p>如果我们写成矩阵的形式，就有</p>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+y_1 & y_2 & \cdots&y_{n} \\
+y_1' & y_2' & \cdots&y_{n}' \\
+\vdots&\vdots&\ddots&\vdots \\
+y_1^{(n-2)} & y_2^{(n-2)} & \cdots&y_{n}^{(n-2)} \\
+y_1^{(n-1)} & y_2^{(n-1)} & \cdots&y_{n}^{(n-1)} \\
+\end{bmatrix}
+\begin{bmatrix}
+c_1'\\
+c_2'\\
+\vdots \\
+c_{n-1}' \\
+c_n'
+\end{bmatrix}=
+\begin{bmatrix}
+0 \\
+0 \\
+\vdots \\
+0 \\
+f
+\end{bmatrix}</script><p>如果你学习了<strong>Cramer法则</strong>，那么怎么解决这个问题已经浮现在眼前了。没错，我们可以直接利用Cramer法则，求出$\mathbf{c’}$，然后再求积分。我们用线性代数，将这个结构厘清，又简单利用微积分，将结果得出。</p>
+<p>对于每个$c_k’$，我们有</p>
+<script type="math/tex; mode=display">
+c_k'=\frac{W_k}{W}</script><p>从而$c_k = \int\frac{W_k}{W}dx$，重复$n$次，就得到了整个$y_p$，从而得到我们想要的解。其中$W$为上式中由$y_1,y_2,\cdots,y_n$构成的矩阵的行列式，而$W_k$是将$W$中第$k$列换成$(0,0,\cdots,0,f)^T$之后得到的矩阵的行列式。具体而言，我们有</p>
+<script type="math/tex; mode=display">
+y=\sum_{k=1}^{n}C_ky_k+\sum_{k=1}^{n}y_k\int\frac{W_k(x)}{W(x)}dx</script><p>并没有什么诡异又空穴来风的公式需要记忆，这一切都来得很自然。可能会有人注意到，如果这里的$W(x)=0$该怎么办？这其实说明，选择的解，<strong>并没有代表性</strong>，其中的一个解，可以用另外几个解表示出来。比如方程$y’’=y$，应该选择解$e^{x},e^{-x}$，不应该选择$e^{x}$和$2e^{x}$，因为这个时候$e^{x}$可以很直接地表示出$2e^{x}$来。</p>
+<h2 id="一个例子"><a href="#一个例子" class="headerlink" title="一个例子"></a>一个例子</h2><p>这篇博客里并没有直接解释怎么直接解出高阶常微分方程，实际上这个问题并不见得有多简单。但是，如果我们有了超能力，能解出方程右边等于$0$时候的解，就能得到所有实际要求的解了。我们可以试着解一个方程。</p>
+<blockquote>
+<script type="math/tex; mode=display">
+y''+y-2y=x</script></blockquote>
+<p>如果要解$y’’+y-2y=0$，可以得到一组具有代表性的解：$e^{x}$和$e^{-2x}$。这个时候的$W$和$W_k$就可以直接求出来了。</p>
+<script type="math/tex; mode=display">
+W(x)=\begin{vmatrix}e^x&e^{-2x} \\e^x&-2e^{-2x}\end{vmatrix}=-3e^{-x}</script><script type="math/tex; mode=display">
+W_1(x)=\begin{vmatrix}0 & e^{-2x} \\x&-2e^{-2x}\end{vmatrix}=-xe^{-2x}</script><script type="math/tex; mode=display">
+W_2(x)=\begin{vmatrix}e^x&0\\e^x&x\end{vmatrix}=xe^x</script><p>从而</p>
+<script type="math/tex; mode=display">
+y=e^x(C_1+\int_0^x\frac{s}{3}e^{-s}ds)+e^{-2x}(C_2+\int_0^x\frac{-s}{3}e^{2s}ds)</script><p>假设我们知道在原点处的取值情况，例如$\begin{cases}y(0)&amp;=0\\ y’(0)&amp;=1\end{cases}$，我们就能得到方程组</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+C_1+C_2&=0 \\
+C_1-2C_2&=1
+\end{cases}</script><p>解出$C_1=\frac{1}{3}$，$C_2=-\frac{1}{3}$.</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-05-07T00:31:22.000Z" title="07/05/2020, 08:31:22">2020-05-07</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-10-06T03:40:41.006Z" title="06/10/2021, 11:40:41">2021-10-06</time></span><span class="level-item"><a class="link-muted" href="../../categories/Personal/">Personal</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2020/05/07/alguien-desordena-estas-rosas/">关于《有人弄乱了这束玫瑰花》</a></h1><div class="content"><p><img src="\img\la-mujer-de-las-rosas.jpg" alt="Credit: https://desorbita.wordpress.com/2017/10/23/alguien-desordena-estas-rosas/"></p>
+<p>她做得很好。二十年，房间中的孤独感并没有消退。我不想知道，她为什么选择回来。或者说我早已经知道。她想和那个她一起度过一个个童年午后的孩子分享同一份孤独。不过现在她像是照看一个有残疾的孙子，而这个孙子在他奶奶还有五岁的时候就没挪过窝，这个窝在山坡上的坟头里，窝里的孙子的尸骸已经回归自然。</p>
+<p>我的想法很简单，我想从她的桌子上取一束玫瑰，在周日给自己上坟。可是她总是死死盯着，像是免受自己的孤独受到损伤一样盯着。这个眼神没有变，四十年前的她，用同样的眼神看着那个仰面朝天摔死在马厩的草堆的男孩的尸体。正是这个眼神让我认出来，她就是八月里那个大雨倾盆的下午陪我一起在马厩掏鸟窝的女孩。</p>
+<p>可我并没有参透她的想法。关于她为什么回来，关于她为什么要为圣徒留下那些玫瑰花。</p>
+<p>她的突然回归接近毁掉我的孤独感，但是这二十年，我们分享了不一样的孤独。等到她再也回不到这个房间，她需要被四个人抬到山岗，可能会葬在我的旁边。这就不是我能管到的了。在那之后，我想每个周日，拿两束玫瑰，一束放在自己的坟头，另一束放在她的坟头。但没必要，我不希望再去打扰她的孤独感了，她也不会打扰到我了。</p>
+<p>那时候她就已经知道一切。每个周日，有人弄乱了玫瑰花。我会永远一个人待在这个房间，和她没来之前一样。我浑身是土，身上长满了蜘蛛网。我能分辨木头腐烂时的声音。我能分辨陈旧空气的鼓翼声。这一切在四十年前就决定了。这二十几年我很累。我也已经满意了。</p>
+<blockquote>
+<p>加西亚·马尔克斯：有人弄乱了玫瑰花</p>
+</blockquote>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-05-03T16:00:00.000Z" title="04/05/2020, 00:00:00">2020-05-04</time></span><span class="level-item">Updated&nbsp;<time dateTime="2020-05-04T07:16:56.382Z" title="04/05/2020, 15:16:56">2020-05-04</time></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2020/05/04/linear-ode-chapter-2/">线性ODE（二）——用矩阵表示方程组</a></h1><div class="content"><h2 id="矩阵表示的目的"><a href="#矩阵表示的目的" class="headerlink" title="矩阵表示的目的"></a>矩阵表示的目的</h2><p>的确，看似普通的一元常微分方程，就已经存在非常难解，或者无法用初等形式得到解的方程了，例如Airy方程$y’’=xy$。它的解是这个样子的：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}y&=a_0\left\{1+\sum_{n=1}^{\infty}\frac{x^{3n}}{(3n)(3n-1)(3n-4)\cdots6\cdot5\cdot3\cdot2}\right\} \\ &+a_1\left\{x+\sum_{n=1}^{\infty}\frac{x^{3n+1}}{(3n+1)(3n)(3n-2)(3n-3)\cdots7\cdot6\cdot4\cdot3}\right\}\end{aligned}</script><p>这个看似平凡的方程的解就这么复杂，我们更不能指望有解决更多未知函数或者次数更高的方程，能总是得到简洁的结果。但是在宏观上的处理还是可行的，这也给我们解决比较简单的方程（也可能是将复杂的问题在局部进行简化近似）创造了可能性。</p>
+<p>在求解一般的线性方程组时，我们将一个方程组表示成一个矩阵和列向量的乘积的形式。这种表示方法可以简化表示，还可以充分运用矩阵的性质，像是行列式、秩、标准型等等。在解决线性微分方程组时，我们也想进行类似的 操作。具体而言，我们想解决这样几个问题：</p>
+<ol>
+<li>假设我们已经得到了方程的解，那么这些解有怎样的性质？和一般的实数范围的方程组的解有什么不同？</li>
+<li>既然求导是线性运算，我们在线性代数中的理论，有多少可以用上？</li>
+<li>如果要求解的方程组的系数全是实数，那么能不能运用实矩阵的性质，对矩阵进行简化（例如化为对角型等），对方程求解进行简化？</li>
+</ol>
+<h2 id="多元线性常微分方程组"><a href="#多元线性常微分方程组" class="headerlink" title="多元线性常微分方程组"></a>多元线性常微分方程组</h2><h3 id="从方程组到矩阵"><a href="#从方程组到矩阵" class="headerlink" title="从方程组到矩阵"></a>从方程组到矩阵</h3><p>我们考虑这种形式的方程组：</p>
+<script type="math/tex; mode=display">
+\begin{cases}y_1'=a_{11}(x)y_1+a_{12}(x)y_2+\cdots+a_{1n}(x)y_n(x)+f_1(x) \\\cdots\cdots\cdots\cdots \\y_n'=a_{n1}(x)y_1+a_{n2}(x)y_2+\cdots+a_{nn}(x)y_n(x)+f_n(x)\end{cases}</script><p>这个时候，如果我们令</p>
+<script type="math/tex; mode=display">
+\mathbf{y}=\begin{pmatrix}y_1 \\y_2 \\\cdots \\y_n\end{pmatrix},\quad\mathbf{f}(x)=\begin{pmatrix}f_1(x) \\f_2(x) \\\cdots \\f_n(x)\end{pmatrix}</script><p>以及</p>
+<script type="math/tex; mode=display">
+\mathbf{A}(x)=\begin{pmatrix}a_{11}(x) &a_{12}(x) & \cdots & a_{1n}(x) \\a_{21}(x) &a_{22}(x) & \cdots & a_{1n}(x) \\\vdots & \vdots & \ddots & \vdots \\a_{n1}(x) & a_{n2}(x) & \cdots & a_{nn}(x)\end{pmatrix}</script><p>那么这个方程组就可以写成</p>
+<script type="math/tex; mode=display">
+\frac{d\mathbf{y}}{dx}=\mathbf{A}(x)\mathbf{y}+\mathbf{f}(x)</script><h3 id="高阶常微分方程和多元常微分方程组"><a href="#高阶常微分方程和多元常微分方程组" class="headerlink" title="高阶常微分方程和多元常微分方程组"></a>高阶常微分方程和多元常微分方程组</h3><p>高阶方程是指的这种形式</p>
+<script type="math/tex; mode=display">
+y^{(n)}+a_1(x)y^{(n-1)}+\cdots+a_{n}(x)y=f(x)</script><p>这个方程看似和多元方程组没有关系，但是如果我们新定义若干变量，加上一些约束关系，这个方程就<strong>是</strong>一个多元方程了</p>
+<script type="math/tex; mode=display">
+\begin{cases}y_1=y \\y_2 = y' \\\cdots \\y_k = y^{(k-1)} \\\cdots\\y_{n}=y^{(n-1)}\end{cases}</script><p>我们又知道</p>
+<script type="math/tex; mode=display">
+y^{(n)}=y_n'=-(a_n(x)y_1+\cdots+a_1(x)y_n)+f(x)</script><p>那么这个时候，一个矩阵已经浮现出来了：</p>
+<script type="math/tex; mode=display">
+\mathbf{A}(x)=\begin{pmatrix}    0 & 1 & 0 & \cdots & 0 \\    0 & 0 & 1 & \cdots & 0 \\    \vdots & \vdots & \vdots & \ddots & \vdots \\    0 & 0 & 0 & \cdots & 1 \\    -a_n(x)&-a_{n-1}(x)&-a_{n-2}(x) & \cdots & -a_1(x)\end{pmatrix}</script><p>同时有</p>
+<script type="math/tex; mode=display">
+\mathbf{f}(x)=\begin{pmatrix}0 \\0 \\\vdots \\0 \\f(x)\end{pmatrix}</script><p>这时，矩阵运算就变得自然了，也就是说，$\frac{d\mathbf{y}}{dx}=\mathbf{A}(x)\mathbf{y}+\mathbf{f}(x)$。如果了解过友阵，那么看到这里的$\mathbf{A}(x)$难免要想到它。如果这里的$a_i(x)$都是常数，那么这个矩阵就是一个常见的多项式的友阵。有意思的是，这不是巧合。</p>
+<blockquote>
+<p>对于多项式$f(\lambda)=\lambda^k+c_{k-1}\lambda^{k-1}+\cdots+c_0$，对应的友阵$C(f)$为</p>
+<script type="math/tex; mode=display">
+\begin{pmatrix}0 & 1 & 0 & \cdots & 0 \\    0 & 0 & 1 & \cdots & 0 \\    \vdots & \vdots & \vdots & \ddots & \vdots \\    0 & 0 & 0 & \cdots & 1 \\    -c_n&-c_{n-1}&-c_{n-2} & \cdots & -c_1\end{pmatrix}</script><p>不难验证，$C(f)$的特征多项式为$f$。有些场合会把友阵写成上述矩阵的转置。</p>
+</blockquote>
+<p>但是我们应该直接把高阶微分方程直接看成一个多元微分方程组吗？那样远远不够。高阶微分方程对应的矩阵的特殊结构，导致它具有一些特殊的性质，这些性质不是讨论多元微分方程组的性质能替代的。</p>
+<h3 id="接下来的内容"><a href="#接下来的内容" class="headerlink" title="接下来的内容"></a>接下来的内容</h3><p>虽然可能有点唐突，我们接下来会先假设，我们已经能很轻松得到一个矩阵对应的解，然后需要做的工作是搞清其中的结构。在获得适量的结论（但是不应该过于深入）之后，我们会尝试讨论最简单的方程：高阶微分方程，也就是</p>
+<script type="math/tex; mode=display">
+y^{(n)}+a_1(x)y^{(n-1)}+\cdots+a_{n}(x)y=f(x)</script><p>包括一些可行的解法，和用线性代数工具进行操作的实例。标准化、Cramer法则等等，都会在这里很自然地出现。接下来，我们会讨论稍微复杂点的方程组：常系数微分方程组，即系数矩阵$\mathbf{A}(x)$为常数的矩阵。最后，我们会尝试得到对于所有方程组的一些普遍性结论。</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-04-30T16:00:00.000Z" title="01/05/2020, 00:00:00">2020-05-01</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-01-13T02:58:11.877Z" title="13/01/2022, 10:58:11">2022-01-13</time></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2020/05/01/linear-ode-chapter-1/">线性ODE（一）——线性方程的思想与一阶方程</a></h1><div class="content"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>说到常微分方程，很多人可能认为，这是通过各种充满技巧性、构造性的手段直接或者间接求导求积分，而且根本想不出来这些技巧从那里冒出来的。因为这样对，所以这样对，所以我以后就这样套公式，就算出结果来了，一验算确实如此。事情并非如此。的确，常微分方程中有一些问题，现在都没有被研究清楚，但是那些基本的、常见的常微分方程问题，并没有什么看不见摸不着的玄学。<strong>在这些理论背后，是微积分、线性代数等等基本工具之间朴素而又美妙的联系。</strong>这一系列的博客，正想给读者呈现这一点。我们会遵循这样一个原则：先通过代数，将微分方程的结构厘清，再通过微积分，得到所希望得到的结果。可以看下面这个例子：</p>
+<p><img src="\img\image-20200501132151024.png" alt="image-20200501132151024"></p>
+<p>假如你需要讨论椭圆$\frac{x^2}{4}+y^2-\frac{xy}{2}=1$的性质，那你肯定不愿意。这个椭圆在坐标系中是斜着的，如果要计算各种性质的话，那可能是巨大的计算量，得到一个个令人绝望的二次方程，甚至还有分式等等。但是，如果我们把原来的基<strong>旋转</strong>一个合适的角度，也就是从$\{E_1,E_2\}$旋转到了$\{E_1’,E_2’\}$，那么在这组新基下，它就是一个很平凡的椭圆了，也就是说，我们只需要讨论在这组新基下表示的椭圆方程就行了。看上去很美好，但是实际可行吗？当然可行。这个变换没有改变椭圆的任何性质。椭圆没有平移，没有变形；周长没有变，面积没有变。我们在这组新基下得到的结果，只需要再反转回去，就是原来所求的结果。</p>
+<p>还有一个问题：这个旋转是所谓构造性极强、充满技巧的手段吗？是空穴来风吗？不是。这是利用了线性变换，利用了特征值，利用了矩阵的基本性质。此后，再在新基下运用各种直线方程、微积分方法等等，变得非常简单。这就是我们接下来要运用的思想。</p>
+<h2 id="一阶线性方程"><a href="#一阶线性方程" class="headerlink" title="一阶线性方程"></a>一阶线性方程</h2><h3 id="一阶线性方程的定义与一个物理学实例"><a href="#一阶线性方程的定义与一个物理学实例" class="headerlink" title="一阶线性方程的定义与一个物理学实例"></a>一阶线性方程的定义与一个物理学实例</h3><p>我们接下来要解决的是这种类型的方程</p>
+<blockquote>
+<script type="math/tex; mode=display">
+\frac{dy}{dx}+p(x)y=q(x)</script></blockquote>
+<p>只需要$y’$和$y$的次数都是$1$，而且没有$y^a(y’)^{b}$这种形式出现，就是一个一阶（因为$y’$只求导了一次）线性（只有一次项）方程。</p>
+<p>这样的方程自然也有自己的实际价值。例如通过电学中的<strong>Kirchhoff’s Circuit Laws</strong>，对于一个简单的R-L串联电路（串联有一个电阻、一个电感的直流电电路），我们能得到电流强度方程</p>
+<blockquote>
+<script type="math/tex; mode=display">
+L\frac{di}{dt}+Ri=E</script></blockquote>
+<p>其中，$i(t)$表示电流强度，$R$表示串联的电阻，$L$表示电感，$E$表示电压。显然，$i=\frac{E}{R}$就是一个特解。如果我们有$L \neq 0$，那么两边除以$L$，就能得到</p>
+<script type="math/tex; mode=display">
+\frac{di}{dt}+\frac{R}{L}i=\frac{E}{L}</script><p>这里的$\frac{R}{L}$就可以看成$p(t)$，$\frac{E}{L}$可以看成$q(t)$，尽管都是常数。如果解这个方程（解法会在后面介绍，这个解也可以加以验证），能得到</p>
+<script type="math/tex; mode=display">
+i = \frac{E}{R}+C\exp(-\frac{R}{L}t)</script><p>但是考虑到实际情况，开关闭合之前，电流强度是$0$；直到在闭合的一瞬间$t=0$时，有$i=0$。考虑到这一点，就能直接将常数$C$解出来，也就得到了</p>
+<script type="math/tex; mode=display">
+i=\frac{E}{R}(1-\exp({-\frac{R}{L}t}))</script><h3 id="从电流问题中得到的启发"><a href="#从电流问题中得到的启发" class="headerlink" title="从电流问题中得到的启发"></a>从电流问题中得到的启发</h3><p>上一节我们试图探讨R-L串联电路中电流强度的变化，给出了一个有物理意义的方程，并且解了出来。问题是，为什么会出现常数$e$？</p>
+<p>我们在高中就学过，$(e^{x})’=e^x$，或者更普遍一点，$(Ce^x)’=Ce^x$。如果在$x$的系数上做文章，有$(Ce^{-ax})’=-aCe^{-ax}$。注意，如果我们令$y=Ce^{-ax}$，那么我们已经得到了</p>
+<script type="math/tex; mode=display">
+y'+ay=0</script><p>这是最简单的一阶线性方程了。$Ce^{-ax}$的性质和线性方程吻合得很好。但是上面的方程明显比这个复杂，却还是有一个$e$在这里。可不可以认为，形如$y’+ay=b$的方程是由$y’+ay=0$进行“调整”得到的？更进一步，方程$y’+p(x)y=q(x)$是不是由$y’+p(x)y=0$衍生出来的？是怎么衍生出来的？这个解的结构是怎样的？</p>
+<p>实际情况是，在讨论多元常微分方程组、高阶常微分方程的时候，我们都还是从指数函数出发，从等式右边等于$0$出发。当然我们现在不应该深入太多。</p>
+<h3 id="从高斯消元法到线性微分方程解的结构"><a href="#从高斯消元法到线性微分方程解的结构" class="headerlink" title="从高斯消元法到线性微分方程解的结构"></a>从高斯消元法到线性微分方程解的结构</h3><p>高斯消元法，或者是更单纯的求解$n$元一次方程组的办法，我想读者肯定知道计算原理。我们举一个简单的例子</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+\begin{aligned}
+x_1+2x_2+x_3&=0 \\
+2x_1+5x_2+x_3&=1 \\
+0x_1-3x_2+3x_3&=-3
+\end{aligned}
+\end{cases}</script><p>通过高斯消元法，或者单纯说是反复给其中两个方程做加减法和代入，能得到</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+\begin{aligned}
+x_1+0x_2+3x_3&=-2 \\
+x_2-x_3&=1
+\end{aligned}
+\end{cases}</script><p>令$x_3=t$，就能得到$x_1=-2-3t,x_2=1+t$。其中$t \in \mathbb{R}$。这时我们就得到了这个线性方程组的解。为了表示方便，结合矩阵运算的性质，原来的式子可以写成矩阵的形式：</p>
+<script type="math/tex; mode=display">
+\begin{pmatrix}
+1 & 2 & 1 \\
+2 & 5 & 1 \\
+0 &-3&3 \\
+\end{pmatrix}
+\begin{pmatrix}
+-2-3t \\
+1+t \\
+t
+\end{pmatrix}=\begin{pmatrix}
+1 & 2 & 1 \\
+2 & 5 & 1 \\
+0 &-3&3 \\
+\end{pmatrix}
+\left\{
+\begin{pmatrix}
+-2 \\
+1 \\
+0
+\end{pmatrix}+
+t\begin{pmatrix}
+-3 \\
+1 \\
+1
+\end{pmatrix}
+\right\}=0</script><p>不妨用$A$表示这个矩阵，$v_1=(-2,1,0)^T$，$v_2=(-3,1,1)^T$，$v_0=(0,1,-3)^T$（$T$表示转置，这里为了书写简便）。那么可以验证，$Av_1=v_0$，而$Av_2=0$。那么这个式子又可以写成</p>
+<script type="math/tex; mode=display">
+A(v_1+tv_2)=Av_1+tAv_2=v_0+t\cdot0=v_0</script><p>所以我们想求的未知向量$x=v_1+tv_2$由两部分组成：一部分是符合$Ax=b$的一个特殊解，一部分符合$Ax’=0$，两部分的和代表了所有的解。也就是说，一个线性方程组的解，可能有无穷多个。<strong>但是，有一部分保证了解是准确的（也就是上面的$v_1$），有一部分保证解是普遍的（也就是上面的$tv_2$。$v_2$指出了解延伸的骨架，$t$取遍所有实数进行遍历）。</strong></p>
+<p>为什么要举高斯消元法这样一个例子呢？这里矩阵乘法是一个线性运算（$A(\alpha v+\beta w)=\alpha Av+\beta Aw$），而求导也是一个线性运算（$(af+bg)’=af’+bg’$），也就是说，它们都是“平直”的，是没有让问题变复杂的乘积的。电流方程的通解</p>
+<script type="math/tex; mode=display">
+i = \frac{E}{R}+C\exp(-\frac{R}{L}t)</script><p>很好验证，但是是不是也是这样的结构？对于$i_1=\exp(-\frac{R}{L}t)$，通过简单的求导运算可以得到$\frac{di_1}{dt}+\frac{R}{L}i_1=0$。对于$i_2=\frac{E}{R}$，我们已经知道它满足原来的方程。所以$i=Ci_1+i_2$，代入原来的方程，就有</p>
+<script type="math/tex; mode=display">
+\frac{d(Ci_1+i_2)}{dt}+\frac{R}{L}(Ci_1+i_2)=\frac{E}{L}+C\cdot 0</script><p>这和上面求三元一次方程组得到的结果是类似的。只是形式不同，但是结构相同。$i_2$保证了解的准确性，$i_1$保证解的普遍性，遍历所有结果。<strong>求解一阶线性微分方程，我们已经看清了结构（通过高斯消元法的类比），接下来，需要通过微积分的手段，得到一个合适结论。</strong></p>
+<h3 id="一阶线性常微分方程的解决办法"><a href="#一阶线性常微分方程的解决办法" class="headerlink" title="一阶线性常微分方程的解决办法"></a>一阶线性常微分方程的解决办法</h3><h4 id="形如-y’-p-x-y-0-的方程的解"><a href="#形如-y’-p-x-y-0-的方程的解" class="headerlink" title="形如$y’+p(x)y=0$的方程的解"></a>形如$y’+p(x)y=0$的方程的解</h4><p>显然，$y=0$是这个方程的一个解。如果$y \neq 0$，我们可以将这个方程改写成这个形式</p>
+<script type="math/tex; mode=display">
+\frac{dy}{y}+p(x)dx=0</script><p>分别对$x$和$y$积分，就能得到</p>
+<script type="math/tex; mode=display">
+\ln\left\vert y \right\vert = -\int p(x)dx + C</script><p>又可以写成</p>
+<script type="math/tex; mode=display">
+y = Ce^{-\int p(x)dx}</script><p>其中$C$为常数。$C=0$时，恰好对应了$y=0$这个解。的确，如果我们解</p>
+<script type="math/tex; mode=display">
+\frac{di}{dt}+\frac{R}{L}i=0</script><p>就能得到$i=C\exp({-\frac{R}{L}t})$。</p>
+<h4 id="形如-y’-p-x-y-q-x-的方程的解"><a href="#形如-y’-p-x-y-q-x-的方程的解" class="headerlink" title="形如$y’+p(x)y=q(x)$的方程的解"></a>形如$y’+p(x)y=q(x)$的方程的解</h4><p>事情似乎变得有点蹊跷。难不成要强行凑出一个满足这个方程的解，然后再加上满足$y’+p(x)y=0$的全体解？并非如此。求出一个满足条件的$y$有很多办法，我会在这里介绍一种比较直观的办法。</p>
+<p>实际上，我们知道了$q(x)$就已经足够了。设有$f(x)=e^{-\int p(x)dx}$，设全体解是</p>
+<script type="math/tex; mode=display">
+y(x)=Cf(x)+\mu(x)</script><p>其中$\mu(x)$满足$\mu’+p(x)\mu=q(x)$。我们通过已知的$f$和$q$直接求出$\mu$来，从而求出所有解来。</p>
+<p>不妨设$\mu(x)=f(x)c(x)$，我们通过几个函数的性质求出$c(x)$来。对$\mu$求导有</p>
+<script type="math/tex; mode=display">
+\mu'(x)=f'(x)c(x)+f(x)c'(x)=-p(x)f(x)c(x)+f(x)c'(x)=-p(x)f(x)c(x)+q(x)</script><p>这里利用了$f’(x)+p(x)f(x)=0$。而$f(x)与$$p(x)$都是已知的，经过化简就得到了</p>
+<script type="math/tex; mode=display">
+c'(x)=\frac{q(x)}{f(x)}</script><p>对$c’$求积分，就得到（其实这是直接写出来）</p>
+<script type="math/tex; mode=display">
+c(x)=\int q(x)e^{\int p(t)dt}dx</script><p>所以全体解就是</p>
+<script type="math/tex; mode=display">
+y=e^{-\int p(x)dx}\left(C+\int q(x)e^{\int p(t)dt}dx\right)</script><p>这个时候，$c(x)e^{-\int p(x)dx}$决定了解的准确性，$C \cdot e^{-\int p(x)dx}$决定了解的普遍性。如果我们已经知道了一个特殊值，也就是说$y(x_0)=y_0$，那么方程$y’+p(x)=q(x)$的解就可以准确写成</p>
+<script type="math/tex; mode=display">
+y=y_0e^{-\int_{x_0}^xp(t)dt}+\int_{x_0}^{x}q(s)e^{\int_s^xp(t)dt}ds</script><p>这并不是什么生拉硬拽的拼凑和巧合，并不需要所谓灵光一现，需要的是对线性运算的基本理解。</p>
+<p>不妨再去验证一下刚开始的那个电路方程是不是符合这一结果。</p>
+<h5 id="全体解都被包含了吗？"><a href="#全体解都被包含了吗？" class="headerlink" title="全体解都被包含了吗？"></a>全体解都被包含了吗？</h5><p>可能这个结论不具有信服力。是不是漏掉了哪些解？</p>
+<p>我们已经知道$\mu(x)$是一个解，不妨再设有一个解$y(x)$，那么$y(x)-\mu(x)$是什么样子？如果是$Cf(x)$，那么刚刚好，因为这里的$y$是任意选取的，这就体现了$Cf(x)$的普遍性。实际上</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+(y-\mu)'+p(x)(y-\mu)&=(y'+p(x)y')-(\mu'-p(x)\mu) \\
+                    &=q(x)-q(x) \\
+                    &=0
+\end{aligned}</script><p>而解$y-\mu$，就得到了$y-\mu=Cf(x)$，所以说，全体解的确是$Cf(x)+\mu$。</p>
+<h4 id="你已经意识到了，求不定积分也是求一阶线性微分方程"><a href="#你已经意识到了，求不定积分也是求一阶线性微分方程" class="headerlink" title="你已经意识到了，求不定积分也是求一阶线性微分方程"></a>你已经意识到了，求不定积分也是求一阶线性微分方程</h4><p>在初学微积分的时候，求不定积分常常要有一个$+C$。在现在这个框架下这个结果就很明显了。我们求</p>
+<script type="math/tex; mode=display">
+y'=f(x)</script><p>其实可以看成求</p>
+<script type="math/tex; mode=display">
+y'+0 \cdot y = f(x)</script><p>而$y’=0$解得$y=C$，又假设我们已经解得一个函数$F$使得$F’=f$，那么就有</p>
+<script type="math/tex; mode=display">
+y=F(x)+C</script><p>了。$F$保证解的准确，$C$保证解的普遍性。</p>
+<h3 id="伯努利方程——将方程化为一阶线性方程"><a href="#伯努利方程——将方程化为一阶线性方程" class="headerlink" title="伯努利方程——将方程化为一阶线性方程"></a>伯努利方程——将方程化为一阶线性方程</h3><p>有些方程虽然不是一阶线性方程，但是好在我们能将它经过简单的变换，变成一个一阶线性方程。例如这个方程</p>
+<script type="math/tex; mode=display">
+y'=\frac{2xy^2+\arctan{x}}{2y}</script><p>虽然甚至都不是线性方程（因为$y$有一个次数是$-1$），但是如果令$z=y^2$，就有</p>
+<script type="math/tex; mode=display">
+2yy'=z'=2xz+\arctan{x}</script><p>这就得到了一个一阶线性方程了（尽管可能很难算）。一般地讲，对于伯努利方程</p>
+<script type="math/tex; mode=display">
+y'+p(x)y=q(x)y^n</script><p>两边乘以$(1-n)y^{-n}$，就能得到</p>
+<script type="math/tex; mode=display">
+(1-n)y^{-n}y'+(1-n)y^{1-n}p(x)=(1-n)q(x)</script><p>在令$z=y^{1-n}$，就能得到</p>
+<script type="math/tex; mode=display">
+z'+(1-n)p(x)z=(1-n)q(x)</script><p>这就是一个一阶线性方程了，计算就变得很简单。</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-04-17T16:00:00.000Z" title="18/04/2020, 00:00:00">2020-04-18</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-05-06T10:09:10.006Z" title="06/05/2022, 18:09:10">2022-05-06</time></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2020/04/18/order-of-limit/">高等数学入门——理解无穷小的阶（微积分的“科学计数法”）</a></h1><div class="content"><h2 id="从科学记数法讲起"><a href="#从科学记数法讲起" class="headerlink" title="从科学记数法讲起"></a>从科学记数法讲起</h2><p>当处理非常大或者非常小的数的时候科学记数法肯定是很方便的，不用记写很多$0$，也不用数有几个$0$。像是木星的质量大约是$1.9\times 10^{27}$千克，而电子的质量大约是$9.1 \times 10^{-31}$ 千克，能很轻松地进行表达。如果这两个数进行加法或者乘法，那也不是很困难（至少相比于非得把两个数列出来好算）。</p>
+<p>对于一个用科学记数法表示的数</p>
+<script type="math/tex; mode=display">
+x=a \times 10^b</script><p>很多信息自然地暴露了出来。$a$帮助我们认识这个数的具体值（可能是估计值，但是估计起来也很方便！），$b$帮助我们认识这个数的数量级。在计算pH值时对浓度取$\lg$对数，正好是利用了这一点。虽然在数学上$e$的应用更广泛，但是实际计算并不方便；而$\lg$对数如果用来计算像是$10^b$这种数，就非常简单了。</p>
+<p>有人就会问，这些虽然好用，但是这是2000多年前阿基米德时代的数学，和17世纪以后的微积分有什么关系？我在这篇博客中会尝试建立一个观点，<strong>无穷小量、无穷大量、阶的估计是微积分的科学记数法</strong>。另外，无限趋近、逼近这些词看上去很不严格，其实是一种对严格表达的形象化表述，而原先的严格表达并没有问题。</p>
+<h2 id="微积分的“科学记数法”"><a href="#微积分的“科学记数法”" class="headerlink" title="微积分的“科学记数法”"></a>微积分的“科学记数法”</h2><h3 id="抓住极限定义的重点"><a href="#抓住极限定义的重点" class="headerlink" title="抓住极限定义的重点"></a>抓住极限定义的重点</h3><p>虽然无限趋近、逼近这些词很形象，但是如果看到严格的表述仍然觉得不知所云，那样的话理解还是有问题。</p>
+<blockquote>
+<p>$\lim_{x \to a}f(x) = A$的定义是: 对<strong>任意</strong>的$\varepsilon&gt;0$，<strong>存在</strong>$\delta&gt;0$，使得当$0&lt;|x-a|&lt;\delta$时，<strong>成立</strong>$|f(x)-A|&lt;\varepsilon$. </p>
+</blockquote>
+<p>教授微积分的老师尝试用很多办法形象化地表述这个观点。像是作出函数的图像，然后对图像缩放，让人能看到这个结论的成立。但是这可能只是一个结果。重点在于这几个逻辑词上。极限的定义其实是一个朴素的逻辑命题，这里面最复杂的内容，仅仅是不等式。对于任意的$\varepsilon&gt;0$，至少存在一个$\delta&gt;0$，使得当<em>一个关于$\delta$的不等式</em>成立时，<em>一个关于$\varepsilon$的不等式</em>一定成立。如果满足这样的条件，就说明这个函数有极限。不管问题再怎么复杂，我们最终关心的还是不等式会不会成立。你可以设想，写了一个bool函数，然后给它传入任意正值，总是返回true（这样一个$\delta$存在）。其实到了后面探讨什么函数可导、Riemann可积、Lebesgue可积、可测，都是试图化归到一个平凡的判断问题上。</p>
+<h3 id="记号-o-O-sim"><a href="#记号-o-O-sim" class="headerlink" title="记号$o,O,\sim$"></a>记号$o,O,\sim$</h3><h4 id="sim-，同阶和等价无穷小（大）量"><a href="#sim-，同阶和等价无穷小（大）量" class="headerlink" title="$\sim$，同阶和等价无穷小（大）量"></a>$\sim$，同阶和等价无穷小（大）量</h4><p>可能这个极限不少人中学就知道了</p>
+<script type="math/tex; mode=display">
+\lim_{x\to 0}\frac{\sin{x}}{x}=1</script><p>这个时候就可以记成$\sin{x}\sim x(x\to 0)$。可以说，$\sin{x}$在$x=0$处和$y=x$非常接近，几乎重合。但是我们也可以说，对任意$\varepsilon&gt;0$，存在$\delta&gt;0$，使得$0&lt;|x|&lt;\delta$时，一定有$|\frac{\sin{x}}{x}-1|&lt;\varepsilon$。这个的论证可能涉及到一些计算技巧，但是逻辑问题的表达还是很朴素的。</p>
+<blockquote>
+<p> 严格来说，如果任意两个函数$f(x)$和$g(x)$，如果有</p>
+<script type="math/tex; mode=display">
+\lim_{x \to a}\frac{f(x)}{g(x)}=1</script><p>就记$f(x)\sim g(x) (x \to a)$. 这里有$-\infty\leq a \leq +\infty$。如果有$|f(x)|\to\infty$或者$f(x) \to 0$，这个时候就是在计算无穷大量或者无穷小量，这个时候就称$f$是$g$的等价无穷小（大）量。</p>
+</blockquote>
+<p>这里的”等价“其实也很有意思。经过简单的计算，不难验证，对于关系$\sim$，满足以下三个性质：</p>
+<ol>
+<li>自反性：$f \sim f$</li>
+<li>对称性：$f \sim g$当且仅当$g \sim f$</li>
+<li>传递性：如果$f \sim g$且$g \sim h$，那么一定有$f \sim h$</li>
+</ol>
+<p>如果一个关系满足这三条性质，就称为“等价关系”。$\mathbb{R}$上两个数的相等自然也满足这个关系。</p>
+<p>当然可能比值等于$1$有点严苛，但是可能有同阶无穷小：</p>
+<script type="math/tex; mode=display">
+\lim_{x\to a}\frac{f(x)}{g(x)}=A\neq 0</script><p>那么其实也罢，只需要两边除以$A$就行了，也就是说$f(x)\sim Ag(x)(x \to A)$。比如说$1-\cos{x}\sim\frac{1}{2}x^2$.</p>
+<h5 id="为什么引入这个概念？"><a href="#为什么引入这个概念？" class="headerlink" title="为什么引入这个概念？"></a>为什么引入这个概念？</h5><p>这就体现出文章开头讲的“科学计数法”了。可能实际的函数计算很繁琐（比如，涉及到三角函数、反三角函数等等），然而有一种函数的计算一直是很平凡的：多项式。或者稍微退一步，幂函数。这种函数甚至可以直接计算出数值来。如果我们能把复杂的函数简化成幂函数，那么事情就简单了很多。这就好比计算$9800000000000.00001 \times 82012$可以简化成$9.8 \times 8.2 \times 10^{12+4}$。误差是可以接受的。或者说，我们尝试用幂函数表示一个函数的“数量级”，这个“数量”指的是在某点的逼近速度。当然也不一定必须要化归成幂函数，也可以逆向操作，变成一个不同的但是更好计算的极限。下面解释一个经典的例子。</p>
+<blockquote>
+<p>设$\alpha \neq 0$, 求极限</p>
+<script type="math/tex; mode=display">
+\lim_{x \to 0}\frac{(1+x)^\alpha-1}{x}</script></blockquote>
+<p>令$y=(1+x)^\alpha-1$，那么简单计算就能得到$\ln(1+y)=\alpha\ln(1+x)$。又知道$\ln(1+x)\sim x$，综合一下我们就有</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\lim_{x \to 0}\frac{y(x)}{x}&=\lim_{x \to 0}\frac{y(x)}{x}\frac{\ln(1+y)}{\ln(1+y)} \\
+                            &=\lim_{x \to 0}\frac{\ln(1+y)}{x}\frac{y}{\ln(1+y)}\\
+                            &=\lim_{x \to 0}\frac{\alpha\ln(1+x)}{x}\lim_{x \to 0}\frac{y}{\ln(1+y)} \\
+                            &=\alpha \cdot 1\cdot 1
+\end{aligned}</script><p>这里利用了极限的一个基本性质：</p>
+<blockquote>
+<p>如果$\lim_{x \to a}f(x)=A$，$\lim_{x \to a}g(x)=B$，那么$\lim_{x \to a}f(x)g(x)=AB$。</p>
+</blockquote>
+<p>要注意这个结论是完全可以用$\varepsilon-\delta$语言进行证明的。</p>
+<p>这个问题的解决我们依赖了一个很简单的结论：$\ln(1+x)$和$x$在$x=0$附近是相同的“数量级”。然后我们把原来的极限化归成这样的一个比值，反复组合利用。其实通过$\ln(1+x)\sim x$可以直接得到$y \sim \ln(1+y) \sim \alpha\ln(1+x)\sim\alpha x$（这里的每一个$\sim$都是有理论基础的，再注意最开始已经指出，这个$\sim$是具有传递性的），从而得到</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\lim_{x \to 0}\frac{y(x)}{x} &= \lim_{x \to 0}\frac{y(x)}{x}\frac{\alpha x}{\alpha x} \\
+                             &=\alpha\lim_{x \to 0}\frac{y(x)}{\alpha x}\\ 
+                             &= \alpha \cdot 1
+\end{aligned}</script><h5 id="无穷小量的阶"><a href="#无穷小量的阶" class="headerlink" title="无穷小量的阶"></a>无穷小量的阶</h5><p>既然我们试图将一个连续函数的极限”简化“成一个幂函数，那么我们就可以用幂函数的阶定义极限的阶。也就是说</p>
+<blockquote>
+<p>若已知$\lim_{x \to a}f(x)=0$，且存在常数$\alpha&gt;0$使得</p>
+<script type="math/tex; mode=display">
+\lim_{x \to a}\left\vert\frac{f(x)}{(x-a)^\alpha}\right\vert=A \neq 0</script><p>即$f(x)\sim A(x-a)^\alpha$，那么就称$f(x)$在$x \to a$时有$\alpha$阶无穷小量</p>
+</blockquote>
+<p>这里的$\alpha$就好比是科学计数法里的数量级，<strong>虽然不能给我们准确信息，但是给我们的信息在一些环境下已经足够了，这些信息恰好就是我们想要的</strong>。</p>
+<p>但是有的函数不一定有阶。例如函数$x\sin\frac{1}{x}$在$x=0$附近并没有阶。只需要观察</p>
+<script type="math/tex; mode=display">
+\frac{x\sin\frac{1}{x}}{x^\alpha}</script><p>在$0&lt;\alpha&lt;1$时，此函数极限为$0$。在$\alpha \geq 1$时，函数极限不存在，这时就并不存在阶这一说了 。</p>
+<p>现实中估计错一个数的数量级可能会产生不少麻烦，比如$10^{26}$和$10^{27}$差别还是很大的。在计算极限的时候估算错阶，可能就直接得到了错误的结果。等价关系$\sim$只在比值这一方面告诉了我们一些信息，但是并没有告诉我们加减法上的信息（就好比科学计数法也没告诉我们加减法的信息一样）。如果不注意到这一点，下面这个极限就会算错：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\lim_{x \to 0}\frac{\sin{x}-\tan{x}}{x^3}&=\lim_{x \to 0}\left\{\left(\frac{\sin{x}}{x}\right)\left(\frac{1}{\cos{x}}\right)\left(\frac{\cos{x}-1}{x^2}\right)\right\}\\
+                                         &= -\frac{1}{2}
+\end{aligned}</script><p>这个地方自然没有问题。但是如果没认识到这一点，能得到好几个不同的结果。可能会有人认为$\sin{x}\sim x \sim \tan{x}$，所以直接利用$\sin{x} \sim \tan{x}$，直接得到这个错误结果：</p>
+<script type="math/tex; mode=display">
+\lim_{x \to 0}\frac{\sin{x}-\tan{x}}{x^3} = \lim_{x \to 0}\frac{\sin{x}-\sin{x}}{x^3}=0</script><p>所以$\sin{x}-\tan{x}$的阶应该$&lt;3$。但实际上阶就是$3$。还可能得到另外一些古怪的结果。例如</p>
+<script type="math/tex; mode=display">
+\lim_{x \to 0}\frac{x - \tan{x}}{x^3}= -\frac{1}{3} \\
+\lim_{x \to 0}\frac{\sin{x} - x}{x^3} = -\frac{1}{6}</script><p>（上面两个极限都是正确的，但是肯定不是最初求的极限！）$\sin{x}$是$1$阶无穷小，$\tan{x}$是$1$阶无穷小，而二者的和是$1$阶的，差是$3$阶的。在计算极限时，就需要考虑两个无穷小的和差的阶是否发生改变。这就好比，我们不能说两个质量的数量级为$10^{20}$千克的行星的和或者差的数量级也是$10^{20}$这个数量级。</p>
+<h4 id="记号-o-和-O-又在表达什么？"><a href="#记号-o-和-O-又在表达什么？" class="headerlink" title="记号$o$和$O$又在表达什么？"></a>记号$o$和$O$又在表达什么？</h4><p>先举个例子。我们在谈论飞机、火箭这些航天飞行器的时候，往往会引入音速甚至是光速等等概念，因为慢速下的速度单位已经不够用了。比如马赫（Mach number）这个概念。它指的是速度和音速的比值。有的时候我们就会关注飞机的飞行速度有没有超过音速，甚至要讨论是音速的几倍。但是骑自行车的速度就和音速没有可比性了。</p>
+<p>这里的$o$和$O$也是一个”参考“的作用。在上一节我们探讨了$\frac{f(x)}{g(x)}$收敛到非零常数的情况，但是不一定能得到这样的结果。</p>
+<blockquote>
+<p>如果满足$\lim_{x \to a}\frac{f(x)}{g(x)}=0$，就记$f(x)=o(g(x))(x \to a)$。如果$x \to a$时有$f(x) \to 0$ 且$g(x) \to 0$，那么就称$f$是比$g$更高阶无穷小。</p>
+</blockquote>
+<p>比如对于$\alpha &gt; 1$, 就有$x^\alpha = o(x)(x \to 0)$。因为这个函数满足这个极限关系。以$g$做<strong>参考</strong>，那么$f$的收敛速度是<strong>更</strong>快的。这里的$=o(\cdot)$也可以看成一种“关系”，但是这种关系只满足传递性，并不是一个等价关系。等价关系的剩下两个条件都不满足。如果$f(x)=o(g(x))$且$g(x)=o(h(x))$，那么一定有$f(x)=o(h(x))$，但是并没有$f(x)=o(f(x))$，更不会有$g(x)=o(f(x))$，这通过很简单的极限计算就能得到。</p>
+<p>如果有$f(x)=o(1)(x \to a)$，那么就有$\lim_{x \to a}f(x)=0$。当然这个时候用$o$表示会显得很别扭，但是把$1$当分母，也确实没有问题！这个时候我们看成和常数函数比较收敛速度，那么函数收敛就是收敛，不收敛就是不收敛。</p>
+<blockquote>
+<p>$f(x)=O(g(x))(x \to a)$的定义是，存在$a$的某个去心邻域和非负常数$M$，使$\left\vert\frac{f(x)}{g(x)}\right\vert \leq M$在这个邻域上恒成立。</p>
+</blockquote>
+<p>这里的“去心邻域”并不是什么复杂的概念。在处理极限的时候，$f(x)$和$g(x)$在$a$处可能都没有极限，所以就讨论某个小区间，把$a$抠去，也就是说$(a-\delta,a) \cup (a,a+\delta)$。这个是最粗略的估计，但是也很方便。可能计算比值的极限比较麻烦，但是我们知道比值是有界的，就能减少不少麻烦。</p>
+<p>在研究傅里叶级数时，常常会研究一类“适度下降”的函数，需要函数$f$满足$f(x)=O\left(\frac{1}{1+|x|^\alpha}\right)$，其中$\alpha &gt; 1$。我们还可以探讨前面那个无阶函数，就能发现</p>
+<script type="math/tex; mode=display">
+x\sin\frac{1}{x}=O(x),\quad x\sin{\frac{1}{x}}=o(x^\alpha)(\alpha<1)</script><h3 id="“科学记数法”的总结"><a href="#“科学记数法”的总结" class="headerlink" title="“科学记数法”的总结"></a>“科学记数法”的总结</h3><p>像是现实中的科学计数法，为了方便计算和理解，把很长的数的信息抽象出来然后使用另一种办法总结。$o, O,\sim$这种符号将指定函数满足的比值和极限的结论抽象出来，然后利用这些结论表示一个函数，从而间接计算出原来的极限。这就像是精确到小数点后几位，和音速、光速做对比，将问题进行简化。而这些简化的基础都在于极限的定义，在于那些逻辑命题能不能成立。</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-03-29T02:08:44.000Z" title="29/03/2020, 10:08:44">2020-03-29</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-10-06T08:25:34.490Z" title="06/10/2021, 16:25:34">2021-10-06</time></span><span class="level-item"><a class="link-muted" href="../../categories/Analysis/">Analysis</a><span> / </span><a class="link-muted" href="../../categories/Analysis/Integration-Theory/">Integration Theory</a><span> / </span><a class="link-muted" href="../../categories/Analysis/Measure-Theory/">Measure Theory</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2020/03/29/lebesgue-radon-nikodym/">The Lebesgue-Radon-Nikodym theorem and how von Neumann proved it</a></h1><div class="content"><h2 id="An-introduction"><a href="#An-introduction" class="headerlink" title="An introduction"></a>An introduction</h2><p>If one wants to learn the fundamental theorem of Calculus in the sense of Lebesgue integral, properties of measures have to be taken into account. In elementary calculus, one may consider something like</p>
+<script type="math/tex; mode=display">
+df(x)=f'(x)dx</script><p>where $f$ is differentiable, say, everywhere on an interval. Now we restrict $f$ to be a differentiable and nondecreasing real function defined on $I=[a,b]$. There we got a one-to-one function defined by</p>
+<script type="math/tex; mode=display">
+g(x)=x+f(x)</script><p>For measurable sets $E\in\mathfrak{M}$, it can be seen that if $m(E)=0$, we have $m(g(E))=0$. Moreover, $g(E) \in \mathfrak{M}$, and $g$ is one-to-one. Therefore we can define a measure like</p>
+<script type="math/tex; mode=display">
+\mu(E)=m(g(E))</script><p>If we have a relation </p>
+<script type="math/tex; mode=display">
+\mu(E)=\int_{E}hdm</script><p>(in fact, this is the Radon-Nikodym theorem we will prove later), the fundamental theorem of calculus for $f$ becomes somewhat clear since if $E=[a,x]$, we got $g(E)=[a+f(a),x+f(x)]$, thus we got</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+    \mu(E)=m(g(E))&=g(x)-g(a)\\
+    &=f(x)-f(a)+\int_a^xdt \\
+    &=\int_a^xh(t)dt
+\end{aligned}</script><p>which trivially implies</p>
+<script type="math/tex; mode=display">
+f(x)-f(a)=\int_a^x[h(t)-1]dt</script><p>the function $h$ looks like to be $g’=f’+1$.</p>
+<p>We are not proving the fundamental theorem here. But this gives rise to a question. Is it possible to find a function such that</p>
+<script type="math/tex; mode=display">
+\mu(E)=\int_{E}hdm</script><p>one may write as</p>
+<script type="math/tex; mode=display">
+d\mu=hdm</script><p>or, more generally, a measure $\mu$ with respect to another measure $\lambda$? Does this $\mu$ exist with respect to $\lambda$? Does this $h$ exist? Lot of questions. Luckily the Lebesgue decomposition and Radon-Nikodym theorem make it possible.</p>
+<h3 id="Notations"><a href="#Notations" class="headerlink" title="Notations"></a>Notations</h3><p>Let $\mu$ be a positive measure on a $\sigma$-algebra $\mathfrak{M}$, let $\lambda$ be any arbitrary measure (positive or complex) defined on $\mathfrak{M}$.</p>
+<p>We write</p>
+<script type="math/tex; mode=display">
+\lambda \ll \mu</script><p>if $\lambda(E)=0$ for every $E\in\mathfrak{M}$ for which $\mu(E)=0$. (You may write $\mu \ll m$ in the previous section.) We say $\lambda$ is <em>absolutely continuous</em> with respect to $\mu$.</p>
+<p>Another relation between measures worth consideration is being mutually singular. If we have $\lambda(E)=\lambda(A \cap E)$ for every $E \in \mathfrak{M}$, we say $\lambda$ is <em>concentrated</em> on $A$.</p>
+<p>If we now have two measures $\mu_1$ and $\mu_2$, two disjoint sets $A$ and $B$ such that $\mu_1$ is concentrated on $A$, $\mu_2$ is concentrated on $B$, we say $\mu_1$ and $\mu_2$ are <em>mutually singular</em>, and write</p>
+<script type="math/tex; mode=display">
+\mu_1 \perp \mu_2</script><h2 id="The-Theorem-of-Lebesgue-Radon-Nikodym"><a href="#The-Theorem-of-Lebesgue-Radon-Nikodym" class="headerlink" title="The Theorem of Lebesgue-Radon-Nikodym"></a>The Theorem of Lebesgue-Radon-Nikodym</h2><blockquote>
+<p>Let $\mu$ be a positive $\sigma$-finite measure on $\mathfrak{M}$, and $\lambda$ a complex measure on $\mathfrak{M}$.</p>
+<ul>
+<li>There exists a unique pair of complex measures $\lambda_{ac}$ and $\lambda_{s}$ on $\mathfrak{M}$ such that</li>
+</ul>
+<script type="math/tex; mode=display">
+\lambda = \lambda_{ac}+\lambda_s \quad \lambda_{ac}\ll\mu\quad \lambda_s \perp \mu</script><ul>
+<li>There is a unique $h \in L^1(\mu)$ such that</li>
+</ul>
+<script type="math/tex; mode=display">
+\lambda_{ac}(E)=\int_{E}hd\mu</script><p>for every $E \in \mathfrak{M}$.</p>
+</blockquote>
+<p>The unique pair $(\lambda_{ac},\lambda_s)$ is called the Lebesgue decomposition; the existence of $h$ is called the Radon-Nikodym theorem, and $h$ is called the Radon-Nikodym derivative. One also writes $d\lambda_{ac}=hd\mu$ or $\frac{d\lambda_{ac}}{d\mu}=h$ in this situation.</p>
+<p>These are two separate theorems, but von Neumann gave the idea to prove these two at one stroke. </p>
+<p>If we already have $\lambda \ll \mu$, then $\lambda_s=0$ and the Radon-Nikodym derivative shows up in the natural of things.</p>
+<p>Also, one cannot ignore the fact that $m$ the Lebesgue measure is $\sigma$-finite. </p>
+<h2 id="Proof-explained"><a href="#Proof-explained" class="headerlink" title="Proof explained"></a>Proof explained</h2><h3 id="Step-1-Construct-a-bounded-functional"><a href="#Step-1-Construct-a-bounded-functional" class="headerlink" title="Step 1 - Construct a bounded functional"></a>Step 1 - Construct a bounded functional</h3><blockquote>
+<p>We are going to employ Hilbert space technique in this proof. Precisely speaking, we are going to construct a bounded linear functional to find another function, namely $g$, which is the epicentre of this proof.</p>
+<p>The boundedness of $\lambda$ is clear since it’s complex, but $\mu$ is only assumed to be $\sigma$-finite. Therefore we need some adjustment onto $\mu$.</p>
+</blockquote>
+<h4 id="1-1-Replacing-mu-with-a-finite-measure"><a href="#1-1-Replacing-mu-with-a-finite-measure" class="headerlink" title="1.1 Replacing $\mu$ with a finite measure"></a>1.1 Replacing $\mu$ with a finite measure</h4><blockquote>
+<p>If $\mu$ is a positive $\sigma$-finite measure on a $\sigma$-algebra $\mathfrak{M}$ in a set $X$, then there is a function $w$ such that $w \in L^1(\mu)$ and $0&lt;w(x)&lt;1$ for every $x \in X$.</p>
+</blockquote>
+<p>The $\sigma$-finiteness of $\mu$ denotes that, there exist some sets $E_n$ such that</p>
+<script type="math/tex; mode=display">
+X=\bigcup_{n=1}^{\infty}E_n</script><p>and that $\mu(E_n)&lt;\infty$ for all $n$.</p>
+<p>Define</p>
+<script type="math/tex; mode=display">
+w_n(x)=
+\begin{aligned}
+\begin{cases}
+\frac{1}{2^n(1+\mu(E_n))}\quad &x \in E_n \\
+0 \quad &x\notin E_n
+\end{cases}
+\end{aligned}</script><p>(you can also say that $w_n=\frac{1}{2^n(1+\mu(E_n))}\chi_{E_n}$), then we have</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+w &= \sum_{n=1}^{\infty}w_n \\
+\end{aligned}</script><p>satisfies $0&lt;w&lt;1$ for all $x$. With $w$, we are able to define a new measure, namely</p>
+<script type="math/tex; mode=display">
+\tilde{\mu}(E)=\int_{E}wd\mu.</script><p>The fact that $\tilde{\mu}(E)$ is a measure can be validated by considering $\int_{E}wd\mu=\int_{X}\chi_{E}wd\mu$. It’s more important that $\tilde{\mu}(E)$ is bounded and $\tilde{\mu}(E)=0$ if and only if $\mu(E)=0$. The second one comes from the strict positivity of $w$. For the first one, notice that</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\tilde{\mu}(X) &\leq \sum_{n=1}^{\infty}\tilde{\mu}(E_n) \\
+               &= \sum_{n=1}^{\infty}\frac{1}{2^n(1+\mu(E_n))} \\
+               &\leq \sum_{n=1}^{\infty}\frac{1}{2^n}
+\end{aligned}</script><h4 id="1-2-A-bounded-linear-functional-associated-with-lambda"><a href="#1-2-A-bounded-linear-functional-associated-with-lambda" class="headerlink" title="1.2 A bounded linear functional associated with $\lambda$"></a>1.2 A bounded linear functional associated with $\lambda$</h4><p>Since $\lambda$ is complex, without loss of generality, we are able to assume that $\lambda$ is a positive bounded measure on $\mathfrak{M}$. By 1.1, we are able to obtain a positive bounded measure by</p>
+<script type="math/tex; mode=display">
+\varphi=\lambda+\tilde{\mu}</script><p>Following the construction of Lebesgue measure, we have</p>
+<script type="math/tex; mode=display">
+\int_{X}fd\varphi=\int_{X}fd\lambda+\int_{X}fwd\mu</script><p>for all nonnegative measurable function $f$. Also, notice that $\lambda \leq \varphi$, we have</p>
+<script type="math/tex; mode=display">
+\left\vert \int_{X}fd\lambda \right\vert \leq \int_{X}|f|d\lambda \leq \int_{X}|f|d\varphi \leq \sqrt{\varphi(X)}\left\Vert f \right\Vert_2</script><p>for $f \in L^2(\varphi)$ by Schwarz inequality.</p>
+<p>Since $\varphi(X)&lt;\infty$, we have </p>
+<script type="math/tex; mode=display">
+\Lambda{f}=\int_{X}fd\lambda</script><p>to be a bounded linear functional on $L^2(\varphi)$.</p>
+<h3 id="Step-2-Find-the-associated-function-with-respect-to-lambda"><a href="#Step-2-Find-the-associated-function-with-respect-to-lambda" class="headerlink" title="Step 2 - Find the associated function with respect to $\lambda$"></a>Step 2 - Find the associated function with respect to $\lambda$</h3><p>Since $L^2(\varphi)$ is a Hilbert space, every bounded linear functional on a Hilbert space $H$ is given by an inner product with an element in $H$. That is, by the completeness of $L^2(\varphi)$, there exists a function $g$ such that</p>
+<script type="math/tex; mode=display">
+\Lambda{f}=\int_{X}fd\lambda=\int_{X}fgd\varphi=(f,g).</script><p>The properties of $L^2$ space shows that $g$ is determined <em>almost everywhere</em> with respect to $\varphi$.</p>
+<p>For $E \in \mathfrak{M}$, we got</p>
+<script type="math/tex; mode=display">
+0 \leq (\chi_{E},g)=\int_{E}gd\varphi=\int_{E}d\lambda=\lambda(E)\leq\varphi(E)</script><p>which implies $0 \leq g \leq 1$ for almost every $x$ with respect to $\varphi$. Therefore we are able to assume that $0 \leq g \leq 1$ without ruining the identity. The proof is in the bag once we define $A$ to be the set where $0 \leq g &lt; 1$ and $B$ the set where $g=1$.</p>
+<h3 id="Step-3-Generate-lambda-ac-and-lambda-s-and-the-Radon-Nikodym-derivative-at-one-stroke"><a href="#Step-3-Generate-lambda-ac-and-lambda-s-and-the-Radon-Nikodym-derivative-at-one-stroke" class="headerlink" title="Step 3 - Generate $\lambda_{ac}$ and $\lambda_{s}$ and the Radon-Nikodym derivative at one stroke"></a>Step 3 - Generate $\lambda_{ac}$ and $\lambda_{s}$ and the Radon-Nikodym derivative at one stroke</h3><p>We claim that $\lambda(A \cap E)$ and $\lambda(B \cap E)$ form the decomposition we are looking for, $\lambda_{ac}$ and $\lambda_s$, respectively. Namely, $\lambda_{ac}=\lambda(A \cap E)$, $\lambda_s=\lambda(B \cap E)$.</p>
+<h4 id="Proving-lambda-s-perp-mu"><a href="#Proving-lambda-s-perp-mu" class="headerlink" title="Proving $\lambda_s \perp \mu$"></a>Proving $\lambda_s \perp \mu$</h4><p>If we combine $\Lambda{f}=(f,g)$ and $\varphi=\lambda+\tilde{\mu}$ together, we have</p>
+<script type="math/tex; mode=display">
+\int_{X}(1-g)fd\lambda=\int_{X}fgwd\mu.</script><p>Put $f=\chi_{B}$, we have</p>
+<script type="math/tex; mode=display">
+\int_{B}wd\mu=0.</script><p>Since $w$ is <em>strictly</em> positive, we see that $\mu(B)=0$. Notice that $A \cap B = \varnothing$ and $A \cup B=X$. For $E \in \mathfrak{M}$, we write $E=E_A \cup E_B$, where $E_A \subset A$ and $E_B \subset B$. Therefore</p>
+<script type="math/tex; mode=display">
+\mu(E)=\mu(E_A)+\mu(E_B)=\mu(E \cap A)+\mu(E \cap B)=\mu(E \cap A).</script><p>Therefore $\mu$ is concentrated on $A$. </p>
+<p>For $\lambda_s$, observe that</p>
+<script type="math/tex; mode=display">
+\lambda_s(E)=\lambda(E \cap B)=\lambda((E \cap B) \cap B)=\lambda_s(E \cap B).</script><p>Hence $\lambda_s$ is concentrated on $B$. This observation shows that $\lambda_s \perp \mu$.</p>
+<h4 id="Proving-lambda-ac-ll-mu-by-the-Radon-Nikodym-derivative"><a href="#Proving-lambda-ac-ll-mu-by-the-Radon-Nikodym-derivative" class="headerlink" title="Proving $\lambda_{ac} \ll \mu$ by the Radon-Nikodym derivative"></a>Proving $\lambda_{ac} \ll \mu$ by the Radon-Nikodym derivative</h4><p>The relation that $\lambda_{ac} \ll \mu$ will be showed by the existence of the Radon-Nikodym derivative.</p>
+<p>If we replace $f$ by</p>
+<script type="math/tex; mode=display">
+(1+g+\cdots+g^n)\chi_E,</script><p>where $E \in \mathfrak{M}$, we have</p>
+<script type="math/tex; mode=display">
+\int_X(1-g)fd\lambda=\int_E(1-g^{n+1})d\lambda=\int_Eg(1+g+\cdots+g^n)wd\mu.</script><p>Notice that</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\int_{E}(1-g^{n+1})d\lambda &=\int\limits_{E \cap A}(1-g^{n+1})d\lambda + \int\limits_{E \cap B}(1-g^{n+1})d\lambda \\
+&=\int\limits_{E \cap A}(1-g^{n+1})d\lambda \\
+&\to\lambda(E \cap A) = \lambda_{ac}(E)\quad(n\to\infty)
+\end{aligned}</script><p>Define $h_n=g(1+g+g^2+\cdots+g^n)w$, we see that on $A$, $h_n$ converges monotonically to</p>
+<script type="math/tex; mode=display">
+h=
+\begin{aligned}
+\begin{cases}
+    \frac{gw}{1-g} \quad &x\in{A}\\
+    0 \quad &x\in{B}
+\end{cases}
+\end{aligned}</script><p>By monotone convergence theorem, we got</p>
+<script type="math/tex; mode=display">
+\lim_{n\to\infty}\int_{E}h_nd\mu = \int_{E}hd\mu=\lambda_{ac}(E).</script><p>for every $E\in\mathfrak{M}$.</p>
+<p>The measurable function $h$ is the desired Radon-Nikodym derivative once we show that $h \in L^1(\mu)$. Replacing $E$ with $X$, we see that</p>
+<script type="math/tex; mode=display">
+\int_{X}|h|d\mu=\int_{X}hd\mu=\lambda_{ac}(X)\leq\lambda(X)<\infty.</script><p>Clearly, if $\mu(E)=0$, we have</p>
+<script type="math/tex; mode=display">
+\lambda_{ac}(E)=\int_{E}hd\mu=0</script><p>which shows that </p>
+<script type="math/tex; mode=display">
+\lambda_{ac}\ll\mu</script><p>as desired.</p>
+<h3 id="Step-3-Generalization-onto-complex-measures"><a href="#Step-3-Generalization-onto-complex-measures" class="headerlink" title="Step 3 - Generalization onto complex measures"></a>Step 3 - Generalization onto complex measures</h3><p>By far we have proved this theorem for positive bounded measure. For real bounded measure, we can apply the proceeding case to the positive and negative part of it. For all complex measures, we have</p>
+<script type="math/tex; mode=display">
+\lambda=\lambda_1+i\lambda_2</script><p>where $\lambda_1$ and $\lambda_2$ are real.</p>
+<h3 id="Step-4-Uniqueness-of-the-decomposition"><a href="#Step-4-Uniqueness-of-the-decomposition" class="headerlink" title="Step 4 - Uniqueness of the decomposition"></a>Step 4 - Uniqueness of the decomposition</h3><p>If we have two Lebesgue decompositions of the same measure, namely $(\lambda_{ac},\lambda_s)$ and $(\lambda’_{ac},\lambda’_s)$, we shall show that</p>
+<script type="math/tex; mode=display">
+\lambda_{ac}-\lambda_{ac}'=\lambda_s'-\lambda_s=0</script><p>By the definition of the decomposition we got</p>
+<script type="math/tex; mode=display">
+\lambda_{ac}-\lambda'_{ac}=\lambda'_s-\lambda_s</script><p>with $\lambda_{ac}-\lambda_{ac}’ \ll \mu$ and $\lambda_{s}’-\lambda_{s}\perp\mu$. This implies that $\lambda’_{s}-\lambda_{s} \ll \mu$ as well. </p>
+<p>Since $\lambda’_s-\lambda_s\perp\mu$, there exists  a set with $\mu(A)=0$ on which $\lambda’_s-\lambda_s$ is concentrated; the absolute continuity shows that $\lambda’_s(E)-\lambda_s(E)=0$ for all $E \subset A$. Hence $\lambda_s’-\lambda_s$ is concentrated on $X-A$. Therefore we got $(\lambda’_s-\lambda_s)\perp(\lambda’_s-\lambda_s)$, which forces $\lambda’_s-\lambda_s=0$. The uniqueness is proved.</p>
+<p>(Following the same process one can also show that $\lambda_{ac}\perp\lambda_s$.)</p>
+</div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="../6/">Previous</a></div><div class="pagination-next"><a href="../8/">Next</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="../../">1</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="../6/">6</a></li><li><a class="pagination-link is-current" href="">7</a></li><li><a class="pagination-link" href="../8/">8</a></li><li><a class="pagination-link" href="../9/">9</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="../../img/avatar.png" alt="Desvl"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Desvl</p><p class="is-size-6 is-block">A blog mainly on graduate mathematics.</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>A Noetherian local ring</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="../../archives"><p class="title">86</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="../../categories"><p class="title">44</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="../../tags"><p class="title">49</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="../../redirect/newsletter" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Compose an Email" href="../../redirect/email"><i class="fas fa-envelope"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="../../atom.xml"><i class="fas fa-rss"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Mathstodon" href="https://mathstodon.xyz/@desvl"><i class="fa-brands fa-mastodon"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://arxiv.org/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">arXiv</span></span><span class="level-right"><span class="level-item tag">arxiv.org</span></span></a></li><li><a class="level is-mobile" href="https://stacks.math.columbia.edu/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">The Stack Project</span></span><span class="level-right"><span class="level-item tag">stacks.math.columbia.edu</span></span></a></li><li><a class="level is-mobile" href="https://ncatlab.org/nlab/show/mathematics" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">nLab (Mathematics)</span></span><span class="level-right"><span class="level-item tag">ncatlab.org</span></span></a></li><li><a class="level is-mobile" href="https://q.uiver.app/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">quiver: a modern commutative diagram editor</span></span><span class="level-right"><span class="level-item tag">q.uiver.app</span></span></a></li><li><a class="level is-mobile" href="https://www.symmetricfunctions.com/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">The Symmetric Functions Catalogue</span></span><span class="level-right"><span class="level-item tag">www.symmetricfunctions.com</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/speaking.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Speaking</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/writing.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Writing</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">How to study maths really quick (YouTube)</span></span><span class="level-right"><span class="level-item tag">www.youtube.com</span></span></a></li><li><a class="level is-mobile" href="https://www.bilibili.com/video/BV1GJ411x7h7" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">How to study maths really quick (Bilibili)</span></span><span class="level-right"><span class="level-item tag">www.bilibili.com</span></span></a></li></ul></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="../../index.html"><img src="../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a><p class="is-size-7"><span>&copy; 2022</span> <a rel="me noopener" target="_blank" href="https://mathstodon.xyz/@desvl">Desvl</a><br>Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="../../js/column.js"></script><script src="../../js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="../../js/back_to_top.js" defer></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
+            },
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><!--!--><script src="../../js/main.js" defer></script><!--!--></body></html>

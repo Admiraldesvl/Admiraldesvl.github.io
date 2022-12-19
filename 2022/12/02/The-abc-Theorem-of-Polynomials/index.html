@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>The abc Theorem of Polynomials - Desvl&#039;s blog</title><link rel="manifest" href="../../../../manifest.json"><meta name="application-name" content="Desvl&#039;s blog"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Desvl&#039;s blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="In this post we show the Mason-Stothers theorem, the so-called $abc$ theorem for polynomials, and derive Fermat&amp;#39;s Last theorem and Davenport&amp;#39;s inequality for polynomials. These three theorems correspo"><meta property="og:type" content="blog"><meta property="og:title" content="The abc Theorem of Polynomials"><meta property="og:url" content="https://desvl.xyz/2022/12/02/The-abc-Theorem-of-Polynomials/"><meta property="og:site_name" content="Desvl&#039;s blog"><meta property="og:description" content="In this post we show the Mason-Stothers theorem, the so-called $abc$ theorem for polynomials, and derive Fermat&amp;#39;s Last theorem and Davenport&amp;#39;s inequality for polynomials. These three theorems correspo"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://desvl.xyz/img/avatar.png"><meta property="article:published_time" content="2022-12-02T08:27:19.000Z"><meta property="article:modified_time" content="2022-12-03T02:29:39.540Z"><meta property="article:author" content="Desvl"><meta property="article:tag" content="Exercise solution"><meta property="article:tag" content="Serge Lang"><meta property="article:tag" content="Study new content"><meta property="twitter:card" content="summary_large_image"><meta property="twitter:image:src" content="https://desvl.xyz/img/avatar.png"><meta property="twitter:creator" content="@Desvl_"><meta property="twitter:site" content="{ https://desvl.xyz }"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://desvl.xyz/2022/12/02/The-abc-Theorem-of-Polynomials/"},"headline":"The abc Theorem of Polynomials","image":["https://desvl.xyz/img/avatar.png"],"datePublished":"2022-12-02T08:27:19.000Z","dateModified":"2022-12-03T02:29:39.540Z","author":{"@type":"Person","name":"Desvl"},"publisher":{"@type":"Organization","name":"Desvl","logo":{"@type":"ImageObject","url":"https://desvl.xyz/img/logo.svg"}},"description":"In this post we show the Mason-Stothers theorem, the so-called $abc$ theorem for polynomials, and derive Fermat&#39;s Last theorem and Davenport&#39;s inequality for polynomials. These three theorems correspo"}</script><link rel="canonical" href="https://desvl.xyz/2022/12/02/The-abc-Theorem-of-Polynomials/"><link rel="alternate" href="../../../../atom.xml" title="Desvl&#039;s blog" type="application/atom+xml"><link rel="icon" href="../../../../img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap"><link rel="stylesheet" href="../../../../css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="../../../../index.html"><img src="../../../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="../../../../index.html">Home</a><a class="navbar-item" href="../../../../archives">Archives</a><a class="navbar-item" href="../../../../categories">Categories</a><a class="navbar-item" href="../../../../tags">Tags</a><a class="navbar-item" href="../../../../about">About (Updated Aug. 2022)</a><a class="navbar-item" href="../../../../link-exchange">Link Exchange</a><a class="navbar-item" href="../../../../support-the-author">Support the Author</a></div><div class="navbar-end"><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-12-02T08:27:19.000Z" title="02/12/2022, 16:27:19">2022-12-02</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-12-03T02:29:39.540Z" title="03/12/2022, 10:29:39">2022-12-03</time></span><span class="level-item"><a class="link-muted" href="../../../../categories/Algebra/">Algebra</a><span> / </span><a class="link-muted" href="../../../../categories/Algebra/Polynomials/">Polynomials</a></span></div></div><h1 class="title is-3 is-size-4-mobile">The abc Theorem of Polynomials</h1><div class="content"><p>Let $K$ be an algebraically closed field of characteristic $0$. Instead of studying the polynomial ring $K[X]$ as a whole, we pay a little more attention to each polynomial. A reasonable thing to do is to count the number of distinct zeros. We define</p>
+<script type="math/tex; mode=display">
+n_0(f)=\text{number of distinct roots of $f$.}</script><p>For example, If $f(X)=(X-1)^{100}$, we have $n_0(f)=1$. It seems we are diving into calculus but actually there is still a lot of algebra.</p>
+<h1 id="The-abc-of-Polynomials"><a href="#The-abc-of-Polynomials" class="headerlink" title="The abc of Polynomials"></a>The abc of Polynomials</h1><blockquote>
+<p><strong>Theorem 1 (Mason-Stothers).</strong> Let $a(X),b(X),c(X) \in K[X]$ be polynomials such that $(a,b,c)=1$ and $a+b=c$. Then</p>
+<script type="math/tex; mode=display">
+\max\{\deg a,\deg b,\deg c\} \le n_0(abc)-1.</script></blockquote>
+<p><em>Proof.</em> Putting $f=a/c$ and $g=b/c$, we have</p>
+<script type="math/tex; mode=display">
+f+g=1.</script><p>This implies</p>
+<script type="math/tex; mode=display">
+f'+g'=\frac{f'}{f}f+\frac{g'}{g}g=0 \implies \frac{g}{f}=\frac{b}{a}=-\frac{f'/f}{g'/g}.</script><hr>
+<p>We interrupt the proof here for some good reasons. Rational functions of the form $f’/f$ remind us of the chain rule applied to $\log{x}$. In the context of calculus, we have $\left(\log{f(x)}\right)’=f’/f$. On the ring $K[x]$, we define $D:K[x] \to K[x]$ to be the formal derivative morphism. Then this endomorphism extends to $K(x)$ by</p>
+<script type="math/tex; mode=display">
+D(f/g)=\frac{gDf-fDg}{g^2}.</script><p>On $K(x)^\ast$ (read: the multiplicative group of the rational function field $K(x)$), we define the logarithm derivative</p>
+<script type="math/tex; mode=display">
+L(f)=\frac{Df}{f}.</script><p>It follows that </p>
+<script type="math/tex; mode=display">
+L(fg)=\frac{D(fg)}{fg}=\frac{fDg+gDf}{fg}=L(f)+L(g).</script><p>Also observe that, just as in calculus, if $f$ is a constant function, then $D(f)=0$. Now we write</p>
+<script type="math/tex; mode=display">
+f(X)=c\prod(X-\alpha_i)^{m_i}.</script><p>Then it follows that</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+f'/f=L(f)&=L(c)+\sum L\left((X-\alpha_i)^{m_i} \right) \\
+         &= m_i\sum L(X-\alpha_i) \\
+         &= \sum\frac{m_i}{X-\alpha_i}.
+\end{aligned}</script><p>Now we can be back to the proof.</p>
+<hr>
+<p><em>Proof (continued).</em> Since $K$ is algebraically closed,</p>
+<script type="math/tex; mode=display">
+a(X)=c_1\prod(X-\alpha_i)^{m_i}, \quad b(X)=c_2\prod(X-\beta_j)^{n_j}, \quad c(X)=c_3\prod(X-\gamma_k)^{r_k}.</script><p>We see, for example</p>
+<script type="math/tex; mode=display">
+f(X)=c_1 c_3^{-1}\prod(X-\alpha_i)^{m_i}\prod(X-\gamma_k)^{-r_k}.</script><p>Therefore</p>
+<script type="math/tex; mode=display">
+f'/f=\sum\frac{m_i}{X-\alpha_i}-\sum\frac{r_k}{X-\gamma_k}.</script><p>Likewise</p>
+<script type="math/tex; mode=display">
+g'/g=\sum\frac{n_j}{X-\beta_j}-\sum\frac{r_k}{X-\gamma_k}.</script><p>Combining both, we obtain</p>
+<script type="math/tex; mode=display">
+\frac{b}{a}= -\frac{\sum\frac{m_i}{X-\alpha_i}-\sum\frac{r_k}{X-\gamma_k}}{\sum\frac{n_j}{X-\beta_j}-\sum\frac{r_k}{X-\gamma_k}}.</script><p>Next, multiplying $f’/f$ and $g’/g$ by</p>
+<script type="math/tex; mode=display">
+N_0(X)=\prod(X-\alpha_i)\prod(X-\beta_j)\prod(X-\gamma_k),</script><p>which has degree $n_0(abc)$ (since $(a,b,c)=1$, these three polynomials share no root). Both $N_0f’/f$ and $N_0g’/g$ are polynomials of degrees at most $n_0(abc)-1$ (this is because $\deg h’=\deg h-1$ for non-constant $h \in K[X]$, while $f$ and $g$ are non-constant (why?); we assume $\operatorname{char} K=0$ for this reason). </p>
+<p>Next we observe the degrees of $a,b$ and $c$. Since $a+b=c$, we actually have $\deg c \le \max\{\deg a,\deg b\}$. Therefore $\max\{\deg a,\deg b,\deg c\}=\max\{\deg a,\deg b\}$. From the relation</p>
+<script type="math/tex; mode=display">
+\frac{b}{a}=-\frac{N_0f'/f}{N_0g'/g},</script><p>and the assumption that $(a,b)=1$, one can find polynomial $h \in K[X]$ such that</p>
+<script type="math/tex; mode=display">
+bh=-N_0f'/f,\quad ah = N_0g'/g.</script><p>Taking the degrees of both sides, we see</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\deg b \le \deg N_0f'/f \le n_0(abc)-1, \\
+\deg a \le \deg N_0g'/g \le n_0(abc)-1.
+\end{aligned}</script><p>This proves the theorem. $\square$</p>
+<h1 id="Applications"><a href="#Applications" class="headerlink" title="Applications"></a>Applications</h1><p>We present some applications of this theorem.</p>
+<blockquote>
+<p><strong>Corollary 1 (Fermat’s theorem for polynomials).</strong> Let $a(X),b(X)$ and $c(X)$ be relatively prime polynomials in $K[X]$ such that not all of them are constant, and such that </p>
+<script type="math/tex; mode=display">
+a(X)^n+b(X)^n=c(X)^n.</script><p>Then $n \le 2$.</p>
+</blockquote>
+<p>Alternatively one can argue the curve $x^n+y^n=1$ on $K(X)$.</p>
+<p><em>Proof.</em> Since $a,b$ and $c$ are relatively prime, we also have $a^n$, $b^n$ and $c^n$ to be relatively prime. By Mason-Stothers theorem,</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\deg a^n = n\deg a &\le n_0(a^nb^nc^n)-1 \\
+                   &=   n_0(abc)-1 \\
+                   &\le \deg(abc)-1 \\
+                   &= \deg a + \deg b + \deg c - 1.
+\end{aligned}</script><p>Replacing $a$ by $b$ and $c$, we see</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+n\deg a \le \deg a + \deg b + \deg c - 1 \\
+n\deg b \le \deg a + \deg b + \deg c - 1 \\
+n\deg c \le \deg a + \deg b + \deg c - 1 
+\end{cases}</script><p>It follows that</p>
+<script type="math/tex; mode=display">
+n(\deg a + \deg b + \deg c) \le 3(\deg a + \deg b + \deg c) - 1.</script><p>In this case $n&lt;3$. $\square$</p>
+<blockquote>
+<p><strong>Corollary 2 (Davenport’s inequality).</strong> Let $f,g \in K[X]$ be non-constant polynomials such that $f^3-g^2 \ne 0$. Then</p>
+<script type="math/tex; mode=display">
+\deg (f^3-g^2) \ge \frac{1}{2}\deg f + 1.</script></blockquote>
+<p>One may discuss cases separately on whether $f$ and $g$ are coprime, and try to apply Mason-Stothers theorem respectively, and many documents only record the proof of coprime case, which is a shame. The case when $f$ and $g$ are not coprime can be a nightmare. Instead, for sake of accessibility, we offer the elegant proof given by Stothers, starting with a lemma about the degree of the difference of two polynomials.</p>
+<blockquote>
+<p><strong>Lemma 1.</strong> Suppose $p,q \in K[X]$ are two distinct non-constant polynomials, then</p>
+<script type="math/tex; mode=display">
+\deg(p-q) \ge \deg p - n_0(p)-n_0(q)+1.</script></blockquote>
+<p><em>Proof.</em> Let $k(f)$ be the leading coefficient of a polynomial $f$. If $\deg p \ne \deg q$ or $k(p) \ne k(q)$, then $\deg(p-q)\ge \deg p \ge \deg p - n_0(p)-n_0(q)+1$ because $n_0(p) \ge 1$ and $n_0(q) \ge 1$.</p>
+<p>Next suppose $\deg p = \deg q$ and $k(p)=k(q)$. If $(p,q)=1$, then by Mason-Stothers,</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\deg p &\le n_0(pq(p-q))-1 \\
+       &=n_0(p)+n_0(q)+n_0(p-q)-1 \\
+       &\le n_0(p)+n_0(q)+\deg(p-q)-1.
+\end{aligned}</script><p>Otherwise, suppose $(p,q)=r$. Then $p/r$ and $q/r$ are coprime. Again by Mason-Stothers,</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\deg(p/r) &\le n_0\left\{\frac{p}{r}\cdot\frac{q}{r}\cdot\frac{p-q}{r}\right\}-1 \\
+          &\le n_0(p/r)+n_0(q/r)+\deg((p-q)/r)-1
+\end{aligned}</script><p>Therefore</p>
+<script type="math/tex; mode=display">
+n_0(p/r)+n_0(q/r) \ge \deg(p/r)-\deg((p-q)/r)+1=\deg(p)+\deg(p-q)+1</script><p>On the other hand,</p>
+<script type="math/tex; mode=display">
+n_0(p)+n_0(q) \ge n_0(p/r)+n_0(q/r)+n_0(r) \ge n_0(p/r)+n_0(q/r).</script><p>Combining all these inequalities, we obtain what we want. $\square$</p>
+<hr>
+<p><em>Proof (of corollary 2).</em> Put $\deg{f}=m$ and $\deg{g}=n$. If $3m \ne 2n$, then</p>
+<script type="math/tex; mode=display">
+\deg(f^3-g^2) \ge \deg(f^3)=3m\ge \frac{1}{2}m+1</script><p>because $m \ge 1$. Next we assume that $3m=2n$, or in other word, $m=2r$ and $n=3r$. By lemma 1, we can write</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\deg(f^3-g^2) & \ge \deg(f^3)-n_0(f^3)-n_0(g^2)+1 \\
+              & \ge 6r - 2r - 3r + 1 \\
+              & \ge r+1 \\
+              & = \frac{1}{2}\deg f + 1.
+\end{aligned}</script><p>This proves the inequality. $\square$</p>
+<p>One may also generalise the case to $f^m-g^n$. But we put down some more important remarks. First of all, Mason-Stothers is originally a generalisation of Davenport’s inequality (by Stothers). I personally do not think any mortal can find the original paper of Davenport’s inequality, but on [Shioda 04] there is a reproduced proof using linear algebra (lemma 3.1).</p>
+<p>For more geometrical interpretation, one may be interested in [Zannier 95], where Riemann’s existence theorem is also discussed.</p>
+<p>In Stothers’s paper [Stothers 81], the author discussed the condition where the equality holds. If you look carefully you will realise his theorem 1.1 is exactly the Mason-Stothers theorem.</p>
+<h1 id="References-Further-Reading"><a href="#References-Further-Reading" class="headerlink" title="References / Further Reading"></a>References / Further Reading</h1><ul>
+<li>[Davenport 65] H. Davenport, <em>On $f^3(t)-g^2(t)$</em>, 1965. (can someone find a digital copy of this paper?)</li>
+<li>[Ma 84] R. C. Mason, <em>Diophantine Equations over Function Fields</em>, 1984.</li>
+<li>[Shioda 04] Tetsuji Shioda, <em>The abc-theorem, Davenport’s inequality and elliptic surfaces</em>, 2004 (<a target="_blank" rel="noopener" href="https://www2.rikkyo.ac.jp/web/shioda/papers/esdstadd.pdf">https://www2.rikkyo.ac.jp/web/shioda/papers/esdstadd.pdf</a>)</li>
+<li>[Stothers 81] W. W. Stothers, <em>POLYNOMIAL IDENTITIES AND HAUPTMODULN</em>, 1981. (<a target="_blank" rel="noopener" href="https://doi.org/10.1093/qmath/32.3.349">https://doi.org/10.1093/qmath/32.3.349</a>)</li>
+<li>[Zannier 95] Umberto Zannier (Venezia), <em>On Davenport’s bound for the degree of $f^3-g^2$ and Riemann’s Existence Theorem</em>, 1995. (<a target="_blank" rel="noopener" href="https://eudml.org/doc/206763">https://eudml.org/doc/206763</a>)</li>
+</ul>
+</div><div class="article-licensing box"><div class="licensing-title"><p>The abc Theorem of Polynomials</p><p><a href="https://desvl.xyz/2022/12/02/The-abc-Theorem-of-Polynomials/">https://desvl.xyz/2022/12/02/The-abc-Theorem-of-Polynomials/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>Desvl</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2022-12-02</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2022-12-03</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="../../../../tags/Exercise-solution/">Exercise solution</a><a class="link-muted mr-2" rel="tag" href="../../../../tags/Serge-Lang/">Serge Lang</a><a class="link-muted mr-2" rel="tag" href="../../../../tags/Study-new-content/">Study new content</a></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="../../05/regular-local-ring-cohen-macaulay/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">Every Regular Local Ring is Cohen-Macaulay</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="../../../11/24/riemann-zeta-continuation/"><span class="level-item">A Step-by-step of the Analytic Continuation of the Riemann Zeta Function</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="../../../../img/avatar.png" alt="Desvl"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Desvl</p><p class="is-size-6 is-block">A blog mainly on graduate mathematics.</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>A Noetherian local ring</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="../../../../archives"><p class="title">86</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="../../../../categories"><p class="title">44</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="../../../../tags"><p class="title">49</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="../../../../redirect/newsletter" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Compose an Email" href="../../../../redirect/email"><i class="fas fa-envelope"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="../../../../atom.xml"><i class="fas fa-rss"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Mathstodon" href="https://mathstodon.xyz/@desvl"><i class="fa-brands fa-mastodon"></i></a></div></div></div><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">Catalogue</h3><ul class="menu-list"><li><a class="level is-mobile" href="#The-abc-of-Polynomials"><span class="level-left"><span class="level-item">1</span><span class="level-item">The abc of Polynomials</span></span></a></li><li><a class="level is-mobile" href="#Applications"><span class="level-left"><span class="level-item">2</span><span class="level-item">Applications</span></span></a></li><li><a class="level is-mobile" href="#References-Further-Reading"><span class="level-left"><span class="level-item">3</span><span class="level-item">References / Further Reading</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="../../../../js/toc.js" defer></script></div><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://arxiv.org/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">arXiv</span></span><span class="level-right"><span class="level-item tag">arxiv.org</span></span></a></li><li><a class="level is-mobile" href="https://stacks.math.columbia.edu/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">The Stack Project</span></span><span class="level-right"><span class="level-item tag">stacks.math.columbia.edu</span></span></a></li><li><a class="level is-mobile" href="https://ncatlab.org/nlab/show/mathematics" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">nLab (Mathematics)</span></span><span class="level-right"><span class="level-item tag">ncatlab.org</span></span></a></li><li><a class="level is-mobile" href="https://q.uiver.app/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">quiver: a modern commutative diagram editor</span></span><span class="level-right"><span class="level-item tag">q.uiver.app</span></span></a></li><li><a class="level is-mobile" href="https://www.symmetricfunctions.com/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">The Symmetric Functions Catalogue</span></span><span class="level-right"><span class="level-item tag">www.symmetricfunctions.com</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/speaking.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Speaking</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/writing.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Writing</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">How to study maths really quick (YouTube)</span></span><span class="level-right"><span class="level-item tag">www.youtube.com</span></span></a></li><li><a class="level is-mobile" href="https://www.bilibili.com/video/BV1GJ411x7h7" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">How to study maths really quick (Bilibili)</span></span><span class="level-right"><span class="level-item tag">www.bilibili.com</span></span></a></li></ul></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="../../../../index.html"><img src="../../../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a><p class="is-size-7"><span>&copy; 2022</span> <a rel="me noopener" target="_blank" href="https://mathstodon.xyz/@desvl">Desvl</a><br>Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="../../../../js/column.js"></script><script src="../../../../js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="../../../../js/back_to_top.js" defer></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
+            },
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><!--!--><script src="../../../../js/main.js" defer></script><!--!--></body></html>

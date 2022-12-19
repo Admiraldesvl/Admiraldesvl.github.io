@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="robots" content="noindex"><meta><title>Category: Complex Analysis - Desvl&#039;s blog</title><link rel="manifest" href="../../../manifest.json"><meta name="application-name" content="Desvl&#039;s blog"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Desvl&#039;s blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta property="og:type" content="blog"><meta property="og:title" content="Desvl&#039;s blog"><meta property="og:url" content="https://desvl.xyz/"><meta property="og:site_name" content="Desvl&#039;s blog"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://desvl.xyz/img/avatar.png"><meta property="article:author" content="Desvl"><meta property="twitter:card" content="summary_large_image"><meta property="twitter:image:src" content="https://desvl.xyz/img/avatar.png"><meta property="twitter:creator" content="@Desvl_"><meta property="twitter:site" content="{ https://desvl.xyz }"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://desvl.xyz"},"headline":"Desvl's blog","image":["https://desvl.xyz/img/avatar.png"],"author":{"@type":"Person","name":"Desvl"},"publisher":{"@type":"Organization","name":"Desvl","logo":{"@type":"ImageObject","url":"https://desvl.xyz/img/logo.svg"}},"description":""}</script><link rel="alternate" href="../../../atom.xml" title="Desvl&#039;s blog" type="application/atom+xml"><link rel="icon" href="../../../img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap"><link rel="stylesheet" href="../../../css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="../../../index.html"><img src="../../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="../../../index.html">Home</a><a class="navbar-item" href="../../../archives">Archives</a><a class="navbar-item" href="../../../categories">Categories</a><a class="navbar-item" href="../../../tags">Tags</a><a class="navbar-item" href="../../../about">About (Updated Aug. 2022)</a><a class="navbar-item" href="../../../link-exchange">Link Exchange</a><a class="navbar-item" href="../../../support-the-author">Support the Author</a></div><div class="navbar-end"></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="../../../categories">Categories</a></li><li><a href="../">Analysis</a></li><li class="is-active"><a href="#" aria-current="page">Complex Analysis</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-11-24T07:56:23.000Z" title="24/11/2022, 15:56:23">2022-11-24</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-12-09T06:19:35.029Z" title="09/12/2022, 14:19:35">2022-12-09</time></span><span class="level-item"><a class="link-muted" href="../">Analysis</a><span> / </span><a class="link-muted" href="">Complex Analysis</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../../2022/11/24/riemann-zeta-continuation/">A Step-by-step of the Analytic Continuation of the Riemann Zeta Function</a></h1><div class="content">We compute the analytic continuation of the Riemann Zeta function and after that the reader will realise that asserting $1+2+\dots=-\frac{1}{12}$ without enough caution is not a good idea.</div><a class="article-more button is-small is-size-7" href="../../../2022/11/24/riemann-zeta-continuation/#more">Read more</a></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-04-15T13:26:52.000Z" title="15/04/2022, 21:26:52">2022-04-15</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-04-15T13:31:20.415Z" title="15/04/2022, 21:31:20">2022-04-15</time></span><span class="level-item"><a class="link-muted" href="../">Analysis</a><span> / </span><a class="link-muted" href="">Complex Analysis</a><span> / </span><a class="link-muted" href="Conformal-Mapping/">Conformal Mapping</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../../2022/04/15/riemann-mapping-theorem-proof/">A Detailed Proof of the Riemann Mapping Theorem</a></h1><div class="content">We offer a detailed proof of the Riemann mapping theorem, which states that every proper simply connected region is conformally equivalent to the open unit disc.</div><a class="article-more button is-small is-size-7" href="../../../2022/04/15/riemann-mapping-theorem-proof/#more">Read more</a></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2021-03-30T09:28:33.000Z" title="30/03/2021, 17:28:33">2021-03-30</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-10-11T01:13:13.857Z" title="11/10/2021, 09:13:13">2021-10-11</time></span><span class="level-item"><a class="link-muted" href="../">Analysis</a><span> / </span><a class="link-muted" href="">Complex Analysis</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../../2021/03/30/quasi-analytic-classs/">Quasi-analytic Classes</a></h1><div class="content">We study the concept of quasi-analytic functions, which are quite close to being analytic.</div><a class="article-more button is-small is-size-7" href="../../../2021/03/30/quasi-analytic-classs/#more">Read more</a></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-09-24T13:46:57.000Z" title="24/09/2020, 21:46:57">2020-09-24</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-12-06T02:34:54.895Z" title="06/12/2022, 10:34:54">2022-12-06</time></span><span class="level-item"><a class="link-muted" href="../">Analysis</a><span> / </span><a class="link-muted" href="">Complex Analysis</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../../2020/09/24/two-fourier-transforms/">The Fourier transform of sinx/x and (sinx/x)^2 and more</a></h1><div class="content">In this post we compute the Fourier transform of $\sin{x}/x$ and $(\sin{x}/x)^2$ through contour integration.</div><a class="article-more button is-small is-size-7" href="../../../2020/09/24/two-fourier-transforms/#more">Read more</a></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-05-20T12:11:12.000Z" title="20/05/2020, 20:11:12">2020-05-20</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-10-08T09:47:04.843Z" title="08/10/2021, 17:47:04">2021-10-08</time></span><span class="level-item"><a class="link-muted" href="../">Analysis</a><span> / </span><a class="link-muted" href="">Complex Analysis</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../../2020/05/20/zeros-of-entire-function/">More properties of zeros of an entire function</a></h1><div class="content"><h2 id="What’s-going-on-again"><a href="#What’s-going-on-again" class="headerlink" title="What’s going on again"></a>What’s going on again</h2><p>In <a href="/2020/03/14/topological-property-of-the-zeros-of-a-holomorphic-function/">this post</a> we discussed the topological properties of the zero points of an entire nonzero function, or roughly, how those points look like. The set of zero points contains no limit point, and at most countable (countable or finite). So if it’s finite, then we can find them out one by one. For example, the function $f(z)=z$ has simply one zero point. But what if it’s just countable? How fast the number grows?</p>
+<p>Another question. Suppose we have an entire function $f$, and the zeros of $f$, namely $z_1,z_2,\cdots,z_n$, are ordered increasingly by moduli:</p>
+<script type="math/tex; mode=display">
+|z_1| \leq |z_2| \leq \cdots \leq |z_n| \leq \cdots</script><p>Is it possible to get a fine enough estimation of $|z_n|$? Interesting enough, we can get there with the help of Jensen’s formula.</p>
+<h2 id="Jensen’s-formula"><a href="#Jensen’s-formula" class="headerlink" title="Jensen’s formula"></a>Jensen’s formula</h2><blockquote>
+<p>Suppose $\Omega=D(0;R)$, $f \in H(\Omega)$, $f(0) \neq 0$, $0&lt;r&lt;R$, and $z_1,z_2,\cdots,z_{n(r)}$ are the zeros of $f$ in $\overline{D}(0;R)$, then</p>
+<script type="math/tex; mode=display">
+|f(0)|\prod_{n=1}^{n(r)}\frac{r}{|z_n|}=\exp\left[\frac{1}{2\pi}\int_{-\pi}^{\pi}\log|f(re^{i\theta})|d\theta\right]</script></blockquote>
+<p>There is no need to worry about the assumption $f(0) \neq 0$. Take another look at  <a href="/2020/03/14/topological-property-of-the-zeros-of-a-holomorphic-function/#Proof">this proof</a>. Every zero point $a$ has a unique positive number $m$ such that $f(z)=(z-a)^mg(z)$ and $g \in H(\Omega)$ but $g(a) \neq 0$. The number $m$ is called the order of the zero at $a$. Therefore if we have $f(0)=0$ we can simply consider another function, namely $\frac{f}{z^m}$ where $m$ is the order of zero at $0$.</p>
+<p>We are not proving this identity at this point. But it can be done by considering the following function</p>
+<script type="math/tex; mode=display">
+g(z)=f(z)\prod_{n=1}^{m}\frac{r^2-\overline{z}_nz}{r(z_n-z)}\prod_{n=m+1}^{n(r)}\frac{z_n}{z_n-z}</script><p>where $m$ is found by ordering $z_j$ in such a way that $z_1,\cdots,z_m \in D(0;r)$ and $|z_{m+1}|=\cdots=|z_{n}|$. One can prove this identity by considering $|g(0)|$ as well as $\log|g(re^{i\theta})|$.</p>
+<h2 id="Several-applications"><a href="#Several-applications" class="headerlink" title="Several applications"></a>Several applications</h2><h3 id="The-number-of-zeros-of-f-in-overline-D-0-r"><a href="#The-number-of-zeros-of-f-in-overline-D-0-r" class="headerlink" title="The number of zeros of $f$ in $\overline{D}(0;r)$"></a>The number of zeros of $f$ in $\overline{D}(0;r)$</h3><p>For simplicity we shall assume $f(0)=1$ which has no loss of generality. Let</p>
+<script type="math/tex; mode=display">
+M(r)=\sup_{\theta}|f(re^{i\theta})|\quad 0<r<\infty</script><p>and $n(r)$ be the number of zeros of $f$ in $\overline{D}(0;r)$. By the maximum modulus theorem, we have</p>
+<script type="math/tex; mode=display">
+\log|f(2re^{i\theta})| \leq |f(2re^{i\theta})| \leq M(2r)</script><p>If we insert Jensen’s formula into this inequality and order $|z_n|$ by increasing moduli, we get</p>
+<script type="math/tex; mode=display">
+\log M(2r) \geq \frac{1}{2\pi}\int_{-\pi}^{\pi}\log|f(2re^{i\theta})|d\theta=\sum_{n=1}^{n(2r)}\log\frac{2r}{|z_n|}\geq\sum_{n=1}^{n(r)}\log\frac{2r}{|z_n|}\geq n(r)\log2</script><p>Which implies</p>
+<script type="math/tex; mode=display">
+n(r)\leq\log_2M(2r)</script><p>So $n(r)$ is controlled by $M(2r)$.  The second and third inequalities look tricky, which require more explanation.</p>
+<p>First we should notice the fact that $z_n \in \overline{D}(0;R)$ for all $R \in \mathbb{R}$. Hence we have $\log\frac{2r}{|z_n|} \geq \log1=0$ for all $z_n \in \overline{D}(0;R)$.   Hence the second inequality follows. For the third one, we simply have</p>
+<script type="math/tex; mode=display">
+\sum_{n=1}^{n(r)}\log\frac{2r}{|z_n|}=\sum_{n=1}^{n(r)}(\log2+\log\frac{r}{|z_n|}) \geq n(r)\log2.</script><p>So this is it, the rapidity with which $n(r)$ can grow is dominated by $M(r)$.  Namely, the number of zeros of $f$ in the closed disc with radius $r$ is controlled by the maximum modulus of $f$ on a circle with bigger radius. </p>
+<h3 id="Examples-based-on-different-M-r"><a href="#Examples-based-on-different-M-r" class="headerlink" title="Examples based on different $M(r)$"></a>Examples based on different $M(r)$</h3><p>Let’s begin with a simple example. Let $f(z)=1$, we have $M(r)=1$ for all $r$, but also we have $n(r)=0$, in which sense this estimation does nothing. Indeed, as long as $M(r)$ is bounded by a constant, which implies $f(z)$ is bounded, then by Liouville’s theorem, $f(z)$ is constant and this estimation is not available.</p>
+<p>But if $M(r)$ grows properly, things become interesting. For example, if we have</p>
+<script type="math/tex; mode=display">
+M(r) \leq \exp(Ar^k)</script><p>where $A$ and $k$ are given positive numbers, we have a good enough estimation by</p>
+<script type="math/tex; mode=display">
+n(r) \leq \frac{A+(2r)^k}{\log2}</script><p>This estimation becomes interesting if we consider the logarithm of $n(r)$ and $r$, that is</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\limsup_{r\to\infty}\frac{\log{n(r)}}{\log{r}} &\leq \lim_{r\to\infty} \frac{\log(A+(2r)^k)-\log{2}}{\log{r}} \\
+                                               & =k
+\end{aligned}</script><p>If we have $f(z)=1-\exp(z^k)$ where $k$ is a positive integer, we have $n(r) \sim \frac{kr^k}{\pi}$, also</p>
+<script type="math/tex; mode=display">
+\lim_{r\to\infty}\frac{\log{n(r)}}{\log r}=k</script><h3 id="Lower-bound-of-z-n-r"><a href="#Lower-bound-of-z-n-r" class="headerlink" title="Lower bound of $|z_{n(r)}|$"></a>Lower bound of $|z_{n(r)}|$</h3><p>We’ll see here, how to evaluate the lower bound of $|z_{n(r)}|$ using Jensen’s formula, provided that $M(r)$, or simply the upper bound of $f(z)$ is properly described. Without loss of generality we shall assume that $f(0)=1$. Also, we assume that the zero points of $f(z)$ are ordered by increasing moduli.</p>
+<p>First we still consider</p>
+<script type="math/tex; mode=display">
+M(r) \leq \exp(Ar^k)</script><p>and see what will happen.</p>
+<p>By Jensen’s, we have</p>
+<script type="math/tex; mode=display">
+\prod_{n=1}^{n(r)}\frac{r}{|z_n|}=\exp\left[\frac{1}{2\pi}\int_{-\pi}^{\pi}\log|f(re^{i\theta})|d\theta\right] \leq \exp{Ar^k}</script><p>This gives</p>
+<script type="math/tex; mode=display">
+\prod_{n=1}^{n(r)}|z_n| \geq r^{n(r)}\exp(-Ar^k)</script><p>By the arrangement of $\{z_n\}$, we have</p>
+<script type="math/tex; mode=display">
+|z_{n(r)}| \geq \sqrt[n(r)]{\prod_{n=1}^{n(r)}|z_n|}\geq r\exp(-Ar^{k-n(r)})</script><hr>
+<p>Another example is when we have</p>
+<script type="math/tex; mode=display">
+|f(z)| \leq \exp(A|\Im{z}|)</script><p>where $\Im{z}$ means the imagine part of $z$.</p>
+<p>We shall notice that in this case,</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\frac{1}{2\pi}\int_{-\pi}^{\pi}\log|f(re^{i\theta})|d\theta &\leq \frac{1}{2\pi}\int_{-\pi}^{\pi}A|r\sin\theta|d\theta=\frac{2Ar}{\pi}
+\end{aligned}</script><p>Following Jensen’s formula, we therefore have</p>
+<script type="math/tex; mode=display">
+|z_{n(r)}| \geq \exp(\frac{2A}{\pi}r^{1-n(r)})</script></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-03-14T11:00:00.000Z" title="14/03/2020, 19:00:00">2020-03-14</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-10-23T00:19:31.958Z" title="23/10/2021, 08:19:31">2021-10-23</time></span><span class="level-item"><a class="link-muted" href="../">Analysis</a><span> / </span><a class="link-muted" href="">Complex Analysis</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../../2020/03/14/topological-property-of-the-zeros-of-a-holomorphic-function/">Topological properties of the zeros of a holomorphic function</a></h1><div class="content"><h3 id="What’s-going-on"><a href="#What’s-going-on" class="headerlink" title="What’s going on"></a>What’s going on</h3><p>If for every $z_0 \in \Omega$ where $\Omega$ is a plane open set, the limit</p>
+<script type="math/tex; mode=display">
+    \lim_{z \to z_0}\frac{f(z)-f(z_0)}{z-z_0}</script><p>exists, we say that $f$ is holomorphic (a.k.a. analytic) in $\Omega$. If $f$ is holomorphic in the whole plane, it’s called <strong>entire</strong>. The class of all holomorphic functions (denoted by $H(\Omega)$) has many interesting properties. For example it does form a ring.</p>
+<p>But what happens if we talk about the points where $f$ is equal to $0$? Is it possible to find an entire function $g$ such that $g(z)=0$ if and only if $z$ is on the unit circle? The topological property we will discuss in this post answers this question negatively.</p>
+<h3 id="Zeros"><a href="#Zeros" class="headerlink" title="Zeros"></a>Zeros</h3><blockquote>
+<p>Suppose $\Omega$ is a region, the set</p>
+<script type="math/tex; mode=display">
+    Z(f)=\{z_0\in\Omega:f(z_0)=0\}</script><p>is a at most countable set without limit point, as long as $f$ is not identically equal to $0$ on $\Omega$. </p>
+</blockquote>
+<p>Trivially, if $f(\Omega)=\{0\}$, we have $Z(f)=\Omega$. The set of unit circle is not at most countable and every point is a limit point. Hence if an entire function is equal to $0$ on the unit circle, then the function equals to $0$ on the whole plane.</p>
+<p>Note: the connectivity of $\Omega$ is important. For example, for two disjoint open sets $\Omega_0$ and $\Omega_1$, define $f(z)=0$ on $\Omega_0$ and $f(z)=1$ on $\Omega_1$, then everything fails.</p>
+<h3 id="A-simple-application-Feat-Baire-Category-Theorem"><a href="#A-simple-application-Feat-Baire-Category-Theorem" class="headerlink" title="A simple application (Feat. Baire Category Theorem)"></a>A simple application (Feat. Baire Category Theorem)</h3><p>Before establishing the proof, let’s see what we can do using this result.</p>
+<blockquote>
+<p>Suppose that $f$ is an entire function, and that in every power series</p>
+<script type="math/tex; mode=display">
+    f(z)=\sum c_n(z-a)^n</script><p>has at leat one coefficient is $0$, then $f$ is a polynomial.</p>
+</blockquote>
+<p>Clearly we have $n!c_n=f^{(n)}(a)$, thus for <strong>every</strong> $a \in \mathbb{C}$, we can find a postivie integer $n_0$ such that $f^{(n_0)}(a)=0$. Thus we establish the identity:</p>
+<script type="math/tex; mode=display">
+    \bigcup_{n=0}^{\infty} Z(f^{(n)})=\mathbb{C}</script><p>Notice the fact that $f^{(n)}$ is entire. So $Z(f^{n})$ is either an at most countable set without limit point, or simply equal to $\mathbb{C}$.  If there exists a number $N$ such that $Z(f^{N})=\mathbb{C}$, then naturally $Z(f^{n})=\mathbb{C}$ holds for all $n \geq N$. Whilst we see that $f$’s power series has finitely many nonzero coefficients, thus polynomial.</p>
+<p>So the question is, is this $N$ always exist? Being an at most countable set without limit points , $Z(f^{(n)})$ has empty interior (nowhere dense). But according to <strong>Baire Category Theorem</strong>, $\mathbb{C}$ could not be a countable union of nowhere dense sets (of the first category if you say so). This forces the existence of $N$.</p>
+<h3 id="Proof"><a href="#Proof" class="headerlink" title="Proof"></a>Proof</h3><p>The proof will be finished using some basic topology techniques.</p>
+<p>Let $A$ be the set of all limit points of $Z(f)$ in $\Omega$. The continuity of $f$ shows that $A \subset Z(f)$. We’ll show that if $A \neq \varnothing$, then $Z(f)=\Omega$.</p>
+<p>First we claim that if $a \in A$, then $a \in \bigcap_{n \geq 0}Z(f^{(n)})$. That is, $f^{(k)}(a) = 0$ for all $k \geq 0$. Suppose this fails, then there is a smallest positive integer $m$ such that $c_m \neq 0$ for the power series on the disc $D(a;r)$:</p>
+<script type="math/tex; mode=display">
+    f(z)=\sum_{n=1}^{\infty}c_n(z-a)^{n}.</script><p>Define</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+​    g(z)=\begin{cases}
+​        (z-a)^{-m}f(z)\quad&(z\in\Omega-\{a\}) \\\
+​        c_m\quad&(z=a)
+​    \end{cases}
+\end{aligned}</script><p>It’s clear that $g \in H(D(a;r))$ since we have</p>
+<script type="math/tex; mode=display">
+    g(z)=\sum_{n=1}^{\infty}c_{m+n}(z-a)^{n}\quad(z\in D(a;r))</script><p>But the continuity shows that $g(a)=0$ while $c_m \neq 0$.  A contradiction.</p>
+<p>Next fix a point $b \in \Omega$. Choose a curve (continuous mapping) defined $\gamma$ on $[0,1]$ such that $\gamma(0)=a$ and $\gamma(1)=b$. Let</p>
+<script type="math/tex; mode=display">
+    \Gamma=\{t\in[0,1]:\gamma(t)\in\bigcap_{n \geq 0}Z(f^{(n)})\}</script><p>By hypothesis, $0 \in \Gamma$. We shall prove that $1 \in \Gamma$. Let</p>
+<script type="math/tex; mode=display">
+    s = \sup\Gamma</script><p>There exists a sequence $\{t_n\}\subset\Gamma$ such that $t_n \to s$. The continuity of $f^{(k)}$ and $\gamma$ shows that </p>
+<script type="math/tex; mode=display">
+    f^{(k)}(\gamma(s))=0</script><p>Hence $s \in \Gamma$. Choose a disc $D(\gamma(s);\delta)\subset\Omega$. On this disc, $f$ is represented by its power series but all coefficients are $0$. It follows that $f(z)=0$ for all $z \in D(\gamma(s);\delta)$. Further, $f^{(k)}(z)=0$ for all $z \subset D(\gamma(s);\delta)$ for all $k \geq 0$. Therefore by the continuity of $\gamma$, there exists $\varepsilon&gt;0$ such that $\gamma(s-\varepsilon,s+\varepsilon)\subset D(\gamma(s);\delta)$, which implies that $(s-\varepsilon, s+\varepsilon)\cap[0,1]\subset\Gamma$. Since $s=\sup\Gamma$, we have $s=1$, therefore $1 \in \Gamma$. </p>
+<p>So far we showed that $\Omega = \bigcap_{n \geq 0}Z(f^{(n)})$, which forces $Z(f)=\Omega$. This happens when $Z(f)$ contains limit points, which is equivalent to what we shall prove.</p>
+<p>When $Z(f)$ contains no limit point, all points of $Z(f)$ are isolated points; hence in each compact subset of $\Omega$, there are at most finitely many points in $Z(f)$. Since $\Omega$ is $\sigma$-compact, $Z(f)$ is at most countable. $Z(f)$ is also called a discrete set in this situation.</p>
+</div></article></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="../../../img/avatar.png" alt="Desvl"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Desvl</p><p class="is-size-6 is-block">A blog mainly on graduate mathematics.</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>A Noetherian local ring</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="../../../archives"><p class="title">86</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="../../../categories"><p class="title">44</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="../../../tags"><p class="title">49</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="../../../redirect/newsletter" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Compose an Email" href="../../../redirect/email"><i class="fas fa-envelope"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="../../../atom.xml"><i class="fas fa-rss"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Mathstodon" href="https://mathstodon.xyz/@desvl"><i class="fa-brands fa-mastodon"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://arxiv.org/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">arXiv</span></span><span class="level-right"><span class="level-item tag">arxiv.org</span></span></a></li><li><a class="level is-mobile" href="https://stacks.math.columbia.edu/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">The Stack Project</span></span><span class="level-right"><span class="level-item tag">stacks.math.columbia.edu</span></span></a></li><li><a class="level is-mobile" href="https://ncatlab.org/nlab/show/mathematics" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">nLab (Mathematics)</span></span><span class="level-right"><span class="level-item tag">ncatlab.org</span></span></a></li><li><a class="level is-mobile" href="https://q.uiver.app/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">quiver: a modern commutative diagram editor</span></span><span class="level-right"><span class="level-item tag">q.uiver.app</span></span></a></li><li><a class="level is-mobile" href="https://www.symmetricfunctions.com/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">The Symmetric Functions Catalogue</span></span><span class="level-right"><span class="level-item tag">www.symmetricfunctions.com</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/speaking.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Speaking</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/writing.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Writing</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">How to study maths really quick (YouTube)</span></span><span class="level-right"><span class="level-item tag">www.youtube.com</span></span></a></li><li><a class="level is-mobile" href="https://www.bilibili.com/video/BV1GJ411x7h7" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">How to study maths really quick (Bilibili)</span></span><span class="level-right"><span class="level-item tag">www.bilibili.com</span></span></a></li></ul></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="../../../index.html"><img src="../../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a><p class="is-size-7"><span>&copy; 2022</span> <a rel="me noopener" target="_blank" href="https://mathstodon.xyz/@desvl">Desvl</a><br>Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="../../../js/column.js"></script><script src="../../../js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="../../../js/back_to_top.js" defer></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
+            },
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><!--!--><script src="../../../js/main.js" defer></script><!--!--></body></html>

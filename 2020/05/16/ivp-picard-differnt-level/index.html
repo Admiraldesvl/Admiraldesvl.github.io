@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Prove Picard&#039;s Existence and Uniqueness Theorem on Different Levels - Desvl&#039;s blog</title><link rel="manifest" href="../../../../manifest.json"><meta name="application-name" content="Desvl&#039;s blog"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Desvl&#039;s blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="IVP and Picard’sBy IVP (Initial Value Problem), we mean the problem about solving  \begin{cases} \frac{dy}{dx}&amp;#x3D;f(x,y) \\ y(x_0)&amp;#x3D;y_0 \end{cases}Of course we do hope we can solve this problem easily wit"><meta property="og:type" content="blog"><meta property="og:title" content="Prove Picard&#039;s Existence and Uniqueness Theorem on Different Levels"><meta property="og:url" content="https://desvl.xyz/2020/05/16/ivp-picard-differnt-level/"><meta property="og:site_name" content="Desvl&#039;s blog"><meta property="og:description" content="IVP and Picard’sBy IVP (Initial Value Problem), we mean the problem about solving  \begin{cases} \frac{dy}{dx}&amp;#x3D;f(x,y) \\ y(x_0)&amp;#x3D;y_0 \end{cases}Of course we do hope we can solve this problem easily wit"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://desvl.xyz/img/avatar.png"><meta property="article:published_time" content="2020-05-16T11:41:33.000Z"><meta property="article:modified_time" content="2020-06-17T01:43:56.648Z"><meta property="article:author" content="Desvl"><meta property="twitter:card" content="summary_large_image"><meta property="twitter:image:src" content="https://desvl.xyz/img/avatar.png"><meta property="twitter:creator" content="@Desvl_"><meta property="twitter:site" content="{ https://desvl.xyz }"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://desvl.xyz/2020/05/16/ivp-picard-differnt-level/"},"headline":"Prove Picard's Existence and Uniqueness Theorem on Different Levels","image":["https://desvl.xyz/img/avatar.png"],"datePublished":"2020-05-16T11:41:33.000Z","dateModified":"2020-06-17T01:43:56.648Z","author":{"@type":"Person","name":"Desvl"},"publisher":{"@type":"Organization","name":"Desvl","logo":{"@type":"ImageObject","url":"https://desvl.xyz/img/logo.svg"}},"description":"IVP and Picard’sBy IVP (Initial Value Problem), we mean the problem about solving  \\begin{cases} \\frac{dy}{dx}&#x3D;f(x,y) \\\\ y(x_0)&#x3D;y_0 \\end{cases}Of course we do hope we can solve this problem easily wit"}</script><link rel="canonical" href="https://desvl.xyz/2020/05/16/ivp-picard-differnt-level/"><link rel="alternate" href="../../../../atom.xml" title="Desvl&#039;s blog" type="application/atom+xml"><link rel="icon" href="../../../../img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap"><link rel="stylesheet" href="../../../../css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="../../../../index.html"><img src="../../../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="../../../../index.html">Home</a><a class="navbar-item" href="../../../../archives">Archives</a><a class="navbar-item" href="../../../../categories">Categories</a><a class="navbar-item" href="../../../../tags">Tags</a><a class="navbar-item" href="../../../../about">About (Updated Aug. 2022)</a><a class="navbar-item" href="../../../../link-exchange">Link Exchange</a><a class="navbar-item" href="../../../../support-the-author">Support the Author</a></div><div class="navbar-end"></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-05-16T11:41:33.000Z" title="16/05/2020, 19:41:33">2020-05-16</time></span><span class="level-item">Updated&nbsp;<time dateTime="2020-06-17T01:43:56.648Z" title="17/06/2020, 09:43:56">2020-06-17</time></span></div></div><h1 class="title is-3 is-size-4-mobile">Prove Picard&#039;s Existence and Uniqueness Theorem on Different Levels</h1><div class="content"><h2 id="IVP-and-Picard’s"><a href="#IVP-and-Picard’s" class="headerlink" title="IVP and Picard’s"></a>IVP and Picard’s</h2><p>By IVP (Initial Value Problem), we mean the problem about solving</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+\frac{dy}{dx}=f(x,y) \\
+y(x_0)=y_0
+\end{cases}</script><p>Of course we do hope we can solve this problem easily with a simple result. But that won’t happen if the function $f$ is ‘ugly’ enough. Hence the problem is, generally and theoretically, when we can get a unique solution? When does some solution exist? Fortunately Picard ensured that</p>
+<blockquote>
+<p>If $f$ is uniformly Lipschitz continuous in $y$ and continuous in $x$ on $R=\{(x,y):|x-x_0| \leq a,|y-y_0| \leq b\}$, then for some $\varepsilon&gt;0$, there exists a unique solution $y$ to the IVP on the interval $[x_0-\varepsilon,x_0+\varepsilon]$.</p>
+</blockquote>
+<p>Interesting enough, there are several ways to prove it on different levels. This blog post offers two proofs.</p>
+<h2 id="Proving-Picard’s-existence-and-uniqueness-theorem"><a href="#Proving-Picard’s-existence-and-uniqueness-theorem" class="headerlink" title="Proving Picard’s existence and uniqueness theorem"></a>Proving Picard’s existence and uniqueness theorem</h2><h3 id="Some-preparation"><a href="#Some-preparation" class="headerlink" title="Some preparation"></a>Some preparation</h3><p>By uniformly Lipschitz continuous, we mean that for all $y \in R$, $f$ satisfies</p>
+<script type="math/tex; mode=display">
+\left\vert f(x,y_1) - f(x,y_2)\right\vert \leq L\left\vert y_1 - y_2 \right\vert</script><p>for some $L &gt; 0$. This condition is useful in many different branch of mathematics.</p>
+<p>Also, it’s trivial to verify that the IVP is equivalent to</p>
+<script type="math/tex; mode=display">
+y=y_0+\int_{x_0}^{x}f(x,y)dx</script><p>And yes, our job becomes finding such a $y$ satisfying this equation.</p>
+<h3 id="A-sketch-of-the-proof-in-elementary-calculus"><a href="#A-sketch-of-the-proof-in-elementary-calculus" class="headerlink" title="A sketch of the proof in elementary calculus"></a>A sketch of the proof in elementary calculus</h3><p>Honestly the proof is kind of long. I’ll leave the basic steps here. First, we define the Picard sequence by</p>
+<script type="math/tex; mode=display">
+y_{n+1}(x)=y_0+\int_{x_0}^{x}f(x,y_n(x))dx \quad |x-x_0| \leq \varepsilon</script><p>for $n=0,1,\cdots$. It can be shown by induction that</p>
+<script type="math/tex; mode=display">
+|y_n(x)-y_0| \leq M|x-x_0|</script><p>where $M = \sup\limits_{(x,y) \in R}|f(x,y)|$ and $\varepsilon = \min\left(a,\frac{b}{M}\right)$. We want to prove that</p>
+<script type="math/tex; mode=display">
+\lim_{n \to \infty}y_n=\sum_{n=1}^{\infty}(y_{n+1}(x)-y_n(x))=y</script><p>is the solution to the IVP, where Lipschitz condition comes into play by considering</p>
+<script type="math/tex; mode=display">
+|y_{n+1}(x)-y_n(x)| \leq \frac{M}{L}\frac{(L|x-x_0|)^{n+1}}{(n+1)!}</script><p>Finally, it should be shown that $y$ is the unique solution. To do this, it can be shown that, if we have two solutions, say $y=u(x)$ and $y=v(x)$, then $u(x)-v(x)=0$.</p>
+<h3 id="Osgood’s-condition-ensures-uniqueness"><a href="#Osgood’s-condition-ensures-uniqueness" class="headerlink" title="Osgood’s condition ensures uniqueness"></a>Osgood’s condition ensures uniqueness</h3><p>Osgood’s condition is much weaker than Lipschitz’s. Under Osgood’s condition, it’s easy to check the uniqueness (existence is not guaranteed), but there is no way to get the result (while Lipschitz’s show you the way) through this condition.</p>
+<blockquote>
+<p>$f(x,y)$ has <strong>at most one</strong> solution in every point in $R$ if $f$ is continuous and satisfies the <strong>Osgood’s condition</strong>, namely</p>
+<script type="math/tex; mode=display">
+|f(x,y_1)-f(x,y_2)| \leq F(|y_1-y_2|)</script><p>in $R$ where $F$ is a continuous function such that $F(t)&gt;0$ for all $r&gt;0$.  Also, $F$ is defined in such a way that</p>
+<script type="math/tex; mode=display">
+\int_{0}^{r_1}\frac{1}{F(r)}dr=\infty</script><p>for some $r_1&gt;0$. </p>
+</blockquote>
+<p>Naturally, if we define $F(r)=Lr$, we have $\int_{0}^{r_1}\frac{1}{Lr}dr=\infty$. </p>
+<h4 id="Proof-of-Osgood’s"><a href="#Proof-of-Osgood’s" class="headerlink" title="Proof of Osgood’s"></a>Proof of Osgood’s</h4><p>We’ll prove this theorem indirectly. That is, if there exists some point $(x_0,y_0) \in R$ such that $f$ has at least two solutions, then $f$ does not satisfy Osgood’s condition, which is equivalent to the statement that if $f$ satisfies Osgood’s, then $f$ has no more than solution.</p>
+<hr>
+<p>Suppose now there exists a point $(x_0,y_0) \in R$ such that $y’=f(x,y)$ has two distinct solutions</p>
+<script type="math/tex; mode=display">
+y_1(x)\quad y_2(x)</script><p>and $y_1 \neq y_2$ for at $x_1 \neq x_0$. W.L.O.G. we suppose that $x_1 &gt; x_0$. Define</p>
+<script type="math/tex; mode=display">
+x_s = \sup_{x \in [x_0,x_1]}\{x:y_1(x)=y_2(x)\}</script><p>and $r(x)=y_1(x)-y_2(x)$ on $[x_s,x_1]$. The derivative of $r$ is interesting since we have</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+r'(x)&=y_1'(x)-y_2'(x) \\
+&=f(x,y_1(x))-f(x,y_2(x)) \\
+& \leq |f(x,y_1)-f(x,y_2)| \\
+& \leq F(|y_1-y_2|)=F(r)
+\end{aligned}</script><p>Then the desired improper integral converges since we have</p>
+<script type="math/tex; mode=display">
+\int_{0}^{r_1}\frac{dr}{F(r)}=\int_{x_s}^{x_1}\frac{r'(x)dx}{F(r(x))} \leq x_1-x_s</script><p>Therefore $f$ does not satisfy Osgood’s condition. </p>
+<h3 id="Banach-FPT-is-applied-onto-Picard’s"><a href="#Banach-FPT-is-applied-onto-Picard’s" class="headerlink" title="Banach FPT is applied onto Picard’s"></a>Banach FPT is applied onto Picard’s</h3><h4 id="What-is-Banach-FPT-Fixed-Point-Theorem"><a href="#What-is-Banach-FPT-Fixed-Point-Theorem" class="headerlink" title="What is Banach FPT (Fixed Point Theorem)"></a>What is Banach FPT (Fixed Point Theorem)</h4><p>A map $T: X \mapsto X$ defined on a complete metric space $(X,d)$ is a contraction if there exists some $k \in [0,1)$ such that</p>
+<script type="math/tex; mode=display">
+d(T(x),T(y)) \leq k(x,y)</script><p>Banach Fixed Point Theorem states that, $T$ admits a fixed point, namely $T(x)=x$ for some $x \in X$. </p>
+<p>The proof is an application of Cauchy sequence (notice that $(X,d)$ is complete). Pick an arbitrary $x_0 \in X$, by defining $T(x_n)=x_{n+1}$, we have</p>
+<script type="math/tex; mode=display">
+d(x_{n},x_{n-1})=d(T(x_{n-1}),T(x_{n-2})) \leq kd(x_{n-1},x_{n-2})</script><p>which finally goes to</p>
+<script type="math/tex; mode=display">
+d(x_n,x_{n-1}) \leq k^{n-1}d(x_1,x_0)</script><p>$\{x_n\}$ is Cauchy then since we have</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+d(x_m,x_n) &\leq d(x_m,x_{m-1})+d(x_{m-1},x_{m-2})+\cdots+d(x_{n+1},x_n) \\
+&\leq (k^{m-1}+k^{m-2}+\cdots+k^{n})d(x_1,x_0) \\
+&\leq \frac{q^n}{1-q}d(x_1,x_0) \\
+& \to 0 \quad(n \to\infty)
+\end{aligned}</script><p>Since $(X,d)$ is complete, we see $\{x_n\}$ converges. Also, $T$ is (uniformly) continuous, therefore</p>
+<script type="math/tex; mode=display">
+\lim_{n \to \infty}x_n=\lim_{n \to \infty}x_{n+1}=x=T(x)</script><p>Uniqueness of the fixed point follows from the uniqueness of limit.</p>
+<h4 id="Proving-Picard’s-using-Banach-FPT"><a href="#Proving-Picard’s-using-Banach-FPT" class="headerlink" title="Proving Picard’s using Banach FPT"></a>Proving Picard’s using Banach FPT</h4><p>Fortunately, Picard’s existence and uniqueness theorem can be directly proved using Banach FPT. All we need is a proper translation. </p>
+<h5 id="Complete-metric-space"><a href="#Complete-metric-space" class="headerlink" title="Complete metric space"></a>Complete metric space</h5><p>Let $\mathcal{C_B}(R)$ be all bounded continuous function on $R$, then $\mathcal{C_B}(R)$ is complete considering the metric by </p>
+<script type="math/tex; mode=display">
+d(f,g)=\sup|f(x)-g(x)|</script><h5 id="Contraction-map"><a href="#Contraction-map" class="headerlink" title="Contraction map"></a>Contraction map</h5><p>The functional $T:\mathcal{C_B}(R)\mapsto\mathcal{C_B}(R)$ by</p>
+<script type="math/tex; mode=display">
+T(y)=y_0+\int_{x_0}^{x}f(x,y)dx</script><p>is the contraction we are looking for, if we take uniform Lipschitz’s condition into consideration. Namely, if we have $\varepsilon&lt;\frac{1}{L}$, we can see that</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+d(T(r),T(s)) &= \sup\left\vert \int_{x_0}^{x}(f(x,r)-f(x,s))dx \right\vert \\
+             &\leq\sup\int_{x_0}^{x}|f(x,r)-f(x,s)|dx \\
+             &\leq L\varepsilon d(r,s)
+\end{aligned}</script><p>Therefore by Banach FPT, the functional $T$ has a unique fixed point, which is equivalent to Picard’s existence and uniqueness theorem. Further, the solution can be obtained by taking</p>
+<script type="math/tex; mode=display">
+y_{n+1}=T(y_n)</script><p>where $y(x_0)=y_0$ comes from the initial value problem. Picard’s follows from FPT.</p>
+</div><div class="article-licensing box"><div class="licensing-title"><p>Prove Picard&#039;s Existence and Uniqueness Theorem on Different Levels</p><p><a href="https://desvl.xyz/2020/05/16/ivp-picard-differnt-level/">https://desvl.xyz/2020/05/16/ivp-picard-differnt-level/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>Desvl</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2020-05-16</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2020-06-17</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="../../17/linear-ode-but-quotient-space/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">Linear ODE but Quotient Spaces</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="../../12/linear-ode-chapter-3/"><span class="level-item">线性ODE（三）——初探高阶线性方程</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="../../../../img/avatar.png" alt="Desvl"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Desvl</p><p class="is-size-6 is-block">A blog mainly on graduate mathematics.</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>A Noetherian local ring</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="../../../../archives"><p class="title">86</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="../../../../categories"><p class="title">44</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="../../../../tags"><p class="title">49</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="../../../../redirect/newsletter" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Compose an Email" href="../../../../redirect/email"><i class="fas fa-envelope"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="../../../../atom.xml"><i class="fas fa-rss"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Mathstodon" href="https://mathstodon.xyz/@desvl"><i class="fa-brands fa-mastodon"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://arxiv.org/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">arXiv</span></span><span class="level-right"><span class="level-item tag">arxiv.org</span></span></a></li><li><a class="level is-mobile" href="https://stacks.math.columbia.edu/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">The Stack Project</span></span><span class="level-right"><span class="level-item tag">stacks.math.columbia.edu</span></span></a></li><li><a class="level is-mobile" href="https://ncatlab.org/nlab/show/mathematics" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">nLab (Mathematics)</span></span><span class="level-right"><span class="level-item tag">ncatlab.org</span></span></a></li><li><a class="level is-mobile" href="https://q.uiver.app/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">quiver: a modern commutative diagram editor</span></span><span class="level-right"><span class="level-item tag">q.uiver.app</span></span></a></li><li><a class="level is-mobile" href="https://www.symmetricfunctions.com/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">The Symmetric Functions Catalogue</span></span><span class="level-right"><span class="level-item tag">www.symmetricfunctions.com</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/speaking.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Speaking</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/writing.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Writing</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">How to study maths really quick (YouTube)</span></span><span class="level-right"><span class="level-item tag">www.youtube.com</span></span></a></li><li><a class="level is-mobile" href="https://www.bilibili.com/video/BV1GJ411x7h7" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">How to study maths really quick (Bilibili)</span></span><span class="level-right"><span class="level-item tag">www.bilibili.com</span></span></a></li></ul></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="../../../../index.html"><img src="../../../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a><p class="is-size-7"><span>&copy; 2022</span> <a rel="me noopener" target="_blank" href="https://mathstodon.xyz/@desvl">Desvl</a><br>Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="../../../../js/column.js"></script><script src="../../../../js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="../../../../js/back_to_top.js" defer></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
+            },
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><!--!--><script src="../../../../js/main.js" defer></script><!--!--></body></html>

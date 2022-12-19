@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Introducing Riemann-Stieltjes Integral - Desvl&#039;s blog</title><link rel="manifest" href="../../../../manifest.json"><meta name="application-name" content="Desvl&#039;s blog"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Desvl&#039;s blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="MotivationRiemann-Stieltjes integral is a generalisation of Riemann integral, the one every college student studies in their calculus class, and is a little bit more difficult to understand. Neverthel"><meta property="og:type" content="blog"><meta property="og:title" content="Introducing Riemann-Stieltjes Integral"><meta property="og:url" content="https://desvl.xyz/2020/08/26/r-s-integral/"><meta property="og:site_name" content="Desvl&#039;s blog"><meta property="og:description" content="MotivationRiemann-Stieltjes integral is a generalisation of Riemann integral, the one every college student studies in their calculus class, and is a little bit more difficult to understand. Neverthel"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://desvl.xyz/img/avatar.png"><meta property="article:published_time" content="2020-08-26T09:56:08.000Z"><meta property="article:modified_time" content="2022-10-25T14:37:16.353Z"><meta property="article:author" content="Desvl"><meta property="twitter:card" content="summary_large_image"><meta property="twitter:image:src" content="https://desvl.xyz/img/avatar.png"><meta property="twitter:creator" content="@Desvl_"><meta property="twitter:site" content="{ https://desvl.xyz }"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://desvl.xyz/2020/08/26/r-s-integral/"},"headline":"Introducing Riemann-Stieltjes Integral","image":["https://desvl.xyz/img/avatar.png"],"datePublished":"2020-08-26T09:56:08.000Z","dateModified":"2022-10-25T14:37:16.353Z","author":{"@type":"Person","name":"Desvl"},"publisher":{"@type":"Organization","name":"Desvl","logo":{"@type":"ImageObject","url":"https://desvl.xyz/img/logo.svg"}},"description":"MotivationRiemann-Stieltjes integral is a generalisation of Riemann integral, the one every college student studies in their calculus class, and is a little bit more difficult to understand. Neverthel"}</script><link rel="canonical" href="https://desvl.xyz/2020/08/26/r-s-integral/"><link rel="alternate" href="../../../../atom.xml" title="Desvl&#039;s blog" type="application/atom+xml"><link rel="icon" href="../../../../img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap"><link rel="stylesheet" href="../../../../css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="../../../../index.html"><img src="../../../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="../../../../index.html">Home</a><a class="navbar-item" href="../../../../archives">Archives</a><a class="navbar-item" href="../../../../categories">Categories</a><a class="navbar-item" href="../../../../tags">Tags</a><a class="navbar-item" href="../../../../about">About (Updated Aug. 2022)</a><a class="navbar-item" href="../../../../link-exchange">Link Exchange</a><a class="navbar-item" href="../../../../support-the-author">Support the Author</a></div><div class="navbar-end"></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-08-26T09:56:08.000Z" title="26/08/2020, 17:56:08">2020-08-26</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-10-25T14:37:16.353Z" title="25/10/2022, 22:37:16">2022-10-25</time></span></div></div><h1 class="title is-3 is-size-4-mobile">Introducing Riemann-Stieltjes Integral</h1><div class="content"><h2 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h2><p>Riemann-Stieltjes integral is a generalisation of Riemann integral, the one every college student studies in their calculus class, and is a little bit more difficult to understand. Nevertheless it has advantages of its own, as we will show below. Before seeing the definition and properties of this integral, we first raise some questions that will can motivate our study.</p>
+<p>When talking about $\int_a^b fdg$, one may simply think about $\int_a^b fg’dx$. But is it even necessary that $g$ is differentiable? What would happen if $g$ is simply continuous, or even not continuous? Further, given that $g$ is differentiable, can we prove that</p>
+<script type="math/tex; mode=display">
+\int_a^b f(x)dg(x)=\int_a^bf(x)g'(x)dx</script><p>in a general way(without assuming $f$ is differentiable)? Although integration can be connected to differentiation, it should not be mandatory to lock ourselves into $C^1$ functions, $C^2$ functions or smooth functions all the time.</p>
+<p>Another motivation comes from probability theory. Oftentimes one need to consider discrete case ($\sum$) and continuous case ($\int$) separately. One may say that integral is the limit of summation, but it would be weird to write $\int$ as $\lim\sum$ every time. However, if we have a way to write a sum, for example the expected value of a discrete variable ($E(X)$), as an integral, things would be easier. Of course, we don’t want to write such a sum as another sum by adding up the integral on several disjoint segments. That would be weirder.</p>
+<p>If you have learned measure theory, you will know that Lebesgue integral does not perfectly cover Riemann integral. For example, $\int_{0}^{\infty}\frac{\sin{x}}{x}dx$ is not integrable in the sense of Lebesgue but Riemann. We cannot treat Lebesgue integral as a perfect generalization of Riemann integral. In this blog post however, we will be studying a faithful generalization of Riemann integral, adding the name of Stieltjes. </p>
+<p>We are trying our best to prevent ourselves from using $\sup$, $\inf$, and differentiation theory. But $\varepsilon-\delta$ language is heavily used here, so make sure that you are good at it.</p>
+<h2 id="Riemann-Stieltjes-Integral"><a href="#Riemann-Stieltjes-Integral" class="headerlink" title="Riemann-Stieltjes Integral"></a>Riemann-Stieltjes Integral</h2><p>By a partition $P$ on $[a,b]$ we mean a sequence of numbers $(x_n)$ such that</p>
+<script type="math/tex; mode=display">
+a=x_0 \leq x_1 \leq \cdots \leq x_n=b</script><p>and we associate its size by</p>
+<script type="math/tex; mode=display">
+\sigma(P)=\max_{k}(x_{k+1}-x_k).</script><p>Let $f$, $g$ be bounded real function on $[a,b]$ (again, no continuity or differentiability required). Given a partition $P$ and numbers $c_k$ with $x_k \leq c_k \leq x_{k+1}$, we define the Riemann-Stieltjes sum (RS-sum) by</p>
+<script type="math/tex; mode=display">
+S(P,f,g)=\sum_{k=0}^{n-1}f(c_k)[g(x_{k+1})-g(x_k)].</script><p>We say that the <strong>limit</strong></p>
+<script type="math/tex; mode=display">
+\lim_{\sigma(P) \to 0}S(P,f,g)</script><p>exists if there exists some $L \in \mathbb{R}$ such that give $\varepsilon&gt;0$, there exists $\delta&gt;0$ such that whenever $\sigma(P)&lt;\delta$, we have</p>
+<script type="math/tex; mode=display">
+|S(P,f,g)-L|<\varepsilon.</script><p>In this case, we say $f$ is $RS(g)$-integrable, and the limit is denoted by</p>
+<script type="math/tex; mode=display">
+\int_a^bfdg.</script><p>This is the so-called <strong>Riemann-Stieltjes</strong> integral. When $g(x)=x$, we get <strong>Riemann integral</strong> naturally. </p>
+<h3 id="Remarks-Further-generalization-still-available"><a href="#Remarks-Further-generalization-still-available" class="headerlink" title="Remarks: Further generalization still available"></a>Remarks: Further generalization still available</h3><p>This integral method can be generalized to Banach space. Let $f$, $g$ be bounded maps of $[a,b]$ into Banach spaces $E$, $F$ respectively. Assume we have a product $E \times F \to G$ denoted by $(u,v) \mapsto uv$ with $\lVert uv \rVert \leq \lVert u \rVert \lVert v \rVert$. Then by replacing the absolute value by norm, still we get the Riemann-Stieltjes integral, although in this case we have</p>
+<script type="math/tex; mode=display">
+\int_a^b fdg \in G</script><p>and $G$ is not necessary to be $\mathbb{R}$. This is different from Bochner integral, since no measure theory evolved here.</p>
+<h2 id="Linearity-with-respect-to-f-and-g"><a href="#Linearity-with-respect-to-f-and-g" class="headerlink" title="Linearity with respect to $f$ and $g$"></a>Linearity with respect to $f$ and $g$</h2><p>First, we shall show that RS(g)-integrable functions form a vector space. To do this, it suffices to show that</p>
+<script type="math/tex; mode=display">
+f \mapsto S(P,f,g)</script><p>and</p>
+<script type="math/tex; mode=display">
+g \mapsto S(P,f,g)</script><p>are linear. This follows directly from the definition of RS-sum. Let’s see the result.</p>
+<p>Suppose we have</p>
+<script type="math/tex; mode=display">
+\int_a^b fdg=I, \quad \int_a^b hdg=J, \int_a^b fdu=K</script><p>Then we have the following identities for $\alpha \in I$.</p>
+<ol>
+<li>$\int_a^b \alpha fdg=\alpha I$.</li>
+<li>$\int_a^b (f+h)dg=I+J$.</li>
+<li>$\int_a^bfd(g+u)=I+K$.</li>
+<li>$\int_a^b fd(\alpha g)=\alpha I$.</li>
+</ol>
+<p><em>Proof.</em> We shall show 2 for example. Other three identities follows in the same way.</p>
+<p>Notice that the existence of the limit of RS-sum depends only on the size of $P$. For $\varepsilon&gt;0$, there exists some $\delta_1,\delta_2&gt;0$ such that</p>
+<script type="math/tex; mode=display">
+|S(P,f,g)-I|<\frac{\varepsilon}{2},\quad |S(P,h,g)-J| < \frac{\varepsilon}{2}</script><p>when $\sigma(P)&lt;\delta_1$ and $\sigma(P)&lt;\delta_2$ respectively. By picking $\delta=\min(\delta_1,\delta_2)$, we see for $\sigma(P)&lt;\delta$, we have</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+|S(P,f+h,g)-(I+J)|&=|(S(P,f,g)-I)+(S(P,h,g)-J)| \\
+                  &\leq |S(P,f,g)-I| + |S(P,h,g)-J| \\
+                  &< \frac{\varepsilon}{2}+\frac{\varepsilon}{2}=\varepsilon.
+\end{aligned}</script><h2 id="Integration-by-parts-but-no-differentiation"><a href="#Integration-by-parts-but-no-differentiation" class="headerlink" title="Integration by parts but no differentiation"></a>Integration by parts but no differentiation</h2><blockquote>
+<p>$f \in RS(g)$ if and only if $g \in RS(f)$. In this case, we also have integration by parts:</p>
+<script type="math/tex; mode=display">
+\int_a^b fdg + \int_a^b gdf=f(b)g(b)-f(a)g(a)</script></blockquote>
+<p>You may not believe it, but differentiation does not play any role here, as promised at the beginning.</p>
+<p><em>Proof.</em> Using the summation by parts (by Abel), we have</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+S(P,f,g)&=\sum_{k=0}^{n-1}f(c_k)[g(x_{k+1})-g(x_k)] \\
+        &=-\sum_{k=1}^{n-1}g(x_k)[f(c_k)-f(c_{k-1})]+f(c_{n-1})g(b)-f(c_0)g(a). \\
+\end{aligned}</script><p>By writing </p>
+<script type="math/tex; mode=display">
+S(P,f,g)=S(P,f,g)+f(a)g(a)-f(a)g(a)+f(b)g(b)-f(b)g(b)</script><p>we have</p>
+<script type="math/tex; mode=display">
+S(P,f,g)=f(b)g(b)-f(a)g(a)-S(Q,g,f)</script><p>where</p>
+<script type="math/tex; mode=display">
+S(Q,g,f)=\sum_{k=1}^{n-1}g(x_k)[f(c_k)-f(c_{k-1})]+[f(b)-f(c_{n-1})]g(b)+[f(c_0)-f(a)]g(a).</script><p>Consider the partition $Q$ by</p>
+<script type="math/tex; mode=display">
+y_k=\begin{cases}
+a &\quad k=0 \\
+c_{k-1}&\quad k<n \\
+b &\quad k=n
+\end{cases}</script><p>we have $x_0,x_1,\cdots,x_{n-1},x_k$ to be intermediate points, and</p>
+<script type="math/tex; mode=display">
+S(Q,g,f)=\sum_{k=0}^{n-1}g(x_k)[f(y_{k+1})-f(y_k)].</script><p>Since $0 &lt; \sigma(Q) \leq 2\sigma(P) \leq 4\sigma(Q)$, when $\sigma(P) \to 0$, we also have $\sigma(Q) \to 0$ and vice versa. Suppose now $\int_a^b gdf$ exists, we have</p>
+<script type="math/tex; mode=display">
+\lim_{\sigma(P) \to 0}S(P,f,g)=f(b)g(b)-f(a)g(a)-\int_a^bgdf=\int_a^bfdg.</script><p>And integration by parts follows.</p>
+<p>Suppose $\int_a^bfdg$ exists, then</p>
+<script type="math/tex; mode=display">
+\lim_{\sigma(Q) \to 0}S(Q,g,f)=f(b)g(b)-f(a)g(a)-\int_a^b fdg=\int_a^b gdf.</script><p>This proves the proposition. $\square$</p>
+<h2 id="The-flexibility-of-Riemann-Stieltjes-integral"><a href="#The-flexibility-of-Riemann-Stieltjes-integral" class="headerlink" title="The flexibility of Riemann-Stieltjes integral"></a>The flexibility of Riemann-Stieltjes integral</h2><p>As said before, we want to represent both continuous and discrete case using integral. For measure theory, we have Lebesgue measure and counting measure. But in some cases, this can be done using Riemann-Stieltjes integral as well. Ordinary Riemann integral and finite or infinite series are all special cases of Riemann-Stieltjes integral.</p>
+<h3 id="From-integral-to-series-discrete-case"><a href="#From-integral-to-series-discrete-case" class="headerlink" title="From integral to series (discrete case)"></a>From integral to series (discrete case)</h3><p>To do this, we need the unit step function by</p>
+<script type="math/tex; mode=display">
+I(x)=\begin{cases} 0 \quad x \leq 0, \\ 1 \quad x > 0 .\end{cases}</script><blockquote>
+<p>If $a&lt;s&lt;b$, $f$ is bounded on $[a,b]$ and continuous at $s$, by putting $g(x)=I(x-s)$, we have</p>
+<script type="math/tex; mode=display">
+\int_a^b fdg=f(s)</script></blockquote>
+<p><em>Proof.</em> A simple verification shows that $\int_a^b fdg=\int_s^b fdg$ (by unwinding the RS-sum, one see immediately that $g(x_k)=0$ for all $x_k\leq s$, therefore the partition before $s$ has no tribute to the value of the integral). Now consider the partition $P$ by</p>
+<script type="math/tex; mode=display">
+s=x_0<x_1<\cdots<x_n=b.</script><p>We see</p>
+<script type="math/tex; mode=display">
+S(P,f,g)=\sum_{k=0}^{n-1}f(c_k)(g(x_{k+1})-g(x_k))=f(c_0)(g(x_1)-g(x_0))=f(c_0).</script><p>As $x_1 \to s$, we have $c_0 \to s$, since $f$ is continuous at $s$, we have $f(c_0) \to f(s)$ as desired. $\square$</p>
+<p>By the linearity of RS integral, it is easy to generalize this to the case of finite linear combination. Namely, for $g(x)=\sum_{k=1}^{n}c_nI(x-s_n)$, we have</p>
+<script type="math/tex; mode=display">
+\int_a^b fdg=\sum_{k=1}^{n}c_nf(s_n).</script><p>But now we are discussing the infinite case.</p>
+<blockquote>
+<p>Suppose $c_n \geq 0$ for all $n \ge 0$ and $\sum_{n \ge 0} c_n$ converges, $(s_n)$ is a sequence of distinct points in $(a,b)$, and</p>
+<script type="math/tex; mode=display">
+g(x)=\sum_{n \ge 0}c_nI(x-s_n).</script><p>Let $f$ be continuous on $[a,b]$. Then</p>
+<script type="math/tex; mode=display">
+\int_a^b fdg=\sum_{n}c_nf(s_n)</script></blockquote>
+<p><em>Proof.</em> First it’s easy to see that $g(x)$ converges for every $x$, and is monotonic with $g(a)=0$, $g(b)=\sum_n c_n$. For given $\varepsilon&gt;0$, there exists some $N$ such that</p>
+<script type="math/tex; mode=display">
+\sum_{N+1}^{\infty}c_n<\varepsilon.</script><p>Putting</p>
+<script type="math/tex; mode=display">
+g_1(x)=\sum_{n=1}^{N}c_nI(x-s_n),\quad g_2(x)=\sum_{N+1}^{\infty}c_nI(x-s_n)=g(x)-g_1(x)</script><p>we have</p>
+<script type="math/tex; mode=display">
+\int_a^b fdg_1=\sum_{n=1}^{N}c_nf(s_n).</script><p>By putting $M=\sup|f(x)|$, we see</p>
+<script type="math/tex; mode=display">
+\left\vert\int_a^b fdg_2 \right\vert=\left\vert\int_a^b fdg-\int_a^bfdg_1 \right\vert=\left\vert\int_a^b fdg-\sum_{n=1}^{N}c_nf(s_n)\right\vert \leq M\varepsilon</script><p>The inequality holds since $|g_2(b)-g_2(a)|&lt;\varepsilon$. Since $M$ is finite, when $N \to \infty$, we have the desired result. $\square$</p>
+<h3 id="Transformed-into-ordinary-Riemann-integral-continuous-case"><a href="#Transformed-into-ordinary-Riemann-integral-continuous-case" class="headerlink" title="Transformed into ordinary Riemann integral (continuous case)"></a>Transformed into ordinary Riemann integral (continuous case)</h3><p>Finally we will discuss differentiation. The following theorem shows the connection between RS integral and Riemann integral.</p>
+<blockquote>
+<p>Let $f$ be continuous and suppose that $g$ is real differentiable on $[a,b]$ while $g’$ is Riemann integrable as well, then $f \in RS(g)$ and</p>
+<script type="math/tex; mode=display">
+\int_a^b fdg=\int_a^b fg'dx</script></blockquote>
+<p><em>Proof.</em> By mean value theorem, for each $k$, we have</p>
+<script type="math/tex; mode=display">
+g(x_{k+1})-g(x_k)=g'(\zeta_k)(x_{k+1}-x_k).</script><p>The RS-sum can be written as</p>
+<script type="math/tex; mode=display">
+S(P,f,g)=\sum_{k=0}^{n-1}f(c_k)[g(x_{k+1})-g(x_k)]=\sum_{k=0}^{n-1}f(c_k)g'(\zeta_k)(x_{k+1}-x_k).</script><p>Since $g’$ is Riemann integrable, we have</p>
+<script type="math/tex; mode=display">
+\sum_{k=0}^{n-1}|g'(c_k)-g'(\zeta_k)|(x_{k+1}-x_k) <\varepsilon</script><p>given that $|S(P,g’,x)-\int_a^b g’dx|&lt;\varepsilon$. Therefore</p>
+<script type="math/tex; mode=display">
+\left\vert\sum_{k=0}^{n-1}f(c_k)g'(\zeta_k)(x_{k+1}-x_k)-\sum_{k=0}^{n-1}f(c_k)g'(c_k)(x_{k+1}-x_k)\right\vert\leq M\varepsilon</script><p>where $M=\sup|f(x)|&lt;\infty$ ($f$ is assumed to be bounded.) . Also notice that $fg’$ is integrable since $f$ is continuous. Therefore</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\left\vert S(P,f,g)-\int_a^bfg'dx \right\vert&=\left\vert S(P,f,g)-S(P,fg',x)+S(P,fg',x)-\int_a^bfg'dx \right\vert \\
+&\leq \left\vert S(P,f,g)-S(P,fg',x) \right\vert+\left\vert S(P,fg',x)-\int_a^bfg'dx \right\vert \\
+&< (M+1)\varepsilon.
+\end{aligned}</script><p>Therefore,</p>
+<script type="math/tex; mode=display">
+\int_a^bfdg=\int_a^b fg'dx,</script><p>which proves the theorem. $\square$</p>
+<p>To sum up, given $\varepsilon&gt;0$, there exists some $\delta&gt;0$ such that if $\sigma(P)&lt;\delta$, we have</p>
+<script type="math/tex; mode=display">
+\left|S(P,g',x)-\int_a^b g'dx\right|<\varepsilon/(M+1)</script><p>and</p>
+<script type="math/tex; mode=display">
+\left\vert S(P,fg',x)-\int_a^bfg'dx \right\vert<\varepsilon/(M+1).</script><p>After some estimation, we get</p>
+<script type="math/tex; mode=display">
+\left|S(P,f,g)-\int_{a}^{b}fg'dx \right|<(M+1)\frac{\varepsilon}{M+1}=\varepsilon.</script></div><div class="article-licensing box"><div class="licensing-title"><p>Introducing Riemann-Stieltjes Integral</p><p><a href="https://desvl.xyz/2020/08/26/r-s-integral/">https://desvl.xyz/2020/08/26/r-s-integral/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>Desvl</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2020-08-26</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2022-10-25</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="../../../09/03/quotient-f-space/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">The completeness of the quotient space (topological vector space)</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="../../18/Basic-facts-of-semicontinuous-functions/"><span class="level-item">Basic Facts of Semicontinuous Functions</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="../../../../img/avatar.png" alt="Desvl"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Desvl</p><p class="is-size-6 is-block">A blog mainly on graduate mathematics.</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>A Noetherian local ring</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="../../../../archives"><p class="title">86</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="../../../../categories"><p class="title">44</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="../../../../tags"><p class="title">49</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="../../../../redirect/newsletter" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Compose an Email" href="../../../../redirect/email"><i class="fas fa-envelope"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="../../../../atom.xml"><i class="fas fa-rss"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Mathstodon" href="https://mathstodon.xyz/@desvl"><i class="fa-brands fa-mastodon"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://arxiv.org/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">arXiv</span></span><span class="level-right"><span class="level-item tag">arxiv.org</span></span></a></li><li><a class="level is-mobile" href="https://stacks.math.columbia.edu/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">The Stack Project</span></span><span class="level-right"><span class="level-item tag">stacks.math.columbia.edu</span></span></a></li><li><a class="level is-mobile" href="https://ncatlab.org/nlab/show/mathematics" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">nLab (Mathematics)</span></span><span class="level-right"><span class="level-item tag">ncatlab.org</span></span></a></li><li><a class="level is-mobile" href="https://q.uiver.app/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">quiver: a modern commutative diagram editor</span></span><span class="level-right"><span class="level-item tag">q.uiver.app</span></span></a></li><li><a class="level is-mobile" href="https://www.symmetricfunctions.com/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">The Symmetric Functions Catalogue</span></span><span class="level-right"><span class="level-item tag">www.symmetricfunctions.com</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/speaking.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Speaking</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/writing.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Writing</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">How to study maths really quick (YouTube)</span></span><span class="level-right"><span class="level-item tag">www.youtube.com</span></span></a></li><li><a class="level is-mobile" href="https://www.bilibili.com/video/BV1GJ411x7h7" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">How to study maths really quick (Bilibili)</span></span><span class="level-right"><span class="level-item tag">www.bilibili.com</span></span></a></li></ul></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="../../../../index.html"><img src="../../../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a><p class="is-size-7"><span>&copy; 2022</span> <a rel="me noopener" target="_blank" href="https://mathstodon.xyz/@desvl">Desvl</a><br>Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="../../../../js/column.js"></script><script src="../../../../js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="../../../../js/back_to_top.js" defer></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
+            },
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><!--!--><script src="../../../../js/main.js" defer></script><!--!--></body></html>

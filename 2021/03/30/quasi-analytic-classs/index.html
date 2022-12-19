@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Quasi-analytic Classes - Desvl&#039;s blog</title><link rel="manifest" href="../../../../manifest.json"><meta name="application-name" content="Desvl&#039;s blog"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Desvl&#039;s blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="We study the concept of quasi-analytic functions, which are quite close to being analytic."><meta property="og:type" content="blog"><meta property="og:title" content="Quasi-analytic Classes"><meta property="og:url" content="https://desvl.xyz/2021/03/30/quasi-analytic-classs/"><meta property="og:site_name" content="Desvl&#039;s blog"><meta property="og:description" content="We study the concept of quasi-analytic functions, which are quite close to being analytic."><meta property="og:locale" content="en_US"><meta property="og:image" content="https://desvl.xyz/img/avatar.png"><meta property="article:published_time" content="2021-03-30T09:28:33.000Z"><meta property="article:modified_time" content="2021-10-11T01:13:13.857Z"><meta property="article:author" content="Desvl"><meta property="article:tag" content="Walter Rudin"><meta property="article:tag" content="Real and Complex Analysis"><meta property="article:tag" content="Quasi-analytic"><meta property="twitter:card" content="summary_large_image"><meta property="twitter:image:src" content="https://desvl.xyz/img/avatar.png"><meta property="twitter:creator" content="@Desvl_"><meta property="twitter:site" content="{ https://desvl.xyz }"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://desvl.xyz/2021/03/30/quasi-analytic-classs/"},"headline":"Quasi-analytic Classes","image":["https://desvl.xyz/img/avatar.png"],"datePublished":"2021-03-30T09:28:33.000Z","dateModified":"2021-10-11T01:13:13.857Z","author":{"@type":"Person","name":"Desvl"},"publisher":{"@type":"Organization","name":"Desvl","logo":{"@type":"ImageObject","url":"https://desvl.xyz/img/logo.svg"}},"description":"We study the concept of quasi-analytic functions, which are quite close to being analytic."}</script><link rel="canonical" href="https://desvl.xyz/2021/03/30/quasi-analytic-classs/"><link rel="alternate" href="../../../../atom.xml" title="Desvl&#039;s blog" type="application/atom+xml"><link rel="icon" href="../../../../img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap"><link rel="stylesheet" href="../../../../css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="../../../../index.html"><img src="../../../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="../../../../index.html">Home</a><a class="navbar-item" href="../../../../archives">Archives</a><a class="navbar-item" href="../../../../categories">Categories</a><a class="navbar-item" href="../../../../tags">Tags</a><a class="navbar-item" href="../../../../about">About (Updated Aug. 2022)</a><a class="navbar-item" href="../../../../link-exchange">Link Exchange</a><a class="navbar-item" href="../../../../support-the-author">Support the Author</a></div><div class="navbar-end"><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2021-03-30T09:28:33.000Z" title="30/03/2021, 17:28:33">2021-03-30</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-10-11T01:13:13.857Z" title="11/10/2021, 09:13:13">2021-10-11</time></span><span class="level-item"><a class="link-muted" href="../../../../categories/Analysis/">Analysis</a><span> / </span><a class="link-muted" href="../../../../categories/Analysis/Complex-Analysis/">Complex Analysis</a></span></div></div><h1 class="title is-3 is-size-4-mobile">Quasi-analytic Classes</h1><div class="content"><h2 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h2><p>There are a lot of nice properties of analytic functions, whose class is denoted by $C^\omega$. Formally we have the following definition:</p>
+<blockquote>
+<p>If $f \in C^\omega$ and $x_0 \in \mathbb{R}$, one can write</p>
+<script type="math/tex; mode=display">
+f = a_0+a_1(x-x_0)+a_2(x-x_0)^2+\cdots.</script></blockquote>
+<p>Obviously $f \in C^\infty$ (and hence $C^\omega \subset C^\infty$) and alternatively we have the Taylor series converges to $f$ for any $x_0 \in \mathbb{R}$:</p>
+<script type="math/tex; mode=display">
+T(x) = \sum_{n=0}^{\infty}\frac{D^nf(x_0)}{n!}(x-x_0)^n.</script><p>One interesting thing is, every $f \in C^\omega$ is uniquely determined by a sequence $D^0f(x_0), Df(x_0),D^2f(x_0),\cdots$. </p>
+<p>Unfortunately, this property is not generally true on $C^\infty$. For example, we can consider the bump function $\varphi$ (a simple example can be found on <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Bump_function">wikipedia</a>). In brief, $\varphi=0$ for all $x \in (-\infty,-1] \cup [1,+\infty)$ but $\varphi&gt;0$ on $(-1,1)$. And more importantly, $\varphi \in C^\infty$. However, if we take $f = \varphi$ and $g = 2\varphi$, then $f \neq g$, but $D^nf(-2)=D^ng(-2)=0$ for all $n \geq 0$. We get a sequence of derivatives of different orders, but this sequence does not determine a unique $C^\infty$ function. </p>
+<p>The term “uniquely determined” can also be described in an alternative way: If $f \in C^\omega$ and $D^k(x_0)=0$ for all $k \geq 0$, then $f=0$ everywhere. </p>
+<p>So a question comes up naturally: how many functions can be determined by its derivatives of all orders? Does $C^\omega$ contain all we can get? If not, how can we describe them?</p>
+<p>The class of analytics functions is our source of motivation, so it makes sense to dig into its properties to find more. For an analytic function it is natural to consider the restriction of a holomorphic function on the complex plane. Let $\Omega$ be the set of all $z=x+iy$ such that $|y| &lt; \delta$ and suppose $f \in H(\Omega)$ and $|f(z)|&lt;\beta$ for all $z \in \Omega$. By <a target="_blank" rel="noopener" href="http://www.iitg.ac.in/swaroop/lecture11-2016.pdf">Cauchy’s Estimate</a>, we get</p>
+<script type="math/tex; mode=display">
+|D^n f(x)| \leq \beta \delta^{-n}n!\quad n \in \mathbb{N},x\in \mathbb{R}.</script><p>Also the restriction of $f$ on $\mathbb{R}$ is real-analytic. Here comes the interesting part: $\beta$ and $\frac{1}{\delta}$ is determined only by $f$ and have nothing to do with $n$, meanwhile $n!$ is a special sequence that dominated $f$ to some extent. </p>
+<p>This motivates us to define a special class of functions, which is called the class $C\{M_n\}$.</p>
+<h2 id="The-classes-C-M-n"><a href="#The-classes-C-M-n" class="headerlink" title="The classes $C\{M_n\}$"></a>The classes $C\{M_n\}$</h2><blockquote>
+<p>Let $\{M_n\}$ be a sequence of positive numbers, we let $C\{M_n\}$ denote the class of all $f \in C^\infty$ such that </p>
+<script type="math/tex; mode=display">
+\lVert D^nf\rVert_\infty \leq \beta_f B^n_f M_n,</script><p>where $\lVert \cdot \rVert_\infty$ is the supremum norm defined on $\mathbb{R}$, and $\beta_f,B_f$ are constants only determined by $f$ but not $n$.</p>
+</blockquote>
+<p>In order to equip $C\{M_n\}$ with some satisfying algebraic structures, which can simplify our work, we need some restrictions.</p>
+<h3 id="The-algebraic-structure-of-C-M-n"><a href="#The-algebraic-structure-of-C-M-n" class="headerlink" title="The algebraic structure of $C\{M_n\}$"></a>The algebraic structure of $C\{M_n\}$</h3><p>Indeed, $B_f$ plays an much more important rule, since we have</p>
+<script type="math/tex; mode=display">
+\limsup_{n \to \infty}\left(\frac{\lVert D^n f\rVert_\infty}{M_n}\right)^{1/n} \leq B_f</script><p>while $\beta_f$ was eliminated to $1$ in this limit. However, if we eliminate $\beta_f$ at the beginning, i.e. put $\beta_f = 1$ for all $f \in C\{M_n\}$, then when $n=0$, we have</p>
+<script type="math/tex; mode=display">
+\lVert f \rVert_\infty \leq M_0,</script><p>which prevents $C\{M_n\}$ to be a vector space. For example, if $\lVert f \rVert_\infty = M_0$, then $\lVert 2f \rVert_\infty = 2M_0 &gt; M_0$, hence $2f \not\in C\{M_n\}$. However, if we add $\beta_f$ no matter what, say $\lVert f \rVert_\infty \leq \beta_f M_0$, then whenever we do addition and scalar multiplication, there is a different constant with respect to the function, which makes sure that $C\{M_n\}$ is closed under addition and scalar multiplication, i.e. is a vector space. If we don’t add such a constant, our class contains way too few functions.</p>
+<p>Further, we have some restriction on the sequence $\{M_n\}$:</p>
+<ol>
+<li>$M_0=1$. </li>
+<li>$M_n^2 \leq M_{n-1}M_{n+1}$ ($\{\log M_n\}$ is a convex sequence).</li>
+</ol>
+<p>As we will see soon, this makes $C\{M_n\}$ an <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Algebra_over_a_field">algebra</a> over $\mathbb{R}$, where multiplication is defined pointwise.</p>
+<p><em>Proof.</em> If $f,g \in C\{M_n\}$, then we need to show that $fg \in C\{M_n\}$. We have the product rule for differentiation:</p>
+<script type="math/tex; mode=display">
+D^n(fg) = \sum_{j=0}^{n}{n \choose k}(D^jf)(D^{n-j}g).</script><p>Since $f,g \in C\{M_n\}$, we have</p>
+<script type="math/tex; mode=display">
+|D^n(fg)| \leq \sum_{j=0}^{n}{n \choose k}\beta_fB_f^jM_j\beta_gB_g^{n-j}M_{n-j} = \beta_f\beta_g\sum_{j=0}^{n}{n \choose k}B_f^jB_g^{n-j}M_jM_{n-j}.</script><p>Of course we want to eliminate $M_jM_{n-j}$ to obtain a binomial expansion. To do this we need the convexity of the sequence $\{\log M_n\}$. Note $M_n^2 \leq M_{n-1}M_{n+1}$ implies</p>
+<script type="math/tex; mode=display">
+\log M_n - \log M_{n-1} \leq \log M_{n+1} - \log M_n.</script><p>As a result, the line segment connecting $(n,\log M_n)$ and $(n-1,\log M_{n-1})$ is steeper and steeper as $n$ grows. By connecting these points, we actually gets a convex function but we will be  more rigorous. For $0 &lt; j &lt; n$, we have</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\log M_n - \log M_j &= \sum_{k=j+1}^{n}\left(\log M_k - \log M_{k-1}\right) \\
+&\geq \sum_{k = j}^{n-1}\left(\log M_{k} - \log M_{k-1}\right)  \\
+&\geq \sum_{k=1}^{n-j}(\log M_k - \log M_{k-1}) \quad\text{(note $\log M_0=0$)} \\
+&= \log M_{n-j}.
+\end{aligned}</script><p>Hence $M_n \geq M_jM_{n-j}$ for $0&lt;j&lt;n$. It also hold when $j=0$ or $j=n$, hence we get</p>
+<script type="math/tex; mode=display">
+|D^n(fg)|= \beta_f\beta_g\sum_{j=0}^{n}{n \choose k}B_f^jB_g^{n-j}M_jM_{n-j} \leq  \beta_f\beta_g\sum_{j=0}^{n}{n \choose k}B_f^jB_g^{n-j}M_n = \beta_f\beta_g(B_f+B_g)^nM_n.</script><p>Hence $fg \in C\{M_n\}$. The reason why $C\{M_n\}$ is a vector space has been stated already. $\square$</p>
+<p>This restriction does not hurt the generality. In fact whenever we are given a positive sequence $\{M_n\}$, we have another sequence $\{M’_n\}$ satisfying the two restrictions such that $C\{M_n\}=C\{M’_n\}$.</p>
+<h3 id="The-Quasi-analytic-class"><a href="#The-Quasi-analytic-class" class="headerlink" title="The Quasi-analytic class"></a>The Quasi-analytic class</h3><blockquote>
+<p>A class $C\{M_n\}$ is said to be quasi-analytic if the condition</p>
+<script type="math/tex; mode=display">
+f \in C\{M_n\},\quad (D^nf)(0)=0</script><p>for all $n \in \mathbb{N}$ implies that $f = 0$ for all $x \in \mathbb{R}$.</p>
+</blockquote>
+<p>The reason we try to check whether it’s equal to $0$ everywhere, instead of check whether it is ‘uniquely determined’ by a sequence of derivative of different order is, this one is much simpler to work with. If a sequence of derivative of different order determines two functions, then their difference is always $0$. </p>
+<h4 id="C-n-as-an-example"><a href="#C-n-as-an-example" class="headerlink" title="$C\{n!\}$ as an example"></a>$C\{n!\}$ as an example</h4><p>We have seen that $C\{n!\}$ contains all functions which is a restriction of a holomorphic function in the strip defined by $|\Im(z)|&lt;\delta$. Conversely, we show that any function in $C\{n!\}$ defined on the real axis can be extended to a holomorphic function with the same property. As a result, $C\{n!\}$ is a quasi-analytics class (which contains all bounded function of $C^\omega$). If we only consider functions defined on a closed and bounded interval $[a,b]$, then $C\{n!\}$ is exactly $C^\omega$.</p>
+<p>Suppose $f \in C\{n!\}$. First of all we have</p>
+<script type="math/tex; mode=display">
+\lVert D^nf \rVert_\infty \leq \beta B^nn!</script><p>for $n \in \mathbb{N}$. By Taylor’s formulae</p>
+<script type="math/tex; mode=display">
+f(x) = \sum_{j=0}^{n-1}\frac{D^jf(a)}{j!}+\frac{1}{(n-1)!}\int_a^x(x-t)^{n-1}D^nf(t)dt.</script><p>The remainder is therefore dominated by</p>
+<script type="math/tex; mode=display">
+\frac{n!}{(n-1)!}\beta B^n\left\vert\int_a^x(x-t)^{n-1}dt\right\vert = \beta|B(x-a)|^n.</script><p>If $|B(x-a)|&lt;1$, then $\lim_{n \to \infty}|B(x-a)|^n = 0$, and we can safely write the expansion</p>
+<script type="math/tex; mode=display">
+f(x) = \sum_{n=0}^{\infty}\frac{D^nf(a)}{n!}(x-a)^n.</script><p>Pick $0&lt;\delta&lt;\frac{1}{B}$, we can replace $x$ in the expansion above with $z$ such that $|z-a|&lt;\delta$. This defines a holomorphic function $F_a$ on $D(a,\delta)$ (the open disk centred at $a$ with radius $\delta$). If $x \in D(a,\delta)$ is real, then $F_a(x)=f(x)$. Therefore $F_a$ is the analytic continuation of $f$; all $F_a$ form a holomorphic extension $F$ of $f$ in the strip $|\Im(z)|&lt;\delta$. As a result, for $z = a+iy$ with $|y|&lt;\delta$, we have</p>
+<script type="math/tex; mode=display">
+|F(z)|=|F_a(z)| = \left\vert\sum_{n=0}^{\infty}\frac{D^nf(a)}{n!}(iy)^n\right\vert \leq \beta \sum_{n=0}^{\infty}(B\delta)^n = \frac{1}{1-B\delta}</script><p>Hence $F$ is bounded in such a region. </p>
+<h2 id="The-fundamental-theorem-about-quasi-analytic-classes"><a href="#The-fundamental-theorem-about-quasi-analytic-classes" class="headerlink" title="The fundamental theorem about quasi-analytic classes"></a>The fundamental theorem about quasi-analytic classes</h2><p>In general, if $M_n \to \infty$ way too fast (at least faster than $n!$) as $n \to \infty$, then $C\{M_n\}$ is quasi-analytic. There are several equivalent statements on whether $C\{M_n\}$ is a quasi-analytic class, which is given by the Denjoy-Carleman theorem. Here I collect all conditions that I have found:</p>
+<blockquote>
+<p><strong>(Denjoy-Carleman theorem)</strong> The following conditions are equivalent:</p>
+<ol>
+<li>$C\{M_n\}$ is not quasi-analytic.</li>
+<li>$\int_0^\infty \log Q(x)\frac{dx}{1+x^2}&lt;\infty$, where $Q(x)=\sum_{n=0}^{\infty}\frac{x^n}{M_n}$.</li>
+<li>$\int_0^\infty \log q(x) \frac{dx}{1+x^2}&lt;\infty$, where $q(x) = \sup \frac{x^n}{M_n}$.</li>
+<li>$\sum_{n=1}^{\infty}\left(\frac{1}{M_n}\right)^{1/n}&lt;\infty$.</li>
+<li>$\sum_{n=1}^{\infty}\frac{M_{n-1}}{M_n}&lt;\infty$</li>
+<li>$C\{M_n\}$ contains nontrivial function with compact support.</li>
+<li>$\sum_{n=1}^{\infty}\frac{1}{\lambda_n}&lt;\infty$ where $\lambda_n = \inf_{k \geq n}M_k^{\frac{1}{k}}$. </li>
+</ol>
+</blockquote>
+<p>You may find condition 7 is ridiculous. In fact, in this condition $\{M_n\}$ is not required to satisfy the two restriction. This one is what Denjoy and Carleman found initially. Later, mathematicians find that for a sequence $\{M_n\}$ we can obtain its convex minorant $\{M_n’\} $ such that</p>
+<ol>
+<li>$M_n \geq M_n’$ for all $n$.</li>
+<li>$\{\log M_n’\}$ is convex.</li>
+<li>There is a sequence $0=n_0&lt;n_1&lt;\cdots$ such that $M_{n_0} = M’_{n_0}$ and $\log M_k$ is linear for $n_i \leq k \leq n_{i+1}$. </li>
+</ol>
+<p>And as you may guess, the convex minorant $\{M_n’\}$ is what we are using today. </p>
+<p>The proof of the Denjoy-Carleman theorem will come out in my next blog post. There are quite a lot of work to do to finish the proof, and it cannot be done within hours. We will be using many complex analysis theories. Also, I will try to cover some extra properties of quasi-analytic classes as well as why convex minorant is sufficient.</p>
+</div><div class="article-licensing box"><div class="licensing-title"><p>Quasi-analytic Classes</p><p><a href="https://desvl.xyz/2021/03/30/quasi-analytic-classs/">https://desvl.xyz/2021/03/30/quasi-analytic-classs/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>Desvl</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2021-03-30</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2021-10-11</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="../../../../tags/Walter-Rudin/">Walter Rudin</a><a class="link-muted mr-2" rel="tag" href="../../../../tags/Real-and-Complex-Analysis/">Real and Complex Analysis</a><a class="link-muted mr-2" rel="tag" href="../../../../tags/Quasi-analytic/">Quasi-analytic</a></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="../../../05/10/analytic-hamburger/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">Quasi-analytic Vectors and Hamburger Moment Problem (Operator Theory)</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="../../../02/23/linear-algebra-missing/"><span class="level-item">(Kind of) Missing Content in Your Linear Algebra Class (Still on Progress)</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="../../../../img/avatar.png" alt="Desvl"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Desvl</p><p class="is-size-6 is-block">A blog mainly on graduate mathematics.</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>A Noetherian local ring</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="../../../../archives"><p class="title">86</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="../../../../categories"><p class="title">44</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="../../../../tags"><p class="title">49</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="../../../../redirect/newsletter" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Compose an Email" href="../../../../redirect/email"><i class="fas fa-envelope"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="../../../../atom.xml"><i class="fas fa-rss"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Mathstodon" href="https://mathstodon.xyz/@desvl"><i class="fa-brands fa-mastodon"></i></a></div></div></div><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">Catalogue</h3><ul class="menu-list"><li><a class="level is-mobile" href="#Motivation"><span class="level-left"><span class="level-item">1</span><span class="level-item">Motivation</span></span></a></li><li><a class="level is-mobile" href="#The-classes-C-M-n"><span class="level-left"><span class="level-item">2</span><span class="level-item">The classes $C\{M_n\}$</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#The-algebraic-structure-of-C-M-n"><span class="level-left"><span class="level-item">2.1</span><span class="level-item">The algebraic structure of $C\{M_n\}$</span></span></a></li><li><a class="level is-mobile" href="#The-Quasi-analytic-class"><span class="level-left"><span class="level-item">2.2</span><span class="level-item">The Quasi-analytic class</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#C-n-as-an-example"><span class="level-left"><span class="level-item">2.2.1</span><span class="level-item">$C\{n!\}$ as an example</span></span></a></li></ul></li></ul></li><li><a class="level is-mobile" href="#The-fundamental-theorem-about-quasi-analytic-classes"><span class="level-left"><span class="level-item">3</span><span class="level-item">The fundamental theorem about quasi-analytic classes</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="../../../../js/toc.js" defer></script></div><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://arxiv.org/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">arXiv</span></span><span class="level-right"><span class="level-item tag">arxiv.org</span></span></a></li><li><a class="level is-mobile" href="https://stacks.math.columbia.edu/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">The Stack Project</span></span><span class="level-right"><span class="level-item tag">stacks.math.columbia.edu</span></span></a></li><li><a class="level is-mobile" href="https://ncatlab.org/nlab/show/mathematics" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">nLab (Mathematics)</span></span><span class="level-right"><span class="level-item tag">ncatlab.org</span></span></a></li><li><a class="level is-mobile" href="https://q.uiver.app/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">quiver: a modern commutative diagram editor</span></span><span class="level-right"><span class="level-item tag">q.uiver.app</span></span></a></li><li><a class="level is-mobile" href="https://www.symmetricfunctions.com/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">The Symmetric Functions Catalogue</span></span><span class="level-right"><span class="level-item tag">www.symmetricfunctions.com</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/speaking.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Speaking</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/writing.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Writing</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">How to study maths really quick (YouTube)</span></span><span class="level-right"><span class="level-item tag">www.youtube.com</span></span></a></li><li><a class="level is-mobile" href="https://www.bilibili.com/video/BV1GJ411x7h7" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">How to study maths really quick (Bilibili)</span></span><span class="level-right"><span class="level-item tag">www.bilibili.com</span></span></a></li></ul></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="../../../../index.html"><img src="../../../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a><p class="is-size-7"><span>&copy; 2022</span> <a rel="me noopener" target="_blank" href="https://mathstodon.xyz/@desvl">Desvl</a><br>Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="../../../../js/column.js"></script><script src="../../../../js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="../../../../js/back_to_top.js" defer></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
+            },
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><!--!--><script src="../../../../js/main.js" defer></script><!--!--></body></html>
