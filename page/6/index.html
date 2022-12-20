@@ -29,7 +29,134 @@
       switchTab();
       window.addEventListener('hashchange', switchTab, false);
   })();
-  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="../../index.html"><img src="../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="../../index.html">Home</a><a class="navbar-item" href="../../archives">Archives</a><a class="navbar-item" href="../../categories">Categories</a><a class="navbar-item" href="../../tags">Tags</a><a class="navbar-item" href="../../about">About (Updated Aug. 2022)</a><a class="navbar-item" href="../../link-exchange">Link Exchange</a><a class="navbar-item" href="../../support-the-author">Support the Author</a></div><div class="navbar-end"></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-08-14T04:46:07.000Z" title="14/08/2020, 12:46:07">2020-08-14</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-10-06T07:34:51.437Z" title="06/10/2021, 15:34:51">2021-10-06</time></span><span class="level-item"><a class="link-muted" href="../../categories/Personal/">Personal</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2020/08/14/La-tercera-resignaci%C3%B3n/">关于《第三次忍受》</a></h1><div class="content"><p><img src="\img\la_tercera_resignacion_by_insaneattraction_dxyorc-fullview.jpg" alt="Credit: https://www.deviantart.com/insaneattraction/art/La-tercera-resignacion-57045720"></p>
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="../../index.html"><img src="../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="../../index.html">Home</a><a class="navbar-item" href="../../archives">Archives</a><a class="navbar-item" href="../../categories">Categories</a><a class="navbar-item" href="../../tags">Tags</a><a class="navbar-item" href="../../about">About (Updated Aug. 2022)</a><a class="navbar-item" href="../../link-exchange">Link Exchange</a><a class="navbar-item" href="../../support-the-author">Support the Author</a></div><div class="navbar-end"></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-08-16T11:49:37.000Z" title="16/08/2020, 19:49:37">2020-08-16</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-12-09T10:20:15.951Z" title="09/12/2021, 18:20:15">2021-12-09</time></span><span class="level-item"><a class="link-muted" href="../../categories/Analysis/">Analysis</a><span> / </span><a class="link-muted" href="../../categories/Analysis/Functional-Analysis/">Functional Analysis</a><span> / </span><a class="link-muted" href="../../categories/Analysis/Functional-Analysis/Topological-Vector-Space/">Topological Vector Space</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2020/08/16/An-Introduction-to-Quotient-Space/">An Introduction to Quotient Space</a></h1><div class="content"><p><em>I’m assuming the reader has some abstract algebra and functional analysis background. You may have learned this already in your linear algebra class, but we are making our way to functional analysis problems.</em></p>
+<h2 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h2><h3 id="The-trouble-with-L-p-spaces"><a href="#The-trouble-with-L-p-spaces" class="headerlink" title="The trouble with $L^p$ spaces"></a>The trouble with $L^p$ spaces</h3><p>Fix $p$ with $1 \leq p \leq \infty$. It’s easy to see that $L^p(\mu)$ is a topological vector space. But it is not a metric space if we define</p>
+<script type="math/tex; mode=display">
+d(f,g)=\lVert f-g \rVert_p.</script><p>The reason is, if $d(f,g)=0$, we can only get $f=g$ a.e., but they are not strictly equal. With that being said, this function $d$ is actually a pseudo metric. This is unnatural. However, the relation $\sim$ by $f \sim g \mathbb{R}ightarrow d(f,g)=0$ is a equivalence relation. This inspires us to take the quotient set into consideration.</p>
+<h3 id="Vector-spaces-are-groups-anyway"><a href="#Vector-spaces-are-groups-anyway" class="headerlink" title="Vector spaces are groups anyway"></a>Vector spaces are groups anyway</h3><p>For a vector space $V$, every subspace of $V$ is a normal subgroup. There is no reason to prevent ourselves from considering the quotient group and looking for some interesting properties. Further, a vector space is an abelian group, therefore any subspace is automatically normal.</p>
+<h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><p>Let $N$ be a subspace of a vector space $X$. For every $x \in X$, let $\pi(x)$ be the coset of $N$ that contains $x$, that is</p>
+<script type="math/tex; mode=display">
+\pi(x)=x+N.</script><p>Trivially, $\pi(x)=\pi(y)$ if and only if $x-y \in N$ (say, $\pi$ is well-defined since $N$ is a vector space). This is a linear function since we also have the addition and multiplication by</p>
+<script type="math/tex; mode=display">
+\pi(x)+\pi(y)=\pi(x+y) \quad \alpha\pi(x)=\pi(\alpha{x}).</script><p>These cosets are the elements of a vector space $X/N$, which reads, the quotient space of $X$ modulo $N$. The map $\pi$ is called the canonical map as we all know.</p>
+<h2 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h2><p><img src="/img/R2-quotient-space.jpg" alt="R^2-quotient"></p>
+<p>First, we shall treat $\mathbb{R}^2$ as a vector space, and the subspace $\mathbb{R}$, which is graphically represented by $x$-axis, as a subspace (we will write it as $X$). For a vector $v=(2,3)$, which is represented by $AB$, we see the coset $v+X$ has something special. Pick any $u \in X$, for example, $AE$, $AC$, or $AG$. We see $v+u$ has the same $y$ value. The reason is simple since we have $v+u=(2+x,3)$, where the $y$ value remains fixed however $u$ may vary.</p>
+<p>With that being said, the set $v+X$, which is not a vector space, can be represented by $\overrightarrow{AD}$. This proceed can be generalized to $\mathbb{R}^n$ with $\mathbb{R}^m$ as a subspace with ease.</p>
+<hr>
+<p>We now consider a fancy example. Consider all rational Cauchy sequences, that is</p>
+<script type="math/tex; mode=display">
+(a_n)=(a_1,a_2,\cdots)</script><p>where $a_k\in\mathbb{Q}$ for all $k$. In analysis class, we learned two facts.</p>
+<ol>
+<li>Any Cauchy sequence is bounded.</li>
+<li>If $(a_n)$ converges, then $(a_n)$ is Cauchy.</li>
+</ol>
+<p>However, the reverse of 2 does not hold in $\mathbb{Q}$. For example, if we put $a_k=(1+\frac{1}{k})^k$, we should have the limit to be $e$, but $e \notin \mathbb{Q}$.</p>
+<p>If we define the addition and multiplication term by term, namely</p>
+<script type="math/tex; mode=display">
+(a_n)+(b_n)=(a_1+b_1,a_2+b_2,\cdots)</script><p>and</p>
+<script type="math/tex; mode=display">
+(\alpha a_n)=(\alpha a_1,\alpha a_2,\cdots)</script><p>where $\alpha \in \mathbb{Q}$, we get a vector space (the verification is easy). The zero vector is defined by</p>
+<script type="math/tex; mode=display">
+(0)=(0,0,\cdots).</script><p>This vector space is denoted by $\overline{\mathbb{Q}}$. The subspace containing all sequences converges to $0$ will be denoted by $\overline{\mathbb{O}}$. Again, $(a_n)+\overline{\mathbb{O}}=(b_n)+\overline{\mathbb{O}}$ if and only if $(a_n-b_n) \in \overline{\mathbb{O}}$. Using the language of equivalence relation, we also say $(a_n)$ and $(b_n)$ are equivalent if $(a_n-b_n) \in \overline{\mathbb{O}}$. For example, the two following sequences are equivalent:</p>
+<script type="math/tex; mode=display">
+(1,1,1,\cdots,1,\cdots)\quad\quad (0.9,0.99,0.999,\cdots).</script><p>Actually, we will get $\mathbb{R} \simeq \overline{\mathbb{Q}}/\overline{\mathbb{O}}$ in the end. But to make sure that this quotient space is exactly the one we meet in our analysis class, there are a lot of verifications should be done.</p>
+<p>We shall give more definitions for calculation. The multiplication of two Cauchy sequences is defined term by term à la the addition. For $\overline{\mathbb{Q}}/\overline{\mathbb{O}}$ we have</p>
+<script type="math/tex; mode=display">
+((a_n)+\overline{\mathbb{O}})+((b_n)+\overline{\mathbb{O}})=(a_n+b_n) + \overline{\mathbb{O}}</script><p>and</p>
+<script type="math/tex; mode=display">
+((a_n)+\overline{\mathbb{O}})((b_n)+\overline{\mathbb{O}})=(a_nb_n)+\overline{\mathbb{O}}.</script><p>As for inequality, a partial order has to be defined. We say $(a_n) &gt; (0)$ if there exists some $N&gt;0$ such that $a_n&gt;0$ for all $n \geq N$. By $(a_n) &gt; (b_n)$ we mean $(a_n-b_n)&gt;(0)$ of course. For cosets, we say $(a_n)+\overline{\mathbb{O}}&gt;\overline{\mathbb{O}}$ if $(x_n) &gt; (0)$ for some $(x_n) \in (a_n)+\overline{\mathbb{O}}$. This is well defined. That is, if $(x_n)&gt;(0)$,  then $(y_n)&gt;(0)$ for all $(y_n) \in (a_n)+\overline{\mathbb{O}}$.</p>
+<p>With these operations being defined, it can be verified that $\overline{\mathbb{Q}}/\overline{\mathbb{O}}$ has the desired properties, for example, the least-upper-bound property. But this goes too far from the topic, we are not proving it here. If you are interested, you may visit <a target="_blank" rel="noopener" href="http://www.math.ucsd.edu/~tkemp/140A/Construction.of.R.pdf">here</a> for more details.</p>
+<hr>
+<p>Finally, we are trying to make $L^p$ a Banach space. Fix $p$ with $1 \leq p &lt; \infty$. There is a seminorm defined for all Lebesgue measurable functions on $[0,1]$ by</p>
+<script type="math/tex; mode=display">
+p(f)=\lVert f \rVert_p=\left\{\int_{0}^{1}|f(t)|^pdt\right\}^{1/p}</script><p>$L^p$ is a vector space containing all functions $f$ with $p(f)&lt;\infty$. But it’s not a normed space by $p$, since $p(f)=0$ only implies $f=0$ almost everywhere. However, the set $N$ which contains all functions that equal $0$ is also a vector space. Now consider the quotient space by</p>
+<script type="math/tex; mode=display">
+\tilde{p}(\pi(f))=p(f),</script><p>where $\pi$ is the canonical map of $L^p$ into $L^p/N$. We shall prove that $\tilde{p}$ is well-defined here. If $\pi(f)=\pi(g)$, we have $f-g \in N$, therefore</p>
+<script type="math/tex; mode=display">
+0=p(f-g)\geq |p(f)-p(g)|,</script><p>which forces $p(f)=p(g)$. Therefore in this case we also have $\tilde{p}(\pi(f))=\tilde{p}(\pi(g))$. This indeed ensures that $\tilde{p}$ is a <em>norm</em>, and $L^p/N$ a Banach space. There are some topological facts required to prove this, we are going to cover a few of them.</p>
+<h2 id="Topology-of-quotient-space"><a href="#Topology-of-quotient-space" class="headerlink" title="Topology of quotient space"></a>Topology of quotient space</h2><h3 id="Definition-1"><a href="#Definition-1" class="headerlink" title="Definition"></a>Definition</h3><p>We know if $X$ is a topological vector space with a topology $\tau$, then the addition and scalar multiplication are continuous. Suppose now $N$ is a closed subspace of $X$. Define $\tau_N$ by</p>
+<script type="math/tex; mode=display">
+\tau_N=\{E \subset X/N:\pi^{-1}(E)\in \tau\}.</script><p>We are expecting $\tau_N$ to be properly-defined. And fortunately, it is. Some interesting techniques will be used in the following section.</p>
+<h3 id="tau-N-is-a-vector-topology"><a href="#tau-N-is-a-vector-topology" class="headerlink" title="$\tau_N$ is a vector topology"></a>$\tau_N$ is a vector topology</h3><p>There will be two steps to get this done.</p>
+<blockquote>
+<p>$\tau_N$ is a topology.</p>
+</blockquote>
+<p>It is trivial that $\varnothing$ and $X/N$ are elements of $\tau_N$. Other properties are immediate as well since we have</p>
+<script type="math/tex; mode=display">
+\pi^{-1}(A \cap B) = \pi^{-1}(A) \cap \pi^{-1}(B)</script><p>and</p>
+<script type="math/tex; mode=display">
+\pi^{-1}(\cup A_\alpha)=\cup\pi^{-1}( A_{\alpha}).</script><p>That said, if we have $A,B\in \tau_N$, then $A \cap B \in \tau_N$ since $\pi^{-1}(A \cap B)=\pi^{-1}(A) \cap \pi^{-1}(B) \in \tau$.</p>
+<p>Similarly, if $A_\alpha \in \tau_N$ for all $\alpha$, we have $\cup A_\alpha \in \tau_N$. Also, by definition of $\tau_N$, $\pi$ is continuous.</p>
+<blockquote>
+<p>$\tau_N$ is a vector topology.</p>
+</blockquote>
+<p>First, we show that a point in $X/N$, which can be written as $\pi(x)$, is closed. Notice that $N$ is assumed to be closed, and</p>
+<script type="math/tex; mode=display">
+\pi^{-1}(\pi(x))=x+N</script><p>therefore has to be closed.</p>
+<p>In fact, $F \subset X/N$ is $\tau_N$-closed if and only if $\pi^{-1}(F)$ is $\tau$-closed. To prove this, one needs to notice that $\pi^{-1}(F^c)=(\pi^{-1}(F))^{c}$.</p>
+<p>Suppose $V$ is open, then</p>
+<script type="math/tex; mode=display">
+\pi^{-1}(\pi(V))=N+V</script><p>is open. By definition of $\tau_N$, we have $\pi(V) \in \tau_N$. Therefore $\pi$ is an open mapping.</p>
+<p>If now $W$ is a neighbourhood of $0$ in $X/N$, there exists a neighbourhood $V$ of $0$ in $X$ such that</p>
+<script type="math/tex; mode=display">
+V + V \subset \pi^{-1}(W).</script><p>Hence $\pi(V)+\pi(V) \subset W$. Since $\pi$ is open, $\pi(V)$ is a neighbourhood of $0$ in $X/N$, this shows that the addition is continuous.</p>
+<p>The continuity of scalar multiplication will be shown in a direct way (so can the addition, but the proof above is intended to offer some special technique). We already know, the scalar multiplication on $X$ by </p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\varphi:\Phi \times X &\to X \\
+           (\alpha,x) &\mapsto \alpha{x}
+\end{aligned}</script><p>is continuous, where $\Phi$ is the scalar field (usually $\mathbb{R}$ or $\mathbb{C}$. Now the scalar multiplication on $X/N$ is by</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\psi: \Phi \times X/N &\to X/N \\
+        (\alpha,x+N) &\mapsto \alpha{x}+N.
+\end{aligned}</script><p>We see $\psi(\alpha,x+N)=\pi(\varphi(\alpha,x))$. But the composition of two continuous functions is continuous, therefore $\psi$ is continuous.</p>
+<h2 id="A-commutative-diagram-by-quotient-space"><a href="#A-commutative-diagram-by-quotient-space" class="headerlink" title="A commutative diagram by quotient space"></a>A commutative diagram by quotient space</h2><p>We are going to talk about a classic commutative diagram that you already see in algebra class.</p>
+<p><img src="/img/diagram-000001.png" alt="diagram-000001"></p>
+<p>There are some assumptions.</p>
+<blockquote>
+<ol>
+<li>$X$ and $Y$ are topological vector spaces.</li>
+<li>$\Lambda$ is linear.</li>
+<li>$\pi$ is the canonical map.</li>
+<li>$N$ is a closed subspace of $X$ and $N \subset \ker\Lambda$.</li>
+</ol>
+</blockquote>
+<p>Algebraically, there exists a unique map $f: X/N \to Y$ by $x+N \mapsto \Lambda(x)$. Namely,  the diagram above is commutative. But now we are interested in some analysis facts.</p>
+<blockquote>
+<p>$f$ is linear.</p>
+</blockquote>
+<p>This is obvious. Since $\pi$ is <strong>surjective</strong>, for $u,v \in X/N$, we are able to find some $x,y \in X$ such that $\pi(x)=u$ and $\pi(y)=v$. Therefore we have</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+f(u+v)=f(\pi(x)+\pi(y))&=f(\pi(x+y)) \\
+                       &=\Lambda(x+y) \\
+                       &=\Lambda(x)+\Lambda(y) \\
+                       &= f(\pi(x))+f(\pi(y)) \\
+                       &=f(u)+f(v)
+\end{aligned}</script><p>and</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+f(\alpha{u})=f(\alpha\pi(x))&=f(\pi(\alpha{x})) \\
+                            &= \Lambda(\alpha{x}) \\
+                            &= \alpha\Lambda(x) \\
+                            &= \alpha{f(\pi(x))} \\
+                            &= \alpha{f(u)}.
+\end{aligned}</script><blockquote>
+<p>$\Lambda$ is open if and only if $f$ is open.</p>
+</blockquote>
+<p>If $f$ is open, then for any open set $U \subset X$, we have</p>
+<script type="math/tex; mode=display">
+\Lambda(U)=f(\pi(U))</script><p>to be an open set since $\pi$ is open, and $\pi(U)$ is an open set.</p>
+<p>If $f$ is not open, then there exists some $V \subset X/N$ such that $f(V)$ is closed. However, since $\pi$ is continuous, we have $\pi^{-1}(V)$ to be open. In this case, we have</p>
+<script type="math/tex; mode=display">
+f(\pi(\pi^{-1}(V)))=f(V)=\Lambda(\pi^{-1}(V))</script><p>to be closed. $\Lambda$ is therefore not open. This shows that if $\Lambda$ is open, then $f$ is open.</p>
+<blockquote>
+<p>$\Lambda$ is continuous if and only if $f$ is continuous.</p>
+</blockquote>
+<p>If $f$ is continuous, for any open set $W \subset Y$, we have $\pi^{-1}(f^{-1}(W))=\Lambda^{-1}(W)$ to be open. Therefore $\Lambda$ is continuous.</p>
+<p>Conversely, if $\Lambda$ is continuous, for any open set $W \subset Y$, we have $\Lambda^{-1}(W)$ to be open. Therefore $f^{-1}(W)=\pi(\Lambda^{-1}(W))$ has to be open since $\pi$ is open. </p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-08-14T04:46:07.000Z" title="14/08/2020, 12:46:07">2020-08-14</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-10-06T07:34:51.437Z" title="06/10/2021, 15:34:51">2021-10-06</time></span><span class="level-item"><a class="link-muted" href="../../categories/Personal/">Personal</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2020/08/14/La-tercera-resignaci%C3%B3n/">关于《第三次忍受》</a></h1><div class="content"><p><img src="\img\la_tercera_resignacion_by_insaneattraction_dxyorc-fullview.jpg" alt="Credit: https://www.deviantart.com/insaneattraction/art/La-tercera-resignacion-57045720"></p>
 <p>已经二十五岁，已经不再长个子，家里人决定将我下葬。其实也没什么好抗拒的了，再听一会半通不通的悼词，那些乱七八糟的哭腔和应和，再忍一会棺材里的寒冷，就过去了。这是不是妄想我也不清楚，可我想我大抵是这次死亡的一个配角。</p>
 <p>这是不是一场噩梦也无关紧要，尸胺的气味是不是从我身上发出也不重要，没有怀疑的必要。这无非是我第三次忍受，心甘情愿的忍受。为什么要挣扎？我也不是十八年前那个体弱多病的孩子，还可以四处活动。我明明是一个尽量保持体面的死者。可能在几天前还可以闻到紫罗兰的芳香。</p>
 <p>尘归尘土归土。我可能会有一些伤感，我的精神存在早就收到了严重的打击，或许这尸臭是一个原因。或者是要下葬这一个事实。还是这样被埋掉吧，那气味是实实在在的。我也没有力气，我的神经系统——虽然我不知道是否还存在——也不听我的使唤。我没有力气挣扎。</p>
@@ -713,88 +840,7 @@ B_n=\text{span}\{x_1,x_2,\cdots,x_n\}</script><p>It can be easily shown that $B_
 <li><a href="/2020/10/01/big-3-pt-5/">The Big Three Pt. 5 - The Hahn-Banach Theorem (Dominated Extension)</a></li>
 <li><a href="/2020/11/13/big-3-pt-6/">The Big Three Pt. 6 - Closed Graph Theorem with Applications</a></li>
 </ul>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-06-01T15:05:22.000Z" title="01/06/2020, 23:05:22">2020-06-01</time></span><span class="level-item">Updated&nbsp;<time dateTime="2020-06-01T15:05:45.551Z" title="01/06/2020, 23:05:45">2020-06-01</time></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2020/06/01/jordan-form-example/">Jordan标准形的求法——以一个四阶矩阵为例</a></h1><div class="content"><h2 id="一个简单的例子"><a href="#一个简单的例子" class="headerlink" title="一个简单的例子"></a>一个简单的例子</h2><p>这篇博客里，我们会求一个矩阵的Jordan标准形（在$\mathbb{C}$中）：</p>
-<script type="math/tex; mode=display">
-A=\begin{bmatrix}
-3&-1&0&0 \\
-1&1&0&0 \\
-3&0&5&-3 \\
-4&-1&3&1
-\end{bmatrix}</script><p>我们会顺着<a href="/2020/05/21/jordan-decomposition/">上一篇博客</a>的思路，用一个比较“机械”的办法，求出矩阵的Jordan标准形。但是，每一步的原因都是能给出的。“机械”的意思是说，有章可循。如果你有编程基础，你完全可以依照这个办法把求Jordan标准形的步骤写成程序，当然这就不是我擅长的领域了，我也不多做评价。不过，通往Jordan标准形的路有好几条，我觉得更适合用计算机程序写的路不应该是这篇博客的办法，而应该是<a target="_blank" rel="noopener" href="https://matrixcalc.org/en/vectors.html">这个网站</a>的计算办法。</p>
-<h3 id="1-求特征多项式、极小多项式"><a href="#1-求特征多项式、极小多项式" class="headerlink" title="1. 求特征多项式、极小多项式"></a>1. 求特征多项式、极小多项式</h3><p>求这个矩阵的特征多项式能得到</p>
-<script type="math/tex; mode=display">
-f(\lambda)=(\lambda-2)^2(\lambda-(3-\sqrt{5}i))(\lambda-(3+\sqrt{5}i))</script><p>当然，这个矩阵是不能对角化的，因为我们可以发现有</p>
-<script type="math/tex; mode=display">
-m(\lambda)=f(\lambda)</script><p>求这两个方程的目的是显然的，Jordan要用到准素分解、循环分解，而准素分解需要用到极小多项式，极小多项式又和特征多项式有很多联系。</p>
-<p>同时，我们能得到特征根</p>
-<script type="math/tex; mode=display">
-\lambda_1=2\quad\lambda_2=2\quad \lambda_3=3-\sqrt{5}i\quad\lambda_4=3+\sqrt{5}i</script><h3 id="2-对矩阵进行准素分解"><a href="#2-对矩阵进行准素分解" class="headerlink" title="2. 对矩阵进行准素分解"></a>2. 对矩阵进行准素分解</h3><p>我们已经知道，在$\mathbb{C}$上存在可逆矩阵$P$使得</p>
-<script type="math/tex; mode=display">
-A=P^{-1}\begin{bmatrix}A_1&&\\ &A_2& \\&&A_3\end{bmatrix}P</script><p>其中$A_1$的特征多项式$f_1=(\lambda-2)^2$，极小多项式$m_1=(\lambda-2)^2$，$A_2$的极小多项式和特征多项式$m_2=f_2=\lambda-(3-\sqrt{5}i)$，$A_3$的极小多项式和特征多项式$m_3=f_3=\lambda-(3+\sqrt{5}i)$。</p>
-<p>这就是之前讲过的先进行准素分解。先利用极小多项式的因子进行切割，然后在每个子矩阵进行仔细分析。下面是详细步骤。</p>
-<hr>
-<p>我们已经知道，有</p>
-<script type="math/tex; mode=display">
-\mathbb{R}^4=\text{ker}(\lambda-2)^2\oplus\text{ker}(\lambda-(3-\sqrt{5}i))\oplus\text{ker}(\lambda-(3+\sqrt{5}i))</script><p>所以我们需要求出$4$个广义特征向量。由$(A-I)^2\mathbf{v}=0$得</p>
-<script type="math/tex; mode=display">
-\mathbf{v}_1=\begin{bmatrix}\frac{1}{4} \\ 1 \\ 0 \\ 0\end{bmatrix} \quad
-\mathbf{v}_2= \begin{bmatrix}-\frac{3}{4} \\ 0 \\ 1 \\0\end{bmatrix}</script><p> 由$(A-(3-\sqrt{5}i)I)\mathbf{v}=0$得</p>
-<script type="math/tex; mode=display">
-\mathbf{v}_3=\begin{bmatrix}0 \\ 0 \\ \frac{2-\sqrt{5}i}{3} \\ 1\end{bmatrix}</script><p>由$(A - (3+\sqrt{5}i)I)\mathbf{v}=0$得</p>
-<script type="math/tex; mode=display">
-\mathbf{v}_4=\begin{bmatrix}0 \\ 0 \\ \frac{2+\sqrt{5}i}{3} \\ 1\end{bmatrix}</script><p>我们得到了过渡矩阵</p>
-<script type="math/tex; mode=display">
-P=\begin{bmatrix}\frac{1}{4}&-\frac{3}{4} & 0 & 0 \\
-1 & 0 & 0 & 0 \\
-0 & 1 & \frac{2-\sqrt{5}i}{3} & \frac{2+\sqrt{5}i}{3} \\
-0 & 0 & 1 & 1
-\end{bmatrix}</script><p>且有准素分解</p>
-<script type="math/tex; mode=display">
-P^{-1}AP=\begin{bmatrix}
-\frac{5}{4} & -\frac{3}{4} & 0 & 0 \\
-\frac{3}{4} & \frac{11}{4} & 0 & 0 \\
-0 & 0 & 3-\sqrt{5}i & 0 \\
-0 & 0 & 0 & 3 + \sqrt{5}i
-\end{bmatrix}</script><h3 id="3-对准素分解得到的子矩阵进行循环分解"><a href="#3-对准素分解得到的子矩阵进行循环分解" class="headerlink" title="3. 对准素分解得到的子矩阵进行循环分解"></a>3. 对准素分解得到的子矩阵进行循环分解</h3><p>首先，我们仔细回顾一下，为了得到Jordan链，我们需要进行什么工作。对于矩阵$A_i$，我们进行循环分解，得到有理标准形</p>
-<script type="math/tex; mode=display">
-Q_{i}^{-1}A_iQ_{i}=\text{diag}(A_{i1},\cdots,A_{ir_i})</script><p>然后，对每个子矩阵$A_{ij}$（$m_{ij}=(\lambda-\lambda_i)^{k_{ij}}$的友阵），考虑$B_{ij}=A_{ij}-\lambda_iI$，不难发现$B_{ij}$的极小多项式是$\lambda^{k_{ij}}$，所以只需要再对$B_{ij}$进行一次循环分解即可（如果很难理解，可以回顾一下上篇博客）。按照这个原理，在准素分解得到的$A_1$、$A_2$、$A_3$中，后两个的阶数为$1$，已经不需要分解，相似于自己即可。</p>
-<p>对于矩阵</p>
-<script type="math/tex; mode=display">
-A_{1}=\begin{bmatrix}\frac{5}{4} & -\frac{3}{4} \\ \frac{3}{4} & \frac{11}{4} \end{bmatrix}</script><p>考虑到不变因子$m_{11}=(\lambda-2)^2=\lambda^2-4\lambda+4$，有且仅有一个，我们能得到它的有理标准形是</p>
-<script type="math/tex; mode=display">
-A_{11}=\begin{bmatrix}0 & -4 \\ 1 & 4\end{bmatrix}</script><p>从$A_{1}$到$A_{11}$的过渡矩阵可以取循环基$\alpha=(1,0)^T$和$A_1\alpha=(\frac{5}{4},\frac{3}{4})^T$，构成过渡矩阵$Q=\begin{bmatrix}1&amp;\frac{5}{4} \\ 0 &amp; \frac{3}{4}\end{bmatrix}$。此时就有</p>
-<script type="math/tex; mode=display">
-Q^{-1}A_1Q=A_{11}</script><p>令$B_{11}=A_{11}-2{I}=\begin{bmatrix}-2&amp; -4 \\ 1 &amp; 2\end{bmatrix}$，又重新取循环基，$\alpha=(1,0)^T$和$B_{11}\alpha=(-2,1)^T$，得到过渡矩阵$U=\begin{bmatrix}1&amp; -2 \\ 0&amp; 1\end{bmatrix}$，这个时候又有</p>
-<script type="math/tex; mode=display">
-U^{-1}B_{11}U=\begin{bmatrix}0 & 0 \\ 1 & 0\end{bmatrix}</script><p>从而对于$A_{11}$来说又有</p>
-<script type="math/tex; mode=display">
-U^{-1}A_{11}U=\begin{bmatrix}2 & 0 \\ 1 & 2\end{bmatrix}</script><p>再回到矩阵$A_1$，又有</p>
-<script type="math/tex; mode=display">
-U^{-1}Q^{-1}A_1QU=\begin{bmatrix}2 & 0 \\ 1 & 2\end{bmatrix}</script><p>令$V_1=QU$，我们就得到了$A_1=V_1^{-1}J_2(2)V_1$，得到一个和Jordan块的相似。</p>
-<h3 id="4-将所有矩阵组装起来，得到原矩阵到Jordan标准形的总过渡矩阵"><a href="#4-将所有矩阵组装起来，得到原矩阵到Jordan标准形的总过渡矩阵" class="headerlink" title="4. 将所有矩阵组装起来，得到原矩阵到Jordan标准形的总过渡矩阵"></a>4. 将所有矩阵组装起来，得到原矩阵到Jordan标准形的总过渡矩阵</h3><p>对于$A_2$和$A_3$来说，对应的$V_2$和$V_3$都是一阶单位矩阵，因为本身就已经不能再化简了。结果，我们得到了从$\text{diag}(A_{11},A_{22},A_{33})$到Jordan标准形的过渡矩阵$S=\text{diag}(V_1,V_2,V_3)$，也就是说</p>
-<script type="math/tex; mode=display">
-S=\begin{bmatrix}1 & -\frac{3}{4} & 0 & 0 \\ 0 & \frac{3}{4} & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 &1\end{bmatrix}</script><p>满足</p>
-<script type="math/tex; mode=display">
-S^{-1}\begin{bmatrix}
-\frac{5}{4} & -\frac{3}{4} & 0 & 0 \\
-\frac{3}{4} & \frac{11}{4} & 0 & 0 \\
-0 & 0 & 3-\sqrt{5}i & 0 \\
-0 & 0 & 0 & 3 + \sqrt{5}i
-\end{bmatrix}S = 
-\begin{bmatrix}
-2 & 0 & 0 & 0 \\
-1 & 2 & 0 & 0 \\
-0 & 0 & 3-\sqrt{5}i & 0 \\
-0 & 0 & 0 & 3+\sqrt{5}i
-\end{bmatrix}=J</script><p>最后再加上用来准素分解的$P$，我们就得到了从原矩阵$A$到Jordan标准形$J$的过渡矩阵</p>
-<script type="math/tex; mode=display">
-T=PS=\begin{bmatrix}\frac{1}{4}& -\frac{3}{4} & 0 & 0 \\
-1 & -\frac{3}{4} & 0 & 0 \\
-0 & \frac{3}{4} & \frac{2-\sqrt{5}i}{3}&\frac{2+\sqrt{5}i}{3} \\
-0 & 0 & 1 & 1
-\end{bmatrix}</script><p>满足$T^{-1}AT=J$。到这里，我们的过渡矩阵就被求出来了。每一步都是有缘由的，都是直接运用前面的线性代数理论的，没有任何偏差。</p>
-<p>但是要注意，Jordan标准形中，指定特征值下的Jordan块，不一定只有一个。这篇博客中的矩阵$A$，在特征值为$2$下有一个，这是因为极小多项式和特征多项式恰好相等。Jordan标准形中有多个相同特征值下的Jordan块的例子有没有？当然有，而且很简单，单位矩阵就是一个例子。</p>
-</div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="../5/">Previous</a></div><div class="pagination-next"><a href="../7/">Next</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="../../">1</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="../5/">5</a></li><li><a class="pagination-link is-current" href="">6</a></li><li><a class="pagination-link" href="../7/">7</a></li><li><a class="pagination-link" href="../8/">8</a></li><li><a class="pagination-link" href="../9/">9</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="../../img/avatar.png" alt="Desvl"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Desvl</p><p class="is-size-6 is-block">A blog mainly on graduate mathematics.</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>A Noetherian local ring</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="../../archives"><p class="title">86</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="../../categories"><p class="title">44</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="../../tags"><p class="title">49</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="../../redirect/newsletter" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Compose an Email" href="../../redirect/email"><i class="fas fa-envelope"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="../../atom.xml"><i class="fas fa-rss"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Mathstodon" href="https://mathstodon.xyz/@desvl"><i class="fa-brands fa-mastodon"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://arxiv.org/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">arXiv</span></span><span class="level-right"><span class="level-item tag">arxiv.org</span></span></a></li><li><a class="level is-mobile" href="https://stacks.math.columbia.edu/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">The Stack Project</span></span><span class="level-right"><span class="level-item tag">stacks.math.columbia.edu</span></span></a></li><li><a class="level is-mobile" href="https://ncatlab.org/nlab/show/mathematics" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">nLab (Mathematics)</span></span><span class="level-right"><span class="level-item tag">ncatlab.org</span></span></a></li><li><a class="level is-mobile" href="https://q.uiver.app/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">quiver: a modern commutative diagram editor</span></span><span class="level-right"><span class="level-item tag">q.uiver.app</span></span></a></li><li><a class="level is-mobile" href="https://www.symmetricfunctions.com/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">The Symmetric Functions Catalogue</span></span><span class="level-right"><span class="level-item tag">www.symmetricfunctions.com</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/speaking.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Speaking</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/writing.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Writing</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">How to study maths really quick (YouTube)</span></span><span class="level-right"><span class="level-item tag">www.youtube.com</span></span></a></li><li><a class="level is-mobile" href="https://www.bilibili.com/video/BV1GJ411x7h7" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">How to study maths really quick (Bilibili)</span></span><span class="level-right"><span class="level-item tag">www.bilibili.com</span></span></a></li></ul></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="../../index.html"><img src="../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a><p class="is-size-7"><span>&copy; 2022</span> <a rel="me noopener" target="_blank" href="https://mathstodon.xyz/@desvl">Desvl</a><br>Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+</div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="../5/">Previous</a></div><div class="pagination-next"><a href="../7/">Next</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="../../">1</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="../5/">5</a></li><li><a class="pagination-link is-current" href="">6</a></li><li><a class="pagination-link" href="../7/">7</a></li><li><a class="pagination-link" href="../8/">8</a></li><li><a class="pagination-link" href="../9/">9</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="../../img/avatar.png" alt="Desvl"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Desvl</p><p class="is-size-6 is-block">A blog mainly on graduate mathematics.</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>A Noetherian local ring</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="../../archives"><p class="title">87</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="../../categories"><p class="title">45</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="../../tags"><p class="title">51</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="../../redirect/newsletter" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Compose an Email" href="../../redirect/email"><i class="fas fa-envelope"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="../../atom.xml"><i class="fas fa-rss"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Mathstodon" href="https://mathstodon.xyz/@desvl"><i class="fa-brands fa-mastodon"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://arxiv.org/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">arXiv</span></span><span class="level-right"><span class="level-item tag">arxiv.org</span></span></a></li><li><a class="level is-mobile" href="https://stacks.math.columbia.edu/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">The Stack Project</span></span><span class="level-right"><span class="level-item tag">stacks.math.columbia.edu</span></span></a></li><li><a class="level is-mobile" href="https://ncatlab.org/nlab/show/mathematics" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">nLab (Mathematics)</span></span><span class="level-right"><span class="level-item tag">ncatlab.org</span></span></a></li><li><a class="level is-mobile" href="https://q.uiver.app/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">quiver: a modern commutative diagram editor</span></span><span class="level-right"><span class="level-item tag">q.uiver.app</span></span></a></li><li><a class="level is-mobile" href="https://www.symmetricfunctions.com/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">The Symmetric Functions Catalogue</span></span><span class="level-right"><span class="level-item tag">www.symmetricfunctions.com</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/speaking.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Speaking</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/writing.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Writing</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">How to study maths really quick (YouTube)</span></span><span class="level-right"><span class="level-item tag">www.youtube.com</span></span></a></li><li><a class="level is-mobile" href="https://www.bilibili.com/video/BV1GJ411x7h7" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">How to study maths really quick (Bilibili)</span></span><span class="level-right"><span class="level-item tag">www.bilibili.com</span></span></a></li></ul></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="../../index.html"><img src="../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a><p class="is-size-7"><span>&copy; 2022</span> <a rel="me noopener" target="_blank" href="https://mathstodon.xyz/@desvl">Desvl</a><br>Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
             article: {
                 highlight: {
                     clipboard: true,
