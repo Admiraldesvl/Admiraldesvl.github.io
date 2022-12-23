@@ -29,7 +29,80 @@
       switchTab();
       window.addEventListener('hashchange', switchTab, false);
   })();
-  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="../../index.html"><img src="../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="../../index.html">Home</a><a class="navbar-item" href="../../archives">Archives</a><a class="navbar-item" href="../../categories">Categories</a><a class="navbar-item" href="../../tags">Tags</a><a class="navbar-item" href="../../about">About (Updated Aug. 2022)</a><a class="navbar-item" href="../../link-exchange">Link Exchange</a><a class="navbar-item" href="../../support-the-author">Support the Author</a></div><div class="navbar-end"></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-06-01T15:05:22.000Z" title="01/06/2020, 23:05:22">2020-06-01</time></span><span class="level-item">Updated&nbsp;<time dateTime="2020-06-01T15:05:45.551Z" title="01/06/2020, 23:05:45">2020-06-01</time></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2020/06/01/jordan-form-example/">Jordan标准形的求法——以一个四阶矩阵为例</a></h1><div class="content"><h2 id="一个简单的例子"><a href="#一个简单的例子" class="headerlink" title="一个简单的例子"></a>一个简单的例子</h2><p>这篇博客里，我们会求一个矩阵的Jordan标准形（在$\mathbb{C}$中）：</p>
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="../../index.html"><img src="../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="../../index.html">Home</a><a class="navbar-item" href="../../archives">Archives</a><a class="navbar-item" href="../../categories">Categories</a><a class="navbar-item" href="../../tags">Tags</a><a class="navbar-item" href="../../about">About (Updated Aug. 2022)</a><a class="navbar-item" href="../../link-exchange">Link Exchange</a><a class="navbar-item" href="../../support-the-author">Support the Author</a></div><div class="navbar-end"></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-06-06T03:18:04.000Z" title="06/06/2020, 11:18:04">2020-06-06</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-10-23T00:19:31.959Z" title="23/10/2021, 08:19:31">2021-10-23</time></span><span class="level-item"><a class="link-muted" href="../../categories/Analysis/">Analysis</a><span> / </span><a class="link-muted" href="../../categories/Analysis/Functional-Analysis/">Functional Analysis</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2020/06/06/big-3-pt-1/">The Big Three Pt. 1 - Baire Category Theorem Explained</a></h1><div class="content"><h2 id="About-the-‘Big-Three’"><a href="#About-the-‘Big-Three’" class="headerlink" title="About the ‘Big Three’"></a>About the ‘Big Three’</h2><p>There are three theorems about Banach spaces that occur frequently in the crux of functional analysis, which are called the ‘big three’:</p>
+<blockquote>
+<ol>
+<li>The Hahn-Banach Theorem</li>
+<li>The Banach-Steinhaus Theorem</li>
+<li>The Open Mapping Theorem</li>
+</ol>
+</blockquote>
+<p>The incoming series of blog posts is intended to offer a self-read friendly explanation with richer details. Some basic analysis and topology backgrounds are required.</p>
+<h2 id="First-and-second-category"><a href="#First-and-second-category" class="headerlink" title="First and second category"></a>First and second category</h2><p>The term ‘category’ is due to Baire, who developed the category theorem afterwards. Let $X$ be a  topological space. A set $E \subset X$ is said to be <em>nowhere dense</em> if $\overline{E}$ has empty interior, i.e. $\text{int}(\overline{E})= \varnothing$. </p>
+<p>There are some easy examples of nowhere dense sets. For example, suppose $X=\mathbb{R}$, equipped with the usual topology. Then $\mathbb{N}$ is nowhere dense in $\mathbb{R}$ while $\mathbb{Q}$ is not. It’s trivial since $\overline{\mathbb{N}}=\mathbb{N}$, which has empty interior. Meanwhile $\overline{\mathbb{Q}}=\mathbb{R}$. But $\mathbb{R}$ is open, whose interior is itself. The category is defined using nowhere dense set. In fact,</p>
+<blockquote>
+<ul>
+<li>A set $S$ is <strong>of the first category</strong> if $S$ is a countable union of nowhere dense sets.</li>
+<li>A set $T$ is <strong>of the second category</strong> if $T$ is not of the first category.</li>
+</ul>
+</blockquote>
+<h2 id="Baire-category-theorem-BCT"><a href="#Baire-category-theorem-BCT" class="headerlink" title="Baire category theorem (BCT)"></a>Baire category theorem (BCT)</h2><p>In this blog post, we consider two cases: BCT in complete metric space and in locally compact Hausdorff space. These two cases have nontrivial intersection but they are not equal. There are some complete metric spaces that are not locally compact Hausdorff. </p>
+<p>There are some classic topological spaces, for example $\mathbb{R}^n$, are both complete metric space and locally compact Hausdorff. If a locally compact Hausdorff space happens to be a topological vector space, then this space has finite dimension. Also, a topological vector space has to be Hausdorff. </p>
+<blockquote>
+<p>By a Baire space we mean a <em>topological space</em>  $X$ such that <strong>the intersection of every countable collection of dense open subsets</strong> of $X$ is also dense in $X$. </p>
+</blockquote>
+<p>Baire category states that</p>
+<blockquote>
+<p><strong>(BCT 1)</strong> Every complete metric space is a Baire space.</p>
+<p><strong>(BCT 2)</strong> Every locally compact Hausdorff space is a Baire space.</p>
+</blockquote>
+<p>By taking the complement of the definition, we can see that, <strong>every Baire space is not of the first category</strong>. </p>
+<p>Suppose we have a sequence of sets $\{X_n\}$ where $X_n$ is dense in $X$ for all $n&gt;0$, then $X_0=\cap_n X_n$ is also dense in $X$. Notice then $X_0^{c} = \cup_n X_n^c$, a nowhere dense set and a countable union of nowhere dense sets, i.e. of the first category. </p>
+<h3 id="Proving-BCT-1-and-BCT-2-via-Choquet-game"><a href="#Proving-BCT-1-and-BCT-2-via-Choquet-game" class="headerlink" title="Proving BCT 1 and BCT 2 via Choquet game"></a>Proving BCT 1 and BCT 2 via Choquet game</h3><p>Let $X$ be the given complete metric space or locally Hausdorff space, and $\{X_n\}$ a countable collection of open subsets of $X$. Pick an arbitrary open subsets of $X$, namely $A_0$ (this is possible due to the topology defined on $X$). To prove that $\cap_n V_n$ is dense, we have to show that $A_0 \cap \left(\cap_n V_n\right) \neq \varnothing$. This follows the definition of denseness. Typically we have</p>
+<blockquote>
+<p> A subset $A$ of $X$ is dense if and only if $A \cap U  \neq \varnothing$ for all nonempty open subsets $U$ of $X$.</p>
+</blockquote>
+<p>We pick a sequence of nonempty open sets $\{A_n\}$ inductively. With $A_{n-1}$ being picked, and since $V_n$ is open and dense in $X$, the intersection $V_n \cap A_{n-1}$ is nonempty and open. $A_n$ can be chosen such that</p>
+<script type="math/tex; mode=display">
+\overline{A}_n \subset V_n \cap A_{n-1}</script><p>For BCT 1, $A_n$ can be chosen to be open balls with radius $&lt; \frac{1}{n}$; for BCT 2, $A_n$ can be chosen such that the closure is compact. Define</p>
+<script type="math/tex; mode=display">
+C = \bigcap_{n=1}^{\infty}\overline{A}_n</script><p>Now, if $X$ is a locally compact Hausdorff space, then due to the compactness, $C$ is not empty, therefore we have</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+K \subset A_0 \\
+K \subset V_n \quad(n \in \mathbb{N})
+\end{cases}</script><p>which shows that $A_0 \cap V_n \neq \varnothing$. BCT 2 is proved.</p>
+<p>For BCT 1, we cannot follow this since it’s not ensured that $X$ has the Heine-Borel property, for example when $X$ is the Hilbert space (this is also a reason why BCT 1 and BCT 2 are not equivalent). The only tool remaining is Cauchy sequence. But how and where?</p>
+<p>For any $\varepsilon &gt; 0$, we have some $N$ such that $\frac{1}{N} &lt; \varepsilon$. For all $m&gt;n&gt;N$, we have $A_m \subset A_n\subset A_N$, therefore the centers of $\{A_n\}$ form a Cauchy sequence, converging to some point of $K$, which implies that $K \neq \varnothing$. BCT 1 follows.</p>
+<h2 id="Applications-of-BCT"><a href="#Applications-of-BCT" class="headerlink" title="Applications of BCT"></a>Applications of BCT</h2><p>BCT will be used directly in the big three. It can be considered as the origin of them. But there are many other applications in different branches of mathematics. The applications shown below are in the same pattern: <strong>if it does not hold, then we have a Baire space of the first category, which is not possible.</strong></p>
+<blockquote>
+<p>$\mathbb{R}$ is uncountable</p>
+</blockquote>
+<p>Suppose $\mathbb{R}$ is countable, then we have</p>
+<script type="math/tex; mode=display">
+\mathbb{R}=\bigcup_{n=1}^{\infty}\{x_n\}</script><p>where $x_n$ is a real number. But $\{x_n\}$ is nowhere dense, therefore $\mathbb{R}$ is of the first category. A contradiction.</p>
+<blockquote>
+<p>Suppose that $f$ is an entire function, and that in every power series</p>
+<script type="math/tex; mode=display">
+f(z)=\sum_{n=1}^{\infty}c_n(z-a)^n</script><p>has at least one coefficient is $0$, then $f$ is a polynomial (there exists a $N$ such that $c_n=0$ for all $n&gt;N$).</p>
+</blockquote>
+<p>You can find the proof <a href="/2020/03/14/topological-property-of-the-zeros-of-a-holomorphic-function/#A-simple-application-Feat-Baire-Category-Theorem">here</a>. We are using the fact that $\mathbb{C}$ is complete.</p>
+<blockquote>
+<p>An infinite dimensional Banach space $B$ has no countable basis</p>
+</blockquote>
+<p>Assume that $B$ has a countable basis $\{x_1,x_2,\cdots\}$ and define</p>
+<script type="math/tex; mode=display">
+B_n=\text{span}\{x_1,x_2,\cdots,x_n\}</script><p>It can be easily shown that $B_n$ is nowhere dense. In this sense, $B=\cup_n B_n$. A contradiction since $B$ is a complete metric space.</p>
+<h2 id="The-series"><a href="#The-series" class="headerlink" title="The series"></a>The series</h2><p>Since there is no strong reason to write more posts on this topic, i.e. the three fundamental theorems of linear functional analysis, I think it’s time to make a list of the series. It’s been around half a year.</p>
+<ul>
+<li>The Big Three Pt. 1 - Baire Category Theorem Explained</li>
+<li><a href="/2020/06/30/big-3-pt-2/">The Big Three Pt. 2 - The Banach-Steinhaus Theorem</a></li>
+<li><a href="/2020/08/12/big-3-pt-3/">The Big Three Pt. 3 - The Open Mapping Theorem (Banach Space)</a></li>
+<li><a href="/2020/09/12/big-3-pt-4/">The Big Three Pt. 4 - The Open Mapping Theorem (F-Space)</a></li>
+<li><a href="/2020/10/01/big-3-pt-5/">The Big Three Pt. 5 - The Hahn-Banach Theorem (Dominated Extension)</a></li>
+<li><a href="/2020/11/13/big-3-pt-6/">The Big Three Pt. 6 - Closed Graph Theorem with Applications</a></li>
+</ul>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-06-01T15:05:22.000Z" title="01/06/2020, 23:05:22">2020-06-01</time></span><span class="level-item">Updated&nbsp;<time dateTime="2020-06-01T15:05:45.551Z" title="01/06/2020, 23:05:45">2020-06-01</time></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2020/06/01/jordan-form-example/">Jordan标准形的求法——以一个四阶矩阵为例</a></h1><div class="content"><h2 id="一个简单的例子"><a href="#一个简单的例子" class="headerlink" title="一个简单的例子"></a>一个简单的例子</h2><p>这篇博客里，我们会求一个矩阵的Jordan标准形（在$\mathbb{C}$中）：</p>
 <script type="math/tex; mode=display">
 A=\begin{bmatrix}
 3&-1&0&0 \\
@@ -680,93 +753,7 @@ y'+p(x)y=q(x)y^n</script><p>两边乘以$(1-n)y^{-n}$，就能得到</p>
 (1-n)y^{-n}y'+(1-n)y^{1-n}p(x)=(1-n)q(x)</script><p>在令$z=y^{1-n}$，就能得到</p>
 <script type="math/tex; mode=display">
 z'+(1-n)p(x)z=(1-n)q(x)</script><p>这就是一个一阶线性方程了，计算就变得很简单。</p>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-04-17T16:00:00.000Z" title="18/04/2020, 00:00:00">2020-04-18</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-05-06T10:09:10.006Z" title="06/05/2022, 18:09:10">2022-05-06</time></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2020/04/18/order-of-limit/">高等数学入门——理解无穷小的阶（微积分的“科学计数法”）</a></h1><div class="content"><h2 id="从科学记数法讲起"><a href="#从科学记数法讲起" class="headerlink" title="从科学记数法讲起"></a>从科学记数法讲起</h2><p>当处理非常大或者非常小的数的时候科学记数法肯定是很方便的，不用记写很多$0$，也不用数有几个$0$。像是木星的质量大约是$1.9\times 10^{27}$千克，而电子的质量大约是$9.1 \times 10^{-31}$ 千克，能很轻松地进行表达。如果这两个数进行加法或者乘法，那也不是很困难（至少相比于非得把两个数列出来好算）。</p>
-<p>对于一个用科学记数法表示的数</p>
-<script type="math/tex; mode=display">
-x=a \times 10^b</script><p>很多信息自然地暴露了出来。$a$帮助我们认识这个数的具体值（可能是估计值，但是估计起来也很方便！），$b$帮助我们认识这个数的数量级。在计算pH值时对浓度取$\lg$对数，正好是利用了这一点。虽然在数学上$e$的应用更广泛，但是实际计算并不方便；而$\lg$对数如果用来计算像是$10^b$这种数，就非常简单了。</p>
-<p>有人就会问，这些虽然好用，但是这是2000多年前阿基米德时代的数学，和17世纪以后的微积分有什么关系？我在这篇博客中会尝试建立一个观点，<strong>无穷小量、无穷大量、阶的估计是微积分的科学记数法</strong>。另外，无限趋近、逼近这些词看上去很不严格，其实是一种对严格表达的形象化表述，而原先的严格表达并没有问题。</p>
-<h2 id="微积分的“科学记数法”"><a href="#微积分的“科学记数法”" class="headerlink" title="微积分的“科学记数法”"></a>微积分的“科学记数法”</h2><h3 id="抓住极限定义的重点"><a href="#抓住极限定义的重点" class="headerlink" title="抓住极限定义的重点"></a>抓住极限定义的重点</h3><p>虽然无限趋近、逼近这些词很形象，但是如果看到严格的表述仍然觉得不知所云，那样的话理解还是有问题。</p>
-<blockquote>
-<p>$\lim_{x \to a}f(x) = A$的定义是: 对<strong>任意</strong>的$\varepsilon&gt;0$，<strong>存在</strong>$\delta&gt;0$，使得当$0&lt;|x-a|&lt;\delta$时，<strong>成立</strong>$|f(x)-A|&lt;\varepsilon$. </p>
-</blockquote>
-<p>教授微积分的老师尝试用很多办法形象化地表述这个观点。像是作出函数的图像，然后对图像缩放，让人能看到这个结论的成立。但是这可能只是一个结果。重点在于这几个逻辑词上。极限的定义其实是一个朴素的逻辑命题，这里面最复杂的内容，仅仅是不等式。对于任意的$\varepsilon&gt;0$，至少存在一个$\delta&gt;0$，使得当<em>一个关于$\delta$的不等式</em>成立时，<em>一个关于$\varepsilon$的不等式</em>一定成立。如果满足这样的条件，就说明这个函数有极限。不管问题再怎么复杂，我们最终关心的还是不等式会不会成立。你可以设想，写了一个bool函数，然后给它传入任意正值，总是返回true（这样一个$\delta$存在）。其实到了后面探讨什么函数可导、Riemann可积、Lebesgue可积、可测，都是试图化归到一个平凡的判断问题上。</p>
-<h3 id="记号-o-O-sim"><a href="#记号-o-O-sim" class="headerlink" title="记号$o,O,\sim$"></a>记号$o,O,\sim$</h3><h4 id="sim-，同阶和等价无穷小（大）量"><a href="#sim-，同阶和等价无穷小（大）量" class="headerlink" title="$\sim$，同阶和等价无穷小（大）量"></a>$\sim$，同阶和等价无穷小（大）量</h4><p>可能这个极限不少人中学就知道了</p>
-<script type="math/tex; mode=display">
-\lim_{x\to 0}\frac{\sin{x}}{x}=1</script><p>这个时候就可以记成$\sin{x}\sim x(x\to 0)$。可以说，$\sin{x}$在$x=0$处和$y=x$非常接近，几乎重合。但是我们也可以说，对任意$\varepsilon&gt;0$，存在$\delta&gt;0$，使得$0&lt;|x|&lt;\delta$时，一定有$|\frac{\sin{x}}{x}-1|&lt;\varepsilon$。这个的论证可能涉及到一些计算技巧，但是逻辑问题的表达还是很朴素的。</p>
-<blockquote>
-<p> 严格来说，如果任意两个函数$f(x)$和$g(x)$，如果有</p>
-<script type="math/tex; mode=display">
-\lim_{x \to a}\frac{f(x)}{g(x)}=1</script><p>就记$f(x)\sim g(x) (x \to a)$. 这里有$-\infty\leq a \leq +\infty$。如果有$|f(x)|\to\infty$或者$f(x) \to 0$，这个时候就是在计算无穷大量或者无穷小量，这个时候就称$f$是$g$的等价无穷小（大）量。</p>
-</blockquote>
-<p>这里的”等价“其实也很有意思。经过简单的计算，不难验证，对于关系$\sim$，满足以下三个性质：</p>
-<ol>
-<li>自反性：$f \sim f$</li>
-<li>对称性：$f \sim g$当且仅当$g \sim f$</li>
-<li>传递性：如果$f \sim g$且$g \sim h$，那么一定有$f \sim h$</li>
-</ol>
-<p>如果一个关系满足这三条性质，就称为“等价关系”。$\mathbb{R}$上两个数的相等自然也满足这个关系。</p>
-<p>当然可能比值等于$1$有点严苛，但是可能有同阶无穷小：</p>
-<script type="math/tex; mode=display">
-\lim_{x\to a}\frac{f(x)}{g(x)}=A\neq 0</script><p>那么其实也罢，只需要两边除以$A$就行了，也就是说$f(x)\sim Ag(x)(x \to A)$。比如说$1-\cos{x}\sim\frac{1}{2}x^2$.</p>
-<h5 id="为什么引入这个概念？"><a href="#为什么引入这个概念？" class="headerlink" title="为什么引入这个概念？"></a>为什么引入这个概念？</h5><p>这就体现出文章开头讲的“科学计数法”了。可能实际的函数计算很繁琐（比如，涉及到三角函数、反三角函数等等），然而有一种函数的计算一直是很平凡的：多项式。或者稍微退一步，幂函数。这种函数甚至可以直接计算出数值来。如果我们能把复杂的函数简化成幂函数，那么事情就简单了很多。这就好比计算$9800000000000.00001 \times 82012$可以简化成$9.8 \times 8.2 \times 10^{12+4}$。误差是可以接受的。或者说，我们尝试用幂函数表示一个函数的“数量级”，这个“数量”指的是在某点的逼近速度。当然也不一定必须要化归成幂函数，也可以逆向操作，变成一个不同的但是更好计算的极限。下面解释一个经典的例子。</p>
-<blockquote>
-<p>设$\alpha \neq 0$, 求极限</p>
-<script type="math/tex; mode=display">
-\lim_{x \to 0}\frac{(1+x)^\alpha-1}{x}</script></blockquote>
-<p>令$y=(1+x)^\alpha-1$，那么简单计算就能得到$\ln(1+y)=\alpha\ln(1+x)$。又知道$\ln(1+x)\sim x$，综合一下我们就有</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-\lim_{x \to 0}\frac{y(x)}{x}&=\lim_{x \to 0}\frac{y(x)}{x}\frac{\ln(1+y)}{\ln(1+y)} \\
-                            &=\lim_{x \to 0}\frac{\ln(1+y)}{x}\frac{y}{\ln(1+y)}\\
-                            &=\lim_{x \to 0}\frac{\alpha\ln(1+x)}{x}\lim_{x \to 0}\frac{y}{\ln(1+y)} \\
-                            &=\alpha \cdot 1\cdot 1
-\end{aligned}</script><p>这里利用了极限的一个基本性质：</p>
-<blockquote>
-<p>如果$\lim_{x \to a}f(x)=A$，$\lim_{x \to a}g(x)=B$，那么$\lim_{x \to a}f(x)g(x)=AB$。</p>
-</blockquote>
-<p>要注意这个结论是完全可以用$\varepsilon-\delta$语言进行证明的。</p>
-<p>这个问题的解决我们依赖了一个很简单的结论：$\ln(1+x)$和$x$在$x=0$附近是相同的“数量级”。然后我们把原来的极限化归成这样的一个比值，反复组合利用。其实通过$\ln(1+x)\sim x$可以直接得到$y \sim \ln(1+y) \sim \alpha\ln(1+x)\sim\alpha x$（这里的每一个$\sim$都是有理论基础的，再注意最开始已经指出，这个$\sim$是具有传递性的），从而得到</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-\lim_{x \to 0}\frac{y(x)}{x} &= \lim_{x \to 0}\frac{y(x)}{x}\frac{\alpha x}{\alpha x} \\
-                             &=\alpha\lim_{x \to 0}\frac{y(x)}{\alpha x}\\ 
-                             &= \alpha \cdot 1
-\end{aligned}</script><h5 id="无穷小量的阶"><a href="#无穷小量的阶" class="headerlink" title="无穷小量的阶"></a>无穷小量的阶</h5><p>既然我们试图将一个连续函数的极限”简化“成一个幂函数，那么我们就可以用幂函数的阶定义极限的阶。也就是说</p>
-<blockquote>
-<p>若已知$\lim_{x \to a}f(x)=0$，且存在常数$\alpha&gt;0$使得</p>
-<script type="math/tex; mode=display">
-\lim_{x \to a}\left\vert\frac{f(x)}{(x-a)^\alpha}\right\vert=A \neq 0</script><p>即$f(x)\sim A(x-a)^\alpha$，那么就称$f(x)$在$x \to a$时有$\alpha$阶无穷小量</p>
-</blockquote>
-<p>这里的$\alpha$就好比是科学计数法里的数量级，<strong>虽然不能给我们准确信息，但是给我们的信息在一些环境下已经足够了，这些信息恰好就是我们想要的</strong>。</p>
-<p>但是有的函数不一定有阶。例如函数$x\sin\frac{1}{x}$在$x=0$附近并没有阶。只需要观察</p>
-<script type="math/tex; mode=display">
-\frac{x\sin\frac{1}{x}}{x^\alpha}</script><p>在$0&lt;\alpha&lt;1$时，此函数极限为$0$。在$\alpha \geq 1$时，函数极限不存在，这时就并不存在阶这一说了 。</p>
-<p>现实中估计错一个数的数量级可能会产生不少麻烦，比如$10^{26}$和$10^{27}$差别还是很大的。在计算极限的时候估算错阶，可能就直接得到了错误的结果。等价关系$\sim$只在比值这一方面告诉了我们一些信息，但是并没有告诉我们加减法上的信息（就好比科学计数法也没告诉我们加减法的信息一样）。如果不注意到这一点，下面这个极限就会算错：</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-\lim_{x \to 0}\frac{\sin{x}-\tan{x}}{x^3}&=\lim_{x \to 0}\left\{\left(\frac{\sin{x}}{x}\right)\left(\frac{1}{\cos{x}}\right)\left(\frac{\cos{x}-1}{x^2}\right)\right\}\\
-                                         &= -\frac{1}{2}
-\end{aligned}</script><p>这个地方自然没有问题。但是如果没认识到这一点，能得到好几个不同的结果。可能会有人认为$\sin{x}\sim x \sim \tan{x}$，所以直接利用$\sin{x} \sim \tan{x}$，直接得到这个错误结果：</p>
-<script type="math/tex; mode=display">
-\lim_{x \to 0}\frac{\sin{x}-\tan{x}}{x^3} = \lim_{x \to 0}\frac{\sin{x}-\sin{x}}{x^3}=0</script><p>所以$\sin{x}-\tan{x}$的阶应该$&lt;3$。但实际上阶就是$3$。还可能得到另外一些古怪的结果。例如</p>
-<script type="math/tex; mode=display">
-\lim_{x \to 0}\frac{x - \tan{x}}{x^3}= -\frac{1}{3} \\
-\lim_{x \to 0}\frac{\sin{x} - x}{x^3} = -\frac{1}{6}</script><p>（上面两个极限都是正确的，但是肯定不是最初求的极限！）$\sin{x}$是$1$阶无穷小，$\tan{x}$是$1$阶无穷小，而二者的和是$1$阶的，差是$3$阶的。在计算极限时，就需要考虑两个无穷小的和差的阶是否发生改变。这就好比，我们不能说两个质量的数量级为$10^{20}$千克的行星的和或者差的数量级也是$10^{20}$这个数量级。</p>
-<h4 id="记号-o-和-O-又在表达什么？"><a href="#记号-o-和-O-又在表达什么？" class="headerlink" title="记号$o$和$O$又在表达什么？"></a>记号$o$和$O$又在表达什么？</h4><p>先举个例子。我们在谈论飞机、火箭这些航天飞行器的时候，往往会引入音速甚至是光速等等概念，因为慢速下的速度单位已经不够用了。比如马赫（Mach number）这个概念。它指的是速度和音速的比值。有的时候我们就会关注飞机的飞行速度有没有超过音速，甚至要讨论是音速的几倍。但是骑自行车的速度就和音速没有可比性了。</p>
-<p>这里的$o$和$O$也是一个”参考“的作用。在上一节我们探讨了$\frac{f(x)}{g(x)}$收敛到非零常数的情况，但是不一定能得到这样的结果。</p>
-<blockquote>
-<p>如果满足$\lim_{x \to a}\frac{f(x)}{g(x)}=0$，就记$f(x)=o(g(x))(x \to a)$。如果$x \to a$时有$f(x) \to 0$ 且$g(x) \to 0$，那么就称$f$是比$g$更高阶无穷小。</p>
-</blockquote>
-<p>比如对于$\alpha &gt; 1$, 就有$x^\alpha = o(x)(x \to 0)$。因为这个函数满足这个极限关系。以$g$做<strong>参考</strong>，那么$f$的收敛速度是<strong>更</strong>快的。这里的$=o(\cdot)$也可以看成一种“关系”，但是这种关系只满足传递性，并不是一个等价关系。等价关系的剩下两个条件都不满足。如果$f(x)=o(g(x))$且$g(x)=o(h(x))$，那么一定有$f(x)=o(h(x))$，但是并没有$f(x)=o(f(x))$，更不会有$g(x)=o(f(x))$，这通过很简单的极限计算就能得到。</p>
-<p>如果有$f(x)=o(1)(x \to a)$，那么就有$\lim_{x \to a}f(x)=0$。当然这个时候用$o$表示会显得很别扭，但是把$1$当分母，也确实没有问题！这个时候我们看成和常数函数比较收敛速度，那么函数收敛就是收敛，不收敛就是不收敛。</p>
-<blockquote>
-<p>$f(x)=O(g(x))(x \to a)$的定义是，存在$a$的某个去心邻域和非负常数$M$，使$\left\vert\frac{f(x)}{g(x)}\right\vert \leq M$在这个邻域上恒成立。</p>
-</blockquote>
-<p>这里的“去心邻域”并不是什么复杂的概念。在处理极限的时候，$f(x)$和$g(x)$在$a$处可能都没有极限，所以就讨论某个小区间，把$a$抠去，也就是说$(a-\delta,a) \cup (a,a+\delta)$。这个是最粗略的估计，但是也很方便。可能计算比值的极限比较麻烦，但是我们知道比值是有界的，就能减少不少麻烦。</p>
-<p>在研究傅里叶级数时，常常会研究一类“适度下降”的函数，需要函数$f$满足$f(x)=O\left(\frac{1}{1+|x|^\alpha}\right)$，其中$\alpha &gt; 1$。我们还可以探讨前面那个无阶函数，就能发现</p>
-<script type="math/tex; mode=display">
-x\sin\frac{1}{x}=O(x),\quad x\sin{\frac{1}{x}}=o(x^\alpha)(\alpha<1)</script><h3 id="“科学记数法”的总结"><a href="#“科学记数法”的总结" class="headerlink" title="“科学记数法”的总结"></a>“科学记数法”的总结</h3><p>像是现实中的科学计数法，为了方便计算和理解，把很长的数的信息抽象出来然后使用另一种办法总结。$o, O,\sim$这种符号将指定函数满足的比值和极限的结论抽象出来，然后利用这些结论表示一个函数，从而间接计算出原来的极限。这就像是精确到小数点后几位，和音速、光速做对比，将问题进行简化。而这些简化的基础都在于极限的定义，在于那些逻辑命题能不能成立。</p>
-</div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="../6/">Previous</a></div><div class="pagination-next"><a href="../8/">Next</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="../../">1</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="../6/">6</a></li><li><a class="pagination-link is-current" href="">7</a></li><li><a class="pagination-link" href="../8/">8</a></li><li><a class="pagination-link" href="../9/">9</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="../../img/avatar.png" alt="Desvl"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Desvl</p><p class="is-size-6 is-block">A blog mainly on graduate mathematics.</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>A Noetherian local ring</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="../../archives"><p class="title">87</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="../../categories"><p class="title">45</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="../../tags"><p class="title">51</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="../../redirect/newsletter" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Compose an Email" href="../../redirect/email"><i class="fas fa-envelope"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="../../atom.xml"><i class="fas fa-rss"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Mathstodon" href="https://mathstodon.xyz/@desvl"><i class="fa-brands fa-mastodon"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://arxiv.org/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">arXiv</span></span><span class="level-right"><span class="level-item tag">arxiv.org</span></span></a></li><li><a class="level is-mobile" href="https://stacks.math.columbia.edu/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">The Stack Project</span></span><span class="level-right"><span class="level-item tag">stacks.math.columbia.edu</span></span></a></li><li><a class="level is-mobile" href="https://ncatlab.org/nlab/show/mathematics" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">nLab (Mathematics)</span></span><span class="level-right"><span class="level-item tag">ncatlab.org</span></span></a></li><li><a class="level is-mobile" href="https://q.uiver.app/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">quiver: a modern commutative diagram editor</span></span><span class="level-right"><span class="level-item tag">q.uiver.app</span></span></a></li><li><a class="level is-mobile" href="https://www.symmetricfunctions.com/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">The Symmetric Functions Catalogue</span></span><span class="level-right"><span class="level-item tag">www.symmetricfunctions.com</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/speaking.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Speaking</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/writing.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Writing</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">How to study maths really quick (YouTube)</span></span><span class="level-right"><span class="level-item tag">www.youtube.com</span></span></a></li><li><a class="level is-mobile" href="https://www.bilibili.com/video/BV1GJ411x7h7" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">How to study maths really quick (Bilibili)</span></span><span class="level-right"><span class="level-item tag">www.bilibili.com</span></span></a></li></ul></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="../../index.html"><img src="../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a><p class="is-size-7"><span>&copy; 2022</span> <a rel="me noopener" target="_blank" href="https://mathstodon.xyz/@desvl">Desvl</a><br>Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+</div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="../6/">Previous</a></div><div class="pagination-next"><a href="../8/">Next</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="../../">1</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="../6/">6</a></li><li><a class="pagination-link is-current" href="">7</a></li><li><a class="pagination-link" href="../8/">8</a></li><li><a class="pagination-link" href="../9/">9</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="../../img/avatar.png" alt="Desvl"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Desvl</p><p class="is-size-6 is-block">A blog mainly on graduate mathematics.</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>A Noetherian local ring</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="../../archives"><p class="title">88</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="../../categories"><p class="title">45</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="../../tags"><p class="title">52</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="../../redirect/newsletter" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Compose an Email" href="../../redirect/email"><i class="fas fa-envelope"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="../../atom.xml"><i class="fas fa-rss"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Mathstodon" href="https://mathstodon.xyz/@desvl"><i class="fa-brands fa-mastodon"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://arxiv.org/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">arXiv</span></span><span class="level-right"><span class="level-item tag">arxiv.org</span></span></a></li><li><a class="level is-mobile" href="https://stacks.math.columbia.edu/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">The Stack Project</span></span><span class="level-right"><span class="level-item tag">stacks.math.columbia.edu</span></span></a></li><li><a class="level is-mobile" href="https://ncatlab.org/nlab/show/mathematics" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">nLab (Mathematics)</span></span><span class="level-right"><span class="level-item tag">ncatlab.org</span></span></a></li><li><a class="level is-mobile" href="https://q.uiver.app/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">quiver: a modern commutative diagram editor</span></span><span class="level-right"><span class="level-item tag">q.uiver.app</span></span></a></li><li><a class="level is-mobile" href="https://www.symmetricfunctions.com/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">The Symmetric Functions Catalogue</span></span><span class="level-right"><span class="level-item tag">www.symmetricfunctions.com</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/speaking.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Speaking</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/writing.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Writing</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">How to study maths really quick (YouTube)</span></span><span class="level-right"><span class="level-item tag">www.youtube.com</span></span></a></li><li><a class="level is-mobile" href="https://www.bilibili.com/video/BV1GJ411x7h7" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">How to study maths really quick (Bilibili)</span></span><span class="level-right"><span class="level-item tag">www.bilibili.com</span></span></a></li></ul></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="../../index.html"><img src="../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a><p class="is-size-7"><span>&copy; 2022</span> <a rel="me noopener" target="_blank" href="https://mathstodon.xyz/@desvl">Desvl</a><br>Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
             article: {
                 highlight: {
                     clipboard: true,

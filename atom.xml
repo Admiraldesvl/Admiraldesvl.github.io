@@ -6,7 +6,7 @@
   <link href="https://desvl.xyz/atom.xml" rel="self"/>
   
   <link href="https://desvl.xyz/"/>
-  <updated>2022-12-20T06:30:43.595Z</updated>
+  <updated>2022-12-23T02:59:08.133Z</updated>
   <id>https://desvl.xyz/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>The Pontryagin Dual group of Q_p</title>
+    <link href="https://desvl.xyz/2022/12/23/pontryagin-dual-q-p/"/>
+    <id>https://desvl.xyz/2022/12/23/pontryagin-dual-q-p/</id>
+    <published>2022-12-23T02:57:42.000Z</published>
+    <updated>2022-12-23T02:59:08.133Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>Let $G$ be a locally compact abelian group (for example, $\mathbb{R}$, $\mathbb{Z}$, $\mathbb{T}$, $\mathbb{Q}_p$). Then every irreducible <a href="https://en.wikipedia.org/wiki/Unitary_representation">unitary representation</a> $\pi:G \to U(\mathcal{H}_\pi)$ is one dimensional, where $\mathcal{H}_\pi$ is a non-zero Hilbert space, in which case we take it as $\mathbb{C}$. It follows that $\pi(x)(z)=\xi(x)z$ for all $z \in \mathbb{C}$ where $\xi \in \operatorname{Hom}(G,\mathbb{T})$, viewing $\mathbb{T}$ as the unit circle in the complex plane. Such homomorphisms are called (unitary) <strong>characters</strong>, and we denote all characters of $G$ by $\widehat{G}$, call it the Pontryagin dual group. It should ring a bell about representation theory in finite groups. For convenience, instead of $\xi(x)$, we often write $\langle x,\xi \rangle$. We also write $\langle x,\xi\rangle\langle y,\xi \rangle=\langle x+y ,\xi\rangle$, and the following examples will remind the reader the reason.</p><p>Some easily accessible examples are:</p><ul><li>$\widehat{\mathbb{R}} \cong \mathbb{R}$, with $\langle x,\xi \rangle = e^{2\pi i \xi x}$.</li><li>$\widehat{\mathbb{T}} \cong \mathbb{Z}$, with $\langle z, n \rangle = z^n$.</li><li>$\widehat{Z} \cong \mathbb{T}$, with $\langle n,z \rangle = z^n$. </li><li>$\widehat{\mathbb{Z}/k\mathbb{Z}} \cong \mathbb{Z}/k\mathbb{Z}$, with $\langle m,n\rangle =e^{2\pi i m n / k}$.</li></ul><h1 id="The-Dual-of-p-adic-Field"><a href="#The-Dual-of-p-adic-Field" class="headerlink" title="The Dual of p-adic Field"></a>The Dual of p-adic Field</h1><p>But we want to show that </p><script type="math/tex; mode=display">\widehat{\mathbb{Q}}_p \cong \mathbb{Q}_p.</script><p>It is broken down into several steps. But it shall be clear that $\mathbb{Q}_p$ is a topological group with respect to addition.</p><h2 id="Step-1-Find-the-simplest-character"><a href="#Step-1-Find-the-simplest-character" class="headerlink" title="Step 1 - Find the simplest character"></a>Step 1 - Find the simplest character</h2><p>Every $p$-adic number $x \in \mathbb{Q}_p$ can be written in the form </p><script type="math/tex; mode=display">x = \sum_{j=m}^{\infty}x_jp^j</script><p>where $m \in \mathbb{Z}$, $x_j \in \{1,2,\dots,p-1\}$ for all $j$. We immediately define </p><script type="math/tex; mode=display">\langle x,\xi_1 \rangle = \exp\left(2\pi i \sum_{j=m}^{\infty}x_jp^j\right),</script><p>and claim that $\xi_1$ is a character. Notice that the right hand side is always well-defined, because all summands when $j \ge 0$ contributes nothing as $\exp(2\pi i x_jp^j)=1$. That is to say, the right hand side can be understood as a finite product: when $m \ge 0$, i.e. $x \in \mathbb{Z}_p$, the pairing $\langle x, \xi \rangle = 1$; when $m&lt;0$ however, $\langle x,\xi_1 \rangle = \exp\left( 2\pi i \sum_{j=m}^{-1}x_jp^j\right)$. Therefore it is legitimate to write</p><script type="math/tex; mode=display">\langle x,\xi_1 \rangle =\exp (2\pi x).</script><p>From this it follows immediately that</p><script type="math/tex; mode=display">\langle x+y ,\xi_1 \rangle = \langle x,\xi_1 \rangle\langle y,\xi_1 \rangle.</script><p>The function $\xi_1$ is continuous because it is continuous on $\mathbb{Z}_p$, being constant. Therefore it is safe to say that $\xi_1$ is a character with kernel $\mathbb{Z}_p$. </p><p>A quick thought would be, generating all characters out of $\xi_1$, something like $\xi_p$, $\xi_{1+p+p^2+\dots}$. But that might lead to a nightmare of subscripts. Instead, we try to discover as many as possible. For any $y \in \mathbb{Q}_p$, we define</p><script type="math/tex; mode=display">\langle x,\xi_y\rangle = \langle xy,\xi_1\rangle.</script><p>In other words, $\xi_y$ is defined by $x \mapsto \langle xy,\xi_1\rangle$. Since multiplication is continuous, we see immediately that $\xi_y$ is a character, not very more complicated than $\xi_1$. We will show that this is all we need. To do this, we need to <em>characterise</em> all characters. Characters have the same image but their kernels differ. That is where we attack the problem.</p><h2 id="Step-2-Study-the-kernels-of-characters"><a href="#Step-2-Study-the-kernels-of-characters" class="headerlink" title="Step 2 - Study the kernels of characters"></a>Step 2 - Study the kernels of characters</h2><p>For $\xi_y$ above, notice that $\langle x,\xi_y\rangle=1$ if and only if $xy \in \ker\xi_1=\mathbb{Z}_p$, i.e. $|xy|_p \le 1$. Therefore</p><script type="math/tex; mode=display">\ker\xi_y = \{x:\|xy\|_p \le 1\}.</script><p>We expect that all characters are of the form $\xi_y$. Therefore their kernels shall be like $\ker\xi_y$ naturally. Notice that for fixed $y$, we have $|y|_p=p^m$ for some $m \in \mathbb{Z}$. As a result $\ker\xi_y = \overline{B}(0,p^{-m})$. For this reason we have the following (more obscure) argument</p><blockquote><p><strong>Lemma 1.</strong> If $\xi \in \widehat{\mathbb{Q}}_p$, there exists an integer $k$ such that $\overline{B}(0,p^{-k}) \subset \ker\xi$.</p></blockquote><p><em>Proof.</em> Since $\xi$ is continuous, $\langle 0,\xi\rangle=1$ on the circle, there exists $k$ such that $\overline{B}(0,p^{-k}) \subset \xi^{-1}\{z \in \mathbb{T}:|z-1| &lt; 1\}$ (this is to say the right hand side is an open set). But $\overline{B}(0,p^{-k})$ is a group (as $|\cdot|_p$ is non-Archimedean), therefore it maps into a subgroup of $\mathbb{T}$, which can only be $\{1\}$. $\square$</p><p>We cannot say the kernel of $\xi$ is exactly of the form $\overline{B}(0,p^{-k})$ yet, but we have a way to formalise them now. If $\overline{B}(0,p^{-k}) \subset \ker\xi$ for all $k$, then $\xi=1$ is the unit in $\widehat{\mathbb{Q}}_p$. Otherwise, for each $\xi$, there is a smallest $k_0$ such that $\overline{B}(0,p^{-k_0})\subset \ker\xi$ but $\overline{B}(0,p^{-k}) \not \subset \ker\xi$ whenever $k&lt;k_0$. In another way around, we have $\langle p^{k_0-1},\xi\rangle \ne1$ but $\langle p^k,\xi\rangle=1$ whenever $k \ge k_0$. As one may guess, such $k_0$ subjects to the “size” of $\xi$. For convenience we study the case when $k_0=0$ first.</p><blockquote><p><strong>Lemma 2 (“Fourier series”).</strong> Suppose for given $\xi \in \widehat{\mathbb{Q}}_p$, $\langle 1,\xi \rangle = 1$ but $\langle p^{-1},\xi \rangle \ne 1$. There is a sequence $(c_j)$ taking values in $\{0,1,\dots,p-1\}$ such that $\langle p^{-k},\xi \rangle=\exp\left(2\pi i\sum_1^k c_{k-j}p^{-j}\right)$ for all $k=1,2,\dots$. In particular, $c_0 \ne 0$.</p></blockquote><p><em>Proof.</em> Put $\omega_k=\langle p^{-k},\xi\rangle$. Then $\omega_0=1$ but $\omega_k \ne 1$ for all $k \ge 1$. Since</p><script type="math/tex; mode=display">\omega_{k+1}^p = \langle p^{-(k+1)},\xi \rangle^p=\langle p \cdot p^{-(k+1)},\xi \rangle =\langle p^{-k},\xi \rangle =\omega_k,</script><p>each $\omega_{k+1}$ is a $p$-th root of $\omega_{k}$, and in particular $\omega_1$ is a $p$-th root of unity. There exists $c_0 \in \{1,\dots,p-1\}$ such that </p><script type="math/tex; mode=display">\omega_1=\exp\left(2\pi i c_0p^{-1}\right),</script><p>and the overall formula for $\omega_k$ follows from induction. $\square$</p><p>One would guess that for the corresponding $k_0$, the “size” of $\xi$ should be $p^{k_0}$. This looks realistic, but will be tedious. Right now we still only study the case when $k_0=0$.</p><blockquote><p><strong>Lemma 3.</strong> Notation being in lemma 2, there exists $y \in \mathbb{Q}_p$ with $|y|_p=1$ such that $\xi = \xi_y$.</p></blockquote><p><em>Proof.</em> From lemma 2 we obtain a series $y=\sum_{j=0}^{\infty}c_jp^j$ with $c_0 \ne 0$. Then in particular $|y|_p=1$. By expanding the term, we see</p><script type="math/tex; mode=display">\begin{aligned}\langle p^{-k},\xi \rangle &= \exp\left(2\pi i \sum_1^k c_{k-j}p^{-j}\right) \\                           &= \exp\left(2\pi i \sum_{-k}^{-1} c_{j+k}p^j \right) \\                           &= \left\langle \sum_{-k}^{\infty}c_{j+k}p^j,\xi_1 \right\rangle= \langle p^{-k}y,\xi_1 \rangle = \langle p^{-k},\xi_y \rangle.\end{aligned}</script><p>It follows that $\langle x,\xi \rangle = \langle x,\xi_y \rangle$ for all $x \in \mathbb{Q}_p$. $\square$</p><p>Now we are ready to conclude our observation of the dual group.</p><h2 id="Step-3-Realise-the-dual-group"><a href="#Step-3-Realise-the-dual-group" class="headerlink" title="Step 3 - Realise the dual group"></a>Step 3 - Realise the dual group</h2><blockquote><p><strong>Theorem.</strong> The map $\Lambda:y \mapsto \xi_y$ is an isomorphism of topological groups. Hence $\mathbb{Q}_p \cong \widehat{\mathbb{Q}}_p$.</p></blockquote><p><em>Proof.</em> First of all we study the algebraic isomorphism. First of all if $\xi_y=1$, then </p><script type="math/tex; mode=display">\{x \in \mathbb{Q}_p:\|xy\|_p \le 1\}= \mathbb{Q}_p \implies y=0.</script><p>Hence the map $\Lambda$ is injective. To show that $\Lambda$ is surjective, fix $\xi \in \widehat{\mathbb{Q}}_p$. By the comment below lemma 1, there is a smallest integer $k$ such that $\langle p^j,\xi \rangle = 1$. Then one considers the character $\eta$ defined by</p><script type="math/tex; mode=display">\langle x,\eta \rangle = \langle p^j x,\xi \rangle.</script><p>It satisfies the condition in lemma 3, therefore there exists $z \in \mathbb{Q}_p$ such that $\eta=\xi_z$, and it follows that $\xi=\xi_{p^{-k}z}$.</p><p>Next we show that $\Lambda$ is a homeomorphism. Observe the following sets</p><script type="math/tex; mode=display">N(\ell,k)=\{\xi \in \widehat{\mathbb{Q}}_p:|\langle x,\xi\rangle-1|\le \ell^{-1}\text{ for }\|x\|_p \le p^{k}\}</script><p>ranging over $\ell \ge 1$ and $k \in \mathbb{Z}$. These sets constitute a local base at $1$ for $\widehat{\mathbb{Q}}_p$. We need to show that it corresponds to a local base of $\mathbb{Q}_p$ under the map $\Lambda$:</p><p> The image of the set $\{x:|x|_p \le p^k\}$ under $\xi_1$ is $\{1\}$ if $k \le 1$ and is the group of $p^k$-th roots of unity if $k&gt;0$, and hence is contained in $\{z:|z-1|&lt;\ell^{-1}\}$ if and only if $k \le 0$. It follows that $\xi_y \in N(\ell,k)$ if and only if $|y|_p \le p^{-k}$, i.e., $y \in \overline{B}(0,p^{-k})$. We are done. $\square$</p>]]></content>
+    
+    
+    <summary type="html">In this post we show that the Pontryagin dual group of $\mathbb{Q}_p$ is isomorphic to itself.</summary>
+    
+    
+    
+    <category term="Number Theory" scheme="https://desvl.xyz/categories/Number-Theory/"/>
+    
+    <category term="p-Adic Analysis" scheme="https://desvl.xyz/categories/Number-Theory/p-Adic-Analysis/"/>
+    
+    
+    <category term="p-adic" scheme="https://desvl.xyz/tags/p-adic/"/>
+    
+    <category term="Pontryagin" scheme="https://desvl.xyz/tags/Pontryagin/"/>
+    
+  </entry>
   
   <entry>
     <title>The Haar Measure on the Field of p-Adic Numbers</title>
@@ -87,9 +112,9 @@
     
     <category term="Exercise solution" scheme="https://desvl.xyz/tags/Exercise-solution/"/>
     
-    <category term="Serge Lang" scheme="https://desvl.xyz/tags/Serge-Lang/"/>
-    
     <category term="Study new content" scheme="https://desvl.xyz/tags/Study-new-content/"/>
+    
+    <category term="Serge Lang" scheme="https://desvl.xyz/tags/Serge-Lang/"/>
     
   </entry>
   
@@ -134,9 +159,9 @@
     
     <category term="Algebra" scheme="https://desvl.xyz/categories/Algebra/"/>
     
-    <category term="Galois Theory" scheme="https://desvl.xyz/categories/Algebra/Galois-Theory/"/>
-    
     <category term="Field Theory" scheme="https://desvl.xyz/categories/Algebra/Field-Theory/"/>
+    
+    <category term="Galois Theory" scheme="https://desvl.xyz/categories/Algebra/Galois-Theory/"/>
     
     
     <category term="Exercise solution" scheme="https://desvl.xyz/tags/Exercise-solution/"/>
@@ -161,9 +186,9 @@
     
     <category term="Algebra" scheme="https://desvl.xyz/categories/Algebra/"/>
     
-    <category term="Galois Theory" scheme="https://desvl.xyz/categories/Algebra/Galois-Theory/"/>
-    
     <category term="Number Theory" scheme="https://desvl.xyz/categories/Number-Theory/"/>
+    
+    <category term="Galois Theory" scheme="https://desvl.xyz/categories/Algebra/Galois-Theory/"/>
     
     <category term="Algebraic Number Theory" scheme="https://desvl.xyz/categories/Number-Theory/Algebraic-Number-Theory/"/>
     
@@ -190,11 +215,11 @@
     
     <category term="Algebra" scheme="https://desvl.xyz/categories/Algebra/"/>
     
+    <category term="Commutative Algebra" scheme="https://desvl.xyz/categories/Algebra/Commutative-Algebra/"/>
+    
     <category term="Number Theory" scheme="https://desvl.xyz/categories/Number-Theory/"/>
     
     <category term="Algebraic Number Theory" scheme="https://desvl.xyz/categories/Number-Theory/Algebraic-Number-Theory/"/>
-    
-    <category term="Commutative Algebra" scheme="https://desvl.xyz/categories/Algebra/Commutative-Algebra/"/>
     
     <category term="p-adic Analysis" scheme="https://desvl.xyz/categories/Number-Theory/p-adic-Analysis/"/>
     
@@ -256,9 +281,9 @@
     
     <category term="Number Theory" scheme="https://desvl.xyz/categories/Number-Theory/"/>
     
-    <category term="Algebraic Number Theory" scheme="https://desvl.xyz/categories/Number-Theory/Algebraic-Number-Theory/"/>
-    
     <category term="Geometry" scheme="https://desvl.xyz/categories/Geometry/"/>
+    
+    <category term="Algebraic Number Theory" scheme="https://desvl.xyz/categories/Number-Theory/Algebraic-Number-Theory/"/>
     
     <category term="Algebraic Geometry" scheme="https://desvl.xyz/categories/Geometry/Algebraic-Geometry/"/>
     
@@ -339,9 +364,9 @@
     
     
     
-    <category term="Algebra" scheme="https://desvl.xyz/categories/Algebra/"/>
-    
     <category term="Analysis" scheme="https://desvl.xyz/categories/Analysis/"/>
+    
+    <category term="Algebra" scheme="https://desvl.xyz/categories/Algebra/"/>
     
     <category term="Representation Theory" scheme="https://desvl.xyz/categories/Algebra/Representation-Theory/"/>
     
@@ -428,9 +453,9 @@
     
     <category term="Algebra" scheme="https://desvl.xyz/categories/Algebra/"/>
     
-    <category term="Galois Theory" scheme="https://desvl.xyz/categories/Algebra/Galois-Theory/"/>
-    
     <category term="Group Theory" scheme="https://desvl.xyz/categories/Algebra/Group-Theory/"/>
+    
+    <category term="Galois Theory" scheme="https://desvl.xyz/categories/Algebra/Galois-Theory/"/>
     
     
     <category term="Examples in Galois Theory" scheme="https://desvl.xyz/tags/Examples-in-Galois-Theory/"/>
@@ -453,9 +478,9 @@
     
     <category term="Algebra" scheme="https://desvl.xyz/categories/Algebra/"/>
     
-    <category term="Galois Theory" scheme="https://desvl.xyz/categories/Algebra/Galois-Theory/"/>
-    
     <category term="Group Theory" scheme="https://desvl.xyz/categories/Algebra/Group-Theory/"/>
+    
+    <category term="Galois Theory" scheme="https://desvl.xyz/categories/Algebra/Galois-Theory/"/>
     
     
     <category term="Examples in Galois Theory" scheme="https://desvl.xyz/tags/Examples-in-Galois-Theory/"/>
@@ -478,14 +503,14 @@
     
     <category term="Algebra" scheme="https://desvl.xyz/categories/Algebra/"/>
     
-    <category term="Galois Theory" scheme="https://desvl.xyz/categories/Algebra/Galois-Theory/"/>
-    
     <category term="Group Theory" scheme="https://desvl.xyz/categories/Algebra/Group-Theory/"/>
     
+    <category term="Galois Theory" scheme="https://desvl.xyz/categories/Algebra/Galois-Theory/"/>
     
-    <category term="Examples in Galois Theory" scheme="https://desvl.xyz/tags/Examples-in-Galois-Theory/"/>
     
     <category term="Artin" scheme="https://desvl.xyz/tags/Artin/"/>
+    
+    <category term="Examples in Galois Theory" scheme="https://desvl.xyz/tags/Examples-in-Galois-Theory/"/>
     
   </entry>
   
@@ -512,9 +537,9 @@
     <category term="Non-Commutative Ring" scheme="https://desvl.xyz/categories/Algebra/Non-Commutative-Ring/"/>
     
     
-    <category term="Serge Lang" scheme="https://desvl.xyz/tags/Serge-Lang/"/>
-    
     <category term="Study new content" scheme="https://desvl.xyz/tags/Study-new-content/"/>
+    
+    <category term="Serge Lang" scheme="https://desvl.xyz/tags/Serge-Lang/"/>
     
     <category term="Axiom of Choice" scheme="https://desvl.xyz/tags/Axiom-of-Choice/"/>
     
@@ -548,33 +573,6 @@
     
     
     <category term="Study new content" scheme="https://desvl.xyz/tags/Study-new-content/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>The ring of real trigonometric polynomials</title>
-    <link href="https://desvl.xyz/2021/12/24/The-ring-of-real-trigonometric-polynomials/"/>
-    <id>https://desvl.xyz/2021/12/24/The-ring-of-real-trigonometric-polynomials/</id>
-    <published>2021-12-23T16:00:00.000Z</published>
-    <updated>2022-12-19T04:01:21.922Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="The-ring"><a href="#The-ring" class="headerlink" title="The ring"></a>The ring</h2><p>Throughout we consider the polynomial ring</p><script type="math/tex; mode=display">R=\mathbb{R}[\cos{x},\sin{x}].</script><p>This ring has a lot of non-trivial properties which give us a good chance to study commutative ring theory. </p><span id="more"></span><p>First of all, note it is immediate that</p><script type="math/tex; mode=display">R \cong \mathbb{R}[X,Y]/(X^2+Y^2-1)</script><p>if the map is given by $X \mapsto \cos x$ and $Y \mapsto \sin x$. Besides, in $R$ we have</p><script type="math/tex; mode=display">\sin^2x=(1-\cos{x})(1+\cos{x})=\sin{x}\cdot\sin{x}</script><p>which indicates us to study whether $R$ is a UFD. In fact, it is not, because the ideal class group is $\mathbb{Z}/2\mathbb{Z}$. A Dedekind domain is a UFD if and only if its ideal class group is trivial (<a href="https://math.mit.edu/classes/18.785/2017fa/LectureNotes3.pdf">corollary 3.22</a>). </p><p>This blog post is inspired by an exercise on Serge Lang’s <em>Algebra</em>. But when writing this blog post, I found some paywalls. It would be absurd of me to direct a random reader to these paywalls. So it is very likely that I will include proofs as many as possible (when there is an absurd paywall, and chances are I will rework them for readability). But I can’t remove the assumption that the reader has finished Atiyah-MacDonald full book or equivalences at the very least. I will add more topics in the future but that is not an easy job.</p><h3 id="Normal-Noetherian-ring"><a href="#Normal-Noetherian-ring" class="headerlink" title="Normal Noetherian ring"></a>Normal Noetherian ring</h3><p>By Hilbert’s basis theorem, $\mathbb{R}[\cos{x},\sin{x}]$ is Noetherian because it is a finite $\mathbb{R}$-algebra. Now we are interested in the normality of it. Since $\mathbb{R}[X,Y]/(X^2+Y^2-1) \cong \mathbb{R}[X][Y]/(Y^2-(1-X^2))$ and $2$ is a unit, $1-X^2$ is square-free but not a unit, we can apply the following lemma to show that $R$ is a normal Noetherian ring (integrally closed in its field of fraction). For the definition and properties of a normal ring, please refer to the <a href="https://stacks.math.columbia.edu/tag/037B">stack project</a>.</p><blockquote><p> <strong>(Lemma 1)</strong> Let $A$ be a factorial ring with the field of fraction $K$ in which $2$ is a unit, $a$ in $A$ a square-free element (i.e., if $p$ is a prime element in $A$, then $a \not\in p^2A)$ which is not a unit. Then $A[T]/(T^2-a)$ is normal.</p></blockquote><details>    <summary>Click to expand the proof.</summary><i>Proof.</i> By definition, we need to show that $A[T]/(T^2-a)$ is integrally closed in its field of fraction $L$. First we investigate the structure of $L$.<br>Let $t$ be the image of $T$ in $A[T]/(T^2-a)$ and in $L$. Then it is clear that $A[t] \cong A[T]/(T^2-a)$ and we can write $L=K(t)$. Note an element in $K(t)$ is of degree at most $1$, which is to say every element in $L$ can be written uniquely as a sum $r+st$ where $r,s \in K$. To prove integral closeness, we need to find minimal polynomial of $r+st$. <br>Next we show when $A[t]$ is integrally closed. Note$$    \begin{aligned}        \left[(r+st)-r\right]^2=(st)^2 &= s^2[T^2+(T^2-a)]\\                            &= s^2[a+T^2-a+(T^2-a)]\\                            &= as^2    \end{aligned}$$Hence $f(X)=(X-r)^2-as^2$ sends $r+st$ to $0$. For polynomial of degree $1$, we can only write $g(X)=X-X$ such that $g(r+st)=0$, which is absurd. Hence $f(X)$ is the minimal polynomial of $r+st$. With these being said, $r+st$ is integral over $A[t]$ if and only if $-2r \in A[t]$ and $r^2-as^2 \in A[t]$. We need to show this implies $r+st \in A[t]$. Since we can consider $A$ to be a subring of $A[t]$, it suffices to show that $r,s \in A$, provided $-2r \in A$ and $r^2-as^2 \in A$ when $s \ne 0$.<br>Since $2$ is a unit in $A$, $-2r \in A$ clearly implies $r \in A$. It remains to prove that $-as^2 \in A$. For $s \in K$, we can write $s=s_1/s_2$ with $s_1,s_2 \in A$ relatively prime. We shall show that $s_2$ will always be a unit, which implies that $s \in A$.  Write $as^2=h$, then we have $as_1^2=hs_2^2$. Assume $s_2$ is not a unit, then there is a prime $p$ divides $s_2$ as $A$ is a factorial ring. hence $as_1^2 = hs_2^2 \in p^2A$. Since $s_1$ and $s_2$ are relatively prime, $p$ and $p^2$ do not divide $s_1$, hence $a \in p^2A$, a contradiction (we have assumed $a$ to be square-free. Also, the assumption that $a$ is not a unit is used here to reach the contradiction). Hence $s_2$ is a unit, $s \in A$ and therefore $-as^2 \in A$. The proof is complete. $\square$</details><p>Of course, I shan’t be this lazy. It is clear that in the factorial ring $A=\mathbb{R}[X]$, $2$ is a unit. By square-free, we mean, if $p \in A$ is prime, then $a \not \in  p^2A$. For example, in $\mathbb{Z}$, $12$ is not square-free because $12=2^2 \times 3 \in 2^2\mathbb{Z}$ while $14$ is square-free because $14=2 \times 7$ and square does not appear.  And for $1-X^2$ things is clear because we only have $1-X^2=(1-X)(1+X)$ - there is no square. We require $2$ to be a unit because if not this argument becomes much more difficult to prove. We shall return to normality after we study the irreducible elements. </p><hr><p>To conclude we have got a satisfying result: <br></p><blockquote><p><strong>(Proposition 1)</strong> $R$ is a normal Noetherian ring.</p></blockquote><h3 id="Irreducible-Elements"><a href="#Irreducible-Elements" class="headerlink" title="Irreducible Elements"></a>Irreducible Elements</h3><p>With help of Fourier transform or elementary trigonometric relations, every polynomial in $R=\mathbb{R}[\cos{x},\sin{x}]$ can be written in the form</p><script type="math/tex; mode=display">P(x) = a_0+\sum_{k=1}^{n}(a_k\cos{kx}+b_k\sin{kx})</script><p>where $a_0,a_k,b_k \in \mathbb{R}$. Define the degree $\delta(P)$ to be the maximum of integers $r,s$ where $a_r,b_s \ne 0$. Then a direct computation shows that $\delta(PQ)=\delta(P)+\delta(Q)$. This is not the case when the scalar is complex. For example, $(\cos{x}+i\sin{x})(\cos{x}-i\sin{x})=1$.</p><p>If $\delta(P)=0$, then $P(x)=a_0$ is zero or a unit. If $\delta(P)=1$, then if we have $P=P_1P_2$, then $\delta(P_1)+\delta(P_2)=1$. One of them has to be unit, hence $P$ is irreducible. If $\delta(P)=2$, then $P$ is reducible because we can solve equations in the expansion of the product</p><script type="math/tex; mode=display">(a+b\sin{x}+c\cos{x})(a'+b'\sin{x}+c'\cos{x}).</script><p>By induction all polynomials of degree $\ge 2$ is reducible. Hence irreducible elements are of the form</p><script type="math/tex; mode=display">a+b\sin{x}+c\cos{x} \quad (b,c) \ne (0,0).</script><p>But since $R$ is not a UFD, we cannot work on the ideal $(a+b\sin{x}+c\cos{x})$ directly. We need to dive into abstraction for a long time.</p><h3 id="Dedekind-Domain"><a href="#Dedekind-Domain" class="headerlink" title="Dedekind Domain"></a>Dedekind Domain</h3><p>We now proceed to another satisfying result.</p><blockquote><p><strong>(Proposition 2)</strong> $R$ is a Dedekind domain.</p></blockquote><p><em>Proof.</em> Throughout, we work on the form $R \cong \mathbb{R}[X,Y]/(X^2+Y^2-1)$. Since $\mathbb{R}[X,Y]$ is of Krull dimension $2$ (see Atiyah-MacDonald exercise 11.7, where a solution is almost given), $X^2+Y^2-1$ is irreducible, we have a prime ideal $(X^2+Y^2-1)$, and all prime ideals $P \subset \mathbb{R}[X,Y]$ strictly containing $(X^2+Y^2-1)$ are maximal. Next, let the canonical map $\pi:\mathbb{R}[X,Y] \to \mathbb{R}[X,Y]/(X^2+Y^2-1)$ be given. By proposition 1.1 of Atiyah-MacDonald, $\pi(P)$ are maximal ideals in $\mathbb{R}[X,Y]/(X^2+Y^2-1)$ provided that $P \supsetneq (X^2+Y^2-1)$ is prime. If nontrivial ideal $Q \subset \mathbb{R}[X,Y]/(X^2+Y^2-1)$ is prime, then $\pi^{-1}(Q)=Q^c$ is also prime, and it contains $(X^2+Y^2-1)$ strictly, which implies that $Q$ is maximal. Hence $R$ is of Krull dimension $1$. By proposition 1, $R$ is integrally closed, hence it is Dedekind. $\square$</p><h3 id="Krull-Domain-Ideal-Class-Group-Half-Factorial-Domain"><a href="#Krull-Domain-Ideal-Class-Group-Half-Factorial-Domain" class="headerlink" title="Krull Domain, Ideal Class Group, Half-Factorial Domain"></a>Krull Domain, Ideal Class Group, Half-Factorial Domain</h3><p>Let $A$ be an integral domain and $P$ be the set of all prime ideals of height $1$, i.e. the set of all prime ideals that only contain itself as a nonzero prime ideal. Then $A$ is a Krull domain if</p><p>(KD1)  $A_{\mathfrak{p}}$ is a discrete valuation ring for all $\mathfrak{p} \in P$.<br>(KD2) $A$ is the intersection of these discrete valuation rings (all considered as subrings of the field of fraction of $A$.<br>(KD3) Any nonzero element of $A$ is contained in only a finite number of height $1$ prime ideals.</p><p>To proceed our study of $R$, we need a lemma:</p><blockquote><p><strong>(Lemma 2)</strong> If $A$ is a Dedekind domain, then $A$ is also a Krull domain.</p></blockquote><details>    <summary> Click to expand the proof </summary><i>Proof.</i> Since in a Dedekind domain, every prime ideal is of height $1$, (KD1) coincides with one of the equivalent definition of Dedekind domain.<br>Next we prove (KD3). Pick any nonzero $a \in A$. If $a$ is a unit, then it is contained in $0$ ideals. If not, consider the ring $(a)=aA$. We have a unique factorisation as a product of prime ideals:$$    (a)= \mathfrak{p}_1^{r_1}\cdots\mathfrak{p}_n^{r_n} \subset \bigcap_{j=1}^{n}\mathfrak{p}_j.$$Hence (KD3) is proved.<br>For (KD2), note first $A \subset \bigcap_{\mathfrak{p}}A_{\mathfrak{p}}$ because the natural map $A \to A_{\mathfrak{p}}$ is injective for all $\mathfrak{p}$. Hence it suffices to prove the reverse. But elements in $A_{\mathfrak{p}}$ are of the form $a/s$. Hence we expect those elements of the form $b/1$ to be in $A$. Therefore it suffices to prove that $b/1 \in (a/1)A_{\mathfrak{p}}$ for all prime $\mathfrak{p}$ implies $b \in aA$ for all $a,b \in A$, $a ,b\ne 0$. Put$$    (a)=\mathfrak{p}_1^{r_1}\cdots\mathfrak{p}_n^{r_n}$$we see $\mathfrak{q}_i = \mathfrak{p}_i^{r_i}$ is $\mathfrak{p}_i$-primary and we obtain a primary decomposition. Note we in particular have$$    b \in \bigcap_{j=1}^{n}\left(aA_{\mathfrak{p}_i} \cap A \right) = \bigcap_{j=1}^{n}\mathfrak{q}_i = aA$$because each $\mathfrak{p}_i$ has height $1$. $\square$</details><p>Which is to say that</p><blockquote><p><strong>(Proposition 3)</strong> $R$ is a Krull domain.</p></blockquote><p>We know that since $R$ is Dedekind, its fractional ideals form an abelian group. This gives rise to the <a href="https://en.wikipedia.org/wiki/Ideal_class_group">ideal class group</a>. By a result of Samuel, we have a shockingly simple fact:</p><blockquote><p><strong>(Proposition 4)</strong> The ideal class group $Cl(R) \cong \mathbb{Z}/2\mathbb{Z}$.</p></blockquote><p>Which can be considered as a corollary to this following statement:</p><blockquote><p><strong>(Samuel)</strong> Let $F$ be a non-degenerate quadratic form in $k[X_1,X_2,X_3]$. Let $A_F=k[X_1,X_2,X_3]/(F)$. Then $Cl(A_F)=\mathbb{Z}/2\mathbb{Z}$ if and only if there is a nontrivial solution to $F(X_1,X_2,X_3)=0$ in $k$.</p></blockquote><p>One can find this result via <a href="http://www.math.tifr.res.in/~publ/ln/tifr30.pdf">this link</a>, and refer to <strong>study of plane conics</strong>. </p><p>With these being said, by theorem 8 of Zaks’ <a href="https://www.ams.org/journals/bull/1976-82-05/S0002-9904-1976-14130-4/home.html">paper</a>, one sees that $R$ is a HFD domain. To be precise, for polynomials $x_1,x_2,\cdots,x_n$ and $y_1,y_2,\cdots,y_m$, if $x_1x_2\cdots x_n=y_1y_2\cdots y_m$, then $m=n$. I may recover the proof here one day, but it would be much more difficult than writing everything you have seen here. This ring $R$​ also shows that HFD is not necessarily UFD.</p><h3 id="Maximal-ideals-of-R"><a href="#Maximal-ideals-of-R" class="headerlink" title="Maximal ideals of $R$"></a>Maximal ideals of $R$</h3><p>Since $Cl(R) \cong \mathbb{Z}/2\mathbb{Z}$, for any maximal ideal $M \subset A$, either it is principal or $M^2$ is principal. If $M$ and $M’$ are two non-principal ideal, then $MM’$ is principal. Conversely, for any irreducible $z \in R$, either $(z)$ is maximal or $(z)=MM’$ for some maximal ideal $M$ and $M’$, and $M$ and $M’$ may coincide. We have given the form of irreducible elements</p><script type="math/tex; mode=display">z = a+b\sin{x}+c\cos{x},\quad (b,c) \ne (0,0).</script><p>So we are now interested in these $a,b,c$​. We will do some high school trick first. If we put</p><script type="math/tex; mode=display">\begin{cases}k = \frac{a}{\sqrt{b^2+c^2}} \\b' = \frac{b}{\sqrt{b^2+c^2}} \\c' = \frac{c}{\sqrt{b^2+c^2}}\end{cases}</script><p>then $z= \sqrt{a^2+b^2}(\sin(x+\alpha)+k)$​ where $b’=\cos\alpha$​ and $c’ = \sin\alpha$​. Since $\sqrt{a^2+b^2} \in \mathbb{R}$​​ it suffices to study ​elements of the form $\sin(x+\alpha)+k$​. </p><p>Define a shift morphism $h:R \to R$ by</p><script type="math/tex; mode=display">h(\cos{x})=\cos(x+\alpha), \quad h(\sin{x}) = \sin(x+\alpha), \quad h(t) = t</script><p>This map is clearly an isomorphism. More importantly, since</p><script type="math/tex; mode=display">h(\sin{x}+k)=\sin(x+\alpha)+k,</script><p>the primary decomposition of $(\sin(x+\alpha)+k)$ and $(\sin{x}+k)$​ are of the same form. We are interested in the ring $R/(\sin{x}+k)$, where it is natural to study the behaviour of $\cos{x}$​. For this reason we consider the substitution morphism</p><script type="math/tex; mode=display">\begin{aligned}g:\mathbb{R}[X] & \to R \\             X  & \mapsto \cos{x}.\end{aligned}</script><p>We first compute the inverse image $g^{-1}[(\sin{x}+k)]$​. It is natural to think about cancelling $\sin x$ into $\cos x$. Note $(\sin x + k)( \sin x - k) = (\sin^2x -k^2) = (1- \cos^2x-k^2)$, pick whichever $P(X) \in (1-k^2-X^2)$, we have</p><script type="math/tex; mode=display">g(P(X))=P(\cos{x}) = (1-\cos^2x-k^2)Q(\cos{x})=(\sin{x}+k)(\sin{x}-k)Q(\cos{x})</script><p>Hence $(1-k^2-X^2)\subset g^{-1}[(\sin{x}+k)]$​. For the converse, note that if nonzero $P \in g^{-1}[(\sin x + k)]$, we have $\deg P &gt; 1$ because trigonometric polynomial of the form $a+b\cos x$ can never be divided by $\sin x + k$​. By Euclidean algorithm, we find $Q(X)$, $R(X)$ such that</p><script type="math/tex; mode=display">P(X)=Q(X)(1-k^2-X^2) + R(X)</script><p>with $\deg R \le 1.$​ But when $P \in g^{-1}[(\sin x + k)]$​, we must have $R(X)=0$​​, according to our study of the degree earlier. Hence we must have $P(X) \in (1-k^2-X^2)$​, which is to say</p><script type="math/tex; mode=display">g^{-1}[(\sin x + k)]= (1-k^2-X^2).</script><p>This induces an isomorphism</p><script type="math/tex; mode=display">\mathbb{R}[X]/(1-k^2-X^2) \cong R/(k+\sin x).</script><p>And it is much easier to study the ideal $1-k^2-X^2$. To be precise,</p><ol><li>$k^2=1 \iff (1-k^2-X^2)=(X)^2 \iff (k+\sin x)=M^2$ for some maximal ideal $M$, because $(X)$ is a maximal ideal.</li><li>$k^2&lt;1 \iff (1-k^2-X^2)$​ is a product of two distinct maximal ideals $\iff (k+\sin x)$ is a product of two distinct maximal ideals $M$ and $M’$.</li><li>$k^2&gt;1 \iff (1-k^2-X^2)$ is maximal $\iff$ $(k+\sin x)$ is maximal.</li></ol><p>Therefore maximal ideals of $R$​ are determined by $k$, or more precisely the relation between $c^2$ and $a^2+b^2$​. Moreover, let $M$ be a maximal ideal, we have</p><ol><li>If $M$​ is principal, then there exists $\alpha$ and $k$ such that</li></ol><script type="math/tex; mode=display">M = (\sin(x+\alpha) + k)</script><p>and $R/M \cong \mathbb{C}$​.</p><ol><li>If $M$​ is not principal, then there exists $\alpha \in \mathbb{R}$ such that</li></ol><script type="math/tex; mode=display">M = (\sin(x+\alpha)+1,\cos(x+\alpha)), \quad M^2 = (\sin(x+\alpha)+1).</script><p>and $R/M \cong \mathbb{R}$.</p><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ol><li>Robert M. Fossum, <em>The Divisor Class Group of a Krull Domain</em>.</li><li>M. F. Atiyah, FRS &amp;  I. G. MacDonald, <em>Introduction to Commutative Algebra</em>.</li><li>Macro Fontana, Salah-Eddine Kabbaj, Sylvia Wiegand, <em>Commutative Ring Theory and Applications.</em></li><li>Hideyuki Matsumura, <em>Commutative Ring Theory</em>.</li><li>P. Samuel, <em>Lectures on Unique Factorization Domains</em>.</li><li>A. Zaks, <em>Half Factorial Domains</em>.</li></ol>]]></content>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;The-ring&quot;&gt;&lt;a href=&quot;#The-ring&quot; class=&quot;headerlink&quot; title=&quot;The ring&quot;&gt;&lt;/a&gt;The ring&lt;/h2&gt;&lt;p&gt;Throughout we consider the polynomial ring&lt;/p&gt;
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;
-R=\mathbb{R}[\cos{x},\sin{x}].&lt;/script&gt;&lt;p&gt;This ring has a lot of non-trivial properties which give us a good chance to study commutative ring theory. &lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Algebra" scheme="https://desvl.xyz/categories/Algebra/"/>
-    
-    <category term="Commutative Algebra" scheme="https://desvl.xyz/categories/Algebra/Commutative-Algebra/"/>
-    
-    
-    <category term="Study new content" scheme="https://desvl.xyz/tags/Study-new-content/"/>
-    
-    <category term="Noetherian" scheme="https://desvl.xyz/tags/Noetherian/"/>
     
   </entry>
   
