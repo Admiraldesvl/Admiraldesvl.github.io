@@ -29,7 +29,169 @@
       switchTab();
       window.addEventListener('hashchange', switchTab, false);
   })();
-  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="../../index.html"><img src="../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="../../index.html">Home</a><a class="navbar-item" href="../../archives">Archives</a><a class="navbar-item" href="../../categories">Categories</a><a class="navbar-item" href="../../tags">Tags</a><a class="navbar-item" href="../../about">About (Updated Aug. 2022)</a><a class="navbar-item" href="../../link-exchange">Link Exchange</a><a class="navbar-item" href="../../support-the-author">Support the Author</a></div><div class="navbar-end"></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-06-06T03:18:04.000Z" title="06/06/2020, 11:18:04">2020-06-06</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-10-23T00:19:31.959Z" title="23/10/2021, 08:19:31">2021-10-23</time></span><span class="level-item"><a class="link-muted" href="../../categories/Analysis/">Analysis</a><span> / </span><a class="link-muted" href="../../categories/Analysis/Functional-Analysis/">Functional Analysis</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2020/06/06/big-3-pt-1/">The Big Three Pt. 1 - Baire Category Theorem Explained</a></h1><div class="content"><h2 id="About-the-‘Big-Three’"><a href="#About-the-‘Big-Three’" class="headerlink" title="About the ‘Big Three’"></a>About the ‘Big Three’</h2><p>There are three theorems about Banach spaces that occur frequently in the crux of functional analysis, which are called the ‘big three’:</p>
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="../../index.html"><img src="../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="../../index.html">Home</a><a class="navbar-item" href="../../archives">Archives</a><a class="navbar-item" href="../../categories">Categories</a><a class="navbar-item" href="../../tags">Tags</a><a class="navbar-item" href="../../about">About (Updated Aug. 2022)</a><a class="navbar-item" href="../../link-exchange">Link Exchange</a><a class="navbar-item" href="../../support-the-author">Support the Author</a></div><div class="navbar-end"></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-06-30T02:55:50.000Z" title="30/06/2020, 10:55:50">2020-06-30</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-10-06T08:24:12.986Z" title="06/10/2021, 16:24:12">2021-10-06</time></span><span class="level-item"><a class="link-muted" href="../../categories/Analysis/">Analysis</a><span> / </span><a class="link-muted" href="../../categories/Analysis/Functional-Analysis/">Functional Analysis</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2020/06/30/big-3-pt-2/">The Big Three Pt. 2 - The Banach-Steinhaus Theorem</a></h1><div class="content"><h2 id="About-this-blog-post"><a href="#About-this-blog-post" class="headerlink" title="About this blog post"></a>About this blog post</h2><p>People call the Banach-Steinhaus theorem the first of the big three, which sits at the foundation of linear functional analysis. None of them can go without the Baire’s category theorem. </p>
+<p>This blog post offers the Banach-Steinhaus theorem on different abstract levels. Recall that we have</p>
+<script type="math/tex; mode=display">
+\text{TVS} \supset \text{Metrizable TVS} \supset \text{F-space} \supset \text{Fréchet space}\supset\text{Banach space} \supset \text{Hilbert space}</script><p>First, there will be a simple version for Banach spaces, which may be more frequently used, and you will realize why it’s referred to as the <em>uniform boundedness principle</em>. After that, there will be a much more generalized version for TVS. Typically, the metrization of the space will not be considered.</p>
+<p>Also, it will be a good chance to get a better view of the first and second space by Baire.</p>
+<h2 id="Equicontinuity"><a href="#Equicontinuity" class="headerlink" title="Equicontinuity"></a>Equicontinuity</h2><p>For metric spaces, equicontinuity is defined as follows. Let $(X,d_X)$ and $(Y,d_Y)$ be two metric spaces.</p>
+<blockquote>
+<p>Let $\Lambda$ be a collection of functions from $X$ to $Y$. We have three different levels of equicontinuity.</p>
+<ol>
+<li><strong>Equicontinuous at a point</strong>. For $x_0 \in X$, if for every $\varepsilon&gt;0$, there exists a $\delta&gt;0$ such that $d_Y(Lx_0,Lx)&lt;\varepsilon$ for <strong>all</strong> $L \in \Lambda$ and $d_X(x_0,x)&lt;\delta$ (that is, the continuity holds for all $L$ in a ball centered at $x_0$ with radius $r$).</li>
+<li><strong>Pointwise equicontinuous</strong>. $\Lambda$ is equicontinuous at each point of $X$.</li>
+<li><strong>Uniformly equicontinuous</strong>. For every $\varepsilon&gt;0$, there exists a $\delta&gt;0$ such that $d_Y(Lx,Ly)&lt;\varepsilon$ for all $x \in \Lambda$ and $x,y \in X$ such that $d_X(x,y) &lt; \delta$.</li>
+</ol>
+</blockquote>
+<p>Indeed, if $\Lambda$ contains only one element, namely $L$, then everything goes with the continuity and uniform continuity. </p>
+<p>But for Banach-Steinhaus theorem, we need a little more restrictions. In fact, $X$ and $Y$ should be considered Banach spaces, and $\Lambda$ contains linear functions only. In this sense, for $L \in \Lambda$, we have the following three conditions equivalent.</p>
+<blockquote>
+<ol>
+<li>$L$ is bounded.</li>
+<li>$L$ is continuous.</li>
+<li>$L$ is continuous at one point of $X$.</li>
+</ol>
+</blockquote>
+<hr>
+<p>For topological vector spaces, where only topology and linear structure are taken into consideration, things get different. Since no metrization is considered, we have to state it in the language of topology.</p>
+<blockquote>
+<p>Suppose $X$ and $Y$ are TVS and $\Lambda$ is a collection of linear functions from $X$ to $Y$. $\Lambda$ is equicontinuous if for every neighborhood $N$ of $0$ in $Y$, there corresponds a neighborhood $V$ of $0$ in $X$ such that $L(V) \subset N$ for all $L \in \Lambda$.</p>
+</blockquote>
+<p>Indeed, for TVS, $L \in \Lambda$ has the three conditions equivalent as well. With that being said, equicontinuous collection has the boundedness property in a uniform manner. That’s why the Banach-Steinhaus theorem is always referred to as the <em>uniform boundedness principle</em>.</p>
+<h2 id="The-Banach-Steinhaus-theorem-a-sufficient-condition-for-being-equicontinuous"><a href="#The-Banach-Steinhaus-theorem-a-sufficient-condition-for-being-equicontinuous" class="headerlink" title="The Banach-Steinhaus theorem, a sufficient condition for being equicontinuous"></a>The Banach-Steinhaus theorem, a sufficient condition for being equicontinuous</h2><h3 id="Banach-space-version"><a href="#Banach-space-version" class="headerlink" title="Banach space version"></a>Banach space version</h3><blockquote>
+<p>Suppose $X$ is a Banach space, $Y$ is a normed linear space, and ${F}$ is a collection of bounded linear transformation of $X$ into $Y$, we have two equivalent statements:</p>
+<ol>
+<li><p><strong>(The Resonance Theorem)</strong> If $\sup\limits_{L \in \Lambda}\left\Vert{L}\right\Vert=\infty$, then there exists some $x \in X$ such that $\sup\limits_{L \in {L}}\left\Vert{Lx}\right\Vert=\infty$. (In fact, these $x$ form a dense $G_\delta$.)</p>
+</li>
+<li><p><strong>(The Uniform Boundedness Principle)</strong> If $\sup\limits_{L \in {\Lambda}}\left\Vert{Lx}\right\Vert&lt;\infty$ for all $x \in X$, then we have $ \left\Vert L \right\Vert \leq M$ for all $L \in {\Lambda}$ and some $M&lt;\infty$.</p>
+</li>
+<li><strong>(A summary of 1 and 2)</strong> Either there exists an $M&lt;\infty$ such that $\lVert L \rVert \leq M$ for all $L \in {L}$, or $\sup\lVert Lx \rVert = \infty$ for all $x$ belonging to some dense $G_\delta$ in $X$.</li>
+</ol>
+</blockquote>
+<h4 id="Proof"><a href="#Proof" class="headerlink" title="Proof"></a>Proof</h4><p><em>Though it would be easier if we finish the TVS version proof, it’s still a good idea to leave the formal proof without the help of TVS here. The equicontinuity of $\Lambda$ will be shown in the next section.</em> </p>
+<h5 id="An-elementary-proof-of-the-Resonance-theorem"><a href="#An-elementary-proof-of-the-Resonance-theorem" class="headerlink" title="An elementary proof of the Resonance theorem"></a>An elementary proof of the Resonance theorem</h5><p>First, we offer an elementary proof in which the hardest part is the Cauchy sequence.</p>
+<blockquote>
+<p><strong>(Lemma)</strong> For any $x \in X$ and $r &gt;0$, we have</p>
+<script type="math/tex; mode=display">
+\sup_{y\in B(x,r)}\lVert Lx \rVert \geq \lVert L \rVert r</script><p>where $B(x,r)=\{y \in X:\lVert x-y \rVert &lt; r\}$.</p>
+<p><strong>(Proof of the lemma)</strong></p>
+<p>For $t \in X$ we have a simple relation</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\max(\lVert{L(x+t)}\rVert,\lVert{L(x-t)}\rVert)&=\frac{1}{2}(\lVert{L(x+t)}\rVert+\lVert{L(x-t)}\rVert)+\frac{1}{2}\left\vert\lVert{L(x+t)}\rVert-\lVert{L(x-t)}\rVert\right\vert \\
+&\geq \frac{1}{2}(\lVert{L(x+t)}\rVert+\lVert{L(x-t)}\rVert) \\
+&\geq \frac{1}{2}\lVert{L(2t)}\rVert=\lVert Lt \rVert
+\end{aligned}</script><p>If we have $t \in B(0,r)$, then $x+t,x-t\in{B(x,r)}$. And the desired inequality follows by taking the supremum over $t \in B(0,r)$. (If you find trouble understanding this, take a look at the definition of $\lVert L \rVert$.)</p>
+</blockquote>
+<p>Suppose now $\sup\limits_{L \in \Lambda}\left\Vert{L}\right\Vert=\infty$. Pick a sequence of linear transformation in $\Lambda$, say $(L_n)_{n=1}^{\infty}$, such that $\lVert L_n \rVert \geq 4^n$. Pick $x_0 \in X$, and for $n \geq 1$, we pick $x_n$ inductively. </p>
+<p>Set $r_n=3^{-n}$. With $x_{n-1}$ being picked, $x_n \in B(x_{n-1},r_n)$ is picked in such a way that </p>
+<script type="math/tex; mode=display">
+\lVert L_n x_n \rVert \geq \frac{2}{3}\lVert L_n \rVert r_n</script><p>(It’s easy to validate this inequality by reaching a contradiction.) Also, it’s easy to check that $(x_n)_{n=1}^{\infty}$ is Cauchy. Since $X$ is <strong>complete</strong>, $(x_n)$ converges to some $x \in X$. Further we have</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\lVert x-x_n \rVert &\leq \sum_{k=n}^{\infty}\lVert x_k - x_{k+1}\rVert \\
+&=\frac{1}{2\cdot 3^n}
+\end{aligned}</script><p>Therefore we have</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\lVert L_n x \rVert &=\lVert L_n[x_n-(x_n-x)] \rVert \\
+&\geq \lVert L_nx_n \rVert - \lVert L_n(x_n-x) \rVert \\
+&\geq \frac{2}{3}\lVert{L_n}\rVert{3}^{-n}-\lVert{L_n}\rVert\lVert{x_n-x}\rVert\\
+&\geq \frac{1}{6}\lVert{L_n}\rVert{3}^{-n} \\
+& \geq \frac{1}{6}\left(\frac{4}{3}\right)^n \to\infty
+\end{aligned}</script><h5 id="A-topology-based-proof"><a href="#A-topology-based-proof" class="headerlink" title="A topology-based proof"></a>A topology-based proof</h5><p>The previous proof is easy to understand but it’s not easy to see the topological properties of the set formed by such $x$. Thus we are offering a topology-based proof which enables us to get a topology view.</p>
+<p>Put </p>
+<script type="math/tex; mode=display">
+\varphi(x)=\sup_{L \in \Lambda}\lVert Lx \rVert</script><p>and let</p>
+<script type="math/tex; mode=display">
+V_n=\{x:\varphi(x)>n\}</script><p>we claim that each $V_n$ is open. Indeed, we have to show that $x \mapsto \lVert Lx \rVert$ is continuous. It suffice to show that $\lVert\cdot\rVert$ defined in $Y$ is continuous. This follows immediately from triangle inequality since for $x,y \in Y$ we have</p>
+<script type="math/tex; mode=display">
+\lVert x \rVert \leq \lVert x-y \rVert + \lVert y \rVert</script><p>which implies</p>
+<script type="math/tex; mode=display">
+\lVert x \rVert - \lVert y \rVert \leq \lVert x-y \rVert</script><p>by interchanging $x$ and $y$, we get</p>
+<script type="math/tex; mode=display">
+|\lVert x \rVert - \lVert y \rVert | \leq \lVert x-y \rVert</script><p>Thus $x \mapsto \lVert Lx \rVert$ is continuous since it’s a composition of $\lVert\cdot\rVert$ and $L$. Hence $\varphi$, by the definition, is lower semicontinuous, which forces $V_n$ to be open. </p>
+<p>If <strong>every</strong> $V_n$ is dense in $X$ (consider $\sup\lVert L \rVert=\infty$), then by BCT, $B=\bigcap_{n=1}^{\infty} V_n$ is dense in $X$. Since each $V_n$ is open, $B$ is a dense $G_\delta$. Again by the definition of $B$, we have $\varphi(x)=\infty$ for all $x \in B$.</p>
+<p>If one of these sets, namely $V_N$, fails to be dense in $X$, then there exist an $x_0 \in X - V_N$ and an $r&gt;0$ such that for $x \in B(0,r)$ we have $x_0+x \notin V_N$, which is equivalent to</p>
+<script type="math/tex; mode=display">
+\varphi(x+x_0) \leq N</script><p>considering the definition of $\varphi$, we also have</p>
+<script type="math/tex; mode=display">
+\lVert L(x+x_0) \rVert \leq N</script><p>for all $L \in \Lambda$. Since $x=(x+x_0)-x_0$, we also have</p>
+<script type="math/tex; mode=display">
+\lVert Lx \rVert \leq \lVert L(x+x_0) \rVert+\lVert Lx_0 \rVert \leq 2N</script><p>Dividing $r$ on two sides, we got</p>
+<script type="math/tex; mode=display">
+\lVert L\frac{x}{r}\rVert \leq \frac{2N}{r}</script><p>therefore $\lVert L \rVert \leq M=\frac{2N}{r}$ as is to be shown. Again, this follows from the definition of $\lVert L \rVert$. </p>
+<h3 id="Topological-vector-space-version"><a href="#Topological-vector-space-version" class="headerlink" title="Topological vector space version"></a>Topological vector space version</h3><blockquote>
+<p>Suppose $X$ and $Y$ are topological vector spaces, $\Lambda$ is a collection of continuous linear mapping from $X$ into $Y$, and $B$ is the set of all $x \in X$ whose orbits</p>
+<script type="math/tex; mode=display">
+\Lambda(x)=\{Lx:L\in\Lambda\}</script><p>are bounded in $Y$. For this $B$, we have:</p>
+<ul>
+<li>If $B$ is of the second category, then $\Lambda$ is equicontinuous.</li>
+</ul>
+</blockquote>
+<h5 id="A-proof-using-properties-of-TVS"><a href="#A-proof-using-properties-of-TVS" class="headerlink" title="A proof using properties of TVS"></a>A proof using properties of TVS</h5><p>Pick balanced neighborhoods $W$ and $U$ of the origin in $Y$ such that $\overline{U} + \overline{U} \subset W$. The balanced neighborhood exists since every neighborhood of $0$ contains a balanced one.</p>
+<p>Put</p>
+<script type="math/tex; mode=display">
+E=\bigcap_{L \in \Lambda}L^{-1}(\overline{U}).</script><p>If $x \in B$, then $\Lambda(x)$ is bounded, which means that to $U$, there exists some $n$ such that $\Lambda(x) \subset nU$ (Be aware, no metric is introduced, this is the definition of boundedness in topological space). Therefore we have $x \in nE$. Consequently,</p>
+<script type="math/tex; mode=display">
+B\subset \bigcup_{n=1}^{\infty}nE.</script><p>If no $nE$ is of the second category, then $B$ is of the first category. Therefore, there exists at least one $n$ such that $nE$ is of the second category. Since $x \mapsto nx$ is a homeomorphism of $X$ onto $X$, $E$ is of the second category as well. But $E$ is closed since each $L$ is continuous. Therefore $E$ has an interior point $x$. In this case, $x-E$ contains a neighborhood $V$ of $0$ in $X$, and</p>
+<script type="math/tex; mode=display">
+L(V) \subset Lx-L(E) \subset \overline{U} - \overline{U} \subset W</script><p>This proves that $\Lambda$ is equicontinuous.</p>
+<h5 id="Equicontinuity-and-uniform-boundedness"><a href="#Equicontinuity-and-uniform-boundedness" class="headerlink" title="Equicontinuity and uniform boundedness"></a>Equicontinuity and uniform boundedness</h5><p>We’ll show that $B=X$. But before that, we need another lemma, which states the connection between equicontinuity and uniform boundedness</p>
+<blockquote>
+<p><strong>(Lemma)</strong> Suppose $X$ and $Y$ are TVS, $\Gamma$ is an equicontinuous collection of linear mappings from $X$ to $Y$, and $E$ is a bounded subset of $X$. Then $Y$ has a bounded subset $F$ such that $T(E) \subset F$ for every $T \in \Gamma$.</p>
+<p><strong>(Proof of the lemma)</strong> We’ll show that, the set</p>
+<script type="math/tex; mode=display">
+F=\bigcup_{T \in \Gamma}T(E)</script><p>is bounded. By the definition of equicontinuity, there is an neighborhood $V$ of the origin in $X$ such that $T(V) \subset W$ for all $T \in \Gamma$. Since $E$ is bounded,  there exists some $t$ such that $E \subset tV$. For these $t$, by the definition of linear functions, we have</p>
+<script type="math/tex; mode=display">
+T(E) \subset T(tV)=tT(V) \subset tW</script><p>Therefore $F \subset tW$. $F$ is bounded.</p>
+</blockquote>
+<p>Thus $\Lambda$ is uniformly bounded.  Picking $E=\{x\}$ in the lemma, we also see $\Lambda(x)$ is bounded in $Y$ for every $x$. Thus $B=X$.</p>
+<h4 id="A-special-case-when-X-is-a-F-space-or-Banach-space"><a href="#A-special-case-when-X-is-a-F-space-or-Banach-space" class="headerlink" title="A special case when $X$ is a $F$-space or Banach space"></a>A special case when $X$ is a $F$-space or Banach space</h4><p>$X$ is a $F$-space if its topology $\tau$ is induced by a <strong>complete</strong> invariant metric $d$. By BCT, $X$ is of the second category. If we already have $B=X$, in which case $B$ is of the second category, then by Banach-Steinhaus theorem, $\Lambda$ is equicontinuous. Formally speaking, we have:</p>
+<blockquote>
+<p>If $\Lambda$ is a collection of continuous linear mappings from an $F$-space $X$ into a topological vector space $Y$, and if the sets</p>
+<script type="math/tex; mode=display">
+\Lambda(x)=\{Lx:L\in\Lambda\}</script><p>are bounded in $Y$ for <strong>every</strong> $x \in X$, then $\Lambda$ is equicontinuous.</p>
+</blockquote>
+<p>Notice that all Banach spaces are $F$-spaces. Therefore we can restate the Uniform Boundedness Principle in Banach space with equicontinuity.</p>
+<blockquote>
+<p>Suppose $X$ is a Banach space, $Y$ is a normed linear space, and ${F}$ is a collection of bounded linear transformation of $X$ into $Y$, we have:</p>
+<ul>
+<li><strong>(The Uniform Boundedness Principle)</strong> If $\sup\limits_{L \in {\Lambda}}\left\Vert{Lx}\right\Vert&lt;\infty$ for all $x \in X$, then we have $|L| \le M$ for all $L \in {\Lambda}$ and some $M&lt;\infty$. Further, $\Lambda$ is equicontinuous. </li>
+</ul>
+</blockquote>
+<h2 id="Application"><a href="#Application" class="headerlink" title="Application"></a>Application</h2><p>Surprisingly enough, the Banach-Steinhaus theorem can be used to do Fourier analysis. An important example follows.</p>
+<blockquote>
+<p>There is a periodic continuous function $f$ on $[0,1]$ such that the Fourier series</p>
+<script type="math/tex; mode=display">
+\sum_{n\in\mathbb{Z}}\hat{f}(n)e^{2\pi inx}</script><p>of $f$ diverges at $0$. $\hat{f}(n)$ is defined by</p>
+<script type="math/tex; mode=display">
+\hat{f}(n)=\int_{0}^{1}e^{-2\pi inx}f(x)dx</script></blockquote>
+<p>Notice that $f \mapsto \hat{f}$ is linear, and the divergence of the series at $0$ can be considered by</p>
+<script type="math/tex; mode=display">
+\sum_{n\in\mathbb{Z}}\hat{f}(n)e^{2\pi in\cdot0}=\sum_{n\in\mathbb{Z}}\hat{f}(n)</script><p>To invoke Banach-Steinhaus theorem, the family of linear functionals are defined by</p>
+<script type="math/tex; mode=display">
+\lambda_N(f)=\sum_{|n| \leq N}\hat{f}(n)</script><p>It can be proved that</p>
+<script type="math/tex; mode=display">
+\lVert \lambda_N \rVert=\int_0^1\left\vert\sum_{|n| \leq N}e^{-2\pi inx}\right\vert dx</script><p>which goes to infinity as $N \to \infty$. The existence of such $f$ that</p>
+<script type="math/tex; mode=display">
+\sup_{N}|\lambda_N(f)|=+\infty</script><p>follows from the resonance theorem. Further, we also know that these $f$ are in a dense $G_\delta$ subset of the vector space generated by all periodic continuous functions on $[0,1]$.</p>
+<h2 id="The-series"><a href="#The-series" class="headerlink" title="The series"></a>The series</h2><p>Since there is no strong reason to write more posts on this topic, i.e. the three fundamental theorems of linear functional analysis, I think it’s time to make a list of the series. It’s been around half a year.</p>
+<ul>
+<li><a href="/2020/06/06/big-3-pt-1/">The Big Three Pt. 1 - Baire Category Theorem Explained</a></li>
+<li>The Big Three Pt. 2 - The Banach-Steinhaus Theorem</li>
+<li><a href="/2020/08/12/big-3-pt-3/">The Big Three Pt. 3 - The Open Mapping Theorem (Banach Space)</a></li>
+<li><a href="/2020/09/12/big-3-pt-4/">The Big Three Pt. 4 - The Open Mapping Theorem (F-Space)</a></li>
+<li><a href="/2020/10/01/big-3-pt-5/">The Big Three Pt. 5 - The Hahn-Banach Theorem (Dominated Extension)</a></li>
+<li><a href="/2020/11/13/big-3-pt-6/">The Big Three Pt. 6 - Closed Graph Theorem with Applications</a></li>
+</ul>
+<h2 id="References-Further-readings"><a href="#References-Further-readings" class="headerlink" title="References / Further readings"></a>References / Further readings</h2><ol>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1005.1585.pdf">arXiv:1005.1585v2</a></li>
+<li>W. Rudin, <em>Real and Complex Analysis</em></li>
+<li>W. Rudin, <em>Functional Analysiss</em></li>
+<li><a target="_blank" rel="noopener" href="http://www-users.math.umn.edu/~garrett/m/fun/Notes/03b_fourier.pdf">Applications to Fourier series</a></li>
+</ol>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-06-06T03:18:04.000Z" title="06/06/2020, 11:18:04">2020-06-06</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-10-23T00:19:31.959Z" title="23/10/2021, 08:19:31">2021-10-23</time></span><span class="level-item"><a class="link-muted" href="../../categories/Analysis/">Analysis</a><span> / </span><a class="link-muted" href="../../categories/Analysis/Functional-Analysis/">Functional Analysis</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2020/06/06/big-3-pt-1/">The Big Three Pt. 1 - Baire Category Theorem Explained</a></h1><div class="content"><h2 id="About-the-‘Big-Three’"><a href="#About-the-‘Big-Three’" class="headerlink" title="About the ‘Big Three’"></a>About the ‘Big Three’</h2><p>There are three theorems about Banach spaces that occur frequently in the crux of functional analysis, which are called the ‘big three’:</p>
 <blockquote>
 <ol>
 <li>The Hahn-Banach Theorem</li>
@@ -633,132 +795,7 @@ y^{(n)}=y_n'=-(a_n(x)y_1+\cdots+a_1(x)y_n)+f(x)</script><p>那么这个时候，
 <h3 id="接下来的内容"><a href="#接下来的内容" class="headerlink" title="接下来的内容"></a>接下来的内容</h3><p>虽然可能有点唐突，我们接下来会先假设，我们已经能很轻松得到一个矩阵对应的解，然后需要做的工作是搞清其中的结构。在获得适量的结论（但是不应该过于深入）之后，我们会尝试讨论最简单的方程：高阶微分方程，也就是</p>
 <script type="math/tex; mode=display">
 y^{(n)}+a_1(x)y^{(n-1)}+\cdots+a_{n}(x)y=f(x)</script><p>包括一些可行的解法，和用线性代数工具进行操作的实例。标准化、Cramer法则等等，都会在这里很自然地出现。接下来，我们会讨论稍微复杂点的方程组：常系数微分方程组，即系数矩阵$\mathbf{A}(x)$为常数的矩阵。最后，我们会尝试得到对于所有方程组的一些普遍性结论。</p>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-04-30T16:00:00.000Z" title="01/05/2020, 00:00:00">2020-05-01</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-01-13T02:58:11.877Z" title="13/01/2022, 10:58:11">2022-01-13</time></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2020/05/01/linear-ode-chapter-1/">线性ODE（一）——线性方程的思想与一阶方程</a></h1><div class="content"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>说到常微分方程，很多人可能认为，这是通过各种充满技巧性、构造性的手段直接或者间接求导求积分，而且根本想不出来这些技巧从那里冒出来的。因为这样对，所以这样对，所以我以后就这样套公式，就算出结果来了，一验算确实如此。事情并非如此。的确，常微分方程中有一些问题，现在都没有被研究清楚，但是那些基本的、常见的常微分方程问题，并没有什么看不见摸不着的玄学。<strong>在这些理论背后，是微积分、线性代数等等基本工具之间朴素而又美妙的联系。</strong>这一系列的博客，正想给读者呈现这一点。我们会遵循这样一个原则：先通过代数，将微分方程的结构厘清，再通过微积分，得到所希望得到的结果。可以看下面这个例子：</p>
-<p><img src="\img\image-20200501132151024.png" alt="image-20200501132151024"></p>
-<p>假如你需要讨论椭圆$\frac{x^2}{4}+y^2-\frac{xy}{2}=1$的性质，那你肯定不愿意。这个椭圆在坐标系中是斜着的，如果要计算各种性质的话，那可能是巨大的计算量，得到一个个令人绝望的二次方程，甚至还有分式等等。但是，如果我们把原来的基<strong>旋转</strong>一个合适的角度，也就是从$\{E_1,E_2\}$旋转到了$\{E_1’,E_2’\}$，那么在这组新基下，它就是一个很平凡的椭圆了，也就是说，我们只需要讨论在这组新基下表示的椭圆方程就行了。看上去很美好，但是实际可行吗？当然可行。这个变换没有改变椭圆的任何性质。椭圆没有平移，没有变形；周长没有变，面积没有变。我们在这组新基下得到的结果，只需要再反转回去，就是原来所求的结果。</p>
-<p>还有一个问题：这个旋转是所谓构造性极强、充满技巧的手段吗？是空穴来风吗？不是。这是利用了线性变换，利用了特征值，利用了矩阵的基本性质。此后，再在新基下运用各种直线方程、微积分方法等等，变得非常简单。这就是我们接下来要运用的思想。</p>
-<h2 id="一阶线性方程"><a href="#一阶线性方程" class="headerlink" title="一阶线性方程"></a>一阶线性方程</h2><h3 id="一阶线性方程的定义与一个物理学实例"><a href="#一阶线性方程的定义与一个物理学实例" class="headerlink" title="一阶线性方程的定义与一个物理学实例"></a>一阶线性方程的定义与一个物理学实例</h3><p>我们接下来要解决的是这种类型的方程</p>
-<blockquote>
-<script type="math/tex; mode=display">
-\frac{dy}{dx}+p(x)y=q(x)</script></blockquote>
-<p>只需要$y’$和$y$的次数都是$1$，而且没有$y^a(y’)^{b}$这种形式出现，就是一个一阶（因为$y’$只求导了一次）线性（只有一次项）方程。</p>
-<p>这样的方程自然也有自己的实际价值。例如通过电学中的<strong>Kirchhoff’s Circuit Laws</strong>，对于一个简单的R-L串联电路（串联有一个电阻、一个电感的直流电电路），我们能得到电流强度方程</p>
-<blockquote>
-<script type="math/tex; mode=display">
-L\frac{di}{dt}+Ri=E</script></blockquote>
-<p>其中，$i(t)$表示电流强度，$R$表示串联的电阻，$L$表示电感，$E$表示电压。显然，$i=\frac{E}{R}$就是一个特解。如果我们有$L \neq 0$，那么两边除以$L$，就能得到</p>
-<script type="math/tex; mode=display">
-\frac{di}{dt}+\frac{R}{L}i=\frac{E}{L}</script><p>这里的$\frac{R}{L}$就可以看成$p(t)$，$\frac{E}{L}$可以看成$q(t)$，尽管都是常数。如果解这个方程（解法会在后面介绍，这个解也可以加以验证），能得到</p>
-<script type="math/tex; mode=display">
-i = \frac{E}{R}+C\exp(-\frac{R}{L}t)</script><p>但是考虑到实际情况，开关闭合之前，电流强度是$0$；直到在闭合的一瞬间$t=0$时，有$i=0$。考虑到这一点，就能直接将常数$C$解出来，也就得到了</p>
-<script type="math/tex; mode=display">
-i=\frac{E}{R}(1-\exp({-\frac{R}{L}t}))</script><h3 id="从电流问题中得到的启发"><a href="#从电流问题中得到的启发" class="headerlink" title="从电流问题中得到的启发"></a>从电流问题中得到的启发</h3><p>上一节我们试图探讨R-L串联电路中电流强度的变化，给出了一个有物理意义的方程，并且解了出来。问题是，为什么会出现常数$e$？</p>
-<p>我们在高中就学过，$(e^{x})’=e^x$，或者更普遍一点，$(Ce^x)’=Ce^x$。如果在$x$的系数上做文章，有$(Ce^{-ax})’=-aCe^{-ax}$。注意，如果我们令$y=Ce^{-ax}$，那么我们已经得到了</p>
-<script type="math/tex; mode=display">
-y'+ay=0</script><p>这是最简单的一阶线性方程了。$Ce^{-ax}$的性质和线性方程吻合得很好。但是上面的方程明显比这个复杂，却还是有一个$e$在这里。可不可以认为，形如$y’+ay=b$的方程是由$y’+ay=0$进行“调整”得到的？更进一步，方程$y’+p(x)y=q(x)$是不是由$y’+p(x)y=0$衍生出来的？是怎么衍生出来的？这个解的结构是怎样的？</p>
-<p>实际情况是，在讨论多元常微分方程组、高阶常微分方程的时候，我们都还是从指数函数出发，从等式右边等于$0$出发。当然我们现在不应该深入太多。</p>
-<h3 id="从高斯消元法到线性微分方程解的结构"><a href="#从高斯消元法到线性微分方程解的结构" class="headerlink" title="从高斯消元法到线性微分方程解的结构"></a>从高斯消元法到线性微分方程解的结构</h3><p>高斯消元法，或者是更单纯的求解$n$元一次方程组的办法，我想读者肯定知道计算原理。我们举一个简单的例子</p>
-<script type="math/tex; mode=display">
-\begin{cases}
-\begin{aligned}
-x_1+2x_2+x_3&=0 \\
-2x_1+5x_2+x_3&=1 \\
-0x_1-3x_2+3x_3&=-3
-\end{aligned}
-\end{cases}</script><p>通过高斯消元法，或者单纯说是反复给其中两个方程做加减法和代入，能得到</p>
-<script type="math/tex; mode=display">
-\begin{cases}
-\begin{aligned}
-x_1+0x_2+3x_3&=-2 \\
-x_2-x_3&=1
-\end{aligned}
-\end{cases}</script><p>令$x_3=t$，就能得到$x_1=-2-3t,x_2=1+t$。其中$t \in \mathbb{R}$。这时我们就得到了这个线性方程组的解。为了表示方便，结合矩阵运算的性质，原来的式子可以写成矩阵的形式：</p>
-<script type="math/tex; mode=display">
-\begin{pmatrix}
-1 & 2 & 1 \\
-2 & 5 & 1 \\
-0 &-3&3 \\
-\end{pmatrix}
-\begin{pmatrix}
--2-3t \\
-1+t \\
-t
-\end{pmatrix}=\begin{pmatrix}
-1 & 2 & 1 \\
-2 & 5 & 1 \\
-0 &-3&3 \\
-\end{pmatrix}
-\left\{
-\begin{pmatrix}
--2 \\
-1 \\
-0
-\end{pmatrix}+
-t\begin{pmatrix}
--3 \\
-1 \\
-1
-\end{pmatrix}
-\right\}=0</script><p>不妨用$A$表示这个矩阵，$v_1=(-2,1,0)^T$，$v_2=(-3,1,1)^T$，$v_0=(0,1,-3)^T$（$T$表示转置，这里为了书写简便）。那么可以验证，$Av_1=v_0$，而$Av_2=0$。那么这个式子又可以写成</p>
-<script type="math/tex; mode=display">
-A(v_1+tv_2)=Av_1+tAv_2=v_0+t\cdot0=v_0</script><p>所以我们想求的未知向量$x=v_1+tv_2$由两部分组成：一部分是符合$Ax=b$的一个特殊解，一部分符合$Ax’=0$，两部分的和代表了所有的解。也就是说，一个线性方程组的解，可能有无穷多个。<strong>但是，有一部分保证了解是准确的（也就是上面的$v_1$），有一部分保证解是普遍的（也就是上面的$tv_2$。$v_2$指出了解延伸的骨架，$t$取遍所有实数进行遍历）。</strong></p>
-<p>为什么要举高斯消元法这样一个例子呢？这里矩阵乘法是一个线性运算（$A(\alpha v+\beta w)=\alpha Av+\beta Aw$），而求导也是一个线性运算（$(af+bg)’=af’+bg’$），也就是说，它们都是“平直”的，是没有让问题变复杂的乘积的。电流方程的通解</p>
-<script type="math/tex; mode=display">
-i = \frac{E}{R}+C\exp(-\frac{R}{L}t)</script><p>很好验证，但是是不是也是这样的结构？对于$i_1=\exp(-\frac{R}{L}t)$，通过简单的求导运算可以得到$\frac{di_1}{dt}+\frac{R}{L}i_1=0$。对于$i_2=\frac{E}{R}$，我们已经知道它满足原来的方程。所以$i=Ci_1+i_2$，代入原来的方程，就有</p>
-<script type="math/tex; mode=display">
-\frac{d(Ci_1+i_2)}{dt}+\frac{R}{L}(Ci_1+i_2)=\frac{E}{L}+C\cdot 0</script><p>这和上面求三元一次方程组得到的结果是类似的。只是形式不同，但是结构相同。$i_2$保证了解的准确性，$i_1$保证解的普遍性，遍历所有结果。<strong>求解一阶线性微分方程，我们已经看清了结构（通过高斯消元法的类比），接下来，需要通过微积分的手段，得到一个合适结论。</strong></p>
-<h3 id="一阶线性常微分方程的解决办法"><a href="#一阶线性常微分方程的解决办法" class="headerlink" title="一阶线性常微分方程的解决办法"></a>一阶线性常微分方程的解决办法</h3><h4 id="形如-y’-p-x-y-0-的方程的解"><a href="#形如-y’-p-x-y-0-的方程的解" class="headerlink" title="形如$y’+p(x)y=0$的方程的解"></a>形如$y’+p(x)y=0$的方程的解</h4><p>显然，$y=0$是这个方程的一个解。如果$y \neq 0$，我们可以将这个方程改写成这个形式</p>
-<script type="math/tex; mode=display">
-\frac{dy}{y}+p(x)dx=0</script><p>分别对$x$和$y$积分，就能得到</p>
-<script type="math/tex; mode=display">
-\ln\left\vert y \right\vert = -\int p(x)dx + C</script><p>又可以写成</p>
-<script type="math/tex; mode=display">
-y = Ce^{-\int p(x)dx}</script><p>其中$C$为常数。$C=0$时，恰好对应了$y=0$这个解。的确，如果我们解</p>
-<script type="math/tex; mode=display">
-\frac{di}{dt}+\frac{R}{L}i=0</script><p>就能得到$i=C\exp({-\frac{R}{L}t})$。</p>
-<h4 id="形如-y’-p-x-y-q-x-的方程的解"><a href="#形如-y’-p-x-y-q-x-的方程的解" class="headerlink" title="形如$y’+p(x)y=q(x)$的方程的解"></a>形如$y’+p(x)y=q(x)$的方程的解</h4><p>事情似乎变得有点蹊跷。难不成要强行凑出一个满足这个方程的解，然后再加上满足$y’+p(x)y=0$的全体解？并非如此。求出一个满足条件的$y$有很多办法，我会在这里介绍一种比较直观的办法。</p>
-<p>实际上，我们知道了$q(x)$就已经足够了。设有$f(x)=e^{-\int p(x)dx}$，设全体解是</p>
-<script type="math/tex; mode=display">
-y(x)=Cf(x)+\mu(x)</script><p>其中$\mu(x)$满足$\mu’+p(x)\mu=q(x)$。我们通过已知的$f$和$q$直接求出$\mu$来，从而求出所有解来。</p>
-<p>不妨设$\mu(x)=f(x)c(x)$，我们通过几个函数的性质求出$c(x)$来。对$\mu$求导有</p>
-<script type="math/tex; mode=display">
-\mu'(x)=f'(x)c(x)+f(x)c'(x)=-p(x)f(x)c(x)+f(x)c'(x)=-p(x)f(x)c(x)+q(x)</script><p>这里利用了$f’(x)+p(x)f(x)=0$。而$f(x)与$$p(x)$都是已知的，经过化简就得到了</p>
-<script type="math/tex; mode=display">
-c'(x)=\frac{q(x)}{f(x)}</script><p>对$c’$求积分，就得到（其实这是直接写出来）</p>
-<script type="math/tex; mode=display">
-c(x)=\int q(x)e^{\int p(t)dt}dx</script><p>所以全体解就是</p>
-<script type="math/tex; mode=display">
-y=e^{-\int p(x)dx}\left(C+\int q(x)e^{\int p(t)dt}dx\right)</script><p>这个时候，$c(x)e^{-\int p(x)dx}$决定了解的准确性，$C \cdot e^{-\int p(x)dx}$决定了解的普遍性。如果我们已经知道了一个特殊值，也就是说$y(x_0)=y_0$，那么方程$y’+p(x)=q(x)$的解就可以准确写成</p>
-<script type="math/tex; mode=display">
-y=y_0e^{-\int_{x_0}^xp(t)dt}+\int_{x_0}^{x}q(s)e^{\int_s^xp(t)dt}ds</script><p>这并不是什么生拉硬拽的拼凑和巧合，并不需要所谓灵光一现，需要的是对线性运算的基本理解。</p>
-<p>不妨再去验证一下刚开始的那个电路方程是不是符合这一结果。</p>
-<h5 id="全体解都被包含了吗？"><a href="#全体解都被包含了吗？" class="headerlink" title="全体解都被包含了吗？"></a>全体解都被包含了吗？</h5><p>可能这个结论不具有信服力。是不是漏掉了哪些解？</p>
-<p>我们已经知道$\mu(x)$是一个解，不妨再设有一个解$y(x)$，那么$y(x)-\mu(x)$是什么样子？如果是$Cf(x)$，那么刚刚好，因为这里的$y$是任意选取的，这就体现了$Cf(x)$的普遍性。实际上</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-(y-\mu)'+p(x)(y-\mu)&=(y'+p(x)y')-(\mu'-p(x)\mu) \\
-                    &=q(x)-q(x) \\
-                    &=0
-\end{aligned}</script><p>而解$y-\mu$，就得到了$y-\mu=Cf(x)$，所以说，全体解的确是$Cf(x)+\mu$。</p>
-<h4 id="你已经意识到了，求不定积分也是求一阶线性微分方程"><a href="#你已经意识到了，求不定积分也是求一阶线性微分方程" class="headerlink" title="你已经意识到了，求不定积分也是求一阶线性微分方程"></a>你已经意识到了，求不定积分也是求一阶线性微分方程</h4><p>在初学微积分的时候，求不定积分常常要有一个$+C$。在现在这个框架下这个结果就很明显了。我们求</p>
-<script type="math/tex; mode=display">
-y'=f(x)</script><p>其实可以看成求</p>
-<script type="math/tex; mode=display">
-y'+0 \cdot y = f(x)</script><p>而$y’=0$解得$y=C$，又假设我们已经解得一个函数$F$使得$F’=f$，那么就有</p>
-<script type="math/tex; mode=display">
-y=F(x)+C</script><p>了。$F$保证解的准确，$C$保证解的普遍性。</p>
-<h3 id="伯努利方程——将方程化为一阶线性方程"><a href="#伯努利方程——将方程化为一阶线性方程" class="headerlink" title="伯努利方程——将方程化为一阶线性方程"></a>伯努利方程——将方程化为一阶线性方程</h3><p>有些方程虽然不是一阶线性方程，但是好在我们能将它经过简单的变换，变成一个一阶线性方程。例如这个方程</p>
-<script type="math/tex; mode=display">
-y'=\frac{2xy^2+\arctan{x}}{2y}</script><p>虽然甚至都不是线性方程（因为$y$有一个次数是$-1$），但是如果令$z=y^2$，就有</p>
-<script type="math/tex; mode=display">
-2yy'=z'=2xz+\arctan{x}</script><p>这就得到了一个一阶线性方程了（尽管可能很难算）。一般地讲，对于伯努利方程</p>
-<script type="math/tex; mode=display">
-y'+p(x)y=q(x)y^n</script><p>两边乘以$(1-n)y^{-n}$，就能得到</p>
-<script type="math/tex; mode=display">
-(1-n)y^{-n}y'+(1-n)y^{1-n}p(x)=(1-n)q(x)</script><p>在令$z=y^{1-n}$，就能得到</p>
-<script type="math/tex; mode=display">
-z'+(1-n)p(x)z=(1-n)q(x)</script><p>这就是一个一阶线性方程了，计算就变得很简单。</p>
-</div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="../6/">Previous</a></div><div class="pagination-next"><a href="../8/">Next</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="../../">1</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="../6/">6</a></li><li><a class="pagination-link is-current" href="">7</a></li><li><a class="pagination-link" href="../8/">8</a></li><li><a class="pagination-link" href="../9/">9</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="../../img/avatar.png" alt="Desvl"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Desvl</p><p class="is-size-6 is-block">A blog mainly on graduate mathematics.</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>A Noetherian local ring</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="../../archives"><p class="title">88</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="../../categories"><p class="title">45</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="../../tags"><p class="title">52</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="../../redirect/newsletter" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Compose an Email" href="../../redirect/email"><i class="fas fa-envelope"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="../../atom.xml"><i class="fas fa-rss"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Mathstodon" href="https://mathstodon.xyz/@desvl"><i class="fa-brands fa-mastodon"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://arxiv.org/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">arXiv</span></span><span class="level-right"><span class="level-item tag">arxiv.org</span></span></a></li><li><a class="level is-mobile" href="https://stacks.math.columbia.edu/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">The Stack Project</span></span><span class="level-right"><span class="level-item tag">stacks.math.columbia.edu</span></span></a></li><li><a class="level is-mobile" href="https://ncatlab.org/nlab/show/mathematics" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">nLab (Mathematics)</span></span><span class="level-right"><span class="level-item tag">ncatlab.org</span></span></a></li><li><a class="level is-mobile" href="https://q.uiver.app/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">quiver: a modern commutative diagram editor</span></span><span class="level-right"><span class="level-item tag">q.uiver.app</span></span></a></li><li><a class="level is-mobile" href="https://www.symmetricfunctions.com/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">The Symmetric Functions Catalogue</span></span><span class="level-right"><span class="level-item tag">www.symmetricfunctions.com</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/speaking.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Speaking</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/writing.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Writing</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">How to study maths really quick (YouTube)</span></span><span class="level-right"><span class="level-item tag">www.youtube.com</span></span></a></li><li><a class="level is-mobile" href="https://www.bilibili.com/video/BV1GJ411x7h7" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">How to study maths really quick (Bilibili)</span></span><span class="level-right"><span class="level-item tag">www.bilibili.com</span></span></a></li></ul></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="../../index.html"><img src="../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a><p class="is-size-7"><span>&copy; 2023</span> <a rel="me noopener" target="_blank" href="https://mathstodon.xyz/@desvl">Desvl</a><br>Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+</div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="../6/">Previous</a></div><div class="pagination-next"><a href="../8/">Next</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="../../">1</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="../6/">6</a></li><li><a class="pagination-link is-current" href="">7</a></li><li><a class="pagination-link" href="../8/">8</a></li><li><a class="pagination-link" href="../9/">9</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="../../img/avatar.png" alt="Desvl"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Desvl</p><p class="is-size-6 is-block">A blog mainly on graduate mathematics.</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>A Noetherian local ring</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="../../archives"><p class="title">89</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="../../categories"><p class="title">46</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="../../tags"><p class="title">53</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="../../redirect/newsletter" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Compose an Email" href="../../redirect/email"><i class="fas fa-envelope"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="../../atom.xml"><i class="fas fa-rss"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Mathstodon" href="https://mathstodon.xyz/@desvl"><i class="fa-brands fa-mastodon"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://arxiv.org/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">arXiv</span></span><span class="level-right"><span class="level-item tag">arxiv.org</span></span></a></li><li><a class="level is-mobile" href="https://stacks.math.columbia.edu/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">The Stack Project</span></span><span class="level-right"><span class="level-item tag">stacks.math.columbia.edu</span></span></a></li><li><a class="level is-mobile" href="https://ncatlab.org/nlab/show/mathematics" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">nLab (Mathematics)</span></span><span class="level-right"><span class="level-item tag">ncatlab.org</span></span></a></li><li><a class="level is-mobile" href="https://q.uiver.app/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">quiver: a modern commutative diagram editor</span></span><span class="level-right"><span class="level-item tag">q.uiver.app</span></span></a></li><li><a class="level is-mobile" href="https://www.symmetricfunctions.com/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">The Symmetric Functions Catalogue</span></span><span class="level-right"><span class="level-item tag">www.symmetricfunctions.com</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/speaking.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Speaking</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/writing.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Writing</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">How to study maths really quick (YouTube)</span></span><span class="level-right"><span class="level-item tag">www.youtube.com</span></span></a></li><li><a class="level is-mobile" href="https://www.bilibili.com/video/BV1GJ411x7h7" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">How to study maths really quick (Bilibili)</span></span><span class="level-right"><span class="level-item tag">www.bilibili.com</span></span></a></li></ul></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="../../index.html"><img src="../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a><p class="is-size-7"><span>&copy; 2023</span> <a rel="me noopener" target="_blank" href="https://mathstodon.xyz/@desvl">Desvl</a><br>Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
             article: {
                 highlight: {
                     clipboard: true,

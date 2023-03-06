@@ -29,7 +29,141 @@
       switchTab();
       window.addEventListener('hashchange', switchTab, false);
   })();
-  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="../../index.html"><img src="../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="../../index.html">Home</a><a class="navbar-item" href="../../archives">Archives</a><a class="navbar-item" href="../../categories">Categories</a><a class="navbar-item" href="../../tags">Tags</a><a class="navbar-item" href="../../about">About (Updated Aug. 2022)</a><a class="navbar-item" href="../../link-exchange">Link Exchange</a><a class="navbar-item" href="../../support-the-author">Support the Author</a></div><div class="navbar-end"></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-08-18T09:12:52.000Z" title="18/08/2020, 17:12:52">2020-08-18</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-12-09T10:10:01.092Z" title="09/12/2021, 18:10:01">2021-12-09</time></span><span class="level-item"><a class="link-muted" href="../../categories/Analysis/">Analysis</a><span> / </span><a class="link-muted" href="../../categories/Analysis/Elementary/">Elementary</a><span> / </span><a class="link-muted" href="../../categories/Analysis/Elementary/Continuity/">Continuity</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2020/08/18/Basic-facts-of-semicontinuous-functions/">Basic Facts of Semicontinuous Functions</a></h1><div class="content"><h2 id="Continuity"><a href="#Continuity" class="headerlink" title="Continuity"></a>Continuity</h2><p>We are restricting ourselves into $\mathbb{R}$ endowed with normal topology. Recall that a function is continuous if and only if for any open set $U \subset \mathbb{R}$, we have</p>
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="../../index.html"><img src="../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="../../index.html">Home</a><a class="navbar-item" href="../../archives">Archives</a><a class="navbar-item" href="../../categories">Categories</a><a class="navbar-item" href="../../tags">Tags</a><a class="navbar-item" href="../../about">About (Updated Aug. 2022)</a><a class="navbar-item" href="../../link-exchange">Link Exchange</a><a class="navbar-item" href="../../support-the-author">Support the Author</a></div><div class="navbar-end"></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-08-26T09:56:08.000Z" title="26/08/2020, 17:56:08">2020-08-26</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-10-25T14:37:16.353Z" title="25/10/2022, 22:37:16">2022-10-25</time></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2020/08/26/r-s-integral/">Introducing Riemann-Stieltjes Integral</a></h1><div class="content"><h2 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h2><p>Riemann-Stieltjes integral is a generalisation of Riemann integral, the one every college student studies in their calculus class, and is a little bit more difficult to understand. Nevertheless it has advantages of its own, as we will show below. Before seeing the definition and properties of this integral, we first raise some questions that will can motivate our study.</p>
+<p>When talking about $\int_a^b fdg$, one may simply think about $\int_a^b fg’dx$. But is it even necessary that $g$ is differentiable? What would happen if $g$ is simply continuous, or even not continuous? Further, given that $g$ is differentiable, can we prove that</p>
+<script type="math/tex; mode=display">
+\int_a^b f(x)dg(x)=\int_a^bf(x)g'(x)dx</script><p>in a general way(without assuming $f$ is differentiable)? Although integration can be connected to differentiation, it should not be mandatory to lock ourselves into $C^1$ functions, $C^2$ functions or smooth functions all the time.</p>
+<p>Another motivation comes from probability theory. Oftentimes one need to consider discrete case ($\sum$) and continuous case ($\int$) separately. One may say that integral is the limit of summation, but it would be weird to write $\int$ as $\lim\sum$ every time. However, if we have a way to write a sum, for example the expected value of a discrete variable ($E(X)$), as an integral, things would be easier. Of course, we don’t want to write such a sum as another sum by adding up the integral on several disjoint segments. That would be weirder.</p>
+<p>If you have learned measure theory, you will know that Lebesgue integral does not perfectly cover Riemann integral. For example, $\int_{0}^{\infty}\frac{\sin{x}}{x}dx$ is not integrable in the sense of Lebesgue but Riemann. We cannot treat Lebesgue integral as a perfect generalization of Riemann integral. In this blog post however, we will be studying a faithful generalization of Riemann integral, adding the name of Stieltjes. </p>
+<p>We are trying our best to prevent ourselves from using $\sup$, $\inf$, and differentiation theory. But $\varepsilon-\delta$ language is heavily used here, so make sure that you are good at it.</p>
+<h2 id="Riemann-Stieltjes-Integral"><a href="#Riemann-Stieltjes-Integral" class="headerlink" title="Riemann-Stieltjes Integral"></a>Riemann-Stieltjes Integral</h2><p>By a partition $P$ on $[a,b]$ we mean a sequence of numbers $(x_n)$ such that</p>
+<script type="math/tex; mode=display">
+a=x_0 \leq x_1 \leq \cdots \leq x_n=b</script><p>and we associate its size by</p>
+<script type="math/tex; mode=display">
+\sigma(P)=\max_{k}(x_{k+1}-x_k).</script><p>Let $f$, $g$ be bounded real function on $[a,b]$ (again, no continuity or differentiability required). Given a partition $P$ and numbers $c_k$ with $x_k \leq c_k \leq x_{k+1}$, we define the Riemann-Stieltjes sum (RS-sum) by</p>
+<script type="math/tex; mode=display">
+S(P,f,g)=\sum_{k=0}^{n-1}f(c_k)[g(x_{k+1})-g(x_k)].</script><p>We say that the <strong>limit</strong></p>
+<script type="math/tex; mode=display">
+\lim_{\sigma(P) \to 0}S(P,f,g)</script><p>exists if there exists some $L \in \mathbb{R}$ such that give $\varepsilon&gt;0$, there exists $\delta&gt;0$ such that whenever $\sigma(P)&lt;\delta$, we have</p>
+<script type="math/tex; mode=display">
+|S(P,f,g)-L|<\varepsilon.</script><p>In this case, we say $f$ is $RS(g)$-integrable, and the limit is denoted by</p>
+<script type="math/tex; mode=display">
+\int_a^bfdg.</script><p>This is the so-called <strong>Riemann-Stieltjes</strong> integral. When $g(x)=x$, we get <strong>Riemann integral</strong> naturally. </p>
+<h3 id="Remarks-Further-generalization-still-available"><a href="#Remarks-Further-generalization-still-available" class="headerlink" title="Remarks: Further generalization still available"></a>Remarks: Further generalization still available</h3><p>This integral method can be generalized to Banach space. Let $f$, $g$ be bounded maps of $[a,b]$ into Banach spaces $E$, $F$ respectively. Assume we have a product $E \times F \to G$ denoted by $(u,v) \mapsto uv$ with $\lVert uv \rVert \leq \lVert u \rVert \lVert v \rVert$. Then by replacing the absolute value by norm, still we get the Riemann-Stieltjes integral, although in this case we have</p>
+<script type="math/tex; mode=display">
+\int_a^b fdg \in G</script><p>and $G$ is not necessary to be $\mathbb{R}$. This is different from Bochner integral, since no measure theory evolved here.</p>
+<h2 id="Linearity-with-respect-to-f-and-g"><a href="#Linearity-with-respect-to-f-and-g" class="headerlink" title="Linearity with respect to $f$ and $g$"></a>Linearity with respect to $f$ and $g$</h2><p>First, we shall show that RS(g)-integrable functions form a vector space. To do this, it suffices to show that</p>
+<script type="math/tex; mode=display">
+f \mapsto S(P,f,g)</script><p>and</p>
+<script type="math/tex; mode=display">
+g \mapsto S(P,f,g)</script><p>are linear. This follows directly from the definition of RS-sum. Let’s see the result.</p>
+<p>Suppose we have</p>
+<script type="math/tex; mode=display">
+\int_a^b fdg=I, \quad \int_a^b hdg=J, \int_a^b fdu=K</script><p>Then we have the following identities for $\alpha \in I$.</p>
+<ol>
+<li>$\int_a^b \alpha fdg=\alpha I$.</li>
+<li>$\int_a^b (f+h)dg=I+J$.</li>
+<li>$\int_a^bfd(g+u)=I+K$.</li>
+<li>$\int_a^b fd(\alpha g)=\alpha I$.</li>
+</ol>
+<p><em>Proof.</em> We shall show 2 for example. Other three identities follows in the same way.</p>
+<p>Notice that the existence of the limit of RS-sum depends only on the size of $P$. For $\varepsilon&gt;0$, there exists some $\delta_1,\delta_2&gt;0$ such that</p>
+<script type="math/tex; mode=display">
+|S(P,f,g)-I|<\frac{\varepsilon}{2},\quad |S(P,h,g)-J| < \frac{\varepsilon}{2}</script><p>when $\sigma(P)&lt;\delta_1$ and $\sigma(P)&lt;\delta_2$ respectively. By picking $\delta=\min(\delta_1,\delta_2)$, we see for $\sigma(P)&lt;\delta$, we have</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+|S(P,f+h,g)-(I+J)|&=|(S(P,f,g)-I)+(S(P,h,g)-J)| \\
+                  &\leq |S(P,f,g)-I| + |S(P,h,g)-J| \\
+                  &< \frac{\varepsilon}{2}+\frac{\varepsilon}{2}=\varepsilon.
+\end{aligned}</script><h2 id="Integration-by-parts-but-no-differentiation"><a href="#Integration-by-parts-but-no-differentiation" class="headerlink" title="Integration by parts but no differentiation"></a>Integration by parts but no differentiation</h2><blockquote>
+<p>$f \in RS(g)$ if and only if $g \in RS(f)$. In this case, we also have integration by parts:</p>
+<script type="math/tex; mode=display">
+\int_a^b fdg + \int_a^b gdf=f(b)g(b)-f(a)g(a)</script></blockquote>
+<p>You may not believe it, but differentiation does not play any role here, as promised at the beginning.</p>
+<p><em>Proof.</em> Using the summation by parts (by Abel), we have</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+S(P,f,g)&=\sum_{k=0}^{n-1}f(c_k)[g(x_{k+1})-g(x_k)] \\
+        &=-\sum_{k=1}^{n-1}g(x_k)[f(c_k)-f(c_{k-1})]+f(c_{n-1})g(b)-f(c_0)g(a). \\
+\end{aligned}</script><p>By writing </p>
+<script type="math/tex; mode=display">
+S(P,f,g)=S(P,f,g)+f(a)g(a)-f(a)g(a)+f(b)g(b)-f(b)g(b)</script><p>we have</p>
+<script type="math/tex; mode=display">
+S(P,f,g)=f(b)g(b)-f(a)g(a)-S(Q,g,f)</script><p>where</p>
+<script type="math/tex; mode=display">
+S(Q,g,f)=\sum_{k=1}^{n-1}g(x_k)[f(c_k)-f(c_{k-1})]+[f(b)-f(c_{n-1})]g(b)+[f(c_0)-f(a)]g(a).</script><p>Consider the partition $Q$ by</p>
+<script type="math/tex; mode=display">
+y_k=\begin{cases}
+a &\quad k=0 \\
+c_{k-1}&\quad k<n \\
+b &\quad k=n
+\end{cases}</script><p>we have $x_0,x_1,\cdots,x_{n-1},x_k$ to be intermediate points, and</p>
+<script type="math/tex; mode=display">
+S(Q,g,f)=\sum_{k=0}^{n-1}g(x_k)[f(y_{k+1})-f(y_k)].</script><p>Since $0 &lt; \sigma(Q) \leq 2\sigma(P) \leq 4\sigma(Q)$, when $\sigma(P) \to 0$, we also have $\sigma(Q) \to 0$ and vice versa. Suppose now $\int_a^b gdf$ exists, we have</p>
+<script type="math/tex; mode=display">
+\lim_{\sigma(P) \to 0}S(P,f,g)=f(b)g(b)-f(a)g(a)-\int_a^bgdf=\int_a^bfdg.</script><p>And integration by parts follows.</p>
+<p>Suppose $\int_a^bfdg$ exists, then</p>
+<script type="math/tex; mode=display">
+\lim_{\sigma(Q) \to 0}S(Q,g,f)=f(b)g(b)-f(a)g(a)-\int_a^b fdg=\int_a^b gdf.</script><p>This proves the proposition. $\square$</p>
+<h2 id="The-flexibility-of-Riemann-Stieltjes-integral"><a href="#The-flexibility-of-Riemann-Stieltjes-integral" class="headerlink" title="The flexibility of Riemann-Stieltjes integral"></a>The flexibility of Riemann-Stieltjes integral</h2><p>As said before, we want to represent both continuous and discrete case using integral. For measure theory, we have Lebesgue measure and counting measure. But in some cases, this can be done using Riemann-Stieltjes integral as well. Ordinary Riemann integral and finite or infinite series are all special cases of Riemann-Stieltjes integral.</p>
+<h3 id="From-integral-to-series-discrete-case"><a href="#From-integral-to-series-discrete-case" class="headerlink" title="From integral to series (discrete case)"></a>From integral to series (discrete case)</h3><p>To do this, we need the unit step function by</p>
+<script type="math/tex; mode=display">
+I(x)=\begin{cases} 0 \quad x \leq 0, \\ 1 \quad x > 0 .\end{cases}</script><blockquote>
+<p>If $a&lt;s&lt;b$, $f$ is bounded on $[a,b]$ and continuous at $s$, by putting $g(x)=I(x-s)$, we have</p>
+<script type="math/tex; mode=display">
+\int_a^b fdg=f(s)</script></blockquote>
+<p><em>Proof.</em> A simple verification shows that $\int_a^b fdg=\int_s^b fdg$ (by unwinding the RS-sum, one see immediately that $g(x_k)=0$ for all $x_k\leq s$, therefore the partition before $s$ has no tribute to the value of the integral). Now consider the partition $P$ by</p>
+<script type="math/tex; mode=display">
+s=x_0<x_1<\cdots<x_n=b.</script><p>We see</p>
+<script type="math/tex; mode=display">
+S(P,f,g)=\sum_{k=0}^{n-1}f(c_k)(g(x_{k+1})-g(x_k))=f(c_0)(g(x_1)-g(x_0))=f(c_0).</script><p>As $x_1 \to s$, we have $c_0 \to s$, since $f$ is continuous at $s$, we have $f(c_0) \to f(s)$ as desired. $\square$</p>
+<p>By the linearity of RS integral, it is easy to generalize this to the case of finite linear combination. Namely, for $g(x)=\sum_{k=1}^{n}c_nI(x-s_n)$, we have</p>
+<script type="math/tex; mode=display">
+\int_a^b fdg=\sum_{k=1}^{n}c_nf(s_n).</script><p>But now we are discussing the infinite case.</p>
+<blockquote>
+<p>Suppose $c_n \geq 0$ for all $n \ge 0$ and $\sum_{n \ge 0} c_n$ converges, $(s_n)$ is a sequence of distinct points in $(a,b)$, and</p>
+<script type="math/tex; mode=display">
+g(x)=\sum_{n \ge 0}c_nI(x-s_n).</script><p>Let $f$ be continuous on $[a,b]$. Then</p>
+<script type="math/tex; mode=display">
+\int_a^b fdg=\sum_{n}c_nf(s_n)</script></blockquote>
+<p><em>Proof.</em> First it’s easy to see that $g(x)$ converges for every $x$, and is monotonic with $g(a)=0$, $g(b)=\sum_n c_n$. For given $\varepsilon&gt;0$, there exists some $N$ such that</p>
+<script type="math/tex; mode=display">
+\sum_{N+1}^{\infty}c_n<\varepsilon.</script><p>Putting</p>
+<script type="math/tex; mode=display">
+g_1(x)=\sum_{n=1}^{N}c_nI(x-s_n),\quad g_2(x)=\sum_{N+1}^{\infty}c_nI(x-s_n)=g(x)-g_1(x)</script><p>we have</p>
+<script type="math/tex; mode=display">
+\int_a^b fdg_1=\sum_{n=1}^{N}c_nf(s_n).</script><p>By putting $M=\sup|f(x)|$, we see</p>
+<script type="math/tex; mode=display">
+\left\vert\int_a^b fdg_2 \right\vert=\left\vert\int_a^b fdg-\int_a^bfdg_1 \right\vert=\left\vert\int_a^b fdg-\sum_{n=1}^{N}c_nf(s_n)\right\vert \leq M\varepsilon</script><p>The inequality holds since $|g_2(b)-g_2(a)|&lt;\varepsilon$. Since $M$ is finite, when $N \to \infty$, we have the desired result. $\square$</p>
+<h3 id="Transformed-into-ordinary-Riemann-integral-continuous-case"><a href="#Transformed-into-ordinary-Riemann-integral-continuous-case" class="headerlink" title="Transformed into ordinary Riemann integral (continuous case)"></a>Transformed into ordinary Riemann integral (continuous case)</h3><p>Finally we will discuss differentiation. The following theorem shows the connection between RS integral and Riemann integral.</p>
+<blockquote>
+<p>Let $f$ be continuous and suppose that $g$ is real differentiable on $[a,b]$ while $g’$ is Riemann integrable as well, then $f \in RS(g)$ and</p>
+<script type="math/tex; mode=display">
+\int_a^b fdg=\int_a^b fg'dx</script></blockquote>
+<p><em>Proof.</em> By mean value theorem, for each $k$, we have</p>
+<script type="math/tex; mode=display">
+g(x_{k+1})-g(x_k)=g'(\zeta_k)(x_{k+1}-x_k).</script><p>The RS-sum can be written as</p>
+<script type="math/tex; mode=display">
+S(P,f,g)=\sum_{k=0}^{n-1}f(c_k)[g(x_{k+1})-g(x_k)]=\sum_{k=0}^{n-1}f(c_k)g'(\zeta_k)(x_{k+1}-x_k).</script><p>Since $g’$ is Riemann integrable, we have</p>
+<script type="math/tex; mode=display">
+\sum_{k=0}^{n-1}|g'(c_k)-g'(\zeta_k)|(x_{k+1}-x_k) <\varepsilon</script><p>given that $|S(P,g’,x)-\int_a^b g’dx|&lt;\varepsilon$. Therefore</p>
+<script type="math/tex; mode=display">
+\left\vert\sum_{k=0}^{n-1}f(c_k)g'(\zeta_k)(x_{k+1}-x_k)-\sum_{k=0}^{n-1}f(c_k)g'(c_k)(x_{k+1}-x_k)\right\vert\leq M\varepsilon</script><p>where $M=\sup|f(x)|&lt;\infty$ ($f$ is assumed to be bounded.) . Also notice that $fg’$ is integrable since $f$ is continuous. Therefore</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\left\vert S(P,f,g)-\int_a^bfg'dx \right\vert&=\left\vert S(P,f,g)-S(P,fg',x)+S(P,fg',x)-\int_a^bfg'dx \right\vert \\
+&\leq \left\vert S(P,f,g)-S(P,fg',x) \right\vert+\left\vert S(P,fg',x)-\int_a^bfg'dx \right\vert \\
+&< (M+1)\varepsilon.
+\end{aligned}</script><p>Therefore,</p>
+<script type="math/tex; mode=display">
+\int_a^bfdg=\int_a^b fg'dx,</script><p>which proves the theorem. $\square$</p>
+<p>To sum up, given $\varepsilon&gt;0$, there exists some $\delta&gt;0$ such that if $\sigma(P)&lt;\delta$, we have</p>
+<script type="math/tex; mode=display">
+\left|S(P,g',x)-\int_a^b g'dx\right|<\varepsilon/(M+1)</script><p>and</p>
+<script type="math/tex; mode=display">
+\left\vert S(P,fg',x)-\int_a^bfg'dx \right\vert<\varepsilon/(M+1).</script><p>After some estimation, we get</p>
+<script type="math/tex; mode=display">
+\left|S(P,f,g)-\int_{a}^{b}fg'dx \right|<(M+1)\frac{\varepsilon}{M+1}=\varepsilon.</script></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-08-18T09:12:52.000Z" title="18/08/2020, 17:12:52">2020-08-18</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-12-09T10:10:01.092Z" title="09/12/2021, 18:10:01">2021-12-09</time></span><span class="level-item"><a class="link-muted" href="../../categories/Analysis/">Analysis</a><span> / </span><a class="link-muted" href="../../categories/Analysis/Elementary/">Elementary</a><span> / </span><a class="link-muted" href="../../categories/Analysis/Elementary/Continuity/">Continuity</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2020/08/18/Basic-facts-of-semicontinuous-functions/">Basic Facts of Semicontinuous Functions</a></h1><div class="content"><h2 id="Continuity"><a href="#Continuity" class="headerlink" title="Continuity"></a>Continuity</h2><p>We are restricting ourselves into $\mathbb{R}$ endowed with normal topology. Recall that a function is continuous if and only if for any open set $U \subset \mathbb{R}$, we have</p>
 <script type="math/tex; mode=display">
 \{x:f(x) \in U\}=f^{-1}(U)</script><p>to be open. One can rewrite this statement using $\varepsilon-\delta$ language. To say a function $f: \mathbb{R} \to \mathbb{R}$ continuous at $f(x)$, we mean for any $\varepsilon&gt;0$, there exists some $\delta&gt;0$ such that for $t \in (x-\delta,x+\delta)$, we have</p>
 <script type="math/tex; mode=display">
@@ -735,169 +869,7 @@ g(x)=p(x)+\frac{\varepsilon}{2}\varphi(x),</script><p>we have</p>
 \left\vert \frac{f(x+h)-f(x)}{h} \right\vert-|A|<\left\vert \frac{f(x+h)-f(x)}{h}-A \right\vert<\varepsilon</script><p>for $|h| \in (0,\delta)$. In fact, $A=f’(x)$, all we have to do is pick $n,m$ such that $n &gt; A$ and $\frac{1}{m}&lt;\delta$. Alternatively speaking, all we need to show is that, if $f \in S$, then $f \in B_{n,m}$ for some $m$ and $n$. Therefore</p>
 <script type="math/tex; mode=display">
 S=\bigcup_n\bigcup_m B_{n,m}</script><h5 id="Remarks-2"><a href="#Remarks-2" class="headerlink" title="Remarks"></a>Remarks</h5><p>If we think of meagre sets as being “small”, this tells us that “mostly” $f \in C(K)$ is nowhere differentiable. At  the very least, nowhere differentiable functions topologically exists, since a space cannot be of the first and second category at the same time.</p>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-06-30T02:55:50.000Z" title="30/06/2020, 10:55:50">2020-06-30</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-10-06T08:24:12.986Z" title="06/10/2021, 16:24:12">2021-10-06</time></span><span class="level-item"><a class="link-muted" href="../../categories/Analysis/">Analysis</a><span> / </span><a class="link-muted" href="../../categories/Analysis/Functional-Analysis/">Functional Analysis</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2020/06/30/big-3-pt-2/">The Big Three Pt. 2 - The Banach-Steinhaus Theorem</a></h1><div class="content"><h2 id="About-this-blog-post"><a href="#About-this-blog-post" class="headerlink" title="About this blog post"></a>About this blog post</h2><p>People call the Banach-Steinhaus theorem the first of the big three, which sits at the foundation of linear functional analysis. None of them can go without the Baire’s category theorem. </p>
-<p>This blog post offers the Banach-Steinhaus theorem on different abstract levels. Recall that we have</p>
-<script type="math/tex; mode=display">
-\text{TVS} \supset \text{Metrizable TVS} \supset \text{F-space} \supset \text{Fréchet space}\supset\text{Banach space} \supset \text{Hilbert space}</script><p>First, there will be a simple version for Banach spaces, which may be more frequently used, and you will realize why it’s referred to as the <em>uniform boundedness principle</em>. After that, there will be a much more generalized version for TVS. Typically, the metrization of the space will not be considered.</p>
-<p>Also, it will be a good chance to get a better view of the first and second space by Baire.</p>
-<h2 id="Equicontinuity"><a href="#Equicontinuity" class="headerlink" title="Equicontinuity"></a>Equicontinuity</h2><p>For metric spaces, equicontinuity is defined as follows. Let $(X,d_X)$ and $(Y,d_Y)$ be two metric spaces.</p>
-<blockquote>
-<p>Let $\Lambda$ be a collection of functions from $X$ to $Y$. We have three different levels of equicontinuity.</p>
-<ol>
-<li><strong>Equicontinuous at a point</strong>. For $x_0 \in X$, if for every $\varepsilon&gt;0$, there exists a $\delta&gt;0$ such that $d_Y(Lx_0,Lx)&lt;\varepsilon$ for <strong>all</strong> $L \in \Lambda$ and $d_X(x_0,x)&lt;\delta$ (that is, the continuity holds for all $L$ in a ball centered at $x_0$ with radius $r$).</li>
-<li><strong>Pointwise equicontinuous</strong>. $\Lambda$ is equicontinuous at each point of $X$.</li>
-<li><strong>Uniformly equicontinuous</strong>. For every $\varepsilon&gt;0$, there exists a $\delta&gt;0$ such that $d_Y(Lx,Ly)&lt;\varepsilon$ for all $x \in \Lambda$ and $x,y \in X$ such that $d_X(x,y) &lt; \delta$.</li>
-</ol>
-</blockquote>
-<p>Indeed, if $\Lambda$ contains only one element, namely $L$, then everything goes with the continuity and uniform continuity. </p>
-<p>But for Banach-Steinhaus theorem, we need a little more restrictions. In fact, $X$ and $Y$ should be considered Banach spaces, and $\Lambda$ contains linear functions only. In this sense, for $L \in \Lambda$, we have the following three conditions equivalent.</p>
-<blockquote>
-<ol>
-<li>$L$ is bounded.</li>
-<li>$L$ is continuous.</li>
-<li>$L$ is continuous at one point of $X$.</li>
-</ol>
-</blockquote>
-<hr>
-<p>For topological vector spaces, where only topology and linear structure are taken into consideration, things get different. Since no metrization is considered, we have to state it in the language of topology.</p>
-<blockquote>
-<p>Suppose $X$ and $Y$ are TVS and $\Lambda$ is a collection of linear functions from $X$ to $Y$. $\Lambda$ is equicontinuous if for every neighborhood $N$ of $0$ in $Y$, there corresponds a neighborhood $V$ of $0$ in $X$ such that $L(V) \subset N$ for all $L \in \Lambda$.</p>
-</blockquote>
-<p>Indeed, for TVS, $L \in \Lambda$ has the three conditions equivalent as well. With that being said, equicontinuous collection has the boundedness property in a uniform manner. That’s why the Banach-Steinhaus theorem is always referred to as the <em>uniform boundedness principle</em>.</p>
-<h2 id="The-Banach-Steinhaus-theorem-a-sufficient-condition-for-being-equicontinuous"><a href="#The-Banach-Steinhaus-theorem-a-sufficient-condition-for-being-equicontinuous" class="headerlink" title="The Banach-Steinhaus theorem, a sufficient condition for being equicontinuous"></a>The Banach-Steinhaus theorem, a sufficient condition for being equicontinuous</h2><h3 id="Banach-space-version"><a href="#Banach-space-version" class="headerlink" title="Banach space version"></a>Banach space version</h3><blockquote>
-<p>Suppose $X$ is a Banach space, $Y$ is a normed linear space, and ${F}$ is a collection of bounded linear transformation of $X$ into $Y$, we have two equivalent statements:</p>
-<ol>
-<li><p><strong>(The Resonance Theorem)</strong> If $\sup\limits_{L \in \Lambda}\left\Vert{L}\right\Vert=\infty$, then there exists some $x \in X$ such that $\sup\limits_{L \in {L}}\left\Vert{Lx}\right\Vert=\infty$. (In fact, these $x$ form a dense $G_\delta$.)</p>
-</li>
-<li><p><strong>(The Uniform Boundedness Principle)</strong> If $\sup\limits_{L \in {\Lambda}}\left\Vert{Lx}\right\Vert&lt;\infty$ for all $x \in X$, then we have $ \left\Vert L \right\Vert \leq M$ for all $L \in {\Lambda}$ and some $M&lt;\infty$.</p>
-</li>
-<li><strong>(A summary of 1 and 2)</strong> Either there exists an $M&lt;\infty$ such that $\lVert L \rVert \leq M$ for all $L \in {L}$, or $\sup\lVert Lx \rVert = \infty$ for all $x$ belonging to some dense $G_\delta$ in $X$.</li>
-</ol>
-</blockquote>
-<h4 id="Proof"><a href="#Proof" class="headerlink" title="Proof"></a>Proof</h4><p><em>Though it would be easier if we finish the TVS version proof, it’s still a good idea to leave the formal proof without the help of TVS here. The equicontinuity of $\Lambda$ will be shown in the next section.</em> </p>
-<h5 id="An-elementary-proof-of-the-Resonance-theorem"><a href="#An-elementary-proof-of-the-Resonance-theorem" class="headerlink" title="An elementary proof of the Resonance theorem"></a>An elementary proof of the Resonance theorem</h5><p>First, we offer an elementary proof in which the hardest part is the Cauchy sequence.</p>
-<blockquote>
-<p><strong>(Lemma)</strong> For any $x \in X$ and $r &gt;0$, we have</p>
-<script type="math/tex; mode=display">
-\sup_{y\in B(x,r)}\lVert Lx \rVert \geq \lVert L \rVert r</script><p>where $B(x,r)=\{y \in X:\lVert x-y \rVert &lt; r\}$.</p>
-<p><strong>(Proof of the lemma)</strong></p>
-<p>For $t \in X$ we have a simple relation</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-\max(\lVert{L(x+t)}\rVert,\lVert{L(x-t)}\rVert)&=\frac{1}{2}(\lVert{L(x+t)}\rVert+\lVert{L(x-t)}\rVert)+\frac{1}{2}\left\vert\lVert{L(x+t)}\rVert-\lVert{L(x-t)}\rVert\right\vert \\
-&\geq \frac{1}{2}(\lVert{L(x+t)}\rVert+\lVert{L(x-t)}\rVert) \\
-&\geq \frac{1}{2}\lVert{L(2t)}\rVert=\lVert Lt \rVert
-\end{aligned}</script><p>If we have $t \in B(0,r)$, then $x+t,x-t\in{B(x,r)}$. And the desired inequality follows by taking the supremum over $t \in B(0,r)$. (If you find trouble understanding this, take a look at the definition of $\lVert L \rVert$.)</p>
-</blockquote>
-<p>Suppose now $\sup\limits_{L \in \Lambda}\left\Vert{L}\right\Vert=\infty$. Pick a sequence of linear transformation in $\Lambda$, say $(L_n)_{n=1}^{\infty}$, such that $\lVert L_n \rVert \geq 4^n$. Pick $x_0 \in X$, and for $n \geq 1$, we pick $x_n$ inductively. </p>
-<p>Set $r_n=3^{-n}$. With $x_{n-1}$ being picked, $x_n \in B(x_{n-1},r_n)$ is picked in such a way that </p>
-<script type="math/tex; mode=display">
-\lVert L_n x_n \rVert \geq \frac{2}{3}\lVert L_n \rVert r_n</script><p>(It’s easy to validate this inequality by reaching a contradiction.) Also, it’s easy to check that $(x_n)_{n=1}^{\infty}$ is Cauchy. Since $X$ is <strong>complete</strong>, $(x_n)$ converges to some $x \in X$. Further we have</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-\lVert x-x_n \rVert &\leq \sum_{k=n}^{\infty}\lVert x_k - x_{k+1}\rVert \\
-&=\frac{1}{2\cdot 3^n}
-\end{aligned}</script><p>Therefore we have</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-\lVert L_n x \rVert &=\lVert L_n[x_n-(x_n-x)] \rVert \\
-&\geq \lVert L_nx_n \rVert - \lVert L_n(x_n-x) \rVert \\
-&\geq \frac{2}{3}\lVert{L_n}\rVert{3}^{-n}-\lVert{L_n}\rVert\lVert{x_n-x}\rVert\\
-&\geq \frac{1}{6}\lVert{L_n}\rVert{3}^{-n} \\
-& \geq \frac{1}{6}\left(\frac{4}{3}\right)^n \to\infty
-\end{aligned}</script><h5 id="A-topology-based-proof"><a href="#A-topology-based-proof" class="headerlink" title="A topology-based proof"></a>A topology-based proof</h5><p>The previous proof is easy to understand but it’s not easy to see the topological properties of the set formed by such $x$. Thus we are offering a topology-based proof which enables us to get a topology view.</p>
-<p>Put </p>
-<script type="math/tex; mode=display">
-\varphi(x)=\sup_{L \in \Lambda}\lVert Lx \rVert</script><p>and let</p>
-<script type="math/tex; mode=display">
-V_n=\{x:\varphi(x)>n\}</script><p>we claim that each $V_n$ is open. Indeed, we have to show that $x \mapsto \lVert Lx \rVert$ is continuous. It suffice to show that $\lVert\cdot\rVert$ defined in $Y$ is continuous. This follows immediately from triangle inequality since for $x,y \in Y$ we have</p>
-<script type="math/tex; mode=display">
-\lVert x \rVert \leq \lVert x-y \rVert + \lVert y \rVert</script><p>which implies</p>
-<script type="math/tex; mode=display">
-\lVert x \rVert - \lVert y \rVert \leq \lVert x-y \rVert</script><p>by interchanging $x$ and $y$, we get</p>
-<script type="math/tex; mode=display">
-|\lVert x \rVert - \lVert y \rVert | \leq \lVert x-y \rVert</script><p>Thus $x \mapsto \lVert Lx \rVert$ is continuous since it’s a composition of $\lVert\cdot\rVert$ and $L$. Hence $\varphi$, by the definition, is lower semicontinuous, which forces $V_n$ to be open. </p>
-<p>If <strong>every</strong> $V_n$ is dense in $X$ (consider $\sup\lVert L \rVert=\infty$), then by BCT, $B=\bigcap_{n=1}^{\infty} V_n$ is dense in $X$. Since each $V_n$ is open, $B$ is a dense $G_\delta$. Again by the definition of $B$, we have $\varphi(x)=\infty$ for all $x \in B$.</p>
-<p>If one of these sets, namely $V_N$, fails to be dense in $X$, then there exist an $x_0 \in X - V_N$ and an $r&gt;0$ such that for $x \in B(0,r)$ we have $x_0+x \notin V_N$, which is equivalent to</p>
-<script type="math/tex; mode=display">
-\varphi(x+x_0) \leq N</script><p>considering the definition of $\varphi$, we also have</p>
-<script type="math/tex; mode=display">
-\lVert L(x+x_0) \rVert \leq N</script><p>for all $L \in \Lambda$. Since $x=(x+x_0)-x_0$, we also have</p>
-<script type="math/tex; mode=display">
-\lVert Lx \rVert \leq \lVert L(x+x_0) \rVert+\lVert Lx_0 \rVert \leq 2N</script><p>Dividing $r$ on two sides, we got</p>
-<script type="math/tex; mode=display">
-\lVert L\frac{x}{r}\rVert \leq \frac{2N}{r}</script><p>therefore $\lVert L \rVert \leq M=\frac{2N}{r}$ as is to be shown. Again, this follows from the definition of $\lVert L \rVert$. </p>
-<h3 id="Topological-vector-space-version"><a href="#Topological-vector-space-version" class="headerlink" title="Topological vector space version"></a>Topological vector space version</h3><blockquote>
-<p>Suppose $X$ and $Y$ are topological vector spaces, $\Lambda$ is a collection of continuous linear mapping from $X$ into $Y$, and $B$ is the set of all $x \in X$ whose orbits</p>
-<script type="math/tex; mode=display">
-\Lambda(x)=\{Lx:L\in\Lambda\}</script><p>are bounded in $Y$. For this $B$, we have:</p>
-<ul>
-<li>If $B$ is of the second category, then $\Lambda$ is equicontinuous.</li>
-</ul>
-</blockquote>
-<h5 id="A-proof-using-properties-of-TVS"><a href="#A-proof-using-properties-of-TVS" class="headerlink" title="A proof using properties of TVS"></a>A proof using properties of TVS</h5><p>Pick balanced neighborhoods $W$ and $U$ of the origin in $Y$ such that $\overline{U} + \overline{U} \subset W$. The balanced neighborhood exists since every neighborhood of $0$ contains a balanced one.</p>
-<p>Put</p>
-<script type="math/tex; mode=display">
-E=\bigcap_{L \in \Lambda}L^{-1}(\overline{U}).</script><p>If $x \in B$, then $\Lambda(x)$ is bounded, which means that to $U$, there exists some $n$ such that $\Lambda(x) \subset nU$ (Be aware, no metric is introduced, this is the definition of boundedness in topological space). Therefore we have $x \in nE$. Consequently,</p>
-<script type="math/tex; mode=display">
-B\subset \bigcup_{n=1}^{\infty}nE.</script><p>If no $nE$ is of the second category, then $B$ is of the first category. Therefore, there exists at least one $n$ such that $nE$ is of the second category. Since $x \mapsto nx$ is a homeomorphism of $X$ onto $X$, $E$ is of the second category as well. But $E$ is closed since each $L$ is continuous. Therefore $E$ has an interior point $x$. In this case, $x-E$ contains a neighborhood $V$ of $0$ in $X$, and</p>
-<script type="math/tex; mode=display">
-L(V) \subset Lx-L(E) \subset \overline{U} - \overline{U} \subset W</script><p>This proves that $\Lambda$ is equicontinuous.</p>
-<h5 id="Equicontinuity-and-uniform-boundedness"><a href="#Equicontinuity-and-uniform-boundedness" class="headerlink" title="Equicontinuity and uniform boundedness"></a>Equicontinuity and uniform boundedness</h5><p>We’ll show that $B=X$. But before that, we need another lemma, which states the connection between equicontinuity and uniform boundedness</p>
-<blockquote>
-<p><strong>(Lemma)</strong> Suppose $X$ and $Y$ are TVS, $\Gamma$ is an equicontinuous collection of linear mappings from $X$ to $Y$, and $E$ is a bounded subset of $X$. Then $Y$ has a bounded subset $F$ such that $T(E) \subset F$ for every $T \in \Gamma$.</p>
-<p><strong>(Proof of the lemma)</strong> We’ll show that, the set</p>
-<script type="math/tex; mode=display">
-F=\bigcup_{T \in \Gamma}T(E)</script><p>is bounded. By the definition of equicontinuity, there is an neighborhood $V$ of the origin in $X$ such that $T(V) \subset W$ for all $T \in \Gamma$. Since $E$ is bounded,  there exists some $t$ such that $E \subset tV$. For these $t$, by the definition of linear functions, we have</p>
-<script type="math/tex; mode=display">
-T(E) \subset T(tV)=tT(V) \subset tW</script><p>Therefore $F \subset tW$. $F$ is bounded.</p>
-</blockquote>
-<p>Thus $\Lambda$ is uniformly bounded.  Picking $E=\{x\}$ in the lemma, we also see $\Lambda(x)$ is bounded in $Y$ for every $x$. Thus $B=X$.</p>
-<h4 id="A-special-case-when-X-is-a-F-space-or-Banach-space"><a href="#A-special-case-when-X-is-a-F-space-or-Banach-space" class="headerlink" title="A special case when $X$ is a $F$-space or Banach space"></a>A special case when $X$ is a $F$-space or Banach space</h4><p>$X$ is a $F$-space if its topology $\tau$ is induced by a <strong>complete</strong> invariant metric $d$. By BCT, $X$ is of the second category. If we already have $B=X$, in which case $B$ is of the second category, then by Banach-Steinhaus theorem, $\Lambda$ is equicontinuous. Formally speaking, we have:</p>
-<blockquote>
-<p>If $\Lambda$ is a collection of continuous linear mappings from an $F$-space $X$ into a topological vector space $Y$, and if the sets</p>
-<script type="math/tex; mode=display">
-\Lambda(x)=\{Lx:L\in\Lambda\}</script><p>are bounded in $Y$ for <strong>every</strong> $x \in X$, then $\Lambda$ is equicontinuous.</p>
-</blockquote>
-<p>Notice that all Banach spaces are $F$-spaces. Therefore we can restate the Uniform Boundedness Principle in Banach space with equicontinuity.</p>
-<blockquote>
-<p>Suppose $X$ is a Banach space, $Y$ is a normed linear space, and ${F}$ is a collection of bounded linear transformation of $X$ into $Y$, we have:</p>
-<ul>
-<li><strong>(The Uniform Boundedness Principle)</strong> If $\sup\limits_{L \in {\Lambda}}\left\Vert{Lx}\right\Vert&lt;\infty$ for all $x \in X$, then we have $|L| \le M$ for all $L \in {\Lambda}$ and some $M&lt;\infty$. Further, $\Lambda$ is equicontinuous. </li>
-</ul>
-</blockquote>
-<h2 id="Application"><a href="#Application" class="headerlink" title="Application"></a>Application</h2><p>Surprisingly enough, the Banach-Steinhaus theorem can be used to do Fourier analysis. An important example follows.</p>
-<blockquote>
-<p>There is a periodic continuous function $f$ on $[0,1]$ such that the Fourier series</p>
-<script type="math/tex; mode=display">
-\sum_{n\in\mathbb{Z}}\hat{f}(n)e^{2\pi inx}</script><p>of $f$ diverges at $0$. $\hat{f}(n)$ is defined by</p>
-<script type="math/tex; mode=display">
-\hat{f}(n)=\int_{0}^{1}e^{-2\pi inx}f(x)dx</script></blockquote>
-<p>Notice that $f \mapsto \hat{f}$ is linear, and the divergence of the series at $0$ can be considered by</p>
-<script type="math/tex; mode=display">
-\sum_{n\in\mathbb{Z}}\hat{f}(n)e^{2\pi in\cdot0}=\sum_{n\in\mathbb{Z}}\hat{f}(n)</script><p>To invoke Banach-Steinhaus theorem, the family of linear functionals are defined by</p>
-<script type="math/tex; mode=display">
-\lambda_N(f)=\sum_{|n| \leq N}\hat{f}(n)</script><p>It can be proved that</p>
-<script type="math/tex; mode=display">
-\lVert \lambda_N \rVert=\int_0^1\left\vert\sum_{|n| \leq N}e^{-2\pi inx}\right\vert dx</script><p>which goes to infinity as $N \to \infty$. The existence of such $f$ that</p>
-<script type="math/tex; mode=display">
-\sup_{N}|\lambda_N(f)|=+\infty</script><p>follows from the resonance theorem. Further, we also know that these $f$ are in a dense $G_\delta$ subset of the vector space generated by all periodic continuous functions on $[0,1]$.</p>
-<h2 id="The-series"><a href="#The-series" class="headerlink" title="The series"></a>The series</h2><p>Since there is no strong reason to write more posts on this topic, i.e. the three fundamental theorems of linear functional analysis, I think it’s time to make a list of the series. It’s been around half a year.</p>
-<ul>
-<li><a href="/2020/06/06/big-3-pt-1/">The Big Three Pt. 1 - Baire Category Theorem Explained</a></li>
-<li>The Big Three Pt. 2 - The Banach-Steinhaus Theorem</li>
-<li><a href="/2020/08/12/big-3-pt-3/">The Big Three Pt. 3 - The Open Mapping Theorem (Banach Space)</a></li>
-<li><a href="/2020/09/12/big-3-pt-4/">The Big Three Pt. 4 - The Open Mapping Theorem (F-Space)</a></li>
-<li><a href="/2020/10/01/big-3-pt-5/">The Big Three Pt. 5 - The Hahn-Banach Theorem (Dominated Extension)</a></li>
-<li><a href="/2020/11/13/big-3-pt-6/">The Big Three Pt. 6 - Closed Graph Theorem with Applications</a></li>
-</ul>
-<h2 id="References-Further-readings"><a href="#References-Further-readings" class="headerlink" title="References / Further readings"></a>References / Further readings</h2><ol>
-<li><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1005.1585.pdf">arXiv:1005.1585v2</a></li>
-<li>W. Rudin, <em>Real and Complex Analysis</em></li>
-<li>W. Rudin, <em>Functional Analysiss</em></li>
-<li><a target="_blank" rel="noopener" href="http://www-users.math.umn.edu/~garrett/m/fun/Notes/03b_fourier.pdf">Applications to Fourier series</a></li>
-</ol>
-</div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="../5/">Previous</a></div><div class="pagination-next"><a href="../7/">Next</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="../../">1</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="../5/">5</a></li><li><a class="pagination-link is-current" href="">6</a></li><li><a class="pagination-link" href="../7/">7</a></li><li><a class="pagination-link" href="../8/">8</a></li><li><a class="pagination-link" href="../9/">9</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="../../img/avatar.png" alt="Desvl"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Desvl</p><p class="is-size-6 is-block">A blog mainly on graduate mathematics.</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>A Noetherian local ring</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="../../archives"><p class="title">88</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="../../categories"><p class="title">45</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="../../tags"><p class="title">52</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="../../redirect/newsletter" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Compose an Email" href="../../redirect/email"><i class="fas fa-envelope"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="../../atom.xml"><i class="fas fa-rss"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Mathstodon" href="https://mathstodon.xyz/@desvl"><i class="fa-brands fa-mastodon"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://arxiv.org/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">arXiv</span></span><span class="level-right"><span class="level-item tag">arxiv.org</span></span></a></li><li><a class="level is-mobile" href="https://stacks.math.columbia.edu/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">The Stack Project</span></span><span class="level-right"><span class="level-item tag">stacks.math.columbia.edu</span></span></a></li><li><a class="level is-mobile" href="https://ncatlab.org/nlab/show/mathematics" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">nLab (Mathematics)</span></span><span class="level-right"><span class="level-item tag">ncatlab.org</span></span></a></li><li><a class="level is-mobile" href="https://q.uiver.app/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">quiver: a modern commutative diagram editor</span></span><span class="level-right"><span class="level-item tag">q.uiver.app</span></span></a></li><li><a class="level is-mobile" href="https://www.symmetricfunctions.com/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">The Symmetric Functions Catalogue</span></span><span class="level-right"><span class="level-item tag">www.symmetricfunctions.com</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/speaking.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Speaking</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/writing.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Writing</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">How to study maths really quick (YouTube)</span></span><span class="level-right"><span class="level-item tag">www.youtube.com</span></span></a></li><li><a class="level is-mobile" href="https://www.bilibili.com/video/BV1GJ411x7h7" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">How to study maths really quick (Bilibili)</span></span><span class="level-right"><span class="level-item tag">www.bilibili.com</span></span></a></li></ul></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="../../index.html"><img src="../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a><p class="is-size-7"><span>&copy; 2023</span> <a rel="me noopener" target="_blank" href="https://mathstodon.xyz/@desvl">Desvl</a><br>Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+</div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="../5/">Previous</a></div><div class="pagination-next"><a href="../7/">Next</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="../../">1</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="../5/">5</a></li><li><a class="pagination-link is-current" href="">6</a></li><li><a class="pagination-link" href="../7/">7</a></li><li><a class="pagination-link" href="../8/">8</a></li><li><a class="pagination-link" href="../9/">9</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="../../img/avatar.png" alt="Desvl"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Desvl</p><p class="is-size-6 is-block">A blog mainly on graduate mathematics.</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>A Noetherian local ring</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="../../archives"><p class="title">89</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="../../categories"><p class="title">46</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="../../tags"><p class="title">53</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="../../redirect/newsletter" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Compose an Email" href="../../redirect/email"><i class="fas fa-envelope"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="../../atom.xml"><i class="fas fa-rss"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Mathstodon" href="https://mathstodon.xyz/@desvl"><i class="fa-brands fa-mastodon"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://arxiv.org/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">arXiv</span></span><span class="level-right"><span class="level-item tag">arxiv.org</span></span></a></li><li><a class="level is-mobile" href="https://stacks.math.columbia.edu/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">The Stack Project</span></span><span class="level-right"><span class="level-item tag">stacks.math.columbia.edu</span></span></a></li><li><a class="level is-mobile" href="https://ncatlab.org/nlab/show/mathematics" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">nLab (Mathematics)</span></span><span class="level-right"><span class="level-item tag">ncatlab.org</span></span></a></li><li><a class="level is-mobile" href="https://q.uiver.app/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">quiver: a modern commutative diagram editor</span></span><span class="level-right"><span class="level-item tag">q.uiver.app</span></span></a></li><li><a class="level is-mobile" href="https://www.symmetricfunctions.com/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">The Symmetric Functions Catalogue</span></span><span class="level-right"><span class="level-item tag">www.symmetricfunctions.com</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/speaking.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Speaking</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/writing.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Writing</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">How to study maths really quick (YouTube)</span></span><span class="level-right"><span class="level-item tag">www.youtube.com</span></span></a></li><li><a class="level is-mobile" href="https://www.bilibili.com/video/BV1GJ411x7h7" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">How to study maths really quick (Bilibili)</span></span><span class="level-right"><span class="level-item tag">www.bilibili.com</span></span></a></li></ul></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="../../index.html"><img src="../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a><p class="is-size-7"><span>&copy; 2023</span> <a rel="me noopener" target="_blank" href="https://mathstodon.xyz/@desvl">Desvl</a><br>Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
             article: {
                 highlight: {
                     clipboard: true,

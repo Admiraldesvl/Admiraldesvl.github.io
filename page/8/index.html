@@ -29,7 +29,132 @@
       switchTab();
       window.addEventListener('hashchange', switchTab, false);
   })();
-  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="../../index.html"><img src="../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="../../index.html">Home</a><a class="navbar-item" href="../../archives">Archives</a><a class="navbar-item" href="../../categories">Categories</a><a class="navbar-item" href="../../tags">Tags</a><a class="navbar-item" href="../../about">About (Updated Aug. 2022)</a><a class="navbar-item" href="../../link-exchange">Link Exchange</a><a class="navbar-item" href="../../support-the-author">Support the Author</a></div><div class="navbar-end"></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-04-17T16:00:00.000Z" title="18/04/2020, 00:00:00">2020-04-18</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-05-06T10:09:10.006Z" title="06/05/2022, 18:09:10">2022-05-06</time></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2020/04/18/order-of-limit/">高等数学入门——理解无穷小的阶（微积分的“科学计数法”）</a></h1><div class="content"><h2 id="从科学记数法讲起"><a href="#从科学记数法讲起" class="headerlink" title="从科学记数法讲起"></a>从科学记数法讲起</h2><p>当处理非常大或者非常小的数的时候科学记数法肯定是很方便的，不用记写很多$0$，也不用数有几个$0$。像是木星的质量大约是$1.9\times 10^{27}$千克，而电子的质量大约是$9.1 \times 10^{-31}$ 千克，能很轻松地进行表达。如果这两个数进行加法或者乘法，那也不是很困难（至少相比于非得把两个数列出来好算）。</p>
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="../../index.html"><img src="../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="../../index.html">Home</a><a class="navbar-item" href="../../archives">Archives</a><a class="navbar-item" href="../../categories">Categories</a><a class="navbar-item" href="../../tags">Tags</a><a class="navbar-item" href="../../about">About (Updated Aug. 2022)</a><a class="navbar-item" href="../../link-exchange">Link Exchange</a><a class="navbar-item" href="../../support-the-author">Support the Author</a></div><div class="navbar-end"></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-04-30T16:00:00.000Z" title="01/05/2020, 00:00:00">2020-05-01</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-01-13T02:58:11.877Z" title="13/01/2022, 10:58:11">2022-01-13</time></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2020/05/01/linear-ode-chapter-1/">线性ODE（一）——线性方程的思想与一阶方程</a></h1><div class="content"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>说到常微分方程，很多人可能认为，这是通过各种充满技巧性、构造性的手段直接或者间接求导求积分，而且根本想不出来这些技巧从那里冒出来的。因为这样对，所以这样对，所以我以后就这样套公式，就算出结果来了，一验算确实如此。事情并非如此。的确，常微分方程中有一些问题，现在都没有被研究清楚，但是那些基本的、常见的常微分方程问题，并没有什么看不见摸不着的玄学。<strong>在这些理论背后，是微积分、线性代数等等基本工具之间朴素而又美妙的联系。</strong>这一系列的博客，正想给读者呈现这一点。我们会遵循这样一个原则：先通过代数，将微分方程的结构厘清，再通过微积分，得到所希望得到的结果。可以看下面这个例子：</p>
+<p><img src="\img\image-20200501132151024.png" alt="image-20200501132151024"></p>
+<p>假如你需要讨论椭圆$\frac{x^2}{4}+y^2-\frac{xy}{2}=1$的性质，那你肯定不愿意。这个椭圆在坐标系中是斜着的，如果要计算各种性质的话，那可能是巨大的计算量，得到一个个令人绝望的二次方程，甚至还有分式等等。但是，如果我们把原来的基<strong>旋转</strong>一个合适的角度，也就是从$\{E_1,E_2\}$旋转到了$\{E_1’,E_2’\}$，那么在这组新基下，它就是一个很平凡的椭圆了，也就是说，我们只需要讨论在这组新基下表示的椭圆方程就行了。看上去很美好，但是实际可行吗？当然可行。这个变换没有改变椭圆的任何性质。椭圆没有平移，没有变形；周长没有变，面积没有变。我们在这组新基下得到的结果，只需要再反转回去，就是原来所求的结果。</p>
+<p>还有一个问题：这个旋转是所谓构造性极强、充满技巧的手段吗？是空穴来风吗？不是。这是利用了线性变换，利用了特征值，利用了矩阵的基本性质。此后，再在新基下运用各种直线方程、微积分方法等等，变得非常简单。这就是我们接下来要运用的思想。</p>
+<h2 id="一阶线性方程"><a href="#一阶线性方程" class="headerlink" title="一阶线性方程"></a>一阶线性方程</h2><h3 id="一阶线性方程的定义与一个物理学实例"><a href="#一阶线性方程的定义与一个物理学实例" class="headerlink" title="一阶线性方程的定义与一个物理学实例"></a>一阶线性方程的定义与一个物理学实例</h3><p>我们接下来要解决的是这种类型的方程</p>
+<blockquote>
+<script type="math/tex; mode=display">
+\frac{dy}{dx}+p(x)y=q(x)</script></blockquote>
+<p>只需要$y’$和$y$的次数都是$1$，而且没有$y^a(y’)^{b}$这种形式出现，就是一个一阶（因为$y’$只求导了一次）线性（只有一次项）方程。</p>
+<p>这样的方程自然也有自己的实际价值。例如通过电学中的<strong>Kirchhoff’s Circuit Laws</strong>，对于一个简单的R-L串联电路（串联有一个电阻、一个电感的直流电电路），我们能得到电流强度方程</p>
+<blockquote>
+<script type="math/tex; mode=display">
+L\frac{di}{dt}+Ri=E</script></blockquote>
+<p>其中，$i(t)$表示电流强度，$R$表示串联的电阻，$L$表示电感，$E$表示电压。显然，$i=\frac{E}{R}$就是一个特解。如果我们有$L \neq 0$，那么两边除以$L$，就能得到</p>
+<script type="math/tex; mode=display">
+\frac{di}{dt}+\frac{R}{L}i=\frac{E}{L}</script><p>这里的$\frac{R}{L}$就可以看成$p(t)$，$\frac{E}{L}$可以看成$q(t)$，尽管都是常数。如果解这个方程（解法会在后面介绍，这个解也可以加以验证），能得到</p>
+<script type="math/tex; mode=display">
+i = \frac{E}{R}+C\exp(-\frac{R}{L}t)</script><p>但是考虑到实际情况，开关闭合之前，电流强度是$0$；直到在闭合的一瞬间$t=0$时，有$i=0$。考虑到这一点，就能直接将常数$C$解出来，也就得到了</p>
+<script type="math/tex; mode=display">
+i=\frac{E}{R}(1-\exp({-\frac{R}{L}t}))</script><h3 id="从电流问题中得到的启发"><a href="#从电流问题中得到的启发" class="headerlink" title="从电流问题中得到的启发"></a>从电流问题中得到的启发</h3><p>上一节我们试图探讨R-L串联电路中电流强度的变化，给出了一个有物理意义的方程，并且解了出来。问题是，为什么会出现常数$e$？</p>
+<p>我们在高中就学过，$(e^{x})’=e^x$，或者更普遍一点，$(Ce^x)’=Ce^x$。如果在$x$的系数上做文章，有$(Ce^{-ax})’=-aCe^{-ax}$。注意，如果我们令$y=Ce^{-ax}$，那么我们已经得到了</p>
+<script type="math/tex; mode=display">
+y'+ay=0</script><p>这是最简单的一阶线性方程了。$Ce^{-ax}$的性质和线性方程吻合得很好。但是上面的方程明显比这个复杂，却还是有一个$e$在这里。可不可以认为，形如$y’+ay=b$的方程是由$y’+ay=0$进行“调整”得到的？更进一步，方程$y’+p(x)y=q(x)$是不是由$y’+p(x)y=0$衍生出来的？是怎么衍生出来的？这个解的结构是怎样的？</p>
+<p>实际情况是，在讨论多元常微分方程组、高阶常微分方程的时候，我们都还是从指数函数出发，从等式右边等于$0$出发。当然我们现在不应该深入太多。</p>
+<h3 id="从高斯消元法到线性微分方程解的结构"><a href="#从高斯消元法到线性微分方程解的结构" class="headerlink" title="从高斯消元法到线性微分方程解的结构"></a>从高斯消元法到线性微分方程解的结构</h3><p>高斯消元法，或者是更单纯的求解$n$元一次方程组的办法，我想读者肯定知道计算原理。我们举一个简单的例子</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+\begin{aligned}
+x_1+2x_2+x_3&=0 \\
+2x_1+5x_2+x_3&=1 \\
+0x_1-3x_2+3x_3&=-3
+\end{aligned}
+\end{cases}</script><p>通过高斯消元法，或者单纯说是反复给其中两个方程做加减法和代入，能得到</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+\begin{aligned}
+x_1+0x_2+3x_3&=-2 \\
+x_2-x_3&=1
+\end{aligned}
+\end{cases}</script><p>令$x_3=t$，就能得到$x_1=-2-3t,x_2=1+t$。其中$t \in \mathbb{R}$。这时我们就得到了这个线性方程组的解。为了表示方便，结合矩阵运算的性质，原来的式子可以写成矩阵的形式：</p>
+<script type="math/tex; mode=display">
+\begin{pmatrix}
+1 & 2 & 1 \\
+2 & 5 & 1 \\
+0 &-3&3 \\
+\end{pmatrix}
+\begin{pmatrix}
+-2-3t \\
+1+t \\
+t
+\end{pmatrix}=\begin{pmatrix}
+1 & 2 & 1 \\
+2 & 5 & 1 \\
+0 &-3&3 \\
+\end{pmatrix}
+\left\{
+\begin{pmatrix}
+-2 \\
+1 \\
+0
+\end{pmatrix}+
+t\begin{pmatrix}
+-3 \\
+1 \\
+1
+\end{pmatrix}
+\right\}=0</script><p>不妨用$A$表示这个矩阵，$v_1=(-2,1,0)^T$，$v_2=(-3,1,1)^T$，$v_0=(0,1,-3)^T$（$T$表示转置，这里为了书写简便）。那么可以验证，$Av_1=v_0$，而$Av_2=0$。那么这个式子又可以写成</p>
+<script type="math/tex; mode=display">
+A(v_1+tv_2)=Av_1+tAv_2=v_0+t\cdot0=v_0</script><p>所以我们想求的未知向量$x=v_1+tv_2$由两部分组成：一部分是符合$Ax=b$的一个特殊解，一部分符合$Ax’=0$，两部分的和代表了所有的解。也就是说，一个线性方程组的解，可能有无穷多个。<strong>但是，有一部分保证了解是准确的（也就是上面的$v_1$），有一部分保证解是普遍的（也就是上面的$tv_2$。$v_2$指出了解延伸的骨架，$t$取遍所有实数进行遍历）。</strong></p>
+<p>为什么要举高斯消元法这样一个例子呢？这里矩阵乘法是一个线性运算（$A(\alpha v+\beta w)=\alpha Av+\beta Aw$），而求导也是一个线性运算（$(af+bg)’=af’+bg’$），也就是说，它们都是“平直”的，是没有让问题变复杂的乘积的。电流方程的通解</p>
+<script type="math/tex; mode=display">
+i = \frac{E}{R}+C\exp(-\frac{R}{L}t)</script><p>很好验证，但是是不是也是这样的结构？对于$i_1=\exp(-\frac{R}{L}t)$，通过简单的求导运算可以得到$\frac{di_1}{dt}+\frac{R}{L}i_1=0$。对于$i_2=\frac{E}{R}$，我们已经知道它满足原来的方程。所以$i=Ci_1+i_2$，代入原来的方程，就有</p>
+<script type="math/tex; mode=display">
+\frac{d(Ci_1+i_2)}{dt}+\frac{R}{L}(Ci_1+i_2)=\frac{E}{L}+C\cdot 0</script><p>这和上面求三元一次方程组得到的结果是类似的。只是形式不同，但是结构相同。$i_2$保证了解的准确性，$i_1$保证解的普遍性，遍历所有结果。<strong>求解一阶线性微分方程，我们已经看清了结构（通过高斯消元法的类比），接下来，需要通过微积分的手段，得到一个合适结论。</strong></p>
+<h3 id="一阶线性常微分方程的解决办法"><a href="#一阶线性常微分方程的解决办法" class="headerlink" title="一阶线性常微分方程的解决办法"></a>一阶线性常微分方程的解决办法</h3><h4 id="形如-y’-p-x-y-0-的方程的解"><a href="#形如-y’-p-x-y-0-的方程的解" class="headerlink" title="形如$y’+p(x)y=0$的方程的解"></a>形如$y’+p(x)y=0$的方程的解</h4><p>显然，$y=0$是这个方程的一个解。如果$y \neq 0$，我们可以将这个方程改写成这个形式</p>
+<script type="math/tex; mode=display">
+\frac{dy}{y}+p(x)dx=0</script><p>分别对$x$和$y$积分，就能得到</p>
+<script type="math/tex; mode=display">
+\ln\left\vert y \right\vert = -\int p(x)dx + C</script><p>又可以写成</p>
+<script type="math/tex; mode=display">
+y = Ce^{-\int p(x)dx}</script><p>其中$C$为常数。$C=0$时，恰好对应了$y=0$这个解。的确，如果我们解</p>
+<script type="math/tex; mode=display">
+\frac{di}{dt}+\frac{R}{L}i=0</script><p>就能得到$i=C\exp({-\frac{R}{L}t})$。</p>
+<h4 id="形如-y’-p-x-y-q-x-的方程的解"><a href="#形如-y’-p-x-y-q-x-的方程的解" class="headerlink" title="形如$y’+p(x)y=q(x)$的方程的解"></a>形如$y’+p(x)y=q(x)$的方程的解</h4><p>事情似乎变得有点蹊跷。难不成要强行凑出一个满足这个方程的解，然后再加上满足$y’+p(x)y=0$的全体解？并非如此。求出一个满足条件的$y$有很多办法，我会在这里介绍一种比较直观的办法。</p>
+<p>实际上，我们知道了$q(x)$就已经足够了。设有$f(x)=e^{-\int p(x)dx}$，设全体解是</p>
+<script type="math/tex; mode=display">
+y(x)=Cf(x)+\mu(x)</script><p>其中$\mu(x)$满足$\mu’+p(x)\mu=q(x)$。我们通过已知的$f$和$q$直接求出$\mu$来，从而求出所有解来。</p>
+<p>不妨设$\mu(x)=f(x)c(x)$，我们通过几个函数的性质求出$c(x)$来。对$\mu$求导有</p>
+<script type="math/tex; mode=display">
+\mu'(x)=f'(x)c(x)+f(x)c'(x)=-p(x)f(x)c(x)+f(x)c'(x)=-p(x)f(x)c(x)+q(x)</script><p>这里利用了$f’(x)+p(x)f(x)=0$。而$f(x)与$$p(x)$都是已知的，经过化简就得到了</p>
+<script type="math/tex; mode=display">
+c'(x)=\frac{q(x)}{f(x)}</script><p>对$c’$求积分，就得到（其实这是直接写出来）</p>
+<script type="math/tex; mode=display">
+c(x)=\int q(x)e^{\int p(t)dt}dx</script><p>所以全体解就是</p>
+<script type="math/tex; mode=display">
+y=e^{-\int p(x)dx}\left(C+\int q(x)e^{\int p(t)dt}dx\right)</script><p>这个时候，$c(x)e^{-\int p(x)dx}$决定了解的准确性，$C \cdot e^{-\int p(x)dx}$决定了解的普遍性。如果我们已经知道了一个特殊值，也就是说$y(x_0)=y_0$，那么方程$y’+p(x)=q(x)$的解就可以准确写成</p>
+<script type="math/tex; mode=display">
+y=y_0e^{-\int_{x_0}^xp(t)dt}+\int_{x_0}^{x}q(s)e^{\int_s^xp(t)dt}ds</script><p>这并不是什么生拉硬拽的拼凑和巧合，并不需要所谓灵光一现，需要的是对线性运算的基本理解。</p>
+<p>不妨再去验证一下刚开始的那个电路方程是不是符合这一结果。</p>
+<h5 id="全体解都被包含了吗？"><a href="#全体解都被包含了吗？" class="headerlink" title="全体解都被包含了吗？"></a>全体解都被包含了吗？</h5><p>可能这个结论不具有信服力。是不是漏掉了哪些解？</p>
+<p>我们已经知道$\mu(x)$是一个解，不妨再设有一个解$y(x)$，那么$y(x)-\mu(x)$是什么样子？如果是$Cf(x)$，那么刚刚好，因为这里的$y$是任意选取的，这就体现了$Cf(x)$的普遍性。实际上</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+(y-\mu)'+p(x)(y-\mu)&=(y'+p(x)y')-(\mu'-p(x)\mu) \\
+                    &=q(x)-q(x) \\
+                    &=0
+\end{aligned}</script><p>而解$y-\mu$，就得到了$y-\mu=Cf(x)$，所以说，全体解的确是$Cf(x)+\mu$。</p>
+<h4 id="你已经意识到了，求不定积分也是求一阶线性微分方程"><a href="#你已经意识到了，求不定积分也是求一阶线性微分方程" class="headerlink" title="你已经意识到了，求不定积分也是求一阶线性微分方程"></a>你已经意识到了，求不定积分也是求一阶线性微分方程</h4><p>在初学微积分的时候，求不定积分常常要有一个$+C$。在现在这个框架下这个结果就很明显了。我们求</p>
+<script type="math/tex; mode=display">
+y'=f(x)</script><p>其实可以看成求</p>
+<script type="math/tex; mode=display">
+y'+0 \cdot y = f(x)</script><p>而$y’=0$解得$y=C$，又假设我们已经解得一个函数$F$使得$F’=f$，那么就有</p>
+<script type="math/tex; mode=display">
+y=F(x)+C</script><p>了。$F$保证解的准确，$C$保证解的普遍性。</p>
+<h3 id="伯努利方程——将方程化为一阶线性方程"><a href="#伯努利方程——将方程化为一阶线性方程" class="headerlink" title="伯努利方程——将方程化为一阶线性方程"></a>伯努利方程——将方程化为一阶线性方程</h3><p>有些方程虽然不是一阶线性方程，但是好在我们能将它经过简单的变换，变成一个一阶线性方程。例如这个方程</p>
+<script type="math/tex; mode=display">
+y'=\frac{2xy^2+\arctan{x}}{2y}</script><p>虽然甚至都不是线性方程（因为$y$有一个次数是$-1$），但是如果令$z=y^2$，就有</p>
+<script type="math/tex; mode=display">
+2yy'=z'=2xz+\arctan{x}</script><p>这就得到了一个一阶线性方程了（尽管可能很难算）。一般地讲，对于伯努利方程</p>
+<script type="math/tex; mode=display">
+y'+p(x)y=q(x)y^n</script><p>两边乘以$(1-n)y^{-n}$，就能得到</p>
+<script type="math/tex; mode=display">
+(1-n)y^{-n}y'+(1-n)y^{1-n}p(x)=(1-n)q(x)</script><p>在令$z=y^{1-n}$，就能得到</p>
+<script type="math/tex; mode=display">
+z'+(1-n)p(x)z=(1-n)q(x)</script><p>这就是一个一阶线性方程了，计算就变得很简单。</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-04-17T16:00:00.000Z" title="18/04/2020, 00:00:00">2020-04-18</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-05-06T10:09:10.006Z" title="06/05/2022, 18:09:10">2022-05-06</time></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2020/04/18/order-of-limit/">高等数学入门——理解无穷小的阶（微积分的“科学计数法”）</a></h1><div class="content"><h2 id="从科学记数法讲起"><a href="#从科学记数法讲起" class="headerlink" title="从科学记数法讲起"></a>从科学记数法讲起</h2><p>当处理非常大或者非常小的数的时候科学记数法肯定是很方便的，不用记写很多$0$，也不用数有几个$0$。像是木星的质量大约是$1.9\times 10^{27}$千克，而电子的质量大约是$9.1 \times 10^{-31}$ 千克，能很轻松地进行表达。如果这两个数进行加法或者乘法，那也不是很困难（至少相比于非得把两个数列出来好算）。</p>
 <p>对于一个用科学记数法表示的数</p>
 <script type="math/tex; mode=display">
 x=a \times 10^b</script><p>很多信息自然地暴露了出来。$a$帮助我们认识这个数的具体值（可能是估计值，但是估计起来也很方便！），$b$帮助我们认识这个数的数量级。在计算pH值时对浓度取$\lg$对数，正好是利用了这一点。虽然在数学上$e$的应用更广泛，但是实际计算并不方便；而$\lg$对数如果用来计算像是$10^b$这种数，就非常简单了。</p>
@@ -808,98 +933,7 @@ m(\lambda)=(\lambda-1)(\lambda+1)(\lambda+5)</script><p>这时其实已经完成
 0&0&1 \\  
 0&1&1 \end{pmatrix}</script><p>不难验证，$B=P^{-1}AP$。整个运算推导过程没有脱离$\mathbb{Q}$。这是理所当然的。整个过程中只有域$\mathbb{Q}$上的加法和乘法运算。但是特征值分解不一定能这么”稳定”。矩阵$A$本身就是一个很有意思的反例： 特征值中出现了无理数。</p>
 <p>实际上，矩阵$B$就是矩阵$A$的有理标准形，而且特征多项式$f=m_1$。显然$m_1$被$A$唯一决定。这是一个比较特殊的例子(不妨试试用$\varepsilon_2$进行一下循环分解)。接下来的博客会讨论一下更普遍的结论和性质。</p>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-01-16T16:00:00.000Z" title="17/01/2020, 00:00:00">2020-01-17</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-10-23T00:19:31.958Z" title="23/10/2021, 08:19:31">2021-10-23</time></span><span class="level-item"><a class="link-muted" href="../../categories/Legacy-content/">Legacy content</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2020/01/17/abstract-lebesgue-integral/">抽象Lebesgue积分的构建</a></h1><div class="content"><h3 id="从一个”难题”入手"><a href="#从一个”难题”入手" class="headerlink" title="从一个”难题”入手"></a>从一个”难题”入手</h3><blockquote>
-<p>设$\{f_n\}$是一个定义在$[0，1]$上的连续函数列，且$0\leq f_n\leq 1$.  $n\to\infty$时，对任意$x\in[0，1]$有$f_n(x)\to{0}$. 求证 <script type="math/tex">\lim_{n\to\infty}\int_{0}^{1}f_n(x)dx=0</script></p>
-</blockquote>
-<p>在Riemann积分下这个命题的证明确实很头疼。虽然说有$\lim\limits_{n\to\infty}f_n(x)=0$，但是这里并不是一致收敛，所以不能直接将极限号和积分号交换。但是也没有别的信息，只能从连续性入手。</p>
-<p>Riemann积分在讨论函数列的时候往往需要考虑是否一致收敛，这往往很麻烦。19世纪末，很多数学家都主张，高等数学课中的Riemann积分(这也是每个人都要学的)应该被新的一种更普遍、更灵活、更方便解决极限问题的积分替代。那个时期很多的数学家都进行了尝试，Lebesgue的办法可以说是集大成者。粗略地说，Riemann积分是由下面这个和式逼近的: <script type="math/tex">\sum_{i=1}^{n}f(t_i)\Delta{x_i}</script></p>
-<p>也就是所谓面积的极限。$f(t_i)$是矩形的高，$\Delta{x_i}$是矩形的宽。当然还有Darboux上和、Darboux下和等等概念，然后讨论两者的差，在$\varepsilon-N$语言下严谨地逼近，这就是所谓可积性。讨论一个指定函数的积分，函数已经确定了，但这里的$\Delta{x_i}$还可以做文章。对于$\Delta{x_i}=x_i-x_{i-1}$，它代表了区间$[x_{i-1}，x_i]$的长度，而区间是一个集合。能不能通过讨论集合的”大小”来解决积分问题呢?</p>
-<p>这篇博客里讨论的集合是<strong>任意</strong>的(这也是博客标题里”抽象”所指)。既可以考虑经典的Euclidean空间，又可以考虑概率论中的事件空间，或者是其他。它们都可以统一到Lebesgue积分中，而Riemann积分在很多时候也可以通过Lebesgue测度”$m$“进行计算(粗略地说，$m(E)$就是$E$的“体积”)。另外，最开始的这个题在Lebesgue积分下也是很简单的。</p>
-<h3 id="pi-系统、-lambda-系统、-sigma-代数"><a href="#pi-系统、-lambda-系统、-sigma-代数" class="headerlink" title="$\pi$-系统、$\lambda$-系统、$\sigma$-代数"></a>$\pi$-系统、$\lambda$-系统、$\sigma$-代数</h3><h4 id="函数的值域"><a href="#函数的值域" class="headerlink" title="函数的值域"></a><strong>函数的值域</strong></h4><p>如果要给一个集合定义一个”大小”，也就是对应一个值，那么需要定义一个函数，这个函数建立起集合到实数或者复数的映射。例如定义$m([a，b])=b-a$，这就是集合$[a，b]$的长度，$b-a$就是一个实数。这个函数的值域可以是$\mathbb{R}$或者$\mathbb{R}^2$的一个子集，而定义域是怎样的呢? 首先，它应该是一个由集合构成的集合。比如一个集合$A$的幂集$\mathcal{P}(A)$。但是一定是幂集吗? 可不可以小一点或者大一点? 它又能不能保证一些运算的合理性? 这就是这里需要解决的问题。接下来，我们会一步步把这个”定义域”所需要满足的条件逐步勾勒出来。这也是Lebesgue积分的”主战场”。</p>
-<hr>
-<blockquote>
-<p>一个由集合$X$的<strong>子集</strong>构成的集合$\mathcal{P}$在满足如下条件时被称为$\pi$-系统: 如果$A\in{P}$且$B\in\mathcal{P}$，那么$A\cap{B}\in\mathcal{P}$.</p>
-</blockquote>
-<p>$\pi$-系统保证了这个集合族在有限次交运算的封闭性。一个最简单的$\pi$-系统是$\mathbb{R}$中所有闭区间(注意把$\varnothing$也算上)构成的集合。两个闭区间的并集必定是闭区间或$\varnothing$，而$\varnothing$和闭区间的并集是$\varnothing$。这就是一个$\pi$-系统。但是不一定保证无穷次运算的封闭，也不保证并集的封闭。</p>
-<p>概率论中的样本空间也是一个$\pi$-系统。两个事件的交也在一个样本空间中。这自然是合理的。但是只是$\pi$-系统肯定不够。就比如说，一个事件的否定该怎么办? 无穷个事件(这可能涉及到概率论中的收敛问题)又该怎么办? 如果积分是定义在$\pi$-系统上也不行，不能只考虑全体闭区间。接下来会引入另一个系统。</p>
-<blockquote>
-<p>一个由集合$X$的<strong>子集</strong>构成的集合$\mathcal{L}$在满足如下条件时被称为$\lambda$-系统:</p>
-<ol>
-<li>$X\in\mathcal{L}$.</li>
-<li>若$A, B\in\mathcal{L}$，且$B\subset{A}$，那么$A-B\in\mathcal{L}$.</li>
-<li>若$A_n\in\mathcal{L}$，且$A_n\subset{A_{n+1}}$，那么有$\bigcup_{n=1}^{\infty}A_n\in\mathcal{L}$.</li>
-</ol>
-</blockquote>
-<p>样本空间也是一个$\lambda$-系统，有了一些$\pi$-系统中没有的合理性质。比如全事件，两个事件的差，单调事件列的极限的封闭性。</p>
-<hr>
-<h4 id="sigma-代数，两个系统的结合"><a href="#sigma-代数，两个系统的结合" class="headerlink" title="$\sigma$-代数，两个系统的结合"></a><strong>$\sigma$-代数，两个系统的结合</strong></h4><p>已经看到，两种系统各有优劣，都只能锁定一部分性质。实际上，两种系统结合起来，就是一个合理定义的最精炼的”定义域”，也就是$\sigma$-代数。如果一个集合$X$的子集族$\mathfrak{M}$既是$\pi$-系统又是$\lambda$-系统，那么$\mathfrak{M}$被称为定义在$X$上的$\sigma$-代数。</p>
-<p>继续从样本空间出发考虑概率论中的例子。首先空集和全事件是肯定要有的。$\lambda$-系统就保证了这一点。根据1和2，$X-X=\varnothing\in\mathcal{L}$。如果将2中的$A$固定为$X$，那么又可以发现，任意子集的补集也在$\mathcal{L}$中。</p>
-<p>最后需要考虑可数个并集的情况(这涉及到加法)。考虑到De Morgan定律，这也就解决了交集的问题。$\pi$-系统只交代了有限个的交运算，$\lambda$-系统只解决了单调集合列的运算，这两个单独看局限性肯定是很大的。但是结合起来就能得到任意可数个并集的情况了。这一点的论证是一个非常有意思的集合运算技巧，在这里演示一下。</p>
-<p>设对于$n=1，2，\cdots$有$A_n\in\mathfrak{M}$，已经有$A_n^c\in\mathfrak{M}$。不难验证$B_n=\bigcup_{i=1}^{n}A_i=\left(\bigcap_{i=1}^{n}A_i^c\right)^c\in\mathfrak{M}$。又有$B_{n}\subset B_{n+1}$，所以$\bigcup_{n=1}^{\infty}B_n=\bigcup_{n=1}^{A_n}\in\mathfrak{M}$。</p>
-<p>综上，定义在$X$上的$\sigma$-代数$\mathfrak{M}$满足三个性质:</p>
-<blockquote>
-<ol>
-<li>$X\in\mathfrak{M}$.</li>
-<li>若$A\in\mathfrak{M}$，那么$A^c\in\mathfrak{M}$(这里$A^c=X-A$).</li>
-<li>若对$n=1, 2, \cdots$有$A_n\in\mathfrak{M}$，那么$\bigcup A_n\in\mathfrak{M}$.</li>
-</ol>
-</blockquote>
-<p>这时，$X$称为可测空间，$\mathfrak{M}$中的元素称为可测集合。</p>
-<h4 id="一些评注和补充"><a href="#一些评注和补充" class="headerlink" title="一些评注和补充"></a><strong>一些评注和补充</strong></h4><ol>
-<li>不难证明，$\sigma$-代数既是$\pi$-系统又是$\lambda$-系统。也就是说，它满足这两个系统本身的性质，所以集合的差，有限个集合的交、并自然不在话下。</li>
-<li>$\sigma$-代数中的元素可以有很多个，比如$\mathcal{P}(X)$，也可以有两个，比如$\{\varnothing，X\}$。实际上，$X$的任何子集族都可以生成一个最小的$\sigma$-代数。特别地，由$X$的全体开子集生成的$\sigma$-代数$\mathcal{B}$是一个有特殊地位的代数，它能和谐地处理连续函数(广义的)。$\mathcal{B}$的元素称为Borel集。</li>
-<li>$\pi-\lambda$定理(两种系统的关系)：设$\mathcal{P}$和$\mathcal{L}$分别是一个$\pi$-系统和一个$\lambda$-系统，而且$\mathcal{P}\subset\mathcal{L}$，设包含$\mathcal{P}$的最小$\sigma$-代数为$\sigma(\mathcal{P})$，那么有$\sigma(\mathcal{P})\subset\mathcal{L}$。</li>
-</ol>
-<h3 id="可测函数"><a href="#可测函数" class="headerlink" title="可测函数"></a>可测函数</h3><p>对于一个有界函数，如果这个函数Riemann可积，那么这个函数几乎处处连续。例如单调函数、有可数个甚至有限个间断点的函数。但是在这里讨论Lebesgue函数时并不考虑函数是否连续(尽管连续函数和可测函数有很多联系，这不是这篇博客的重点)。</p>
-<blockquote>
-<p>设函数$f:X\to{Y}$，定义在$X$上的$\sigma$代数为$\mathfrak{M}$，若对任意的开集$V\subset{Y}$都有$f^{-1}(V)\in\mathfrak{M}$。其中$f^{-1}(V)=\{x\in{X}:f(x)\in{V}\}$</p>
-</blockquote>
-<p>如果不了解什么是”<a target="_blank" rel="noopener" href="http://mathworld.wolfram.com/OpenSet.html">开集</a>”，可以先看作开区间的推广，即不包括边界点的集合。比如开区间、平面中不包含边界的集合，而开集的补集为闭集。开集是一个拓扑的基本元素，可测函数的定义保证这样的函数是”不病态”的。其实很好理解: 我们花好大功夫规定了$\sigma$-代数，是为了方便我们积分，结果值域里一个开区间就找不到$\sigma$-代数里对应的一个$X$的合理的子集，那肯定是不合理的。至于闭集。闭集是开集的补集，严格地说，一个集合是开集当且仅当其补集为闭集。又考虑到$\sigma$-代数对补集和并集的封闭性，可测函数的合理性就更清楚了。</p>
-<p>对于实函数，有一种很有用的判别方法:</p>
-<blockquote>
-<p>如果$f(x)$的值域为$\mathbb{R}$，对于任意的$\alpha\in\mathbb{R}$都有$\{x\in{X}:f(x)&gt;\alpha\}\in\mathfrak{M}$，那么$f$为可测函数。</p>
-</blockquote>
-<p>这也是一个最基本的限制条件。考虑到$\sigma$-代数的几条性质，不难对全体开区间进行分析。对于复函数，考虑$f=u+iv$。如果$u，v$都是可测函数，那么$f$是可测函数。</p>
-<p>对于连续函数，如果$\mathfrak{M}$包含全体Borel集，那么连续函数可测。因为对于连续函数$f$，$f^{-1}(V)$一定为开集(可以从$\varepsilon-\delta$语言的角度考虑一下)。</p>
-<h3 id="特征函数、简单函数"><a href="#特征函数、简单函数" class="headerlink" title="特征函数、简单函数"></a>特征函数、简单函数</h3><p>如果$E$为可测集，定义函数 </p>
-<script type="math/tex; mode=display">
-    \chi_E(x)=\begin{cases}1\quad{x\in{E}}\\
-    0\quad{x\notin{E}}\end{cases}</script><p>那么$\chi_E(x)$是一个可测函数。对于<a target="_blank" rel="noopener" href="http://mathworld.wolfram.com/DiscreteTopology.html">离散集合</a>，每个点都应该看成开集。$\chi$被称为特征函数。</p>
-<hr>
-<p>简单函数是指值域只有有限个点的函数，也就是所谓”阶梯函数”，但是要注意这里的阶梯并不一定是单调的。Lebesgue积分就是用阶梯函数的积分逼近的。如果找出每个取值点的原象，那么一个简单函数可以写成特征函数的形式。也就是说，设简单函数$s$的取值为$\alpha_1，\cdots，\alpha_n$，又令$A_i=\{x:s(x)=\alpha_i\}$，那么不难得到 </p>
-<script type="math/tex; mode=display">
-    s=\sum_{i=1}^{n}\alpha_i\chi_{A_i}</script><p>也不难发现，如果每个集合$A_i$都是可测集，那么$s$为可测函数。</p>
-<p>任意可测函数都可以用简单函数逼近。也就是说，</p>
-<blockquote>
-<p>设函数$f:X\to[0，+\infty]$为可测函数，存在定义在$X$上的可测简单函数$s_n(x)$使得</p>
-<ol>
-<li>$0\leq s_1\leq s_2\leq\cdots\leq f$.</li>
-<li>对任意$x\in{X}$有$s_n(x)\to f(x)(n\to\infty)$.</li>
-</ol>
-</blockquote>
-<p>如果$f$既有正值又有负值，那么可以讨论$f^{+}=\text{max}(f，0)$和$f^{-}=-\text{min}(f，0)$即可，这两部分分别逼近之后又可以通过$f=f^{+}-f^{-}$结合起来。</p>
-<h3 id="测度、测度空间"><a href="#测度、测度空间" class="headerlink" title="测度、测度空间"></a>测度、测度空间</h3><p>做完了被积函数的工作之后再回到集合的”大小”这个概念上。实际上概率论中某一事件的概率就 <strong>是</strong>一种测度。只不过这一测度的值域是$[0，1]$，而一般的测度的值域是$[0，+\infty]$。概率是一个从集合到$[0，1]$的映射，另外还有一点我想大家都很熟悉。如果$A\cap{B}=\varnothing$，那么$P(A\cup{B})=P(A)+P(B)$。这其实是基于测度定义的一个推广，严格地说，</p>
-<blockquote>
-<p>一个正测度是定义在一个$\sigma$-代数$\mathfrak{M}$上的<strong>函数</strong>$\mu$，其值域为$[0，+\infty]$，而且满足可列可加性。也就是说，对互不相交的集合列$\{A_k\}$，有 <script type="math/tex">\mu(\bigcup_{k=1}^{\infty}A_i)=\sum_{i=1}^{\infty}\mu(A_i)</script></p>
-</blockquote>
-<p>对于$\mu$，假设至少有一个$A\in\mathfrak{M}$使得$\mu(A)&lt;+\infty$。</p>
-<p>和Riemann积分最接近的测度就是Lebesgue积分$m$。粗略地说，$m([a，b])=b-a$。这代表了Euclidean空间中点集的”体积”。如果是离散集合，设$\mu(E)$表示$E$中元素的个数，那么$\mu$也构成一个测度。但是一个集合是不是Lebesgue可测是一个比较复杂的问题。这在以后会解释。</p>
-<p>一个测度空间指的是一个可测空间和一个定义在可测空间的$\sigma$-代数上的正测度。复测度是一个复值函数，定义域和正测度相同，而且满足可列可加性。</p>
-<p>不难发现，$\mu(\varnothing)=0$，对于有限个互不相交的集合，可列可加性也是成立的(对于$n$个集合，将$n+1$个以后的集合看成空集即可)。</p>
-<h3 id="Lebesgue积分的构造"><a href="#Lebesgue积分的构造" class="headerlink" title="Lebesgue积分的构造"></a>Lebesgue积分的构造</h3><p>终于到了Lebesgue积分了。在进行之前先回顾一下我们做了什么工作。首先，考虑到积分是在集合的子集上(可以考虑$\mathbb{R}$的一些子集)下文章，我们找到了这个子集族需要满足的条件，也就是说，是一个$\sigma$-代数。为了测量一个集合的”大小”，我们定义了测度这个概念。这是”区间长度”的非常和谐的抽象推广。从一般的函数到所有可测的实函数、复函数，主要会通过下面三步进行。</p>
-<h4 id="简单函数"><a href="#简单函数" class="headerlink" title="简单函数"></a><strong>简单函数</strong></h4><p>考虑非负可测简单函数(其他情况会另外考虑)$s=\sum_{i=1}^{n}\alpha_{i}\chi_{A_i}$。$s$为可测函数也就是说，对任意的$A_i$都有$A_i\in\mathfrak{M}$，这样的话$\mu(A_i)$就是存在的，否则运算没法进行，这也是函数可测性的意义体现。</p>
-<p>回到博客开头，考虑面积，就需要考虑函数值($\alpha_i$)和区间长度。这里的抽象的”区间长度”变成了$\mu(A_i)$。如果积分的集合是$E\in\mathfrak{M}$，那么就有$A_i\cap{E}\in\mathfrak{M}$(因为$\mathfrak{M}$是$\pi$-系统!)。那么直接求和就行了: </p>
-<script type="math/tex; mode=display">
-    \int_{E}sd\mu = \sum_{i=1}^{n}\alpha_{i}\mu(A_i\cap{E})</script><p>如果$\mu$表示的是实际的区间长度，那么这就是简单的面积求和; 如果$\mu$是一个概率测度，那么这就是计算了数学期望(随机变量是一个可测函数)。这里还有一个很有意思的例子:</p>
-<p>如果$X$表示了你全部的课程，每门课用$A_i$表示，$\mu(A_i)$表示了这门课的学分，$\alpha_i$表示了这门课的绩点，那么这个Lebesgue积分再除以总学分就是你的GPA。</p>
-<p>这里还需要定义$0*\infty=0$。可能有点别扭，但是这种情况还是要考虑的。比如有的时候$\alpha_i=0$(别考虑GPA了!)而$\mu(A_i\cap{E})=\infty$。这个定义也是有必要的。比如$f(x)=0$在$\mathbb{R}$上的积分应该是$0$而不是别的。</p>
-<h4 id="全体非负可测实函数"><a href="#全体非负可测实函数" class="headerlink" title="全体非负可测实函数"></a><strong>全体非负可测实函数</strong></h4><p>如果$f:X\to[0，+\infty]$为可测函数，那么对于$E\in\mathfrak{M}$定义 </p>
-<script type="math/tex; mode=display">
-    \int_{E}fd\mu=\sup\int_{E}sd\mu</script><p>其中上确界取遍所有$0\leq{s}\leq{f}$的可测简单函数。而我们已经知道，可测函数可以被简单函数逼近。所以这可以看成一个被简单函数逼近的过程。</p>
-<h4 id="全体复函数"><a href="#全体复函数" class="headerlink" title="全体复函数"></a><strong>全体复函数</strong></h4><p>最开始我们只讨论了非负实函数。其余两种情况，如果涉及到负数，可能计算上确界有点不合适; 对复数更不合适，因为复数没有大小。但是好在我们可以将这两种情况统一起来。设$f=u+iv$($v$可能恒等于$0$)，那么就设 </p>
-<script type="math/tex; mode=display">
-    \int_{E}fd\mu=\int_{E}u^+d\mu-\int_{E}u^-d\mu+i\left(\int_{E}v^+d\mu-\int_{E}v^-d\mu\right)</script><p>总而言之，从计算矩形面积，变成计算抽象的集合测度和函数值的乘积，推广之后就得到了Lebesgue积分。以后会详细论证Riemann积分和Lebesgue积分的具体关系。Lebesgue积分虽然在计算上并不一定有很好的优势，但是在抽象论证过程中有了更多的可能性。以后也会讲到，Lebesgue积分在处理收敛问题时的便利之处，最开始的一个题也就很简单了。</p>
-</div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="../7/">Previous</a></div><div class="pagination-next"><a href="../9/">Next</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="../../">1</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="../7/">7</a></li><li><a class="pagination-link is-current" href="">8</a></li><li><a class="pagination-link" href="../9/">9</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="../../img/avatar.png" alt="Desvl"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Desvl</p><p class="is-size-6 is-block">A blog mainly on graduate mathematics.</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>A Noetherian local ring</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="../../archives"><p class="title">88</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="../../categories"><p class="title">45</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="../../tags"><p class="title">52</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="../../redirect/newsletter" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Compose an Email" href="../../redirect/email"><i class="fas fa-envelope"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="../../atom.xml"><i class="fas fa-rss"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Mathstodon" href="https://mathstodon.xyz/@desvl"><i class="fa-brands fa-mastodon"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://arxiv.org/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">arXiv</span></span><span class="level-right"><span class="level-item tag">arxiv.org</span></span></a></li><li><a class="level is-mobile" href="https://stacks.math.columbia.edu/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">The Stack Project</span></span><span class="level-right"><span class="level-item tag">stacks.math.columbia.edu</span></span></a></li><li><a class="level is-mobile" href="https://ncatlab.org/nlab/show/mathematics" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">nLab (Mathematics)</span></span><span class="level-right"><span class="level-item tag">ncatlab.org</span></span></a></li><li><a class="level is-mobile" href="https://q.uiver.app/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">quiver: a modern commutative diagram editor</span></span><span class="level-right"><span class="level-item tag">q.uiver.app</span></span></a></li><li><a class="level is-mobile" href="https://www.symmetricfunctions.com/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">The Symmetric Functions Catalogue</span></span><span class="level-right"><span class="level-item tag">www.symmetricfunctions.com</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/speaking.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Speaking</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/writing.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Writing</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">How to study maths really quick (YouTube)</span></span><span class="level-right"><span class="level-item tag">www.youtube.com</span></span></a></li><li><a class="level is-mobile" href="https://www.bilibili.com/video/BV1GJ411x7h7" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">How to study maths really quick (Bilibili)</span></span><span class="level-right"><span class="level-item tag">www.bilibili.com</span></span></a></li></ul></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="../../index.html"><img src="../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a><p class="is-size-7"><span>&copy; 2023</span> <a rel="me noopener" target="_blank" href="https://mathstodon.xyz/@desvl">Desvl</a><br>Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+</div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="../7/">Previous</a></div><div class="pagination-next"><a href="../9/">Next</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="../../">1</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="../7/">7</a></li><li><a class="pagination-link is-current" href="">8</a></li><li><a class="pagination-link" href="../9/">9</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="../../img/avatar.png" alt="Desvl"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Desvl</p><p class="is-size-6 is-block">A blog mainly on graduate mathematics.</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>A Noetherian local ring</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="../../archives"><p class="title">89</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="../../categories"><p class="title">46</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="../../tags"><p class="title">53</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="../../redirect/newsletter" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Compose an Email" href="../../redirect/email"><i class="fas fa-envelope"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="../../atom.xml"><i class="fas fa-rss"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Mathstodon" href="https://mathstodon.xyz/@desvl"><i class="fa-brands fa-mastodon"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://arxiv.org/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">arXiv</span></span><span class="level-right"><span class="level-item tag">arxiv.org</span></span></a></li><li><a class="level is-mobile" href="https://stacks.math.columbia.edu/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">The Stack Project</span></span><span class="level-right"><span class="level-item tag">stacks.math.columbia.edu</span></span></a></li><li><a class="level is-mobile" href="https://ncatlab.org/nlab/show/mathematics" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">nLab (Mathematics)</span></span><span class="level-right"><span class="level-item tag">ncatlab.org</span></span></a></li><li><a class="level is-mobile" href="https://q.uiver.app/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">quiver: a modern commutative diagram editor</span></span><span class="level-right"><span class="level-item tag">q.uiver.app</span></span></a></li><li><a class="level is-mobile" href="https://www.symmetricfunctions.com/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">The Symmetric Functions Catalogue</span></span><span class="level-right"><span class="level-item tag">www.symmetricfunctions.com</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/speaking.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Speaking</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/writing.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Writing</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">How to study maths really quick (YouTube)</span></span><span class="level-right"><span class="level-item tag">www.youtube.com</span></span></a></li><li><a class="level is-mobile" href="https://www.bilibili.com/video/BV1GJ411x7h7" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">How to study maths really quick (Bilibili)</span></span><span class="level-right"><span class="level-item tag">www.bilibili.com</span></span></a></li></ul></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="../../index.html"><img src="../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a><p class="is-size-7"><span>&copy; 2023</span> <a rel="me noopener" target="_blank" href="https://mathstodon.xyz/@desvl">Desvl</a><br>Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
             article: {
                 highlight: {
                     clipboard: true,
