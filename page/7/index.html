@@ -29,7 +29,130 @@
       switchTab();
       window.addEventListener('hashchange', switchTab, false);
   })();
-  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="../../index.html"><img src="../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="../../index.html">Home</a><a class="navbar-item" href="../../archives">Archives</a><a class="navbar-item" href="../../categories">Categories</a><a class="navbar-item" href="../../tags">Tags</a><a class="navbar-item" href="../../about">About (Updated Aug. 2022)</a><a class="navbar-item" href="../../link-exchange">Link Exchange</a><a class="navbar-item" href="../../support-the-author">Support the Author</a></div><div class="navbar-end"></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-07-04T13:32:34.000Z" title="04/07/2020, 21:32:34">2020-07-04</time></span><span class="level-item">Updated&nbsp;<time dateTime="2020-08-04T08:37:45.985Z" title="04/08/2020, 16:37:45">2020-08-04</time></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2020/07/04/nowhere-differentiable-functions/">A continuous function is &#039;mostly&#039; nowhere differentiable</a></h1><div class="content"><h3 id="About-this-post"><a href="#About-this-post" class="headerlink" title="About this post"></a>About this post</h3><p>It is taught in elementary calculus course that, if a function is differentiable at some point $x_0$, then it’s continuous at $x_0$, but <strong>not</strong> vice versa. It’s easy to construct an counterexample which is continuous but not differentiable. An example is $y=|x|$ at $x=0$. In fact, we can even find a nowhere differentiable function by series:</p>
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="../../index.html"><img src="../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="../../index.html">Home</a><a class="navbar-item" href="../../archives">Archives</a><a class="navbar-item" href="../../categories">Categories</a><a class="navbar-item" href="../../tags">Tags</a><a class="navbar-item" href="../../about">About (Updated Aug. 2022)</a><a class="navbar-item" href="../../link-exchange">Link Exchange</a><a class="navbar-item" href="../../support-the-author">Support the Author</a></div><div class="navbar-end"></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-07-16T08:38:23.000Z" title="16/07/2020, 16:38:23">2020-07-16</time></span><span class="level-item">Updated&nbsp;<time dateTime="2020-08-20T07:35:03.543Z" title="20/08/2020, 15:35:03">2020-08-20</time></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2020/07/16/linear-ode-chapter-4/">线性ODE（四）——常系数高阶线性微分方程的普遍解法</a></h1><div class="content"><h2 id="最终目标"><a href="#最终目标" class="headerlink" title="最终目标"></a>最终目标</h2><p>我们要讨论这两种方程的普遍的解决办法</p>
+<script type="math/tex; mode=display">
+y^{(n)}+a_1y^{(n-1)}+\cdots+a_ny=0\\
+y^{(n)}+a_1y^{(n-1)}+\cdots+a_ny=f(x)\\</script><p>其中$a_i$为常数。在<a href="/2020/05/12/linear-ode-chapter-3/">上篇博客</a>里，我们见到了，假设我们能求出第一个方程，那么第二个方程的解，可以用Cramer法则，通过解普通的线性方程组，再进行积分得到。但是我们假设自己有这个“超能力”，并没有实际的操作方法。这篇博客会赋予我们这个“超能力”。当然也不仅仅是如何快速准确解出方程，更重要的是，能看到经典理论之间朴素而又巧妙的联系。</p>
+<p>这篇博客的方法基于多项式，我想你至少在微积分课上已经知道一些简单的对于多项式的处理了。这里要用到古典代数学基本定理，也就是说</p>
+<blockquote>
+<p>任何一个非零的一元$n$次复系数多项式，都正好有$n$个复数根（重根视为多个根）。</p>
+</blockquote>
+<h2 id="多项式方法"><a href="#多项式方法" class="headerlink" title="多项式方法"></a>多项式方法</h2><h3 id="回顾简单的线性方程"><a href="#回顾简单的线性方程" class="headerlink" title="回顾简单的线性方程"></a>回顾简单的线性方程</h3><p>在这里最适合讨论的应该是</p>
+<script type="math/tex; mode=display">
+y'-ay=0\quad (a \neq 0)</script><p>确实，再简单就是普通的不定积分了。我们再来回顾一下怎么分析这个方程的解的结构。首先，$y=0$显然是一个解，这保证了解的准确性。另一方面，在<a href="/2020/05/01/linear-ode-chapter-1/">第一篇博客</a>里，我们也给出了普遍的通解计算方式</p>
+<script type="math/tex; mode=display">
+y=Ce^{\int adx}=Ce^{ax}</script><p>所以，这个方程的解为</p>
+<script type="math/tex; mode=display">
+y=Ce^{ax}</script><p>其中$C$为任意常数。</p>
+<hr>
+<p>我们也可以尝试一下简单的二阶方程</p>
+<script type="math/tex; mode=display">
+y''-2y'+y=0</script><p>显然，$y=0$仍然是这个方程的一个特殊解。我们希望的是，能解两次$y’+p(x)y=0$形式的方程，因为这种方程的解法我们是已经会了的。</p>
+<p>注意到我们可以把方程写成</p>
+<script type="math/tex; mode=display">
+(y'-y)'-(y'-y)=0</script><p>令$u=y’-y$，那么我们有了</p>
+<script type="math/tex; mode=display">
+u'-u=0</script><p>这个方程的解我们是知道的，实际上我们已经有</p>
+<script type="math/tex; mode=display">
+u=C_1e^{x}</script><p>所以又有了</p>
+<script type="math/tex; mode=display">
+y'-y=C_1e^x</script><p>从而又可以解出</p>
+<script type="math/tex; mode=display">
+y=C_1e^x+C_2xe^{x}</script><h3 id="尝试对上述方程解法进行抽象"><a href="#尝试对上述方程解法进行抽象" class="headerlink" title="尝试对上述方程解法进行抽象"></a>尝试对上述方程解法进行抽象</h3><p>对于一阶方程，就是我们已经学过的办法。而二阶方程，你应该已经察觉到了，似乎有迹可循。注意到，$y’’-2y’+y=0$这个方程，我们是解了两次$y’-y$。这时自然可以想到，对于某个方程可能也可以像是解两次$y’-2y$。注意如果我们把求两次导看成一个”平方“，我们有一个方程</p>
+<script type="math/tex; mode=display">
+\lambda^2-2\lambda+1=(\lambda-1)^2=0</script><p>那么能不能写出一个需要解两次$y’-2y$的方程呢？我们先写出一个关于$\lambda$的方程，再给对应一个微分方程，也就是说</p>
+<script type="math/tex; mode=display">
+(\lambda-2)^2=\lambda^2-4\lambda+4=0</script><p>而对应的方程恰好又有</p>
+<script type="math/tex; mode=display">
+y''-4y'+4y=0=(y'-2y)'-2(y'-2y)</script><p>仍然是要解两次$y’-2y=0$。类似地，也可能某个方程是需要解$n$次$y-3y’$，等等。我们也可以讨论“混合”的场景。比如一个二阶方程，需要先解一次$y-ay’$，再解一次$y-by’$。如果两个颠倒，会不会又有不一样的结果？我们甚至不需要解出结果就可以进行分析。实际上有</p>
+<script type="math/tex; mode=display">
+(y'-ay)'-b(y'-ay)=y''-(a+b)y'+aby=(y'-by)'-a(y'-by)</script><h3 id="求导的“多项式”——你的“超能力”"><a href="#求导的“多项式”——你的“超能力”" class="headerlink" title="求导的“多项式”——你的“超能力”"></a>求导的“多项式”——你的“超能力”</h3><p>我们会给出一个解决常系数齐次方程的普遍办法。我们已经知道，求导是一个线性运算。对一个可导函数求导，得到一个新的函数。那么我们把$y’$记为$Dy$，其中$D$代表线性运算，对于高阶求导，不妨记$y^{(n)}=D^ny$。如果对函数不求导，也就是$D^0y$，我们可以记成$Iy$或者$I$省略不写。</p>
+<p>那么如果我们已经有</p>
+<script type="math/tex; mode=display">
+y^{(n)}+a_1y^{(n-1)}+\cdots+a_ny=0</script><p>也就是说</p>
+<script type="math/tex; mode=display">
+D^ny+a_1D^{n-1}y+\cdots+a_ny=0</script><p>那么我们又得到一个多项式</p>
+<script type="math/tex; mode=display">
+P(D)=D^n+a_1D^{n-1}+\cdots+a_n</script><p>所以原方程又可以写成</p>
+<script type="math/tex; mode=display">
+P(D)y=0</script><p>那么这和上面的例子又有什么关系呢？注意，如果$a_1,\cdots,a_n$为复数，那么$P(D)$总是可以写成下面的形式</p>
+<script type="math/tex; mode=display">
+P(D)=(D-d_1)(D-d_2)\cdots(D-d_n)</script><p>其中$\lambda_i$两两之间可以相等，可以不相等。我们再来看$y’’-2y’+y=0$这个例子。这个时候借助$P(D)$可以把方程写成</p>
+<script type="math/tex; mode=display">
+(D-1)(D-1)y=0</script><p>那么在这个角度下审视这个方程的解法，我们可以设$u=(D-1)y$，通过解$(D-1)u=0$，解出$u$，又解$(D-1)y=u$，就得到了$y$。</p>
+<p>那么普遍的解法我们已经有了，实际上，这是一个递归的办法。</p>
+<blockquote>
+<p>对于方程</p>
+<script type="math/tex; mode=display">
+(D-\lambda_1)(D-\lambda_2)\cdots(D-\lambda_n)y=0</script><p>只需要设$\varphi_1=(D-\lambda_2)\cdots(D-\lambda_n)y$，然后解$(D-\lambda_1)\varphi_1=0$，解出$\varphi_1$；再按照同样的办法进行下去，设$\varphi_2=(D-\lambda_3)\cdots(D-\lambda_n)y$，解出$\varphi_2$，一直进行下去，最后设$\varphi_n=y$，接出来的就是最终结果。这时你已经获得了上篇博客里需要的“超能力”了（注意：这里的$\varphi_n$里已经包含了$n$个常数）。</p>
+</blockquote>
+<p>以上是齐次线性方程的解决办法。对于非齐次线性方程又有什么普遍办法呢？具体办法有三。</p>
+<ol>
+<li>如果可以很轻松地观察出方程的一个特解，比如存在$\mu(x)$使得$P(D)\mu(x)=f(x)$，那么非齐次方程的解就是$\mu(x)+\varphi_n(x)$。</li>
+<li>直接解$P(D)y=f(x)$，方法和上面齐次方程一样，只需要注意，解$\varphi_1$时有$(D-\lambda_1)\varphi_1=f(x)$，递归下去得到的解和方法1是一致的。</li>
+<li>利用上篇博客的办法。注意到最后得到的$\varphi_n(x)$里有$n$个常数，也就是说可以写成$\varphi_n(x)=\sum_{k=1}^{n}C_ku_k(x)$，这里的$u_k(x)$实际上就是所求的基础解系。</li>
+</ol>
+<hr>
+<h3 id="实例：利用多项式办法进行机械式求解"><a href="#实例：利用多项式办法进行机械式求解" class="headerlink" title="实例：利用多项式办法进行机械式求解"></a>实例：利用多项式办法进行机械式求解</h3><script type="math/tex; mode=display">
+y'''-3y''+3y'-y=1\quad y(0)=y'(0)=1</script><p><strong>Step 1: 化简$P(D)$</strong></p>
+<p>这很简单，实际上我们有</p>
+<script type="math/tex; mode=display">
+P(D)=D^3-3D^2+3D-1=(D-1)(D-1)(D-1)</script><p><strong>Step 2: 递归求解</strong></p>
+<p>设</p>
+<script type="math/tex; mode=display">
+\varphi_1=(D-1)^2y</script><p>我们就有</p>
+<script type="math/tex; mode=display">
+(D-1)\varphi_1=1</script><p>解出</p>
+<script type="math/tex; mode=display">
+\varphi_1=C_1e^x-1</script><p>所以又设</p>
+<script type="math/tex; mode=display">
+\varphi_2=(D-1)y</script><p>又有</p>
+<script type="math/tex; mode=display">
+(D-1)\varphi_2=\varphi_1=C_1e^x-1</script><p>得到</p>
+<script type="math/tex; mode=display">
+\varphi_2=C_1xe^x+C_2e^x-1</script><p>最后，解</p>
+<script type="math/tex; mode=display">
+(D-1)\varphi_3=\varphi_2=C_1xe^x+C_2e^x-1</script><p>得</p>
+<script type="math/tex; mode=display">
+y=C_1x^2e^x+C_2xe^x+C_3e^x-1</script><p>其实不难发现，$y=-1$是这个方程的一个特解，而解$y’’’-3y’’+3y’-y=0$得到$y=C_1x^2e^x+C_2xe^x+C_3e^x$，得到的结果和上面的办法是一样的。</p>
+<p>注意到我们还可以把这个方程写成</p>
+<script type="math/tex; mode=display">
+[(y'-y)'-(y'-y)]'-[(y'-y)'-(y'-y)]=1</script><h3 id="对-P-D-y-0-型方程基本情形的总结"><a href="#对-P-D-y-0-型方程基本情形的总结" class="headerlink" title="对$P(D)y=0$型方程基本情形的总结"></a>对$P(D)y=0$型方程基本情形的总结</h3><p>既然我们已经有了机械的解法，那么我们能不能在动手解之前总结一下解的情况？这自然是可行的。我们会尝试讨论$P(D)$的所有基本情形。这里省略了最基本的计算，但是这些计算无非是最基本的一阶方程。</p>
+<h4 id="1-P-D-D-lambda-n-的情形"><a href="#1-P-D-D-lambda-n-的情形" class="headerlink" title="1. $P(D)=(D-\lambda)^n$的情形"></a>1. $P(D)=(D-\lambda)^n$的情形</h4><p>对于这种方程，我们最终要做的是解$n$次$y’-\lambda y$型一阶方程。为了解决这种方程，我们定义</p>
+<script type="math/tex; mode=display">
+\varphi_k(x)=\begin{cases}0 &\quad n=0 \\ (D-\lambda)^{n-k}y&\quad n>1 \end{cases}</script><p>那么只需要解$n$次$(D-\lambda)\varphi_{k+1}=\varphi_k$即可。通过简单的计算，得到</p>
+<script type="math/tex; mode=display">
+y=C_1e^{\lambda x}+C_2xe^{\lambda x}+\cdots+C_nx^{n-1}e^{\lambda x}</script><h4 id="2-P-D-D-lambda-1-D-lambda-2-cdots-D-lambda-n-的情形-lambda-i-之间两两互异"><a href="#2-P-D-D-lambda-1-D-lambda-2-cdots-D-lambda-n-的情形-lambda-i-之间两两互异" class="headerlink" title="2. $P(D)=(D-\lambda_1)(D-\lambda_2)\cdots(D-\lambda_n)$的情形($\lambda_i$之间两两互异)"></a>2. $P(D)=(D-\lambda_1)(D-\lambda_2)\cdots(D-\lambda_n)$的情形($\lambda_i$之间两两互异)</h4><p>我们自然希望能得到类似于有$e^{\lambda_1 x},\cdots,e^{\lambda_n x}$的形式，那么事实是怎样呢？我们可以直接进行运算。</p>
+<p>首先我们有</p>
+<script type="math/tex; mode=display">
+\varphi_1(x)=C_1e^{\lambda_1 x}</script><p>那么解</p>
+<script type="math/tex; mode=display">
+\varphi_2'-\lambda_2\varphi_2=\varphi_1=C_1e^{\lambda_1 x}</script><p>就能得到</p>
+<script type="math/tex; mode=display">
+(\varphi_2'-\lambda_2\varphi_2)e^{-\lambda_2 x}=(\varphi_2e^{-\lambda_2 x})'=C_1e^{(\lambda_1-\lambda_2)x}</script><p>整理之后就有</p>
+<script type="math/tex; mode=display">
+\varphi_2=C_1e^{\lambda_1 x} + C_2 e^{\lambda_2 x}</script><p>如果我们继续计算下去下去，就能得到</p>
+<script type="math/tex; mode=display">
+\varphi_n=C_1e^{\lambda_1x}+C_2e^{\lambda_2 x}+\cdots+C_ne^{\lambda_nx}</script><h4 id="3-一般情况：-P-D-D-lambda-1-r-1-D-lambda-2-r-2-cdots-D-lambda-k-r-k"><a href="#3-一般情况：-P-D-D-lambda-1-r-1-D-lambda-2-r-2-cdots-D-lambda-k-r-k" class="headerlink" title="3. 一般情况：$P(D)=(D-\lambda_1)^{r_1}(D-\lambda_2)^{r_2}\cdots(D-\lambda_k)^{r_k}$"></a>3. 一般情况：$P(D)=(D-\lambda_1)^{r_1}(D-\lambda_2)^{r_2}\cdots(D-\lambda_k)^{r_k}$</h4><p>这自然是情况1和情况2的整合。在情况1里我们意识到，如果相邻的$\lambda_i$相等，那么我们有$\varphi_{i+1}=x\varphi_i+C_{i+1}e^{\lambda_{i}x}$；如果相邻的$\varphi(x)$不相等，那么我们有$\varphi_{i+1}=\varphi_i+C_{i+1}e^{\lambda_{i+1}x}$。这两个结论整合起来，再经过简单的计算，就能总结出解的一般形式：</p>
+<script type="math/tex; mode=display">
+y=C_1e^{\lambda_1 x}+C_2xe^{\lambda_1 x}+\cdots+C_{r_1}x^{r_1-1}e^{\lambda_1 x}+C_{r_1+1}e^{\lambda_2x}+\cdots+C_nx^{r_k-1}e^{\lambda_k x}</script><hr>
+<p>这个时候我们解方程就可以轻松许多了。例如方程</p>
+<script type="math/tex; mode=display">
+y'''-3ay''+3a^2y'-a^3y=0</script><p>我们能得到</p>
+<script type="math/tex; mode=display">
+P(D)=D^3-3aD^2+3a^2D-a^3=(D-a)^3</script><p>所以解就是</p>
+<script type="math/tex; mode=display">
+y=C_1e^{ax}+C_2xe^{ax}+C_3x^2e^{ax}</script><p>再比如求解</p>
+<script type="math/tex; mode=display">
+y'''+3y''-4y=0</script><p>注意到</p>
+<script type="math/tex; mode=display">
+P(D)=D^3+3D^2-4=(D-1)(D^2+4D+4)=(D-1)(D+2)^2</script><p>所以解就是</p>
+<script type="math/tex; mode=display">
+y=C_1e^x+C_2e^{-2x}+C_3xe^{-2x}</script><hr>
+<h3 id="多项式方法的总结"><a href="#多项式方法的总结" class="headerlink" title="多项式方法的总结"></a>多项式方法的总结</h3><p>在这整篇博客里，我们只做了一件事情——对一个高阶微分方程进行化简，使求一个高阶方程变成求若干个一阶方程。但是，手动观察整理化简是很不现实的做法，我们就将求导运算看成一个抽象的“数”，然后处理一个对应的多项式，把解方程变成两步：化简多项式、递归求解。在处理这个多项式的过程中，我们间接对原方程进行了化简。</p>
+<p>但是多项式方法一定适用于非常系数方程吗？不一定。例如方程$y’’=xy$，这个方程并没有一个简单的解，我们也不能指望通过简单的解法得到所希望得到的函数。</p>
+<p>这种方法的优点是，朴实、机械化，只需要执行若干次一阶方程的求导即可。但是，这种办法并没有很好地体现“线性”这个概念，很难看到和线性代数的关系。在下一篇博客里，会给出基于矩阵的解决办法。</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-07-04T13:32:34.000Z" title="04/07/2020, 21:32:34">2020-07-04</time></span><span class="level-item">Updated&nbsp;<time dateTime="2020-08-04T08:37:45.985Z" title="04/08/2020, 16:37:45">2020-08-04</time></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2020/07/04/nowhere-differentiable-functions/">A continuous function is &#039;mostly&#039; nowhere differentiable</a></h1><div class="content"><h3 id="About-this-post"><a href="#About-this-post" class="headerlink" title="About this post"></a>About this post</h3><p>It is taught in elementary calculus course that, if a function is differentiable at some point $x_0$, then it’s continuous at $x_0$, but <strong>not</strong> vice versa. It’s easy to construct an counterexample which is continuous but not differentiable. An example is $y=|x|$ at $x=0$. In fact, we can even find a nowhere differentiable function by series:</p>
 <script type="math/tex; mode=display">
 f(x)=\sum_{k=0}^{\infty}\left(\frac{3}{4}\right)^ng(4^kx)</script><p>where $g(x)=|x|$ for $x \in [-1,1]$ and $g(x+2)=g(x)$ for all $x \in \mathbb{R}$.</p>
 <p>Though the existence has been proved already, we are looking for some feasible estimation on “quantity”. Also, this post is a good chance to review some elementary analysis techniques such as continuity and differentiability.</p>
@@ -819,16 +942,7 @@ y=e^x(C_1+\int_0^x\frac{s}{3}e^{-s}ds)+e^{-2x}(C_2+\int_0^x\frac{-s}{3}e^{2s}ds)
 C_1+C_2&=0 \\
 C_1-2C_2&=1
 \end{cases}</script><p>解出$C_1=\frac{1}{3}$，$C_2=-\frac{1}{3}$.</p>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-05-07T00:31:22.000Z" title="07/05/2020, 08:31:22">2020-05-07</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-10-06T03:40:41.006Z" title="06/10/2021, 11:40:41">2021-10-06</time></span><span class="level-item"><a class="link-muted" href="../../categories/Personal/">Personal</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2020/05/07/alguien-desordena-estas-rosas/">关于《有人弄乱了这束玫瑰花》</a></h1><div class="content"><p><img src="\img\la-mujer-de-las-rosas.jpg" alt="Credit: https://desorbita.wordpress.com/2017/10/23/alguien-desordena-estas-rosas/"></p>
-<p>她做得很好。二十年，房间中的孤独感并没有消退。我不想知道，她为什么选择回来。或者说我早已经知道。她想和那个她一起度过一个个童年午后的孩子分享同一份孤独。不过现在她像是照看一个有残疾的孙子，而这个孙子在他奶奶还有五岁的时候就没挪过窝，这个窝在山坡上的坟头里，窝里的孙子的尸骸已经回归自然。</p>
-<p>我的想法很简单，我想从她的桌子上取一束玫瑰，在周日给自己上坟。可是她总是死死盯着，像是免受自己的孤独受到损伤一样盯着。这个眼神没有变，四十年前的她，用同样的眼神看着那个仰面朝天摔死在马厩的草堆的男孩的尸体。正是这个眼神让我认出来，她就是八月里那个大雨倾盆的下午陪我一起在马厩掏鸟窝的女孩。</p>
-<p>可我并没有参透她的想法。关于她为什么回来，关于她为什么要为圣徒留下那些玫瑰花。</p>
-<p>她的突然回归接近毁掉我的孤独感，但是这二十年，我们分享了不一样的孤独。等到她再也回不到这个房间，她需要被四个人抬到山岗，可能会葬在我的旁边。这就不是我能管到的了。在那之后，我想每个周日，拿两束玫瑰，一束放在自己的坟头，另一束放在她的坟头。但没必要，我不希望再去打扰她的孤独感了，她也不会打扰到我了。</p>
-<p>那时候她就已经知道一切。每个周日，有人弄乱了玫瑰花。我会永远一个人待在这个房间，和她没来之前一样。我浑身是土，身上长满了蜘蛛网。我能分辨木头腐烂时的声音。我能分辨陈旧空气的鼓翼声。这一切在四十年前就决定了。这二十几年我很累。我也已经满意了。</p>
-<blockquote>
-<p>加西亚·马尔克斯：有人弄乱了玫瑰花</p>
-</blockquote>
-</div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="../6/">Previous</a></div><div class="pagination-next"><a href="../8/">Next</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="../../">1</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="../6/">6</a></li><li><a class="pagination-link is-current" href="">7</a></li><li><a class="pagination-link" href="../8/">8</a></li><li><a class="pagination-link" href="../9/">9</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="../../img/avatar.png" alt="Desvl"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Desvl</p><p class="is-size-6 is-block">A blog mainly on graduate mathematics.</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>A Noetherian local ring</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="../../archives"><p class="title">90</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="../../categories"><p class="title">47</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="../../tags"><p class="title">54</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="../../redirect/newsletter" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Compose an Email" href="../../redirect/email"><i class="fas fa-envelope"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="../../atom.xml"><i class="fas fa-rss"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Mathstodon" href="https://mathstodon.xyz/@desvl"><i class="fa-brands fa-mastodon"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://arxiv.org/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">arXiv</span></span><span class="level-right"><span class="level-item tag">arxiv.org</span></span></a></li><li><a class="level is-mobile" href="https://stacks.math.columbia.edu/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">The Stack Project</span></span><span class="level-right"><span class="level-item tag">stacks.math.columbia.edu</span></span></a></li><li><a class="level is-mobile" href="https://ncatlab.org/nlab/show/mathematics" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">nLab (Mathematics)</span></span><span class="level-right"><span class="level-item tag">ncatlab.org</span></span></a></li><li><a class="level is-mobile" href="https://q.uiver.app/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">quiver: a modern commutative diagram editor</span></span><span class="level-right"><span class="level-item tag">q.uiver.app</span></span></a></li><li><a class="level is-mobile" href="https://www.symmetricfunctions.com/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">The Symmetric Functions Catalogue</span></span><span class="level-right"><span class="level-item tag">www.symmetricfunctions.com</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/speaking.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Speaking</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/writing.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Writing</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">How to study maths really quick (YouTube)</span></span><span class="level-right"><span class="level-item tag">www.youtube.com</span></span></a></li><li><a class="level is-mobile" href="https://www.bilibili.com/video/BV1GJ411x7h7" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">How to study maths really quick (Bilibili)</span></span><span class="level-right"><span class="level-item tag">www.bilibili.com</span></span></a></li></ul></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="../../index.html"><img src="../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a><p class="is-size-7"><span>&copy; 2023</span> <a rel="me noopener" target="_blank" href="https://mathstodon.xyz/@desvl">Desvl</a><br>Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+</div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="../6/">Previous</a></div><div class="pagination-next"><a href="../8/">Next</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="../../">1</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="../6/">6</a></li><li><a class="pagination-link is-current" href="">7</a></li><li><a class="pagination-link" href="../8/">8</a></li><li><a class="pagination-link" href="../9/">9</a></li><li><a class="pagination-link" href="../10/">10</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="../../img/avatar.png" alt="Desvl"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Desvl</p><p class="is-size-6 is-block">A blog mainly on graduate mathematics.</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>A Noetherian local ring</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="../../archives"><p class="title">91</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="../../categories"><p class="title">49</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="../../tags"><p class="title">55</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="../../redirect/newsletter" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Compose an Email" href="../../redirect/email"><i class="fas fa-envelope"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="../../atom.xml"><i class="fas fa-rss"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Mathstodon" href="https://mathstodon.xyz/@desvl"><i class="fa-brands fa-mastodon"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://arxiv.org/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">arXiv</span></span><span class="level-right"><span class="level-item tag">arxiv.org</span></span></a></li><li><a class="level is-mobile" href="https://stacks.math.columbia.edu/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">The Stack Project</span></span><span class="level-right"><span class="level-item tag">stacks.math.columbia.edu</span></span></a></li><li><a class="level is-mobile" href="https://ncatlab.org/nlab/show/mathematics" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">nLab (Mathematics)</span></span><span class="level-right"><span class="level-item tag">ncatlab.org</span></span></a></li><li><a class="level is-mobile" href="https://q.uiver.app/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">quiver: a modern commutative diagram editor</span></span><span class="level-right"><span class="level-item tag">q.uiver.app</span></span></a></li><li><a class="level is-mobile" href="https://www.symmetricfunctions.com/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">The Symmetric Functions Catalogue</span></span><span class="level-right"><span class="level-item tag">www.symmetricfunctions.com</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/speaking.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Speaking</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/writing.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Writing</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">How to study maths really quick (YouTube)</span></span><span class="level-right"><span class="level-item tag">www.youtube.com</span></span></a></li><li><a class="level is-mobile" href="https://www.bilibili.com/video/BV1GJ411x7h7" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">How to study maths really quick (Bilibili)</span></span><span class="level-right"><span class="level-item tag">www.bilibili.com</span></span></a></li></ul></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="../../index.html"><img src="../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a><p class="is-size-7"><span>&copy; 2023</span> <a rel="me noopener" target="_blank" href="https://mathstodon.xyz/@desvl">Desvl</a><br>Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
             article: {
                 highlight: {
                     clipboard: true,
