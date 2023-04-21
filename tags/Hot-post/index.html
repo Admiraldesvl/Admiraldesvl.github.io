@@ -79,7 +79,7 @@ b_k=\sup\{a_k,a_{k+1},a_{k+2},\cdots\}</script><p>再定义 </p>
 U=\{y|y=\sup\{f(x)|x\in(a-\varepsilon,a+\varepsilon)\}\}</script><p>那么上极限就是 </p>
 <script type="math/tex; mode=display">
     \limsup_{x\to{a}}f(x)=\inf{U}</script><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>我们单纯利用不等式, 建立起一个非常严格，也非常有应用价值的概念: 确界. 这个概念源于最值, 又高于最值. 当然确界和最值什么时候相等又是一个拓扑学问题. 这又是另外一个话题了.</p>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2019-08-18T16:00:00.000Z" title="19/08/2019, 00:00:00">2019-08-19</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-10-04T02:43:21.613Z" title="04/10/2022, 10:43:21">2022-10-04</time></span><span class="level-item"><a class="link-muted" href="../../categories/Analysis/">Analysis</a><span> / </span><a class="link-muted" href="../../categories/Analysis/Elementary/">Elementary</a><span> / </span><a class="link-muted" href="../../categories/Analysis/Elementary/Differentiation/">Differentiation</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2019/08/19/l-hopital-proof/">洛必达法则的几种不同的证明</a></h1><div class="content"><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>洛必达法则我想甚至不少高中生甚至初中生都听说过，知道怎么进行简单的应用。简单点说，处理$\frac{0}{0}$的函数时，对上下进行求导，可能会很大程度上简化计算。但是洛必达法则为什么能奏效? 能不能用严格的数理语言进行论证? 这是这篇文章需要解决的。</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2019-08-18T16:00:00.000Z" title="19/08/2019, 00:00:00">2019-08-19</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-04-21T06:24:45.016Z" title="21/04/2023, 14:24:45">2023-04-21</time></span><span class="level-item"><a class="link-muted" href="../../categories/Analysis/">Analysis</a><span> / </span><a class="link-muted" href="../../categories/Analysis/Elementary/">Elementary</a><span> / </span><a class="link-muted" href="../../categories/Analysis/Elementary/Differentiation/">Differentiation</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2019/08/19/l-hopital-proof/">洛必达法则的几种不同的证明</a></h1><div class="content"><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>洛必达法则相比甚至不少高中生甚至初中生都听说过，知道怎么进行简单的应用。简单点说，处理$\frac{0}{0}$的函数时，对上下进行求导，可能会很大程度上简化计算。但是洛必达法则为什么能奏效? 能不能用严格的数理语言进行论证? 这是这篇文章需要解决的。</p>
 <p><em>本博文于2022年10月4日对利用中值定理的证明进行了重新编排。编排的过程中发现最后两步在之前其实是没解释清楚的，甚至存在错误。</em></p>
 <h3 id="洛必达法则的完整论述"><a href="#洛必达法则的完整论述" class="headerlink" title="洛必达法则的完整论述"></a>洛必达法则的完整论述</h3><blockquote>
 <p>设$f$和$g$为$(a,b)$上的实可微函数，且在$(a,b)$区间上总有$g’(x) \ne 0$. 设</p>
@@ -92,8 +92,9 @@ g(x) \to \pm \infty \quad (x \to a)</script><p>则</p>
 <script type="math/tex; mode=display">
 \frac{f(x)}{g(x)} \to A \quad (x \to a).</script><p>其中$x \to a$自然也可以换成$x \to b$. 这里把发散到无穷也看作是极限，也就是说$-\infty \le A \le \infty$且$-\infty \le a &lt; b \le +\infty$. </p>
 </blockquote>
-<h3 id="证明1-线性近似"><a href="#证明1-线性近似" class="headerlink" title="证明1:线性近似"></a>证明1:线性近似</h3><h4 id="波努利最开始的”证明”"><a href="#波努利最开始的”证明”" class="headerlink" title="波努利最开始的”证明”"></a>波努利最开始的”证明”</h4><p>洛必达法则首次出现于1696年洛必达的 <em>Analyse des Infiniment Petits pour l’Intelligence des Lignes Courbes</em> 一书中。这本书当然以”洛必达法则”闻名于世。证明是这样完成的: <script type="math/tex">\frac{f(a+dx)}{g(a+dx)}=\frac{f(a)+f’(a)dx}{g(a)+g’(a)dx}=\frac{f’(a)dx}{g’(a)dx}=\frac{f’(a)}{g’(a)}</script></p>
-<p>这个证明很好理解，线性近似展开，再考虑到$f(a)=g(a)=0$就得到结果。但是这个做法肯定是不合适的，$dx$在这里非常模糊，也不方便表达$x\to\infty$的情况。关于历史内容可以参见 <em>The Historical Development of the Calculus</em> 一书。</p>
+<h3 id="证明1-线性近似"><a href="#证明1-线性近似" class="headerlink" title="证明1:线性近似"></a>证明1:线性近似</h3><h4 id="波努利最开始的”证明”"><a href="#波努利最开始的”证明”" class="headerlink" title="波努利最开始的”证明”"></a>波努利最开始的”证明”</h4><p>洛必达法则首次出现于1696年洛必达的 <em>Analyse des Infiniment Petits pour l’Intelligence des Lignes Courbes</em> 一书中。这本书当然以”洛必达法则”闻名于世。证明是这样完成的: </p>
+<script type="math/tex; mode=display">
+\frac{f(a+dx)}{g(a+dx)}=\frac{f(a)+f’(a)dx}{g(a)+g’(a)dx}=\frac{f’(a)dx}{g’(a)dx}=\frac{f’(a)}{g’(a)}</script><p>这个证明很好理解，线性近似展开，再考虑到$f(a)=g(a)=0$就得到结果。但是这个做法肯定是不合适的，$dx$在这里非常模糊，也不方便表达$x\to\infty$的情况。关于历史内容可以参见 <em>The Historical Development of the Calculus</em> 一书。</p>
 <h4 id="线性近似的严格证明"><a href="#线性近似的严格证明" class="headerlink" title="线性近似的严格证明"></a>线性近似的严格证明</h4><p>首先，这里只讨论$h\to0$的情况。实际上，对于其他情况，可以作换元。例如$h\to\infty$时，可以利用$u=\frac{1}{h}$，那么又转换成了$u\to0$的情况。另外我们只讨论函数趋近于$0$的情况。因为趋近于无穷时函数的线性近似可能无法处理。例如$y=\frac{1}{x}$在$x=0$附近是没有近似的。</p>
 <p>对函数导数有</p>
 <script type="math/tex; mode=display">
@@ -115,10 +116,10 @@ g(x+h)=g(x)+g'(x)h+s(h)h</script><p>那么就能得到</p>
 <h5 id="情况1-1-g-x-to-0-且-f-x-to-0"><a href="#情况1-1-g-x-to-0-且-f-x-to-0" class="headerlink" title="情况1.1: $g(x)\to 0$且$f(x) \to 0$"></a>情况1.1: $g(x)\to 0$且$f(x) \to 0$</h5><p>在不等式(A)中，令$x \to a$，会发现有不等式(B)成立：</p>
 <script type="math/tex; mode=display">
 \frac{0-f(y)}{0-g(y)}=\frac{f(y)}{g(y)}=\frac{f'(t)}{g'(t)}
- \leq A+\varepsilon<q</script><p>更正式地说，对任意的$q&gt;A$, $0&lt;\varepsilon<q-A$，都存在$\delta>0$，使得对任意的$a&lt;y&lt;a+\delta$，均满足不等式(B) </p>
+ \leq A+\varepsilon<q</script><p>更正式地说，对任意的$q&gt;A$和$0&lt; \varepsilon&lt; q-A$，都存在$\delta &gt; 0$，使得对任意的$a&lt;y&lt;a+\delta$，均满足不等式(B) </p>
 <script type="math/tex; mode=display">
-\frac{f(y)}{g(y)} \le A+\varepsilon<q.</script><p>（注意：我们这里并没有证明收敛，而只证明了收敛的一半，接下来的情况1.2也是类似的。在接下来我们不刻意地写$\delta$，而是写成指定存在的实数，这样的写法是等价的，虽然初学微积分时可能会比较陌生。）</p>
-<h5 id="情况1-2-g-x-to-infty"><a href="#情况1-2-g-x-to-infty" class="headerlink" title="情况1.2: $g(x)\to+\infty$"></a>情况1.2: $g(x)\to+\infty$</h5><p>固定不等式(A)中的$y$. 因为$g(x) \to +\infty$，在$(a,y)$一定存在$c_1$使得对于任意$a<x<c_1$，总是有$g(x)>g(y)$和$g(x)&gt;0$同时成立。将不等式(A)两边同时乘以$[g(x)-g(y)]/g(x)$，我们得到</p>
+\frac{f(y)}{g(y)} \le A+\varepsilon<q.</script><p>（注意：我们这里并没有证明收敛，而只证明了收敛的一半，接下来的情况1.2也是类似的。在接下来我们不刻意地写$\delta$，而是写成指定存在的实数，这样的写法是等价的，虽然初学微积分时可能会感觉比较陌生。）</p>
+<h5 id="情况1-2-g-x-to-infty"><a href="#情况1-2-g-x-to-infty" class="headerlink" title="情况1.2: $g(x)\to+\infty$"></a>情况1.2: $g(x)\to+\infty$</h5><p>固定不等式(A)中的$ y $. 因为$ g(x) \to +\infty $，在$ (a,y) $一定存在$ c_1 $使得对于任意$ a&lt; x &lt; c_1 $，总是有$ g(x) &gt; g(y) $和$ g(x) &gt; 0 $同时成立。将不等式(A)两边同时乘以$ [g(x)-g(y)]/g(x) $，我们得到</p>
 <script type="math/tex; mode=display">
 \frac{f(x)-f(y)}{g(x)-g(y)}\frac{g(x)-g(y)}{g(x)}<
 (A+\varepsilon)\frac{g(x)-g(y)}{g(x)}.</script><p>此即</p>
