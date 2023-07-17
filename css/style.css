@@ -412,13 +412,13 @@ button,
 input,
 select,
 textarea {
-  font-family: Ubuntu, Roboto, 'Open Sans', 'Microsoft YaHei', sans-serif;
+  font-family: 'PT Serif';
 }
 code,
 pre {
   -moz-osx-font-smoothing: auto;
   -webkit-font-smoothing: auto;
-  font-family: 'Source Code Pro', monospace, 'Microsoft YaHei';
+  font-family: 'PT Serif';
 }
 body {
   color: #4a4a4a;
@@ -1064,19 +1064,19 @@ a.has-text-grey-lightest:focus {
   font-weight: 700 !important;
 }
 .is-family-primary {
-  font-family: Ubuntu, Roboto, 'Open Sans', 'Microsoft YaHei', sans-serif !important;
+  font-family: 'PT Serif' !important;
 }
 .is-family-secondary {
-  font-family: Ubuntu, Roboto, 'Open Sans', 'Microsoft YaHei', sans-serif !important;
+  font-family: 'PT Serif' !important;
 }
 .is-family-sans-serif {
-  font-family: Ubuntu, Roboto, 'Open Sans', 'Microsoft YaHei', sans-serif !important;
+  font-family: 'PT Serif' !important;
 }
 .is-family-monospace {
   font-family: monospace !important;
 }
 .is-family-code {
-  font-family: 'Source Code Pro', monospace, 'Microsoft YaHei' !important;
+  font-family: 'PT Serif' !important;
 }
 .is-block {
   display: block !important;
@@ -11299,7 +11299,7 @@ figure.highlight figcaption * {
 }
 figure.highlight figcaption span {
   font-weight: 500;
-  font-family: 'Source Code Pro', monospace, 'Microsoft YaHei';
+  font-family: 'PT Serif';
 }
 figure.highlight figcaption .level-left *:not(:last-child) {
   margin-right: 0.5em;
@@ -11600,7 +11600,7 @@ figure.highlight.foldable div.level-left {
 .cc-window,
 .cc-revoke {
   font-size: 1.1rem !important;
-  font-family: Ubuntu, Roboto, 'Open Sans', 'Microsoft YaHei', sans-serif !important;
+  font-family: 'PT Serif' !important;
 }
 .cc-window {
   color: #4a4a4a !important;

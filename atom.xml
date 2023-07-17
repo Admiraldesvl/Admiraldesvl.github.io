@@ -447,11 +447,11 @@
     
     <category term="Algebra" scheme="https://desvl.xyz/categories/Algebra/"/>
     
-    <category term="Field Theory" scheme="https://desvl.xyz/categories/Algebra/Field-Theory/"/>
-    
     <category term="Number Theory" scheme="https://desvl.xyz/categories/Number-Theory/"/>
     
     <category term="Algebraic Number Theory" scheme="https://desvl.xyz/categories/Number-Theory/Algebraic-Number-Theory/"/>
+    
+    <category term="Field Theory" scheme="https://desvl.xyz/categories/Algebra/Field-Theory/"/>
     
     
     <category term="Study new content" scheme="https://desvl.xyz/tags/Study-new-content/"/>
