@@ -507,9 +507,9 @@
     
     <category term="Linear Algebra" scheme="https://desvl.xyz/categories/Linear-Algebra/"/>
     
-    <category term="Lie Groups" scheme="https://desvl.xyz/categories/Algebra/Lie-Groups/"/>
-    
     <category term="Fourier Series" scheme="https://desvl.xyz/categories/Analysis/Fourier-Series/"/>
+    
+    <category term="Lie Groups" scheme="https://desvl.xyz/categories/Algebra/Lie-Groups/"/>
     
     
     <category term="Study new content" scheme="https://desvl.xyz/tags/Study-new-content/"/>
