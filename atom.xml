@@ -449,9 +449,9 @@
     
     <category term="Number Theory" scheme="https://desvl.xyz/categories/Number-Theory/"/>
     
-    <category term="Field Theory" scheme="https://desvl.xyz/categories/Algebra/Field-Theory/"/>
-    
     <category term="Algebraic Number Theory" scheme="https://desvl.xyz/categories/Number-Theory/Algebraic-Number-Theory/"/>
+    
+    <category term="Field Theory" scheme="https://desvl.xyz/categories/Algebra/Field-Theory/"/>
     
     
     <category term="Study new content" scheme="https://desvl.xyz/tags/Study-new-content/"/>
@@ -507,9 +507,9 @@
     
     <category term="Linear Algebra" scheme="https://desvl.xyz/categories/Linear-Algebra/"/>
     
-    <category term="Fourier Series" scheme="https://desvl.xyz/categories/Analysis/Fourier-Series/"/>
-    
     <category term="Lie Groups" scheme="https://desvl.xyz/categories/Algebra/Lie-Groups/"/>
+    
+    <category term="Fourier Series" scheme="https://desvl.xyz/categories/Analysis/Fourier-Series/"/>
     
     
     <category term="Study new content" scheme="https://desvl.xyz/tags/Study-new-content/"/>
