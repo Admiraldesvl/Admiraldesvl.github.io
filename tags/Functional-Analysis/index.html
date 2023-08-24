@@ -36,7 +36,7 @@
 \lVert f \rVert_2^2=\int_{-\infty}^{\infty}|f(t)|^2dm(t)<\infty</script><p>where $m$ denotes the ordinary Lebesgue measure (in fact it’s legitimate to consider Riemann integral in this context).</p>
 <p>For each $t \geq 0$, we assign an bounded linear operator $Q(t)$ such that</p>
 <script type="math/tex; mode=display">
-(Q(t)f)(s)=f(s+t).</script><p>This is indeed bounded since we have $\lVert Q(t)f \rVert_2 = \lVert f \rVert_2$ as the Lebesgue measure is translate-invariant. This is a left translation operator with a single step $t$.</p></div><a class="article-more button is-small is-size-7" href="../../2021/05/26/left-shift/#more">Read more</a></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-10-15T13:37:52.000Z" title="2020/10/15 21:37:52">2020-10-15</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-08-11T04:05:18.195Z" title="2023/8/11 12:05:18">2023-08-11</time></span><span class="level-item"><a class="link-muted" href="../../categories/Analysis/">Analysis</a><span> / </span><a class="link-muted" href="../../categories/Analysis/Functional-Analysis/">Functional Analysis</a><span> / </span><a class="link-muted" href="../../categories/Analysis/Functional-Analysis/Banach-Algebra/">Banach Algebra</a></span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2020/10/15/G-K-Z-theorem/">A proof of the ordinary Gleason-Kahane-Żelazko theorem for complex functionals</a></p><div class="content"><h2 id="The-Theorem"><a href="#The-Theorem" class="headerlink" title="The Theorem"></a>The Theorem</h2><blockquote>
+(Q(t)f)(s)=f(s+t).</script><p>This is indeed bounded since we have $\lVert Q(t)f \rVert_2 = \lVert f \rVert_2$ as the Lebesgue measure is translate-invariant. This is a left translation operator with a single step $t$.</p></div><a class="article-more button is-small is-size-7" href="../../2021/05/26/left-shift/#more">Read more</a></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-10-15T13:37:52.000Z" title="2020/10/15 21:37:52">2020-10-15</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-08-24T05:18:38.776Z" title="2023/8/24 13:18:38">2023-08-24</time></span><span class="level-item"><a class="link-muted" href="../../categories/Analysis/">Analysis</a><span> / </span><a class="link-muted" href="../../categories/Analysis/Functional-Analysis/">Functional Analysis</a><span> / </span><a class="link-muted" href="../../categories/Analysis/Functional-Analysis/Banach-Algebra/">Banach Algebra</a></span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2020/10/15/G-K-Z-theorem/">A proof of the ordinary Gleason-Kahane-Żelazko theorem for complex functionals</a></p><div class="content"><h2 id="The-Theorem"><a href="#The-Theorem" class="headerlink" title="The Theorem"></a>The Theorem</h2><blockquote>
 <p><strong>(Gleason-Kahane-Żelazko)</strong> If $\phi$ is a complex linear functional on a unitary Banach algebra $A$, such that $\phi(e)=1$ and $\phi(x) \neq 0$ for every invertible $x \in A$, then</p>
 <script type="math/tex; mode=display">
 \phi(xy)=\phi(x)\phi(y)</script><p>Namely, $\phi$ is a complex homomorphism. </p>
@@ -76,17 +76,17 @@
 h_r(\lambda) = \frac{r^2g(\lambda)}{\lambda^2[2r-g(\lambda)]}</script><p>then we see $h_r$ is holomorphic in the open disk centred at $0$ with radius $2r$. Besides, $|h_r(\lambda)| \leq 1$ if $|\lambda|=r$. By the maximum modulus theorem, we have</p>
 <script type="math/tex; mode=display">
 |h_r(\lambda)| \leq 1</script><p>whenever $|\lambda| \leq r$. Fix $\lambda$ and let $r \to \infty$, by definition of $h_r(\lambda)$, we must have $g(\lambda)=0$. </p>
-<h3 id="Jordan-homomorphism"><a href="#Jordan-homomorphism" class="headerlink" title="Jordan homomorphism"></a>Jordan homomorphism</h3><p>A mapping $\phi$ from one ring $R$ to another ring $R’$ is said to be a <strong>Jordan homomorphism</strong> from $R$ to $R’$ if</p>
+<h3 id="Jordan-homomorphism"><a href="#Jordan-homomorphism" class="headerlink" title="Jordan homomorphism"></a>Jordan homomorphism</h3><p>A map $\phi$ from one algebra $R$ to another algebra $R’$ is said to be a <strong>Jordan homomorphism</strong> from $R$ to $R’$ if</p>
 <script type="math/tex; mode=display">
 \phi(a+b)=\phi(a)+\phi(b)</script><p>and</p>
 <script type="math/tex; mode=display">
-\phi(ab+ba)=\phi(a)\phi(b)+\phi(b)\phi(a).</script><p>It’s of course clear that every homomorphism is Jordan. Note if $R’$ is not of characteristic $2$, the second identity is equivalent to</p>
+\phi(ab+ba)=\phi(a)\phi(b)+\phi(b)\phi(a).</script><p>It is clear that every algebra homomorphism is Jordan. Note if $R’$ is not of characteristic $2$, the second identity is equivalent to</p>
 <script type="math/tex; mode=display">
 \phi(a^2)=\phi(a)^2.</script><p><em>To show the equivalence, one let $b=a$ in the first case and puts $a+b$ in place of $a$ in the second case.</em></p>
 <p>Since in this case $R=A$ and $R’=\mathbb{C}$, the latter of which is commutative, we also write</p>
 <script type="math/tex; mode=display">
 \phi(ab+ba)=2\phi(a)\phi(b).</script><p>As we will show, the $\phi$ in the theorem is a Jordan homomorphism. </p>
-<h2 id="The-proof"><a href="#The-proof" class="headerlink" title="The proof"></a>The proof</h2><p>We will follow an unusual approach. By keep ‘downgrading’ the goal, one will see this algebraic problem be transformed into a pure analysis problem neatly.</p>
+<h2 id="Proof"><a href="#Proof" class="headerlink" title="Proof"></a>Proof</h2><p>We will follow an unusual approach. By keep ‘downgrading’ the goal, one will see this algebraic problem be transformed into a pure analysis problem neatly.</p>
 <p>To begin with, let $N$ be the kernel of $\phi$.</p>
 <h3 id="Step-1-It-suffices-to-prove-that-phi-is-a-Jordan-homomorphism"><a href="#Step-1-It-suffices-to-prove-that-phi-is-a-Jordan-homomorphism" class="headerlink" title="Step 1 - It suffices to prove that $\phi$ is a Jordan homomorphism"></a>Step 1 - It suffices to prove that $\phi$ is a Jordan homomorphism</h3><p>If $\phi$ is a complex homomorphism, it is immediate that $\phi$ is a Jordan homomorphism. Conversely, if $\phi$ is Jordan, we have</p>
 <script type="math/tex; mode=display">
@@ -107,7 +107,8 @@ xy+yx \in N \quad \text{if } x \in N, y \in A.</script><p>Consider the identity<
 xy-yx \in N</script><p>if $x \in N$ and $y \in A$. Further we see</p>
 <script type="math/tex; mode=display">
 xy-yx+xy+yx=2xy \in N \quad \text {and}\quad xy+yx-xy+yx = 2yx \in N,</script><p>which implies that $N$ is an ideal. This may remind you of this classic diagram (we will not use it since it is additive though):</p>
-<p><img src="\img\ring-homomorphism.png" alt="Ring Homomorphism"></p>
+<p align="center"><img src="/img/ring-homomorphism.png"></p>
+
 <p>For $x,y \in A$, we have $x \in \phi(x)e+N$ and $y \in \phi(y)e+N$. As a result, $xy \in \phi(x)\phi(y)e+N$, and therefore </p>
 <script type="math/tex; mode=display">
 \phi(xy)=\phi(x)\phi(y)+0.</script><h3 id="Step-2-It-suffices-to-prove-that-phi-a-2-0-if-phi-a-0"><a href="#Step-2-It-suffices-to-prove-that-phi-a-2-0-if-phi-a-0" class="headerlink" title="Step 2 - It suffices to prove that $\phi(a^2)=0$ if $\phi(a)=0$."></a>Step 2 - It suffices to prove that $\phi(a^2)=0$ if $\phi(a)=0$.</h3><p>Again, if $\phi$ is Jordan, we have $\phi(x^2)=\phi(x)^2$ for all $x \in A$. Conversely, if $\phi(a^2)=0$ for all $a \in N$, we may write $x$ by</p>
