@@ -34,9 +34,9 @@
     
     <category term="Group Theory" scheme="https://desvl.xyz/categories/Algebra/Group-Theory/"/>
     
-    <category term="Lie Groups" scheme="https://desvl.xyz/categories/Algebra/Lie-Groups/"/>
-    
     <category term="Topology" scheme="https://desvl.xyz/categories/Topology/"/>
+    
+    <category term="Lie Groups" scheme="https://desvl.xyz/categories/Algebra/Lie-Groups/"/>
     
     
     <category term="Study new content" scheme="https://desvl.xyz/tags/Study-new-content/"/>
@@ -136,9 +136,9 @@
     
     <category term="Linear Algebra" scheme="https://desvl.xyz/categories/Linear-Algebra/"/>
     
-    <category term="Lie Groups" scheme="https://desvl.xyz/categories/Algebra/Lie-Groups/"/>
-    
     <category term="Topology" scheme="https://desvl.xyz/categories/Topology/"/>
+    
+    <category term="Lie Groups" scheme="https://desvl.xyz/categories/Algebra/Lie-Groups/"/>
     
     <category term="Algebraic Topology" scheme="https://desvl.xyz/categories/Topology/Algebraic-Topology/"/>
     
@@ -293,9 +293,9 @@
     
     <category term="Exercise solution" scheme="https://desvl.xyz/tags/Exercise-solution/"/>
     
-    <category term="Serge Lang" scheme="https://desvl.xyz/tags/Serge-Lang/"/>
-    
     <category term="Study new content" scheme="https://desvl.xyz/tags/Study-new-content/"/>
+    
+    <category term="Serge Lang" scheme="https://desvl.xyz/tags/Serge-Lang/"/>
     
   </entry>
   
@@ -396,11 +396,11 @@
     
     <category term="Algebra" scheme="https://desvl.xyz/categories/Algebra/"/>
     
+    <category term="Commutative Algebra" scheme="https://desvl.xyz/categories/Algebra/Commutative-Algebra/"/>
+    
     <category term="Number Theory" scheme="https://desvl.xyz/categories/Number-Theory/"/>
     
     <category term="Algebraic Number Theory" scheme="https://desvl.xyz/categories/Number-Theory/Algebraic-Number-Theory/"/>
-    
-    <category term="Commutative Algebra" scheme="https://desvl.xyz/categories/Algebra/Commutative-Algebra/"/>
     
     <category term="p-adic Analysis" scheme="https://desvl.xyz/categories/Number-Theory/p-adic-Analysis/"/>
     
@@ -462,9 +462,9 @@
     
     <category term="Number Theory" scheme="https://desvl.xyz/categories/Number-Theory/"/>
     
-    <category term="Algebraic Number Theory" scheme="https://desvl.xyz/categories/Number-Theory/Algebraic-Number-Theory/"/>
-    
     <category term="Geometry" scheme="https://desvl.xyz/categories/Geometry/"/>
+    
+    <category term="Algebraic Number Theory" scheme="https://desvl.xyz/categories/Number-Theory/Algebraic-Number-Theory/"/>
     
     <category term="Algebraic Geometry" scheme="https://desvl.xyz/categories/Geometry/Algebraic-Geometry/"/>
     
@@ -545,17 +545,17 @@
     
     
     
-    <category term="Algebra" scheme="https://desvl.xyz/categories/Algebra/"/>
-    
     <category term="Analysis" scheme="https://desvl.xyz/categories/Analysis/"/>
+    
+    <category term="Algebra" scheme="https://desvl.xyz/categories/Algebra/"/>
     
     <category term="Representation Theory" scheme="https://desvl.xyz/categories/Algebra/Representation-Theory/"/>
     
     <category term="Linear Algebra" scheme="https://desvl.xyz/categories/Linear-Algebra/"/>
     
-    <category term="Lie Groups" scheme="https://desvl.xyz/categories/Algebra/Lie-Groups/"/>
-    
     <category term="Fourier Series" scheme="https://desvl.xyz/categories/Analysis/Fourier-Series/"/>
+    
+    <category term="Lie Groups" scheme="https://desvl.xyz/categories/Algebra/Lie-Groups/"/>
     
     
     <category term="Study new content" scheme="https://desvl.xyz/tags/Study-new-content/"/>
