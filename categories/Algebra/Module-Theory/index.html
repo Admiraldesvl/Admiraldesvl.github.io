@@ -1,273 +1,548 @@
-<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="robots" content="noindex"><meta><title>Category: Module Theory - Desvl&#039;s blog</title><link rel="manifest" href="../../../manifest.json"><meta name="application-name" content="Desvl&#039;s blog"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Desvl&#039;s blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta property="og:type" content="blog"><meta property="og:title" content="Desvl&#039;s blog"><meta property="og:url" content="https://desvl.xyz/"><meta property="og:site_name" content="Desvl&#039;s blog"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://desvl.xyz/img/avatar.png"><meta property="article:author" content="Desvl"><meta property="twitter:card" content="summary_large_image"><meta property="twitter:image:src" content="https://desvl.xyz/img/avatar.png"><meta property="twitter:creator" content="@Desvl_"><meta property="twitter:site" content="{ https://desvl.xyz }"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://desvl.xyz"},"headline":"Desvl's blog","image":["https://desvl.xyz/img/avatar.png"],"author":{"@type":"Person","name":"Desvl"},"publisher":{"@type":"Organization","name":"Desvl","logo":{"@type":"ImageObject","url":"https://desvl.xyz/img/logo.svg"}},"description":""}</script><link rel="alternate" href="../../../atom.xml" title="Desvl&#039;s blog" type="application/atom+xml"><link rel="icon" href="../../../img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link data-pjax rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-light.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="../../../css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js"></script><!-- hexo injector head_end start --><script>
-  (function () {
-      function switchTab() {
-          if (!location.hash) {
-            return;
-          }
 
-          const id = '#' + CSS.escape(location.hash.substring(1));
-          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
-          if (!$tabMenu) {
-            return;
-          }
+<!DOCTYPE html><html lang="en">
 
-          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
-          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
-          Array.from($tabMenuContainer.querySelectorAll('a'))
-              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
-              .forEach($content => $content.classList.add('is-hidden'));
+<head>
+  <meta charset="utf-8">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.29.1" theme-name="Stellar" theme-version="1.29.1">
+  <meta name="robots" content="noindex,follow">
+  <meta name="generator" content="Hexo 7.3.0">
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
+  <meta name="theme-color" content="#f9fafb">
+  
+  <title>Category: Module Theory - Desvl's blog</title>
 
-          if ($tabMenu) {
-              $tabMenu.parentElement.classList.add('is-active');
-          }
-          const $activeTab = document.querySelector(id);
-          if ($activeTab) {
-              $activeTab.classList.remove('is-hidden');
-          }
+  
+    <meta property="og:type" content="website">
+<meta property="og:title" content="Desvl&#39;s blog">
+<meta property="og:url" content="https://desvl.xyz/categories/Algebra/Module-Theory/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="Desvl">
+<meta name="twitter:card" content="summary">
+  
+  
+  
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="../../../atom.xml" title="Desvl's blog" type="application/atom+xml">
+  
+
+  <link rel="stylesheet" href="/css/main.css?v=1.29.1">
+
+  
+
+  
+
+  
+</head>
+<body>
+
+<div class="l_body s:aa index tech" id="start" layout="undefined" ><aside class="l_left"><div class="leftbar-container">
+
+
+<header class="header"><div class="logo-wrap"><a class="avatar" href="../../../about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="/img/avatar_new.png" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="../../../index.html"><div class="main" ff="title">Desvl's blog</div></a></div></header>
+
+<div class="nav-area">
+<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" placeholder="Search"></form><div id="search-result"></div><div class="search-no-result">No Results!</div></div>
+
+
+<nav class="menu dis-select"></nav>
+</div>
+<div class="widgets"></div>
+
+</div></aside><div class="l_main" id="main">
+
+<header class="header mobile-only"><div class="logo-wrap"><a class="avatar" href="../../../about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="/img/avatar_new.png" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="../../../index.html"><div class="main" ff="title">Desvl's blog</div></a></div></header>
+
+ 
+
+
+
+
+<div class="navbar top"><nav class="post"><a href="../../../">Recent</a><a class="active" href="../..">Category: Module Theory</a><a href="../../../tags">Tags</a><a href="../../../archives">Archives</a></nav></div>
+<div class="post-list post"><a class="post-card post" href="../../../2021/01/19/tensor-product-universal-property/">
+<article class="md-text"><h2 class="post-title">Tensor Product as a Universal Object (Category Theory & Module Theory)</h2><div class="excerpt"><p>IntroductionIt is quite often to see direct sum or direct product of groups, modules, vector spaces. Indeed, for modules over...</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg style="margin-bottom:2px" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M6.94 2c.416 0 .753.324.753.724v1.46c.668-.012 1.417-.012 2.26-.012h4.015c.842 0 1.591 0 2.259.013v-1.46c0-.4.337-.725.753-.725s.753.324.753.724V4.25c1.445.111 2.394.384 3.09 1.055c.698.67.982 1.582 1.097 2.972L22 9H2v-.724c.116-1.39.4-2.302 1.097-2.972c.697-.67 1.645-.944 3.09-1.055V2.724c0-.4.337-.724.753-.724"/><path fill="currentColor" d="M22 14v-2c0-.839-.004-2.335-.017-3H2.01c-.013.665-.01 2.161-.01 3v2c0 3.771 0 5.657 1.172 6.828C4.343 22 6.228 22 10 22h4c3.77 0 5.656 0 6.828-1.172C22 19.658 22 17.772 22 14" opacity=".5"/><path fill="currentColor" d="M18 17a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m-5 4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m-5 4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0"/></svg><time datetime="2021-01-19T16:25:09.000Z">19-01-2021</time></span><span class="cap breadcrumb"><svg style="margin-bottom:1px" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M2 6.95c0-.883 0-1.324.07-1.692A4 4 0 0 1 5.257 2.07C5.626 2 6.068 2 6.95 2c.386 0 .58 0 .766.017a4 4 0 0 1 2.18.904c.144.119.28.255.554.529L11 4c.816.816 1.224 1.224 1.712 1.495a4 4 0 0 0 .848.352C14.098 6 14.675 6 15.828 6h.374c2.632 0 3.949 0 4.804.77c.079.07.154.145.224.224c.77.855.77 2.172.77 4.804V14c0 3.771 0 5.657-1.172 6.828C19.657 22 17.771 22 14 22h-4c-3.771 0-5.657 0-6.828-1.172C2 19.657 2 17.771 2 14z" opacity=".5"/><path fill="currentColor" d="M20 6.238c0-.298-.005-.475-.025-.63a3 3 0 0 0-2.583-2.582C17.197 3 16.965 3 16.5 3H9.988c.116.104.247.234.462.45L11 4c.816.816 1.224 1.224 1.712 1.495a4 4 0 0 0 .849.352C14.098 6 14.675 6 15.829 6h.373c1.78 0 2.957 0 3.798.238"/><path fill="currentColor" fill-rule="evenodd" d="M12.25 10a.75.75 0 0 1 .75-.75h5a.75.75 0 0 1 0 1.5h-5a.75.75 0 0 1-.75-.75" clip-rule="evenodd"/></svg><span>Algebra</span></span></div></article>
+</a><a class="post-card post" href="../../../2021/01/15/vector-space-and-basis/">
+<article class="md-text"><h2 class="post-title">Why Does a Vector Space Have a Basis (Module Theory)</h2><div class="excerpt"><p>Module and vector spaceFirst we recall some backgrounds. Suppose $A$ is a ring with multiplicative identity $1_A$. A left mod...</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg style="margin-bottom:2px" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M6.94 2c.416 0 .753.324.753.724v1.46c.668-.012 1.417-.012 2.26-.012h4.015c.842 0 1.591 0 2.259.013v-1.46c0-.4.337-.725.753-.725s.753.324.753.724V4.25c1.445.111 2.394.384 3.09 1.055c.698.67.982 1.582 1.097 2.972L22 9H2v-.724c.116-1.39.4-2.302 1.097-2.972c.697-.67 1.645-.944 3.09-1.055V2.724c0-.4.337-.724.753-.724"/><path fill="currentColor" d="M22 14v-2c0-.839-.004-2.335-.017-3H2.01c-.013.665-.01 2.161-.01 3v2c0 3.771 0 5.657 1.172 6.828C4.343 22 6.228 22 10 22h4c3.77 0 5.656 0 6.828-1.172C22 19.658 22 17.772 22 14" opacity=".5"/><path fill="currentColor" d="M18 17a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m-5 4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m-5 4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0"/></svg><time datetime="2021-01-15T16:40:01.000Z">15-01-2021</time></span><span class="cap breadcrumb"><svg style="margin-bottom:1px" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M2 6.95c0-.883 0-1.324.07-1.692A4 4 0 0 1 5.257 2.07C5.626 2 6.068 2 6.95 2c.386 0 .58 0 .766.017a4 4 0 0 1 2.18.904c.144.119.28.255.554.529L11 4c.816.816 1.224 1.224 1.712 1.495a4 4 0 0 0 .848.352C14.098 6 14.675 6 15.828 6h.374c2.632 0 3.949 0 4.804.77c.079.07.154.145.224.224c.77.855.77 2.172.77 4.804V14c0 3.771 0 5.657-1.172 6.828C19.657 22 17.771 22 14 22h-4c-3.771 0-5.657 0-6.828-1.172C2 19.657 2 17.771 2 14z" opacity=".5"/><path fill="currentColor" d="M20 6.238c0-.298-.005-.475-.025-.63a3 3 0 0 0-2.583-2.582C17.197 3 16.965 3 16.5 3H9.988c.116.104.247.234.462.45L11 4c.816.816 1.224 1.224 1.712 1.495a4 4 0 0 0 .849.352C14.098 6 14.675 6 15.829 6h.373c1.78 0 2.957 0 3.798.238"/><path fill="currentColor" fill-rule="evenodd" d="M12.25 10a.75.75 0 0 1 .75-.75h5a.75.75 0 0 1 0 1.5h-5a.75.75 0 0 1-.75-.75" clip-rule="evenodd"/></svg><span>Algebra</span></span></div></article>
+</a></div>
+
+
+<footer class="page-footer footnote"><hr><div class="text"><p>Credit <a href="/">Desvl</a> | Powered by <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.29.1">Stellar 1.29.1</a>.<br>Licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless otherwise specified.</p>
+</div></footer>
+<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
+</aside><div class='float-panel blur'>
+  <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
+  </button>
+  <button type='button' style='display:none' class='mobile-only leftbar-toggle mobile' onclick='sidebar.leftbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"/><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"/></g></svg>
+  </button>
+</div>
+</div><div class="scripts">
+<script type="text/javascript">
+  const ctx = {
+    date_suffix: {
+      just: `Just`,
+      min: `minutes ago`,
+      hour: `hours ago`,
+      day: `days ago`,
+    },
+    root : `/`,
+  };
+
+  // required plugins (only load if needs)
+  if (`local_search`) {
+    ctx.search = {};
+    ctx.search.service = `local_search`;
+    if (ctx.search.service == 'local_search') {
+      let service_obj = Object.assign({}, `{"field":"all","path":"/search.json","content":true,"sort":"-date"}`);
+      ctx.search[ctx.search.service] = service_obj;
+    }
+  }
+  const def = {
+    avatar: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg`,
+    cover: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg`,
+  };
+  const deps = {
+    jquery: `https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js`,
+    marked: `https://cdn.jsdelivr.net/npm/marked@13.0.1/lib/marked.umd.min.js`
+  }
+  
+
+</script>
+
+<script type="text/javascript">
+  const utils = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    css: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
       }
-      switchTab();
-      window.addEventListener('hashchange', switchTab, false);
-  })();
-  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="../../../index.html"><img src="../../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="../../../index.html">Home</a><a class="navbar-item" href="../../../archives">Archives</a><a class="navbar-item" href="../../../categories">Categories</a><a class="navbar-item" href="../../../tags">Tags</a><a class="navbar-item" href="../../../about">About (Updated Aug. 2022)</a><a class="navbar-item" href="../../../link-exchange">Link Exchange</a><a class="navbar-item" href="../../../support-the-author">Support the Author</a></div><div class="navbar-end"></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="../../../categories/">Categories</a></li><li><a href="../">Algebra</a></li><li class="is-active"><a href="#" aria-current="page">Module Theory</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2021-01-19T16:25:09.000Z" title="19/01/2021 17:25:09">2021-01-19</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-08-24T05:22:36.665Z" title="24/08/2023 07:22:36">2023-08-24</time></span><span class="level-item"><a class="link-muted" href="../">Algebra</a><span> / </span><a class="link-muted" href="../Commutative-Algebra/">Commutative Algebra</a><span> / </span><a class="link-muted" href="../Category-Theory/">Category Theory</a><span> / </span><a class="link-muted" href="">Module Theory</a></span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../../2021/01/19/tensor-product-universal-property/">Tensor Product as a Universal Object (Category Theory &amp; Module Theory)</a></p><div class="content"><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>It is quite often to see direct sum or direct product of groups, modules, vector spaces. Indeed, for modules over a ring $R$, direct products are also <strong>direct products</strong> of $R$-modules as well. On the other hand, the direct sum is a <strong>coproduct</strong> in the category of $R$-modules.</p>
-<p>But what about tensor products? It is some different kind of <em>product</em> but how? Is it related to direct product? How do we write a tensor product down? We need to solve this question but it is not a good idea to dig into numeric works.</p>
-<h2 id="The-category-of-bilinear-or-even-n-multilinear-maps"><a href="#The-category-of-bilinear-or-even-n-multilinear-maps" class="headerlink" title="The category of bilinear or even $n$-multilinear maps"></a>The category of bilinear or even $n$-multilinear maps</h2><p>From now on, let $R$ be a commutative ring, and $M_1,\cdots,M_n$ are $R$-modules. Mainly we work on $M_1$ and $M_2$, i.e. $M_1 \times M_2$ and $M_1 \otimes M_2$. For $n$-multilinear one, simply replace $M_1\times M_2$ with $M_1 \times M_2 \times \cdots \times M_n$ and $M_1 \otimes M_2$ with $M_1 \otimes \cdots \otimes M_n$. The only difference is the change of symbols. </p>
-<p>The bilinear maps of $M_1 \times M_2$ determines a category, say $BL(M_1 \times M_2)$ or we simply write $BL$. For an object $(f,E)$ in this category we have $f: M_1 \times M_2 \to E$ as a bilinear map and $E$ as a $R$-module of course. For two objects $(f,E)$ and $(g,F)$, we define the morphism between them as a linear function making the following diagram commutative: $\def\mor{\operatorname{Mor}}$</p>
-<p align="center"><img src="/img/morphism-in-BL.png"></p>
-
-<p>This indeed makes $BL$ a category. If we define the morphisms from $(f,E)$ to $(g,F)$ by $\mor(f,g)$ (for simplicity we omit $E$ and $F$ since they are already determined by $f$ and $g$) we see the composition</p>
-<script type="math/tex; mode=display">
-\mor(f,g) \times \mor(h,g) \to \mor(h,f)</script><p>satisfy all axioms for a category:</p>
-<p><strong>CAT 1</strong> Two sets $\mor(f,g)$ and $\mor(f’,g’)$ are disjoint unless $f=f’$ and $g=g’$, in which case they are equal. If $g \neq g’$ but $f = f’$ for example, for any $h \in \mor(f,g)$, we have $g = h \circ f = h \circ f’ \neq g’$, hence $h \notin \mor(f,g)$. Other cases can be verified in the same fashion.</p>
-<p><strong>CAT 2</strong> The existence of identity morphism. For any $(f,E) \in BL$, we simply take the identity map $i:E \to E$. For $h \in \mor(f,g)$, we see $g = h \circ f = h \circ i \circ f$. For $h’ \in \mor(g,f)$, we see $f = h’ \circ g = i \circ h’ \circ g$.</p>
-<p><strong>CAT 3</strong> The law of composition is associative when defined. </p>
-<hr>
-<p>There we have a category. But what about the tensor product? It is defined to be <em>initial</em> (or <em>universally repelling</em>) object in this category. Let’s denote this object by $(\varphi,M_1 \otimes M_2)$.</p>
-<blockquote>
-<p>For any $(f,E) \in BL$, we have a unique morphism (which is a module homomorphism as well) $h:(\varphi,M_1 \otimes M_2) \to (f,E)$. For $x \in M_1$ and $y \in M_2$, we write $\varphi(x,y)=x \otimes y$. We call the existence of $h$ the <strong>universal property</strong> of $(\varphi,M_1 \otimes M_2)$.</p>
-</blockquote>
-<p>The tensor product is unique up to isomorphism. That is, if both $(f,E)$ and $(g,F)$ are tensor products, then $E \simeq F$ in the sense of module isomorphism. Indeed, let $h \in \mor(f,g)$ and $h’ \in \mor(g,h)$ be the unique morphisms respectively, we see $g = h \circ f$, $f = h’ \circ g$, and therefore</p>
-<script type="math/tex; mode=display">
-g = h \circ h' \circ g \\
-f = h' \circ h \circ f</script><p>Hence $h \circ h’$ is the identity of $(g,F)$ and $h’ \circ h$ is the identity of $(f,E)$. This gives $E \simeq F$.</p>
-<p>What do we get so far? For any modules that is connected to $M_1 \times M_2$ with a bilinear map, the tensor product $M_1 \oplus M_2$ of $M_1$ and $M_2$, is always able to be connected to that module with a unique module homomorphism. What if there are more than one tensor products? Never mind. All tensor products are isomorphic. </p>
-<p>But wait, does this definition make sense? Does this product even exist? How can we study the tensor product of two modules if we cannot even write it down? So far we are only working on arrows, and we don’t know what is happening inside an module. It is not a good idea to waste our time on ‘nonsenses’. We can look into it in an natural way. Indeed, if we can find a module satisfying the property we want, then we are done, since this can represent the tensor product under any circumstances. Again, all tensor products of $M_1$ and $M_2$ are isomorphic.</p>
-<h2 id="A-natural-way-to-define-the-tensor-product"><a href="#A-natural-way-to-define-the-tensor-product" class="headerlink" title="A natural way to define the tensor product"></a>A natural way to define the tensor product</h2><p>Let $M$ be the free module generated by the set of all tuples $(x_1,x_2)$ where $x_1 \in M_1$ and $x_2 \in M_2$, and $N$ be the submodule generated by tuples of the following types:</p>
-<script type="math/tex; mode=display">
-(x_1+x_1',x_2)-(x_1,x_2)-(x_1',x_2) \\
-(x_1,x_2+x_2')-(x_1,x_2)-(x_1,x_2') \\
-(ax_1,x_2)-a(x_1,x_2) \\
-(x_1,ax_2) - a(x_1,x_2)</script><p>First we have a inclusion map $\alpha=M_1 \times M_2 \to M$ and the canonical map $\pi:M \to M/N$. We claim that $(\pi \circ \alpha, M/N)$ is exactly what we want. But before that, we need to explain why we define such a $N$. </p>
-<p>The reason is quite simple: We want to make sure that $\varphi=\pi \circ \alpha$ is bilinear. For example, we have $\varphi(x_1+x_1’,x_2)=\varphi(x_1,x_2)+\varphi(x_1’,x_2)$ due to our construction of $N$ (other relations follow in the same manner). This can be verified group-theoretically. Note</p>
-<script type="math/tex; mode=display">
-\varphi(x_1+x_1',x_2)=(x_1+x_1',x_2)+N \\
-\varphi(x_1,x_2)+\varphi(x_1',x_2)=(x_1,x_2)+(x_1',x_2)+N</script><p>but</p>
-<script type="math/tex; mode=display">
-\varphi(x_1+x_1',x_2)-\varphi(x_1,x_2)-\varphi(x_1',x_2)=(x_1+x_1',x_2)-(x_1,x_2)-(x_1',x_2) +N = 0+N.</script><p>Hence we get the identity we want. For this reason we can write</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-(x_1+x_1')\otimes x_2 &= x_1 \otimes x_2 + x_1' \otimes x_2, \\
-x_1 \otimes (x_2 + x_2') &= x_1 \otimes x_2 + x_1 \otimes x_2', \\
-(ax_1) \otimes x_2 &= a(x_1 \otimes x_2), \\
-x_1 \otimes (ax_2) &= a(x_1 \otimes x_2).
-\end{aligned}</script><p>Sometimes to avoid confusion people may also write $x_1 \otimes_R x_2$ if both $M_1$ and $M_2$ are $R$-modules.  But before that we have to verify that this is indeed the tensor product. To verify this, all we need is <a target="_blank" rel="noopener" href="https://arbourj.wordpress.com/2012/04/16/free-module/">the universal property of free modules</a>.</p>
-<p align="center"><img src="/img/tensor-product-universal.png"></p>
-
-<p>By the universal property of $M$, for any $(f,E) \in BL$, we have a induced map $f_\ast$ making the diagram inside commutative. However, for elements in $N$, we see $f_\ast$ takes value $0$, since $f_\ast$ is a bilinear map already. We finish our work by taking $h[(x,y)+N] = f_\ast(x,y)$. This is the map induced by $f_\ast$, following the property of factor module. </p>
-<h2 id="Trivial-tensor-product"><a href="#Trivial-tensor-product" class="headerlink" title="Trivial tensor product"></a>Trivial tensor product</h2><p>For coprime integers $m,n&gt;1$, we have $\def\mb{\mathbb}$</p>
-<script type="math/tex; mode=display">
-\mb{Z}/m\mb{Z} \otimes \mb{Z}/n\mb{Z} = O</script><p>where $O$ means that the module only contains $0$ and $\mb{Z}/m\mb{Z}$ is considered as a module over $\mb{Z}$ for $m&gt;1$. This suggests that, the tensor product of two modules is not necessarily ‘bigger’ than its components. Let’s see why this is trivial. </p>
-<p>Note that for $x \in \mb{Z}/m\mb{Z}$ and $y \in \mb{Z}/n\mb{Z}$, we have</p>
-<script type="math/tex; mode=display">
-m(x \otimes y) = (mx) \otimes y = 0 \\
-n(x \otimes y) = x \otimes(ny) = 0</script><p>since, for example, $mx = 0$ for $x \in \mb{Z}/m\mb{Z}$ and $\varphi(0,y)=0$. If you have trouble understanding why $\varphi(0,y)=0$, just note that the submodule $N$ in our construction contains elements generated by $(0x,y)-0(x,y)$ already.</p>
-<p>By Bézout’s identity, for any $x \otimes y$, we see there are $a$ and $b$ such that $am+bn=1$, and therefore</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-x \otimes y &= (am+bn)(x \otimes y) \\
-            &=am(x \otimes y)+bn (x \otimes y) \\
-            &= 0.
-\end{aligned}</script><p>Hence the tensor product is trivial. This example gives us a lot of inspiration. For example, what if $m$ and $n$ are not necessarily coprime, say $\gcd(m,n)=d$? By Bézout’s identity still we have</p>
-<script type="math/tex; mode=display">
-d(x \otimes y) = (am+bn)(x \otimes y) = 0.</script><p>This inspires us to study the connection between $\mb{Z}/m\mb{Z} \otimes \mb{Z}/n\mb{Z}$ and $\mb{Z}/d\mb{Z}$. By the <strong>universal property</strong>, for the bilinear map $f:\mb{Z}/m\mb{Z} \times \mb{Z}/n\mb{Z} \to \mb{Z}/d\mb{Z}$ defined by </p>
-<script type="math/tex; mode=display">
-(a+m\mb{Z},b+n\mb{Z})\mapsto ab+d\mb{Z}</script><p>(there should be no difficulty to verify that $f$ is well-defined), there exists a unique morphism $h:\mb{Z}/m\mb{Z} \otimes \mb{Z}/n\mb{Z} \to \mb{Z}/d\mb{Z}$ such that</p>
-<script type="math/tex; mode=display">
-h \circ \varphi(a+m\mb{Z},b+n\mb{Z}) = h((a+m\mb{Z}) \otimes(b+n\mb{Z})) = ab+d\mb{Z}.</script><p>Next we show that it has a natural inverse defined by</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-g:\mb{Z}/d\mb{Z} &\to \mb{Z}/m\mb{Z} \otimes \mb{Z}/n\mb{Z} \\
-a+d\mb{Z} &\mapsto (a+m\mb{Z}) \otimes (1+n\mb{Z}).
-\end{aligned}</script><p>Taking $a’ = a+kd$, we show that $g(a+d\mb{Z})=g(a’+\mb{Z})$, that is, we need to show that</p>
-<script type="math/tex; mode=display">
-(a+m\mb{Z})\otimes(1+n\mb{Z}) = (a'+m\mb{Z}) \otimes (1+n\mb{Z}).</script><p>By Bézout’s identity, there exists some $r,s$ such that $rm+sn=d$. Hence $a’ = a + ksn+krm$, which gives</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-(a'+m\mb{Z}) \otimes (1+n\mb{Z}) &= (a+ksn+krm+m\mb{Z}) \otimes(1+n\mb{Z}) \\
-                                 &= (a+ksn+m\mb{Z}) \otimes (1+n\mb{Z}) \\
-                                 &=(a+m\mb{Z}) \otimes(1+n\mb{Z}) + (ksn+m\mb{Z})\otimes(1+n\mb{Z}) \\
-                                 &=(a+m\mb{Z}) \otimes (1+n\mb{Z})
-\end{aligned}</script><p>since</p>
-<script type="math/tex; mode=display">
-(ksn+m\mb{Z}) \otimes (1+n\mb{Z}) =n(ks+m\mb{Z}) \otimes (1+n\mb{Z}) = (ks+m\mb{Z}) \otimes(n+n\mb{Z}) = 0.</script><p>So $g$ is well-defined. Next we show that this is the inverse. Firstly</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-g \circ h((a+m\mb{Z}) \otimes(b+n\mb{Z})) &= g(ab+d\mb{Z})\\
-                                          &= (ab+m\mb{Z}) \otimes (1+n\mb{Z}) \\
-                                          &=b(a+m\mb{Z}) \otimes(1+n\mb{Z}) \\
-                                          &= (a+m\mb{Z}) \otimes (b+n\mb{Z}).
-\end{aligned}</script><p>Secondly,</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-h \circ g(a+d\mb{Z}) &= h((a+m\mb{Z}) \otimes(1+n\mb{Z})) \\
-                     &= a+d\mb{Z}.
-\end{aligned}</script><p>Hence $g = h^{-1}$ and we can say</p>
-<script type="math/tex; mode=display">
-\mb{Z}/m\mb{Z} \otimes \mb{Z} /n\mb{Z} \simeq \mb{Z} /\gcd(m,n)\mb{Z}.</script><p>If $m,n$ are coprime, then $\gcd(m,n)=1$, hence $\mb{Z}/m\mb{Z} \otimes \mb{Z}/n\mb{Z} \simeq \mb{Z}/\mb{Z}$ is trivial. More interestingly, $\mb{Z}/m\mb{Z}\otimes \mb{Z}/m\mb{Z}=\mb{Z}/m\mb{Z}$. But this elegant identity raised other questions. First of all, $\gcd(m,n)=\gcd(n,m)$, which implies</p>
-<script type="math/tex; mode=display">
-\mb{Z}/m\mb{Z} \otimes \mb{Z}/n\mb{Z} \simeq \mb{Z}/\gcd(m,n)\mb{Z} \simeq \mb{Z}/\gcd(n,m)\mb{Z} \simeq\mb{Z}/n\mb{Z}\otimes\mb{Z}/m\mb{Z}.</script><p>Further, for $m,n,r &gt;1$, we have $\gcd(\gcd(m,n),r)=\gcd(m,\gcd(n,r))=\gcd(m,n,r)$, which gives</p>
-<script type="math/tex; mode=display">
-(\mb{Z}/m\mb{Z}\otimes\mb{Z}/n\mb{Z})\otimes\mb{Z}/r\mb{Z} \simeq \mb{Z}/\gcd(m,n)\mb{Z}\otimes\mb{Z}/r\mb{Z} \simeq \mb{Z}/\gcd(m,n,r)\mb{Z} \\
-\mb{Z}/m\mb{Z}\otimes(\mb{Z}/n\mb{Z} \otimes\mb{Z}/r\mb{Z}) \simeq \mb{Z}/m\mb{Z} \otimes\mb{Z}/\gcd(n,r)\mb{Z} \simeq \mb{Z}/\gcd(m,n,r)\mb{Z}</script><p>hence</p>
-<script type="math/tex; mode=display">
-(\mb{Z}/m\mb{Z}\otimes\mb{Z}/n\mb{Z})\otimes\mb{Z}/r\mb{Z} \simeq \mb{Z}/m\mb{Z}\otimes(\mb{Z}/n\mb{Z}\otimes\mb{Z}/r\mb{Z}).</script><p>Hence for modules of the form $\mb{Z}/m\mb{Z}$, we see the tensor product operation is associative and commutative up to isomorphism. Does this hold for all modules? The universal property answers this question affirmatively. From now on we will be keep using the universal property. Make sure that you have got the point already.</p>
-<h2 id="Tensor-product-as-a-binary-operation"><a href="#Tensor-product-as-a-binary-operation" class="headerlink" title="Tensor product as a binary operation"></a>Tensor product as a binary operation</h2><blockquote>
-<p>Let $M_1,M_2,M_3$ be $R$-modules, then there exists a unique isomorphism</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-(M_1 \otimes M_2) \otimes M_3 &\xrightarrow{\simeq} M_1 \otimes (M_2 \otimes M_3) \\
-(x \otimes y) \otimes z &\mapsto x \otimes(y \otimes z)
-\end{aligned}</script><p>for $x \in M_1$, $y \in M_2$, $z \in M_3$.</p>
-</blockquote>
-<p><em>Proof.</em> Consider the map</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-\lambda_x:M_2 \times M_3 &\to (M_1 \otimes M_2)\otimes M_3 \\
-          (y,z) &\mapsto (x \otimes y ) \otimes z
-\end{aligned}</script><p>where $x \in M_1$. Since $(\cdot\otimes\cdot)$ is bilinear, we see $\lambda_x$ is bilinear for all $x \in M_1$. Hence by the universal property there exists a unique map of the tensor product:</p>
-<script type="math/tex; mode=display">
-\overline{\lambda}_x:M_2 \otimes M_3 \to (M_1 \otimes M_2) \otimes M_3.</script><p>Next we have the map</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-\mu_x: M_1 \times (M_2 \otimes M_3) &\to (M_1 \otimes M_2) \otimes M_3 \\
-(x,y \otimes z) &\mapsto \overline{\lambda}_x(y \otimes z)
-\end{aligned}</script><p>which is bilinear as well. Again by the universal property we have a unique map</p>
-<script type="math/tex; mode=display">
-\overline{\mu}_x: M_1 \otimes (M_2 \otimes M_3) \to (M_1 \otimes M_2) \otimes M_3.</script><p>This is indeed the isomorphism we want. The reverse is obtained by reversing the process. For the bilinear map</p>
-<script type="math/tex; mode=display">
-\lambda_x':M_1 \times M_2 \to M_1 \otimes (M_2 \otimes M_3)</script><p>we get a unique map</p>
-<script type="math/tex; mode=display">
-\overline{\lambda'}_x: M_1 \otimes M_2 \to M_1 \otimes (M_2 \otimes M_3).</script><p>Then from the bilinear map</p>
-<script type="math/tex; mode=display">
-\mu'_x:(M_1 \otimes M_2) \times M_3 \to M_1 \otimes (M_2 \otimes M_3)</script><p>we get the unique map, which is actually the reverse of $\overline{\mu}_x$:</p>
-<script type="math/tex; mode=display">
-\overline{\mu'}_x:(M_1 \otimes M_2) \otimes M_3 \to M_1 \otimes (M_2 \otimes M_3).</script><p>Hence the two tensor products are isomorphic. $\square$</p>
-<blockquote>
-<p>Let $M_1$ and $M_2$ be $R$-modules, then there exists a unique isomorphism</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-M_1 \otimes M_2 &\xrightarrow{\simeq} M_2 \otimes M_1  \\
-x_1 \otimes x_2 &\mapsto x_2 \otimes x_1
-\end{aligned}</script><p>where $x_1 \in M_1$ and $x_2 \in M_2$.</p>
-</blockquote>
-<p><em>Proof.</em> The map</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-\lambda:M_1 \times M_2 &\to M_2 \otimes M_1 \\
-(x,y) &\mapsto y \otimes x
-\end{aligned}</script><p>is bilinear and gives us a unique map</p>
-<script type="math/tex; mode=display">
-\overline{\lambda}:M_1 \otimes M_2 \to M_2 \otimes M_1</script><p>given by $x \otimes y \mapsto y \otimes x$. Symmetrically, the map $\lambda’:M_2 \times M_1 \to M_1 \otimes M_2$ gives us a unique map</p>
-<script type="math/tex; mode=display">
-\overline{\lambda'}:M_2 \otimes M_1 \to M_1 \otimes M_2</script><p> which is the inverse of $\overline{\lambda}$. $\square$</p>
-<p>Therefore, we may view the set of all $R$-modules as a commutative semigroup with the binary operation $\otimes$. </p>
-<h2 id="Maps-between-tensor-products"><a href="#Maps-between-tensor-products" class="headerlink" title="Maps between tensor products"></a>Maps between tensor products</h2><p>Consider commutative diagram:</p>
-<p align="center"><img src="/img/tensor-functor.png"></p>
-
-<p>Where $f_i:M_i \to M_i’$ are some module-homomorphism. What do we want here? On the left hand, we see $f_1 \times f_2$ sends $(x_1,x_2)$ to $(f_1(x_1),f_2(x_2))$, which is quite natural. The question is, is there a natural map sending $x_1 \otimes x_2$ to $f_1(x_1) \otimes f_2(x_2)$? This is what we want from the right hand. We know $T(f_1 \times f_2)$ exists, since we have a bilinear map by $\mu = \varphi’ \circ (f_1\times f_2)$. So for $(x_1,x_2) \in M_1 \times M_2$, we have $T(f_1 \times f_2)(x_1 \otimes x_2) = \varphi’ \circ (f_1 \times f_2)(x_1,x_2) = f_1(x_1) \otimes f_2(x_2)$ as what we want. </p>
-<p>But $T$ in this graph has more interesting properties. First of all, if $M_1 = M_1’$ an $M_2 = M_2’$, both $f_1$ and $f_2$ are identity maps, then we see $T(f_1 \times f_2)$ is the identity as well. Next, consider the following chain</p>
-<script type="math/tex; mode=display">
-\cdots \to M_1 \times M_2 \xrightarrow{(f_1 \times f_2)}M_1' \times M_2' \xrightarrow{(g_1 \times g_2)}M_1'' \times M_2''\to \cdots.</script><p>We can make it a double chain:</p>
-<p align="center"><img src="/img/tensor-double-chain.png"></p>
-
-<p>It is obvious that $(g_1 \circ f_1 \times g_2 \circ f_2)=(g_1 \times g_2) \circ (f_1 \times f_2)$, which also gives</p>
-<script type="math/tex; mode=display">
-T(g_1 \times g_2) \circ T(f_1 \times f_2) = T(g_1 \circ f_1 \times g_2 \circ f_2).</script><p>Hence we can say $T$ is functorial. Sometimes for simplicity we also write $T(f_1,f_2)$ or simply $f_1 \otimes f_2$, as it sends $x_1 \otimes x_2$ to $f_1(x_1) \otimes f_2(x_2)$. Indeed it can be viewed as a map </p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-T:L(M_1, M_1') \times L(M_2,M_2') &\to L(M_1 \otimes M_2, M_1' \otimes M_2') \\
-(f_1 \times f_2) &\mapsto f_1 \otimes f_2.
-\end{aligned}</script></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2021-01-15T16:40:01.000Z" title="15/01/2021 17:40:01">2021-01-15</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-07-08T02:24:37.978Z" title="08/07/2023 04:24:37">2023-07-08</time></span><span class="level-item"><a class="link-muted" href="../">Algebra</a><span> / </span><a class="link-muted" href="">Module Theory</a></span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../../2021/01/15/vector-space-and-basis/">Why Does a Vector Space Have a Basis (Module Theory)</a></p><div class="content"><h2 id="Module-and-vector-space"><a href="#Module-and-vector-space" class="headerlink" title="Module and vector space"></a>Module and vector space</h2><p>First we recall some backgrounds. Suppose $A$ is a ring with multiplicative identity $1_A$. A <strong>left module</strong> of $A$ is an additive abelian group $(M,+)$, together with an <a target="_blank" rel="noopener" href="https://proofwiki.org/wiki/Definition:Linear_Ring_Action">ring operation</a> $A \times M \to M$ such that</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-(a+b)x &= ax+bx \\
-a(x+y) &= ax+ay \\
-a(bx) &= (ab)x \\
-1_Ax &= x
-\end{aligned}</script><p>for $x,y \in M$ and $a,b \in A$. As a corollary, we see $(0_A+0_A)x=0_Ax=0_Ax+0_Ax$, which shows $0_Ax=0_M$ for all $x \in M$. On the other hand, $a(x-x)=0_M$ which implies $a(-x)=-(ax)$. We can also define right $A$-modules but we are not discussing them here.</p>
-<p>Let $S$ be a subset of $M$. We say $S$ is a <strong>basis</strong> of $M$ if $S$ generates $M$ and $S$ is linearly independent. That is, for all $m \in M$, we can pick $s_1,\cdots,s_n \in S$ and $a_1,\cdots,a_n \in A$ such that</p>
-<script type="math/tex; mode=display">
-m = a_1s_1+a_2s_2+\cdots+a_ns_n,</script><p>and, for any $s_1,\cdots,s_n \in S$, we have</p>
-<script type="math/tex; mode=display">
-a_1s_1+a_2s_2+\cdots+a_ns_n=0_M \implies a_1=a_2=\cdots=a_n=0_A.</script><p>Note this also shows that $0_M\notin S$ (what happens if $0_M \in S$?). We say $M$ is <strong>free</strong> if it has a basis. The case when $M$ or $A$ is trivial is excluded. </p>
-<p>If $A$ is a field, then $M$ is called a <strong>vector space</strong>, which has no difference from the one we learn in linear algebra and functional analysis. Mathematicians in functional analysis may be interested in the cardinality of a vector space, for example, when a vector space is of finite dimension, or when the basis is countable. But the basis does not come from nowhere. In fact we can prove that vector spaces have basis, but modules are not so lucky. $\def\mb{\mathbb}$</p>
-<h2 id="Examples-of-non-free-modules"><a href="#Examples-of-non-free-modules" class="headerlink" title="Examples of non-free modules"></a>Examples of non-free modules</h2><p>First of all let’s consider the cyclic group $\mb{Z}/n\mb{Z}$ for $n \geq 2$. If we define </p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-\mb{Z} \times \mb{Z}/n\mb{Z} &\to \mb{Z}/n\mb{Z} \\
-(m,k+n\mb{Z}) &\mapsto mk+n\mb{Z}
-\end{aligned}</script><p>which is actually $m$ copies of an element, then we get a module, which will be denoted by $M$. For any $x=k+n\mb{Z} \in M$, we see $nk+n\mb{Z}=0_M$. Therefore for <strong>any</strong> subset $S \subset M$, if $x_1,\cdots,x_k \in M$, we have</p>
-<script type="math/tex; mode=display">
-nx_1+nx_2+\cdots+nx_k = 0_M,</script><p>which gives the fact that $M$ has no basis. In fact this can be generalized further. If $A$ is a ring but not a field, let $I$ be a nontrivial proper ideal, then $A/I$ is a module that has no basis. </p>
-<p>Following $\mb{Z}/n\mb{Z}$ we also have another example on finite order. Indeed, <strong>any finite abelian group is not free as a module over $\mb{Z}$.</strong> More generally, </p>
-<blockquote>
-<p>Let $G$ be a abelian group, and $G_{tor}$ be its <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Torsion_subgroup">torsion subgroup</a>. If $G_{tor}$ is non-trival, then $G$ cannot be a free module over $\mb{Z}$.</p>
-</blockquote>
-<hr>
-<p>Next we shall take a look at infinite rings. Let $F[X]$ be the polynomial ring over a field $F$ and $F’[X]$ be the polynomial sub-ring that have coefficient of $X$ equal to $0$. Then $F[X]$ is a $F’[X]$-module. However it is not free.</p>
-<p>Suppose we have a basis $S$ of $F[X]$, then we claim that $|S|&gt;1$. If $|S|=1$, say $P \in S$, then $P$ cannot generate $F[X]$ since if $P$ is constant then we cannot generate a polynomial contains $X$ with power $1$; If $P$ is not constant, then the constant polynomial cannot be generate. Hence $S$ contains at least two polynomials, say $P_1 \neq 0$ and $P_2 \neq 0$. However, note $-X^2P_1 \in F’[X]$ and $X^2P_2 \in F’[X]$, which gives</p>
-<script type="math/tex; mode=display">
-(X^2P_2)P_1-(X^2P_1)P_2=0.</script><p>Hence $S$ cannot be a basis. </p>
-<h2 id="Why-does-a-vector-space-have-a-basis"><a href="#Why-does-a-vector-space-have-a-basis" class="headerlink" title="Why does a vector space have a basis"></a>Why does a vector space have a basis</h2><p>I hope those examples have convinced you that basis is not a universal thing. We are going to prove that every vector space has a basis. More precisely,</p>
-<blockquote>
-<p>Let $V$ be a nontrivial vector space over a field $K$. Let $\Gamma$ be a set of generators of $V$ over $K$ and $S \subset \Gamma$ is a subset which is linearly independent, then there exists a basis of $V$ such that $S \subset B \subset \Gamma$. </p>
-</blockquote>
-<p>Note we can always find such $\Gamma$ and $S$. For the extreme condition, we can pick $\Gamma=V$ and $S$ be a set containing any single non-zero element of $V$. Note this also gives that we can generate a basis by expanding any linearly independent set. The proof relies on a fact that every non-zero element in a field is invertible, and also, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Zorn%27s_lemma">Zorn’s lemma</a>. In fact, axiom of choice is equivalent to the statement that every vector has a set of basis. The converse can be found <a target="_blank" rel="noopener" href="http://www.math.lsa.umich.edu/~ablass/bases-AC.pdf">here</a>. $\def\mfk{\mathfrak}$</p>
-<p><em>Proof.</em> Define</p>
-<script type="math/tex; mode=display">
-\mfk{T} =\{T \subset \Gamma:S \subset T, \text{ $T$ is linearly independent}\}.</script><p>Then $\mfk{T}$ is not empty since it contains $S$. If $T_1 \subset T_2 \subset \cdots$ is a totally ordered chain in $\mfk{T}$, then $T=\bigcup_{i=1}^{\infty}T_i$ is again linearly independent and contains $S$. To show that $T$ is linearly independent, note that if $x_1,x_2,\cdots,x_n \in T$, we can find some $k_1,\cdots,k_n$ such that $x_i \in T_{k_i}$ for $i=1,2,\cdots,n$. If we pick $k = \max(k_1,\cdots,k_n)$, then </p>
-<script type="math/tex; mode=display">
-x_1,x_2,\cdots,x_n \in \bigcup_{i=1}^{n}T_{k_i}=T_k.</script><p>But we already know that $T_k$ is linearly independent, so $a_1x_1+\cdots+a_nx_n=0_V$ implies $a_1=\cdots=a_n=0_K$. </p>
-<p>By Zorn’s lemma, let $B$ be the maximal element of $\mfk{T}$, then $B$ is also linearly independent since it is an element of $\mfk{T}$. Next we show that $B$ generates $V$. Suppose not, then we can pick some $x \in \Gamma$ that is not generated by $B$. Define $B’=B \cup \{x\}$, we see $B’$ is linearly independent as well, because if we pick $y_1,y_2,\cdots,y_n \in B$, and if</p>
-<script type="math/tex; mode=display">
-\sum_{k=1}^{n}a_ky_k+bx=0_V,</script><p>then if $b \neq 0$ we have</p>
-<script type="math/tex; mode=display">
-x = -\sum_{k=1}^{n}b^{-1}a_ky_k \in B,</script><p>contradicting the assumption that $x$ is not generated by $B$. Hence $b=0_K$. However, we have proved that $B’$ is a linearly independent set containing $B$ and contained in $S$, contradicting the maximality of $B$ in $\mfk{T}$. Hence $B$ generates $V$. $\square$</p>
-</div></article></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="../../../img/avatar.png" alt="Desvl"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Desvl</p><p class="is-size-6 is-block">A blog mainly on graduate mathematics.</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>A Noetherian local ring</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="../../../archives/"><p class="title">98</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="../../../categories/"><p class="title">50</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="../../../tags/"><p class="title">60</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="../../../redirect/newsletter" target="_blank" rel="me noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Compose an Email" href="../../../redirect/email"><i class="fas fa-envelope"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="RSS" href="../../../atom.xml"><i class="fas fa-rss"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Mathstodon" href="https://mathstodon.xyz/@desvl"><i class="fa-brands fa-mastodon"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://arxiv.org/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">arXiv</span></span><span class="level-right"><span class="level-item tag">arxiv.org</span></span></a></li><li><a class="level is-mobile" href="https://kconrad.math.uconn.edu/blurbs/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Keith Conrad&#039;s expository papers</span></span><span class="level-right"><span class="level-item tag">kconrad.math.uconn.edu</span></span></a></li><li><a class="level is-mobile" href="https://ncatlab.org/nlab/show/mathematics" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">nLab (Mathematics)</span></span><span class="level-right"><span class="level-item tag">ncatlab.org</span></span></a></li><li><a class="level is-mobile" href="https://q.uiver.app/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">quiver: a modern commutative diagram editor</span></span><span class="level-right"><span class="level-item tag">q.uiver.app</span></span></a></li><li><a class="level is-mobile" href="https://www.symmetricfunctions.com/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">The Symmetric Functions Catalogue</span></span><span class="level-right"><span class="level-item tag">www.symmetricfunctions.com</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/speaking.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Speaking</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/writing.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Writing</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Be excellent at math in one month (YouTube)</span></span><span class="level-right"><span class="level-item tag">www.youtube.com</span></span></a></li><li><a class="level is-mobile" href="https://www.bilibili.com/video/BV1GJ411x7h7" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Be excellent at math in one month (Bilibili)</span></span><span class="level-right"><span class="level-item tag">www.bilibili.com</span></span></a></li></ul></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="../../../index.html"><img src="../../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a><p class="is-size-7"><span>&copy; 2025 Desvl</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
-            article: {
-                highlight: {
-                    clipboard: true,
-                    fold: 'unfolded'
-                }
-            }
-        };</script><script data-pjax src="../../../js/column.js"></script><script src="../../../js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script data-pjax src="../../../js/back_to_top.js" defer></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
-            if (typeof $.fn.lightGallery === 'function') {
-                $('.article').lightGallery({ selector: '.gallery-item' });
-            }
-            if (typeof $.fn.justifiedGallery === 'function') {
-                if ($('.justified-gallery > p > .gallery-item').length) {
-                    $('.justified-gallery > p > .gallery-item').unwrap();
-                }
-                $('.justified-gallery').justifiedGallery();
-            }
-        });</script><script type="text/javascript" id="MathJax-script" async>MathJax = {
-      tex: {
-        inlineMath: [['$', '$'], ['\\(', '\\)']]
-      },
-      svg: {
-        fontCache: 'global'
-      },
-      chtml: {
-        matchFontHeight: false
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
       }
-    };</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script><!--!--><script data-pjax src="../../../js/main.js" defer></script><!--!--></body></html>
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    js: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')){
+        src = ctx.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    jq: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        utils.js(deps.jquery).then(fn)
+      } else {
+        fn()
+      }
+    },
+    
+    onLoading: (el) => {
+      if (el) {
+        $(el).append('<div class="loading-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg></div>');
+      }
+    },
+    onLoadSuccess: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap').remove();
+      }
+    },
+    onLoadFailure: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap svg').remove();
+        $(el).find('.loading-wrap').append('<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" d="M12 3L21 20H3L12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="60;0"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M12 10V14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"/></path></g><circle cx="12" cy="17" r="1" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="0.8s" dur="0.4s" values="0;1"/></circle></svg>');
+        $(el).find('.loading-wrap').addClass('error');
+      }
+    },
+    request: (el, url, callback, onFailure) => {
+      let retryTimes = 3;
+      utils.onLoading(el);
+      function req() {
+        return new Promise((resolve, reject) => {
+          let status = 0; // 0 等待 1 完成 2 超时
+          let timer = setTimeout(() => {
+            if (status === 0) {
+              status = 2;
+              timer = null;
+              reject('请求超时');
+              if (retryTimes == 0) {
+                onFailure();
+              }
+            }
+          }, 5000);
+          fetch(url).then(function(response) {
+            if (status !== 2) {
+              clearTimeout(timer);
+              resolve(response);
+              timer = null;
+              status = 1;
+            }
+            if (response.ok) {
+              return response.json();
+            }
+            throw new Error('Network response was not ok.');
+          }).then(function(data) {
+            retryTimes = 0;
+            utils.onLoadSuccess(el);
+            callback(data);
+          }).catch(function(error) {
+            if (retryTimes > 0) {
+              retryTimes -= 1;
+              setTimeout(() => {
+                req();
+              }, 5000);
+            } else {
+              utils.onLoadFailure(el);
+              onFailure();
+            }
+          });
+        });
+      }
+      req();
+    },
+  };
+</script>
+
+<script>
+  const sidebar = {
+    leftbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    rightbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('rightbar');
+        l_body.removeAttribute('leftbar');
+      }
+    },
+    dismiss: () => {
+      if (l_body) {
+        l_body.removeAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    toggleTOC: () => {
+      document.querySelector('#data-toc').classList.toggle('collapse');
+    }
+  }
+</script>
+<script type="text/javascript">
+  (() => {
+    const tagSwitchers = document.querySelectorAll('.tag-subtree.parent-tag > a > .tag-switcher-wrapper')
+    for (const tagSwitcher of tagSwitchers) {
+      tagSwitcher.addEventListener('click', (e) => {
+        const parent = e.target.closest('.tag-subtree.parent-tag')
+        parent.classList.toggle('expanded')
+        e.preventDefault()
+      })
+    }
+
+    // Get active tag from query string, then activate it.
+    const urlParams = new URLSearchParams(window.location.search)
+    const activeTag = urlParams.get('tag')
+    if (activeTag) {
+      let tag = document.querySelector(`.tag-subtree[data-tag="${activeTag}"]`)
+      if (tag) {
+        tag.querySelector('a').classList.add('active')
+        
+        while (tag) {
+          tag.classList.add('expanded')
+          tag = tag.parentElement.closest('.tag-subtree.parent-tag')
+        }
+      }
+    }
+  })()
+</script>
+
+
+<!-- required -->
+<script src="/js/main.js?v=1.29.1" defer></script>
+
+<script type="text/javascript">
+  const applyTheme = (theme) => {
+    if (theme === 'auto') {
+      document.documentElement.removeAttribute('data-theme')
+    } else {
+      document.documentElement.setAttribute('data-theme', theme)
+    }
+
+    applyThemeToGiscus(theme)
+  }
+
+  const applyThemeToGiscus = (theme) => {
+    theme = theme === 'auto' ? 'preferred_color_scheme' : theme
+
+    const cmt = document.getElementById('giscus')
+    if (cmt) {
+      // This works before giscus load.
+      cmt.setAttribute('data-theme', theme)
+    }
+
+    const iframe = document.querySelector('#comments > section.giscus > iframe')
+    if (iframe) {
+      // This works after giscus loaded.
+      const src = iframe.src
+      const newSrc = src.replace(/theme=[\w]+/, `theme=${theme}`)
+      iframe.src = newSrc
+    }
+  }
+
+  const switchTheme = () => {
+    // light -> dark -> auto -> light -> ...
+    const currentTheme = document.documentElement.getAttribute('data-theme')
+    let newTheme;
+    switch (currentTheme) {
+      case 'light':
+        newTheme = 'dark'
+        break
+      case 'dark':
+        newTheme = 'auto'
+        break
+      default:
+        newTheme = 'light'
+    }
+    applyTheme(newTheme)
+    window.localStorage.setItem('Stellar.theme', newTheme)
+
+    const messages = {
+      light: `Switched to Light Mode`,
+      dark: `Switched to Dark Mode`,
+      auto: `Switched to Auto Mode`,
+    }
+    hud?.toast?.(messages[newTheme])
+  }
+
+  (() => {
+    // Apply user's preferred theme, if any.
+    const theme = window.localStorage.getItem('Stellar.theme')
+    if (theme !== null) {
+      applyTheme(theme)
+    }
+  })()
+</script>
+
+
+<!-- optional -->
+
+
+
+<script defer>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.services = Object.assign({}, JSON.parse(`{"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"}}`));
+    for (let id of Object.keys(ctx.services)) {
+      const js = ctx.services[id].js;
+      if (id == 'siteinfo') {
+        ctx.cardlinks = document.querySelectorAll('a.link-card[cardlink]');
+        if (ctx.cardlinks?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            setCardLink(ctx.cardlinks);
+          });
+        }
+      } else {
+        const els = document.getElementsByClassName(`ds-${id}`);
+        if (els?.length > 0) {
+          utils.jq(() => {
+            if (id == 'timeline' || 'memos' || 'marked') {
+              utils.js(deps.marked).then(function () {
+                utils.js(js, { defer: true });
+              });
+            } else {
+              utils.js(js, { defer: true });
+            }
+          });
+        }
+      }
+    }
+  });
+</script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.search = {
+      path: `/search.json`,
+    }
+    utils.js('/js/search/local-search.js', { defer: true });
+  });
+</script><script>
+  window.FPConfig = {
+    delay: 0,
+    ignoreKeywords: [],
+    maxRPS: 5,
+    hoverDelay: 25
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js"></script><script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@19.1.3/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazy",
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    window.lazyLoadInstance?.update();
+  });
+</script><script>
+  ctx.fancybox = {
+    selector: `.timenode p>img`,
+    css: `https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css`,
+    js: `https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js`
+  };
+  var selector = '[data-fancybox]:not(.error)';
+  if (ctx.fancybox.selector) {
+    selector += `, ${ctx.fancybox.selector}`
+  }
+  var needFancybox = document.querySelectorAll(selector).length !== 0;
+  if (!needFancybox) {
+    const els = document.getElementsByClassName('ds-memos');
+    if (els != undefined && els.length > 0) {
+      needFancybox = true;
+    }
+  }
+  if (needFancybox) {
+    utils.css(ctx.fancybox.css);
+    utils.js(ctx.fancybox.js, { defer: true }).then(function () {
+      Fancybox.bind(selector, {
+        hideScrollbar: false,
+        Thumbs: {
+          autoStart: false,
+        },
+        caption: (fancybox, slide) => {
+          return slide.triggerEl.alt || slide.triggerEl.dataset.caption || null
+        }
+      });
+    })
+  }
+</script>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    const swiper_api = document.getElementById('swiper-api');
+    if (swiper_api != undefined) {
+      utils.css(`https://unpkg.com/swiper@10.3.1/swiper-bundle.min.css`);
+      utils.js(`https://unpkg.com/swiper@10.3.1/swiper-bundle.min.js`, { defer: true }).then(function () {
+        const effect = swiper_api.getAttribute('effect') || '';
+        var swiper = new Swiper('.swiper#swiper-api', {
+          slidesPerView: 'auto',
+          spaceBetween: 8,
+          centeredSlides: true,
+          effect: effect,
+          rewind: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        });
+      })
+    }
+  });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    window.codeElements = document.querySelectorAll('.code');
+    if (window.codeElements.length > 0) {
+      ctx.copycode = {
+        default_text: `Copy`,
+        success_text: `Copied`,
+        toast: `复制成功`,
+      };
+      utils.js('/js/plugins/copycode.js');
+    }
+  });
+</script>
+
+
+<!-- inject -->
+
+</div></body></html>

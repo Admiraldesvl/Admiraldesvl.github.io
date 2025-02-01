@@ -1,59 +1,539 @@
-<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="robots" content="noindex"><meta><title>Archives: 2022/4 - Desvl&#039;s blog</title><link rel="manifest" href="../../../manifest.json"><meta name="application-name" content="Desvl&#039;s blog"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Desvl&#039;s blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta property="og:type" content="blog"><meta property="og:title" content="Desvl&#039;s blog"><meta property="og:url" content="https://desvl.xyz/"><meta property="og:site_name" content="Desvl&#039;s blog"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://desvl.xyz/img/avatar.png"><meta property="article:author" content="Desvl"><meta property="twitter:card" content="summary_large_image"><meta property="twitter:image:src" content="https://desvl.xyz/img/avatar.png"><meta property="twitter:creator" content="@Desvl_"><meta property="twitter:site" content="{ https://desvl.xyz }"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://desvl.xyz"},"headline":"Desvl's blog","image":["https://desvl.xyz/img/avatar.png"],"author":{"@type":"Person","name":"Desvl"},"publisher":{"@type":"Organization","name":"Desvl","logo":{"@type":"ImageObject","url":"https://desvl.xyz/img/logo.svg"}},"description":""}</script><link rel="alternate" href="../../../atom.xml" title="Desvl&#039;s blog" type="application/atom+xml"><link rel="icon" href="../../../img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link data-pjax rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-light.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="../../../css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js"></script><!-- hexo injector head_end start --><script>
-  (function () {
-      function switchTab() {
-          if (!location.hash) {
-            return;
-          }
 
-          const id = '#' + CSS.escape(location.hash.substring(1));
-          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
-          if (!$tabMenu) {
-            return;
-          }
+<!DOCTYPE html><html lang="en">
 
-          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
-          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
-          Array.from($tabMenuContainer.querySelectorAll('a'))
-              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
-              .forEach($content => $content.classList.add('is-hidden'));
+<head>
+  <meta charset="utf-8">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.29.1" theme-name="Stellar" theme-version="1.29.1">
+  <meta name="robots" content="noindex,follow">
+  <meta name="generator" content="Hexo 7.3.0">
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
+  <meta name="theme-color" content="#f9fafb">
+  
+  <title>Archives - Desvl's blog</title>
 
-          if ($tabMenu) {
-              $tabMenu.parentElement.classList.add('is-active');
-          }
-          const $activeTab = document.querySelector(id);
-          if ($activeTab) {
-              $activeTab.classList.remove('is-hidden');
-          }
+  
+    <meta property="og:type" content="website">
+<meta property="og:title" content="Archives">
+<meta property="og:url" content="https://desvl.xyz/archives/2022/04/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="Desvl">
+<meta name="twitter:card" content="summary">
+  
+  
+  
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="../../../atom.xml" title="Desvl's blog" type="application/atom+xml">
+  
+
+  <link rel="stylesheet" href="/css/main.css?v=1.29.1">
+
+  
+
+  
+
+  
+</head>
+<body>
+
+<div class="l_body s:aa index tech" id="start" layout="undefined" ><aside class="l_left"><div class="leftbar-container">
+
+
+<header class="header"><div class="logo-wrap"><a class="avatar" href="../../../about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="/img/avatar_new.png" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="../../../index.html"><div class="main" ff="title">Desvl's blog</div></a></div></header>
+
+<div class="nav-area">
+<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" placeholder="Search"></form><div id="search-result"></div><div class="search-no-result">No Results!</div></div>
+
+
+<nav class="menu dis-select"></nav>
+</div>
+<div class="widgets"></div>
+
+</div></aside><div class="l_main" id="main">
+
+<header class="header mobile-only"><div class="logo-wrap"><a class="avatar" href="../../../about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="/img/avatar_new.png" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="../../../index.html"><div class="main" ff="title">Desvl's blog</div></a></div></header>
+
+ 
+
+
+<div class="navbar top"><nav class="post"><a href="../../../">Recent</a><a href="../../../categories">Categories</a><a href="../../../tags">Tags</a><a class="active" href="../..">Archives</a></nav></div><div class="post-list archives"><article class="" id="archive"><div class='archive-header h4'>2023</div><div class="archive-list"><a class='post fs14' href="../../../2023/11/11/sl2-f3/"><time>11-11</time><span>The Structure of SL_2(F_3) as a Semidirect Product</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2023/10/21/solvable-by-radical/"><time>10-21</time><span>A Separable Extension Is Solvable by Radicals Iff It Is Solvable</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2023/09/18/picard-little/"><time>09-18</time><span>Picard's Little Theorem and Twice-Punctured Plane</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2023/08/12/sl2-decomposition/"><time>08-12</time><span>SL(2,R) As a Topological Space and Topological Group</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2023/07/17/artin-theorem/"><time>07-17</time><span>Artin's Theorem of Induced Characters</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2023/05/27/chinese-remainder-theorem-ring-theory/"><time>05-27</time><span>Chinese Remainder Theorem in Several Scenarios of Ring Theory</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2023/04/06/projective-rep-so3/"><time>04-06</time><span>Projective Representations of SO(3)</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2023/03/20/quadratic-reciprocity-law-1/"><time>03-20</time><span>The Quadratic Reciprocity Law</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2023/02/13/vague-convergence/"><time>02-13</time><span>Vague Convergence in Measure-theoretic Probability Theory - Equivalent Conditions</span></a></div></article><article class="" id="archive"><div class='archive-header h4'>2022</div><div class="archive-list"><a class='post fs14' href="../../../2022/12/23/pontryagin-dual-q-p/"><time>12-23</time><span>The Pontryagin Dual group of Q_p</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2022/12/20/haar-measure-p-adic/"><time>12-20</time><span>The Haar Measure on the Field of p-Adic Numbers</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2022/12/05/regular-local-ring-cohen-macaulay/"><time>12-05</time><span>Every Regular Local Ring is Cohen-Macaulay</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2022/12/02/The-abc-Theorem-of-Polynomials/"><time>12-02</time><span>The abc Theorem of Polynomials</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2022/11/24/riemann-zeta-continuation/"><time>11-24</time><span>A Step-by-step of the Analytic Continuation of the Riemann Zeta Function</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2022/09/22/cyclotomic-polynomial-elementary/"><time>09-22</time><span>Properties of Cyclotomic Polynomials</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2022/09/04/height-polynomial/"><time>09-04</time><span>Calculus on Fields - Heights of Polynomials, Mahler's Measure and Northcott's Theorem</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2022/08/21/hensel-lemma-newton/"><time>08-21</time><span>Hensel's Lemma - A Fair Application of Newton's Method and 'Double Induction'</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2022/08/12/rep-gl2-fq/"><time>08-12</time><span>Irreducible Representations of GL_2(F_q)</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2022/07/26/segre-embedding-et-height/"><time>07-26</time><span>Segre Embedding And Heights</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2022/06/30/calculus-field-01/"><time>06-30</time><span>The Calculus of Fields - Absolute Values</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2022/06/16/so3-laplacian/"><time>06-16</time><span>Irreducible Representations of SO(3) and the Laplacian</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2022/05/08/rep-SU2/"><time>05-08</time><span>Study Irreducible Representations of SU(2) Using Fourier Series</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2022/05/06/exp-fourier/"><time>05-06</time><span>The Fourier Transform of exp(-cx^2) and Its Convolution</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2022/04/15/riemann-mapping-theorem-proof/"><time>04-15</time><span>A Detailed Proof of the Riemann Mapping Theorem</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2022/03/29/galois-example-3/"><time>03-29</time><span>Examples in Galois Theory 3 - Polynomials of Prime Degree and Pairs of Nonreal Roots</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2022/03/27/galois-example-2/"><time>03-27</time><span>Examples in Galois Theory 2 - Cubic Extensions</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2022/03/16/galois-example-1/"><time>03-16</time><span>Examples in Galois Theory 1 - Complex Field is Algebraically Closed</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2022/01/18/group-algebra/"><time>01-18</time><span>The Group Algebra of A Finite Group and Maschke's Theorem</span></a></div></article><article class="" id="archive"><div class='archive-header h4'>2021</div><div class="archive-list"><a class='post fs14' href="../../../2021/12/29/the-ring-of-trigonometric-polynomial-with-complex-scalar/"><time>12-29</time><span>The ring of trigonometric polynomials with complex scalars</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2021/12/24/The-ring-of-real-trigonometric-polynomials/"><time>12-24</time><span>The ring of real trigonometric polynomials</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2021/10/10/Characters-in-Analysis-and-Algebra/"><time>10-10</time><span>Characters in Analysis and Algebra</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2021/10/02/ba-algebra/"><time>10-02</time><span>The Banach Algebra of Borel Measures on Euclidean Space</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2021/08/16/the-concept-of-distribution/"><time>08-16</time><span>The concept of generalised functions (distributions) and derivatives</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2021/07/24/Curse-of-Knowledge/"><time>07-24</time><span>Curse of Knowledge</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2021/07/08/Cesaro-operator-in-L2/"><time>07-08</time><span>Elementary Properties of Cesàro Operator in L^2</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2021/05/26/left-shift/"><time>05-26</time><span>Left Shift Semigroup and Its Infinitesimal Generator</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2021/05/10/analytic-hamburger/"><time>05-10</time><span>Quasi-analytic Vectors and Hamburger Moment Problem (Operator Theory)</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2021/03/30/quasi-analytic-classs/"><time>03-30</time><span>Quasi-analytic Classes</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2021/02/23/linear-algebra-missing/"><time>02-23</time><span>(Kind of) Missing Content in Your Linear Algebra Class (Still on Progress)</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2021/02/07/dedekind-domain/"><time>02-07</time><span>Dedekind Domain and Properties in an Elementary Approach</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2021/01/23/hardys-inequality/"><time>01-23</time><span>Several ways to prove Hardy's inequality</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2021/01/19/tensor-product-universal-property/"><time>01-19</time><span>Tensor Product as a Universal Object (Category Theory & Module Theory)</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2021/01/15/vector-space-and-basis/"><time>01-15</time><span>Why Does a Vector Space Have a Basis (Module Theory)</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2021/01/14/rings-of-fractions-and-localization/"><time>01-14</time><span>Rings of Fractions and Localisation</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2021/01/10/the-grothendieck-group/"><time>01-10</time><span>The Grothendienck Group</span></a></div></article><article class="" id="archive"><div class='archive-header h4'>2020</div><div class="archive-list"><a class='post fs14' href="../../../2020/12/22/vector-bundle-2/"><time>12-22</time><span>Study Vector Bundle in a Relatively Harder Way - Tangent Bundle</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2020/11/28/A-continuous-function-sending-Lp-functions-to-L1/"><time>11-28</time><span>A Continuous Function Sending L^p Functions to L^1</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2020/11/27/vector-bundle-1/"><time>11-27</time><span>Study Vector Bundle in a Relatively Harder Way - Definition</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2020/11/13/big-3-pt-6/"><time>11-13</time><span>The Big Three Pt. 6 - Closed Graph Theorem with Applications</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2020/11/08/Partition-of-Unity-on-Different-Manifolds/"><time>11-08</time><span>Partition of Unity on Different Manifolds (Part 1. Introduction)</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2020/10/18/stirling-approximation/"><time>10-18</time><span>Stirling公式的几种经典估计</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2020/10/15/G-K-Z-theorem/"><time>10-15</time><span>A proof of the ordinary Gleason-Kahane-Żelazko theorem for complex functionals</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2020/10/01/big-3-pt-5/"><time>10-01</time><span>The Big Three Pt. 5 - The Hahn-Banach Theorem (Dominated Extension)</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2020/09/27/diagram-chasing/"><time>09-27</time><span>A long exact sequence of cohomology groups (zig-zag and diagram-chasing)</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2020/09/24/two-fourier-transforms/"><time>09-24</time><span>The Fourier transform of sinx/x and (sinx/x)^2 and more</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2020/09/19/The-Riesz-Markov-Kakutani-Representation-Theorem/"><time>09-19</time><span>The Riesz-Markov-Kakutani Representation Theorem</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2020/09/12/big-3-pt-4/"><time>09-12</time><span>The Big Three Pt. 4 - The Open Mapping Theorem (F-Space)</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2020/09/03/quotient-f-space/"><time>09-03</time><span>The completeness of the quotient space (topological vector space)</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2020/08/26/r-s-integral/"><time>08-26</time><span>Introducing Riemann-Stieltjes Integral</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2020/08/18/Basic-facts-of-semicontinuous-functions/"><time>08-18</time><span>Basic Facts of Semicontinuous Functions</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2020/08/16/An-Introduction-to-Quotient-Space/"><time>08-16</time><span>An Introduction to Quotient Space</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2020/08/14/La-tercera-resignaci%C3%B3n/"><time>08-14</time><span>关于《第三次忍受》</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2020/08/12/big-3-pt-3/"><time>08-12</time><span>The Big Three Pt. 3 - The Open Mapping Theorem (Banach Space)</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2020/08/01/cauchy-sequence-in-group-theory/"><time>08-01</time><span>Cauchy sequence in group theory</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2020/07/31/frechet-derivative/"><time>07-31</time><span>A Brief Introduction to Fréchet Derivative</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2020/07/21/profinite-group/"><time>07-21</time><span>An elementary introduction to profinite groups</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2020/07/16/linear-ode-chapter-4/"><time>07-16</time><span>线性ODE（四）——常系数高阶线性微分方程的普遍解法</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2020/07/04/nowhere-differentiable-functions/"><time>07-04</time><span>A continuous function is 'mostly' nowhere differentiable</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2020/06/30/big-3-pt-2/"><time>06-30</time><span>The Big Three Pt. 2 - The Banach-Steinhaus Theorem</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2020/06/06/big-3-pt-1/"><time>06-06</time><span>The Big Three Pt. 1 - Baire Category Theorem Explained</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2020/06/01/jordan-form-example/"><time>06-01</time><span>Jordan标准形的求法——以一个四阶矩阵为例</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2020/05/21/jordan-decomposition/"><time>05-21</time><span>矩阵Jordan标准形的原理</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2020/05/20/zeros-of-entire-function/"><time>05-20</time><span>More properties of zeros of an entire function</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2020/05/17/linear-ode-but-quotient-space/"><time>05-17</time><span>Linear ODE but Quotient Spaces</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2020/05/16/ivp-picard-differnt-level/"><time>05-16</time><span>Prove Picard's Existence and Uniqueness Theorem on Different Levels</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2020/05/12/linear-ode-chapter-3/"><time>05-12</time><span>线性ODE（三）——初探高阶线性方程</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2020/05/07/alguien-desordena-estas-rosas/"><time>05-07</time><span>关于《有人弄乱了这束玫瑰花》</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2020/05/04/linear-ode-chapter-2/"><time>05-04</time><span>线性ODE（二）——用矩阵表示方程组</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2020/05/01/linear-ode-chapter-1/"><time>05-01</time><span>线性ODE（一）——线性方程的思想与一阶方程</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2020/04/18/order-of-limit/"><time>04-18</time><span>高等数学入门——理解无穷小的阶（微积分的“科学计数法”）</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2020/03/29/lebesgue-radon-nikodym/"><time>03-29</time><span>The Lebesgue-Radon-Nikodym theorem and how von Neumann proved it</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2020/03/23/fubini-counterex-and-why/"><time>03-23</time><span>Counterexamples of Fubini's theorem</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2020/03/22/fubini-theorem-in-euclidean-space/"><time>03-22</time><span>Fubini's theorem in Euclidean space (Understanding 'almost everywhere')</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2020/03/14/topological-property-of-the-zeros-of-a-holomorphic-function/"><time>03-14</time><span>Topological properties of the zeros of a holomorphic function</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2020/02/08/primary-decomposition/"><time>02-08</time><span>准素分解与准素标准型</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2020/02/03/cyclic-decomposition-and-example/"><time>02-03</time><span>线性空间的循环分解</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2020/01/28/conductor/"><time>01-28</time><span>线性变换不变子空间的导子及其性质</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2020/01/22/cyclic-decomposition/"><time>01-22</time><span>线性空间的循环子空间与简单应用</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2020/01/17/abstract-lebesgue-integral/"><time>01-17</time><span>抽象Lebesgue积分的构建</span></a></div></article><article class="" id="archive"><div class='archive-header h4'>2019</div><div class="archive-list"><a class='post fs14' href="../../../2019/10/31/euler-reflection/"><time>10-31</time><span>欧拉反射公式和利用Fourier级数的证明</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2019/10/02/productivity-overrated/"><time>10-02</time><span>并不新颖的观点：不要追求生产力、效率了</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2019/09/07/sup-inf/"><time>09-07</time><span>高等数学入门：上下确界及其极限形式</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2019/08/24/harmonic-series-divergence/"><time>08-24</time><span>调和级数发散的若干证明</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2019/08/19/l-hopital-proof/"><time>08-19</time><span>洛必达法则的几种不同的证明</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2019/08/06/beautiful-fourier-002/"><time>08-06</time><span>优美的Fourier级数（二）: 有界差分下的收敛(Jordan判别法)</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2019/08/05/beautiful-fourier-001/"><time>08-05</time><span>优美的Fourier级数（一）: 绝对不只是求表达式的问题</span></a></div><div class="archive-list"><a class='post fs14' href="../../../2019/08/04/contraction-application/"><time>08-04</time><span>压缩定理和其应用</span></a></div></article></div>
+<footer class="page-footer footnote"><hr><div class="text"><p>Credit <a href="/">Desvl</a> | Powered by <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.29.1">Stellar 1.29.1</a>.<br>Licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless otherwise specified.</p>
+</div></footer>
+<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
+</aside><div class='float-panel blur'>
+  <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
+  </button>
+  <button type='button' style='display:none' class='mobile-only leftbar-toggle mobile' onclick='sidebar.leftbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"/><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"/></g></svg>
+  </button>
+</div>
+</div><div class="scripts">
+<script type="text/javascript">
+  const ctx = {
+    date_suffix: {
+      just: `Just`,
+      min: `minutes ago`,
+      hour: `hours ago`,
+      day: `days ago`,
+    },
+    root : `/`,
+  };
+
+  // required plugins (only load if needs)
+  if (`local_search`) {
+    ctx.search = {};
+    ctx.search.service = `local_search`;
+    if (ctx.search.service == 'local_search') {
+      let service_obj = Object.assign({}, `{"field":"all","path":"/search.json","content":true,"sort":"-date"}`);
+      ctx.search[ctx.search.service] = service_obj;
+    }
+  }
+  const def = {
+    avatar: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg`,
+    cover: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg`,
+  };
+  const deps = {
+    jquery: `https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js`,
+    marked: `https://cdn.jsdelivr.net/npm/marked@13.0.1/lib/marked.umd.min.js`
+  }
+  
+
+</script>
+
+<script type="text/javascript">
+  const utils = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    css: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
       }
-      switchTab();
-      window.addEventListener('hashchange', switchTab, false);
-  })();
-  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="../../../index.html"><img src="../../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="../../../index.html">Home</a><a class="navbar-item" href="../../../archives">Archives</a><a class="navbar-item" href="../../../categories">Categories</a><a class="navbar-item" href="../../../tags">Tags</a><a class="navbar-item" href="../../../about">About (Updated Aug. 2022)</a><a class="navbar-item" href="../../../link-exchange">Link Exchange</a><a class="navbar-item" href="../../../support-the-author">Support the Author</a></div><div class="navbar-end"></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-content"><h3 class="tag is-primary">April 2022</h3><div class="timeline"><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-04-15T19:26:52.000Z">2022-04-15</time></p><p class="title"><a href="../../../2022/04/15/riemann-mapping-theorem-proof/">A Detailed Proof of the Riemann Mapping Theorem</a></p><p class="categories"><a href="../../../categories/Analysis/">Analysis</a> / <a href="../../../categories/Analysis/Complex-Analysis/">Complex Analysis</a> / <a href="../../../categories/Analysis/Complex-Analysis/Conformal-Mapping/">Conformal Mapping</a></p></div></article></div></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="../../../img/avatar.png" alt="Desvl"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Desvl</p><p class="is-size-6 is-block">A blog mainly on graduate mathematics.</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>A Noetherian local ring</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="../../../archives/"><p class="title">98</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="../../../categories/"><p class="title">50</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="../../../tags/"><p class="title">60</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="../../../redirect/newsletter" target="_blank" rel="me noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Compose an Email" href="../../../redirect/email"><i class="fas fa-envelope"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="RSS" href="../../../atom.xml"><i class="fas fa-rss"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Mathstodon" href="https://mathstodon.xyz/@desvl"><i class="fa-brands fa-mastodon"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://arxiv.org/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">arXiv</span></span><span class="level-right"><span class="level-item tag">arxiv.org</span></span></a></li><li><a class="level is-mobile" href="https://kconrad.math.uconn.edu/blurbs/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Keith Conrad&#039;s expository papers</span></span><span class="level-right"><span class="level-item tag">kconrad.math.uconn.edu</span></span></a></li><li><a class="level is-mobile" href="https://ncatlab.org/nlab/show/mathematics" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">nLab (Mathematics)</span></span><span class="level-right"><span class="level-item tag">ncatlab.org</span></span></a></li><li><a class="level is-mobile" href="https://q.uiver.app/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">quiver: a modern commutative diagram editor</span></span><span class="level-right"><span class="level-item tag">q.uiver.app</span></span></a></li><li><a class="level is-mobile" href="https://www.symmetricfunctions.com/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">The Symmetric Functions Catalogue</span></span><span class="level-right"><span class="level-item tag">www.symmetricfunctions.com</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/speaking.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Speaking</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/writing.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Writing</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Be excellent at math in one month (YouTube)</span></span><span class="level-right"><span class="level-item tag">www.youtube.com</span></span></a></li><li><a class="level is-mobile" href="https://www.bilibili.com/video/BV1GJ411x7h7" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Be excellent at math in one month (Bilibili)</span></span><span class="level-right"><span class="level-item tag">www.bilibili.com</span></span></a></li></ul></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="../../../index.html"><img src="../../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a><p class="is-size-7"><span>&copy; 2025 Desvl</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
-            article: {
-                highlight: {
-                    clipboard: true,
-                    fold: 'unfolded'
-                }
-            }
-        };</script><script data-pjax src="../../../js/column.js"></script><script src="../../../js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script data-pjax src="../../../js/back_to_top.js" defer></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
-            if (typeof $.fn.lightGallery === 'function') {
-                $('.article').lightGallery({ selector: '.gallery-item' });
-            }
-            if (typeof $.fn.justifiedGallery === 'function') {
-                if ($('.justified-gallery > p > .gallery-item').length) {
-                    $('.justified-gallery > p > .gallery-item').unwrap();
-                }
-                $('.justified-gallery').justifiedGallery();
-            }
-        });</script><script type="text/javascript" id="MathJax-script" async>MathJax = {
-      tex: {
-        inlineMath: [['$', '$'], ['\\(', '\\)']]
-      },
-      svg: {
-        fontCache: 'global'
-      },
-      chtml: {
-        matchFontHeight: false
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
       }
-    };</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script><!--!--><script data-pjax src="../../../js/main.js" defer></script><!--!--></body></html>
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    js: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')){
+        src = ctx.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    jq: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        utils.js(deps.jquery).then(fn)
+      } else {
+        fn()
+      }
+    },
+    
+    onLoading: (el) => {
+      if (el) {
+        $(el).append('<div class="loading-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg></div>');
+      }
+    },
+    onLoadSuccess: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap').remove();
+      }
+    },
+    onLoadFailure: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap svg').remove();
+        $(el).find('.loading-wrap').append('<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" d="M12 3L21 20H3L12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="60;0"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M12 10V14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"/></path></g><circle cx="12" cy="17" r="1" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="0.8s" dur="0.4s" values="0;1"/></circle></svg>');
+        $(el).find('.loading-wrap').addClass('error');
+      }
+    },
+    request: (el, url, callback, onFailure) => {
+      let retryTimes = 3;
+      utils.onLoading(el);
+      function req() {
+        return new Promise((resolve, reject) => {
+          let status = 0; // 0 等待 1 完成 2 超时
+          let timer = setTimeout(() => {
+            if (status === 0) {
+              status = 2;
+              timer = null;
+              reject('请求超时');
+              if (retryTimes == 0) {
+                onFailure();
+              }
+            }
+          }, 5000);
+          fetch(url).then(function(response) {
+            if (status !== 2) {
+              clearTimeout(timer);
+              resolve(response);
+              timer = null;
+              status = 1;
+            }
+            if (response.ok) {
+              return response.json();
+            }
+            throw new Error('Network response was not ok.');
+          }).then(function(data) {
+            retryTimes = 0;
+            utils.onLoadSuccess(el);
+            callback(data);
+          }).catch(function(error) {
+            if (retryTimes > 0) {
+              retryTimes -= 1;
+              setTimeout(() => {
+                req();
+              }, 5000);
+            } else {
+              utils.onLoadFailure(el);
+              onFailure();
+            }
+          });
+        });
+      }
+      req();
+    },
+  };
+</script>
+
+<script>
+  const sidebar = {
+    leftbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    rightbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('rightbar');
+        l_body.removeAttribute('leftbar');
+      }
+    },
+    dismiss: () => {
+      if (l_body) {
+        l_body.removeAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    toggleTOC: () => {
+      document.querySelector('#data-toc').classList.toggle('collapse');
+    }
+  }
+</script>
+<script type="text/javascript">
+  (() => {
+    const tagSwitchers = document.querySelectorAll('.tag-subtree.parent-tag > a > .tag-switcher-wrapper')
+    for (const tagSwitcher of tagSwitchers) {
+      tagSwitcher.addEventListener('click', (e) => {
+        const parent = e.target.closest('.tag-subtree.parent-tag')
+        parent.classList.toggle('expanded')
+        e.preventDefault()
+      })
+    }
+
+    // Get active tag from query string, then activate it.
+    const urlParams = new URLSearchParams(window.location.search)
+    const activeTag = urlParams.get('tag')
+    if (activeTag) {
+      let tag = document.querySelector(`.tag-subtree[data-tag="${activeTag}"]`)
+      if (tag) {
+        tag.querySelector('a').classList.add('active')
+        
+        while (tag) {
+          tag.classList.add('expanded')
+          tag = tag.parentElement.closest('.tag-subtree.parent-tag')
+        }
+      }
+    }
+  })()
+</script>
+
+
+<!-- required -->
+<script src="/js/main.js?v=1.29.1" defer></script>
+
+<script type="text/javascript">
+  const applyTheme = (theme) => {
+    if (theme === 'auto') {
+      document.documentElement.removeAttribute('data-theme')
+    } else {
+      document.documentElement.setAttribute('data-theme', theme)
+    }
+
+    applyThemeToGiscus(theme)
+  }
+
+  const applyThemeToGiscus = (theme) => {
+    theme = theme === 'auto' ? 'preferred_color_scheme' : theme
+
+    const cmt = document.getElementById('giscus')
+    if (cmt) {
+      // This works before giscus load.
+      cmt.setAttribute('data-theme', theme)
+    }
+
+    const iframe = document.querySelector('#comments > section.giscus > iframe')
+    if (iframe) {
+      // This works after giscus loaded.
+      const src = iframe.src
+      const newSrc = src.replace(/theme=[\w]+/, `theme=${theme}`)
+      iframe.src = newSrc
+    }
+  }
+
+  const switchTheme = () => {
+    // light -> dark -> auto -> light -> ...
+    const currentTheme = document.documentElement.getAttribute('data-theme')
+    let newTheme;
+    switch (currentTheme) {
+      case 'light':
+        newTheme = 'dark'
+        break
+      case 'dark':
+        newTheme = 'auto'
+        break
+      default:
+        newTheme = 'light'
+    }
+    applyTheme(newTheme)
+    window.localStorage.setItem('Stellar.theme', newTheme)
+
+    const messages = {
+      light: `Switched to Light Mode`,
+      dark: `Switched to Dark Mode`,
+      auto: `Switched to Auto Mode`,
+    }
+    hud?.toast?.(messages[newTheme])
+  }
+
+  (() => {
+    // Apply user's preferred theme, if any.
+    const theme = window.localStorage.getItem('Stellar.theme')
+    if (theme !== null) {
+      applyTheme(theme)
+    }
+  })()
+</script>
+
+
+<!-- optional -->
+
+
+
+<script defer>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.services = Object.assign({}, JSON.parse(`{"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"}}`));
+    for (let id of Object.keys(ctx.services)) {
+      const js = ctx.services[id].js;
+      if (id == 'siteinfo') {
+        ctx.cardlinks = document.querySelectorAll('a.link-card[cardlink]');
+        if (ctx.cardlinks?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            setCardLink(ctx.cardlinks);
+          });
+        }
+      } else {
+        const els = document.getElementsByClassName(`ds-${id}`);
+        if (els?.length > 0) {
+          utils.jq(() => {
+            if (id == 'timeline' || 'memos' || 'marked') {
+              utils.js(deps.marked).then(function () {
+                utils.js(js, { defer: true });
+              });
+            } else {
+              utils.js(js, { defer: true });
+            }
+          });
+        }
+      }
+    }
+  });
+</script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.search = {
+      path: `/search.json`,
+    }
+    utils.js('/js/search/local-search.js', { defer: true });
+  });
+</script><script>
+  window.FPConfig = {
+    delay: 0,
+    ignoreKeywords: [],
+    maxRPS: 5,
+    hoverDelay: 25
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js"></script><script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@19.1.3/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazy",
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    window.lazyLoadInstance?.update();
+  });
+</script><script>
+  ctx.fancybox = {
+    selector: `.timenode p>img`,
+    css: `https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css`,
+    js: `https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js`
+  };
+  var selector = '[data-fancybox]:not(.error)';
+  if (ctx.fancybox.selector) {
+    selector += `, ${ctx.fancybox.selector}`
+  }
+  var needFancybox = document.querySelectorAll(selector).length !== 0;
+  if (!needFancybox) {
+    const els = document.getElementsByClassName('ds-memos');
+    if (els != undefined && els.length > 0) {
+      needFancybox = true;
+    }
+  }
+  if (needFancybox) {
+    utils.css(ctx.fancybox.css);
+    utils.js(ctx.fancybox.js, { defer: true }).then(function () {
+      Fancybox.bind(selector, {
+        hideScrollbar: false,
+        Thumbs: {
+          autoStart: false,
+        },
+        caption: (fancybox, slide) => {
+          return slide.triggerEl.alt || slide.triggerEl.dataset.caption || null
+        }
+      });
+    })
+  }
+</script>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    const swiper_api = document.getElementById('swiper-api');
+    if (swiper_api != undefined) {
+      utils.css(`https://unpkg.com/swiper@10.3.1/swiper-bundle.min.css`);
+      utils.js(`https://unpkg.com/swiper@10.3.1/swiper-bundle.min.js`, { defer: true }).then(function () {
+        const effect = swiper_api.getAttribute('effect') || '';
+        var swiper = new Swiper('.swiper#swiper-api', {
+          slidesPerView: 'auto',
+          spaceBetween: 8,
+          centeredSlides: true,
+          effect: effect,
+          rewind: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        });
+      })
+    }
+  });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    window.codeElements = document.querySelectorAll('.code');
+    if (window.codeElements.length > 0) {
+      ctx.copycode = {
+        default_text: `Copy`,
+        success_text: `Copied`,
+        toast: `复制成功`,
+      };
+      utils.js('/js/plugins/copycode.js');
+    }
+  });
+</script>
+
+
+<!-- inject -->
+
+</div></body></html>

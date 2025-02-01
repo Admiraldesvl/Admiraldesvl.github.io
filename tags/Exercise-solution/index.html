@@ -1,207 +1,571 @@
-<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="robots" content="noindex"><meta><title>Tag: Exercise solution - Desvl&#039;s blog</title><link rel="manifest" href="../../manifest.json"><meta name="application-name" content="Desvl&#039;s blog"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Desvl&#039;s blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta property="og:type" content="blog"><meta property="og:title" content="Desvl&#039;s blog"><meta property="og:url" content="https://desvl.xyz/"><meta property="og:site_name" content="Desvl&#039;s blog"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://desvl.xyz/img/avatar.png"><meta property="article:author" content="Desvl"><meta property="twitter:card" content="summary_large_image"><meta property="twitter:image:src" content="https://desvl.xyz/img/avatar.png"><meta property="twitter:creator" content="@Desvl_"><meta property="twitter:site" content="{ https://desvl.xyz }"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://desvl.xyz"},"headline":"Desvl's blog","image":["https://desvl.xyz/img/avatar.png"],"author":{"@type":"Person","name":"Desvl"},"publisher":{"@type":"Organization","name":"Desvl","logo":{"@type":"ImageObject","url":"https://desvl.xyz/img/logo.svg"}},"description":""}</script><link rel="alternate" href="../../atom.xml" title="Desvl&#039;s blog" type="application/atom+xml"><link rel="icon" href="../../img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link data-pjax rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-light.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="../../css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js"></script><!-- hexo injector head_end start --><script>
-  (function () {
-      function switchTab() {
-          if (!location.hash) {
-            return;
-          }
 
-          const id = '#' + CSS.escape(location.hash.substring(1));
-          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
-          if (!$tabMenu) {
-            return;
-          }
+<!DOCTYPE html><html lang="en">
 
-          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
-          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
-          Array.from($tabMenuContainer.querySelectorAll('a'))
-              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
-              .forEach($content => $content.classList.add('is-hidden'));
+<head>
+  <meta charset="utf-8">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.29.1" theme-name="Stellar" theme-version="1.29.1">
+  <meta name="robots" content="noindex,follow">
+  <meta name="generator" content="Hexo 7.3.0">
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
+  <meta name="theme-color" content="#f9fafb">
+  
+  <title>Tag: Exercise solution - Desvl's blog</title>
 
-          if ($tabMenu) {
-              $tabMenu.parentElement.classList.add('is-active');
-          }
-          const $activeTab = document.querySelector(id);
-          if ($activeTab) {
-              $activeTab.classList.remove('is-hidden');
-          }
+  
+    <meta property="og:type" content="website">
+<meta property="og:title" content="Desvl&#39;s blog">
+<meta property="og:url" content="https://desvl.xyz/tags/Exercise-solution/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="Desvl">
+<meta name="twitter:card" content="summary">
+  
+  
+  
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="../../atom.xml" title="Desvl's blog" type="application/atom+xml">
+  
+
+  <link rel="stylesheet" href="/css/main.css?v=1.29.1">
+
+  
+
+  
+
+  
+</head>
+<body>
+
+<div class="l_body s:aa index tech" id="start" layout="undefined" ><aside class="l_left"><div class="leftbar-container">
+
+
+<header class="header"><div class="logo-wrap"><a class="avatar" href="../../about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="/img/avatar_new.png" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="../../index.html"><div class="main" ff="title">Desvl's blog</div></a></div></header>
+
+<div class="nav-area">
+<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" placeholder="Search"></form><div id="search-result"></div><div class="search-no-result">No Results!</div></div>
+
+
+<nav class="menu dis-select"></nav>
+</div>
+<div class="widgets"></div>
+
+</div></aside><div class="l_main" id="main">
+
+<header class="header mobile-only"><div class="logo-wrap"><a class="avatar" href="../../about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="/img/avatar_new.png" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="../../index.html"><div class="main" ff="title">Desvl's blog</div></a></div></header>
+
+ 
+
+
+
+
+<div class="navbar top"><nav class="post"><a href="../../">Recent</a><a href="../../categories">Categories</a><a class="active" href="..">Tag: Exercise solution</a><a href="../../archives">Archives</a></nav></div>
+<div class="post-list post"><a class="post-card post" href="../../2023/11/11/sl2-f3/">
+<article class="md-text"><h2 class="post-title">The Structure of SL_2(F_3) as a Semidirect Product</h2><div class="excerpt"><p>In this post we determine $SL_2(\mathbb{F}_3)$ using Sylow theory and linear algebra.</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg style="margin-bottom:2px" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M6.94 2c.416 0 .753.324.753.724v1.46c.668-.012 1.417-.012 2.26-.012h4.015c.842 0 1.591 0 2.259.013v-1.46c0-.4.337-.725.753-.725s.753.324.753.724V4.25c1.445.111 2.394.384 3.09 1.055c.698.67.982 1.582 1.097 2.972L22 9H2v-.724c.116-1.39.4-2.302 1.097-2.972c.697-.67 1.645-.944 3.09-1.055V2.724c0-.4.337-.724.753-.724"/><path fill="currentColor" d="M22 14v-2c0-.839-.004-2.335-.017-3H2.01c-.013.665-.01 2.161-.01 3v2c0 3.771 0 5.657 1.172 6.828C4.343 22 6.228 22 10 22h4c3.77 0 5.656 0 6.828-1.172C22 19.658 22 17.772 22 14" opacity=".5"/><path fill="currentColor" d="M18 17a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m-5 4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m-5 4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0"/></svg><time datetime="2023-11-11T22:12:19.000Z">11-11-2023</time></span><span class="cap breadcrumb"><svg style="margin-bottom:1px" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M2 6.95c0-.883 0-1.324.07-1.692A4 4 0 0 1 5.257 2.07C5.626 2 6.068 2 6.95 2c.386 0 .58 0 .766.017a4 4 0 0 1 2.18.904c.144.119.28.255.554.529L11 4c.816.816 1.224 1.224 1.712 1.495a4 4 0 0 0 .848.352C14.098 6 14.675 6 15.828 6h.374c2.632 0 3.949 0 4.804.77c.079.07.154.145.224.224c.77.855.77 2.172.77 4.804V14c0 3.771 0 5.657-1.172 6.828C19.657 22 17.771 22 14 22h-4c-3.771 0-5.657 0-6.828-1.172C2 19.657 2 17.771 2 14z" opacity=".5"/><path fill="currentColor" d="M20 6.238c0-.298-.005-.475-.025-.63a3 3 0 0 0-2.583-2.582C17.197 3 16.965 3 16.5 3H9.988c.116.104.247.234.462.45L11 4c.816.816 1.224 1.224 1.712 1.495a4 4 0 0 0 .849.352C14.098 6 14.675 6 15.829 6h.373c1.78 0 2.957 0 3.798.238"/><path fill="currentColor" fill-rule="evenodd" d="M12.25 10a.75.75 0 0 1 .75-.75h5a.75.75 0 0 1 0 1.5h-5a.75.75 0 0 1-.75-.75" clip-rule="evenodd"/></svg><span>Algebra</span></span></div></article>
+</a><a class="post-card post" href="../../2022/12/02/The-abc-Theorem-of-Polynomials/">
+<article class="md-text"><h2 class="post-title">The abc Theorem of Polynomials</h2><div class="excerpt"><p>In this post we show the Mason-Stothers theorem, the so-called $abc$ theorem for polynomials, and derive Fermat's Last theorem and Davenport's inequality for polynomials. These three theorems correspond to the $abc$ conjecture, Fermat's Last Theorem and Hall's conjecture in number theory.</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg style="margin-bottom:2px" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M6.94 2c.416 0 .753.324.753.724v1.46c.668-.012 1.417-.012 2.26-.012h4.015c.842 0 1.591 0 2.259.013v-1.46c0-.4.337-.725.753-.725s.753.324.753.724V4.25c1.445.111 2.394.384 3.09 1.055c.698.67.982 1.582 1.097 2.972L22 9H2v-.724c.116-1.39.4-2.302 1.097-2.972c.697-.67 1.645-.944 3.09-1.055V2.724c0-.4.337-.724.753-.724"/><path fill="currentColor" d="M22 14v-2c0-.839-.004-2.335-.017-3H2.01c-.013.665-.01 2.161-.01 3v2c0 3.771 0 5.657 1.172 6.828C4.343 22 6.228 22 10 22h4c3.77 0 5.656 0 6.828-1.172C22 19.658 22 17.772 22 14" opacity=".5"/><path fill="currentColor" d="M18 17a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m-5 4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m-5 4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0"/></svg><time datetime="2022-12-02T15:27:19.000Z">02-12-2022</time></span><span class="cap breadcrumb"><svg style="margin-bottom:1px" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M2 6.95c0-.883 0-1.324.07-1.692A4 4 0 0 1 5.257 2.07C5.626 2 6.068 2 6.95 2c.386 0 .58 0 .766.017a4 4 0 0 1 2.18.904c.144.119.28.255.554.529L11 4c.816.816 1.224 1.224 1.712 1.495a4 4 0 0 0 .848.352C14.098 6 14.675 6 15.828 6h.374c2.632 0 3.949 0 4.804.77c.079.07.154.145.224.224c.77.855.77 2.172.77 4.804V14c0 3.771 0 5.657-1.172 6.828C19.657 22 17.771 22 14 22h-4c-3.771 0-5.657 0-6.828-1.172C2 19.657 2 17.771 2 14z" opacity=".5"/><path fill="currentColor" d="M20 6.238c0-.298-.005-.475-.025-.63a3 3 0 0 0-2.583-2.582C17.197 3 16.965 3 16.5 3H9.988c.116.104.247.234.462.45L11 4c.816.816 1.224 1.224 1.712 1.495a4 4 0 0 0 .849.352C14.098 6 14.675 6 15.829 6h.373c1.78 0 2.957 0 3.798.238"/><path fill="currentColor" fill-rule="evenodd" d="M12.25 10a.75.75 0 0 1 .75-.75h5a.75.75 0 0 1 0 1.5h-5a.75.75 0 0 1-.75-.75" clip-rule="evenodd"/></svg><span>Algebra</span></span></div></article>
+</a><a class="post-card post" href="../../2022/09/22/cyclotomic-polynomial-elementary/">
+<article class="md-text"><h2 class="post-title">Properties of Cyclotomic Polynomials</h2><div class="excerpt"><p>In this post we study cyclotomic polynomials in field theory and deduce some baisc properties of it. We will also use it to solve some problems in field theory.</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg style="margin-bottom:2px" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M6.94 2c.416 0 .753.324.753.724v1.46c.668-.012 1.417-.012 2.26-.012h4.015c.842 0 1.591 0 2.259.013v-1.46c0-.4.337-.725.753-.725s.753.324.753.724V4.25c1.445.111 2.394.384 3.09 1.055c.698.67.982 1.582 1.097 2.972L22 9H2v-.724c.116-1.39.4-2.302 1.097-2.972c.697-.67 1.645-.944 3.09-1.055V2.724c0-.4.337-.724.753-.724"/><path fill="currentColor" d="M22 14v-2c0-.839-.004-2.335-.017-3H2.01c-.013.665-.01 2.161-.01 3v2c0 3.771 0 5.657 1.172 6.828C4.343 22 6.228 22 10 22h4c3.77 0 5.656 0 6.828-1.172C22 19.658 22 17.772 22 14" opacity=".5"/><path fill="currentColor" d="M18 17a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m-5 4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m-5 4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0"/></svg><time datetime="2022-09-22T14:21:25.000Z">22-09-2022</time></span><span class="cap breadcrumb"><svg style="margin-bottom:1px" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M2 6.95c0-.883 0-1.324.07-1.692A4 4 0 0 1 5.257 2.07C5.626 2 6.068 2 6.95 2c.386 0 .58 0 .766.017a4 4 0 0 1 2.18.904c.144.119.28.255.554.529L11 4c.816.816 1.224 1.224 1.712 1.495a4 4 0 0 0 .848.352C14.098 6 14.675 6 15.828 6h.374c2.632 0 3.949 0 4.804.77c.079.07.154.145.224.224c.77.855.77 2.172.77 4.804V14c0 3.771 0 5.657-1.172 6.828C19.657 22 17.771 22 14 22h-4c-3.771 0-5.657 0-6.828-1.172C2 19.657 2 17.771 2 14z" opacity=".5"/><path fill="currentColor" d="M20 6.238c0-.298-.005-.475-.025-.63a3 3 0 0 0-2.583-2.582C17.197 3 16.965 3 16.5 3H9.988c.116.104.247.234.462.45L11 4c.816.816 1.224 1.224 1.712 1.495a4 4 0 0 0 .849.352C14.098 6 14.675 6 15.829 6h.373c1.78 0 2.957 0 3.798.238"/><path fill="currentColor" fill-rule="evenodd" d="M12.25 10a.75.75 0 0 1 .75-.75h5a.75.75 0 0 1 0 1.5h-5a.75.75 0 0 1-.75-.75" clip-rule="evenodd"/></svg><span>Algebra</span></span></div></article>
+</a><a class="post-card post" href="../../2022/08/21/hensel-lemma-newton/">
+<article class="md-text"><h2 class="post-title">Hensel's Lemma - A Fair Application of Newton's Method and 'Double Induction'</h2><div class="excerpt"><p>We prove the celebrated Hensel's lemma using the so-called Newton's method and "double induction", and try to find solutions of polynomials in $\mathbb{Q}_p$.</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg style="margin-bottom:2px" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M6.94 2c.416 0 .753.324.753.724v1.46c.668-.012 1.417-.012 2.26-.012h4.015c.842 0 1.591 0 2.259.013v-1.46c0-.4.337-.725.753-.725s.753.324.753.724V4.25c1.445.111 2.394.384 3.09 1.055c.698.67.982 1.582 1.097 2.972L22 9H2v-.724c.116-1.39.4-2.302 1.097-2.972c.697-.67 1.645-.944 3.09-1.055V2.724c0-.4.337-.724.753-.724"/><path fill="currentColor" d="M22 14v-2c0-.839-.004-2.335-.017-3H2.01c-.013.665-.01 2.161-.01 3v2c0 3.771 0 5.657 1.172 6.828C4.343 22 6.228 22 10 22h4c3.77 0 5.656 0 6.828-1.172C22 19.658 22 17.772 22 14" opacity=".5"/><path fill="currentColor" d="M18 17a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m-5 4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m-5 4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0"/></svg><time datetime="2022-08-21T10:46:33.000Z">21-08-2022</time></span><span class="cap breadcrumb"><svg style="margin-bottom:1px" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M2 6.95c0-.883 0-1.324.07-1.692A4 4 0 0 1 5.257 2.07C5.626 2 6.068 2 6.95 2c.386 0 .58 0 .766.017a4 4 0 0 1 2.18.904c.144.119.28.255.554.529L11 4c.816.816 1.224 1.224 1.712 1.495a4 4 0 0 0 .848.352C14.098 6 14.675 6 15.828 6h.374c2.632 0 3.949 0 4.804.77c.079.07.154.145.224.224c.77.855.77 2.172.77 4.804V14c0 3.771 0 5.657-1.172 6.828C19.657 22 17.771 22 14 22h-4c-3.771 0-5.657 0-6.828-1.172C2 19.657 2 17.771 2 14z" opacity=".5"/><path fill="currentColor" d="M20 6.238c0-.298-.005-.475-.025-.63a3 3 0 0 0-2.583-2.582C17.197 3 16.965 3 16.5 3H9.988c.116.104.247.234.462.45L11 4c.816.816 1.224 1.224 1.712 1.495a4 4 0 0 0 .849.352C14.098 6 14.675 6 15.829 6h.373c1.78 0 2.957 0 3.798.238"/><path fill="currentColor" fill-rule="evenodd" d="M12.25 10a.75.75 0 0 1 .75-.75h5a.75.75 0 0 1 0 1.5h-5a.75.75 0 0 1-.75-.75" clip-rule="evenodd"/></svg><span>Algebra</span></span></div></article>
+</a><a class="post-card post" href="../../2022/05/06/exp-fourier/">
+<article class="md-text"><h2 class="post-title">The Fourier Transform of exp(-cx^2) and Its Convolution</h2><div class="excerpt"><p>We develop two almost straightforward way to compute the Fourier transform of $\exp(-cx^2)$, in the sense that any contour integration and the calculus of residues are not required at all. The first cool approach enables us to think about these elementary concepts much deeper, so I highly recommend to study this approach as long as you are familiar with ODE of first order.</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg style="margin-bottom:2px" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M6.94 2c.416 0 .753.324.753.724v1.46c.668-.012 1.417-.012 2.26-.012h4.015c.842 0 1.591 0 2.259.013v-1.46c0-.4.337-.725.753-.725s.753.324.753.724V4.25c1.445.111 2.394.384 3.09 1.055c.698.67.982 1.582 1.097 2.972L22 9H2v-.724c.116-1.39.4-2.302 1.097-2.972c.697-.67 1.645-.944 3.09-1.055V2.724c0-.4.337-.724.753-.724"/><path fill="currentColor" d="M22 14v-2c0-.839-.004-2.335-.017-3H2.01c-.013.665-.01 2.161-.01 3v2c0 3.771 0 5.657 1.172 6.828C4.343 22 6.228 22 10 22h4c3.77 0 5.656 0 6.828-1.172C22 19.658 22 17.772 22 14" opacity=".5"/><path fill="currentColor" d="M18 17a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m-5 4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m-5 4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0"/></svg><time datetime="2022-05-06T16:02:26.000Z">06-05-2022</time></span><span class="cap breadcrumb"><svg style="margin-bottom:1px" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M2 6.95c0-.883 0-1.324.07-1.692A4 4 0 0 1 5.257 2.07C5.626 2 6.068 2 6.95 2c.386 0 .58 0 .766.017a4 4 0 0 1 2.18.904c.144.119.28.255.554.529L11 4c.816.816 1.224 1.224 1.712 1.495a4 4 0 0 0 .848.352C14.098 6 14.675 6 15.828 6h.374c2.632 0 3.949 0 4.804.77c.079.07.154.145.224.224c.77.855.77 2.172.77 4.804V14c0 3.771 0 5.657-1.172 6.828C19.657 22 17.771 22 14 22h-4c-3.771 0-5.657 0-6.828-1.172C2 19.657 2 17.771 2 14z" opacity=".5"/><path fill="currentColor" d="M20 6.238c0-.298-.005-.475-.025-.63a3 3 0 0 0-2.583-2.582C17.197 3 16.965 3 16.5 3H9.988c.116.104.247.234.462.45L11 4c.816.816 1.224 1.224 1.712 1.495a4 4 0 0 0 .849.352C14.098 6 14.675 6 15.829 6h.373c1.78 0 2.957 0 3.798.238"/><path fill="currentColor" fill-rule="evenodd" d="M12.25 10a.75.75 0 0 1 .75-.75h5a.75.75 0 0 1 0 1.5h-5a.75.75 0 0 1-.75-.75" clip-rule="evenodd"/></svg><span>Analysis</span></span></div></article>
+</a><a class="post-card post" href="../../2021/10/02/ba-algebra/">
+<article class="md-text"><h2 class="post-title">The Banach Algebra of Borel Measures on Euclidean Space</h2><div class="excerpt"><p>This blog post is intended to deliver a quick explanation of the algebra of Borel measures on $\mathbb{R}^n$. It will be broken into pieces. All complex-valued complex Borel measures $M(\mathbb{R}^n)$ clearly form a vector space over $\mathbb{C}$. The main goal of this post is to show that this is a Banach space and also a Banach algebra.
+In fact, the $\mathbb{R}^n$ case can be generalised into any locally compact abelian group (see any abstract harmonic analysis books), this is because what really matters here is being locally compact and abelian. But at this moment we stick to Euclidean spaces. Note since $\mathbb{R}^n$ is $\sigma$-compact, all Borel measures are regular.
+To read this post you need to be familiar with some basic properties of Banach algebra, complex Borel measures, and the most important, Fubini’s theorem.</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg style="margin-bottom:2px" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M6.94 2c.416 0 .753.324.753.724v1.46c.668-.012 1.417-.012 2.26-.012h4.015c.842 0 1.591 0 2.259.013v-1.46c0-.4.337-.725.753-.725s.753.324.753.724V4.25c1.445.111 2.394.384 3.09 1.055c.698.67.982 1.582 1.097 2.972L22 9H2v-.724c.116-1.39.4-2.302 1.097-2.972c.697-.67 1.645-.944 3.09-1.055V2.724c0-.4.337-.724.753-.724"/><path fill="currentColor" d="M22 14v-2c0-.839-.004-2.335-.017-3H2.01c-.013.665-.01 2.161-.01 3v2c0 3.771 0 5.657 1.172 6.828C4.343 22 6.228 22 10 22h4c3.77 0 5.656 0 6.828-1.172C22 19.658 22 17.772 22 14" opacity=".5"/><path fill="currentColor" d="M18 17a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m-5 4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m-5 4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0"/></svg><time datetime="2021-10-02T10:20:51.000Z">02-10-2021</time></span><span class="cap breadcrumb"><svg style="margin-bottom:1px" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M2 6.95c0-.883 0-1.324.07-1.692A4 4 0 0 1 5.257 2.07C5.626 2 6.068 2 6.95 2c.386 0 .58 0 .766.017a4 4 0 0 1 2.18.904c.144.119.28.255.554.529L11 4c.816.816 1.224 1.224 1.712 1.495a4 4 0 0 0 .848.352C14.098 6 14.675 6 15.828 6h.374c2.632 0 3.949 0 4.804.77c.079.07.154.145.224.224c.77.855.77 2.172.77 4.804V14c0 3.771 0 5.657-1.172 6.828C19.657 22 17.771 22 14 22h-4c-3.771 0-5.657 0-6.828-1.172C2 19.657 2 17.771 2 14z" opacity=".5"/><path fill="currentColor" d="M20 6.238c0-.298-.005-.475-.025-.63a3 3 0 0 0-2.583-2.582C17.197 3 16.965 3 16.5 3H9.988c.116.104.247.234.462.45L11 4c.816.816 1.224 1.224 1.712 1.495a4 4 0 0 0 .849.352C14.098 6 14.675 6 15.829 6h.373c1.78 0 2.957 0 3.798.238"/><path fill="currentColor" fill-rule="evenodd" d="M12.25 10a.75.75 0 0 1 .75-.75h5a.75.75 0 0 1 0 1.5h-5a.75.75 0 0 1-.75-.75" clip-rule="evenodd"/></svg><span>Analysis</span></span></div></article>
+</a><a class="post-card post" href="../../2021/07/08/Cesaro-operator-in-L2/">
+<article class="md-text"><h2 class="post-title">Elementary Properties of Cesàro Operator in L^2</h2><div class="excerpt"><p>We study the average of sum, in the sense of integral.</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg style="margin-bottom:2px" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M6.94 2c.416 0 .753.324.753.724v1.46c.668-.012 1.417-.012 2.26-.012h4.015c.842 0 1.591 0 2.259.013v-1.46c0-.4.337-.725.753-.725s.753.324.753.724V4.25c1.445.111 2.394.384 3.09 1.055c.698.67.982 1.582 1.097 2.972L22 9H2v-.724c.116-1.39.4-2.302 1.097-2.972c.697-.67 1.645-.944 3.09-1.055V2.724c0-.4.337-.724.753-.724"/><path fill="currentColor" d="M22 14v-2c0-.839-.004-2.335-.017-3H2.01c-.013.665-.01 2.161-.01 3v2c0 3.771 0 5.657 1.172 6.828C4.343 22 6.228 22 10 22h4c3.77 0 5.656 0 6.828-1.172C22 19.658 22 17.772 22 14" opacity=".5"/><path fill="currentColor" d="M18 17a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m-5 4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m-5 4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0"/></svg><time datetime="2021-07-08T17:19:28.000Z">08-07-2021</time></span><span class="cap breadcrumb"><svg style="margin-bottom:1px" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M2 6.95c0-.883 0-1.324.07-1.692A4 4 0 0 1 5.257 2.07C5.626 2 6.068 2 6.95 2c.386 0 .58 0 .766.017a4 4 0 0 1 2.18.904c.144.119.28.255.554.529L11 4c.816.816 1.224 1.224 1.712 1.495a4 4 0 0 0 .848.352C14.098 6 14.675 6 15.828 6h.374c2.632 0 3.949 0 4.804.77c.079.07.154.145.224.224c.77.855.77 2.172.77 4.804V14c0 3.771 0 5.657-1.172 6.828C19.657 22 17.771 22 14 22h-4c-3.771 0-5.657 0-6.828-1.172C2 19.657 2 17.771 2 14z" opacity=".5"/><path fill="currentColor" d="M20 6.238c0-.298-.005-.475-.025-.63a3 3 0 0 0-2.583-2.582C17.197 3 16.965 3 16.5 3H9.988c.116.104.247.234.462.45L11 4c.816.816 1.224 1.224 1.712 1.495a4 4 0 0 0 .849.352C14.098 6 14.675 6 15.829 6h.373c1.78 0 2.957 0 3.798.238"/><path fill="currentColor" fill-rule="evenodd" d="M12.25 10a.75.75 0 0 1 .75-.75h5a.75.75 0 0 1 0 1.5h-5a.75.75 0 0 1-.75-.75" clip-rule="evenodd"/></svg><span>Analysis</span></span></div></article>
+</a><a class="post-card post" href="../../2021/02/07/dedekind-domain/">
+<article class="md-text"><h2 class="post-title">Dedekind Domain and Properties in an Elementary Approach</h2><div class="excerpt"><p>You can find contents about Dedekind domain (or Dedekind ring) in almost all algebraic number theory books. But many properti...</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg style="margin-bottom:2px" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M6.94 2c.416 0 .753.324.753.724v1.46c.668-.012 1.417-.012 2.26-.012h4.015c.842 0 1.591 0 2.259.013v-1.46c0-.4.337-.725.753-.725s.753.324.753.724V4.25c1.445.111 2.394.384 3.09 1.055c.698.67.982 1.582 1.097 2.972L22 9H2v-.724c.116-1.39.4-2.302 1.097-2.972c.697-.67 1.645-.944 3.09-1.055V2.724c0-.4.337-.724.753-.724"/><path fill="currentColor" d="M22 14v-2c0-.839-.004-2.335-.017-3H2.01c-.013.665-.01 2.161-.01 3v2c0 3.771 0 5.657 1.172 6.828C4.343 22 6.228 22 10 22h4c3.77 0 5.656 0 6.828-1.172C22 19.658 22 17.772 22 14" opacity=".5"/><path fill="currentColor" d="M18 17a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m-5 4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m-5 4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0"/></svg><time datetime="2021-02-07T13:43:22.000Z">07-02-2021</time></span><span class="cap breadcrumb"><svg style="margin-bottom:1px" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M2 6.95c0-.883 0-1.324.07-1.692A4 4 0 0 1 5.257 2.07C5.626 2 6.068 2 6.95 2c.386 0 .58 0 .766.017a4 4 0 0 1 2.18.904c.144.119.28.255.554.529L11 4c.816.816 1.224 1.224 1.712 1.495a4 4 0 0 0 .848.352C14.098 6 14.675 6 15.828 6h.374c2.632 0 3.949 0 4.804.77c.079.07.154.145.224.224c.77.855.77 2.172.77 4.804V14c0 3.771 0 5.657-1.172 6.828C19.657 22 17.771 22 14 22h-4c-3.771 0-5.657 0-6.828-1.172C2 19.657 2 17.771 2 14z" opacity=".5"/><path fill="currentColor" d="M20 6.238c0-.298-.005-.475-.025-.63a3 3 0 0 0-2.583-2.582C17.197 3 16.965 3 16.5 3H9.988c.116.104.247.234.462.45L11 4c.816.816 1.224 1.224 1.712 1.495a4 4 0 0 0 .849.352C14.098 6 14.675 6 15.829 6h.373c1.78 0 2.957 0 3.798.238"/><path fill="currentColor" fill-rule="evenodd" d="M12.25 10a.75.75 0 0 1 .75-.75h5a.75.75 0 0 1 0 1.5h-5a.75.75 0 0 1-.75-.75" clip-rule="evenodd"/></svg><span>Algebra</span></span></div></article>
+</a><a class="post-card post" href="../../2020/11/28/A-continuous-function-sending-Lp-functions-to-L1/">
+<article class="md-text"><h2 class="post-title">A Continuous Function Sending L^p Functions to L^1</h2><div class="excerpt"><p>Throughout, let $(X,\mathfrak{M},\mu)$ be a measure space where $\mu$ is positive.
+The questionIf $f$ is of $L^p(\mu)$, which...</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg style="margin-bottom:2px" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M6.94 2c.416 0 .753.324.753.724v1.46c.668-.012 1.417-.012 2.26-.012h4.015c.842 0 1.591 0 2.259.013v-1.46c0-.4.337-.725.753-.725s.753.324.753.724V4.25c1.445.111 2.394.384 3.09 1.055c.698.67.982 1.582 1.097 2.972L22 9H2v-.724c.116-1.39.4-2.302 1.097-2.972c.697-.67 1.645-.944 3.09-1.055V2.724c0-.4.337-.724.753-.724"/><path fill="currentColor" d="M22 14v-2c0-.839-.004-2.335-.017-3H2.01c-.013.665-.01 2.161-.01 3v2c0 3.771 0 5.657 1.172 6.828C4.343 22 6.228 22 10 22h4c3.77 0 5.656 0 6.828-1.172C22 19.658 22 17.772 22 14" opacity=".5"/><path fill="currentColor" d="M18 17a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m-5 4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m-5 4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0"/></svg><time datetime="2020-11-28T18:42:55.000Z">28-11-2020</time></span><span class="cap breadcrumb"><svg style="margin-bottom:1px" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M2 6.95c0-.883 0-1.324.07-1.692A4 4 0 0 1 5.257 2.07C5.626 2 6.068 2 6.95 2c.386 0 .58 0 .766.017a4 4 0 0 1 2.18.904c.144.119.28.255.554.529L11 4c.816.816 1.224 1.224 1.712 1.495a4 4 0 0 0 .848.352C14.098 6 14.675 6 15.828 6h.374c2.632 0 3.949 0 4.804.77c.079.07.154.145.224.224c.77.855.77 2.172.77 4.804V14c0 3.771 0 5.657-1.172 6.828C19.657 22 17.771 22 14 22h-4c-3.771 0-5.657 0-6.828-1.172C2 19.657 2 17.771 2 14z" opacity=".5"/><path fill="currentColor" d="M20 6.238c0-.298-.005-.475-.025-.63a3 3 0 0 0-2.583-2.582C17.197 3 16.965 3 16.5 3H9.988c.116.104.247.234.462.45L11 4c.816.816 1.224 1.224 1.712 1.495a4 4 0 0 0 .849.352C14.098 6 14.675 6 15.829 6h.373c1.78 0 2.957 0 3.798.238"/><path fill="currentColor" fill-rule="evenodd" d="M12.25 10a.75.75 0 0 1 .75-.75h5a.75.75 0 0 1 0 1.5h-5a.75.75 0 0 1-.75-.75" clip-rule="evenodd"/></svg><span>Analysis</span></span></div></article>
+</a><a class="post-card post" href="../../2020/09/24/two-fourier-transforms/">
+<article class="md-text"><h2 class="post-title">The Fourier transform of sinx/x and (sinx/x)^2 and more</h2><div class="excerpt"><p>In this post we compute the Fourier transform of $\sin{x}/x$ and $(\sin{x}/x)^2$ through contour integration.</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg style="margin-bottom:2px" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M6.94 2c.416 0 .753.324.753.724v1.46c.668-.012 1.417-.012 2.26-.012h4.015c.842 0 1.591 0 2.259.013v-1.46c0-.4.337-.725.753-.725s.753.324.753.724V4.25c1.445.111 2.394.384 3.09 1.055c.698.67.982 1.582 1.097 2.972L22 9H2v-.724c.116-1.39.4-2.302 1.097-2.972c.697-.67 1.645-.944 3.09-1.055V2.724c0-.4.337-.724.753-.724"/><path fill="currentColor" d="M22 14v-2c0-.839-.004-2.335-.017-3H2.01c-.013.665-.01 2.161-.01 3v2c0 3.771 0 5.657 1.172 6.828C4.343 22 6.228 22 10 22h4c3.77 0 5.656 0 6.828-1.172C22 19.658 22 17.772 22 14" opacity=".5"/><path fill="currentColor" d="M18 17a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m-5 4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m-5 4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0"/></svg><time datetime="2020-09-24T19:46:57.000Z">24-09-2020</time></span><span class="cap breadcrumb"><svg style="margin-bottom:1px" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M2 6.95c0-.883 0-1.324.07-1.692A4 4 0 0 1 5.257 2.07C5.626 2 6.068 2 6.95 2c.386 0 .58 0 .766.017a4 4 0 0 1 2.18.904c.144.119.28.255.554.529L11 4c.816.816 1.224 1.224 1.712 1.495a4 4 0 0 0 .848.352C14.098 6 14.675 6 15.828 6h.374c2.632 0 3.949 0 4.804.77c.079.07.154.145.224.224c.77.855.77 2.172.77 4.804V14c0 3.771 0 5.657-1.172 6.828C19.657 22 17.771 22 14 22h-4c-3.771 0-5.657 0-6.828-1.172C2 19.657 2 17.771 2 14z" opacity=".5"/><path fill="currentColor" d="M20 6.238c0-.298-.005-.475-.025-.63a3 3 0 0 0-2.583-2.582C17.197 3 16.965 3 16.5 3H9.988c.116.104.247.234.462.45L11 4c.816.816 1.224 1.224 1.712 1.495a4 4 0 0 0 .849.352C14.098 6 14.675 6 15.829 6h.373c1.78 0 2.957 0 3.798.238"/><path fill="currentColor" fill-rule="evenodd" d="M12.25 10a.75.75 0 0 1 .75-.75h5a.75.75 0 0 1 0 1.5h-5a.75.75 0 0 1-.75-.75" clip-rule="evenodd"/></svg><span>Analysis</span></span></div></article>
+</a></div>
+
+  <div class='paginator-wrap dis-select'>
+  <span class="extend prev" rel="prev"></span><span class="page-number current">1</span><a class="page-number" href="page/2/">2</a><a class="extend next" rel="next" href="page/2/"></a>
+  </div>
+
+
+<footer class="page-footer footnote"><hr><div class="text"><p>Credit <a href="/">Desvl</a> | Powered by <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.29.1">Stellar 1.29.1</a>.<br>Licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless otherwise specified.</p>
+</div></footer>
+<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
+</aside><div class='float-panel blur'>
+  <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
+  </button>
+  <button type='button' style='display:none' class='mobile-only leftbar-toggle mobile' onclick='sidebar.leftbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"/><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"/></g></svg>
+  </button>
+</div>
+</div><div class="scripts">
+<script type="text/javascript">
+  const ctx = {
+    date_suffix: {
+      just: `Just`,
+      min: `minutes ago`,
+      hour: `hours ago`,
+      day: `days ago`,
+    },
+    root : `/`,
+  };
+
+  // required plugins (only load if needs)
+  if (`local_search`) {
+    ctx.search = {};
+    ctx.search.service = `local_search`;
+    if (ctx.search.service == 'local_search') {
+      let service_obj = Object.assign({}, `{"field":"all","path":"/search.json","content":true,"sort":"-date"}`);
+      ctx.search[ctx.search.service] = service_obj;
+    }
+  }
+  const def = {
+    avatar: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg`,
+    cover: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg`,
+  };
+  const deps = {
+    jquery: `https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js`,
+    marked: `https://cdn.jsdelivr.net/npm/marked@13.0.1/lib/marked.umd.min.js`
+  }
+  
+
+</script>
+
+<script type="text/javascript">
+  const utils = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    css: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
       }
-      switchTab();
-      window.addEventListener('hashchange', switchTab, false);
-  })();
-  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="../../index.html"><img src="../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="../../index.html">Home</a><a class="navbar-item" href="../../archives">Archives</a><a class="navbar-item" href="../../categories">Categories</a><a class="navbar-item" href="../../tags">Tags</a><a class="navbar-item" href="../../about">About (Updated Aug. 2022)</a><a class="navbar-item" href="../../link-exchange">Link Exchange</a><a class="navbar-item" href="../../support-the-author">Support the Author</a></div><div class="navbar-end"></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="../../tags/">Tags</a></li><li class="is-active"><a href="#" aria-current="page">Exercise solution</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-11-11T22:12:19.000Z" title="11/11/2023 23:12:19">2023-11-11</time></span><span class="level-item">Updated&nbsp;<time dateTime="2024-11-12T23:48:07.080Z" title="13/11/2024 00:48:07">2024-11-13</time></span><span class="level-item"><a class="link-muted" href="../../categories/Algebra/">Algebra</a><span> / </span><a class="link-muted" href="../../categories/Algebra/Group-Theory/">Group Theory</a></span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2023/11/11/sl2-f3/">The Structure of SL_2(F_3) as a Semidirect Product</a></p><div class="content">In this post we determine $SL_2(\mathbb{F}_3)$ using Sylow theory and linear algebra.</div><a class="article-more button is-small is-size-7" href="../../2023/11/11/sl2-f3/#more">Read more</a></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-12-02T15:27:19.000Z" title="02/12/2022 16:27:19">2022-12-02</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-07-08T02:24:37.499Z" title="08/07/2023 04:24:37">2023-07-08</time></span><span class="level-item"><a class="link-muted" href="../../categories/Algebra/">Algebra</a><span> / </span><a class="link-muted" href="../../categories/Algebra/Polynomials/">Polynomials</a></span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2022/12/02/The-abc-Theorem-of-Polynomials/">The abc Theorem of Polynomials</a></p><div class="content">In this post we show the Mason-Stothers theorem, the so-called $abc$ theorem for polynomials, and derive Fermat's Last theorem and Davenport's inequality for polynomials. These three theorems correspond to the $abc$ conjecture, Fermat's Last Theorem and Hall's conjecture in number theory.</div><a class="article-more button is-small is-size-7" href="../../2022/12/02/The-abc-Theorem-of-Polynomials/#more">Read more</a></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-09-22T14:21:25.000Z" title="22/09/2022 16:21:25">2022-09-22</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-07-08T02:24:35.806Z" title="08/07/2023 04:24:35">2023-07-08</time></span><span class="level-item"><a class="link-muted" href="../../categories/Algebra/">Algebra</a><span> / </span><a class="link-muted" href="../../categories/Algebra/Galois-Theory/">Galois Theory</a><span> / </span><a class="link-muted" href="../../categories/Algebra/Field-Theory/">Field Theory</a></span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2022/09/22/cyclotomic-polynomial-elementary/">Properties of Cyclotomic Polynomials</a></p><div class="content">In this post we study cyclotomic polynomials in field theory and deduce some baisc properties of it. We will also use it to solve some problems in field theory.</div><a class="article-more button is-small is-size-7" href="../../2022/09/22/cyclotomic-polynomial-elementary/#more">Read more</a></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-08-21T10:46:33.000Z" title="21/08/2022 12:46:33">2022-08-21</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-07-08T02:24:36.423Z" title="08/07/2023 04:24:36">2023-07-08</time></span><span class="level-item"><a class="link-muted" href="../../categories/Algebra/">Algebra</a><span> / </span><a class="link-muted" href="../../categories/Algebra/Commutative-Algebra/">Commutative Algebra</a><span> / </span><a class="link-muted" href="../../categories/Number-Theory/">Number Theory</a><span> / </span><a class="link-muted" href="../../categories/Number-Theory/Algebraic-Number-Theory/">Algebraic Number Theory</a><span> / </span><a class="link-muted" href="../../categories/Number-Theory/p-adic-Analysis/">p-adic Analysis</a><span> / </span><a class="link-muted" href="../../categories/Number-Theory/Local-Fields/">Local Fields</a></span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2022/08/21/hensel-lemma-newton/">Hensel&#039;s Lemma - A Fair Application of Newton&#039;s Method and &#039;Double Induction&#039;</a></p><div class="content">We prove the celebrated Hensel's lemma using the so-called Newton's method and "double induction", and try to find solutions of polynomials in $\mathbb{Q}_p$.</div><a class="article-more button is-small is-size-7" href="../../2022/08/21/hensel-lemma-newton/#more">Read more</a></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-05-06T16:02:26.000Z" title="06/05/2022 18:02:26">2022-05-06</time></span><span class="level-item">Updated&nbsp;<time dateTime="2025-01-28T13:05:47.754Z" title="28/01/2025 14:05:47">2025-01-28</time></span><span class="level-item"><a class="link-muted" href="../../categories/Analysis/">Analysis</a><span> / </span><a class="link-muted" href="../../categories/Analysis/Elementary/">Elementary</a></span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2022/05/06/exp-fourier/">The Fourier Transform of exp(-cx^2) and Its Convolution</a></p><div class="content">We develop two almost straightforward way to compute the Fourier transform of $\exp(-cx^2)$, in the sense that any contour integration and the calculus of residues are not required at all. The first cool approach enables us to think about these elementary concepts much deeper, so I highly recommend to study this approach as long as you are familiar with ODE of first order.</div><a class="article-more button is-small is-size-7" href="../../2022/05/06/exp-fourier/#more">Read more</a></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2021-10-02T10:20:51.000Z" title="02/10/2021 12:20:51">2021-10-02</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-07-08T02:24:35.156Z" title="08/07/2023 04:24:35">2023-07-08</time></span><span class="level-item"><a class="link-muted" href="../../categories/Analysis/">Analysis</a><span> / </span><a class="link-muted" href="../../categories/Analysis/Functional-Analysis/">Functional Analysis</a><span> / </span><a class="link-muted" href="../../categories/Analysis/Integration-Theory/">Integration Theory</a><span> / </span><a class="link-muted" href="../../categories/Analysis/Functional-Analysis/Banach-Algebra/">Banach Algebra</a></span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2021/10/02/ba-algebra/">The Banach Algebra of Borel Measures on Euclidean Space</a></p><div class="content"><p>This blog post is intended to deliver a quick explanation of the algebra of Borel measures on $\mathbb{R}^n$. It will be broken into pieces. All complex-valued complex Borel measures $M(\mathbb{R}^n)$ clearly form a vector space over $\mathbb{C}$. The main goal of this post is to show that this is a Banach space and also a Banach algebra.</p>
-<p>In fact, the $\mathbb{R}^n$ case can be generalised into any locally compact abelian group (see any abstract harmonic analysis books), this is because what really matters here is being locally compact and abelian. But at this moment we stick to Euclidean spaces. Note since $\mathbb{R}^n$ is $\sigma$-compact, all Borel measures are regular.</p>
-<p>To read this post you need to be familiar with some basic properties of Banach algebra, complex Borel measures, and the most important, Fubini’s theorem.</p></div><a class="article-more button is-small is-size-7" href="../../2021/10/02/ba-algebra/#more">Read more</a></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2021-07-08T17:19:28.000Z" title="08/07/2021 19:19:28">2021-07-08</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-07-08T02:24:35.566Z" title="08/07/2023 04:24:35">2023-07-08</time></span><span class="level-item"><a class="link-muted" href="../../categories/Analysis/">Analysis</a><span> / </span><a class="link-muted" href="../../categories/Analysis/Functional-Analysis/">Functional Analysis</a><span> / </span><a class="link-muted" href="../../categories/Analysis/Functional-Analysis/L-p-space/">$L^p$-space</a><span> / </span><a class="link-muted" href="../../categories/Analysis/Functional-Analysis/Operator-Theory/">Operator Theory</a><span> / </span><a class="link-muted" href="../../categories/Analysis/Functional-Analysis/Hilbert-Space/">Hilbert Space</a></span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2021/07/08/Cesaro-operator-in-L2/">Elementary Properties of Cesàro Operator in L^2</a></p><div class="content">We study the average of sum, in the sense of integral.</div><a class="article-more button is-small is-size-7" href="../../2021/07/08/Cesaro-operator-in-L2/#more">Read more</a></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2021-02-07T13:43:22.000Z" title="07/02/2021 14:43:22">2021-02-07</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-07-08T02:24:35.836Z" title="08/07/2023 04:24:35">2023-07-08</time></span><span class="level-item"><a class="link-muted" href="../../categories/Algebra/">Algebra</a><span> / </span><a class="link-muted" href="../../categories/Algebra/Commutative-Algebra/">Commutative Algebra</a></span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2021/02/07/dedekind-domain/">Dedekind Domain and Properties in an Elementary Approach</a></p><div class="content"><p>You can find contents about Dedekind domain (or Dedekind ring) in <em>almost all</em> algebraic number theory books. But many properties can be proved inside ring theory. I hope you can find the solution you need in this post, and this post will not go further than elementary ring theory. With that being said, you are assumed to have enough knowledge of ring and ring of fractions (<a href="/2021/01/14/rings-of-fractions-and-localization/">this post</a> serves well), but not too much mathematics maturity is assumed (at the very least you are assumed to be familiar with terminologies in the linked post).$\def\mb{\mathbb}$ $\def\mfk{\mathfrak}$</p>
-<h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><p>There are several ways to define Dedekind domain since there are several equivalent statements of it. We will start from the one based on ring of fractions. As a friendly reminder, $\mb{Z}$ or any principal integral domain is already a Dedekind domain. In fact Dedekind domain may be viewed as a generalization of principal integral domain. </p>
-<p>Let $\mfk{o}$ be an integral domain (a.k.a. entire ring), and $K$ be its quotient field. A <strong>Dedekind domain</strong> is an integral domain $\mfk{o}$ such that the fractional ideals form a group under multiplication. Let’s have a breakdown. By a <strong>fractional ideal</strong> $\mfk{a}$ we mean a nontrivial additive subgroup of $K$ such that</p>
-<ul>
-<li>$\mfk{o}\mfk{a}=\mfk{a}$,</li>
-<li>there exists some nonzero element $c \in \mfk{o}$ such that $c\mfk{a} \subset \mfk{o}$.</li>
-</ul>
-<p>What does the group look like? As you may guess, the unit element is $\mfk{o}$. For a fractional ideal $\mfk{a}$, we have the inverse to be another fractional ideal $\mfk{b}$ such that $\mfk{ab}=\mfk{ba}=\mfk{o}$. Note we regard $\mfk{o}$ as a subring of $K$. For $a \in \mfk{o}$, we treat it as $a/1 \in K$. This makes sense because the map $i:a \mapsto a/1$ is injective. For the existence of $c$, you may consider it as a restriction that the ‘denominator’ is <em>bounded</em>. Alternatively, we say that fractional ideal of $K$ is a finitely generated $\mfk{o}$-submodule of $K$. But in this post it is not assumed that you have learned module theory.</p>
-<p>Let’s take $\mb{Z}$ as an example. The quotient field of $\mb{Z}$ is $\mb{Q}$. We have a fractional ideal $P$ where all elements are of the type $\frac{np}{2}$ with $p$ prime and $n \in \mb{Z}$. Then indeed we have $\mb{Z}P=P$. On the other hand, take $2 \in \mb{Z}$, we have $2P \subset \mb{Z}$. For its inverse we can take a fractional ideal $Q$ where all elements are of the type $\frac{2n}{p}$. As proved in algebraic number theory, the ring of algebraic integers in a number field is a Dedekind domain.</p>
-<p>Before we go on we need to clarify the definition of ideal multiplication. Let $\mfk{a}$ and $\mfk{b}$ be two ideals, we define $\mfk{ab}$ to be the set of all sums</p>
-<script type="math/tex; mode=display">
-x_1y_1+\cdots+x_ny_n</script><p>where $x_i \in \mfk{a}$ and $y_i \in \mfk{b}$. Here the number $n$ means finite but is not fixed. Alternatively we cay say $\mfk{ab}$ contains all finite sum of products of $\mfk{a}$ and $\mfk{b}$.</p>
-<h2 id="Propositions"><a href="#Propositions" class="headerlink" title="Propositions"></a>Propositions</h2><blockquote>
-<p><strong>(Proposition 1)</strong> A Dedekind domain $\mfk{o}$ is Noetherian. </p>
-</blockquote>
-<p>By Noetherian ring we mean that every ideal in a ring is finitely generated. Precisely, we will prove that for every ideal $\mfk{a} \subset \mfk{o}$ there are $a_1,a_2,\cdots,a_n \in \mfk{a}$ such that, for every $r \in \mfk{a}$, we have an expression</p>
-<script type="math/tex; mode=display">
-r = c_1a_1 + c_2a_2 + \cdots + c_na_n \qquad c_1,c_2,\cdots,c_n \in \mfk{o}.</script><p>Also note that any ideal $\mfk{a} \subset \mfk{o}$ can be viewed as a fractional ideal.</p>
-<p><strong>Proof.</strong> Since $\mfk{a}$ is an ideal of $\mfk{o}$, let $K$ be the quotient field of $\mfk{o}$, we see since $\mfk{oa}=\mfk{a}$, we may also view $\mfk{a}$ as a fractional ideal. Since $\mfk{o}$ is a Dedekind domain, and fractional ideals of $\mfk{a}$ is a group, there is an fractional ideal $\mfk{b}$ such that $\mfk{ab}=\mfk{ba}=\mfk{o}$. Since $1 \in \mfk{o}$, we may say that there exists some $a_1,a_2,\cdots, a_n \in \mfk{a}$ and $b_1,b_2,\cdots,b_n \in \mfk{o}$ such that $\sum_{i = 1 }^{n}a_ib_i=1$. For any $r \in \mfk{a}$, we have an expression</p>
-<script type="math/tex; mode=display">
-r = rb_1a_1+rb_2a_2+\cdots+rb_na_n.</script><p>On the other hand, any element of the form $c_1a_1+c_2a_2+\cdots+c_na_n$, by definition, is an element of $\mfk{a}$. $\blacksquare$</p>
-<p>From now on, the inverse of an fractional ideal $\mfk{a}$ will be written like $\mfk{a}^{-1}$.</p>
-<blockquote>
-<p><strong>(Proposition 2)</strong> For ideals $\mfk{a},\mfk{b} \subset \mfk{o}$, $\mfk{b}\subset\mfk{a}$ if and only if there exists some $\mfk{c}$ such that $\mfk{ac}=\mfk{b}$ (or we simply say $\mfk{a}|\mfk{b}$)</p>
-</blockquote>
-<p><strong>Proof.</strong> If $\mfk{b}=\mfk{ac}$, simply note that $\mfk{ac} \subset \mfk{a} \cap \mfk{c} \subset \mfk{a}$. For the converse, suppose that $a \supset \mfk{b}$, then $\mfk{c}=\mfk{a}^{-1}\mfk{b}$ is an ideal of $\mfk{o}$ since $\mfk{c}=\mfk{a}^{-1}\mfk{b} \subset \mfk{a}^{-1}\mfk{a}=\mfk{o}$, hence we may write $\mfk{b}=\mfk{a}\mfk{c}$. $\blacksquare$</p>
-<blockquote>
-<p><strong>(Proposition 3)</strong> If $\mfk{a}$ is an ideal of $\mfk{o}$, then there are prime ideals $\mfk{p}_1,\mfk{p}_2,\cdots,\mfk{p}_n$ such that</p>
-<script type="math/tex; mode=display">
-\mfk{a}=\mfk{p}_1\mfk{p}_2\cdots\mfk{p}_n.</script></blockquote>
-<p><strong>Proof.</strong> For this problem we use a classical technique: contradiction on maximality. Suppose this is not true, let $\mfk{A}$ be the set of ideals of $\mfk{o}$ that cannot be written as the product of prime ideals. By assumption $\mfk{U}$ is non-empty. Since as we have proved, $\mfk{o}$ is Noetherian, we can pick a maximal element $\mfk{a}$ of $\mfk{A}$ with respect to inclusion. If $\mfk{a}$ is maximal, then since all maximal ideals are prime, $\mfk{a}$ itself is prime as well. If $\mfk{a}$ is properly contained in an ideal $\mfk{m}$, then we write $\mfk{a}=\mfk{m}\mfk{m}^{-1}\mfk{a}$. We have $\mfk{m}^{-1}\mfk{a} \supsetneq \mfk{a}$ since if not, we have $\mfk{a}=\mfk{ma}$, which implies that $\mfk{m}=\mfk{o}$. But by maximality, $\mfk{m}^{-1}\mfk{a}\not\in\mfk{U}$, hence it can be written as a product of prime ideals. But $\mfk{m}$ is prime as well, we have a prime factorization for $\mfk{a}$, contradicting the definition of $\mfk{U}$.</p>
-<p>Next we show unicity up to a permutation. If</p>
-<script type="math/tex; mode=display">
-\mfk{p}_1\mfk{p}_2\cdots\mfk{p}_k=\mfk{q}_1\mfk{q}_2\cdots\mfk{q}_j,</script><p>since $\mfk{p}_1\mfk{p}_2\cdots\mfk{p}_k\subset\mfk{p}_1$ and $\mfk{p}_1$ is prime, we may assume that $\mfk{q}_1 \subset \mfk{p}_1$. By the property of fractional ideal we have $\mfk{q}_1=\mfk{p}_1\mfk{r}_1$ for some fractional ideal $\mfk{r}_1$. However we also have $\mfk{q}_1 \subset \mfk{r}_1$. Since $\mfk{q}_1$ is prime, we either have $\mfk{q}_1 \supset \mfk{p}_1$ or $\mfk{q}_1 \supset \mfk{r}_1$. In the former case we get $\mfk{p}_1=\mfk{q}_1$, and we finish the proof by continuing inductively. In the latter case we have $\mfk{r}_1=\mfk{q}_1=\mfk{p}_1\mfk{q}_1$, which shows that $\mfk{p}_1=\mfk{o}$, which is impossible. $\blacksquare$</p>
-<blockquote>
-<p><strong>(Proposition 4)</strong> Every nontrivial prime ideal $\mfk{p}$ is maximal. </p>
-</blockquote>
-<p><strong>Proof.</strong> Let $\mfk{m}$ be an maximal ideal containing $\mfk{p}$. By proposition 2 we have some $\mfk{c}$ such that $\mfk{p}=\mfk{mc}$. If $\mfk{m} \neq \mfk{p}$, then $\mfk{c} \neq \mfk{o}$, and we may write $\mfk{c}=\mfk{p}_1\cdots\mfk{p}_n$, hence $\mfk{p}=\mfk{m}\mfk{p}_1\cdots\mfk{p}_n$, which is a prime factorisation, contradicting the fact that $\mfk{p}$ has a unique prime factorisation, which is $\mfk{p}$ itself. Hence any maximal ideal containing $\mfk{p}$ is $\mfk{p}$ itself. $\blacksquare$</p>
-<blockquote>
-<p><strong>(Proposition 5)</strong> Suppose the Dedekind domain $\mfk{o}$ only contains one prime (and maximal) ideal $\mfk{p}$, let $t \in \mfk{p}$ and $t \not\in \mfk{p}^2$, then $\mfk{p}$ is generated by $t$.</p>
-</blockquote>
-<p><strong>Proof.</strong> Let $\mfk{t}$ be the ideal generated by $t$. By proposition 3 we have a factorisation</p>
-<script type="math/tex; mode=display">
-\mfk{t}=\mfk{p}^n</script><p>for some $n$ since $\mfk{o}$ contains only one prime ideal. According to proposition 2, if $n \geq 3$, we write $\mfk{p}^n=\mfk{p}^2\mfk{p}^{n-2}$, we see $\mfk{p}^2 \supset \mfk{p}^n$. But this is impossible since if so we have $t \in \mfk{p}^n \subset \mfk{p}^2$ contradicting our assumption. Hence $0&lt;n&lt;3$. But If $n=2$ we have $t \in \mfk{p}^2$ which is also not possible. So $\mfk{t}=\mfk{p}$ provided that such $t$ exists. </p>
-<p>For the existence of $t$, note if not, then for all $t \in \mfk{p}$ we have $t \in \mfk{p}^2$, hence $\mfk{p} \subset \mfk{p}^2$. On the other hand we already have $\mfk{p}^2 = \mfk{p}\mfk{p}$, which implies that $\mfk{p}^2 \subset \mfk{p}$ (proposition 2), hence $\mfk{p}^2=\mfk{p}$, contradicting proposition 3. Hence such $t$ exists and our proof is finished. $\blacksquare$</p>
-<h2 id="Characterisation-of-Dedekind-domain"><a href="#Characterisation-of-Dedekind-domain" class="headerlink" title="Characterisation of Dedekind domain"></a>Characterisation of Dedekind domain</h2><p>In fact there is another equivalent definition of Dedekind domain:</p>
-<blockquote>
-<p>A domain $\mfk{o}$ is Dedekind if and only if</p>
-<ul>
-<li>$\mfk{o}$ is Noetherian.</li>
-<li>$\mfk{o}$ is integrally closed.</li>
-<li>$\mfk{o}$​ has Krull dimension $1$​ (i.e. every non-zero prime ideals are maximal).</li>
-</ul>
-</blockquote>
-<p>This is equivalent to say that faction ideals form a group and is frequently used by mathematicians as well. But we need some more advanced techniques to establish the equivalence. Presumably there will be a post about this in the future.</p>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-11-28T18:42:55.000Z" title="28/11/2020 19:42:55">2020-11-28</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-07-08T02:24:35.003Z" title="08/07/2023 04:24:35">2023-07-08</time></span><span class="level-item"><a class="link-muted" href="../../categories/Analysis/">Analysis</a><span> / </span><a class="link-muted" href="../../categories/Analysis/Functional-Analysis/">Functional Analysis</a><span> / </span><a class="link-muted" href="../../categories/Analysis/Functional-Analysis/L-p-space/">$L^p$-space</a><span> / </span><a class="link-muted" href="../../categories/Analysis/Integration-Theory/">Integration Theory</a></span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2020/11/28/A-continuous-function-sending-Lp-functions-to-L1/">A Continuous Function Sending L^p Functions to L^1</a></p><div class="content"><p>Throughout, let $(X,\mathfrak{M},\mu)$ be a measure space where $\mu$ is positive.</p>
-<h2 id="The-question"><a href="#The-question" class="headerlink" title="The question"></a>The question</h2><p>If $f$ is of $L^p(\mu)$, which means $\lVert f \rVert_p=\left(\int_X |f|^p d\mu\right)^{1/p}&lt;\infty$, or equivalently $\int_X |f|^p d\mu&lt;\infty$, then we may say $|f|^p$ is of $L^1(\mu)$. In other words, we have a function</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-\lambda: L^p(\mu) &\to L^1(\mu) \\
-        f &\mapsto |f|^p.
-\end{aligned}</script><p>This function does not have to be one to one due to absolute value. But we hope this function to be <em>fine</em> enough, at the very least, we hope it is continuous. </p>
-<p>Here, $f \sim g$ means that $f-g$ equals $0$ almost everywhere with respect to $\mu$. It can be easily verified that this is an equivalence relation.</p>
-<h2 id="Continuity"><a href="#Continuity" class="headerlink" title="Continuity"></a>Continuity</h2><p>We still use the $\varepsilon-\delta$ argument but it’s in a metric space. Suppose $(X,d_1)$ and $(Y,d_2)$ are two metric spaces and $f:X \to Y$ is a function. We say $f$ is continuous at $x_0 \in X$ if, for any $\varepsilon&gt;0$, there exists some $\delta&gt;0$ such that $d_2(f(x_0),f(x))&lt;\varepsilon$ whenever $d_1(x_0,x)&lt;\delta$. Further, we say $f$ is continuous on $X$ if $f$ is continuous at every point $x \in X$.</p>
-<h2 id="Metrics"><a href="#Metrics" class="headerlink" title="Metrics"></a>Metrics</h2><p>For $1\leq p&lt;\infty$, we already have a metric by</p>
-<script type="math/tex; mode=display">
-d(f,g)=\lVert f-g \rVert_p</script><p>given that $d(f,g)=0$ if and only if $f \sim g$. This is complete and makes $L^p$ a Banach space. But for $0&lt;p&lt;1$ (yes we are going to cover that), things are much more different, and there is one reason: Minkowski inequality holds reversely! In fact, we have</p>
-<script type="math/tex; mode=display">
-\lVert f+g \rVert_p \geq \lVert f \rVert_p + \lVert g \rVert_p</script><p>for $0&lt;p&lt;1$. $L^p$ space has too many weird things when $0&lt;p&lt;1$. Precisely,</p>
-<blockquote>
-<p>For $0&lt;p&lt;1$, $L^p(\mu)$ is locally convex if and only if $\mu$ assumes finitely many values. (<a target="_blank" rel="noopener" href="https://kconrad.math.uconn.edu/blurbs/analysis/lpspace.pdf">Proof.</a>)</p>
-</blockquote>
-<p>On the other hand, for example, $X=[0,1]$ and $\mu=m$ be the Lebesgue measure, then $L^p(\mu)$ has <em>no</em> open convex subset other than $\varnothing$ and $L^p(\mu)$ itself. However,</p>
-<blockquote>
-<p>A topological vector space $X$ is normable if and only if its origin has a convex bounded neighbourhood. (See Kolmogorov’s normability criterion.)</p>
-</blockquote>
-<p>Therefore $L^p(m)$ is not normable, hence not Banach.</p>
-<p>We have gone too far. We need a metric that is fine enough.</p>
-<h3 id="Metric-of-L-p-when-0-lt-p-lt-1"><a href="#Metric-of-L-p-when-0-lt-p-lt-1" class="headerlink" title="Metric of $L^p$ when $0&lt;p&lt;1$"></a>Metric of $L^p$ when $0&lt;p&lt;1$</h3><p>Define</p>
-<script type="math/tex; mode=display">
-\Delta(f)=\int_X |f|^p d\mu</script><p>for $f \in L^p(\mu)$. We will show that we have a metric by</p>
-<script type="math/tex; mode=display">
-d(f,g)=\Delta(f-g).</script><p>Fix $y\geq 0$, consider the function</p>
-<script type="math/tex; mode=display">
-f(x)=(x+y)^p-x^p.</script><p>We have $f(0)=y^p$ and</p>
-<script type="math/tex; mode=display">
-f'(x)=p(x+y)^{p-1}-px^{p-1} \leq px^{p-1}-px^{p-1}=0</script><p>when $x &gt; 0$ and hence $f(x)$ is nonincreasing on $[0,\infty)$, which implies that</p>
-<script type="math/tex; mode=display">
-(x+y)^p \leq x^p+y^p.</script><p>Hence for any $f$, $g \in L^p$, we have</p>
-<script type="math/tex; mode=display">
-\Delta(f+g)=\int_X |f+g|^p d\mu \leq \int_X |f|^p d\mu + \int_X |g|^p d\mu=\Delta(f)+\Delta(g).</script><p>This inequality ensures that</p>
-<script type="math/tex; mode=display">
-d(f,g)=\Delta(f-g)</script><p>is a metric. It’s immediate that $d(f,g)=d(g,f) \geq 0$ for all $f$, $g \in L^p(\mu)$. For the triangle inequality, note that</p>
-<script type="math/tex; mode=display">
-d(f,h)+d(g,h)=\Delta(f-h)+\Delta(h-g) \geq \Delta((f-h)+(h-g))=\Delta(f-g)=d(f,g).</script><p>This is translate-invariant as well since </p>
-<script type="math/tex; mode=display">
-d(f+h,g+h)=\Delta(f+h-g-h)=\Delta(f-g)=d(f,g)</script><p>The completeness can be verified in the same way as the case when $p&gt;1$. In fact, this metric makes $L^p$ a locally bounded F-space.</p>
-<h2 id="The-continuity-of-lambda"><a href="#The-continuity-of-lambda" class="headerlink" title="The continuity of $\lambda$"></a>The continuity of $\lambda$</h2><p>The metric of $L^1$ is defined by</p>
-<script type="math/tex; mode=display">
-d_1(f,g)=\lVert f-g \rVert_1=\int_X |f-g|d\mu.</script><p>We need to find a relation between $d_p(f,g)$ and $d_1(\lambda(f),\lambda(g))$, where $d_p$ is the metric of the corresponding $L^p$ space.</p>
-<h3 id="0-lt-p-lt-1"><a href="#0-lt-p-lt-1" class="headerlink" title="$0&lt;p&lt;1$"></a>$0&lt;p&lt;1$</h3><p>As we have proved,</p>
-<script type="math/tex; mode=display">
-(x+y)^p \leq x^p+y^p.</script><p>Without loss of generality we assume $x \geq y$ and therefore</p>
-<script type="math/tex; mode=display">
-x^p=(x-y+y)^p \leq (x-y)^p+y^p.</script><p>Hence</p>
-<script type="math/tex; mode=display">
-x^p-y^p \leq (x-y)^p.</script><p>By interchanging $x$ and $y$, we get</p>
-<script type="math/tex; mode=display">
-|x^p-y^p| \leq |x-y|^p.</script><p>Replacing $x$ and $y$ with $|f|$ and $|g|$ where $f$, $g \in L^p$, we get</p>
-<script type="math/tex; mode=display">
-\int_{X}\lvert |f|^p-|g|^p \rvert d\mu \leq \int_X |f-g|^p d\mu.</script><p>But </p>
-<script type="math/tex; mode=display">
-d_1(\lambda(f),\lambda(g))=\int_{X}\lvert |f|^p-|g|^p \rvert d\mu \\
-d_p(f,g)=\Delta(f-g)= d\mu \leq \int_X |f-g|^p d\mu</script><p>and we therefore have</p>
-<script type="math/tex; mode=display">
-d_1(\lambda(f),\lambda(g)) \leq d_p(f,g).</script><p>Hence $\lambda$ is continuous (and in fact, Lipschitz continuous and uniformly continuous) when $0&lt;p&lt;1$.</p>
-<h2 id="1-leq-p-lt-infty"><a href="#1-leq-p-lt-infty" class="headerlink" title="$1 \leq p &lt; \infty$"></a>$1 \leq p &lt; \infty$</h2><p>It’s natural to think about Minkowski’s inequality and Hölder’s inequality in this case since they are critical inequality enablers. You need to think about some examples of how to create the condition to use them and get a fine result. In this section we need to prove that</p>
-<script type="math/tex; mode=display">
-|x^p-y^p| \leq p|x-y|(x^{p-1}+y^{p-1}).</script><p>This inequality is surprisingly easy to prove however. We will use nothing but the mean value theorem. Without loss of generality we assume that $x &gt; y \geq 0$ and define $f(t)=t^p$. Then</p>
-<script type="math/tex; mode=display">
-\frac{f(x)-f(y)}{x-y}=f'(\zeta)=p\zeta^{p-1}</script><p>where $y &lt; \zeta &lt; x$. But since $p-1 \geq 0$, we see $\zeta^{p-1} &lt; x^{p-1} &lt;x^{p-1}+y^{p-1}$. Therefore</p>
-<script type="math/tex; mode=display">
-f(x)-f(y)=x^p-y^p=p(x-y)\zeta^{p-1}<p(x-y)(x^{p-1}-y^{p-1}).</script><p>For $x=y$ the equality holds.</p>
-<hr>
-<p>Therefore</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-d_1(\lambda(f),\lambda(g)) &= \int_X \left||f|^p-|g|^p\right|d\mu \\
-                          &\leq \int_Xp\left||f|-|g|\right|(|f|^{p-1}+|g|^{p-1})d\mu
-\end{aligned}</script><p>By <em>Hölder’s inequality</em>, we have</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-\int_X ||f|-|g||(|f|^{p-1}+|g|^{p-1})d\mu & \leq \left[\int_X \left||f|-|g|\right|^pd\mu\right]^{1/p}\left[\int_X\left(|f|^{p-1}+|g|^{p-1}\right)^q\right]^{1/q} \\
-&\leq \left[\int_X \left|f-g\right|^pd\mu\right]^{1/p}\left[\int_X\left(|f|^{p-1}+|g|^{p-1}\right)^q\right]^{1/q} \\
-&=\lVert f-g \rVert_p \left[\int_X\left(|f|^{p-1}+|g|^{p-1}\right)^q\right]^{1/q}.
-\end{aligned}</script><p>By <em>Minkowski’s inequality</em>, we have</p>
-<script type="math/tex; mode=display">
-\left[\int_X\left(|f|^{p-1}+|g|^{p-1}\right)^q\right]^{1/q} \leq \left[\int_X|f|^{(p-1)q}d\mu\right]^{1/q}+\left[\int_X |g|^{(p-1)q}d\mu\right]^{1/q}</script><p>Now things are clear. Since $1/p+1/q=1$, or equivalently $1/q=(p-1)/p$, suppose $\lVert f \rVert_p$, $\lVert g \rVert_p \leq R$, then $(p-1)q=p$ and therefore</p>
-<script type="math/tex; mode=display">
-\left[\int_X|f|^{(p-1)q}d\mu\right]^{1/q}+\left[\int_X |g|^{(p-1)q}d\mu\right]^{1/q} = \lVert f \rVert_p^{p-1}+\lVert g \rVert_p^{p-1} \leq 2R^{p-1}.</script><p>Summing the inequalities above, we get</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-d_1(\lambda(f),\lambda(g)) \leq 2pR^{p-1}\lVert f-g \rVert_p =2pR^{p-1}d_p(f,g)
-\end{aligned}</script><p>hence $\lambda$ is continuous.</p>
-<h2 id="Conclusion-and-further"><a href="#Conclusion-and-further" class="headerlink" title="Conclusion and further"></a>Conclusion and further</h2><p>We have proved that $\lambda$ is continuous, and when $0&lt;p&lt;1$, we have seen that $\lambda$ is Lipschitz continuous. It’s natural to think about its differentiability afterwards, but the absolute value function is not even differentiable so we may have no chance. But this is still a fine enough result. For example we have no restriction to $(X,\mathfrak{M},\mu)$ other than the positivity of $\mu$. Therefore we may take $\mathbb{R}^n$ as the Lebesgue measure space here, or we can take something else.</p>
-<p>It’s also interesting how we use elementary Calculus to solve some much more abstract problems.</p>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-09-24T19:46:57.000Z" title="24/09/2020 21:46:57">2020-09-24</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-08-29T04:45:42.539Z" title="29/08/2023 06:45:42">2023-08-29</time></span><span class="level-item"><a class="link-muted" href="../../categories/Analysis/">Analysis</a><span> / </span><a class="link-muted" href="../../categories/Analysis/Complex-Analysis/">Complex Analysis</a></span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2020/09/24/two-fourier-transforms/">The Fourier transform of sinx/x and (sinx/x)^2 and more</a></p><div class="content">In this post we compute the Fourier transform of $\sin{x}/x$ and $(\sin{x}/x)^2$ through contour integration.</div><a class="article-more button is-small is-size-7" href="../../2020/09/24/two-fourier-transforms/#more">Read more</a></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous is-invisible is-hidden-mobile"><a href="page/0/">Previous</a></div><div class="pagination-next"><a href="page/2/">Next</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link is-current" href="">1</a></li><li><a class="pagination-link" href="page/2/">2</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="../../img/avatar.png" alt="Desvl"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Desvl</p><p class="is-size-6 is-block">A blog mainly on graduate mathematics.</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>A Noetherian local ring</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="../../archives/"><p class="title">98</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="../../categories/"><p class="title">50</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="../../tags/"><p class="title">60</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="../../redirect/newsletter" target="_blank" rel="me noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Compose an Email" href="../../redirect/email"><i class="fas fa-envelope"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="RSS" href="../../atom.xml"><i class="fas fa-rss"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Mathstodon" href="https://mathstodon.xyz/@desvl"><i class="fa-brands fa-mastodon"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://arxiv.org/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">arXiv</span></span><span class="level-right"><span class="level-item tag">arxiv.org</span></span></a></li><li><a class="level is-mobile" href="https://kconrad.math.uconn.edu/blurbs/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Keith Conrad&#039;s expository papers</span></span><span class="level-right"><span class="level-item tag">kconrad.math.uconn.edu</span></span></a></li><li><a class="level is-mobile" href="https://ncatlab.org/nlab/show/mathematics" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">nLab (Mathematics)</span></span><span class="level-right"><span class="level-item tag">ncatlab.org</span></span></a></li><li><a class="level is-mobile" href="https://q.uiver.app/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">quiver: a modern commutative diagram editor</span></span><span class="level-right"><span class="level-item tag">q.uiver.app</span></span></a></li><li><a class="level is-mobile" href="https://www.symmetricfunctions.com/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">The Symmetric Functions Catalogue</span></span><span class="level-right"><span class="level-item tag">www.symmetricfunctions.com</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/speaking.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Speaking</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/writing.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Writing</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Be excellent at math in one month (YouTube)</span></span><span class="level-right"><span class="level-item tag">www.youtube.com</span></span></a></li><li><a class="level is-mobile" href="https://www.bilibili.com/video/BV1GJ411x7h7" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Be excellent at math in one month (Bilibili)</span></span><span class="level-right"><span class="level-item tag">www.bilibili.com</span></span></a></li></ul></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="../../index.html"><img src="../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a><p class="is-size-7"><span>&copy; 2025 Desvl</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
-            article: {
-                highlight: {
-                    clipboard: true,
-                    fold: 'unfolded'
-                }
-            }
-        };</script><script data-pjax src="../../js/column.js"></script><script src="../../js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script data-pjax src="../../js/back_to_top.js" defer></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
-            if (typeof $.fn.lightGallery === 'function') {
-                $('.article').lightGallery({ selector: '.gallery-item' });
-            }
-            if (typeof $.fn.justifiedGallery === 'function') {
-                if ($('.justified-gallery > p > .gallery-item').length) {
-                    $('.justified-gallery > p > .gallery-item').unwrap();
-                }
-                $('.justified-gallery').justifiedGallery();
-            }
-        });</script><script type="text/javascript" id="MathJax-script" async>MathJax = {
-      tex: {
-        inlineMath: [['$', '$'], ['\\(', '\\)']]
-      },
-      svg: {
-        fontCache: 'global'
-      },
-      chtml: {
-        matchFontHeight: false
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
       }
-    };</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script><!--!--><script data-pjax src="../../js/main.js" defer></script><!--!--></body></html>
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    js: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')){
+        src = ctx.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    jq: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        utils.js(deps.jquery).then(fn)
+      } else {
+        fn()
+      }
+    },
+    
+    onLoading: (el) => {
+      if (el) {
+        $(el).append('<div class="loading-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg></div>');
+      }
+    },
+    onLoadSuccess: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap').remove();
+      }
+    },
+    onLoadFailure: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap svg').remove();
+        $(el).find('.loading-wrap').append('<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" d="M12 3L21 20H3L12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="60;0"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M12 10V14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"/></path></g><circle cx="12" cy="17" r="1" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="0.8s" dur="0.4s" values="0;1"/></circle></svg>');
+        $(el).find('.loading-wrap').addClass('error');
+      }
+    },
+    request: (el, url, callback, onFailure) => {
+      let retryTimes = 3;
+      utils.onLoading(el);
+      function req() {
+        return new Promise((resolve, reject) => {
+          let status = 0; // 0 等待 1 完成 2 超时
+          let timer = setTimeout(() => {
+            if (status === 0) {
+              status = 2;
+              timer = null;
+              reject('请求超时');
+              if (retryTimes == 0) {
+                onFailure();
+              }
+            }
+          }, 5000);
+          fetch(url).then(function(response) {
+            if (status !== 2) {
+              clearTimeout(timer);
+              resolve(response);
+              timer = null;
+              status = 1;
+            }
+            if (response.ok) {
+              return response.json();
+            }
+            throw new Error('Network response was not ok.');
+          }).then(function(data) {
+            retryTimes = 0;
+            utils.onLoadSuccess(el);
+            callback(data);
+          }).catch(function(error) {
+            if (retryTimes > 0) {
+              retryTimes -= 1;
+              setTimeout(() => {
+                req();
+              }, 5000);
+            } else {
+              utils.onLoadFailure(el);
+              onFailure();
+            }
+          });
+        });
+      }
+      req();
+    },
+  };
+</script>
+
+<script>
+  const sidebar = {
+    leftbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    rightbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('rightbar');
+        l_body.removeAttribute('leftbar');
+      }
+    },
+    dismiss: () => {
+      if (l_body) {
+        l_body.removeAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    toggleTOC: () => {
+      document.querySelector('#data-toc').classList.toggle('collapse');
+    }
+  }
+</script>
+<script type="text/javascript">
+  (() => {
+    const tagSwitchers = document.querySelectorAll('.tag-subtree.parent-tag > a > .tag-switcher-wrapper')
+    for (const tagSwitcher of tagSwitchers) {
+      tagSwitcher.addEventListener('click', (e) => {
+        const parent = e.target.closest('.tag-subtree.parent-tag')
+        parent.classList.toggle('expanded')
+        e.preventDefault()
+      })
+    }
+
+    // Get active tag from query string, then activate it.
+    const urlParams = new URLSearchParams(window.location.search)
+    const activeTag = urlParams.get('tag')
+    if (activeTag) {
+      let tag = document.querySelector(`.tag-subtree[data-tag="${activeTag}"]`)
+      if (tag) {
+        tag.querySelector('a').classList.add('active')
+        
+        while (tag) {
+          tag.classList.add('expanded')
+          tag = tag.parentElement.closest('.tag-subtree.parent-tag')
+        }
+      }
+    }
+  })()
+</script>
+
+
+<!-- required -->
+<script src="/js/main.js?v=1.29.1" defer></script>
+
+<script type="text/javascript">
+  const applyTheme = (theme) => {
+    if (theme === 'auto') {
+      document.documentElement.removeAttribute('data-theme')
+    } else {
+      document.documentElement.setAttribute('data-theme', theme)
+    }
+
+    applyThemeToGiscus(theme)
+  }
+
+  const applyThemeToGiscus = (theme) => {
+    theme = theme === 'auto' ? 'preferred_color_scheme' : theme
+
+    const cmt = document.getElementById('giscus')
+    if (cmt) {
+      // This works before giscus load.
+      cmt.setAttribute('data-theme', theme)
+    }
+
+    const iframe = document.querySelector('#comments > section.giscus > iframe')
+    if (iframe) {
+      // This works after giscus loaded.
+      const src = iframe.src
+      const newSrc = src.replace(/theme=[\w]+/, `theme=${theme}`)
+      iframe.src = newSrc
+    }
+  }
+
+  const switchTheme = () => {
+    // light -> dark -> auto -> light -> ...
+    const currentTheme = document.documentElement.getAttribute('data-theme')
+    let newTheme;
+    switch (currentTheme) {
+      case 'light':
+        newTheme = 'dark'
+        break
+      case 'dark':
+        newTheme = 'auto'
+        break
+      default:
+        newTheme = 'light'
+    }
+    applyTheme(newTheme)
+    window.localStorage.setItem('Stellar.theme', newTheme)
+
+    const messages = {
+      light: `Switched to Light Mode`,
+      dark: `Switched to Dark Mode`,
+      auto: `Switched to Auto Mode`,
+    }
+    hud?.toast?.(messages[newTheme])
+  }
+
+  (() => {
+    // Apply user's preferred theme, if any.
+    const theme = window.localStorage.getItem('Stellar.theme')
+    if (theme !== null) {
+      applyTheme(theme)
+    }
+  })()
+</script>
+
+
+<!-- optional -->
+
+
+
+<script defer>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.services = Object.assign({}, JSON.parse(`{"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"}}`));
+    for (let id of Object.keys(ctx.services)) {
+      const js = ctx.services[id].js;
+      if (id == 'siteinfo') {
+        ctx.cardlinks = document.querySelectorAll('a.link-card[cardlink]');
+        if (ctx.cardlinks?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            setCardLink(ctx.cardlinks);
+          });
+        }
+      } else {
+        const els = document.getElementsByClassName(`ds-${id}`);
+        if (els?.length > 0) {
+          utils.jq(() => {
+            if (id == 'timeline' || 'memos' || 'marked') {
+              utils.js(deps.marked).then(function () {
+                utils.js(js, { defer: true });
+              });
+            } else {
+              utils.js(js, { defer: true });
+            }
+          });
+        }
+      }
+    }
+  });
+</script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.search = {
+      path: `/search.json`,
+    }
+    utils.js('/js/search/local-search.js', { defer: true });
+  });
+</script><script>
+  window.FPConfig = {
+    delay: 0,
+    ignoreKeywords: [],
+    maxRPS: 5,
+    hoverDelay: 25
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js"></script><script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@19.1.3/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazy",
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    window.lazyLoadInstance?.update();
+  });
+</script><script>
+  ctx.fancybox = {
+    selector: `.timenode p>img`,
+    css: `https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css`,
+    js: `https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js`
+  };
+  var selector = '[data-fancybox]:not(.error)';
+  if (ctx.fancybox.selector) {
+    selector += `, ${ctx.fancybox.selector}`
+  }
+  var needFancybox = document.querySelectorAll(selector).length !== 0;
+  if (!needFancybox) {
+    const els = document.getElementsByClassName('ds-memos');
+    if (els != undefined && els.length > 0) {
+      needFancybox = true;
+    }
+  }
+  if (needFancybox) {
+    utils.css(ctx.fancybox.css);
+    utils.js(ctx.fancybox.js, { defer: true }).then(function () {
+      Fancybox.bind(selector, {
+        hideScrollbar: false,
+        Thumbs: {
+          autoStart: false,
+        },
+        caption: (fancybox, slide) => {
+          return slide.triggerEl.alt || slide.triggerEl.dataset.caption || null
+        }
+      });
+    })
+  }
+</script>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    const swiper_api = document.getElementById('swiper-api');
+    if (swiper_api != undefined) {
+      utils.css(`https://unpkg.com/swiper@10.3.1/swiper-bundle.min.css`);
+      utils.js(`https://unpkg.com/swiper@10.3.1/swiper-bundle.min.js`, { defer: true }).then(function () {
+        const effect = swiper_api.getAttribute('effect') || '';
+        var swiper = new Swiper('.swiper#swiper-api', {
+          slidesPerView: 'auto',
+          spaceBetween: 8,
+          centeredSlides: true,
+          effect: effect,
+          rewind: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        });
+      })
+    }
+  });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    window.codeElements = document.querySelectorAll('.code');
+    if (window.codeElements.length > 0) {
+      ctx.copycode = {
+        default_text: `Copy`,
+        success_text: `Copied`,
+        toast: `复制成功`,
+      };
+      utils.js('/js/plugins/copycode.js');
+    }
+  });
+</script>
+
+
+<!-- inject -->
+
+</div></body></html>

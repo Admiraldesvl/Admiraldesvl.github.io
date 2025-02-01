@@ -1,515 +1,580 @@
-<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Desvl&#039;s blog</title><link rel="manifest" href="../../manifest.json"><meta name="application-name" content="Desvl&#039;s blog"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Desvl&#039;s blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta property="og:type" content="blog"><meta property="og:title" content="Desvl&#039;s blog"><meta property="og:url" content="https://desvl.xyz/"><meta property="og:site_name" content="Desvl&#039;s blog"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://desvl.xyz/img/avatar.png"><meta property="article:author" content="Desvl"><meta property="twitter:card" content="summary_large_image"><meta property="twitter:image:src" content="https://desvl.xyz/img/avatar.png"><meta property="twitter:creator" content="@Desvl_"><meta property="twitter:site" content="{ https://desvl.xyz }"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://desvl.xyz"},"headline":"Desvl's blog","image":["https://desvl.xyz/img/avatar.png"],"author":{"@type":"Person","name":"Desvl"},"publisher":{"@type":"Organization","name":"Desvl","logo":{"@type":"ImageObject","url":"https://desvl.xyz/img/logo.svg"}},"description":""}</script><link rel="alternate" href="../../atom.xml" title="Desvl&#039;s blog" type="application/atom+xml"><link rel="icon" href="../../img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link data-pjax rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-light.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="../../css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js"></script><!-- hexo injector head_end start --><script>
-  (function () {
-      function switchTab() {
-          if (!location.hash) {
-            return;
-          }
 
-          const id = '#' + CSS.escape(location.hash.substring(1));
-          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
-          if (!$tabMenu) {
-            return;
-          }
+<!DOCTYPE html><html lang="en">
 
-          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
-          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
-          Array.from($tabMenuContainer.querySelectorAll('a'))
-              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
-              .forEach($content => $content.classList.add('is-hidden'));
+<head>
+  <meta charset="utf-8">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.29.1" theme-name="Stellar" theme-version="1.29.1">
+  
+  <meta name="generator" content="Hexo 7.3.0">
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
+  <meta name="theme-color" content="#f9fafb">
+  
+  <title>Desvl's blog</title>
 
-          if ($tabMenu) {
-              $tabMenu.parentElement.classList.add('is-active');
-          }
-          const $activeTab = document.querySelector(id);
-          if ($activeTab) {
-              $activeTab.classList.remove('is-hidden');
-          }
+  
+    <meta property="og:type" content="website">
+<meta property="og:title" content="Desvl&#39;s blog">
+<meta property="og:url" content="https://desvl.xyz/page/10/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="Desvl">
+<meta name="twitter:card" content="summary">
+  
+  
+  
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="../../atom.xml" title="Desvl's blog" type="application/atom+xml">
+  
+
+  <link rel="stylesheet" href="/css/main.css?v=1.29.1">
+
+  
+
+  
+
+  
+</head>
+<body>
+
+<div class="l_body s:aa index tech" id="start" layout="undefined" ><aside class="l_left"><div class="leftbar-container">
+
+
+<header class="header"><div class="logo-wrap"><a class="avatar" href="../../about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="/img/avatar_new.png" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="../../index.html"><div class="main" ff="title">Desvl's blog</div></a></div></header>
+
+<div class="nav-area">
+<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" placeholder="Search"></form><div id="search-result"></div><div class="search-no-result">No Results!</div></div>
+
+
+<nav class="menu dis-select"></nav>
+</div>
+<div class="widgets">
+<widget class="widget-wrapper linklist"><div class="widget-header dis-select"><span class="name">Useful links</span></div><div class="widget-body fs14">
+<div class="linklist left" style="grid-template-columns:repeat(1,1fr);">
+<a class="link" title="arXiv" target="_blank" rel="noopener" href="https://arxiv.org/"><div class="flex"><span>arXiv</span></div></a>
+<a class="link" title="Keith Conrad's expository papers" target="_blank" rel="noopener" href="https://kconrad.math.uconn.edu/blurbs/"><div class="flex"><span>Keith Conrad's expository papers</span></div></a>
+<a class="link" title="nLab (Mathematics)" target="_blank" rel="noopener" href="https://ncatlab.org/nlab/show/mathematics"><div class="flex"><span>nLab (Mathematics)</span></div></a>
+<a class="link" title="quiver" target="_blank" rel="noopener" href="https://q.uiver.app/"><div class="flex"><span>quiver</span></div></a>
+<a class="link" title="Fanography" target="_blank" rel="noopener" href="https://www.fanography.info/"><div class="flex"><span>Fanography</span></div></a>
+<a class="link" title="The Symmetric Functions Catalogue" target="_blank" rel="noopener" href="https://www.symmetricfunctions.com/"><div class="flex"><span>The Symmetric Functions Catalogue</span></div></a>
+<a class="link" title="All maths in one video (YouTube)" target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"><div class="flex"><span>All maths in one video (YouTube)</span></div></a>
+<a class="link" title="All maths in one video (Bilibili)" target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1GJ411x7h7"><div class="flex"><span>All maths in one video (Bilibili)</span></div></a></div></div></widget>
+</div>
+
+</div></aside><div class="l_main" id="main">
+
+<header class="header mobile-only"><div class="logo-wrap"><a class="avatar" href="../../about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="/img/avatar_new.png" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="../../index.html"><div class="main" ff="title">Desvl's blog</div></a></div></header>
+
+
+
+
+<div class="navbar top"><nav class="post"><a class="active" href="../../">Recent</a><a href="../../categories">Categories</a><a href="../../tags">Tags</a><a href="../../archives">Archives</a></nav></div>
+<div class="post-list post"><a class="post-card post" href="../../2019/10/02/productivity-overrated/">
+<article class="md-text"><h2 class="post-title">并不新颖的观点：不要追求生产力、效率了</h2><div class="excerpt"><p>实际上，在十几年前，Get Things Done、Zen to Done等等“生产力圣经”闪亮登场并得到追捧以来，就有了反对的声音，所以我说，这是不是什么新颖的观点。随着互联网的发展，“生产力”的信奉者们开发了工具，所谓To-Do List，所谓“...</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg style="margin-bottom:2px" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M6.94 2c.416 0 .753.324.753.724v1.46c.668-.012 1.417-.012 2.26-.012h4.015c.842 0 1.591 0 2.259.013v-1.46c0-.4.337-.725.753-.725s.753.324.753.724V4.25c1.445.111 2.394.384 3.09 1.055c.698.67.982 1.582 1.097 2.972L22 9H2v-.724c.116-1.39.4-2.302 1.097-2.972c.697-.67 1.645-.944 3.09-1.055V2.724c0-.4.337-.724.753-.724"/><path fill="currentColor" d="M22 14v-2c0-.839-.004-2.335-.017-3H2.01c-.013.665-.01 2.161-.01 3v2c0 3.771 0 5.657 1.172 6.828C4.343 22 6.228 22 10 22h4c3.77 0 5.656 0 6.828-1.172C22 19.658 22 17.772 22 14" opacity=".5"/><path fill="currentColor" d="M18 17a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m-5 4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m-5 4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0"/></svg><time datetime="2019-10-01T22:00:00.000Z">02-10-2019</time></span></div></article>
+</a><a class="post-card post" href="../../2019/09/07/sup-inf/">
+<article class="md-text"><h2 class="post-title">高等数学入门：上下确界及其极限形式</h2><div class="excerpt"><p>问题的引入: 最大值、最小值的局限性我们先考虑一个简单的函数: 
+
+    f(x)=x\quad x\in(0,1)那么问题来了: 这个函数有没有最小值或者最大值? 答案是没有. 定义域中的严格不等式给我们制造了无法得到严格解的麻烦. 可能读者会想...</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg style="margin-bottom:2px" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M6.94 2c.416 0 .753.324.753.724v1.46c.668-.012 1.417-.012 2.26-.012h4.015c.842 0 1.591 0 2.259.013v-1.46c0-.4.337-.725.753-.725s.753.324.753.724V4.25c1.445.111 2.394.384 3.09 1.055c.698.67.982 1.582 1.097 2.972L22 9H2v-.724c.116-1.39.4-2.302 1.097-2.972c.697-.67 1.645-.944 3.09-1.055V2.724c0-.4.337-.724.753-.724"/><path fill="currentColor" d="M22 14v-2c0-.839-.004-2.335-.017-3H2.01c-.013.665-.01 2.161-.01 3v2c0 3.771 0 5.657 1.172 6.828C4.343 22 6.228 22 10 22h4c3.77 0 5.656 0 6.828-1.172C22 19.658 22 17.772 22 14" opacity=".5"/><path fill="currentColor" d="M18 17a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m-5 4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m-5 4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0"/></svg><time datetime="2019-09-06T22:00:00.000Z">07-09-2019</time></span></div></article>
+</a><a class="post-card post" href="../../2019/08/24/harmonic-series-divergence/">
+<article class="md-text"><h2 class="post-title">调和级数发散的若干证明</h2><div class="excerpt"><p>命题的提出
+设$S_n=1+\frac{1}{2}+\frac{1}{3}+\cdots+\frac{1}{n}$, 求证$\{S_n\}$发散
+
+这个数列的发散是很难通过直觉猜出来的, 因为它的增长速度很慢, 会给人以收敛的错觉. 如果用计算机手动...</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg style="margin-bottom:2px" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M6.94 2c.416 0 .753.324.753.724v1.46c.668-.012 1.417-.012 2.26-.012h4.015c.842 0 1.591 0 2.259.013v-1.46c0-.4.337-.725.753-.725s.753.324.753.724V4.25c1.445.111 2.394.384 3.09 1.055c.698.67.982 1.582 1.097 2.972L22 9H2v-.724c.116-1.39.4-2.302 1.097-2.972c.697-.67 1.645-.944 3.09-1.055V2.724c0-.4.337-.724.753-.724"/><path fill="currentColor" d="M22 14v-2c0-.839-.004-2.335-.017-3H2.01c-.013.665-.01 2.161-.01 3v2c0 3.771 0 5.657 1.172 6.828C4.343 22 6.228 22 10 22h4c3.77 0 5.656 0 6.828-1.172C22 19.658 22 17.772 22 14" opacity=".5"/><path fill="currentColor" d="M18 17a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m-5 4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m-5 4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0"/></svg><time datetime="2019-08-23T22:00:00.000Z">24-08-2019</time></span></div></article>
+</a><a class="post-card post" href="../../2019/08/19/l-hopital-proof/">
+<article class="md-text"><h2 class="post-title">洛必达法则的几种不同的证明</h2><div class="excerpt"><p>前言洛必达法则相比甚至不少高中生甚至初中生都听说过，知道怎么进行简单的应用。简单点说，处理$\frac{0}{0}$的函数时，对上下进行求导，可能会很大程度上简化计算。但是洛必达法则为什么能奏效? 能不能用严格的数理语言进行论证? 这是这篇文章需要解...</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg style="margin-bottom:2px" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M6.94 2c.416 0 .753.324.753.724v1.46c.668-.012 1.417-.012 2.26-.012h4.015c.842 0 1.591 0 2.259.013v-1.46c0-.4.337-.725.753-.725s.753.324.753.724V4.25c1.445.111 2.394.384 3.09 1.055c.698.67.982 1.582 1.097 2.972L22 9H2v-.724c.116-1.39.4-2.302 1.097-2.972c.697-.67 1.645-.944 3.09-1.055V2.724c0-.4.337-.724.753-.724"/><path fill="currentColor" d="M22 14v-2c0-.839-.004-2.335-.017-3H2.01c-.013.665-.01 2.161-.01 3v2c0 3.771 0 5.657 1.172 6.828C4.343 22 6.228 22 10 22h4c3.77 0 5.656 0 6.828-1.172C22 19.658 22 17.772 22 14" opacity=".5"/><path fill="currentColor" d="M18 17a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m-5 4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m-5 4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0"/></svg><time datetime="2019-08-18T22:00:00.000Z">19-08-2019</time></span><span class="cap breadcrumb"><svg style="margin-bottom:1px" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M2 6.95c0-.883 0-1.324.07-1.692A4 4 0 0 1 5.257 2.07C5.626 2 6.068 2 6.95 2c.386 0 .58 0 .766.017a4 4 0 0 1 2.18.904c.144.119.28.255.554.529L11 4c.816.816 1.224 1.224 1.712 1.495a4 4 0 0 0 .848.352C14.098 6 14.675 6 15.828 6h.374c2.632 0 3.949 0 4.804.77c.079.07.154.145.224.224c.77.855.77 2.172.77 4.804V14c0 3.771 0 5.657-1.172 6.828C19.657 22 17.771 22 14 22h-4c-3.771 0-5.657 0-6.828-1.172C2 19.657 2 17.771 2 14z" opacity=".5"/><path fill="currentColor" d="M20 6.238c0-.298-.005-.475-.025-.63a3 3 0 0 0-2.583-2.582C17.197 3 16.965 3 16.5 3H9.988c.116.104.247.234.462.45L11 4c.816.816 1.224 1.224 1.712 1.495a4 4 0 0 0 .849.352C14.098 6 14.675 6 15.829 6h.373c1.78 0 2.957 0 3.798.238"/><path fill="currentColor" fill-rule="evenodd" d="M12.25 10a.75.75 0 0 1 .75-.75h5a.75.75 0 0 1 0 1.5h-5a.75.75 0 0 1-.75-.75" clip-rule="evenodd"/></svg><span>Analysis</span></span></div></article>
+</a><a class="post-card post" href="../../2019/08/06/beautiful-fourier-002/">
+<article class="md-text"><h2 class="post-title">优美的Fourier级数（二）: 有界差分下的收敛(Jordan判别法)</h2><div class="excerpt"><p>前言如果你和Fourier级数打交道，那么在处理间断函数，特别是锯齿状函数的时候，有没有注意过间断处的形状？它为什么会处在中间位置？什么时候会出现这种情况？这就是接下来要解决的问题. 这篇文章中, 会涉及到各种与三角函数、定积分、导函数有关的基本重要...</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg style="margin-bottom:2px" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M6.94 2c.416 0 .753.324.753.724v1.46c.668-.012 1.417-.012 2.26-.012h4.015c.842 0 1.591 0 2.259.013v-1.46c0-.4.337-.725.753-.725s.753.324.753.724V4.25c1.445.111 2.394.384 3.09 1.055c.698.67.982 1.582 1.097 2.972L22 9H2v-.724c.116-1.39.4-2.302 1.097-2.972c.697-.67 1.645-.944 3.09-1.055V2.724c0-.4.337-.724.753-.724"/><path fill="currentColor" d="M22 14v-2c0-.839-.004-2.335-.017-3H2.01c-.013.665-.01 2.161-.01 3v2c0 3.771 0 5.657 1.172 6.828C4.343 22 6.228 22 10 22h4c3.77 0 5.656 0 6.828-1.172C22 19.658 22 17.772 22 14" opacity=".5"/><path fill="currentColor" d="M18 17a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m-5 4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m-5 4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0"/></svg><time datetime="2019-08-05T22:00:00.000Z">06-08-2019</time></span></div></article>
+</a><a class="post-card post" href="../../2019/08/05/beautiful-fourier-001/">
+<article class="md-text"><h2 class="post-title">优美的Fourier级数（一）: 绝对不只是求表达式的问题</h2><div class="excerpt"><p>前言Fourier级数是相当优美的一类级数，但它涉及到的问题绝对不仅仅是通过各种运算技巧求表达式。 相反，它是一个很复杂、很困难的大话题。我在这里会把一些基本内容和一系列严格的证明整理下来。 从Fourier级数出发，我们能看到很多重要的基本技巧的应...</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg style="margin-bottom:2px" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M6.94 2c.416 0 .753.324.753.724v1.46c.668-.012 1.417-.012 2.26-.012h4.015c.842 0 1.591 0 2.259.013v-1.46c0-.4.337-.725.753-.725s.753.324.753.724V4.25c1.445.111 2.394.384 3.09 1.055c.698.67.982 1.582 1.097 2.972L22 9H2v-.724c.116-1.39.4-2.302 1.097-2.972c.697-.67 1.645-.944 3.09-1.055V2.724c0-.4.337-.724.753-.724"/><path fill="currentColor" d="M22 14v-2c0-.839-.004-2.335-.017-3H2.01c-.013.665-.01 2.161-.01 3v2c0 3.771 0 5.657 1.172 6.828C4.343 22 6.228 22 10 22h4c3.77 0 5.656 0 6.828-1.172C22 19.658 22 17.772 22 14" opacity=".5"/><path fill="currentColor" d="M18 17a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m-5 4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m-5 4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0"/></svg><time datetime="2019-08-04T22:00:00.000Z">05-08-2019</time></span><span class="cap breadcrumb"><svg style="margin-bottom:1px" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M2 6.95c0-.883 0-1.324.07-1.692A4 4 0 0 1 5.257 2.07C5.626 2 6.068 2 6.95 2c.386 0 .58 0 .766.017a4 4 0 0 1 2.18.904c.144.119.28.255.554.529L11 4c.816.816 1.224 1.224 1.712 1.495a4 4 0 0 0 .848.352C14.098 6 14.675 6 15.828 6h.374c2.632 0 3.949 0 4.804.77c.079.07.154.145.224.224c.77.855.77 2.172.77 4.804V14c0 3.771 0 5.657-1.172 6.828C19.657 22 17.771 22 14 22h-4c-3.771 0-5.657 0-6.828-1.172C2 19.657 2 17.771 2 14z" opacity=".5"/><path fill="currentColor" d="M20 6.238c0-.298-.005-.475-.025-.63a3 3 0 0 0-2.583-2.582C17.197 3 16.965 3 16.5 3H9.988c.116.104.247.234.462.45L11 4c.816.816 1.224 1.224 1.712 1.495a4 4 0 0 0 .849.352C14.098 6 14.675 6 15.829 6h.373c1.78 0 2.957 0 3.798.238"/><path fill="currentColor" fill-rule="evenodd" d="M12.25 10a.75.75 0 0 1 .75-.75h5a.75.75 0 0 1 0 1.5h-5a.75.75 0 0 1-.75-.75" clip-rule="evenodd"/></svg><span>Legacy content</span></span></div></article>
+</a><a class="post-card post" href="../../2019/08/04/contraction-application/">
+<article class="md-text"><h2 class="post-title">压缩定理和其应用</h2><div class="excerpt"><p>什么是压缩压缩(contraction)的准确描述是这样的：
+
+取完备度量空间$X$, 度量$d$, 函数$\varphi$是$X$到本身的映射, 且满足
+
+        d(\varphi(x),\varphi(y)) \leq cd(x,y)....</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg style="margin-bottom:2px" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M6.94 2c.416 0 .753.324.753.724v1.46c.668-.012 1.417-.012 2.26-.012h4.015c.842 0 1.591 0 2.259.013v-1.46c0-.4.337-.725.753-.725s.753.324.753.724V4.25c1.445.111 2.394.384 3.09 1.055c.698.67.982 1.582 1.097 2.972L22 9H2v-.724c.116-1.39.4-2.302 1.097-2.972c.697-.67 1.645-.944 3.09-1.055V2.724c0-.4.337-.724.753-.724"/><path fill="currentColor" d="M22 14v-2c0-.839-.004-2.335-.017-3H2.01c-.013.665-.01 2.161-.01 3v2c0 3.771 0 5.657 1.172 6.828C4.343 22 6.228 22 10 22h4c3.77 0 5.656 0 6.828-1.172C22 19.658 22 17.772 22 14" opacity=".5"/><path fill="currentColor" d="M18 17a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m-5 4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m-5 4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0"/></svg><time datetime="2019-08-03T22:00:00.000Z">04-08-2019</time></span></div></article>
+</a></div>
+
+  <div class='paginator-wrap dis-select'>
+  <a class="extend prev" rel="prev" href="../9/"></a><a class="page-number" href="../../">1</a><span class="space">&hellip;</span><a class="page-number" href="../8/">8</a><a class="page-number" href="../9/">9</a><span class="page-number current">10</span><span class="extend next" rel="next"></span>
+  </div>
+
+
+<footer class="page-footer footnote"><hr><div class="text"><p>Credit <a href="/">Desvl</a> | Powered by <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.29.1">Stellar 1.29.1</a>.<br>Licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless otherwise specified.</p>
+</div></footer>
+<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
+</aside><div class='float-panel blur'>
+  <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
+  </button>
+  <button type='button' style='display:none' class='mobile-only leftbar-toggle mobile' onclick='sidebar.leftbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"/><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"/></g></svg>
+  </button>
+</div>
+</div><div class="scripts">
+<script type="text/javascript">
+  const ctx = {
+    date_suffix: {
+      just: `Just`,
+      min: `minutes ago`,
+      hour: `hours ago`,
+      day: `days ago`,
+    },
+    root : `/`,
+  };
+
+  // required plugins (only load if needs)
+  if (`local_search`) {
+    ctx.search = {};
+    ctx.search.service = `local_search`;
+    if (ctx.search.service == 'local_search') {
+      let service_obj = Object.assign({}, `{"field":"all","path":"/search.json","content":true,"sort":"-date"}`);
+      ctx.search[ctx.search.service] = service_obj;
+    }
+  }
+  const def = {
+    avatar: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg`,
+    cover: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg`,
+  };
+  const deps = {
+    jquery: `https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js`,
+    marked: `https://cdn.jsdelivr.net/npm/marked@13.0.1/lib/marked.umd.min.js`
+  }
+  
+
+</script>
+
+<script type="text/javascript">
+  const utils = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    css: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
       }
-      switchTab();
-      window.addEventListener('hashchange', switchTab, false);
-  })();
-  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="../../index.html"><img src="../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="../../index.html">Home</a><a class="navbar-item" href="../../archives">Archives</a><a class="navbar-item" href="../../categories">Categories</a><a class="navbar-item" href="../../tags">Tags</a><a class="navbar-item" href="../../about">About (Updated Aug. 2022)</a><a class="navbar-item" href="../../link-exchange">Link Exchange</a><a class="navbar-item" href="../../support-the-author">Support the Author</a></div><div class="navbar-end"></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2019-10-30T23:00:00.000Z" title="31/10/2019 00:00:00">2019-10-31</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-07-08T02:24:35.925Z" title="08/07/2023 04:24:35">2023-07-08</time></span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2019/10/31/euler-reflection/">欧拉反射公式和利用Fourier级数的证明</a></p><div class="content"><p>$\Gamma$函数将自然数和连续函数很自然地结合起来，在各个领域有着各种意想不到的作用。 它的细节绝对不是只言片语能解释完的。 在这里我会介绍一个很有意思的公式: 欧拉反射公式。 当然，如果视野仅仅停留在一个公式上，那肯定不行。</p>
-<h2 id="欧拉反射公式"><a href="#欧拉反射公式" class="headerlink" title="欧拉反射公式"></a>欧拉反射公式</h2><script type="math/tex; mode=display">
-\Gamma(x)\Gamma(1-x)=\frac{\pi}{\sin\pi{x}}\quad 0<x<1</script><h2 id="一些简单的应用"><a href="#一些简单的应用" class="headerlink" title="一些简单的应用"></a>一些简单的应用</h2><p>不如先看一下能直接利用它得到什么结论。 两个$\Gamma$函数的乘积，自然就和$B$函数能建立起联系。 显然我们有， </p>
-<script type="math/tex; mode=display">
-\Gamma(x)\Gamma(1-x)=\frac{\Gamma(x)\Gamma(1-x)}{\Gamma(x+1-x)}=B(x,1-x)</script><p>同时，再利用$B$函数的三角函数变形式，就有 </p>
-<script type="math/tex; mode=display">
-B(x,1-x)=2\int_{0}^{\pi/2}\cos^{2x-1}\theta\sin^{2(1-x)-1}\theta d\theta=2\int_{0}^{\pi/2}\cot^{2x-1}\theta d\theta</script><p>这时，一个很奇妙的结论就出现了: \</p>
-<script type="math/tex; mode=display">
-\int_{0}^{\pi/2}\cot^{2x-1}\theta d\theta=\frac{\pi}{2\sin\pi{x}}\quad 0<x<1</script><p>如果直接计算这个积分是很困难的。 但是，这两个欧拉积分却为我们提供了一个捷径。 那么正切函数的怎么计算?其实计算方式是一样的。 这是因为，$B(p,q)=B(q,p)$(为什么?)，如果计算$B(1-x,x)$，就能得到$\int_{0}^{\pi/2}\tan^{2x-1}\theta d\theta$的值了。</p>
-<p>接下来，我们试着算一下一个很“基本”的定积分 </p>
-<script type="math/tex; mode=display">
-I_p=\int_{0}^{\infty}\frac{1}{1+x^p}dx\quad p>1</script><p>这个时候因式分解已经不可行了。 实际上有理式因式分解本来就不一定是最靠谱的办法。 如果要分解$(1+x^{2019})$，那就太折磨人了（有2019个复根！）。 而如果利用余元公式，根本不需要这些工作。</p>
-<p>那么怎么才能通过欧拉反射公式解决呢? 首先将它转换成一个$B$函数。</p>
-<p>令$x^p=u\in[0,+\infty)$。 此时 </p>
-<script type="math/tex; mode=display">
-\begin{aligned} I_p &= \int_{0}^{+\infty}\frac{1}{1+u}du^{\frac{1}{p}} \\  
-&= \frac{1}{p}\int_{0}^{+\infty}\frac{u^{\frac{1}{p}-1}}{1+u}du \end{aligned}</script><p>再令$\frac{u}{1+u}=v\in[0,1)$，又能得到 </p>
-<script type="math/tex; mode=display">
-\begin{aligned} I_p &= \frac{1}{p}\int_{0}^{+\infty}\left(\frac{u}{1+u}\right)^{\frac{1}{p}-1}\left(\frac{1}{1+u}\right)^{2-\frac{1}{p}}du \\  
-&= \frac{1}{p}\int_{0}^{1}v^{\frac{1}{p}-1}(1-v)^{-\frac{1}{p}}dv \\  
-&= \frac{1}{p}B(\frac{1}{p},1-\frac{1}{p}) \\  
-&= \frac{\pi}{p\sin\frac{\pi}{p}} \end{aligned}</script><p>也就是说，对于这类积分，有一个普适性的结果: </p>
-<script type="math/tex; mode=display">
-\int_{0}^{\infty}\frac{1}{1+x^p}dx=\frac{\pi}{p\sin\frac{\pi}{p}} \quad p>1</script><p>繁杂的因式分解突然消失了（更何况如果$p$不是整数，根本没有多项式因式分解的说法）。</p>
-<p>这时还可以计算一个极限:</p>
-<script type="math/tex; mode=display">
-\lim_{p\to\infty}I_p=\lim_{p\to\infty}\frac{\frac{\pi}{p}}{\sin\frac{\pi}{p}}=1</script><p>最后我们利用这一个公式计算一个很“不基本”的反常积分。</p>
-<script type="math/tex; mode=display">
-\int_{0}^{1}\ln\Gamma(x)dx.</script><p>利用微积分换元公式，我们有</p>
-<script type="math/tex; mode=display">
-\int_0^1\ln\Gamma(x)dx=\int_1^0 \ln\Gamma(1-x)d(1-x)=\int_0^1\ln\Gamma(1-x)dx.</script><p>从而原积分可以写成自己和自己的和，也就是说，</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-\int_0^1\ln\Gamma(x)dx&=\frac{1}{2}\int_0^1\ln\Gamma(x)\Gamma(1-x)dx \\
-                      &=\frac{1}{2}\int_0^1\ln\frac{\pi}{\sin\pi{x}}dx \\
-                      &=\frac{1}{2}\ln\pi-\frac{1}{2}\int_0^1\ln\sin{\pi{x}}dx \\
-                      &=\frac{1}{2}\ln(2\pi)
-\end{aligned}</script><h2 id="公式的证明"><a href="#公式的证明" class="headerlink" title="公式的证明"></a>公式的证明</h2><p>不得不说这是一件比较困难的事情。 我会在这里先介绍一种利用Arzela控制收敛定理进行证明的办法。</p>
-<h4 id="引理1-Arzela控制收敛定理-Arzela-dominated-convergence-theorem，1885"><a href="#引理1-Arzela控制收敛定理-Arzela-dominated-convergence-theorem，1885" class="headerlink" title="引理1: Arzela控制收敛定理(Arzela dominated convergence theorem，1885)"></a>引理1: Arzela控制收敛定理(Arzela dominated convergence theorem，1885)</h4><blockquote>
-<p>设${f_n}$是在$[a,b]$上收敛于$f$的可积函数列(并不要求一致收敛)，若$f$也可积，且${f_n}$在$[a,b]$上一致有界，即存在$M&gt;0$，使得对每个$n$和所有$x\in[a,b]$同时满足$|f_n(x)|\leq{M}$，则有 </p>
-<script type="math/tex; mode=display">
-\lim_{n\to\infty}\int_{a}^{b}f_n(x)dx=\int_{a}^{b}\lim_{n \to\infty} f_n(x)dx=\int_{a}^{b}f(x)dx</script></blockquote>
-<p>上面这个式子本来需要一致收敛(这是非常严苛的)，但是Arzela发现只需要收敛和一致有界。 但是这个定理登场一百多年来，一直没有一个让人满意的初等证明。 原因一个字:难。 如果感兴趣可以参考<a target="_blank" rel="noopener" href="https://sites.math.washington.edu/~morrow/335_15/dominated.pdf">这里</a>。</p>
-<h4 id="引理2-余割函数的部分分式展开"><a href="#引理2-余割函数的部分分式展开" class="headerlink" title="引理2: 余割函数的部分分式展开"></a>引理2: 余割函数的部分分式展开</h4><blockquote>
-<script type="math/tex; mode=display">
-\csc{x}=\frac{1}{x}+\sum_{n=1}^{\infty}(-1)^{n}\frac{2x}{x^2-n^2\pi^2}</script></blockquote>
-<p>怎么得到的这个公式? 利用傅里叶展开。</p>
-<p>注意到 </p>
-<script type="math/tex; mode=display">
-\cos\alpha{t} = \frac{\sin\pi\alpha}{\pi\alpha}+\sum_{n=1}^{\infty}(-1)^{n}\frac{2\alpha}{\pi(\alpha^2-n^2)}\sin\alpha\pi\cos{nt}</script><p>$\alpha$为整数时，$\csc\alpha\pi$不存在。 $\alpha$不是整数时，令$t=0$，$\alpha\pi=x$。 此时有 </p>
-<script type="math/tex; mode=display">
-1=\frac{\sin{x}}{x}+\sum_{n=1}^{\infty}(-1)^{n}\frac{2x}{x^2-n^2\pi^2}\sin{x}</script><p>移项之后即得结论。</p>
-<h3 id="证明的第一步-用定积分表示反射公式"><a href="#证明的第一步-用定积分表示反射公式" class="headerlink" title="证明的第一步: 用定积分表示反射公式"></a>证明的第一步: 用定积分表示反射公式</h3><p>我们已经知道$\Gamma(x)\Gamma(1-x)=B(x,1-x)$，但这是远远不够的。 两个幂还有一个减号不是很好处理。</p>
-<p>令$t=\frac{1}{1+y}$，那么就有</p>
-<script type="math/tex; mode=display">
-B(x,1-x)=\int_{0}^{\infty}t^{1-x}(1-t)^{-x}dt=\int_{0}^{\infty}\frac{1}{y^x(1+y)}dy</script><h3 id="证明的第二步-反常积分的计算"><a href="#证明的第二步-反常积分的计算" class="headerlink" title="证明的第二步: 反常积分的计算"></a>证明的第二步: 反常积分的计算</h3><p>实际上要做的就是证明第一步得到的结果等于$\pi\csc{\pi{x}}$。 这个时候上文给出的两个引理就能用上了。</p>
-<p>将这个积分分割成$(0,1)$和$[1,+\infty)$两个部分。 在$(0,1)$上，利用幂级数的知识，很容易得到 </p>
-<script type="math/tex; mode=display">
-\frac{1}{y^x(1+y)}=\sum_{n=0}^{\infty}(-1)^{n}y^{n-x}</script><p>等式右侧的函数虽然不是一致收敛，但是$n\geq{1}$时，这个级数的部分和一致有界，这时就可以用Arzela控制收敛定理了。 也就是说，可以直接交换极限符号: </p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-\int_{0}^{1}\frac{dy}{y^x(1+y)}&=\int_{0}^{1}\left(\frac{1}{y^x}+\sum(-1)^{n}y^{n-x}\right)dy \\  
-&=\frac{1}{1-x}+\sum(-1)^n\int_{0}^{1}y^{n-x}dy \\  
-&=\sum\frac{(-1)^{n-1}}{n-x} 
-\end{aligned}</script><p>而$[1,+\infty)$的部分，只需令$u=\frac{1}{y}$，就回到了$(0,1)$上的情况了: </p>
-<script type="math/tex; mode=display">
-\begin{aligned} \int_{1}^{+\infty}\frac{dy}{y^x(1+y)}&=\int_{0}^{1}\frac{du}{u^{1-x}(1+u)} \\  
-&=\sum_{n=1}^{\infty}\frac{(-1)^{n-1}}{n-(1-x)}=\frac{1}{x}+\sum\frac{(-1)^{n}}{n+x} \end{aligned}</script><p>最后，将两部分接起来，就能得到 </p>
-<script type="math/tex; mode=display">
-\begin{aligned} \int_{0}^{+\infty}\frac{dy}{y^x(1+y)}&=\frac{1}{x}+\sum(-1)^{n}\left(\frac{1}{x-n}+\frac{1}{x+n}\right) \\  
-&=\frac{1}{x}+\sum(-1)^{n}\frac{2x}{x^2-n^2} \end{aligned}</script><p>而 </p>
-<script type="math/tex; mode=display">
-\begin{aligned} \pi\csc\pi{x}&=\pi\left(\frac{1}{\pi{x}}+\sum_{n=1}^{\infty}(-1)^{n}\frac{2\pi x}{\pi^2x^2-n^2\pi^2}\right) \\  
-&=\frac{1}{x}+\sum(-1)^{n}\frac{2x}{x^2-n^2} \end{aligned}</script><p>此即 </p>
-<script type="math/tex; mode=display">
-B(x,1-x)=\pi\csc\pi{x}</script><p>即为所求的结论。</p>
-<h2 id="最后要说的"><a href="#最后要说的" class="headerlink" title="最后要说的"></a>最后要说的</h2><p>在实数范围证明这个问题确实是要花好大的功夫——甚至都用到了傅里叶级数。 但是这一路上也可以看到很多重要的技巧，回顾了很多基础知识。 还是那句话，如果视野只局限在这个公式，是很不划算的。</p>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2019-10-01T22:00:00.000Z" title="02/10/2019 00:00:00">2019-10-02</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-07-08T02:24:36.903Z" title="08/07/2023 04:24:36">2023-07-08</time></span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2019/10/02/productivity-overrated/">并不新颖的观点：不要追求生产力、效率了</a></p><div class="content"><p>实际上，在十几年前，Get Things Done、Zen to Done等等“生产力圣经”闪亮登场并得到追捧以来，就有了反对的声音，所以我说，这是不是什么新颖的观点。随着互联网的发展，“生产力”的信奉者们开发了工具，所谓To-Do List，所谓“番茄钟”，这也算是一门生意。我也曾经是一个（比较失败）的追随者，用所谓Todoist，追求他们给我评价的Karma，这似乎代表了我的“效率”。我记得我也曾经到过不低的分数。但我现在觉得，我应该背叛了。</p>
-<p>有一种观点：科学发展的一大动力是“懒惰”。人们为了能更简单地实现更困难的事情，想尽了办法。就比如说，你现在直接在一个电子设备的屏幕上看到了这篇文章，而不是多少年以后才通过口耳相传听到这篇文章的不知道被改了多少次的版本。更简单地实现了更加困难的事情，人类也实现了进步。放心，我不是反对科技发展然后向往2000年前的生活。但我想问：“生产力工具”帮助我们实现了什么？更合理地把自己的日程塞成腊肠？这样做真的有用吗？所以追求“生产力”是为了什么？为了减轻负担，还是为了<strong>让自己更忙碌</strong>？天天高负荷运转是为了什么？</p>
-<p>超忆症患者的压力肯定很大——每天所有的对话、所有无关紧要的细节、某个人在何时何地穿着怎样，都能在许多年后很不情愿地和电影回放一样在脑海复现。追求“生产力”的时候是不是也在追求这种压力？不如问问自己，自己在追求着什么。我想，追求一种没有目的的忙碌，没有目的的成就感，不是好现象。还是说，追求“生产力工具”给打出的高分？这种高分真能说明什么吗？</p>
-<p>另外一个问题：把自己的生活交给一堆不认识的人写的计算机程序是个好主意吗？把购物清单、备忘录交给计算机程序（也可以交给纸笔），当然是个不错的主意。这好比说，我不想记住这些东西，交给你记吧，到时候给我报告一下。但是各种生产力工具扮演的角色就有点不一样了。最开始，它们也扮演着打杂的工作。渐渐地，它利用”成就感“当作诱饵，逐渐接管了用户的生活。用户追求着”生产力“、”效率“带来的成就感（想得到真正的满足是很困难的），换来的可能是莫名其妙的忙碌，从而对工具产生更大的依赖（我觉得很有必要审视一下那些付费内容）。我不否认，一些特殊的工作，可以减少一些不必要的麻烦。就好说，联合收割机的成本和效果通常比手动劳作高。但是，农民如果把精力用在过于追求联合收割机的美观性、驾驶操作体验，就显得很没必要。农忙之后我想没有谁会闲着没事碰它。</p>
-<p>19世纪末期，美国人泰勒提出了“科学管理”的理论，是西方管理学的源头之一。他的理论又被叫做“泰勒制（Taylorism）”（我更愿意叫做泰勒主义）。这套理论追求生产效率、商业效益，渐渐派生成了一个“宗教”：我工作，故我在。他认为，员工作为技术工具意义上的生产工具，是寻找最佳方案或者以最佳方案工作的机器。在生产管理中这样做自然是可以理解的。但是把自己的生活搞成这般是很不现实的。把自己的喜怒哀乐、人际交往、精神追求全关机（当然也就别说啥拼搏、奋斗、吃苦了），然后“高效工作”，到底为了什么？自己不能当作自己的工具或者机器。人们追求“生产力”、“效率”，把很久以后的事情提前完成，然后安排更多的事情忙。我觉得可以再写一条21世纪的教条：<strong>我忙，故我在</strong>。“生产力”、“效率”赐我们以成就感（还有成功？那不一定），但是我们祭上了自己的闲余时间，同时也要承受不该得的压力、焦虑。这种“宗教”非常“浪漫”，但问题是，工作量真的不能说明全部。</p>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2019-09-06T22:00:00.000Z" title="07/09/2019 00:00:00">2019-09-07</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-07-08T02:24:37.422Z" title="08/07/2023 04:24:37">2023-07-08</time></span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2019/09/07/sup-inf/">高等数学入门：上下确界及其极限形式</a></p><div class="content"><h3 id="问题的引入-最大值、最小值的局限性"><a href="#问题的引入-最大值、最小值的局限性" class="headerlink" title="问题的引入: 最大值、最小值的局限性"></a>问题的引入: 最大值、最小值的局限性</h3><p>我们先考虑一个简单的函数: </p>
-<script type="math/tex; mode=display">
-    f(x)=x\quad x\in(0,1)</script><p>那么问题来了: 这个函数有没有最小值或者最大值? 答案是没有. 定义域中的严格不等式给我们制造了无法得到严格解的麻烦. 可能读者会想到, 这是个单调函数, 可以使用极限解决这个问题. 但是这样做局限性太大了. 如果我们连函数的表达式都不知道, 又要到哪个极限找“最值”呢? 我们要做的是, 找到一个数, 它描述集合的范围时, 不依赖于最大值最小值的存在, 而且它不依赖于极限.</p>
-<h3 id="理论基础-实数是有序的"><a href="#理论基础-实数是有序的" class="headerlink" title="理论基础: 实数是有序的"></a>理论基础: 实数是有序的</h3><p>我们一直以来接触各种不等式, 最基本的理论依据就是, 实数的顺序. 这个顺序的意思就是大小关系. 没有顺序关系的数也是有的, 例如复数. 实数的顺序其实可以叙述成以下两点:</p>
-<blockquote>
-<ol>
-<li>如果$x\in\mathbb{R}$而且$y\in\mathbb{R}$, 那么下面三个关系有且仅有一个成立<script type="math/tex; mode=display">
-x<y\quad x=y\quad y<x</script></li>
-<li>如果$x,y,z\in\mathbb{R}$, 而且有$x&lt;y$和$y&lt;z$, 那么$x&lt;z$</li>
-</ol>
-</blockquote>
-<p>至于“$\leq$”，应该理解成小于或等于, “或”的意思在这里是并没有强调哪个一定成立.</p>
-<h3 id="确界的定义"><a href="#确界的定义" class="headerlink" title="确界的定义"></a>确界的定义</h3><p>我们接下来只讨论上界. 也就是说, 我们只讨论小于的情况. 至于另一侧, 将小于号换成大于号即可.</p>
-<h4 id="什么叫有上界"><a href="#什么叫有上界" class="headerlink" title="什么叫有上界"></a>什么叫有上界</h4><blockquote>
-<p>取集合$E\subset\mathbb{R}$, 如果<strong>存在</strong>$\beta\in\mathbb{R}$使得对<strong>任意</strong>$x\in{E}$都<strong>满足</strong>不等式$x\leq\beta$, 那么就称$E$有上界, $\beta$就是$E$的一个上界.</p>
-</blockquote>
-<p>这其实就是一个存在命题. 只要满足就够了. 满足之后呢? 没有然后了. 剩下的细节在这里不重要. 这和极限很类似. 一个很简单的例子: $(-\infty,1]$就是有上界的. 而且任意的上界$\beta$都满足$\beta\in[1,+\infty)$.</p>
-<h4 id="上确界-最小的上界"><a href="#上确界-最小的上界" class="headerlink" title="上确界: 最小的上界"></a>上确界: 最小的上界</h4><p>有的时候, 我们需要知道一个严格最小的上界, 这就是上确界. 首先, 我们给出上确界的定义.</p>
-<blockquote>
-<p>对于有上界的集合$E$, 假设存在一个$\alpha\in\mathbb{R}$满足以下条件, 那么就称它为$E$的上确界, 记作$\alpha=\sup{E}$:</p>
-<ul>
-<li><p>$\alpha$是$E$的一个上界</p>
-</li>
-<li><p>如果$\gamma&lt;\alpha$, 那么$\gamma$不是$E$的上界</p>
-</li>
-</ul>
-</blockquote>
-<p>下确界可以通过相反的不等式进行确定, 记作$\alpha=\inf{E}$. 当然$\sup$和$\inf$后面也不一定要跟一个集合, 也可以跟一个函数或者数列. 回到开头的那个函数, 我们能很容易得到 </p>
-<script type="math/tex; mode=display">
-    \sup{f(x)}=1\quad\inf{f(x)}=0</script><p>这时我们不再依赖于极限, 也可以发现, <strong>如果函数的最大值或最小值存在, 那么它一定等于上确界或下确界, 但是上下确界存在时, 最值不一定存在.</strong> 在函数最值不存在时, 我们仍然能利用确界对函数的范围进行严格的分析, 而且不一定需要求极限, 这体现了上下确界的价值所在. 在这里建议读者写几个函数, 再试着求以下上下确界.</p>
-<h3 id="确界的极限形式-上极限、下极限"><a href="#确界的极限形式-上极限、下极限" class="headerlink" title="确界的极限形式(上极限、下极限)"></a>确界的极限形式(上极限、下极限)</h3><h4 id="数列形式"><a href="#数列形式" class="headerlink" title="数列形式"></a>数列形式</h4><p>设$\{a_n\}$是$\mathbb{R}$里的一个数列, 并且定义 </p>
-<script type="math/tex; mode=display">
-b_k=\sup\{a_k,a_{k+1},a_{k+2},\cdots\}</script><p>再定义 </p>
-<script type="math/tex; mode=display">
-\beta=\inf\{b_1,b_2,b_3,\cdots\}</script><p>那么就有 </p>
-<script type="math/tex; mode=display">
-    \beta=\limsup_{n\to\infty}a_n</script><p>这就完成了上极限的定义. 而下极限的求法就是将上面的上确界、下确界交换顺序即可. 可是这里为什么出现了极限符号? 这是因为 </p>
-<script type="math/tex; mode=display">
-    b_1\geq b_2\geq b_3\geq\cdots\geq\beta</script><p>所以有 </p>
-<script type="math/tex; mode=display">
-    \lim\limits_{k\to\infty}b_k=\beta</script><p>此外,$\{a_n\}$中有一个子列$\{a_{n_i}\}$收敛于$\beta$, 而且$\beta$是具有这个性质<strong>最大</strong>的数.</p>
-<p>这其实还是解决了一件事情, 如果一个数列发散, 我们还是有可能利用上下确界的极限形式来研究极限的一些性质. 一个很简单的例子比如 </p>
-<script type="math/tex; mode=display">
-    \limsup_{n\to\infty}{(-1)^n}=1\quad\liminf_{n\to\infty}{(-1)^n}=-1</script><h4 id="函数形式"><a href="#函数形式" class="headerlink" title="函数形式"></a>函数形式</h4><p>函数中上下极限的求法其实和数列形式是非常类似的. 我们先举一个上极限的例子, 理解构建过程时也可以利用这个例子: </p>
-<script type="math/tex; mode=display">
-    \limsup_{x\to{0}}\sin\frac{1}{x}=1</script><p>对于函数, 值域可能是连续集合. 求$x\to{a}$时的上极限, 我们先求出$x\to{a}$时, $f(x)$的上确界构成的集合 </p>
-<script type="math/tex; mode=display">
-U=\{y|y=\sup\{f(x)|x\in(a-\varepsilon,a+\varepsilon)\}\}</script><p>那么上极限就是 </p>
-<script type="math/tex; mode=display">
-    \limsup_{x\to{a}}f(x)=\inf{U}</script><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>我们单纯利用不等式, 建立起一个非常严格，也非常有应用价值的概念: 确界. 这个概念源于最值, 又高于最值. 当然确界和最值什么时候相等又是一个拓扑学问题. 这又是另外一个话题了.</p>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2019-08-23T22:00:00.000Z" title="24/08/2019 00:00:00">2019-08-24</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-07-08T02:24:36.353Z" title="08/07/2023 04:24:36">2023-07-08</time></span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2019/08/24/harmonic-series-divergence/">调和级数发散的若干证明</a></p><div class="content"><h3 id="命题的提出"><a href="#命题的提出" class="headerlink" title="命题的提出"></a>命题的提出</h3><blockquote>
-<p>设$S_n=1+\frac{1}{2}+\frac{1}{3}+\cdots+\frac{1}{n}$, 求证$\{S_n\}$发散</p>
-</blockquote>
-<p>这个数列的发散是很难通过直觉猜出来的, 因为它的增长速度很慢, 会给人以收敛的错觉. 如果用计算机手动运算, 会发现直到$12367$项, 这个数列的值才超过$10$. 但缓慢的增长速度不能说明敛散性. 接下来会给出一系列精彩的证明, 从14~17世纪纯粹的分式不等式到近现代涉及到微积分等方法.</p>
-<h3 id="遥远的中世纪-Nicole-Oresme-1350-1360"><a href="#遥远的中世纪-Nicole-Oresme-1350-1360" class="headerlink" title="遥远的中世纪: Nicole Oresme(1350?-1360?)"></a>遥远的中世纪: Nicole Oresme(1350?-1360?)</h3><p>这个证明方式是历史上最早的证明, 涉及到简单的不等式放缩和数学归纳.</p>
-<p>考虑到不等式 </p>
-<script type="math/tex; mode=display">
-    \underbrace{\frac{1}{n+1}+\frac{1}{n+2}+\cdots+\frac{1}{2n}}_{\text{$n$项}}>n\cdot\frac{1}{2n}=\frac{1}{2}</script><p>我们分析$\{S_{2^n}\}$这个数列, 发现 </p>
-<script type="math/tex; mode=display">
-    S_1=1+0\cdot\frac{1}{2}</script><script type="math/tex; mode=display">
-    S_2=1+1\cdot\frac{1}{2}</script><script type="math/tex; mode=display">
-    S_4=1+\frac{1}{2}+\frac{1}{2+1}+\frac{1}{2\cdot{2}}>1+\frac{1}{2}+\frac{1}{2}=1+2\cdot\frac{1}{2}</script><script type="math/tex; mode=display">
-    S_8=S_4+\frac{1}{4+1}+\cdots+\frac{1}{4\cdot{2}}>1+3\cdot\frac{1}{2}</script><p>递推下去, 我们能得到 </p>
-<script type="math/tex; mode=display">
-    S_{2^n}\geq 1+n\cdot\frac{1}{2}</script><p>这说明$S_n$有一个子列无界, 故原数列发散. 证毕.</p>
-<p>其实不用局限在$2^n$这一部分, 用同样的办法, 我们能得到 </p>
-<script type="math/tex; mode=display">
-    S_{M^n}\geq 1+n\cdot\frac{M-1}{M}</script><h3 id="Pietro-Mengoli-17世纪中叶"><a href="#Pietro-Mengoli-17世纪中叶" class="headerlink" title="Pietro Mengoli(17世纪中叶)"></a>Pietro Mengoli(17世纪中叶)</h3><p>考虑不等式 </p>
-<script type="math/tex; mode=display">
-    \frac{1}{n-1}+\frac{1}{n}+\frac{1}{n+1}=\frac{1}{n}+\frac{2n}{n^2-1}>\frac{1}{n}+\frac{2n}{n^2}=\frac{3}{n}</script><p>假设原级数收敛到$S$, 那么有 </p>
-<script type="math/tex; mode=display">
-    \begin{aligned}
-        S&=1+\left(\frac{1}{2}+\frac{1}{3}+\frac{1}{4}\right)+\left(\frac{1}{5}+\frac{1}{6}+\frac{1}{7}\right)+\cdots\\  
-         &>1+\frac{3}{3}+\frac{3}{6}+\frac{3}{9}+\cdots\\  
-         &=1+S \end{aligned}</script><p>而$S&gt;1+S$无解, 这说明极限不存在. 证毕.</p>
-<h3 id="Bernoulli兄弟-1689"><a href="#Bernoulli兄弟-1689" class="headerlink" title="Bernoulli兄弟(1689)"></a>Bernoulli兄弟(1689)</h3><p>Bernoulli兄弟的证明发布于 <em>Tractatus de se-riebus infinitis</em> 一书中.</p>
-<h4 id="Jacob-Bernoulli"><a href="#Jacob-Bernoulli" class="headerlink" title="Jacob Bernoulli"></a>Jacob Bernoulli</h4><p>对任意正整数有 </p>
-<script type="math/tex; mode=display">
-    \underbrace{\frac{1}{n+1}+\frac{1}{n+2}+\cdots+\frac{1}{n^2}}_\text{$n^2-n$项}>\frac{n^2-n}{n^2}=1-\frac{1}{n}</script><p>也就是说 </p>
-<script type="math/tex; mode=display">
-    \frac{1}{n}+\frac{1}{n+1}+\cdots+\frac{1}{n^2}>1</script><p>因此有 </p>
-<script type="math/tex; mode=display">
-    \begin{aligned} 
-        \sum_{n=1}^{\infty}\frac{1}{n}&=1+\left(\frac{1}{2}+\frac{1}{3}+\frac{1}{4}\right)+\left(\frac{1}{5}+\cdots+\frac{1}{25}\right)+\cdots\\  
-        &>1+1+1+\cdots 
-    \end{aligned}</script><p>原级数发散. 证毕.</p>
-<h4 id="Johann-Bernoulli"><a href="#Johann-Bernoulli" class="headerlink" title="Johann Bernoulli"></a>Johann Bernoulli</h4><p>考虑级数 </p>
-<script type="math/tex; mode=display">
-    \sum_{n=k}^{\infty}\left(\frac{1}{n}-\frac{1}{n+1}\right)=\sum_{n=k}^{\infty}\frac{1}{n(n+1)}=\frac{1}{k}</script><p>同样, 我们假设级数收敛于$S$ </p>
-<script type="math/tex; mode=display">
-    \begin{aligned} 
-    S&=1+\frac{1}{2}+\frac{1}{3}+\frac{1}{4}+\frac{1}{5}+\cdots\\  
-    &=1+\frac{1}{2}+\frac{2}{6}+\frac{3}{12}+\frac{4}{20}+\frac{5}{30}+\cdots\\  
-    &=1+\left(\frac{1}{2}+\frac{1}{6}+\frac{1}{12}+\cdots\right)+\left(\frac{1}{6}+\frac{1}{12}+\frac{1}{20}+\cdots\right)+\cdots\\  
-    &=1+1+\frac{1}{2}+\frac{1}{3}+\cdots\\  
-    &=1+S \end{aligned}</script><p>而$S=1+S$无解, 这说明极限不存在.</p>
-<h3 id="三种Cauchy判别法"><a href="#三种Cauchy判别法" class="headerlink" title="三种Cauchy判别法"></a>三种Cauchy判别法</h3><p>Cauchy的三种判别法是比较常见且应用非常广泛的, 在微积分课程中也是常客, 现将三种方法列在下面</p>
-<h4 id="Cauchy积分判别法"><a href="#Cauchy积分判别法" class="headerlink" title="Cauchy积分判别法"></a>Cauchy积分判别法</h4><blockquote>
-<p>设$f$在$[1,+\infty)$单调减少, 则级数$\sum_{n=1}^{\infty}f(n)$与广义积分$\int_{1}^{\infty}f(x)dx$同敛散</p>
-</blockquote>
-<p>代入$f(x)=\frac{1}{x}$即可.</p>
-<h4 id="Cauchy凝聚判别法"><a href="#Cauchy凝聚判别法" class="headerlink" title="Cauchy凝聚判别法"></a>Cauchy凝聚判别法</h4><blockquote>
-<p>设$\{a_n\}$是单调减少的整数列, 则正项级数$\sum_{n=1}^{\infty}a_n$收敛的充分必要条件是凝聚项级数$\sum_{n=1}^{\infty}2^na_{2^n}$收敛</p>
-</blockquote>
-<p>这个判别法可以很简单地对$a_n=\frac{1}{n^p}$对应级数的敛散性进行讨论.</p>
-<h4 id="Cauchy收敛准则"><a href="#Cauchy收敛准则" class="headerlink" title="Cauchy收敛准则"></a>Cauchy收敛准则</h4><p>可以发现, $S_{2n}-S_n=\frac{1}{n}+\frac{1}{n+1}+\cdots+\frac{1}{2n}&gt;\frac{n}{2n}=\frac{1}{2}$.</p>
-<p>这说明, 存在$\varepsilon=\frac{1}{2}$, 总有$|S_{2n}-S_n|&gt;\varepsilon$. 这说明了这个级数的发散.</p>
-<h3 id="Honsberger-1976"><a href="#Honsberger-1976" class="headerlink" title="Honsberger(1976)"></a>Honsberger(1976)</h3><p>这个证明是$e^{x}\geq{1+x}$的巧用.</p>
-<p>考虑$e^{S_n}$这个数列, 有</p>
-<script type="math/tex; mode=display">
-    \begin{aligned} 
-        e^{S_n}&=\text{exp}\left(1+\frac{1}{2}+\frac{1}{3}+\frac{1}{4}+\cdots+\frac{1}{n}\right)\\  
-        &=e^{1}e^{\frac{1}{2}}e^{\frac{1}{3}}e^{\frac{1}{4}}\cdots e^{\frac{1}{n}}\\  
-        &>\left(1+1\right)\left(1+\frac{1}{2}\right)\cdots\left(1+\frac{1}{n}\right)\\  
-        &=n+1 \end{aligned}</script><p>$e^{S_n}$的发散便说明了$S_n$的发散.</p>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2019-08-18T22:00:00.000Z" title="19/08/2019 00:00:00">2019-08-19</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-08-24T11:07:43.769Z" title="24/08/2023 13:07:43">2023-08-24</time></span><span class="level-item"><a class="link-muted" href="../../categories/Analysis/">Analysis</a><span> / </span><a class="link-muted" href="../../categories/Analysis/Elementary/">Elementary</a><span> / </span><a class="link-muted" href="../../categories/Analysis/Elementary/Differentiation/">Differentiation</a></span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2019/08/19/l-hopital-proof/">洛必达法则的几种不同的证明</a></p><div class="content"><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>洛必达法则相比甚至不少高中生甚至初中生都听说过，知道怎么进行简单的应用。简单点说，处理$\frac{0}{0}$的函数时，对上下进行求导，可能会很大程度上简化计算。但是洛必达法则为什么能奏效? 能不能用严格的数理语言进行论证? 这是这篇文章需要解决的。</p>
-<p><em>本博文于2022年10月4日对利用中值定理的证明进行了重新编排。编排的过程中发现最后两步在之前其实是没解释清楚的，甚至存在错误。</em></p>
-<h3 id="洛必达法则的完整论述"><a href="#洛必达法则的完整论述" class="headerlink" title="洛必达法则的完整论述"></a>洛必达法则的完整论述</h3><blockquote>
-<p>设$f$和$g$为$(a,b)$上的实可微函数，且在$(a,b)$区间上总有$g’(x) \ne 0$. 设</p>
-<script type="math/tex; mode=display">
-\frac{f'(x)}{g'(x)} \to A \quad (x \to a).</script><p>若</p>
-<script type="math/tex; mode=display">
-f(x) \to 0, g(x) \to 0 \quad (x \to a)</script><p>或仅有</p>
-<script type="math/tex; mode=display">
-g(x) \to \pm \infty \quad (x \to a)</script><p>则</p>
-<script type="math/tex; mode=display">
-\frac{f(x)}{g(x)} \to A \quad (x \to a).</script><p>其中$x \to a$自然也可以换成$x \to b$. 这里把发散到无穷也看作是极限，也就是说$-\infty \le A \le \infty$且$-\infty \le a &lt; b \le +\infty$. </p>
-</blockquote>
-<h3 id="证明1-线性近似"><a href="#证明1-线性近似" class="headerlink" title="证明1:线性近似"></a>证明1:线性近似</h3><h4 id="波努利最开始的”证明”"><a href="#波努利最开始的”证明”" class="headerlink" title="波努利最开始的”证明”"></a>波努利最开始的”证明”</h4><p>洛必达法则首次出现于1696年洛必达的 <em>Analyse des Infiniment Petits pour l’Intelligence des Lignes Courbes</em> 一书中。这本书当然以”洛必达法则”闻名于世。证明是这样完成的: </p>
-<script type="math/tex; mode=display">
-\frac{f(a+dx)}{g(a+dx)}=\frac{f(a)+f’(a)dx}{g(a)+g’(a)dx}=\frac{f’(a)dx}{g’(a)dx}=\frac{f’(a)}{g’(a)}</script><p>这个证明很好理解，线性近似展开，再考虑到$f(a)=g(a)=0$就得到结果。但是这个做法肯定是不合适的，$dx$在这里非常模糊，也不方便表达$x\to\infty$的情况。关于历史内容可以参见 <em>The Historical Development of the Calculus</em> 一书。</p>
-<h4 id="线性近似的严格证明"><a href="#线性近似的严格证明" class="headerlink" title="线性近似的严格证明"></a>线性近似的严格证明</h4><p>首先，这里只讨论$h\to0$的情况。实际上，对于其他情况，可以作换元。例如$h\to\infty$时，可以利用$u=\frac{1}{h}$，那么又转换成了$u\to0$的情况。另外我们只讨论函数趋近于$0$的情况。因为趋近于无穷时函数的线性近似可能无法处理。例如$y=\frac{1}{x}$在$x=0$附近是没有近似的。</p>
-<p>对函数导数有</p>
-<script type="math/tex; mode=display">
-f'(x) = \lim_{h\to 0} \frac{f(x+h)-f(x)}{h},</script><p>我们可以写成</p>
-<script type="math/tex; mode=display">
-f'(x) = \frac{f(x+h)-f(x)}{h} + r(h)</script><p>其中$\lim\limits_{h\to0}r(h)=0$，且$r(h)$为连续函数。进行代数变形(这里$r(h)$的正负进行了调整),我们的得到线性近似</p>
-<script type="math/tex; mode=display">
-f(x+h)=f(x)+f'(x)h+r(h)h</script><p>同样可以写出$g(x)$的线性近似</p>
-<script type="math/tex; mode=display">
-g(x+h)=g(x)+g'(x)h+s(h)h</script><p>那么就能得到</p>
-<script type="math/tex; mode=display">
-\frac{f(a+h)}{g(a+h)}=\frac{f(a)+f'(a)h+r(h)h}{g(a)+g'(a)h+s(h)h}=\frac{f'(a)h+r(h)h}{g'(a)h+s(h)h}=\frac{f'(a)+r(h)}{g'(a)+s(h)}</script><p>而$h\to0$时，$r(h)\to0$，$s(h)\to0$，故得到了结论。</p>
-<h3 id="证明2-中值定理"><a href="#证明2-中值定理" class="headerlink" title="证明2:中值定理"></a>证明2:中值定理</h3><p><em>这个证明中，我们会利用柯西中值定理(GMVT)对所有的情况进行完整的证明，这期间涉及到一些不等式运算技巧。证明来自W. Rudin的 Principles Of Mathematical Analysis，我会在其中加上一些额外的解释。关于$g(x) \to \pm\infty$的情况，我们在此只讨论$+\infty$.</em></p>
-<h4 id="情况1-infty-leq-A-lt-infty"><a href="#情况1-infty-leq-A-lt-infty" class="headerlink" title="情况1: $-\infty\leq{A}&lt;+\infty$"></a>情况1: $-\infty\leq{A}&lt;+\infty$</h4><p>选取实数$q&gt;A$，再选取$\varepsilon&gt;0$使得$A+\varepsilon&lt;q$. 因为$\frac{f’(x)}{g’(x)}\to{A}$，根据极限的定义，必定有实数$\delta\in(0,b-a)$，使得对于所有$a&lt;x&lt;a+\delta$，始终有$-\varepsilon&lt;\frac{f’(x)}{g’(x)}-A&lt;\varepsilon$. 特别地,  </p>
-<script type="math/tex; mode=display">
-\frac{f'(x)}{g'(x)}<A+\varepsilon.</script><p>对任意$a&lt;x&lt;y&lt;a+\delta$，由GMVT可知，存在$t\in(x,y)$使得: </p>
-<script type="math/tex; mode=display">
-\begin{equation}\label{(A)}\tag{1}
-\frac{f(x)-f(y)}{g(x)-g(y)}=\frac{f'(t)}{g'(t)}<A+\varepsilon
-\end{equation}</script><p>最后一个不等式成立是因为$t\in(x,y)\subset(a,a+\delta)$，而在$(a,a+\delta)$中这个不等式成立。接下来，我们根据$g(x)$在$x \to a$时的取值，分别讨论，会发现结果其实类似. </p>
-<h5 id="情况1-1-g-x-to-0-且-f-x-to-0"><a href="#情况1-1-g-x-to-0-且-f-x-to-0" class="headerlink" title="情况1.1: $g(x)\to 0$且$f(x) \to 0$"></a>情况1.1: $g(x)\to 0$且$f(x) \to 0$</h5><p>在不等式$\eqref{(A)}$中，令$x \to a$，会发现有：</p>
-<script type="math/tex; mode=display">
-\frac{0-f(y)}{0-g(y)}=\frac{f(y)}{g(y)}=\frac{f'(t)}{g'(t)}
- \leq A+\varepsilon<q</script><p>更正式地说，对任意的$q&gt;A$和$0&lt; \varepsilon&lt; q-A$，都存在$\delta &gt; 0$，使得对任意的$a&lt;y&lt;a+\delta$，均满足不等式</p>
-<script type="math/tex; mode=display">
-\begin{equation}\label{(B)}\tag{2}
-\frac{f(y)}{g(y)} \le A+\varepsilon<q.
-\end{equation}</script><p>（注意：我们这里并没有证明收敛，而只证明了收敛的一半，接下来的情况1.2也是类似的。在接下来我们不刻意地写$\delta$，而是写成指定存在的实数，这样的写法是等价的，虽然初学微积分时可能会感觉比较陌生。）</p>
-<h5 id="情况1-2-g-x-to-infty"><a href="#情况1-2-g-x-to-infty" class="headerlink" title="情况1.2: $g(x)\to+\infty$"></a>情况1.2: $g(x)\to+\infty$</h5><p>固定不等式(A)中的$ y $. 因为$ g(x) \to +\infty $，在$ (a,y) $一定存在$ c_1 $使得对于任意$ a&lt; x &lt; c_1 $，总是有$ g(x) &gt; g(y) $和$ g(x) &gt; 0 $同时成立。将不等式(A)两边同时乘以$ [g(x)-g(y)]/g(x) $，我们得到</p>
-<script type="math/tex; mode=display">
-\frac{f(x)-f(y)}{g(x)-g(y)}\frac{g(x)-g(y)}{g(x)}<
-(A+\varepsilon)\frac{g(x)-g(y)}{g(x)}.</script><p>此即</p>
-<script type="math/tex; mode=display">
-\frac{f(x)}{g(x)}<(A+\varepsilon)\left(1-\frac{g(y)}{g(x)}\right)
-+\frac{f(y)}{g(x)} \quad (a<x<c_1).</script><p>根据$g(x) \to +\infty$的定义，存在$c_2 \in (a,c_1)$使得：</p>
-<script type="math/tex; mode=display">
-\begin{equation}\label{(D)}\tag{3}
-\frac{f(x)}{g(x)} < A+\varepsilon<q.
-\end{equation}</script><h5 id="情况1-1和1-2的整合"><a href="#情况1-1和1-2的整合" class="headerlink" title="情况1.1和1.2的整合"></a>情况1.1和1.2的整合</h5><p>不等式$\eqref{(B)}$和$\eqref{(D)}$都只说明，存在$c\in(a,b)$使得对于所有$x\in(a,c)$，满足$\frac{f(x)}{g(x)}&lt;q$.但是$\frac{f(x)}{g(x)}$与$A$的关系我们并不知道。但是，如果$A=-\infty$，那么我们已经证明了$\frac{f(x)}{g(x)} \to -\infty$的成立。</p>
-<h4 id="情况2-infty-lt-A-leq-infty"><a href="#情况2-infty-lt-A-leq-infty" class="headerlink" title="情况2: $-\infty&lt;{A}\leq+\infty$"></a>情况2: $-\infty&lt;{A}\leq+\infty$</h4><p>这个情况是和情况1完全类似的。同理可证，对任意$p$，当且仅当$p&lt;A$时，总有$c’\in(a,b)$，使得对于所有$x\in(a,c’)$，满足$p&lt;\frac{f(x)}{g(x)}$. 如果$A=+\infty$，那么我们已经证明了$\frac{f(x)}{g(x)} \to +\infty$的情况。</p>
-<p>除去$A=\pm\infty$，综合情况1和2，我们发现，对任意的$p,q$满足$p&lt;A&lt;q$，若取$c_0=\min\{c,c’\}$，则对于任意$x \in (a,c_0)$，一定有</p>
-<script type="math/tex; mode=display">
-p<\frac{f(x)}{g(x)}<q.</script><p>这其实就等价于$\lim_{x \to a}\frac{f(x)}{g(x)}=A$. $\square$</p>
-<h4 id="证明中几个小问题"><a href="#证明中几个小问题" class="headerlink" title="证明中几个小问题"></a>证明中几个小问题</h4><blockquote>
-<p> 不等式$\eqref{(A)}$第一项的分母为什么一定有意义?</p>
-</blockquote>
-<p>假设它无意义. 如果有$g(x)=g(y)$，那么有$a&lt;{x}&lt;t&lt;y&lt;b$使得$g’(t)=0$, 而这与原假设矛盾. </p>
-<blockquote>
-<p> 不等式$\eqref{(B)}$中为什么变成小于等于?</p>
-</blockquote>
-<p>每次改变$x$，$t$也发生改变，记为$t(x)$，此时可能有$\lim\limits_{x\to{a}}\frac{f’(t(x))}{g’(t(x))}=r$.</p>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2019-08-05T22:00:00.000Z" title="06/08/2019 00:00:00">2019-08-06</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-07-08T02:24:35.216Z" title="08/07/2023 04:24:35">2023-07-08</time></span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2019/08/06/beautiful-fourier-002/">优美的Fourier级数（二）: 有界差分下的收敛(Jordan判别法)</a></p><div class="content"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>如果你和Fourier级数打交道，那么在处理间断函数，特别是锯齿状函数的时候，有没有注意过间断处的形状？它为什么会处在中间位置？什么时候会出现这种情况？这就是接下来要解决的问题. 这篇文章中, 会涉及到各种与三角函数、定积分、导函数有关的基本重要技巧. 还是那句话，Fourier级数绝对不仅仅是处理一系列三角函数. 还要注意，这里我们探讨的函数应该是定义在$[-\pi,\pi]$的实函数. 这篇文章中实际要做的事情是, 利用定积分的各种性质, 进行无穷小量的分析.</p>
-<h2 id="Jordan判别法"><a href="#Jordan判别法" class="headerlink" title="Jordan判别法"></a>Jordan判别法</h2><blockquote>
-<p>如果$f$是有界差分，那么</p>
-<script type="math/tex; mode=display">
-    s_N(x)\to\frac{f(x^+)+f(x^-)}{2}</script></blockquote>
-<p>其中$f(x^+)=\lim\limits_{h\to0^+}f(x+h)$, $f(x^-)=\lim\limits_{h\to0^+}f(x-h)$</p>
-<h3 id="理论准备1-有界差分"><a href="#理论准备1-有界差分" class="headerlink" title="理论准备1: 有界差分"></a>理论准备1: 有界差分</h3><p>有界差分可以看成推广的“弧长”. 在$[a,b]$上，$f(x)$的总差分的定义是这样：</p>
-<script type="math/tex; mode=display">
-    T_f(x):=\sup\{\sum_{i=1}^n|f(x_i)-f(x_{i-1})||a=x_0<x_1<\cdots<x_n=x\}</script><p>对于连续函数来说，这就是$f(x)$在$[a,x]$的弧长. 而如果$f(x)$是$[a,b]$上的有界差分，那么只需要满足$T_f(b)&lt;\infty$.</p>
-<p>注意到, $f(x)$还可以写成</p>
-<script type="math/tex; mode=display">
-    f(x)=\frac{1}{2}[T_f(x)+f(x)]-\frac{1}{2}[T_f(x)-f(x)]</script><p>而$\frac{1}{2}[T_f(x)+f(x)]$和$\frac{1}{2}[T_f(x)-f(x)]$都是非负的单调增函数. 事实上，有界差分一定可以写成两个单调增函数的差，具体证明可以参见<a target="_blank" rel="noopener" href="https://math.stackexchange.com/questions/141338/bounded-variation-difference-of-two-increasing-functions">这里</a>.</p>
-<h3 id="理论准备2-积分第二中值定理"><a href="#理论准备2-积分第二中值定理" class="headerlink" title="理论准备2: 积分第二中值定理"></a>理论准备2: 积分第二中值定理</h3><blockquote>
-<p>如果定义在$[a,b]$上的实函数$f$和$g$满足$f$连续且$g$单调，那么存在$c\in(a,b)$使得</p>
-<script type="math/tex; mode=display">
-    \int_a^bf(x)g(x)dx=g(a^+)\int_a^cf(x)dx+g(b^-)\int_c^bf(x)dx</script></blockquote>
-<p>这个定理的证明可以参见<a target="_blank" rel="noopener" href="http://www.math.mcgill.ca/labute/courses/255w03/L9.pdf">这里</a>，也可以用Abel变换进行证明.</p>
-<h3 id="回到Jordan判别法的证明"><a href="#回到Jordan判别法的证明" class="headerlink" title="回到Jordan判别法的证明"></a>回到Jordan判别法的证明</h3><p>因为$D_N(x)$是偶函数，$S_N(x)$可以重写成 </p>
-<script type="math/tex; mode=display">
-    S_N(x)=\frac{1}{2\pi}\int_0^{\pi}(f(x-t)+f(x+t))D_N(t)dt</script><p>如果我们定义$g(t)=f(x+t)+f(x-t)$, 那么就有 </p>
-<script type="math/tex; mode=display">
-    g(0^+)=f(x^+)+f(x^-)</script><p>原命题即证明</p>
-<script type="math/tex; mode=display">
-    \frac{1}{2\pi}\int_0^{\pi}g(t)D_N(t)dt\to\frac{g(0^+)}{2}</script><p>又考虑到$g(t)$是有界差分，可以写成两个单调增函数的差. 那么这里只需要这个极限对单调增函数成立即可.</p>
-<p>设有单调增函数$h(t)$, 定义$H(t)=h(t)-h(0^+)$; 注意到 </p>
-<script type="math/tex; mode=display">
-    \frac{1}{2\pi}\int_0^{\pi}H(t)D_N(t)dt\to\frac{H(0^+)}{2}=0</script><p>当且仅当 </p>
-<script type="math/tex; mode=display">
-    \frac{1}{2\pi}\int_0^{\pi}h(t)D_N(t)dt\to\frac{h(0^+)}{2}</script><p>这是因为$\frac{1}{2\pi}\int_0^{\pi}D_N(t)dt=\frac{1}{2}$.<br>那么不失一般性，可以设$h(0^+)=0$, 那么需要证明， </p>
-<script type="math/tex; mode=display">
-    \frac{1}{2\pi}\int_0^{\pi}h(t)D_N(t)dt\to 0\quad(N\to\infty)</script><p>因为$h(0^+)=0$, 根据连续的定义, 对任意$\varepsilon&gt;0$, 有$\delta&gt;0$使得对任意$0&lt;x&lt;\delta$有$0&lt;h(x)&lt;\varepsilon$. 原积分可以展开为 </p>
-<script type="math/tex; mode=display">
-    \frac{1}{2\pi}\int_0^{\pi}h(t)D_N(t)dt=\frac{1}{2\pi}\int_0^{\delta}h(t)D_N(t)dt+\frac{1}{2\pi}\int_{\delta}^{\pi}h(t)D_N(t)dt</script><p>注意到最后一个积分可以写成 </p>
-<script type="math/tex; mode=display">
-    \frac{1}{2\pi}\int_0^{\pi}\frac{h(t)}{\sin(t/2)}\chi_{[\delta,\pi]}\sin(N+\frac{1}{2})tdt</script><p>其中</p>
-<script type="math/tex; mode=display">
-    \chi_E=\begin{cases}1,x\in E \\ {0}, x\notin E\end{cases}</script><p>那么这个积分的讨论就和上一篇里收敛性证明的最后利用Bessel不等式的推论的过程一样了， 将$\sin(N+\frac{1}{2})t$展开之后, 我们得到，这个积分的极限为$0$. 证明在此略去.</p>
-<p>第一个积分我们用积分第二定理展开, 得到:<br>\begin{equation}<br>    \begin{aligned}<br>        \frac{1}{2\pi}\int_0^{\delta}h(t)D_N(t)dt&amp;=\frac{1}{2\pi}h(\delta^-)\int_c^{\delta}D_N(t)dt\\<br>    &amp;\leq\frac{\varepsilon}{2\pi}\int_c^{\delta}D_N(t)dt<br>    \end{aligned}<br>\end{equation}</p>
-<p>其中$0&lt;c&lt;\delta$. 如果我们能证出$\int_c^{\delta}D_N(t)dt$是有界的，那么$\varepsilon\to0$时，就有所求结论. 注意到 </p>
-<script type="math/tex; mode=display">
-    \left\vert\int_c^{\delta}D_N(t)dt\right\vert\leq \left\vert\int_c^{\delta}\sin(N+\frac{1}{2})t(\frac{1}{\sin(t/2)}-\frac{1}{t/2})dt\right\vert+\left\vert\int_c^{\delta}\frac{\sin(N+\frac{1}{2})t}{t/2}dt\right\vert</script><p>因为$\lim\limits_{t\to0}\frac{1}{\sin(t/2)}-\frac{1}{t/2}=0$, 而且这个函数在$(0,\pi]$上连续有定义，故$\frac{1}{\sin(t/2)}-\frac{1}{t/2}$在$[0,\pi]$上可积. 再利用Bessel不等式的推论，不等式右侧第一个积分趋近于0， 同时也是有界的.</p>
-<p>针对另一个积分的讨论，我们首先令$u=(N+\frac{1}{2})t$, 那么能得到 </p>
-<script type="math/tex; mode=display">
-    \int_c^{\delta}\frac{\sin(N+\frac{1}{2})t}{t/2}dt=2\int_{(N+\frac{1}{2})c}^{(N+\frac{1}{2})\delta}\frac{\sin u}{u}du</script><p>这个积分的有界性可以通过探讨函数$y=\int_0^{x}\frac{\sin x}{x}dx(x&gt;0)$得到. 通过很多办法可以发现，$\lim\limits_{x\to\infty}y=\frac{\pi}{2}$. 具体可以参见<a target="_blank" rel="noopener" href="https://math.stackexchange.com/questions/5248/evaluating-the-integral-int-0-infty-frac-sin-x-x-mathrm-dx-frac-pi">这里</a>. 接下来, 我们通过基本的导数和单调性的关系分析它的有界性. 我们要做的是, 证明$y(\pi)$为$y$的最大值(考虑到$\frac{\sin{x}}{x}$在$(0,\pi]$处处有界, 必然有$y(\pi)&lt;\infty$).</p>
-<p>因为$y’=\frac{\sin x}{x}$, $y$ 在$[2k\pi,(2k+1)\pi]$递增，在$[(2k-1)\pi,2k\pi]$递减.</p>
-<p>$y$在$[0,\pi]$递增，所以$0&lt;x&lt;\pi$时，$y(x)&lt;y(\pi)$.</p>
-<p>又考虑到 </p>
-<script type="math/tex; mode=display">
-    y((2k-1)\pi)-y((2k+1)\pi)=\int_{(2k-1)\pi}^{(2k+1)\pi}\frac{\sin x}{x}dx</script><p>而 </p>
-<script type="math/tex; mode=display">
-    \int_{(2k-1)\pi}^{(2k+1)\pi}\frac{\sin x}{x}dx>\int_{(2k-1)\pi}^{(2k+1)\pi}\frac{\sin x}{(2k+1)\pi}dx=0</script><p>从而有 </p>
-<script type="math/tex; mode=display">
-    y(\pi)>y(3\pi)>\cdots>y((2k+1)\pi)</script><p>而根据函数的单调性，一定有 </p>
-<script type="math/tex; mode=display">
-    \begin{cases} 
-        y(2k\pi)<y((2k-1)\pi)\\  
-        y(2k\pi)<y((2k+1)\pi) 
-    \end{cases} 
-$$ 因此$y$的最大值为$y(\pi)$. 用类似的办法还可以发现$y(0)$为最小值. 这说明，$y$是有界的.
-
-再回到原来的积分，有</script><pre><code>2\left\vert\int_&#123;(N+\frac&#123;1&#125;&#123;2&#125;)c&#125;^&#123;(N+\frac&#123;1&#125;&#123;2&#125;)\delta&#125;\frac&#123;\sin u&#125;&#123;u&#125;du\right\vert=2\left\vert y((N+\frac&#123;1&#125;&#123;2&#125;)\delta)-y((N+\frac&#123;1&#125;&#123;2&#125;)c)\right\vert&lt;2y(\pi) 
-</code></pre><p>$$</p>
-<p>至此，我们证明了$\int_c^{\delta}D_N(t)dt$是有界的. 进一步也得出了想要的收敛性的结论.</p>
-<h2 id="总结-amp-其他想说的"><a href="#总结-amp-其他想说的" class="headerlink" title="总结&amp;其他想说的"></a>总结&amp;其他想说的</h2><p>至此，Jordan判别法得到了证明. 但千万不要认为，Fourier级数的收敛是这么简单的一件事情. 这可能会让人觉得，既然有界差分就有这么好的收敛现象，那么连续函数一定就收敛得更好. 但实际情况完全不一样：存在至少有一点发散的连续函数的Fourier级数（du Bois Reymond, 1873）. 此外，甚至存在每点都发散的Fourier级数(Kolmogorov, 1926). 这和处处连续但处处不可导的函数一样，很难想象，但是理论上确实存在.</p>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2019-08-04T22:00:00.000Z" title="05/08/2019 00:00:00">2019-08-05</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-07-08T02:24:35.202Z" title="08/07/2023 04:24:35">2023-07-08</time></span><span class="level-item"><a class="link-muted" href="../../categories/Legacy-content/">Legacy content</a></span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2019/08/05/beautiful-fourier-001/">优美的Fourier级数（一）: 绝对不只是求表达式的问题</a></p><div class="content"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Fourier级数是相当优美的一类级数，但它涉及到的问题绝对不仅仅是通过各种运算技巧求表达式。 相反，它是一个很复杂、很困难的大话题。<br>我在这里会把一些基本内容和一系列严格的证明整理下来。 从Fourier级数出发，我们能看到很多重要的基本技巧的应用，也会遇见和实际应用息息相关的问题。<br>当然这些内容里不会包括如何求表达式，我觉得计算机做得比我好多了。</p>
-<h2 id="Fourier级数"><a href="#Fourier级数" class="headerlink" title="Fourier级数"></a>Fourier级数</h2><p>在读这篇文章时， 你可能已经学到了一些求Fourier级数系数的技巧， 这可以看成一元微积分的角度的理解。 接下来，<br>我们希望从向量几何的角度看待Fourier级数。 当然， 这里不是要求画出几何图像， 而是要求理解运算规则。</p>
-<h3 id="级数的表达"><a href="#级数的表达" class="headerlink" title="级数的表达"></a>级数的表达</h3><p>最常见的Fourier级数是这种形式：</p>
-<script type="math/tex; mode=display">
-    f(x)=a_0+\sum_{n=1}^{\infty}(a_n\cos nx+b_n\sin nx)\quad
-x\in\mathbb{R}</script><p>这里的$a_n$和$b_n$既可以是实数又可以是复数(但我们接下来主要讨论实数函数$f$)。 有的地方把第一项写成$\frac{a_0}{2}$，<br>这是考虑到积分时会多出来的一个$\frac{1}{2}$。 两种写法单纯是关于如何统一表达，在后面会解释。 考虑到$e^{ix}=\cos x+i\sin<br>x$， 上面的式子可以写成</p>
-<script type="math/tex; mode=display">
-    f(x)= \sum_{-\infty}^{\infty}c_ne^{inx}\quad x\in\mathbb{R}</script><p>用这种表达方式时不用考虑$c_n$的细节。 注意到$a_0$可以写成$a_0\cos 0x + b_0\sin 0x$。</p>
-<h3 id="关于级数的系数，即函数的“坐标”"><a href="#关于级数的系数，即函数的“坐标”" class="headerlink" title="关于级数的系数，即函数的“坐标”"></a>关于级数的系数，即函数的“坐标”</h3><h4 id="单位正交系"><a href="#单位正交系" class="headerlink" title="单位正交系"></a>单位正交系</h4><p>我们先回忆线性代数里的知识。 一个行向量和一个列向量的乘积是这样的：</p>
-<p>\begin{equation}<br>    \begin{bmatrix}a&amp;b\end{bmatrix}\begin{bmatrix}c\\d\end{bmatrix}=ac+bd<br>\end{equation}<br>进一步，第一个行向量可以看成列向量的转置。 那么这个$ac+bd$就是两个2维平面内列向量的内积。这就是高中数学中所讲的“向量乘法”。 这涉及到经典欧基里德空间的内积定义。 而谈到向量，单位正交向量肯定是非常有探讨价值的。因为一般情况下其他向量可以用单位正交向量比较简介地表示出来。<br>但是向量内积不仅仅存在于经典的欧氏空间。我们可以定义一系列定义域相同的函数，例如$[a，b]$上的函数$f$和$g$的内积可以定义成</p>
-<script type="math/tex; mode=display">
-(f，g):=\int_a^b f(x)\overline{g}(x)dx</script><p>其中$\overline{g}$表示$g$的共轭复数。 </p>
-<p>在内积空间里， 两个向量的内积为$0$， 说明两个向量正交(这和欧几里得空间是一致的)。 或者更形象地说， 夹角为$\frac{\pi}{2}$。<br>而向量的模的平方即自身和自身的内积。 我们可以定义函数的“单位正交系”</p>
-<blockquote>
-<p>若定义在$[a，b]$上的一系列函数$\{\varphi_n(x)\}$若满足$(\varphi_n，\varphi_n)=1$而$(\varphi_n，\varphi_m)=0(m\neq n)$， 则被称为单位正交系。</p>
-</blockquote>
-<h4 id="再看Fourier级数"><a href="#再看Fourier级数" class="headerlink" title="再看Fourier级数"></a>再看Fourier级数</h4><p>可以验证，在$[-\pi，\pi]$上，下列两组函数是满足单位正交的条件的：</p>
-<script type="math/tex; mode=display">
-    \frac{e^{ix}}{\sqrt{2\pi}}，\frac{e^{2ix}}{\sqrt{2\pi}}，\frac{e^{3ix}}{\sqrt{2\pi}}，\cdots</script><script type="math/tex; mode=display">
-    \frac{1}{\sqrt{2\pi}}，\frac{\cos x}{\sqrt{\pi}}，\frac{\sin x}{\sqrt{\pi}}， \frac{\cos 2x}{\sqrt{\pi}}，\cdots</script><p>读到这里可以发现，$a_0$和$\frac{a_0}{2}$的表示应该和$\frac{1}{\sqrt{2\pi}}$或者$\frac{1}{\sqrt{\pi}}$有关。</p>
-<p>在$\mathbb{R}^n$里，如果知道单位正交向量$\mathbf{e_1}，\cdots，\mathbf{e_n}$，<br>那么任意向量都可以唯一表示成$x_1\mathbf{e_1}+\cdots+x_n\mathbf{e_n}$。 向量$\mathbf{\alpha}$在的第$k$坐标分量为$(\mathbf{\alpha}，\mathbf{e_k})$。<br>通过这个角度看Fourier级数，就会发现，各项的系数就是函数的坐标：</p>
-<script type="math/tex; mode=display">
-    c_m=\int_a^bf(x)\overline{\varphi_m}(x)dx</script><p>如果我们再看第二个复函数形式的表达式，就有 </p>
-<script type="math/tex; mode=display">
-    c_m=\frac{1}{2\pi}\int_{-\pi}^{\pi} f(x)e^{-imx}dx</script><p>为了得到这个形式($c_m$不受影响)，<br>我们先用$\frac{e^{imx}}{\sqrt{2\pi}}$表示$f$， 应该有 </p>
-<script type="math/tex; mode=display">
-    \frac{f(x)}{\sqrt{2\pi}}=\sum_{-\infty}^{\infty}c_n\frac{e^{inx}}{\sqrt{2\pi}}</script><p>这里到底发生了什么? 我们把傅里叶级数的问题放到了一个以<strong>函数</strong>为元素的空间中， 然后选择了一组空间的<strong>基</strong>， 然后求出的系数就是这组基下的<strong>坐标</strong>。  于是， 我们找到了傅里叶级数的几何意义(抽象上的)， 这使我们能像高中平面几何、空间几何一样利用向量的性质解决一些问题， 尽管傅里叶级数涉及到的空间的维度是无穷大。</p>
-<h3 id="内积运算的规则"><a href="#内积运算的规则" class="headerlink" title="内积运算的规则"></a>内积运算的规则</h3><p>下列内积运算的规则会在接下来用到。 涉及到复数， 因此和经典欧基里德空间有不同之处(但是考虑到实数的共轭复数是本身， 最后一个性质其实是一样的)。 但是可以一个一个进行验证。</p>
-<ul>
-<li><p>$(a+c，b)=(a，b)+(c，b)$</p>
-</li>
-<li><p>$(a，b+c)=(a，b)+(a，c)$</p>
-</li>
-<li><p>$(ka，b)=k(a，b)$</p>
-</li>
-<li><p>$(a，kb)=k(a，b)$</p>
-</li>
-<li><p>$(a，b)=\overline{(b，a)}$</p>
-</li>
-</ul>
-<h2 id="Dirichlet核"><a href="#Dirichlet核" class="headerlink" title="Dirichlet核"></a>Dirichlet核</h2><h3 id="定义式"><a href="#定义式" class="headerlink" title="定义式"></a>定义式</h3><p>Dirichlet核的定义是这样的：</p>
-<script type="math/tex; mode=display">
-    D_N(x)=\sum_{-N}^N e^{inx} = \frac{\sin(N+\frac{1}{2})x}{\sin\frac{x}{2}}</script><p>第二个等号既可以直接合并$e^{inx}$和$e^{-inx}$得到$\cos nx$的式子从而进行积化和差，又可以利用等比数列的性质得到。</p>
-<h3 id="搭建起Dirichlet核和原函数的桥梁"><a href="#搭建起Dirichlet核和原函数的桥梁" class="headerlink" title="搭建起Dirichlet核和原函数的桥梁"></a>搭建起Dirichlet核和原函数的桥梁</h3><p>针对文章开头提到的第二种定义，可以定义函数数列 </p>
-<script type="math/tex; mode=display">
-    s_N(x)=\sum_{-N}^N c_ne^{inx}</script><p>将$c_n$展开，有<br>\begin{equation}<br>    \begin{aligned}<br>        s_N(x)&amp;=\sum_{-N}^N\left(\frac{1}{2\pi}\int_{-\pi}^{\pi}f(t)e^{-int}dt\right)e^{inx}\\<br>              &amp;=\int_{-\pi}^{\pi} \frac{1}{2\pi}f(t)\sum_{-N}^Ne^{in(x-t)}dt\\<br>              &amp;=\frac{1}{2\pi}\int_{-\pi}^{\pi} f(t)D_N(x-t)dt\\<br>              &amp;=\frac{1}{2\pi}\int_{-\pi}^{\pi} f(x-t)D_N(t)dt<br>    \end{aligned}<br>\end{equation}<br>最后一个等号通过函数的周期性和简单的换元运算得到。 至此，Dirichlet核和原函数的桥梁就被搭建起来了。<br>接下来，需要证明，以这个函数核构建的函数收敛于$f$。</p>
-<h3 id="Bessel不等式以及其重要推论"><a href="#Bessel不等式以及其重要推论" class="headerlink" title="Bessel不等式以及其重要推论"></a>Bessel不等式以及其重要推论</h3><blockquote>
-<p>设$f(x)$在正交函数系${\varphi_n(x)}$下的系数为${c_n}$，<br>则有$\sum_{n=1}^{\infty}|c_n|^2\leq(f，f)$。</p>
-</blockquote>
-<p>设$s_n(x)=\sum_{m=1}^n c_m\varphi_m(x)$， 其中$c_m=\int_a^b<br>f(x)\overline{\varphi_m}(x)dx$。 下面通过讨论$s_n(x)$到$f(x)$的误差得到这个不等式和一个重要的推论。</p>
-<p>注意到$(f，s_n)=\int_a^b<br>f(x)\sum\overline{c_m}\overline{\varphi_m(x)}dx=\sum\overline{c_m}\int_a^b<br>f(x)\overline{\varphi_m(x)}dx=\sum|c_m^2|=\overline{(f，s_n)}=(s_n，f)$，<br>以及$(s_n，s_n)=\sum|c_m^2|$， \begin{equation} \begin{aligned}<br>(f-s_n，f-s_n)&amp;=(f，f-s_n)-(s_n，f-s_n)\\\<br>&amp;=(f，f)-(f，s_n)-(s_n，f)+(s_n，s_n)\\\<br>&amp;=(f，f)-(s_n，s_n)\\\<br>&amp;\geq 0 \end{aligned} \end{equation} 也就是说， </p>
-<script type="math/tex; mode=display">
-    (s_n，s_n)=\sum_1^n|c_m|^2\leq(f，f)</script><p>$n\to\infty$时，就是所谓的Bessel不等式。<br>也可以发现，函数的Fourier系数$c_m$满足$\lim\limits_{n\to\infty}c_m=0$。<br>这个推论会在下面Dirichlet核收敛的证明中用到。</p>
-<h3 id="收敛证明"><a href="#收敛证明" class="headerlink" title="收敛证明"></a>收敛证明</h3><blockquote>
-<p>(<strong>Dini’s Test</strong>)若对一些$x$有常数$\delta&gt;0$和$M&lt;\infty$使得</p>
-<script type="math/tex; mode=display">
-    |f(x+t)-f(x)|\leq M|t|</script><p>对所有$t\in(-\delta，\delta)$成立，那么有</p>
-<script type="math/tex; mode=display">
-    \lim\limits_{n\to\infty}s_N(x)=f(x)</script></blockquote>
-<p>要注意的是，我们在这里只讨论逐点收敛。 其他形式的收敛会在接下来的文章中讨论</p>
-<p>定义函数 </p>
-<script type="math/tex; mode=display">
-    g(t)=
-        \begin{cases} 
-            \frac{f(x-t)-f(t)}{\sin(t/2)}，0<|t|<\pi\\
-            0，t=0 
-    \end{cases}</script><p>考虑到</p>
-<script type="math/tex; mode=display">
-    \frac{1}{2\pi}\int_{-\pi}^{\pi}D_N(x)dx=1</script><p>因此有 </p>
-<script type="math/tex; mode=display">
-    \frac{1}{2\pi}\int_{-\pi}^{\pi}D_N(t)f(x)dt=f(x)</script><p>所求函数和原函数做差，就有<br>\begin{equation}<br>    \begin{aligned}<br>    s_N(x)-f(x)&amp;=\frac{1}{2\pi}\int_{-\pi}^{\pi}g(t)\sin\left(N+\frac{1}{2}\right)tdt\\<br>               &amp;=\frac{1}{2\pi}\int_{-\pi}^{\pi}\left[g(t)\cos\frac{t}{2}\right]\sin Ntdt+\frac{1}{2\pi}\int_{-\pi}^{\pi}\left[g(t)\sin\frac{t}{2}\right]\cos Ntdt<br>    \end{aligned}<br>\end{equation}<br>根据$f(x)$的条件和$g(x)$的定义，$g(x)\cos(t/2)$和$g(x)\sin(t/2)$是有界的。<br>利用Bessel不等式的推论可以发现，这两个积分趋近于$0$。 这就证明了结论。</p>
-<h2 id="总结-amp-我接下来想写的"><a href="#总结-amp-我接下来想写的" class="headerlink" title="总结&amp;我接下来想写的"></a>总结&amp;我接下来想写的</h2><p>写到这里，已经涉及到了很多数学中的基本技巧：三角函数、向量内积、复变函数、等比数列、函数项数列收敛等等。 Fourier级数可以说是相当“优美”的一类级数。 在一些领域中，展开式中每一项均具有物理意义这是其他级数难以企及的。 我们又可以看到，Fourier级数还可以跳出三角函数的限制，  放在普遍的无穷维空间的规范正交基。 此外，它的收敛定理相比幂级数而言也是很宽松的。</p>
-<p>接下来还有很多内容，我暂时的打算是这样的(已基本放弃；以后可能会有比较专门的调和分析内容)：</p>
-<ul>
-<li><p>Jordan’s criterion(关于$s_N(x)$收敛什么时候收敛到什么值)，涉及到“有界差分”的概念</p>
-</li>
-<li><p>Parseval等式和应用(Fourier分析理论的核心内容之一)，如三角函数系的完备性</p>
-</li>
-<li><p>Fejer核、Poisson核(一致收敛问题)</p>
-</li>
-<li><p>…</p>
-</li>
-</ul>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2019-08-03T22:00:00.000Z" title="04/08/2019 00:00:00">2019-08-04</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-07-08T02:24:35.679Z" title="08/07/2023 04:24:35">2023-07-08</time></span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="../../2019/08/04/contraction-application/">压缩定理和其应用</a></p><div class="content"><h2 id="什么是压缩"><a href="#什么是压缩" class="headerlink" title="什么是压缩"></a>什么是压缩</h2><p>压缩(contraction)的准确描述是这样的：</p>
-<blockquote>
-<p>取完备度量空间$X$, 度量$d$, 函数$\varphi$是$X$到本身的映射, 且满足</p>
-<script type="math/tex; mode=display">
-        d(\varphi(x),\varphi(y)) \leq cd(x,y).</script><p> 其中$x,y\in{X}$, $c&lt;1$. 那么$\varphi$就是一个从$X$到本身的压缩.</p>
-</blockquote>
-<p>一个最简单的例子是, $y=\frac{x}{2}$. 这是一个“平缓”的函数. 平缓的程度是怎样呢? 斜率小于1.</p>
-<p>而压缩定理指出, 对于这个函数, 有且仅有一个$x$使得$\varphi(x)=x$. 例如上面的例子, 只有$0=0$这一个点. 接下来要给出证明.</p>
-<h2 id="压缩的证明"><a href="#压缩的证明" class="headerlink" title="压缩的证明"></a>压缩的证明</h2><p>任取$x_0\in{X}$, 按照如下方法定义数列$x_n$:</p>
-<script type="math/tex; mode=display">
-    x_{n+1}=\varphi(x_n)</script><p>从而会有</p>
-<script type="math/tex; mode=display">d(x_2,x_1)=d(\varphi(x_1),\varphi(x_0))\leq cd(x_1,x_0)$$ (如果你不理解这里的$d(x,y)$,
-可以简单地看成$|x-y|$) 推广下去, 就有
-
-$$d(x_{n+1},x_n)\leq c^nd(x_1,x_0)</script><p>对于$n&lt;m$, 就有 \begin{equation} \begin{aligned} d(x_n,x_m)\leq\sum_{i=n+1}^m<br>d(x_i,x_{i+1})\leq(c^n+c^{n+1}+\cdots+c^{m-1})d(x_1,x_0)\leq\frac{c^n}{1-c}d(x_1,x_0)<br>\end{aligned} \end{equation} 这说明, $x_n$是一个Cauchy数列, 又考虑到$X$是完备空间, 因此$x_n$收敛.<br>设$x_n$的极限为$x$. 由压缩的定义可知, $\varphi$为一致连续的函数, 从而有 </p>
-<script type="math/tex; mode=display">
-\varphi(x)=\lim\limits_{n\to\infty}\varphi(x_n)=\lim\limits_{n\to\infty}x_{n+1}=x</script><p>至于唯一性的证明, 可设$\varphi(x)=x$, $\varphi(y)=y$.<br>从而有$d(\varphi(x),\varphi(y))=d(x,y)\leq cd(x,y)$ 这只有在$d(x,y)=0$时成立. 唯一性得到证明.</p>
-<h2 id="简单应用"><a href="#简单应用" class="headerlink" title="简单应用"></a>简单应用</h2><p>下面是一道数学专业研究生入学考试题. 在这个题中可以发现, 在指定的条件下, 利用“压缩”这个工具, 问题的解决变得非常简单.</p>
-<blockquote>
-<p>已知$0\leq a\leq 1, b \geq2$, 有数列${x_n}$ 满足$x_0=0$,<br>且有递推关系<script type="math/tex">x_{n+1}=x_n-\frac{1}{b}(x_n^2-a),</script>求证此数列收敛, 并求出极限.</p>
-</blockquote>
-<p>在这里设$\phi(x)=x-\frac{1}{b}(x^2-a)$, 那么有$x_{n+1}=\varphi(x_n)$.<br>如果能证出$\varphi$为一个压缩, 极限的问题就迎刃而解了.</p>
-<p><strong>证明</strong></p>
-<p>设$\varphi(x)=x-\frac{1}{b}(x^2-a)$. 则$x_{n+1}=\varphi(x_n)$.<br>在这里$x_1=\varphi(x_0)=\frac{a}{b}$. 现证明对所有$n&gt;0$ 有$\frac{a}{b}\leq x_n\leq 1$,<br>对$n$进行归纳.</p>
-<p>$n=1$时, 不等式已成立.</p>
-<p>假设$n=k$时成立, 则$n=k+1$时, 有 <script type="math/tex">x_{k+1}=\frac{a}{b}-\frac{bx_k-x_k^2}{b}</script><br>考虑到$y=bx-x^2$在$[\frac{a}{b},\frac{b}{2}]$单调递减, 而$\frac{b}{2}\geq1$, 故有 <script type="math/tex">x_{n+1}\leq\frac{a}{b} +\frac{b-1}{b}\leq 1</script> 而$y(\frac{a}{b})\geq y(0)=0$,<br>故$x_{n+1}\geq\frac{a}{b}$.</p>
-<p>因此不等式对所有$n&gt;0$成立.</p>
-<p>利用这个不等式, 得到 <script type="math/tex">|f(x)-f(y)|=|x-y||1-\frac{x+y}{b}|\leq|x-y||1-\frac{2a}{b^2}|,
-\quad \frac{a}{b}\leq x,y \leq 1</script></p>
-<p>$a=0$时, 得到$x_1=x_2=\cdots=0$, 故极限存在且为$0$.</p>
-<p>$a\neq 0$时, 令$c=|1-\frac{2a}{b^2}|$, 则始终有$c&lt;1$. 此时就是上文中所提到的压缩. 收敛的证明略去.</p>
-<p>设$\lim\limits_{n\to\infty}x_n=x$, 则$x=\varphi(x)$. 解得$x=\sqrt{a}$.<br>这在$a=0$时也成立.</p>
-<p>综上, $\lim\limits_{n\to\infty}x_n$存在, 且值为$\sqrt{a}$.</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>压缩映射在处理迭代生成的数列时很有效, 而且可以推广到多维甚至无穷维中. 但是要注意, 这个映射实质上是在处理局部性质, 大范围的非线性的问题则不能处理.<br>处理迭代数列是它在离散形式下的基本应用, 但压缩在连续形式下也有很多重要的应用, 例如在$\mathbb{R}^n$中证明隐函数定理</p>
-<h2 id="关于度量"><a href="#关于度量" class="headerlink" title="关于度量"></a>关于度量</h2><p>度量函数$d(x,y)$即表示两点之间的距离, 满足以下三个条件：</p>
-<ul>
-<li><p>$d(x,y)\geq 0$, 等号成立当且仅当$x=y$.</p>
-</li>
-<li><p>$d(x,y)=d(y,x)$.</p>
-</li>
-<li><p>$d(x,y) + d(y,z) \leq d(x,z)$ (三角形不等式)</p>
-</li>
-</ul>
-<p>而度量空间即一个有度量函数的集合. 度量空间的完备性指, 这个空间的任意Cauchy列都收敛. 一个简单的例子是, 全体实数$\mathbb{R}$, 度量函数$d(x,y)=|x-y|$. </p>
-<p>而$\mathbb{Q}$在这个相同的度量下是发散的. 例如Cauchy数列$\{\left(1+\frac{1}{n}\right)^n\}$这个数列收敛到$e$, 而$e\notin{\mathbb{Q}}$.</p>
-</div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="../9/">Previous</a></div><div class="pagination-next is-invisible is-hidden-mobile"><a href="../11/">Next</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="../../">1</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="../9/">9</a></li><li><a class="pagination-link is-current" href="">10</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="../../img/avatar.png" alt="Desvl"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Desvl</p><p class="is-size-6 is-block">A blog mainly on graduate mathematics.</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>A Noetherian local ring</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="../../archives/"><p class="title">98</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="../../categories/"><p class="title">50</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="../../tags/"><p class="title">60</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="../../redirect/newsletter" target="_blank" rel="me noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Compose an Email" href="../../redirect/email"><i class="fas fa-envelope"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="RSS" href="../../atom.xml"><i class="fas fa-rss"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Mathstodon" href="https://mathstodon.xyz/@desvl"><i class="fa-brands fa-mastodon"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://arxiv.org/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">arXiv</span></span><span class="level-right"><span class="level-item tag">arxiv.org</span></span></a></li><li><a class="level is-mobile" href="https://kconrad.math.uconn.edu/blurbs/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Keith Conrad&#039;s expository papers</span></span><span class="level-right"><span class="level-item tag">kconrad.math.uconn.edu</span></span></a></li><li><a class="level is-mobile" href="https://ncatlab.org/nlab/show/mathematics" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">nLab (Mathematics)</span></span><span class="level-right"><span class="level-item tag">ncatlab.org</span></span></a></li><li><a class="level is-mobile" href="https://q.uiver.app/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">quiver: a modern commutative diagram editor</span></span><span class="level-right"><span class="level-item tag">q.uiver.app</span></span></a></li><li><a class="level is-mobile" href="https://www.symmetricfunctions.com/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">The Symmetric Functions Catalogue</span></span><span class="level-right"><span class="level-item tag">www.symmetricfunctions.com</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/speaking.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Speaking</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="http://www-math.mit.edu/~poonen/papers/writing.pdf" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Practical Suggestions for Mathematical Writing</span></span><span class="level-right"><span class="level-item tag">www-math.mit.edu</span></span></a></li><li><a class="level is-mobile" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Be excellent at math in one month (YouTube)</span></span><span class="level-right"><span class="level-item tag">www.youtube.com</span></span></a></li><li><a class="level is-mobile" href="https://www.bilibili.com/video/BV1GJ411x7h7" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Be excellent at math in one month (Bilibili)</span></span><span class="level-right"><span class="level-item tag">www.bilibili.com</span></span></a></li></ul></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="../../index.html"><img src="../../img/logo.svg" alt="Desvl&#039;s blog" height="28"></a><p class="is-size-7"><span>&copy; 2025 Desvl</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
-            article: {
-                highlight: {
-                    clipboard: true,
-                    fold: 'unfolded'
-                }
-            }
-        };</script><script data-pjax src="../../js/column.js"></script><script src="../../js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script data-pjax src="../../js/back_to_top.js" defer></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
-            if (typeof $.fn.lightGallery === 'function') {
-                $('.article').lightGallery({ selector: '.gallery-item' });
-            }
-            if (typeof $.fn.justifiedGallery === 'function') {
-                if ($('.justified-gallery > p > .gallery-item').length) {
-                    $('.justified-gallery > p > .gallery-item').unwrap();
-                }
-                $('.justified-gallery').justifiedGallery();
-            }
-        });</script><script type="text/javascript" id="MathJax-script" async>MathJax = {
-      tex: {
-        inlineMath: [['$', '$'], ['\\(', '\\)']]
-      },
-      svg: {
-        fontCache: 'global'
-      },
-      chtml: {
-        matchFontHeight: false
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
       }
-    };</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script><!--!--><script data-pjax src="../../js/main.js" defer></script><!--!--></body></html>
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    js: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')){
+        src = ctx.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    jq: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        utils.js(deps.jquery).then(fn)
+      } else {
+        fn()
+      }
+    },
+    
+    onLoading: (el) => {
+      if (el) {
+        $(el).append('<div class="loading-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg></div>');
+      }
+    },
+    onLoadSuccess: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap').remove();
+      }
+    },
+    onLoadFailure: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap svg').remove();
+        $(el).find('.loading-wrap').append('<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" d="M12 3L21 20H3L12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="60;0"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M12 10V14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"/></path></g><circle cx="12" cy="17" r="1" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="0.8s" dur="0.4s" values="0;1"/></circle></svg>');
+        $(el).find('.loading-wrap').addClass('error');
+      }
+    },
+    request: (el, url, callback, onFailure) => {
+      let retryTimes = 3;
+      utils.onLoading(el);
+      function req() {
+        return new Promise((resolve, reject) => {
+          let status = 0; // 0 等待 1 完成 2 超时
+          let timer = setTimeout(() => {
+            if (status === 0) {
+              status = 2;
+              timer = null;
+              reject('请求超时');
+              if (retryTimes == 0) {
+                onFailure();
+              }
+            }
+          }, 5000);
+          fetch(url).then(function(response) {
+            if (status !== 2) {
+              clearTimeout(timer);
+              resolve(response);
+              timer = null;
+              status = 1;
+            }
+            if (response.ok) {
+              return response.json();
+            }
+            throw new Error('Network response was not ok.');
+          }).then(function(data) {
+            retryTimes = 0;
+            utils.onLoadSuccess(el);
+            callback(data);
+          }).catch(function(error) {
+            if (retryTimes > 0) {
+              retryTimes -= 1;
+              setTimeout(() => {
+                req();
+              }, 5000);
+            } else {
+              utils.onLoadFailure(el);
+              onFailure();
+            }
+          });
+        });
+      }
+      req();
+    },
+  };
+</script>
+
+<script>
+  const sidebar = {
+    leftbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    rightbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('rightbar');
+        l_body.removeAttribute('leftbar');
+      }
+    },
+    dismiss: () => {
+      if (l_body) {
+        l_body.removeAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    toggleTOC: () => {
+      document.querySelector('#data-toc').classList.toggle('collapse');
+    }
+  }
+</script>
+<script type="text/javascript">
+  (() => {
+    const tagSwitchers = document.querySelectorAll('.tag-subtree.parent-tag > a > .tag-switcher-wrapper')
+    for (const tagSwitcher of tagSwitchers) {
+      tagSwitcher.addEventListener('click', (e) => {
+        const parent = e.target.closest('.tag-subtree.parent-tag')
+        parent.classList.toggle('expanded')
+        e.preventDefault()
+      })
+    }
+
+    // Get active tag from query string, then activate it.
+    const urlParams = new URLSearchParams(window.location.search)
+    const activeTag = urlParams.get('tag')
+    if (activeTag) {
+      let tag = document.querySelector(`.tag-subtree[data-tag="${activeTag}"]`)
+      if (tag) {
+        tag.querySelector('a').classList.add('active')
+        
+        while (tag) {
+          tag.classList.add('expanded')
+          tag = tag.parentElement.closest('.tag-subtree.parent-tag')
+        }
+      }
+    }
+  })()
+</script>
+
+
+<!-- required -->
+<script src="/js/main.js?v=1.29.1" defer></script>
+
+<script type="text/javascript">
+  const applyTheme = (theme) => {
+    if (theme === 'auto') {
+      document.documentElement.removeAttribute('data-theme')
+    } else {
+      document.documentElement.setAttribute('data-theme', theme)
+    }
+
+    applyThemeToGiscus(theme)
+  }
+
+  const applyThemeToGiscus = (theme) => {
+    theme = theme === 'auto' ? 'preferred_color_scheme' : theme
+
+    const cmt = document.getElementById('giscus')
+    if (cmt) {
+      // This works before giscus load.
+      cmt.setAttribute('data-theme', theme)
+    }
+
+    const iframe = document.querySelector('#comments > section.giscus > iframe')
+    if (iframe) {
+      // This works after giscus loaded.
+      const src = iframe.src
+      const newSrc = src.replace(/theme=[\w]+/, `theme=${theme}`)
+      iframe.src = newSrc
+    }
+  }
+
+  const switchTheme = () => {
+    // light -> dark -> auto -> light -> ...
+    const currentTheme = document.documentElement.getAttribute('data-theme')
+    let newTheme;
+    switch (currentTheme) {
+      case 'light':
+        newTheme = 'dark'
+        break
+      case 'dark':
+        newTheme = 'auto'
+        break
+      default:
+        newTheme = 'light'
+    }
+    applyTheme(newTheme)
+    window.localStorage.setItem('Stellar.theme', newTheme)
+
+    const messages = {
+      light: `Switched to Light Mode`,
+      dark: `Switched to Dark Mode`,
+      auto: `Switched to Auto Mode`,
+    }
+    hud?.toast?.(messages[newTheme])
+  }
+
+  (() => {
+    // Apply user's preferred theme, if any.
+    const theme = window.localStorage.getItem('Stellar.theme')
+    if (theme !== null) {
+      applyTheme(theme)
+    }
+  })()
+</script>
+
+
+<!-- optional -->
+
+
+
+<script defer>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.services = Object.assign({}, JSON.parse(`{"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"}}`));
+    for (let id of Object.keys(ctx.services)) {
+      const js = ctx.services[id].js;
+      if (id == 'siteinfo') {
+        ctx.cardlinks = document.querySelectorAll('a.link-card[cardlink]');
+        if (ctx.cardlinks?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            setCardLink(ctx.cardlinks);
+          });
+        }
+      } else {
+        const els = document.getElementsByClassName(`ds-${id}`);
+        if (els?.length > 0) {
+          utils.jq(() => {
+            if (id == 'timeline' || 'memos' || 'marked') {
+              utils.js(deps.marked).then(function () {
+                utils.js(js, { defer: true });
+              });
+            } else {
+              utils.js(js, { defer: true });
+            }
+          });
+        }
+      }
+    }
+  });
+</script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.search = {
+      path: `/search.json`,
+    }
+    utils.js('/js/search/local-search.js', { defer: true });
+  });
+</script><script>
+  window.FPConfig = {
+    delay: 0,
+    ignoreKeywords: [],
+    maxRPS: 5,
+    hoverDelay: 25
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js"></script><script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@19.1.3/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazy",
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    window.lazyLoadInstance?.update();
+  });
+</script><script>
+  ctx.fancybox = {
+    selector: `.timenode p>img`,
+    css: `https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css`,
+    js: `https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js`
+  };
+  var selector = '[data-fancybox]:not(.error)';
+  if (ctx.fancybox.selector) {
+    selector += `, ${ctx.fancybox.selector}`
+  }
+  var needFancybox = document.querySelectorAll(selector).length !== 0;
+  if (!needFancybox) {
+    const els = document.getElementsByClassName('ds-memos');
+    if (els != undefined && els.length > 0) {
+      needFancybox = true;
+    }
+  }
+  if (needFancybox) {
+    utils.css(ctx.fancybox.css);
+    utils.js(ctx.fancybox.js, { defer: true }).then(function () {
+      Fancybox.bind(selector, {
+        hideScrollbar: false,
+        Thumbs: {
+          autoStart: false,
+        },
+        caption: (fancybox, slide) => {
+          return slide.triggerEl.alt || slide.triggerEl.dataset.caption || null
+        }
+      });
+    })
+  }
+</script>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    const swiper_api = document.getElementById('swiper-api');
+    if (swiper_api != undefined) {
+      utils.css(`https://unpkg.com/swiper@10.3.1/swiper-bundle.min.css`);
+      utils.js(`https://unpkg.com/swiper@10.3.1/swiper-bundle.min.js`, { defer: true }).then(function () {
+        const effect = swiper_api.getAttribute('effect') || '';
+        var swiper = new Swiper('.swiper#swiper-api', {
+          slidesPerView: 'auto',
+          spaceBetween: 8,
+          centeredSlides: true,
+          effect: effect,
+          rewind: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        });
+      })
+    }
+  });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    window.codeElements = document.querySelectorAll('.code');
+    if (window.codeElements.length > 0) {
+      ctx.copycode = {
+        default_text: `Copy`,
+        success_text: `Copied`,
+        toast: `复制成功`,
+      };
+      utils.js('/js/plugins/copycode.js');
+    }
+  });
+</script>
+
+
+<!-- inject -->
+
+</div></body></html>
