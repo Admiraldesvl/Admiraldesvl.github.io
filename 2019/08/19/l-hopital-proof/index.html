@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>洛必达法则的几种不同的证明 | Desvl&#39;s blog</title>
+
+
+    <meta name="keywords" content="Hot post, Untranslated">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="前言洛必达法则相比甚至不少高中生甚至初中生都听说过，知道怎么进行简单的应用。简单点说，处理$\frac{0}{0}$的函数时，对上下进行求导，可能会很大程度上简化计算。但是洛必达法则为什么能奏效? 能不能用严格的数理语言进行论证? 这是这篇文章需要解决的。 本博文于2022年10月4日对利用中值定理的证明进行了重新编排。编排的过程中发现最后两步在之前其实是没解释清楚的，甚至存在错误。 洛必达法则的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="洛必达法则的几种不同的证明">
+<meta property="og:url" content="https://desvl.xyz/2019/08/19/l-hopital-proof/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="前言洛必达法则相比甚至不少高中生甚至初中生都听说过，知道怎么进行简单的应用。简单点说，处理$\frac{0}{0}$的函数时，对上下进行求导，可能会很大程度上简化计算。但是洛必达法则为什么能奏效? 能不能用严格的数理语言进行论证? 这是这篇文章需要解决的。 本博文于2022年10月4日对利用中值定理的证明进行了重新编排。编排的过程中发现最后两步在之前其实是没解释清楚的，甚至存在错误。 洛必达法则的">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-08-18T22:00:00.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:10.109Z">
+<meta property="article:author" content="Desvl">
+<meta property="article:tag" content="Hot post">
+<meta property="article:tag" content="Untranslated">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        洛必达法则的几种不同的证明
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2019/08/" class="post-meta__date button">2019-08-19</a>
+        
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/" class="button">Analysis</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/Elementary/" class="button">Elementary</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/Elementary/Differentiation/" class="button">Differentiation</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B4%9B%E5%BF%85%E8%BE%BE%E6%B3%95%E5%88%99%E7%9A%84%E5%AE%8C%E6%95%B4%E8%AE%BA%E8%BF%B0"><span class="toc-number">2.</span> <span class="toc-text">洛必达法则的完整论述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%81%E6%98%8E1-%E7%BA%BF%E6%80%A7%E8%BF%91%E4%BC%BC"><span class="toc-number">3.</span> <span class="toc-text">证明1:线性近似</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B3%A2%E5%8A%AA%E5%88%A9%E6%9C%80%E5%BC%80%E5%A7%8B%E7%9A%84%E2%80%9D%E8%AF%81%E6%98%8E%E2%80%9D"><span class="toc-number">3.1.</span> <span class="toc-text">波努利最开始的”证明”</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E8%BF%91%E4%BC%BC%E7%9A%84%E4%B8%A5%E6%A0%BC%E8%AF%81%E6%98%8E"><span class="toc-number">3.2.</span> <span class="toc-text">线性近似的严格证明</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%81%E6%98%8E2-%E4%B8%AD%E5%80%BC%E5%AE%9A%E7%90%86"><span class="toc-number">4.</span> <span class="toc-text">证明2:中值定理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%83%85%E5%86%B51-infty-leq-A-lt-infty"><span class="toc-number">4.1.</span> <span class="toc-text">情况1: $-\infty\leq{A}&lt;+\infty$</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%83%85%E5%86%B51-1-g-x-to-0-%E4%B8%94-f-x-to-0"><span class="toc-number">4.1.1.</span> <span class="toc-text">情况1.1: $g(x)\to 0$且$f(x) \to 0$</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%83%85%E5%86%B51-2-g-x-to-infty"><span class="toc-number">4.1.2.</span> <span class="toc-text">情况1.2: $g(x)\to+\infty$</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%83%85%E5%86%B51-1%E5%92%8C1-2%E7%9A%84%E6%95%B4%E5%90%88"><span class="toc-number">4.1.3.</span> <span class="toc-text">情况1.1和1.2的整合</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%83%85%E5%86%B52-infty-lt-A-leq-infty"><span class="toc-number">4.2.</span> <span class="toc-text">情况2: $-\infty&lt;{A}\leq+\infty$</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%81%E6%98%8E%E4%B8%AD%E5%87%A0%E4%B8%AA%E5%B0%8F%E9%97%AE%E9%A2%98"><span class="toc-number">4.3.</span> <span class="toc-text">证明中几个小问题</span></a></li></ol></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B4%9B%E5%BF%85%E8%BE%BE%E6%B3%95%E5%88%99%E7%9A%84%E5%AE%8C%E6%95%B4%E8%AE%BA%E8%BF%B0"><span class="toc-number">2.</span> <span class="toc-text">洛必达法则的完整论述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%81%E6%98%8E1-%E7%BA%BF%E6%80%A7%E8%BF%91%E4%BC%BC"><span class="toc-number">3.</span> <span class="toc-text">证明1:线性近似</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B3%A2%E5%8A%AA%E5%88%A9%E6%9C%80%E5%BC%80%E5%A7%8B%E7%9A%84%E2%80%9D%E8%AF%81%E6%98%8E%E2%80%9D"><span class="toc-number">3.1.</span> <span class="toc-text">波努利最开始的”证明”</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E8%BF%91%E4%BC%BC%E7%9A%84%E4%B8%A5%E6%A0%BC%E8%AF%81%E6%98%8E"><span class="toc-number">3.2.</span> <span class="toc-text">线性近似的严格证明</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%81%E6%98%8E2-%E4%B8%AD%E5%80%BC%E5%AE%9A%E7%90%86"><span class="toc-number">4.</span> <span class="toc-text">证明2:中值定理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%83%85%E5%86%B51-infty-leq-A-lt-infty"><span class="toc-number">4.1.</span> <span class="toc-text">情况1: $-\infty\leq{A}&lt;+\infty$</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%83%85%E5%86%B51-1-g-x-to-0-%E4%B8%94-f-x-to-0"><span class="toc-number">4.1.1.</span> <span class="toc-text">情况1.1: $g(x)\to 0$且$f(x) \to 0$</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%83%85%E5%86%B51-2-g-x-to-infty"><span class="toc-number">4.1.2.</span> <span class="toc-text">情况1.2: $g(x)\to+\infty$</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%83%85%E5%86%B51-1%E5%92%8C1-2%E7%9A%84%E6%95%B4%E5%90%88"><span class="toc-number">4.1.3.</span> <span class="toc-text">情况1.1和1.2的整合</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%83%85%E5%86%B52-infty-lt-A-leq-infty"><span class="toc-number">4.2.</span> <span class="toc-text">情况2: $-\infty&lt;{A}\leq+\infty$</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%81%E6%98%8E%E4%B8%AD%E5%87%A0%E4%B8%AA%E5%B0%8F%E9%97%AE%E9%A2%98"><span class="toc-number">4.3.</span> <span class="toc-text">证明中几个小问题</span></a></li></ol></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>洛必达法则相比甚至不少高中生甚至初中生都听说过，知道怎么进行简单的应用。简单点说，处理$\frac{0}{0}$的函数时，对上下进行求导，可能会很大程度上简化计算。但是洛必达法则为什么能奏效? 能不能用严格的数理语言进行论证? 这是这篇文章需要解决的。</p>
+<p><em>本博文于2022年10月4日对利用中值定理的证明进行了重新编排。编排的过程中发现最后两步在之前其实是没解释清楚的，甚至存在错误。</em></p>
+<h3 id="洛必达法则的完整论述"><a href="#洛必达法则的完整论述" class="headerlink" title="洛必达法则的完整论述"></a>洛必达法则的完整论述</h3><blockquote>
+<p>设$f$和$g$为$(a,b)$上的实可微函数，且在$(a,b)$区间上总有$g’(x) \ne 0$. 设</p>
+<script type="math/tex; mode=display">
+\frac{f'(x)}{g'(x)} \to A \quad (x \to a).</script><p>若</p>
+<script type="math/tex; mode=display">
+f(x) \to 0, g(x) \to 0 \quad (x \to a)</script><p>或仅有</p>
+<script type="math/tex; mode=display">
+g(x) \to \pm \infty \quad (x \to a)</script><p>则</p>
+<script type="math/tex; mode=display">
+\frac{f(x)}{g(x)} \to A \quad (x \to a).</script><p>其中$x \to a$自然也可以换成$x \to b$. 这里把发散到无穷也看作是极限，也就是说$-\infty \le A \le \infty$且$-\infty \le a &lt; b \le +\infty$. </p>
+</blockquote>
+<h3 id="证明1-线性近似"><a href="#证明1-线性近似" class="headerlink" title="证明1:线性近似"></a>证明1:线性近似</h3><h4 id="波努利最开始的”证明”"><a href="#波努利最开始的”证明”" class="headerlink" title="波努利最开始的”证明”"></a>波努利最开始的”证明”</h4><p>洛必达法则首次出现于1696年洛必达的 <em>Analyse des Infiniment Petits pour l’Intelligence des Lignes Courbes</em> 一书中。这本书当然以”洛必达法则”闻名于世。证明是这样完成的: </p>
+<script type="math/tex; mode=display">
+\frac{f(a+dx)}{g(a+dx)}=\frac{f(a)+f’(a)dx}{g(a)+g’(a)dx}=\frac{f’(a)dx}{g’(a)dx}=\frac{f’(a)}{g’(a)}</script><p>这个证明很好理解，线性近似展开，再考虑到$f(a)=g(a)=0$就得到结果。但是这个做法肯定是不合适的，$dx$在这里非常模糊，也不方便表达$x\to\infty$的情况。关于历史内容可以参见 <em>The Historical Development of the Calculus</em> 一书。</p>
+<h4 id="线性近似的严格证明"><a href="#线性近似的严格证明" class="headerlink" title="线性近似的严格证明"></a>线性近似的严格证明</h4><p>首先，这里只讨论$h\to0$的情况。实际上，对于其他情况，可以作换元。例如$h\to\infty$时，可以利用$u=\frac{1}{h}$，那么又转换成了$u\to0$的情况。另外我们只讨论函数趋近于$0$的情况。因为趋近于无穷时函数的线性近似可能无法处理。例如$y=\frac{1}{x}$在$x=0$附近是没有近似的。</p>
+<p>对函数导数有</p>
+<script type="math/tex; mode=display">
+f'(x) = \lim_{h\to 0} \frac{f(x+h)-f(x)}{h},</script><p>我们可以写成</p>
+<script type="math/tex; mode=display">
+f'(x) = \frac{f(x+h)-f(x)}{h} + r(h)</script><p>其中$\lim\limits_{h\to0}r(h)=0$，且$r(h)$为连续函数。进行代数变形(这里$r(h)$的正负进行了调整),我们的得到线性近似</p>
+<script type="math/tex; mode=display">
+f(x+h)=f(x)+f'(x)h+r(h)h</script><p>同样可以写出$g(x)$的线性近似</p>
+<script type="math/tex; mode=display">
+g(x+h)=g(x)+g'(x)h+s(h)h</script><p>那么就能得到</p>
+<script type="math/tex; mode=display">
+\frac{f(a+h)}{g(a+h)}=\frac{f(a)+f'(a)h+r(h)h}{g(a)+g'(a)h+s(h)h}=\frac{f'(a)h+r(h)h}{g'(a)h+s(h)h}=\frac{f'(a)+r(h)}{g'(a)+s(h)}</script><p>而$h\to0$时，$r(h)\to0$，$s(h)\to0$，故得到了结论。</p>
+<h3 id="证明2-中值定理"><a href="#证明2-中值定理" class="headerlink" title="证明2:中值定理"></a>证明2:中值定理</h3><p><em>这个证明中，我们会利用柯西中值定理(GMVT)对所有的情况进行完整的证明，这期间涉及到一些不等式运算技巧。证明来自W. Rudin的 Principles Of Mathematical Analysis，我会在其中加上一些额外的解释。关于$g(x) \to \pm\infty$的情况，我们在此只讨论$+\infty$.</em></p>
+<h4 id="情况1-infty-leq-A-lt-infty"><a href="#情况1-infty-leq-A-lt-infty" class="headerlink" title="情况1: $-\infty\leq{A}&lt;+\infty$"></a>情况1: $-\infty\leq{A}&lt;+\infty$</h4><p>选取实数$q&gt;A$，再选取$\varepsilon&gt;0$使得$A+\varepsilon&lt;q$. 因为$\frac{f’(x)}{g’(x)}\to{A}$，根据极限的定义，必定有实数$\delta\in(0,b-a)$，使得对于所有$a&lt;x&lt;a+\delta$，始终有$-\varepsilon&lt;\frac{f’(x)}{g’(x)}-A&lt;\varepsilon$. 特别地,  </p>
+<script type="math/tex; mode=display">
+\frac{f'(x)}{g'(x)}<A+\varepsilon.</script><p>对任意$a&lt;x&lt;y&lt;a+\delta$，由GMVT可知，存在$t\in(x,y)$使得: </p>
+<script type="math/tex; mode=display">
+\begin{equation}\label{(A)}\tag{1}
+\frac{f(x)-f(y)}{g(x)-g(y)}=\frac{f'(t)}{g'(t)}<A+\varepsilon
+\end{equation}</script><p>最后一个不等式成立是因为$t\in(x,y)\subset(a,a+\delta)$，而在$(a,a+\delta)$中这个不等式成立。接下来，我们根据$g(x)$在$x \to a$时的取值，分别讨论，会发现结果其实类似. </p>
+<h5 id="情况1-1-g-x-to-0-且-f-x-to-0"><a href="#情况1-1-g-x-to-0-且-f-x-to-0" class="headerlink" title="情况1.1: $g(x)\to 0$且$f(x) \to 0$"></a>情况1.1: $g(x)\to 0$且$f(x) \to 0$</h5><p>在不等式$\eqref{(A)}$中，令$x \to a$，会发现有：</p>
+<script type="math/tex; mode=display">
+\frac{0-f(y)}{0-g(y)}=\frac{f(y)}{g(y)}=\frac{f'(t)}{g'(t)}
+ \leq A+\varepsilon<q</script><p>更正式地说，对任意的$q&gt;A$和$0&lt; \varepsilon&lt; q-A$，都存在$\delta &gt; 0$，使得对任意的$a&lt;y&lt;a+\delta$，均满足不等式</p>
+<script type="math/tex; mode=display">
+\begin{equation}\label{(B)}\tag{2}
+\frac{f(y)}{g(y)} \le A+\varepsilon<q.
+\end{equation}</script><p>（注意：我们这里并没有证明收敛，而只证明了收敛的一半，接下来的情况1.2也是类似的。在接下来我们不刻意地写$\delta$，而是写成指定存在的实数，这样的写法是等价的，虽然初学微积分时可能会感觉比较陌生。）</p>
+<h5 id="情况1-2-g-x-to-infty"><a href="#情况1-2-g-x-to-infty" class="headerlink" title="情况1.2: $g(x)\to+\infty$"></a>情况1.2: $g(x)\to+\infty$</h5><p>固定不等式(A)中的$ y $. 因为$ g(x) \to +\infty $，在$ (a,y) $一定存在$ c_1 $使得对于任意$ a&lt; x &lt; c_1 $，总是有$ g(x) &gt; g(y) $和$ g(x) &gt; 0 $同时成立。将不等式(A)两边同时乘以$ [g(x)-g(y)]/g(x) $，我们得到</p>
+<script type="math/tex; mode=display">
+\frac{f(x)-f(y)}{g(x)-g(y)}\frac{g(x)-g(y)}{g(x)}<
+(A+\varepsilon)\frac{g(x)-g(y)}{g(x)}.</script><p>此即</p>
+<script type="math/tex; mode=display">
+\frac{f(x)}{g(x)}<(A+\varepsilon)\left(1-\frac{g(y)}{g(x)}\right)
++\frac{f(y)}{g(x)} \quad (a<x<c_1).</script><p>根据$g(x) \to +\infty$的定义，存在$c_2 \in (a,c_1)$使得：</p>
+<script type="math/tex; mode=display">
+\begin{equation}\label{(D)}\tag{3}
+\frac{f(x)}{g(x)} < A+\varepsilon<q.
+\end{equation}</script><h5 id="情况1-1和1-2的整合"><a href="#情况1-1和1-2的整合" class="headerlink" title="情况1.1和1.2的整合"></a>情况1.1和1.2的整合</h5><p>不等式$\eqref{(B)}$和$\eqref{(D)}$都只说明，存在$c\in(a,b)$使得对于所有$x\in(a,c)$，满足$\frac{f(x)}{g(x)}&lt;q$.但是$\frac{f(x)}{g(x)}$与$A$的关系我们并不知道。但是，如果$A=-\infty$，那么我们已经证明了$\frac{f(x)}{g(x)} \to -\infty$的成立。</p>
+<h4 id="情况2-infty-lt-A-leq-infty"><a href="#情况2-infty-lt-A-leq-infty" class="headerlink" title="情况2: $-\infty&lt;{A}\leq+\infty$"></a>情况2: $-\infty&lt;{A}\leq+\infty$</h4><p>这个情况是和情况1完全类似的。同理可证，对任意$p$，当且仅当$p&lt;A$时，总有$c’\in(a,b)$，使得对于所有$x\in(a,c’)$，满足$p&lt;\frac{f(x)}{g(x)}$. 如果$A=+\infty$，那么我们已经证明了$\frac{f(x)}{g(x)} \to +\infty$的情况。</p>
+<p>除去$A=\pm\infty$，综合情况1和2，我们发现，对任意的$p,q$满足$p&lt;A&lt;q$，若取$c_0=\min\{c,c’\}$，则对于任意$x \in (a,c_0)$，一定有</p>
+<script type="math/tex; mode=display">
+p<\frac{f(x)}{g(x)}<q.</script><p>这其实就等价于$\lim_{x \to a}\frac{f(x)}{g(x)}=A$. $\square$</p>
+<h4 id="证明中几个小问题"><a href="#证明中几个小问题" class="headerlink" title="证明中几个小问题"></a>证明中几个小问题</h4><blockquote>
+<p> 不等式$\eqref{(A)}$第一项的分母为什么一定有意义?</p>
+</blockquote>
+<p>假设它无意义. 如果有$g(x)=g(y)$，那么有$a&lt;{x}&lt;t&lt;y&lt;b$使得$g’(t)=0$, 而这与原假设矛盾. </p>
+<blockquote>
+<p> 不等式$\eqref{(B)}$中为什么变成小于等于?</p>
+</blockquote>
+<p>每次改变$x$，$t$也发生改变，记为$t(x)$，此时可能有$\lim\limits_{x\to{a}}\frac{f’(t(x))}{g’(t(x))}=r$.</p>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"><a href="../../../../tags/Hot-post/" class="post-tags__link button"># Hot post</a><a href="../../../../tags/Untranslated/" class="post-tags__link button"># Untranslated</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../24/harmonic-series-divergence/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            调和级数发散的若干证明
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../06/beautiful-fourier-002/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            优美的Fourier级数（二）: 有界差分下的收敛(Jordan判别法)
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2019/08/19/l-hopital-proof/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

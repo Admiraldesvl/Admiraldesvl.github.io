@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>Partition of Unity on Different Manifolds (Part 1. Introduction) | Desvl&#39;s blog</title>
+
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="An application of partition of unityPartition of unity builds a bridge between local properties and global properties. A nice example is the Stokes’ theorem on manifolds.   Suppose $\omega$ is a $(n-1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Partition of Unity on Different Manifolds (Part 1. Introduction)">
+<meta property="og:url" content="https://desvl.xyz/2020/11/08/Partition-of-Unity-on-Different-Manifolds/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="An application of partition of unityPartition of unity builds a bridge between local properties and global properties. A nice example is the Stokes’ theorem on manifolds.   Suppose $\omega$ is a $(n-1">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-11-08T22:25:01.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:10.263Z">
+<meta property="article:author" content="Desvl">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        Partition of Unity on Different Manifolds (Part 1. Introduction)
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2020/11/" class="post-meta__date button">2020-11-08</a>
+        
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#An-application-of-partition-of-unity"><span class="toc-number">1.</span> <span class="toc-text">An application of partition of unity</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Prerequisites"><span class="toc-number">2.</span> <span class="toc-text">Prerequisites</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Manifold-of-finite-or-infinite-dimension"><span class="toc-number">2.1.</span> <span class="toc-text">Manifold (of finite or infinite dimension)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Topological-prerequisites"><span class="toc-number">2.2.</span> <span class="toc-text">Topological prerequisites</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Partition-of-unity"><span class="toc-number">2.3.</span> <span class="toc-text">Partition of unity</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Bump-function"><span class="toc-number">2.4.</span> <span class="toc-text">Bump function</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Is-partition-of-unity-ALWAYS-available"><span class="toc-number">3.</span> <span class="toc-text">Is partition of unity ALWAYS available?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Existence-of-partition-of-unity"><span class="toc-number">4.</span> <span class="toc-text">Existence of partition of unity</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#References"><span class="toc-number">5.</span> <span class="toc-text">References</span></a></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#An-application-of-partition-of-unity"><span class="toc-number">1.</span> <span class="toc-text">An application of partition of unity</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Prerequisites"><span class="toc-number">2.</span> <span class="toc-text">Prerequisites</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Manifold-of-finite-or-infinite-dimension"><span class="toc-number">2.1.</span> <span class="toc-text">Manifold (of finite or infinite dimension)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Topological-prerequisites"><span class="toc-number">2.2.</span> <span class="toc-text">Topological prerequisites</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Partition-of-unity"><span class="toc-number">2.3.</span> <span class="toc-text">Partition of unity</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Bump-function"><span class="toc-number">2.4.</span> <span class="toc-text">Bump function</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Is-partition-of-unity-ALWAYS-available"><span class="toc-number">3.</span> <span class="toc-text">Is partition of unity ALWAYS available?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Existence-of-partition-of-unity"><span class="toc-number">4.</span> <span class="toc-text">Existence of partition of unity</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#References"><span class="toc-number">5.</span> <span class="toc-text">References</span></a></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h2 id="An-application-of-partition-of-unity"><a href="#An-application-of-partition-of-unity" class="headerlink" title="An application of partition of unity"></a>An application of partition of unity</h2><p>Partition of unity builds a bridge between local properties and global properties. A nice example is the Stokes’ theorem on manifolds. </p>
+<blockquote>
+<p>Suppose $\omega$ is a $(n-1)$-form with compact support on a oriented manifold $M$ of dimension $n$ and if $\partial{M}$ is given the induced orientation, then</p>
+<script type="math/tex; mode=display">
+\int_M d\omega=\int_{\partial{M}}\omega</script></blockquote>
+<p>This theorem can be proved in two steps. First, by Fubini’s theorem, one proves the identity on $\mathbb{R}^n$ and $\mathbb{H}^n$. Second, for the general case, let $(U_\alpha)$ be an oriented atlas for $M$ and $(\rho_\alpha)$ a partition of unity to $(U_\alpha)$, one naturally writes $\omega=\sum_{\alpha}\rho_\alpha\omega$. Since $\int_M d\omega=\int_{\partial M}\omega$ is linear with respect to $\omega$, it suffices to prove it only for $\rho_\alpha\omega$. Note that the support of $\rho_\alpha\omega$ is contained in the intersection of supports of $\rho_\alpha$ and $\omega$, hence a compact set. </p>
+<p>On the other hand, $U_\alpha$ is diffeomorphic to either $\mathbb{R}^n$ or $\mathbb{H}^n$, it is immediate that</p>
+<script type="math/tex; mode=display">
+\int_M d\rho_\alpha\omega=\int_{U_\alpha}d\rho_\alpha\omega=\int_{\partial U_\alpha}\rho_\alpha\omega=\int_{\partial{M}}\rho_\alpha\omega.</script><p>Which furnishes the proof for the general case. </p>
+<p>As is seen, to prove a global thing, we do it locally. If you have trouble with these terminologies, never mind. We will go through this right now (in a more abstract way however). If you are familiar with them however, fell free to skip.</p>
+<h2 id="Prerequisites"><a href="#Prerequisites" class="headerlink" title="Prerequisites"></a>Prerequisites</h2><h3 id="Manifold-of-finite-or-infinite-dimension"><a href="#Manifold-of-finite-or-infinite-dimension" class="headerlink" title="Manifold (of finite or infinite dimension)"></a>Manifold (of finite or infinite dimension)</h3><p>Throughout, we use bold letters like $\mathbf{E}$, $\mathbf{F}$ to denote Banach spaces. We will treat Euclidean spaces as a case instead of our restriction. Indeed since Banach spaces are not necessarily of finite dimension, our approach can be troublesome. But the benefit is a better view of abstraction. </p>
+<blockquote>
+<p>Let $X$ be a set. An <strong>atlas of class</strong> $C^p$ ($p \geq 0$) on $X$ is a collection of pairs $(U_i,\varphi_i)$ where $i$ ranges through some indexing set, satisfying the following conditions:</p>
+<p><strong>AT 1.</strong> Each $U_i$ is a subset of $X$ and $\bigcup_{i}U_i=X$.</p>
+<p><strong>AT 2.</strong> Each $\varphi_i$ is a bijection of $U_i$ onto an open subset $\varphi_iU_i$ of some Banach space $\mathbf{E}_i$ and for any $i$ and $j$, $\phi_i(U_i \cap U_j)$ is open in $E_i$.</p>
+<p><strong>AT 3.</strong> The map</p>
+<script type="math/tex; mode=display">
+\varphi_j\circ\varphi_i^{-1}:\varphi_i(U_i \cap U_j) \to \varphi_j(U_i \cap U_j)</script><p>is a $C^p$-isomorphism for all $i$ and $j$.</p>
+</blockquote>
+<p>One should be advised that isomorphism here does not come from group theory, but category theory. Precisely speaking, it’s the isomorphism in the category $\mathfrak{O}$ whose objects are the continuous maps of Banach spaces and whose morphisms are the continuous maps of class $C^p$.</p>
+<p>Also, by setting $\tau_X=(U_i)_i$, we see $\tau_X$ is a topology, and $\varphi_i$ are topological isomorphisms. Also, we see no need to assume that $X$ is Hausdorff unless we start with Hausdorff spaces. Lifting this restriction gives us more freedom (also sometimes more difficulty to some extent though). </p>
+<p>For condition <strong>AT 2</strong>, we did not require that the vector spaces be the same for all indexes $i$, or even that they be toplinearly isomorphic. If they are all equal to the same space $\mathbf{E}$, then we say that the atlas is an $\mathbf{E}$-atlas. </p>
+<p>Suppose that we are given an open subset $U$ of $X$ and a topological isomorphism $\phi:U \to U’$ onto an open subset of some Banach space $\mathbb{E}$. We shall say that $(U,\varphi)$ is <strong>compatible</strong> with the atlas $(U_i,\varphi_i)_i$ if each map $\varphi\circ\varphi^{-1}$ is a $C^p$-isomorphism. Two atlas are said to be <strong>compatible</strong> if each chart of one is compatible with other atlas. It can be verified that this is a equivalence relation. <em>An equivalence relation of atlases of class $C^p$ on $X$ is said to define a structure of $C^p$-<strong>manifold</strong> on $X$.</em> If all the vector spaces $\mathbf{E}_i$ in some atlas are toplinearly isomorphic, we can find some universal $\mathbf{E}$ that is equal to all of them. In this case, we say $X$ is a $\mathbf{E}$-manifold or that $X$ is <strong>modeled</strong> on $\mathbf{E}$.</p>
+<p>As we know, $\mathbb{R}^n$ is a Banach space. If $\mathbf{E}=\mathbb{R}^n$ for some fixed $n$, then we say that the manifold is $n$-dimensional. Also we have the <strong>local coordinates</strong>. A chart</p>
+<script type="math/tex; mode=display">
+\varphi:U \to \mathbb{R}^n</script><p>is given by $n$ coordinate functions $\varphi_1,\cdots,\varphi_n$. If $P$ denotes a point of $U$, these functions are often written</p>
+<script type="math/tex; mode=display">
+x_1(P),\cdots,x_n(P),</script><p>or simply $x_1,\cdots,x_n$.</p>
+<h3 id="Topological-prerequisites"><a href="#Topological-prerequisites" class="headerlink" title="Topological prerequisites"></a>Topological prerequisites</h3><p>Let $X$ be a topological space. A covering $\mathfrak{U}$ of $X$ is <strong>locally finite</strong> if every point $x$ has a neighborhood $U$ such that all but a finite number of members of $\mathfrak{U}$ do not intersect with $U$ (as you will see, this prevents some nonsense summation). A <strong>refinement</strong> of a covering $\mathfrak{U}$ is a covering $\mathfrak{U}’$ such that for any $U’ \in \mathfrak{U}’$, there exists some $U \in \mathfrak{U}$ such that $U’ \subset U$. If we write $\mathfrak{U} \leq \mathfrak{U}’$ in this case, we see that the set of open covers on a topological space forms a <em>direct set</em>.</p>
+<p>A topological space is <strong>paracompact</strong> if it is Hausdorff, and every open covering has a locally finite open refinement. Here follows some examples of paracompact spaces.</p>
+<ol>
+<li>Any compact Hausdorff space.</li>
+<li>Any CW complex.</li>
+<li>Any metric space (hence $\mathbb{R}^n$).</li>
+<li>Any Hausdorff Lindelöf space.</li>
+<li>Any Hausdorff $\sigma$-compact space</li>
+</ol>
+<p>These are not too difficult to prove, and one can easily find proofs on the Internet. Below are several key properties of paracompact spaces.</p>
+<blockquote>
+<p>If $X$ is paracompact, then $X$ is normal. (Proof <a target="_blank" rel="noopener" href="https://ncatlab.org/nlab/show/paracompact+Hausdorff+spaces+are+normal">here</a>)</p>
+<p>Let $X$ be a paracompact (hence normal) space and $\mathfrak{U}=(U_i)$ a locally finite open cover, then there exists a locally finite open covering $\mathfrak{V}=(V_i)$ such that $\overline{V_i} \subset U_i$. (Proof <a target="_blank" rel="noopener" href="https://ncatlab.org/nlab/show/shrinking+lemma">here</a>. Note the axiom of choice is assumed.</p>
+</blockquote>
+<p>One can find proofs of the following propositions on <em>Elements of Mathematics, General Topology, Chapter 1-4</em> by N. Bourbaki. It’s interesting to compare them to the corresponding ones of compact spaces.</p>
+<blockquote>
+<p>Every closed subspace $F$ of a paracompact space $X$ is paracompact. </p>
+<p>The product of a paracompact space and a compact space is paracompact.</p>
+<p>Let $X$ be a locally compact paracompact space. Then every open covering $\mathfrak{R}$ of $X$ has a locally finite open refinement $\mathfrak{R}’$ formed of relatively compact sets. If $X$ is $\sigma$-compact then $\mathfrak{R}’$ can be taken to be countable.</p>
+</blockquote>
+<h3 id="Partition-of-unity"><a href="#Partition-of-unity" class="headerlink" title="Partition of unity"></a>Partition of unity</h3><blockquote>
+<p>A <strong>partition of unity</strong> (of class $C^p$) on a manifold $X$ consists of an open covering $(U_i)$ of $X$ and a family of functions</p>
+<script type="math/tex; mode=display">
+\psi_i:X \to \mathbb{R}</script><p>satisfying the following conditions:</p>
+<p><strong>PU 1.</strong> For all $x \in X$ we have $\phi_i(x) \geq 0$.</p>
+<p><strong>PU 2.</strong> The support of $\psi_i$ is contained in $U_i$.</p>
+<p><strong>PU 3.</strong> The covering is locally finite</p>
+<p><strong>PU 4.</strong> For each point $x \in X$ we have</p>
+<script type="math/tex; mode=display">
+\sum_{i}\psi_i(x)=1</script></blockquote>
+<p>The sum in PU 4 makes sense because for given point $x$, there are only finite many $i$ such that $\psi_i(x) &gt;0$, according to PU 3.</p>
+<p>A manifold $X$ will be said to <strong>admit partition of unity</strong> if it is paracompact, and if, given a locally finite open covering $(U_i)$, there exists a partition of unity $(\psi_i)$ such that the support of $\psi_i$ is contained in $U_i$.</p>
+<h3 id="Bump-function"><a href="#Bump-function" class="headerlink" title="Bump function"></a>Bump function</h3><p>This function will be useful when dealing with finite dimensional case.</p>
+<blockquote>
+<p>For every integer $n$ and every real number $\delta&gt;0$ there exist maps $\psi_n \in C^{\infty}(\mathbb{R}^n;\mathbb{R})$ which equal $1$ on $B(0,1)$ and vanish in $\mathbb{R}^n\setminus B(1,1+\delta)$.</p>
+</blockquote>
+<p><em>Proof.</em> It suffices to prove it for $\mathbb{R}$ since once we proved the existence of $\psi_1$, then we may write</p>
+<script type="math/tex; mode=display">
+\psi_n(x_1,x_2,\cdots,x_n)=\psi_1(\sqrt{x_1^2+x_2^2+\cdots+x_n^2}).</script><p>Consider the function $\phi: \mathbb{R} \to \mathbb{R}$ defined by</p>
+<script type="math/tex; mode=display">
+\phi(t)=
+\begin{cases}
+\exp\left(\frac{1}{(t-a)(t-b)}\right)&\quad\text{if } a<t<b,\\
+0 &\quad \text{otherwise}.
+\end{cases}</script><p> The reader may have seen it in some analysis course and should be able to check that $\phi \in C^{\infty}(\mathbb{R};\mathbb{R})$. Integrating $\phi$ from $-\infty$ to $x$ and divide it by $\lVert \phi \rVert_1$ (you may have done it in probability theory) to obtain</p>
+<script type="math/tex; mode=display">
+\theta(x)=\frac{\int_{-\infty}^{x}\phi(t)dt}{\int_{-\infty}^{+\infty}\phi(t)dt};</script><p>it is immediate that $\theta(x)=0$ for $x \leq a$ and $\theta(x)=1$ for $x \geq b$. By taking $a=1$ and $b=(1+\delta)^2$, our job is done by letting $\psi_1(x)=1-\theta(x^2)$. Considering $x^2=|x|^2$, one sees that the identity about $\psi_n$ and $\psi_1$ is redundant. $\square$</p>
+<p>In the following blog posts, we will generalize this to Hilbert spaces.</p>
+<h2 id="Is-partition-of-unity-ALWAYS-available"><a href="#Is-partition-of-unity-ALWAYS-available" class="headerlink" title="Is partition of unity ALWAYS available?"></a>Is partition of unity ALWAYS available?</h2><p>Of course this is desirable. But we will give an example that sometimes we cannot find a satisfying partition of unity.</p>
+<blockquote>
+<p>Let $D$ be a connected bounded open set in $\ell^p$ where $p$ is not an even integer. Assume $f$ is a real-valued function, continuous on $\overline{D}$ and $n$-times differentiable in $D$ with $n \geq p$. Then $f(\overline{D}) \subset \overline{f(\partial D)}$.</p>
+<p><strong>(Corollary)</strong> Let $f$ be an $n$-times differentiable function on $\ell^p$ space, where $n \geq p$, and $p$ is not an even integer. If $f$ has its support in a bounded set, then $f$ is identically zero.</p>
+</blockquote>
+<p>It follows that for $n \geq p$, $C^n$ partitions of unity do not exists whenever $p$ is not an even integer. For example,e $\ell^1[0,1]$ does not have a $C^2$ partition of unity. It is then our duty to find that under what condition does the desired partition of unity available.</p>
+<h2 id="Existence-of-partition-of-unity"><a href="#Existence-of-partition-of-unity" class="headerlink" title="Existence of partition of unity"></a>Existence of partition of unity</h2><p>Below are two theorems about the existence of partitions of unity. We are not proving them here  but in the future blog post since that would be rather long. The restrictions on $X$ are acceptable. For example $\mathbb{R}^n$ is locally compact and hence the manifold modeled on $\mathbb{R}^n$. </p>
+<blockquote>
+<p>Let $X$ be a manifold which is locally compact Hausdorff and whose topology has a countable base. Then $X$ admits partitions of unity</p>
+<p>Let $X$ be a paracompact manifold of class $C^p$, modeled on a separable Hilbert space $E$, then $X$ admits partitions of unity (of class $C^p$)</p>
+</blockquote>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li>N. Bourbaki, <em>Elements of Mathematics</em></li>
+<li>S. Lang, <em>Fundamentals of Differential Geometry</em></li>
+<li>M. Berger, <em>Differential Geometry: Manifolds, Curves, and Surfaces</em></li>
+<li>R. Bonic and J. Frampton, <em>Differentiable Functions on Certain Banach Spaces</em></li>
+</ul>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../13/big-3-pt-6/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            The Big Three Pt. 6 - Closed Graph Theorem with Applications
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../../10/18/stirling-approximation/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            Stirling公式的几种经典估计
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2020/11/08/Partition-of-Unity-on-Different-Manifolds/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

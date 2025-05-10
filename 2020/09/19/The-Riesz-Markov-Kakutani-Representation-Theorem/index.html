@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>The Riesz-Markov-Kakutani Representation Theorem | Desvl&#39;s blog</title>
+
+
+    <meta name="keywords" content="Partition of unity, Riesz, Locally compact">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="In this post we develop a proof of the Riesz-Markov-Kakutani theorem on a locally compact Hausdorff space, which is the essential of the existence of the Lebesgue measure.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Riesz-Markov-Kakutani Representation Theorem">
+<meta property="og:url" content="https://desvl.xyz/2020/09/19/The-Riesz-Markov-Kakutani-Representation-Theorem/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="In this post we develop a proof of the Riesz-Markov-Kakutani theorem on a locally compact Hausdorff space, which is the essential of the existence of the Lebesgue measure.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-09-19T06:57:10.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:10.630Z">
+<meta property="article:author" content="Desvl">
+<meta property="article:tag" content="Partition of unity">
+<meta property="article:tag" content="Riesz">
+<meta property="article:tag" content="Locally compact">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        The Riesz-Markov-Kakutani Representation Theorem
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2020/09/" class="post-meta__date button">2020-09-19</a>
+        
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/" class="button">Analysis</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/Functional-Analysis/" class="button">Functional Analysis</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/Integration-Theory/" class="button">Integration Theory</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/Functional-Analysis/Linear-Functional/" class="button">Linear Functional</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#This-post"><span class="toc-number">1.</span> <span class="toc-text">This post</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tools"><span class="toc-number">2.</span> <span class="toc-text">Tools</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Different-kinds-of-topological-spaces"><span class="toc-number">2.1.</span> <span class="toc-text">Different kinds of topological spaces</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Partition-of-unity"><span class="toc-number">2.2.</span> <span class="toc-text">Partition of unity</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Urysohn%E2%80%99s-lemma-for-locally-compact-Hausdorff-spaces"><span class="toc-number">2.3.</span> <span class="toc-text">Urysohn’s lemma (for locally compact Hausdorff spaces)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#The-varepsilon-definitions-of-sup-and-inf"><span class="toc-number">2.4.</span> <span class="toc-text">The $\varepsilon$-definitions of $\sup$ and $\inf$</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-main-theorem"><span class="toc-number">3.</span> <span class="toc-text">The main theorem</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Proving-the-theorem"><span class="toc-number">3.1.</span> <span class="toc-text">Proving the theorem</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Step-0-Construction-of-mu-and-mathfrak-M"><span class="toc-number">3.1.1.</span> <span class="toc-text">Step 0 - Construction of $\mu$ and $\mathfrak{M}$</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Step-1-The-%E2%80%98measure%E2%80%99-of-compact-sets-outer"><span class="toc-number">3.1.2.</span> <span class="toc-text">Step 1 - The ‘measure’ of compact sets (outer)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Step-2-The-%E2%80%98measure%E2%80%99-of-open-sets-inner"><span class="toc-number">3.1.3.</span> <span class="toc-text">Step 2 - The ‘measure’ of open sets (inner)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Step-3-The-subadditivity-of-mu-on-2-X"><span class="toc-number">3.1.4.</span> <span class="toc-text">Step 3 - The subadditivity of $\mu$ on $2^X$</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Step-4-Additivity-of-mu-on-mathfrak-M-F"><span class="toc-number">3.1.5.</span> <span class="toc-text">Step 4 - Additivity of $\mu$ on $\mathfrak{M}_F$</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Step-5-The-%E2%80%98continuity%E2%80%99-of-mathfrak-M-F"><span class="toc-number">3.1.6.</span> <span class="toc-text">Step 5 - The ‘continuity’ of $\mathfrak{M}_F$.</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Step-6-mathfrak-M-F-is-closed-under-certain-operations"><span class="toc-number">3.1.7.</span> <span class="toc-text">Step 6 - $\mathfrak{M}_F$ is closed under certain operations</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Step-7-mathfrak-M-F-subset-mathfrak-M"><span class="toc-number">3.1.8.</span> <span class="toc-text">Step 7 - $\mathfrak{M}_F \subset \mathfrak{M}$</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Step-8-mathfrak-M-is-a-sigma-algebra-in-X-containing-all-Borel-sets"><span class="toc-number">3.1.9.</span> <span class="toc-text">Step 8 - $\mathfrak{M}$ is a $\sigma$-algebra in $X$ containing all Borel sets</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Step-9-mu-is-a-positive-measure-on-mathfrak-M"><span class="toc-number">3.1.10.</span> <span class="toc-text">Step 9 - $\mu$ is a positive measure on $\mathfrak{M}$</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Step-10-The-completeness-of-mu-and-mathfrak-M"><span class="toc-number">3.1.11.</span> <span class="toc-text">Step 10 - The completeness of $\mu$ (and $\mathfrak{M}$)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Step-11-The-functional-and-the-measure"><span class="toc-number">3.1.12.</span> <span class="toc-text">Step 11 - The functional and the measure</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Step-12-The-unicity-of-mu"><span class="toc-number">3.1.13.</span> <span class="toc-text">Step 12 - The unicity of $\mu$</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-flaw"><span class="toc-number">4.</span> <span class="toc-text">The flaw</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#A-weird-example"><span class="toc-number">4.1.</span> <span class="toc-text">A weird example</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#References-Further-reading"><span class="toc-number">5.</span> <span class="toc-text">References &#x2F; Further reading</span></a></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#This-post"><span class="toc-number">1.</span> <span class="toc-text">This post</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tools"><span class="toc-number">2.</span> <span class="toc-text">Tools</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Different-kinds-of-topological-spaces"><span class="toc-number">2.1.</span> <span class="toc-text">Different kinds of topological spaces</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Partition-of-unity"><span class="toc-number">2.2.</span> <span class="toc-text">Partition of unity</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Urysohn%E2%80%99s-lemma-for-locally-compact-Hausdorff-spaces"><span class="toc-number">2.3.</span> <span class="toc-text">Urysohn’s lemma (for locally compact Hausdorff spaces)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#The-varepsilon-definitions-of-sup-and-inf"><span class="toc-number">2.4.</span> <span class="toc-text">The $\varepsilon$-definitions of $\sup$ and $\inf$</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-main-theorem"><span class="toc-number">3.</span> <span class="toc-text">The main theorem</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Proving-the-theorem"><span class="toc-number">3.1.</span> <span class="toc-text">Proving the theorem</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Step-0-Construction-of-mu-and-mathfrak-M"><span class="toc-number">3.1.1.</span> <span class="toc-text">Step 0 - Construction of $\mu$ and $\mathfrak{M}$</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Step-1-The-%E2%80%98measure%E2%80%99-of-compact-sets-outer"><span class="toc-number">3.1.2.</span> <span class="toc-text">Step 1 - The ‘measure’ of compact sets (outer)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Step-2-The-%E2%80%98measure%E2%80%99-of-open-sets-inner"><span class="toc-number">3.1.3.</span> <span class="toc-text">Step 2 - The ‘measure’ of open sets (inner)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Step-3-The-subadditivity-of-mu-on-2-X"><span class="toc-number">3.1.4.</span> <span class="toc-text">Step 3 - The subadditivity of $\mu$ on $2^X$</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Step-4-Additivity-of-mu-on-mathfrak-M-F"><span class="toc-number">3.1.5.</span> <span class="toc-text">Step 4 - Additivity of $\mu$ on $\mathfrak{M}_F$</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Step-5-The-%E2%80%98continuity%E2%80%99-of-mathfrak-M-F"><span class="toc-number">3.1.6.</span> <span class="toc-text">Step 5 - The ‘continuity’ of $\mathfrak{M}_F$.</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Step-6-mathfrak-M-F-is-closed-under-certain-operations"><span class="toc-number">3.1.7.</span> <span class="toc-text">Step 6 - $\mathfrak{M}_F$ is closed under certain operations</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Step-7-mathfrak-M-F-subset-mathfrak-M"><span class="toc-number">3.1.8.</span> <span class="toc-text">Step 7 - $\mathfrak{M}_F \subset \mathfrak{M}$</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Step-8-mathfrak-M-is-a-sigma-algebra-in-X-containing-all-Borel-sets"><span class="toc-number">3.1.9.</span> <span class="toc-text">Step 8 - $\mathfrak{M}$ is a $\sigma$-algebra in $X$ containing all Borel sets</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Step-9-mu-is-a-positive-measure-on-mathfrak-M"><span class="toc-number">3.1.10.</span> <span class="toc-text">Step 9 - $\mu$ is a positive measure on $\mathfrak{M}$</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Step-10-The-completeness-of-mu-and-mathfrak-M"><span class="toc-number">3.1.11.</span> <span class="toc-text">Step 10 - The completeness of $\mu$ (and $\mathfrak{M}$)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Step-11-The-functional-and-the-measure"><span class="toc-number">3.1.12.</span> <span class="toc-text">Step 11 - The functional and the measure</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Step-12-The-unicity-of-mu"><span class="toc-number">3.1.13.</span> <span class="toc-text">Step 12 - The unicity of $\mu$</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-flaw"><span class="toc-number">4.</span> <span class="toc-text">The flaw</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#A-weird-example"><span class="toc-number">4.1.</span> <span class="toc-text">A weird example</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#References-Further-reading"><span class="toc-number">5.</span> <span class="toc-text">References &#x2F; Further reading</span></a></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h2 id="This-post"><a href="#This-post" class="headerlink" title="This post"></a>This post</h2><p>Is intended to give a proper proof of the RMK theorem, and to establish the existence of the Lebesgue measure in the future, which is often denoted by $m$. In fact, the Lebesgue measure follows as a special case of R-M-K representation theorem. You may not believe it, but euclidean properties of $\mathbb{R}^k$ plays no role in the existence of $m$. The only topological property that works is the fact that $\mathbb{R}^k$ is a locally compact Hausdorff space.</p>
+<p>The theorem is named after F. Riesz who introduced it for continuous functions on $[0,1]$ (with respect to Riemann-Steiltjes integral). Years later, after the generalisation done by A. Markov and S. Kakutani, we are able to view it on a locally compact Hausdorff space.</p>
+<p>You may find there are some overly-generalised properties, but this is intended to have you being able to enjoy more alongside (there are some tools related to differential geometry). Also there are many topology and analysis tricks deserve your attention.</p>
+<h2 id="Tools"><a href="#Tools" class="headerlink" title="Tools"></a>Tools</h2><h3 id="Different-kinds-of-topological-spaces"><a href="#Different-kinds-of-topological-spaces" class="headerlink" title="Different kinds of topological spaces"></a>Different kinds of topological spaces</h3><p>Again, Euclidean topology plays no role in this proof. We need to specify the topology we will use at different abstraction level. This is similar to what we do in linear functional analysis. Throughout, let $X$ be a topological space.</p>
+<p><strong>0.0 Definition.</strong> $X$ is a <em>Hausdorff space</em> if the following is true: If $p \in X$, $q\in X$ but $p \neq q$, then there are two <strong>disjoint</strong> open sets $U$ and $V$ such that $p \in U$ and $q \in V$.</p>
+<p><strong>0.1 Definition.</strong> $X$ is <em>locally compact</em> if every point of $X$ has a neighborhood whose closure is compact.</p>
+<p><strong>0.2 Remarks.</strong> A Hausdorff space is also called a $T_2$ space (see Kolmogorov classification) or a separated space. There is a classic example of locally compact Hausdorff space: $\mathbb{R}^n$. It is trivial to verify this. But this is far from being enough. At the end of the post, there is an example where we can construct some ridiculous but mathematically valid measures.</p>
+<p><strong>0.3 Definition.</strong> A set $E \subset X$ is called <em>$\sigma$-compact</em> if $E$ is a countable union of compact sets. Note that every open subset in a euclidean space $\mathbb{R}^n$ is $\sigma$-compact since it can always be a countable union of closed balls (which is compact).</p>
+<p><strong>0.4 Definition.</strong> A covering of $X$ is <em>locally finite</em> if every point has a neighborhood which intersects only finitely many elements of the covering. Of course, if the covering is already finite, it is also locally finite.</p>
+<p><strong>0.5 Definition.</strong> A <em>refinement</em> of a covering of $X$ is a second covering, each element of which is contained in an element of the first covering.</p>
+<p><strong>0.6 Definition.</strong> $X$ is <em>paracompact</em> if it is Hausdorff, and every open covering has a locally finite open refinement. Obviously any compact space is paracompact.</p>
+<p><strong>0.7 Theorem.</strong> If $X$ is a second countable Hausdorff space and is locally compact, then $X$ is paracompact. For proof, see <a target="_blank" rel="noopener" href="https://math.stanford.edu/~conrad/diffgeomPage/handouts/paracompact.pdf">this [Theorem 2.6]</a>. One uses this to prove that a differentiable manifold admits a partition of unity.</p>
+<p><strong>0.8 Theorem.</strong> If $X$ is locally compact and sigma compact, then $X=\bigcup_{i=1}^{\infty}K_i$ where for all $i \in \mathbb{N}$, $K_i$ is compact and $K_i \subset\operatorname{int}K_{i+1}$.</p>
+<h3 id="Partition-of-unity"><a href="#Partition-of-unity" class="headerlink" title="Partition of unity"></a>Partition of unity</h3><p>One should be reminded that, partition of unity is frequently used in many fields of mathematics. For example, in differential geometry, one uses it to find Riemannian structure on a smooth manifold. Here we use it in analysis.</p>
+<p><strong>1.0 Definition.</strong> A <strong>partition of unity</strong> on $X$ is a collection $(g_i)$ of continuous real valued functions on $X$ such that</p>
+<ol>
+<li>$g_i \geq 0$ for each $i$.</li>
+<li>every $x \in X$ has a neighborhood $U$ such that $U \cap \operatorname{supp}(g_i)=\varnothing$ for all but finitely many of $g_i$.</li>
+<li>for each $x \in X$, we have $\sum_{i}g_i(x)=1$. (That is why you see the word ‘unity’.)</li>
+</ol>
+<p><strong>1.1 Definition.</strong> A partition of unity $(g_i)$ on $X$ is <em>subordinate</em> to an open cover of $X$ if and only if for each $g_i$ there is an element $U$ of the cover such that $\operatorname{supp}(g_i) \subset U$. We say $X$ <em>admits</em> partitions of unity if and only if for every open cover of $X$, there exists a partition of unity subordinate to the cover. </p>
+<p><strong>1.2 Theorem.</strong> A Hausdorff space admits a partition of unity if and only if it is paracompact (the ‘only if’ part is done by considering the definition of partition of unity. For the ‘if’ part, see <a target="_blank" rel="noopener" href="https://wikivisually.com/wiki/Paracompact_space#Proof_that_paracompact_Hausdorff_spaces_admit_partitions_of_unity">here</a>). As a corollary, we have:</p>
+<p><strong>1.3 Corollary.</strong> Suppose $V_1,\cdots,V_n$ are open subsets of a locally compact Hausdorff space $X$, $K$ is compact, and</p>
+<script type="math/tex; mode=display">
+K \subset \bigcup_{k=1}^{n}V_k.</script><p>Then there exists a partition of unity $(h_i)$ that is subordinate to the cover $(V_n)$ such that $\operatorname{supp}(h_i) \subset V_i$ and $\sum_{i=1}^{n}h_i=1$ for all $x \in K$.</p>
+<h3 id="Urysohn’s-lemma-for-locally-compact-Hausdorff-spaces"><a href="#Urysohn’s-lemma-for-locally-compact-Hausdorff-spaces" class="headerlink" title="Urysohn’s lemma (for locally compact Hausdorff spaces)"></a>Urysohn’s lemma (for locally compact Hausdorff spaces)</h3><p><strong>2.0 Notation.</strong> The notation</p>
+<script type="math/tex; mode=display">
+K \prec f</script><p>will mean that $K$ is a compact subset of $X$, that $f \in C_c(X)$, that $f(X) \subset [0,1]$, and that $f(x)=1$ for all $x \in K$. The notation</p>
+<script type="math/tex; mode=display">
+f \prec V</script><p>will mean that $V$ is open, that $f \in C_c(X)$, that $f(X) \subset [0,1]$ and that $\operatorname{supp}(f) \subset V$. If both hold, we write</p>
+<script type="math/tex; mode=display">
+K \prec f \prec V.</script><p><strong>2.1 Remark.</strong> Clearly, with this notation, we are able to simplify the statement of being subordinate. We merely need to write $g_i \prec U$ in 1.1 instead of $\operatorname{supp}(g_i) \subset U$.</p>
+<p><strong>2.2 Urysohn’s Lemma for locally compact Hausdorff space.</strong> Suppose $X$ is locally compact and Hausdorff, $V$ is open in $X$ and $K \subset V$ is a compact set. Then there exists an $f \in C_c(X)$ such that</p>
+<script type="math/tex; mode=display">
+K \prec f \prec V.</script><p><strong>2.3 Remarks.</strong> By $f \in C_c(X)$ we shall mean $f$ is a continuous function with a compact support.  This relation also says that $\chi_K \leq f \leq \chi_V$. For more details and the proof, visit <a target="_blank" rel="noopener" href="https://planetmath.org/applicationsofurysohnslemmatolocallycompacthausdorffspaces">this page</a>. This lemma is generally for normal space, for a proof on that level, see <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1910.10381.pdf">arXiv:1910.10381</a>. (Question: why we consider two disjoint closed subsets thereafter?)</p>
+<h3 id="The-varepsilon-definitions-of-sup-and-inf"><a href="#The-varepsilon-definitions-of-sup-and-inf" class="headerlink" title="The $\varepsilon$-definitions of $\sup$ and $\inf$"></a>The $\varepsilon$-definitions of $\sup$ and $\inf$</h3><p>We will be using the $\varepsilon$-definitions of $\sup$ and $\inf$, which will makes the proof easier in this case, but if you do not know it would be troublesome. So we need to put it down here.</p>
+<blockquote>
+<p>Let $S$ be a nonempty subset of the real numbers that is bounded below. The lower bound $w$ is to be the infimum of $S$ if and only if for any $\varepsilon&gt;0$, there exists an element $x_\varepsilon \in S$ such that $x_\varepsilon&lt;w+\varepsilon$.</p>
+</blockquote>
+<p>This definition of $\inf$ is equivalent to the if-then definition by</p>
+<blockquote>
+<p>Let $S$ be a set that is bounded below. We say $w=\inf S$ when $w$ satisfies the following condition.</p>
+<ol>
+<li>$w$ is a lower bound of $S$.</li>
+<li>If $t$ is also a lower bound of $S$, then $t \leq s$.</li>
+</ol>
+</blockquote>
+<p>We have the analogous definition for $\sup$.</p>
+<h2 id="The-main-theorem"><a href="#The-main-theorem" class="headerlink" title="The main theorem"></a>The main theorem</h2><p>Analysis is full of vector spaces and linear transformations when it is more abstract. We already know that integration induces a linear functional. That is, for example, $L^1([0,1])$ is a vector space, and we have a linear functional by</p>
+<script type="math/tex; mode=display">
+f \mapsto \int_0^1 f(x)dx.</script><p>But what about the reverse? Given a linear functional, is it guaranteed that we have a measure to establish the integral? The R-M-K theorem answers this question affirmatively. The functional to be discussed is <em>positive</em>, which means that if $\Lambda$ is positive and $f(X) \subset [0,\infty)$, then $\Lambda{f} \in [0,\infty)$.</p>
+<blockquote>
+<p>Let $X$ be a locally compact Hausdorff space, and let $\Lambda$ be a positive <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Linear_form#:~:text=A%20linear%20functional%20on%20X,%E2%84%82%20(valued%20in%20%E2%84%82">linear functional</a>.) on $C_c(X)$. Then there exists a $\sigma$-algebra $\mathfrak{M}$ on $X$ which contains all Borel sets in $X$, and there exists a unique positive measure $\mu$ on $\mathfrak{M}$ which represents $\Lambda$ in the sense that </p>
+<script type="math/tex; mode=display">
+\Lambda{f}=\int_X fd\mu</script><p>for all $f \in C_c(X)$.</p>
+<p>For the measure $\mu$ and the $\sigma$-algebra $\mathfrak{M}$, we have four assertions:</p>
+<ol>
+<li>$\mu(K)&lt;\infty$ for every compact set $K \subset X$.</li>
+<li>For every $E \in \mathfrak{M}$, we have </li>
+</ol>
+<script type="math/tex; mode=display">
+\mu(E)=\{\mu(V):E \subset V, V\text{ open}\}.</script><ol>
+<li>For every open set $E$ and every $E \in \mathfrak{M}$, we have</li>
+</ol>
+<script type="math/tex; mode=display">
+\mu(E)=\sup\{\mu(K):K \subset E, K\text{ compact}\}.</script><ol>
+<li>If $E \in \mathfrak{M}$, $A \subset E$, and $\mu(E)=0$, then $A \in \mathfrak{M}$.</li>
+</ol>
+</blockquote>
+<p><strong>Remarks before proof.</strong> It would be great if we can establish the Lebesgue measure $m$ by putting $X=\mathbb{R}^n$. But we need a little more extra work to get this result naturally. If 2 is satisfied, we say $\mu$ is <em>outer</em> regular, and <em>inner</em> regular for 3. If both hold, we say $\mu$ is <em>regular</em>. When one studies Lebesgue measure, the study may start with inner and outer measure and regularity, and take them as granted. But these concepts are not developed from the void. </p>
+<p>The partition of unity and Urysohn’s lemma will be heavily used in the proof of the main theorem, so make sure you have no problem with it. It can also be extended to complex space after a complexification.</p>
+<h3 id="Proving-the-theorem"><a href="#Proving-the-theorem" class="headerlink" title="Proving the theorem"></a>Proving the theorem</h3><p>The proof is rather long so we will split it into several steps. I will try my best to make every step clear enough.</p>
+<h4 id="Step-0-Construction-of-mu-and-mathfrak-M"><a href="#Step-0-Construction-of-mu-and-mathfrak-M" class="headerlink" title="Step 0 - Construction of $\mu$ and $\mathfrak{M}$"></a>Step 0 - Construction of $\mu$ and $\mathfrak{M}$</h4><p>For every open set $V \in X$, define</p>
+<script type="math/tex; mode=display">
+\mu(V)=\sup\{\Lambda{f}:f \prec V\}.</script><p>If $V_1 \subset V_2$ and both are open, we claim that $\mu(V_1) \leq \mu(V_2)$. For $f \prec V_1$, since $\operatorname{supp}f \subset V_1 \subset V_2$, we see $f \prec V_2$. But we are able to find some $g \prec V_2$ such that $g \geq f$, or more precisely, $\operatorname{supp}(g) \supset \operatorname{supp}(f)$. By taking another look at the proof of Urysohn’s lemma for locally compact Hausdorff space, we see there is an open set G with compact closure such that</p>
+<script type="math/tex; mode=display">
+\operatorname{supp}(f) \subset G \subset \overline{G} \subset V_2.</script><p>By Urysohn’s lemma to the pair $(\overline{G},V_2)$, we see there exists a function $g \in C_c(X)$ such that</p>
+<script type="math/tex; mode=display">
+\overline{G} \prec g \prec V_2.</script><p>Therefore </p>
+<script type="math/tex; mode=display">
+\operatorname{supp}(f) \subset \overline{G} \subset \operatorname{supp}(g).</script><p>Thus for any $f \prec V_1$ and $g \prec V_2$, we have $\Lambda{g} \geq \Lambda{f}$ (monotonic) since $\Lambda{g}-\Lambda{f}=\Lambda{(g-f)}\geq 0$. By taking the supremum over $f$ and $g$, we see</p>
+<script type="math/tex; mode=display">
+\mu(V_1) \leq \mu(V_2).</script><p>The ‘monotonic’ property of such $\mu$ enables us to <em>define</em> $\mu(E)$ for all $E \subset X$ by</p>
+<script type="math/tex; mode=display">
+\mu(E)=\inf \{\mu(V):E \subset V, V\text{ open}\}.</script><p>The definition above is trivial to valid for open sets. Sometimes people say $\mu$ is the outer measure. We will discuss other kind of sets thoroughly in the following steps. Warning: we are not saying that $\mathfrak{M} = 2^X$. The crucial property of $\mu$, namely countable additivity, will be proved only on a certain $\sigma$-algebra. </p>
+<p>It follows from the definition of $\mu$ that if $E_1 \subset E_2$, then $\mu(E_1) \leq \mu(E_2)$.</p>
+<p>Let $\mathfrak{M}_F$ be the class of all $E \subset X$ which satisfy the two following conditions:</p>
+<ol>
+<li><p>$\mu(E) &lt;\infty$.</p>
+</li>
+<li><p>‘Inner regular’:</p>
+<script type="math/tex; mode=display">
+\mu(E)=\sup\{\mu(K):K \subset E, K\text{ compact}\}.</script></li>
+</ol>
+<p>One may say here $\mu$ is the ‘inner measure’. Finally, let $\mathfrak{M}$ be the class of all $E \subset X$ such that for every compact $K$, we have $E \cap K \in \mathfrak{M}_F$. We shall show that $\mathfrak{M}$ is the desired $\sigma$-algebra.</p>
+<hr>
+<p><strong>Remarks of Step 0.</strong> So far, we have only proved that $\mu(E) \geq 0$ for all $E {\color\red{\subset}}X$. What about the countable additivity?  it is clear that $\mathfrak{M}_F$ and $\mathfrak{M}$ has some strong relation. We need to get a clearer view of it. Also, if we restrict $\mu$ to $\mathfrak{M}_F$, we restrict ourself to finite numbers. In fact, we will show finally $\mathfrak{M}_F \subset \mathfrak{M}$.</p>
+<h4 id="Step-1-The-‘measure’-of-compact-sets-outer"><a href="#Step-1-The-‘measure’-of-compact-sets-outer" class="headerlink" title="Step 1 - The ‘measure’ of compact sets (outer)"></a>Step 1 - The ‘measure’ of compact sets (outer)</h4><blockquote>
+<p>If $K$ is compact, then $K \in \mathfrak{M}_F$, and</p>
+<script type="math/tex; mode=display">
+\mu(K)=\inf\{\Lambda{f}:K \prec f\}<\infty</script></blockquote>
+<p>Define $V_\alpha=f^{-1}(\alpha,1]$ for $K \prec f$ and $0 &lt; \alpha &lt; 1$. Since $f(x)=1$ for all $x \in K$, we have $K \subset V_{\alpha}$. Therefore by definition of $\mu$ for all $E \subset X$, we have</p>
+<script type="math/tex; mode=display">
+\mu(K) \leq \mu(V_\alpha)=\sup\{\Lambda{g}:g \prec V_{\alpha}\} < \frac{1}{\alpha}\Lambda{f}.</script><p>Note that $f \geq \alpha{g}$ whenever $g \prec V_{\alpha}$ since $\alpha{g} \leq \alpha &lt; f$. Since $\mu(K)$ is an lower bound of $\frac{1}{\alpha}\Lambda{f}$ with $0&lt;\alpha&lt;1$, we see</p>
+<script type="math/tex; mode=display">
+\mu(K) \leq \inf_{\alpha \in (0,1)}\{\frac{1}{\alpha}\Lambda{f}\}=\Lambda{f}.</script><p>Since $f(X) \in [0,1]$, we have $\Lambda{f}$ to be finite. Namely $\mu(K) &lt;\infty$. Since $K$ itself is compact, we see $K \in \mathfrak{M}_F$.</p>
+<p>To prove the identity, note that there exists some $V \supset K$ such that $\mu(V)&lt;\mu(K)+\varepsilon$ for some $\varepsilon&gt;0$. By Urysohn’s lemma, there exists some $h \in C_c(X)$ such that $K \prec h \prec V$. Therefore</p>
+<script type="math/tex; mode=display">
+\Lambda{h} \leq \mu(V) < \mu(K)+\varepsilon</script><p>Therefore $\mu(K)$ is the infimum of $\Lambda{h}$ with $K \prec h$.</p>
+<hr>
+<p><strong>Remarks of Step 1.</strong> We have just proved assertion 1 of the property of $\mu$. The hardest part of this proof is the inequality </p>
+<script type="math/tex; mode=display">
+\mu(V)<\mu(K)+\varepsilon.</script><p>But this is merely the $\varepsilon$-definition of $\inf$. Note that $\mu(K)$ is the infimum of $\mu(V)$ with $V \supset K$. For any $\varepsilon&gt;0$, there exists some open $V$ for what? Under certain conditions, this definition is much easier to use. Now we will examine the relation between $\mathfrak{M}_F$ and $\tau_X$, namely the topology of $X$.</p>
+<h4 id="Step-2-The-‘measure’-of-open-sets-inner"><a href="#Step-2-The-‘measure’-of-open-sets-inner" class="headerlink" title="Step 2 - The ‘measure’ of open sets (inner)"></a>Step 2 - The ‘measure’ of open sets (inner)</h4><blockquote>
+<p>$\mathfrak{M}_F$ contains every open set $V$ with $\mu(V)&lt;\infty$.</p>
+</blockquote>
+<p>It suffices to show that for open set $V$, we have</p>
+<script type="math/tex; mode=display">
+\mu(V)=\sup\{\mu(K):K \subset E, K\text{ compact}\}.</script><p>For $0&lt;\varepsilon&lt;\mu(V)$, we see there exists an $f \prec V$ such that $\Lambda{f}&gt;\mu(V)-\varepsilon$. If $W$ is any open set which contains $K= \operatorname{supp}(f)$, then $f \prec W$, and therefore $\Lambda{f} \leq \mu(W)$. Again by definition of $\mu(K)$, we see</p>
+<script type="math/tex; mode=display">
+\Lambda{f}\leq\mu(K).</script><p>Therefore</p>
+<script type="math/tex; mode=display">
+\mu(V)-\varepsilon<\Lambda{f}\leq\mu(K)\leq\mu(V).</script><p>This is exactly the definition of $\sup$. The identity is proved.</p>
+<hr>
+<p><strong>Remarks of Step 2.</strong> it is important to that this identity can only be satisfied by open sets and sets $E$ with $\mu(E)&lt;\infty$, the latter of which will be proved in the following steps. This is the <em>flaw</em> of this theorem. With these preparations however, we are able to show the countable additivity of $\mu$ on $\mathfrak{M}_F$.</p>
+<h4 id="Step-3-The-subadditivity-of-mu-on-2-X"><a href="#Step-3-The-subadditivity-of-mu-on-2-X" class="headerlink" title="Step 3 - The subadditivity of $\mu$ on $2^X$"></a>Step 3 - The subadditivity of $\mu$ on $2^X$</h4><blockquote>
+<p>If $E_1,E_2,E_3,\cdots$ are arbitrary subsets of $X$, then</p>
+<script type="math/tex; mode=display">
+\mu\left(\bigcup_{k=1}^{\infty}E_k\right) \leq \sum_{k=1}^{\infty}\mu(E_k)</script></blockquote>
+<p>First we show this holds for finitely many open sets. This is tantamount to show that</p>
+<script type="math/tex; mode=display">
+\mu(V_1 \cup V_2)\leq \mu(V_1)+\mu(V_2)</script><p>if $V_1$ and $V_2$ are open. Pick $g \prec V_1 \cup V_2$. This is possible due to Urysohn’s lemma. By corollary 1.3, there is a partition of unity $(h_1,h_2)$ subordinate to $(V_1,V_2)$ in the sense of corollary 1.3. Therefore,</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\Lambda(g)&=\Lambda((h_1+h_2)g) \\
+          &=\Lambda(h_1g)+\Lambda(h_2g) \\
+          &\leq\mu(V_1)+\mu(V_2).
+\end{aligned}</script><p>Notice that $h_1g \prec V_1$ and $h_2g \prec V_2$. By taking the supremum, we have</p>
+<script type="math/tex; mode=display">
+\mu(V_1 \cup V_2)\leq \mu(V_1)+\mu(V_2).</script><p>Now we back to arbitrary subsets of $X$. If $\mu(E_i)=\infty$ for some $i$, then there is nothing to prove. Therefore we shall assume that $\mu(E_i)&lt;\infty$ for all $i$. By definition of $\mu(E_i)$, we see there are open sets $V_i \supset E_i$ such that</p>
+<script type="math/tex; mode=display">
+\mu(V_i)<\mu(E_i)+\frac{\varepsilon}{2^i}.</script><p>Put $V=\bigcup_{i=1}^{\infty}V_i$, and choose $f \prec V_i$. Since $f \in C_c(X)$, there is a finite collection of $V_i$ that covers the support of $f$. Therefore without loss of generality, we may say that</p>
+<script type="math/tex; mode=display">
+f \prec V_1 \cup V_2 \cup \cdots \cup V_n</script><p>for some $n$. We therefore obtain</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\Lambda{f} &\leq \mu(V_1 \cup V_2 \cup \cdots \cup V_n) \\
+           &\leq \mu(V_1)+\mu(V_2)+\cdots+\mu(V_n) \\
+           &\leq \sum_{i=1}^{n}\left(\mu(E_i)+\frac{\varepsilon}{2^i}\right) \\
+           &\leq \sum_{i=1}^{\infty}\mu(E_i)+\varepsilon,
+\end{aligned}</script><p>for all $f \prec V$. Since $\bigcup E_i \subset V$, we have $\mu(\bigcup E_i) \leq \mu(V)$. Therefore</p>
+<script type="math/tex; mode=display">
+\mu(\bigcup_{i=1}^{\infty}E_i)\leq\mu(V)=\sup\{\Lambda{f}\}\leq\sum_{i=1}^{\infty}\mu(E_i)+\varepsilon.</script><p>Since $\varepsilon$ is arbitrary, the inequality is proved.</p>
+<hr>
+<p><strong>Remarks of Step 3.</strong> Again, we are using the $\varepsilon$-definition of $\inf$. One may say this step showed the sub-addtivity of the outer measure. Also note the geometric series given by $\sum_{k=1}^{\infty}\frac{\varepsilon}{2^k}=\varepsilon$. It is a useful trick to keep in mind!</p>
+<h4 id="Step-4-Additivity-of-mu-on-mathfrak-M-F"><a href="#Step-4-Additivity-of-mu-on-mathfrak-M-F" class="headerlink" title="Step 4 - Additivity of $\mu$ on $\mathfrak{M}_F$"></a>Step 4 - Additivity of $\mu$ on $\mathfrak{M}_F$</h4><blockquote>
+<p>Suppose $E=\bigcup_{i=1}^{\infty}E_i$, where $E_1,E_2,\cdots$ are pairwise disjoint members of $\mathfrak{M}_F$, then</p>
+<script type="math/tex; mode=display">
+\mu(E)=\sum_{i=1}^{\infty}\mu(E_i).</script><p>If $\mu(E)&lt;\infty$, we also have $E \in \mathfrak{M}_F$.</p>
+</blockquote>
+<p>As a “dual” to Step 3, we firstly show this holds for finitely many compact sets. As proved in Step 1, compact sets are in $\mathfrak{M}_F$. Suppose now $K_1$ and $K_2$ are disjoint compact sets. We want to show that</p>
+<script type="math/tex; mode=display">
+\mu(K_1 \cup K_2)=\mu(K_1)+\mu(K_2).</script><p>Note that <a target="_blank" rel="noopener" href="http://mathonline.wikidot.com/compact-sets-in-hausdorff-topological-spaces">compact sets in a Hausdorff space is closed</a>. Therefore we are able to apply Urysohn’s lemma to the pair $(K_1,K_2^c)$. That said, there exists a $f \in C_c(X)$ such that</p>
+<script type="math/tex; mode=display">
+K_1 \prec f \prec K_2^c.</script><p>In other words, $f(x)=1$ for all $x \in K_1$ and $f(x)=0$ for all $x \in K_2$, since $\operatorname{supp}(f) \cap K_2 = \varnothing$. By Step 1, since $K_1 \cup K_2$ is compact, there exists some $g \in C_c(X)$ such that</p>
+<script type="math/tex; mode=display">
+K_1 \cup K_2 \prec g \quad \text{and} \quad \Lambda(g) < \mu(K_1 \cup K_2)+\varepsilon.</script><p>Now things become tricky. We are able to write $g$ by</p>
+<script type="math/tex; mode=display">
+g=fg+(1-f)g.</script><p>But $K_1 \prec fg$ and $K_2 \prec (1-f)g$ by the properties of $f$ and $g$. Also since $\Lambda$ is linear, we have</p>
+<script type="math/tex; mode=display">
+\mu(K_1)+\mu(K_2) \leq \Lambda(fg)+\Lambda((1-f)g)=\Lambda(g) < \mu(K_1 \cup K_2)+\varepsilon.</script><p>Therefore we have</p>
+<script type="math/tex; mode=display">
+\mu(K_1)+\mu(K_2) \leq \mu(K_1 \cup K_2).</script><p>On the other hand, by Step 3, we have</p>
+<script type="math/tex; mode=display">
+\mu(K_1 \cup K_2) \leq \mu(K_1)+\mu(K_2).</script><p>Therefore they must equal.</p>
+<p>If $\mu(E)=\infty$, there is nothing to prove. So now we should assume that $\mu(E)&lt;\infty$. Since $E_i \in \mathfrak{M}_F$, there are compact sets $K_i \subset E_i$ with</p>
+<script type="math/tex; mode=display">
+\mu(K_i) > \mu(E_i)-\frac{\varepsilon}{2^i}.</script><p>Putting $H_n=K_1 \cup K_2 \cup \cdots \cup K_n$, we see $E \supset H_n$ and</p>
+<script type="math/tex; mode=display">
+\mu(E) \geq \mu(H_n)=\sum_{i=1}^{n}\mu(H_i)>\sum_{i=1}^{n}\mu(E_i)-\varepsilon.</script><p>This inequality holds for all $n$ and $\varepsilon$, therefore</p>
+<script type="math/tex; mode=display">
+\mu(E) \geq \sum_{i=1}^{\infty}\mu(E_i).</script><p>Therefore by Step 3, the identity holds.</p>
+<p>Finally we shall show that $E \in \mathfrak{M}_F$ if $\mu(E) &lt;\infty$. To make it more understandable, we will use elementary calculus notation. If we write $\mu(E)=x$ and $x_n=\sum_{i=1}^{n}\mu(E_i)$, we see</p>
+<script type="math/tex; mode=display">
+\lim_{n \to \infty}x_n=x.</script><p>Therefore, for any $\varepsilon&gt;0$, there exists some $N \in \mathbb{N}$ such that</p>
+<script type="math/tex; mode=display">
+x-x_N<\varepsilon.</script><p>This is tantamount to</p>
+<script type="math/tex; mode=display">
+\mu(E)<\sum_{i=1}^{N}\mu(E_i)+\varepsilon.</script><p>But by definition of the <em>compact</em> set $H_N$ above, we see</p>
+<script type="math/tex; mode=display">
+\mu(E)<{\color\red{\sum_{i=1}^{N}\mu(E_i)}}+\varepsilon<{\color\red {\mu(H_N)+\varepsilon}}+\varepsilon=\mu(H_N)+2\varepsilon.</script><p>Hence $E$ satisfies the requirements of $\mathfrak{M}_F$, thus an element of it.</p>
+<hr>
+<p><strong>Remarks of Step 4.</strong> You should realise that we are heavily using the $\varepsilon$-definition of $\sup$ and $\inf$. As you may guess, $\mathfrak{M}_F$ should be a subset of $\mathfrak{M}$ though we don’t know whether it is a $\sigma$-algebra or not. In other words, we hope that the countable additivity of $\mu$ holds on a $\sigma$-algebra that is <em>properly extended</em> from $\mathfrak{M}_F$. However it is still difficult to show that $\mathfrak{M}$ is a $\sigma$-algebra. We need more properties of $\mathfrak{M}_F$ to go on.</p>
+<h4 id="Step-5-The-‘continuity’-of-mathfrak-M-F"><a href="#Step-5-The-‘continuity’-of-mathfrak-M-F" class="headerlink" title="Step 5 - The ‘continuity’ of $\mathfrak{M}_F$."></a>Step 5 - The ‘continuity’ of $\mathfrak{M}_F$.</h4><blockquote>
+<p> If $E \in \mathfrak{M}_F$ and $\varepsilon&gt;0$, there is a compact $K$ and an open $V$ such that $K \subset E \subset V$ and $\mu(V-K)&lt;\varepsilon$.</p>
+</blockquote>
+<p>There are two ways to write $\mu(E)$, namely</p>
+<script type="math/tex; mode=display">
+\mu(E)=\sup\{\mu(K):K \subset E\} \quad \text{and} \quad \mu(E)=\inf\{\mu(V):V\supset E\}</script><p>where $K$ is compact and $V$ is open. Therefore there exists some $K$ and $V$ such that</p>
+<script type="math/tex; mode=display">
+\mu(V)-\frac{\varepsilon}{2}<\mu(E)<\mu(K)+\frac{\varepsilon}{2}.</script><p>Since $V-K$ is open, and $\mu(V-K)&lt;\infty$, we have $V-K \in \mathfrak{M}_F$. By Step 4, we have</p>
+<script type="math/tex; mode=display">
+\mu(K)+\mu(V-K)=\mu(V) <\mu(K)+\varepsilon.</script><p>Therefore $\mu(V-K)&lt;\varepsilon$ as proved.</p>
+<hr>
+<p><strong>Remarks of Step 5.</strong> You should be familiar with the $\varepsilon$-definitions of $\sup$ and $\inf$ now. Since $V-K =V\cap K^c \subset V$, we have $\mu(V-K)\leq\mu(V)&lt;\mu(E)+\frac{\varepsilon}{2}&lt;\infty$.</p>
+<h4 id="Step-6-mathfrak-M-F-is-closed-under-certain-operations"><a href="#Step-6-mathfrak-M-F-is-closed-under-certain-operations" class="headerlink" title="Step 6 - $\mathfrak{M}_F$ is closed under certain operations"></a>Step 6 - $\mathfrak{M}_F$ is closed under certain operations</h4><blockquote>
+<p>If $A,B \in \mathfrak{M}_F$, then $A-B,A\cup B$ and $A \cap B$ are elements of $\mathfrak{M}_F$.</p>
+</blockquote>
+<p>This shows that $\mathfrak{M}_F$ is closed under union, intersection and relative complement. In fact, we merely need to prove $A-B \in \mathfrak{M}_F$, since $A \cup B=(A-B) \cup B$ and $A\cap B = A-(A-B)$.</p>
+<p>By Step 5, for $\varepsilon&gt;0$, there are sets $K_A$, $K_B$, $V_A$, $V_B$ such that $K_A \subset A \subset V_A$, $K_B \subset B \subset V_B$, and for $A-B$ we have</p>
+<script type="math/tex; mode=display">
+A-B \subset V_A-K_B \subset (V_A-K_A) \cup (K_A-V_B) \cup (V_B-K_B).</script><p>With an application of Step 3 and 5, we have</p>
+<script type="math/tex; mode=display">
+\mu(A-B) \leq \mu(V_A-K_A)+\mu(K_A-V_B)+\mu(V_B-K_B)< \varepsilon+\mu(K_A-V_B)+\varepsilon.</script><p>Since $K_A-V_B$ is a closed subset of $K_A$, we see $K_A-V_B$ is compact as well (<a target="_blank" rel="noopener" href="https://www.math.upenn.edu/~kazdan/508F14/Notes/compactness.pdf">a closed subset of a compact set is compact</a>). But $K_A-V_B \subset A-B$, and $\mu(A-B) &lt;\mu(K_A-V_B)+2\varepsilon$, we see $A-B$ meet the requirement of $\mathfrak{M}_F$ (, the fact that $\mu(A-B)&lt;\infty$ is trivial since $\mu(A-B)&lt;\mu(A)$). </p>
+<p>Since $A-B$ and $B$ are pairwise disjoint members of $\mathfrak{M}_F$, we see</p>
+<script type="math/tex; mode=display">
+\mu(A \cup B)=\mu(A-B)+\mu(B)<\infty.</script><p>Thus $A \cup B \in \mathfrak{M}_F$. Since $A,A-B \in \mathfrak{M}_F$, we see $A \cap B = A-(A-B) \in \mathfrak{M}_F$.</p>
+<hr>
+<p><strong>Remarks of Step 6.</strong> In this step, we demonstrated several ways to express a set, all of which end up with a huge simplification. Now we are able to show that $\mathfrak{M}_F$ is a subset of $\mathfrak{M}$. </p>
+<h4 id="Step-7-mathfrak-M-F-subset-mathfrak-M"><a href="#Step-7-mathfrak-M-F-subset-mathfrak-M" class="headerlink" title="Step 7 - $\mathfrak{M}_F \subset \mathfrak{M}$"></a>Step 7 - $\mathfrak{M}_F \subset \mathfrak{M}$</h4><blockquote>
+<p>There is a precise relation between $\mathfrak{M}$ and $\mathfrak{M}_F$  given by</p>
+<script type="math/tex; mode=display">
+\mathfrak{M}_F=\{E \in \mathfrak{M}:\mu(E)<\infty\} \subset \mathfrak{M}.</script></blockquote>
+<p>If $E \in \mathfrak{M}_F$, we shall show that $E \in \mathfrak{M}$. For compact $K\in\mathfrak{M}_F$ (Step 1), by Step 6, we see $K \cap E \in \mathfrak{M}_F$, therefore $E \in \mathfrak{M}$.</p>
+<p>If $E \in \mathfrak{M}$ with $\mu(E)&lt;\infty$ however, we need to show that $E \in \mathfrak{M}_F$. By definition of $\mu$, for $\varepsilon&gt;0$, there is an open $V$ such that</p>
+<script type="math/tex; mode=display">
+\mu(V)<\mu(E)+\varepsilon<\infty.</script><p>Therefore $V \in \mathfrak{M}_F$. By Step 5, there is a compact set $K$ such that $\mu(V-K)&lt;\varepsilon$ (the open set containing $V$ should be $V$ itself). Since $E \cap K \in \mathfrak{M}_F$, there exists a compact set $H \subset E \cap K$ with</p>
+<script type="math/tex; mode=display">
+\mu(E \cap K)<\mu(H)+\varepsilon.</script><p>Since $E \subset (E \cap K) \cup (V-K)$, it follows from Step 1 that</p>
+<script type="math/tex; mode=display">
+\mu(E) \leq {\color\red{\mu(E\cap K)}}+\mu(V-K)<{\color\red{\mu(H)+\varepsilon}}+\varepsilon=\mu(H)+2\varepsilon.</script><p>Therefore $E \in \mathfrak{M}_F$.</p>
+<hr>
+<p><strong>Remarks of Step 7.</strong> Several tricks in the preceding steps are used here. Now we are pretty close to the fact that $(X,\mathfrak{M},\mu)$ is a measure space. Note that for $E \in \mathfrak{M}-\mathfrak{M}_F$, we have $\mu(E)=\infty$, but we have already proved the countable additivity for $\mathfrak{M}_F$. Is it ‘almost trivial’ for $\mathfrak{M}$? Before that, we need to show that $\mathfrak{M}$ is a $\sigma$-algebra. Note that assertion 3 of $\mu$ has been proved. </p>
+<h4 id="Step-8-mathfrak-M-is-a-sigma-algebra-in-X-containing-all-Borel-sets"><a href="#Step-8-mathfrak-M-is-a-sigma-algebra-in-X-containing-all-Borel-sets" class="headerlink" title="Step 8 - $\mathfrak{M}$ is a $\sigma$-algebra in $X$ containing all Borel sets"></a>Step 8 - $\mathfrak{M}$ is a $\sigma$-algebra in $X$ containing all Borel sets</h4><p>We will validate the definition of $\sigma$-algebra one by one.</p>
+<blockquote>
+<p>$X \in \mathfrak{M}$.</p>
+</blockquote>
+<p>For any compact $K \subset X$, we have $K \cap X=K$. But as proved in Step 1, $K \in \mathfrak{M}_F$, therefore $X \in \mathfrak{M}$.</p>
+<blockquote>
+<p>If $A \in \mathfrak{M}$, then $A^c \in\mathfrak{M}$.</p>
+</blockquote>
+<p>If $A \in \mathfrak{M}$, then $A \cap K \in \mathfrak{M}_F$. But</p>
+<script type="math/tex; mode=display">
+K-(A \cap K)=K \cap(A^c \cup K^c)=K\cap A^c \cup \varnothing=K \cap A^c.</script><p>By Step 1 and Step 6, we see $K \cap A^c \in \mathfrak{M}_F$, thus $A^c \in \mathfrak{M}$.</p>
+<blockquote>
+<p>If $A_n \in \mathfrak{M}$ for all $n \in \mathbb{N}$, then $A=\bigcup_{n=1}^{\infty}A_n \in \mathfrak{M}$. </p>
+</blockquote>
+<p>We assign an auxiliary sequence of sets inductively. For $n=1$, we write $B_1=A_1 \cap K$ where $K$ is compact. Then $B_1 \in \mathfrak{M}_F$. For $n \geq 2$, we write</p>
+<script type="math/tex; mode=display">
+B_n=(A_n \cap K)-(B_1 \cup \cdots\cup B_{n-1}).</script><p>Since $A_n \cap K \in \mathfrak{M}_F$, $B_1,B_2,\cdots,B_{n-1} \in \mathfrak{M}_F$, by Step 6, $B_n \in \mathfrak{M}_F$. Also $B_n$ is pairwise disjoint.</p>
+<p>Another set-theoretic manipulation shows that</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+A \cap K&=K \cap\left(\bigcup_{n=1}^{\infty}A_n\right) \\
+        &=\bigcup_{n=1}^{\infty}(K \cap A_n) \\
+        &=\bigcup_{n=1}^{\infty}B_n \cup(B_1 \cup \cdots\cup B_{n-1}) \\
+        &=\bigcup_{n=1}^{\infty}B_n.
+\end{aligned}</script><p>Now we are able to evaluate $\mu(A \cap K)$ by Step 4.</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\mu(A \cap K)&=\sum_{n=1}^{\infty}\mu(B_n) \\
+             &= \lim_{n \to \infty}(A_n \cap K) <\infty.
+\end{aligned}</script><p>Therefore $A \cap K \in \mathfrak{M}_F$, which implies that $A \in \mathfrak{M}$.</p>
+<blockquote>
+<p>$\mathfrak{M}$ contains all Borel sets.</p>
+</blockquote>
+<p>Indeed, it suffices to prove that $\mathfrak{M}$ contains all open sets and/or closed sets. We’ll show two different paths. Let $K$ be a compact set.</p>
+<ol>
+<li>If $C$ is closed, then $C \cap K$ is compact, therefore $C$ is an element of $\mathfrak{M}_F$. (By Step 2.)</li>
+<li>If $D$ is open, then $D \cap K \subset K$. Therefore $\mu(D \cap K) \leq \mu(K)&lt;\infty$, which shows that $D$ is an element of $\mathfrak{M}_F$ (step 7).</li>
+</ol>
+<p>Therefore by 1 or 2, $\mathfrak{M}$ contains all Borel sets.</p>
+<hr>
+<p><strong>Remarks of Step 8.</strong> It should be reminded that as sets, $\mathfrak{B}$, the Borel $\sigma$-algebra of $X$, can be a <em>proper</em> subset of $\mathfrak{M}$. The point is, when developing the Lebesgue measure, one defines a linear functional (that is essentially the functional of Riemann integration), which gives the $\sigma$-algebra as in Step 8, called the Lebesgue $\sigma$-algebra. But this $\sigma$-algebra is massively bigger than the Borel $\sigma$-algebra on $\mathbb{R}^k$. See the comments below Step 10.</p>
+<h4 id="Step-9-mu-is-a-positive-measure-on-mathfrak-M"><a href="#Step-9-mu-is-a-positive-measure-on-mathfrak-M" class="headerlink" title="Step 9 - $\mu$ is a positive measure on $\mathfrak{M}$"></a>Step 9 - $\mu$ is a positive measure on $\mathfrak{M}$</h4><p>Again, we will verify all properties of $\mu$ one by one.</p>
+<blockquote>
+<p>$\mu(E) \geq 0$ for all $E \in \mathfrak{M}$.</p>
+</blockquote>
+<p>This follows immediately from the definition of $\mu$, since $\Lambda$ is positive and $0 \leq f \leq 1$.</p>
+<blockquote>
+<p>$\mu$ is countably additive.</p>
+</blockquote>
+<p>If $A_1,A_2,\cdots$ form a disjoint countable collection of members of $\mathfrak{M}$, we need to show that</p>
+<script type="math/tex; mode=display">
+\mu\left(\bigcup_{n=1}^{\infty}A_n\right)=\sum_{n=1}^{\infty}\mu(A_n).</script><p>If $A_n \in \mathfrak{M}_F$ for all $n$, then this is merely what we have just proved in Step 4. If $A_j \in \mathfrak{M}-\mathfrak{M}_F$ however, we have $\mu(A_j)=\infty$. So $\sum_n\mu(A_n)=\infty$. For $\mu(\cup_n A_n)$, notice that $\cup_n A_n \supset A_j$, we have $\mu(\cup_n A_n) \geq \mu(A_j)=\infty$. The identity is now proved.</p>
+<h4 id="Step-10-The-completeness-of-mu-and-mathfrak-M"><a href="#Step-10-The-completeness-of-mu-and-mathfrak-M" class="headerlink" title="Step 10 - The completeness of $\mu$ (and $\mathfrak{M}$)"></a>Step 10 - The completeness of $\mu$ (and $\mathfrak{M}$)</h4><p>So far assertion 1-3 have been proved. But the final assertion has not been proved explicitly. We do that since this property will be used when discussing the Lebesgue measure $m$. In fact, this will show that $(X,\mathfrak{M},\mu)$ is a complete measure space.</p>
+<blockquote>
+<p>If $E \in \mathfrak{M}$, $A \subset E$, and $\mu(E)=0$, then $A \in \mathfrak{M}$.</p>
+</blockquote>
+<p>It suffices to show that $A \in \mathfrak{M}_F$. By definition, $\mu(A)=0$ as well. If $K \subset A$, where $K$ is compact, then $\mu(K)=\mu(A)=0$. Therefore $0$ is the supremum of $\mu(K)$. It follows that $A \in \mathfrak{M}_F \subset \mathfrak{M}$.</p>
+<hr>
+<p><strong>Remarks of Step 10.</strong> We should remember that the Borel $\sigma$-measure on $\mathbb{R}^k$ is <em>not</em> complete. There we have a non-constructive example on $\mathbb{R}$ (we use the fact that the Lebesgue measure is complete): the Cantor set has Lebesgue measure $0$ but cardinality $\mathfrak{c}$; hence there are at least $2^\mathfrak{c}$ Lebesgue measurable sets of measure $0$, but there are only $\mathfrak{c}$ Borel sets.</p>
+<h4 id="Step-11-The-functional-and-the-measure"><a href="#Step-11-The-functional-and-the-measure" class="headerlink" title="Step 11 - The functional and the measure"></a>Step 11 - The functional and the measure</h4><blockquote>
+<p>For every $f \in C_c(X)$, $\Lambda{f}=\int_X fd\mu$.</p>
+</blockquote>
+<p>This is the absolute main result of the theorem. It suffices to prove the inequality</p>
+<script type="math/tex; mode=display">
+\Lambda f \leq \int_X fd\mu</script><p>for all $f \in C_c(X)$. What about the other side? By the linearity of $\Lambda$ and $\int_X \cdot d\mu$, once inequality above proved, we have</p>
+<script type="math/tex; mode=display">
+\Lambda(-f)=-\Lambda{f}\leq\int_{X}-fd\mu=-\int_Xfd\mu.</script><p>Therefore</p>
+<script type="math/tex; mode=display">
+\Lambda{f} \geq \int_X fd\mu</script><p>holds as well, and this establish the equality.</p>
+<p>Notice that since $K=\operatorname{supp}(f)$ is compact, we see <a target="_blank" rel="noopener" href="https://proofwiki.org/wiki/Continuous_Image_of_Compact_Space_is_Compact">the range of $f$ has to be compact</a>. Therefore we may assume that $[a,b]$ contains the range of $f$. For $\varepsilon&gt;0$, we are able to pick a partition around $[a,b]$ such that $y_n - y_{n-1}&lt;\varepsilon$ and</p>
+<script type="math/tex; mode=display">
+y_0 < a < y_1<\cdots<y_n=b.</script><p>Put</p>
+<script type="math/tex; mode=display">
+E_i=\{x:y_{i-1}< f(x) \leq y_i\}\cap K.</script><p>Since $f$ is continuous, $f$ is Borel measurable. The sets $E_i$ are trivially pairwise disjoint Borel sets. Again, there are open sets $V_i \supset E_i$ such that</p>
+<script type="math/tex; mode=display">
+\mu(V_i) < \mu(E_i)+\frac{\varepsilon}{n}</script><p>for $i=1,2,\cdots,n$, and such that $f(x)&lt;y_i + \varepsilon$ for all $x \in V_i$. Notice that $(V_i)$ covers $K$, therefore by the partition of unity, there are a sequence of functions $(h_i)$ such that $h_i \prec V_i$ for all $i$ and $\sum h_i=1$ on $K$. By Step 1 and the fact that $f=\sum_i h_i$, we see</p>
+<script type="math/tex; mode=display">
+\mu(K) \leq \Lambda(\sum_i h_i)=\sum_i \Lambda{h_i}.</script><p>By the way we picked $V_i$, we see $h_if \leq (y_i+\varepsilon)h_i$. We have the following inequality:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\Lambda{f} &= \sum_{i=1}^{n}\Lambda(h_if) \leq\sum_{i=1}^{n}(y_i+\varepsilon)\Lambda{h_i} \\
+           &= \sum_{i=1}^{n}\left(|a|-|a|+y_i+\varepsilon\right)\Lambda{h_i} \\
+           &=\sum_{i=1}^{n}(|a|+y_i+\varepsilon)\Lambda{h_i}-|a|\sum_{i=1}^{n}\Lambda{h_i}.
+\end{aligned}</script><p>Since $h_i \prec V_i$, we have $\mu(E_i)+\frac{\varepsilon}{n}&gt;\mu(V_i) \geq \Lambda{h_i}$. And we already get $\sum_i \Lambda{h_i} \geq \mu(K)$. If we put them into the inequality above, we get</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\Lambda{f} &\leq \sum_{i=1}^{n}(|a|+y_i+\varepsilon)\Lambda{h_i}-|a|\sum_{i=1}^{n}\Lambda{h_i} \\
+           &\leq \sum_{i=1}^{n}(|a|+y_i+\varepsilon){\color\red{(\mu(E_i)+\frac{\varepsilon}{n})}}-|a|\color\red{\mu(K)}.
+\end{aligned}</script><p>Observe that $\cup_i E_i=K$, by Step 9 we have $\sum_{i}\mu(E_i)=\mu(K)$. A slight manipulation shows that</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\sum_{i=1}^{n}(|a|+y_i+\varepsilon)\mu(E_i)-|a|\mu(K)&=|a|\sum_{i=1}^{n}\mu(E_i)-|a|\mu(K)+\sum_{i=1}^{n}(y_i+\varepsilon)\mu(E_i) \\
+         &=\sum_{i=1}^{n}(y_i-\varepsilon)\mu(E_i)+2\varepsilon\mu(K).
+\end{aligned}</script><p>Therefore for $\Lambda f$ we get</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\Lambda{f} &\leq\sum_{i=1}^{n}(|a|+y_i+\varepsilon)(\mu(E_i)+\frac{\varepsilon}{n})-|a|\mu(K) \\
+           &=\sum_{i=1}^{n}(y_i-\varepsilon)\mu(E_i)+2\varepsilon\mu(K)+\frac{\varepsilon}{n}\sum_{i=1}^n(|a|+y_i+\varepsilon).
+\end{aligned}</script><p>Now here comes the trickiest part of the whole blog post. By definition of $E_i$, we see $f(x) &gt; y_{i-1}&gt;y_{i}-\varepsilon$ for $x \in E_i$. Therefore we get simple function $s_n$ by</p>
+<script type="math/tex; mode=display">
+s_n=\sum_{i=1}^{n}(y_i-\varepsilon)\chi_{E_i}.</script><p>If we evaluate the Lebesgue integral of $f$ with respect to $\mu$, we see</p>
+<script type="math/tex; mode=display">
+\int_X s_nd\mu={\color\red{\sum_{i=1}^{n}(y_i-\varepsilon)\mu(E_i)}} \leq {\color\red{\int_X fd\mu}}.</script><p>For $2\varepsilon\mu(K)$, things are simple since $0\leq\mu(K)&lt;\infty$. Therefore $2\varepsilon\mu(K) \to 0$ as $\varepsilon \to 0$. Now let us estimate the final part of the inequality. it is trivial that $\frac{\varepsilon}{n}\sum_{i=1}^{n}(|a|+\varepsilon)=\varepsilon(\varepsilon+|a|)$. For $y_i$, observe that $y_i \leq b$ for all $i$, therefore $\frac{\varepsilon}{n}\sum_{i=1}^{n}y_i \leq \frac{\varepsilon}{n}nb=\varepsilon b$. Thus</p>
+<script type="math/tex; mode=display">
+{\color\green{\frac{\varepsilon}{n}\sum_{i=1}^{n}(|a|+y_i+\varepsilon)}} \color\black\leq {\color\green {\varepsilon(|a|+b+\varepsilon)}}\color\black{.}</script><p>Notice that $b+|a| \geq 0$ since $b \geq a \geq -|a|$. Our estimation of $\Lambda{f}$ is finally done:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\Lambda{f} &\leq{\color\red{\sum_{i=1}^{n}(y_i-\varepsilon)\mu(E_i)}}+2\varepsilon\mu(K)+{\color\green{\frac{\varepsilon}{n}\sum_{i=1}^n(|a|+y_i+\varepsilon)}} \\
+           &\leq{\color\red {\int_Xfd\mu}}+2\varepsilon\mu(K)+{\color\green{\varepsilon(|a|+b+\varepsilon)}} \\
+           &= \int_X fd\mu+\varepsilon(2\mu(K)+|a|+b+\varepsilon).
+\end{aligned}</script><p>Since $\varepsilon$ is arbitrary, we see $\Lambda{f} \leq \int_X fd\mu$. The identity is proved.</p>
+<h4 id="Step-12-The-unicity-of-mu"><a href="#Step-12-The-unicity-of-mu" class="headerlink" title="Step 12 - The unicity of $\mu$"></a>Step 12 - The unicity of $\mu$</h4><blockquote>
+<p>If there are two measures $\mu_1$ and $\mu_2$ that satisfy assertion 1 to 4 and are correspond to $\Lambda$, then $\mu_1=\mu_2$.</p>
+</blockquote>
+<p>In fact, according to assertion 2 and 3, $\mu$ is determined by the values on compact subsets of $X$. It suffices to show that</p>
+<blockquote>
+<p>If $K$ is a compact subset of $X$, then $\mu_1(K)=\mu_2(K)$.</p>
+</blockquote>
+<p>Fix $K$ compact and $\varepsilon&gt;0$. By Step 1, there exists an open $V \supset K$ such that $\mu_2(V)&lt;\mu_2(K)+\varepsilon$. By Urysohn’s lemma, there exists some $f$ such that $K \prec f \prec V$. Hence</p>
+<script type="math/tex; mode=display">
+\mu_1(K)=\int_X\chi_kd\mu \leq\int_X fd\mu=\Lambda{f}=\int_X fd\mu_2 \\
+\leq \int_X \chi_V fd\mu_2=\mu_2(V)<\mu_2(V)+\varepsilon.</script><p>Thus $\mu_1(K) \leq \mu_2(K)$. If $\mu_1$ and $\mu_2$ are exchanged, we see $\mu_2(K) \leq \mu_1(K)$. The unicity is proved. $\blacksquare$</p>
+<h2 id="The-flaw"><a href="#The-flaw" class="headerlink" title="The flaw"></a>The flaw</h2><p>Can we simply put $X=\mathbb{R}^k$ right now? The answer is no. Note that the outer regularity is for all sets but inner is only for open sets and members of $\mathfrak{M}_F$. But we expect the outer and inner regularity to be ‘symmetric’. There is an example showing that <em>locally compact</em> is far from being enough to offer the ‘symmetry’.</p>
+<h3 id="A-weird-example"><a href="#A-weird-example" class="headerlink" title="A weird example"></a>A weird example</h3><p>Define $X=\mathbb{R}_1 \times \mathbb{R}_2$, where $\mathbb{R}_1$ is the real line equipped with <a target="_blank" rel="noopener" href="http://mathonline.wikidot.com/the-discrete-metric">discrete metric</a> $d_1$, and $\mathbb{R}_2$ is the real line equipped with euclidean metric $d_2$. The metric of $X$ is defined by</p>
+<script type="math/tex; mode=display">
+d_X((x_1,y_1),(x_2,y_2))=d_1(x_1,x_2)+d_2(x_1,x_2).</script><p>The topology $\tau_X$ induced by $d_X$ is naturally Hausdorff and locally compact by considering the vertical segments. So what would happen to this weird locally compact Hausdorff space?</p>
+<p>If $f \in C_c(X)$, let $x_1,x_2,\cdots,x_n$ be those values of $x$ for which $f(x,y) \neq 0$ for at least one $y$. Since $f$ has compact support, it is ensured that there are only finitely many $x_i$’s. We are able to define a positive linear functional by</p>
+<script type="math/tex; mode=display">
+\Lambda f=\sum_{i=1}^{n}\int_{-\infty}^{+\infty}f(x_i,y)dy=\int_X fd\mu,</script><p>where $\mu$ is the measure associated with $\Lambda$ in the sense of R-M-K theorem. Let</p>
+<script type="math/tex; mode=display">
+E=\mathbb{R}_1 \times \{0\}.</script><p>By squeezing the disjoint vertical segments around $(x_i,0)$, we see $\mu(K)=0$ for all compact $K \subset E$ but $\mu(E)=\infty$.</p>
+<p>This is in violent contrast to what we do expect. However, if $X$ is required to be $\sigma$-compact (note that the space in this example is not), this kind of problems disappears neatly.</p>
+<h2 id="References-Further-reading"><a href="#References-Further-reading" class="headerlink" title="References / Further reading"></a>References / Further reading</h2><ol>
+<li>Walter Rudin, <em>Real and Complex Analysis</em></li>
+<li>Serge Lang, <em>Fundamentals of Differential Geometry</em></li>
+<li>Joel W. Robbin, <em><a target="_blank" rel="noopener" href="https://www.math.wisc.edu/~robbin/partitions_of_unity.pdf">Partition of Unity</a></em></li>
+<li>Brian Conrad, <em><a target="_blank" rel="noopener" href="http://math.stanford.edu/~conrad/diffgeomPage/handouts/paracompact.pdf">Paracompactness and local compactness</a></em></li>
+<li>Raoul Bott &amp;  Loring W. Tu, <em>Differential Forms in Algebraic Topology</em></li>
+</ol>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"><a href="../../../../tags/Partition-of-unity/" class="post-tags__link button"># Partition of unity</a><a href="../../../../tags/Riesz/" class="post-tags__link button"># Riesz</a><a href="../../../../tags/Locally-compact/" class="post-tags__link button"># Locally compact</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../24/two-fourier-transforms/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            The Fourier transform of sinx/x and (sinx/x)^2 and more
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../12/big-3-pt-4/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            The Big Three Pt. 4 - The Open Mapping Theorem (F-Space)
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2020/09/19/The-Riesz-Markov-Kakutani-Representation-Theorem/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>A proof of the ordinary Gleason-Kahane-Żelazko theorem for complex functionals | Desvl&#39;s blog</title>
+
+
+    <meta name="keywords" content="Walter Rudin, Functional Analysis">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="The Theorem (Gleason-Kahane-Żelazko) If $\phi$ is a complex linear functional on a unitary Banach algebra $A$, such that $\phi(e)&#x3D;1$ and $\phi(x) \neq 0$ for every invertible $x \in A$, then  \phi(xy)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="A proof of the ordinary Gleason-Kahane-Żelazko theorem for complex functionals">
+<meta property="og:url" content="https://desvl.xyz/2020/10/15/G-K-Z-theorem/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="The Theorem (Gleason-Kahane-Żelazko) If $\phi$ is a complex linear functional on a unitary Banach algebra $A$, such that $\phi(e)&#x3D;1$ and $\phi(x) \neq 0$ for every invertible $x \in A$, then  \phi(xy)">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://desvl.xyz/img/ring-homomorphism.png">
+<meta property="article:published_time" content="2020-10-15T19:37:52.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:09.944Z">
+<meta property="article:author" content="Desvl">
+<meta property="article:tag" content="Walter Rudin">
+<meta property="article:tag" content="Functional Analysis">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://desvl.xyz/img/ring-homomorphism.png">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        A proof of the ordinary Gleason-Kahane-Żelazko theorem for complex functionals
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2020/10/" class="post-meta__date button">2020-10-15</a>
+        
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/" class="button">Analysis</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/Functional-Analysis/" class="button">Functional Analysis</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/Functional-Analysis/Banach-Algebra/" class="button">Banach Algebra</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Theorem"><span class="toc-number">1.</span> <span class="toc-text">The Theorem</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Notations-and-remarks"><span class="toc-number">1.1.</span> <span class="toc-text">Notations and remarks</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Equivalences"><span class="toc-number">1.2.</span> <span class="toc-text">Equivalences</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Subspace-and-ideal-version"><span class="toc-number">1.3.</span> <span class="toc-text">Subspace and ideal version</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Spectrum-version"><span class="toc-number">1.4.</span> <span class="toc-text">Spectrum version</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#The-connection"><span class="toc-number">1.5.</span> <span class="toc-text">The connection</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tools-to-prove-the-theorem"><span class="toc-number">2.</span> <span class="toc-text">Tools to prove the theorem</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Jordan-homomorphism"><span class="toc-number">2.1.</span> <span class="toc-text">Jordan homomorphism</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Proof"><span class="toc-number">3.</span> <span class="toc-text">Proof</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-1-It-suffices-to-prove-that-phi-is-a-Jordan-homomorphism"><span class="toc-number">3.1.</span> <span class="toc-text">Step 1 - It suffices to prove that $\phi$ is a Jordan homomorphism</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-2-It-suffices-to-prove-that-phi-a-2-0-if-phi-a-0"><span class="toc-number">3.2.</span> <span class="toc-text">Step 2 - It suffices to prove that $\phi(a^2)&#x3D;0$ if $\phi(a)&#x3D;0$.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-3-It-suffices-to-show-that-the-following-function-is-constant"><span class="toc-number">3.3.</span> <span class="toc-text">Step 3 - It suffices to show that the following function is constant</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-4-It-suffices-to-describe-the-behaviour-of-an-entire-function"><span class="toc-number">3.4.</span> <span class="toc-text">Step 4 - It suffices to describe the behaviour of an entire function</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#References-Further-reading"><span class="toc-number">4.</span> <span class="toc-text">References &#x2F; Further reading</span></a></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Theorem"><span class="toc-number">1.</span> <span class="toc-text">The Theorem</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Notations-and-remarks"><span class="toc-number">1.1.</span> <span class="toc-text">Notations and remarks</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Equivalences"><span class="toc-number">1.2.</span> <span class="toc-text">Equivalences</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Subspace-and-ideal-version"><span class="toc-number">1.3.</span> <span class="toc-text">Subspace and ideal version</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Spectrum-version"><span class="toc-number">1.4.</span> <span class="toc-text">Spectrum version</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#The-connection"><span class="toc-number">1.5.</span> <span class="toc-text">The connection</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tools-to-prove-the-theorem"><span class="toc-number">2.</span> <span class="toc-text">Tools to prove the theorem</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Jordan-homomorphism"><span class="toc-number">2.1.</span> <span class="toc-text">Jordan homomorphism</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Proof"><span class="toc-number">3.</span> <span class="toc-text">Proof</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-1-It-suffices-to-prove-that-phi-is-a-Jordan-homomorphism"><span class="toc-number">3.1.</span> <span class="toc-text">Step 1 - It suffices to prove that $\phi$ is a Jordan homomorphism</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-2-It-suffices-to-prove-that-phi-a-2-0-if-phi-a-0"><span class="toc-number">3.2.</span> <span class="toc-text">Step 2 - It suffices to prove that $\phi(a^2)&#x3D;0$ if $\phi(a)&#x3D;0$.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-3-It-suffices-to-show-that-the-following-function-is-constant"><span class="toc-number">3.3.</span> <span class="toc-text">Step 3 - It suffices to show that the following function is constant</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-4-It-suffices-to-describe-the-behaviour-of-an-entire-function"><span class="toc-number">3.4.</span> <span class="toc-text">Step 4 - It suffices to describe the behaviour of an entire function</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#References-Further-reading"><span class="toc-number">4.</span> <span class="toc-text">References &#x2F; Further reading</span></a></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h2 id="The-Theorem"><a href="#The-Theorem" class="headerlink" title="The Theorem"></a>The Theorem</h2><blockquote>
+<p><strong>(Gleason-Kahane-Żelazko)</strong> If $\phi$ is a complex linear functional on a unitary Banach algebra $A$, such that $\phi(e)=1$ and $\phi(x) \neq 0$ for every invertible $x \in A$, then</p>
+<script type="math/tex; mode=display">
+\phi(xy)=\phi(x)\phi(y)</script><p>Namely, $\phi$ is a complex homomorphism. </p>
+</blockquote>
+<h3 id="Notations-and-remarks"><a href="#Notations-and-remarks" class="headerlink" title="Notations and remarks"></a>Notations and remarks</h3><p>Suppose $A$ is a complex unitary Banach algebra and $\phi: A \to \mathbb{C}$ is a linear functional which is not identically $0$ (for convenience), and if </p>
+<script type="math/tex; mode=display">
+\phi(xy)=\phi(x)\phi(y)</script><p>for all $x \in A$ and $y \in A$, then $\phi$ is called a <em>complex homomorphism</em> on $A$. Note that a unitary Banach algebra (with $e$ as multiplicative unit) is also a ring, so is $\mathbb{C}$, we may say in this case $\phi$ is a ring-homomorphism. For such $\phi$, we have an instant proposition:</p>
+<blockquote>
+<p><strong>Proposition 0</strong> $\phi(e)=1$ and $\phi(x) \neq 0$ for every invertible $x \in A$.</p>
+</blockquote>
+<p><em>Proof.</em> Since $\phi(e)=\phi(ee)=\phi(e)\phi(e)$, we have $\phi(e)=0$ or $\phi(e)=1$. If $\phi(e)=0$ however, for any $y \in A$, we have $\phi(y)=\phi(ye)=\phi(y)\phi(e)=0$, which is an excluded case. Hence $\phi(e)=1$. </p>
+<p>For invertible $x \in A$, note that $\phi(xx^{-1})=\phi(x)\phi(x^{-1})=\phi(e)=1$. This can’t happen if $\phi(x)=0$. $\square$</p>
+<p>The theorem reveals that Proposition $0$ actually characterizes the complex homomorphisms (ring-homomorphisms) among the linear functionals (group-homomorphisms).</p>
+<p>This theorem was proved by Andrew M. Gleason in 1967 and later independently by J.-P. Kahane and W. Żelazko in 1968. Both of them worked mainly on commutative Banach algebras, and the non-commutative version, which focused on complex homomorphism, was by W. Żelazko. In this post we will follow the third one.</p>
+<p>Unfortunately, one cannot find an educational proof on the Internet with ease, which may be the reason why I write this post and why you read this.</p>
+<h3 id="Equivalences"><a href="#Equivalences" class="headerlink" title="Equivalences"></a>Equivalences</h3><p>Following definitions of Banach algebra and some logic manipulation, we have several equivalences worth noting.</p>
+<h3 id="Subspace-and-ideal-version"><a href="#Subspace-and-ideal-version" class="headerlink" title="Subspace and ideal version"></a>Subspace and ideal version</h3><blockquote>
+<p><strong>(Stated by Gleason)</strong> Let $M$ be a linear subspace of codimension one in a commutative Banach algebra $A$ having an identity. Suppose no element of $M$ is invertible, then $M$ is an ideal.</p>
+<p><strong>(Stated by Kahane and Żelazko)</strong> A subspace $X \subset A$ of codimension $1$ is a maximal ideal if and only if it consists of non-invertible elements.</p>
+</blockquote>
+<h3 id="Spectrum-version"><a href="#Spectrum-version" class="headerlink" title="Spectrum version"></a>Spectrum version</h3><blockquote>
+<p><strong>(Stated by Kahane and Żelazko)</strong> Let $A$ be a commutative complex Banach algebra with unit element. Then a functional $f \in A^\ast$ is a multiplicative linear functional if and only if $f(x)=\sigma(x)$ holds for all $x \in A$.</p>
+</blockquote>
+<p>Here $\sigma(x)$ denotes the spectrum of $x$.</p>
+<h3 id="The-connection"><a href="#The-connection" class="headerlink" title="The connection"></a>The connection</h3><p>Clearly any maximal ideal contains no invertible element (if so, then it contains $e$, then it’s the ring itself). So it suffices to show that it has codimension 1, and if it consists of non-invertible elements. Also note that every maximal ideal is the kernel of some complex homomorphism. For such a subspace $X \subset A$, since $e \notin X$, we may define $\phi$ so that $\phi(e)=1$, and $\phi(x) \in \sigma(x)$ for all $x \in A$. Note that $\phi(e)=1$ holds if and only if $\phi(x) \in \sigma(x)$. As we will show, $\phi$ has to be a complex homomorphism.</p>
+<h2 id="Tools-to-prove-the-theorem"><a href="#Tools-to-prove-the-theorem" class="headerlink" title="Tools to prove the theorem"></a>Tools to prove the theorem</h2><blockquote>
+<p><strong>Lemma 0</strong> Suppose $A$ is a unitary Banach algebra, $x \in A$, $\lVert x \rVert&lt;1$, then $e-x$ is invertible.</p>
+</blockquote>
+<p>This lemma can be found in any functional analysis book introducing Banach algebra.</p>
+<blockquote>
+<p><strong>Lemma 1</strong> Suppose $f$ is an entire function of one complex variable, $f(0)=1$, $f’(0)=0$, and</p>
+<script type="math/tex; mode=display">
+0<|f(\lambda)| \leq e^{|\lambda|}</script><p>for all complex $\lambda$, then $f(\lambda)=1$ for all $\lambda \in \mathbb{C}$.</p>
+</blockquote>
+<p>Note that there is an entire function $g$ such that $f=\exp(g)$. It can be shown that $g=0$. Indeed, if we put</p>
+<script type="math/tex; mode=display">
+h_r(\lambda) = \frac{r^2g(\lambda)}{\lambda^2[2r-g(\lambda)]}</script><p>then we see $h_r$ is holomorphic in the open disk centred at $0$ with radius $2r$. Besides, $|h_r(\lambda)| \leq 1$ if $|\lambda|=r$. By the maximum modulus theorem, we have</p>
+<script type="math/tex; mode=display">
+|h_r(\lambda)| \leq 1</script><p>whenever $|\lambda| \leq r$. Fix $\lambda$ and let $r \to \infty$, by definition of $h_r(\lambda)$, we must have $g(\lambda)=0$. </p>
+<h3 id="Jordan-homomorphism"><a href="#Jordan-homomorphism" class="headerlink" title="Jordan homomorphism"></a>Jordan homomorphism</h3><p>A map $\phi$ from one algebra $R$ to another algebra $R’$ is said to be a <strong>Jordan homomorphism</strong> from $R$ to $R’$ if</p>
+<script type="math/tex; mode=display">
+\phi(a+b)=\phi(a)+\phi(b)</script><p>and</p>
+<script type="math/tex; mode=display">
+\phi(ab+ba)=\phi(a)\phi(b)+\phi(b)\phi(a).</script><p>It is clear that every algebra homomorphism is Jordan. Note if $R’$ is not of characteristic $2$, the second identity is equivalent to</p>
+<script type="math/tex; mode=display">
+\phi(a^2)=\phi(a)^2.</script><p><em>To show the equivalence, one let $b=a$ in the first case and puts $a+b$ in place of $a$ in the second case.</em></p>
+<p>Since in this case $R=A$ and $R’=\mathbb{C}$, the latter of which is commutative, we also write</p>
+<script type="math/tex; mode=display">
+\phi(ab+ba)=2\phi(a)\phi(b).</script><p>As we will show, the $\phi$ in the theorem is a Jordan homomorphism. </p>
+<h2 id="Proof"><a href="#Proof" class="headerlink" title="Proof"></a>Proof</h2><p>We will follow an unusual approach. By keep ‘downgrading’ the goal, one will see this algebraic problem be transformed into a pure analysis problem neatly.</p>
+<p>To begin with, let $N$ be the kernel of $\phi$.</p>
+<h3 id="Step-1-It-suffices-to-prove-that-phi-is-a-Jordan-homomorphism"><a href="#Step-1-It-suffices-to-prove-that-phi-is-a-Jordan-homomorphism" class="headerlink" title="Step 1 - It suffices to prove that $\phi$ is a Jordan homomorphism"></a>Step 1 - It suffices to prove that $\phi$ is a Jordan homomorphism</h3><p>If $\phi$ is a complex homomorphism, it is immediate that $\phi$ is a Jordan homomorphism. Conversely, if $\phi$ is Jordan, we have</p>
+<script type="math/tex; mode=display">
+\phi(xy+yx) =2\phi(x)\phi(y).</script><p>If $x\in N$, the right hand becomes $0$, and therefore</p>
+<script type="math/tex; mode=display">
+xy+yx \in N \quad \text{if } x \in N, y \in A.</script><p>Consider the identity</p>
+<script type="math/tex; mode=display">
+(xy-yx)^2+(xy+yx)^2=2[x(yxy)+(yxy)x]</script><p>Therefore</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\phi((xy-yx)^2+(xy+yx)^2)&=\phi((xy-yx)^2)+\phi((xy+yx)^2) \\
+                         &=\phi(xy-yx)^2+\phi(xy+yx)^2 \\
+                         &= \phi(xy-yx)^2 \\
+                         &=2\phi[x(yxy)+(yxy)x] \\
+                         &=0
+\end{aligned}</script><p>Since $x \in N$ and $yxy \in A$, we see $x(yxy)+(yxy)x \in N$. Therefore $\phi(xy-yx)=0$ and</p>
+<script type="math/tex; mode=display">
+xy-yx \in N</script><p>if $x \in N$ and $y \in A$. Further we see</p>
+<script type="math/tex; mode=display">
+xy-yx+xy+yx=2xy \in N \quad \text {and}\quad xy+yx-xy+yx = 2yx \in N,</script><p>which implies that $N$ is an ideal. This may remind you of this classic diagram (we will not use it since it is additive though):</p>
+<p align="center"><img src="/img/ring-homomorphism.png"></p>
+
+<p>For $x,y \in A$, we have $x \in \phi(x)e+N$ and $y \in \phi(y)e+N$. As a result, $xy \in \phi(x)\phi(y)e+N$, and therefore </p>
+<script type="math/tex; mode=display">
+\phi(xy)=\phi(x)\phi(y)+0.</script><h3 id="Step-2-It-suffices-to-prove-that-phi-a-2-0-if-phi-a-0"><a href="#Step-2-It-suffices-to-prove-that-phi-a-2-0-if-phi-a-0" class="headerlink" title="Step 2 - It suffices to prove that $\phi(a^2)=0$ if $\phi(a)=0$."></a>Step 2 - It suffices to prove that $\phi(a^2)=0$ if $\phi(a)=0$.</h3><p>Again, if $\phi$ is Jordan, we have $\phi(x^2)=\phi(x)^2$ for all $x \in A$. Conversely, if $\phi(a^2)=0$ for all $a \in N$, we may write $x$ by</p>
+<script type="math/tex; mode=display">
+x=\phi(x)e+a</script><p>where $a \in N$ for all $x \in A$. Therefore</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\phi(x^2)&=\phi((\phi(x)e+a)^2)=\phi(x)^2+2\phi(x)\phi(a)+\phi(a)^2=\phi(x)^2,
+\end{aligned}</script><p>which also shows that $\phi$ is Jordan.</p>
+<h3 id="Step-3-It-suffices-to-show-that-the-following-function-is-constant"><a href="#Step-3-It-suffices-to-show-that-the-following-function-is-constant" class="headerlink" title="Step 3 - It suffices to show that the following function is constant"></a>Step 3 - It suffices to show that the following function is constant</h3><p>Fix $a \in N$, assume $\lVert a \rVert = 1$ without loss of generality, and define </p>
+<script type="math/tex; mode=display">
+f(\lambda)=\sum_{n=0}^{\infty}\frac{\phi(a^n)}{n!}\lambda^n</script><p>for all complex $\lambda$. If this function is constant (lemma 1), we immediately have $f’’(0)=\phi(a^2)=0$. This is purely a complex analysis problem however.</p>
+<h3 id="Step-4-It-suffices-to-describe-the-behaviour-of-an-entire-function"><a href="#Step-4-It-suffices-to-describe-the-behaviour-of-an-entire-function" class="headerlink" title="Step 4 - It suffices to describe the behaviour of an entire function"></a>Step 4 - It suffices to describe the behaviour of an entire function</h3><p>Note in the definition of $f$, we have</p>
+<script type="math/tex; mode=display">
+\lvert \phi(a^n) \rvert \leq \lVert \phi \rVert \lVert a^n \rVert \leq \lVert \phi \rVert \lVert a \rVert^n=\lVert \phi \rVert.</script><p>So we expect the norm of $\phi$ to be finite, which ensures that $f$ is entire. By <em>reductio ad absurdum</em>, if $\lVert e-a \rVert &lt; 1$ for $a \in N$, by lemma 0, we have $e-e+a=a$ to be invertible, which is impossible. Hence $\lVert e-a \rVert \geq 1$ for all $a \in N$. On the other hand, for $\lambda \in \mathbb{C}$, we have the following inequality:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\lVert \lambda e-a \rVert = \lambda\lVert e-\lambda^{-1}a \rVert &\geq|\lambda| \\
+                          &=  |\phi(\lambda e)-\phi(a)| \\
+                          &=  |\phi(\lambda e-a)|
+\end{aligned}</script><p>Therefore $\phi$ is <em>continuous</em> with norm less than $1$. The continuity of $\phi$ is not assumed at the beginning but proved here.</p>
+<p>For $f$ we have some immediate facts. Since each coefficient in the series of $f$ has finite norm, $f$ is entire with $f’(0)=\phi(a)=0$. Also, since $\phi$ has norm $1$, we also have</p>
+<script type="math/tex; mode=display">
+|f(\lambda)|=\left|\sum_{n=0}^{\infty}\frac{\phi(a^n)}{n!}\lambda^n\right| \leq \sum_{n=0}^{\infty}\frac{|\lambda^n|}{n!}=e^{|\lambda|}.</script><p>All we need in the end is to show that $f(\lambda) \neq 0$ for all $\lambda \in \mathbb{C}$.</p>
+<p>The series</p>
+<script type="math/tex; mode=display">
+E(\lambda)=\exp(a\lambda)=\sum_{n=0}^{\infty}\frac{(\lambda a)^n}{n!}</script><p>converges since $\lVert a \rVert=1$. The continuity of $\phi$ shows now</p>
+<script type="math/tex; mode=display">
+f(\lambda)=\phi(E(\lambda)).</script><p>Note </p>
+<script type="math/tex; mode=display">
+E(-\lambda)E(\lambda)=\left(\sum_{n=0}^{\infty}\frac{(-\lambda a)^n}{n!}\right)\left(\sum_{n=0}^{\infty}\frac{(\lambda a)^n}{n!}\right)=e.</script><p>Hence $E(\lambda)$ <em>is</em> invertible for all $\lambda \in C$, hence $f(\lambda)=\phi(E(\lambda)) \neq 0$. By lemma 1, $f(\lambda)=1$ is constant. The proof is completed by reversing the steps. $\square$</p>
+<h2 id="References-Further-reading"><a href="#References-Further-reading" class="headerlink" title="References / Further reading"></a>References / Further reading</h2><ul>
+<li>Walter Rudin, <em>Real and Complex Analysis</em></li>
+<li>Walter Rudin, <em>Functional Analysis</em></li>
+<li>Andrew M. Gleason, <em>A Characterization of Maximal Ideals</em></li>
+<li>J.-P. Kahane and W. Żelazko, <em>A Characterization of Maximal Ideals in Commutative Banach Algebras</em></li>
+<li>W. Żelazko <em>A Characterization of Multiplicative linear functionals in Complex Banach Algebras</em></li>
+<li>I. N. Herstein, <em>Jordan Homomorphisms</em></li>
+</ul>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"><a href="../../../../tags/Walter-Rudin/" class="post-tags__link button"># Walter Rudin</a><a href="../../../../tags/Functional-Analysis/" class="post-tags__link button"># Functional Analysis</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../18/stirling-approximation/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            Stirling公式的几种经典估计
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../01/big-3-pt-5/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            The Big Three Pt. 5 - The Hahn-Banach Theorem (Dominated Extension)
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2020/10/15/G-K-Z-theorem/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

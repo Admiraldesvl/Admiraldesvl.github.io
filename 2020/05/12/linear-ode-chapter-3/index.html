@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>线性ODE（三）——初探高阶线性方程 | Desvl&#39;s blog</title>
+
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="一些让步直接解释方程计算办法，看似很实在，但是反而会让问题变得更复杂，因为对结构很不清楚，只剩下一个空穴来风的公式。但是，接下来我们不得不假设我们能很轻松地算出一个方程的解(就当是超能力吧！)——因为有的方程本来就没有什么普遍的解决办法。这篇博客的目的在于，让读者认识到，就算没有具体的解决办法，也能宏观上对方程进行一些合适的处理。这篇博客中也不是解释如何解方程，而是关于如何利用矩阵和一些常见的数学">
+<meta property="og:type" content="article">
+<meta property="og:title" content="线性ODE（三）——初探高阶线性方程">
+<meta property="og:url" content="https://desvl.xyz/2020/05/12/linear-ode-chapter-3/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="一些让步直接解释方程计算办法，看似很实在，但是反而会让问题变得更复杂，因为对结构很不清楚，只剩下一个空穴来风的公式。但是，接下来我们不得不假设我们能很轻松地算出一个方程的解(就当是超能力吧！)——因为有的方程本来就没有什么普遍的解决办法。这篇博客的目的在于，让读者认识到，就算没有具体的解决办法，也能宏观上对方程进行一些合适的处理。这篇博客中也不是解释如何解方程，而是关于如何利用矩阵和一些常见的数学">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-05-12T17:00:00.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:10.213Z">
+<meta property="article:author" content="Desvl">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        线性ODE（三）——初探高阶线性方程
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2020/05/" class="post-meta__date button">2020-05-12</a>
+        
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E8%AE%A9%E6%AD%A5"><span class="toc-number">1.</span> <span class="toc-text">一些让步</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E7%BB%93%E6%9E%84%E7%9A%84%E5%88%86%E6%9E%90"><span class="toc-number">2.</span> <span class="toc-text">解结构的分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8E%E4%B8%80%E9%98%B6%E4%B8%80%E6%AC%A1%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E4%B8%AD%E5%BE%97%E5%88%B0%E7%9A%84%E5%90%AF%E7%A4%BA"><span class="toc-number">2.1.</span> <span class="toc-text">从一阶一次线性方程中得到的启示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E4%B8%8E%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%A9%BA%E9%97%B4%E7%9A%84%E8%81%94%E7%B3%BB"><span class="toc-number">2.2.</span> <span class="toc-text">线性方程与欧几里得空间的联系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E7%9A%84%E5%AD%98%E5%9C%A8%E6%80%A7%E5%92%8C%E5%94%AF%E4%B8%80%E6%80%A7"><span class="toc-number">2.3.</span> <span class="toc-text">解的存在性和唯一性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%92%8C%E6%AC%A7%E6%B0%8F%E7%A9%BA%E9%97%B4%E7%9A%84%E4%B8%80%E4%B8%80%E5%AF%B9%E5%BA%94"><span class="toc-number">2.4.</span> <span class="toc-text">和欧氏空间的一一对应</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%9D%E8%AF%95%E8%A7%A3%E5%86%B3%E9%AB%98%E9%98%B6%E6%96%B9%E7%A8%8B"><span class="toc-number">3.</span> <span class="toc-text">尝试解决高阶方程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E4%B8%AA%E4%BE%8B%E5%AD%90"><span class="toc-number">4.</span> <span class="toc-text">一个例子</span></a></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E8%AE%A9%E6%AD%A5"><span class="toc-number">1.</span> <span class="toc-text">一些让步</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E7%BB%93%E6%9E%84%E7%9A%84%E5%88%86%E6%9E%90"><span class="toc-number">2.</span> <span class="toc-text">解结构的分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8E%E4%B8%80%E9%98%B6%E4%B8%80%E6%AC%A1%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E4%B8%AD%E5%BE%97%E5%88%B0%E7%9A%84%E5%90%AF%E7%A4%BA"><span class="toc-number">2.1.</span> <span class="toc-text">从一阶一次线性方程中得到的启示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E4%B8%8E%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%A9%BA%E9%97%B4%E7%9A%84%E8%81%94%E7%B3%BB"><span class="toc-number">2.2.</span> <span class="toc-text">线性方程与欧几里得空间的联系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E7%9A%84%E5%AD%98%E5%9C%A8%E6%80%A7%E5%92%8C%E5%94%AF%E4%B8%80%E6%80%A7"><span class="toc-number">2.3.</span> <span class="toc-text">解的存在性和唯一性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%92%8C%E6%AC%A7%E6%B0%8F%E7%A9%BA%E9%97%B4%E7%9A%84%E4%B8%80%E4%B8%80%E5%AF%B9%E5%BA%94"><span class="toc-number">2.4.</span> <span class="toc-text">和欧氏空间的一一对应</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%9D%E8%AF%95%E8%A7%A3%E5%86%B3%E9%AB%98%E9%98%B6%E6%96%B9%E7%A8%8B"><span class="toc-number">3.</span> <span class="toc-text">尝试解决高阶方程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E4%B8%AA%E4%BE%8B%E5%AD%90"><span class="toc-number">4.</span> <span class="toc-text">一个例子</span></a></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h2 id="一些让步"><a href="#一些让步" class="headerlink" title="一些让步"></a>一些让步</h2><p>直接解释方程计算办法，看似很实在，但是反而会让问题变得更复杂，因为对结构很不清楚，只剩下一个空穴来风的公式。但是，<strong>接下来我们不得不假设我们能很轻松地算出一个方程的解</strong>(就当是超能力吧！)——因为有的方程本来就没有什么普遍的解决办法。这篇博客的目的在于，让读者认识到，就算没有具体的解决办法，也能宏观上对方程进行一些合适的处理。这篇博客中也不是解释如何解方程，而是关于如何利用矩阵和一些常见的数学理论，分析未知的问题。解方程的具体办法会在下一篇博客。</p>
+<h2 id="解结构的分析"><a href="#解结构的分析" class="headerlink" title="解结构的分析"></a>解结构的分析</h2><h3 id="从一阶一次线性方程中得到的启示"><a href="#从一阶一次线性方程中得到的启示" class="headerlink" title="从一阶一次线性方程中得到的启示"></a>从一阶一次线性方程中得到的启示</h3><p>最开始我们分析的是这种方程</p>
+<script type="math/tex; mode=display">
+y'+a(x)y=b(x)</script><p>如果我们有一个解$y_1(x)$使得</p>
+<script type="math/tex; mode=display">
+y_1'(x)+a(x)y_1(x)=0</script><p>而且有一个特殊的解$y_2(x)$使得</p>
+<script type="math/tex; mode=display">
+y_2'(x)+a(x)y_2'(x)=b(x)</script><p>那么全体解就可以表示成$Cy_1(x)+y_2(x)$，有</p>
+<script type="math/tex; mode=display">
+(Cy_1(x)+y_2(x))'+a(x)(Cy_1(x)+y_2(x))=b(x)</script><p>所以如果是$n$个未知数呢？会不会是得到$n$个解，然后再有一个特解？但是一定得是$n$个吗？会不会是更多，或者更少个？如果是$n$个，会不会和一般研究的$n$维欧几里得空间建立联系？比如处理一个$2$元方程，是不是可以投影到二维平面？幸运的是，我们可以很轻松地把欧几里得空间和线性方程的解建立起联系。</p>
+<h3 id="线性方程与欧几里得空间的联系"><a href="#线性方程与欧几里得空间的联系" class="headerlink" title="线性方程与欧几里得空间的联系"></a>线性方程与欧几里得空间的联系</h3><p>这篇博客（和接下来的博客）中，加粗的数学符号都代表列向量或者矩阵。如果觉得不适应，可以自己写成向量和矩阵方便理解。</p>
+<h3 id="解的存在性和唯一性"><a href="#解的存在性和唯一性" class="headerlink" title="解的存在性和唯一性"></a>解的存在性和唯一性</h3><p>线性方程组</p>
+<script type="math/tex; mode=display">
+\frac{d\mathbf{y}}{dx}=\mathbf{A}(x)\mathbf{y}+\mathbf{f}(x)</script><p>的满足条件</p>
+<script type="math/tex; mode=display">
+\mathbf{y}(x_0)=\mathbf{y_0}</script><p>的解是存在且唯一的(这里要求$\mathbf{f}$和$\mathbf{A}$中的函数都是连续的)。这个问题的证明是一个比较麻烦的事情，涉及到Banach不动点问题，在这里就不做证明了。但是也是很好理解的：这里的$\mathbf{A}$和$\mathbf{f}$都是连续的，都不是“病态”的，所以这个方程不会有“病态的”形式，解是很自然的。</p>
+<h3 id="和欧氏空间的一一对应"><a href="#和欧氏空间的一一对应" class="headerlink" title="和欧氏空间的一一对应"></a>和欧氏空间的一一对应</h3><p>我们宣称，线性方程组</p>
+<script type="math/tex; mode=display">
+\frac{d\mathbf{y}}{dx}=\mathbf{A}(x)\mathbf{y}</script><p>的解和$n$维欧氏空间是一一对应的。也就是说，<strong>对每个$\mathbf{y}(x)$，都对应$n$维欧氏空间的唯一一个向量；反之，对$n$维欧氏空间的每一个向量，都对应着一个方程组的唯一一个解</strong>。</p>
+<p>这其实就是所谓解的存在性和唯一性的直接应用。在定义域固定一个$x_0$，然后我们选择$\mathbb{R}^n$的自然基，也就是</p>
+<script type="math/tex; mode=display">
+\{\mathbf{e_1},\mathbf{e_2},\cdots,\mathbf{e_n}\}</script><p>其中$\mathbf{e_1}=(1,0,\cdots,0)$, $\mathbf{e_n}=(0,\cdots,0,1)$。</p>
+<p>那么满足</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\begin{cases}
+\mathbf{y_i}'(x)&=\mathbf{A}(x)\mathbf{y_i} \\
+\mathbf{y_i}(x_0)&=\mathbf{e_i}
+\end{cases}
+\end{aligned}</script><p>的解就是存在且唯一的。如果这个对应，所以我们也选择了</p>
+<script type="math/tex; mode=display">
+\{\mathbf{y_1}(x),\mathbf{y_2}(x),\cdots,\mathbf{y_n}(x)\}</script><p>这样一组“基”(这里我们假设我们已经有一下子求出解的超能力)，那么能不能建立一个$\mathbb{R}^n$的平行版？答案是可以的。对于$\mathbb{R}^n$ ，我们肯定有</p>
+<script type="math/tex; mode=display">
+C_1\mathbf{e_1}+C_2\mathbf{e_2} \in \mathbb{R}^n</script><p>我们设这一节中方程的全体解集合为$\mathfrak{R}^n$，那么我们已经有了$\mathbf{y_i} \in \mathfrak{R}^n$，我们希望</p>
+<script type="math/tex; mode=display">
+C_1\mathbf{y_1}+C_2\mathbf{y_2} \in \mathfrak{R}^n</script><p>这其实利用求导的性质和矩阵的性质，就可以解决。因为</p>
+<script type="math/tex; mode=display">
+\frac{d(C_1\mathbf{y_1}+C_2\mathbf{y_2})}{dx}=C_1\frac{d\mathbf{y_1}}{dx}+C_2\frac{d\mathbf{y_2}}{dx}=C_1\mathbf{A}(x)\mathbf{y_1}+C_2\mathbf{A}(x)\mathbf{y_2}=\mathbf{A}(x)(C_1\mathbf{y_1}+C_2\mathbf{y_2})</script><p>而且不难验证，$C_1\mathbb{y_1}+C_2\mathbf{y_2}$和$C_1\mathbf{e_1}+C_2\mathbf{e_2}$也是一一对应的。所以，我们可以很自然地构建一个和$\mathbb{R}^n$一一对应的平行的空间，尽管这个空间我们可能没法可视化。</p>
+<p>我们知道，$\{\mathbf{e_1},\mathbf{e_2},\cdots,\mathbf{e_n}\}$这组向量，能很自然地用加法和数乘表示出$\mathbb{R}^n$中任意一个向量，而我们建立的等价关系也已经保证，$\{\mathbf{y_1}(x),\mathbf{y_2}(x),\cdots,\mathbf{y_n}(x)\}$也能用加法和数乘，表示出$\mathfrak{R}^n$中的任意一个解。换句话说，本节的方程的全体解$\mathfrak{R}^n$，其中的任意一个解，都可以表示成</p>
+<script type="math/tex; mode=display">
+\mathbf{y_0}=\sum_{k=1}^{n}C_k\mathbf{y_k}</script><p>其中$C_i$为常数。这里其实是一个同构(isomorphism)关系，如果了解这个概念，可以很轻松的写出严格的证明，但在这里就不深入了。</p>
+<p>注意，我们这里已经强迫$\mathbf{f}=\mathbf{0}$. 这样一个$\mathbf{y_0}$，就能保证$\mathbf{y’=Ay+f}$的普遍性。如果我们已经得到了一个$\mathbf{y’=Ay+f}$的特殊解$\mathbf{y_1}$，保证了准确性，那么，$\mathbf{y_0+y_1}$，总共$n+1$个函数，就能表示出所有解了。$\mathbf{f}=0$时，我们的$\mathbf{y_1}=0$也是很和谐的。我们在解决多元微分方程时，处理的问题和一元一次情况下，是很类似的。</p>
+<h2 id="尝试解决高阶方程"><a href="#尝试解决高阶方程" class="headerlink" title="尝试解决高阶方程"></a>尝试解决高阶方程</h2><p>我们现在还有那个超能力，能一下子解决$\frac{d\mathbf{y}}{dx}=\mathbf{A}(x)\mathbf{y}$这样的方程，能求出一组基对应的解。如果我们令</p>
+<script type="math/tex; mode=display">
+\mathbf{A}=
+\begin{pmatrix}
+0&1&0&\cdots&0 \\
+0&0&1&\cdots&0 \\
+\vdots&\vdots&\vdots&\ddots&\vdots\\
+0&0&0&\cdots&1\\
+-a_n(x)&-a_{n-1}(x)&-a_{n-2}(x)&\cdots&-a_1(x)
+\end{pmatrix}</script><p>那么我们就可以得到一个方程</p>
+<script type="math/tex; mode=display">
+y^{(n)}+a_1(x)y^{(n-1)}+\cdots+a_n(x)y=0</script><p>所以我们已经得到了$n$个不同的解，不妨设这组解是$y_1,y_2,\cdots,y_n$。分别对这些$y_i$求导$n-1$次，就能得到上一节中的$n$维列向量。</p>
+<p>那么如果是</p>
+<script type="math/tex; mode=display">
+y^{(n)}+a_1(x)y^{(n-1)}+\cdots+a_n(x)y=f(x)</script><p>这种方程，该怎么求解呢？我们还是通过类似于之前一阶线性方程的办法，通过求导运算，间接求出来。假设有一个函数$y$满足这个方程。</p>
+<p>我们不妨设</p>
+<script type="math/tex; mode=display">
+\mathbf{y}=\begin{bmatrix}y_1\\ \vdots \\ y_n\end{bmatrix}</script><p>以及</p>
+<script type="math/tex; mode=display">
+\mathbf{c}=(c_1,c_2,\cdots,c_n)</script><p>其中满足$y_p=\mathbf{c \cdot y}$(利用行向量、列向量的乘法规则)。所以我们接下来的工作就是求出这样一个$\mathbf{c}$。我们会尝试用线性代数的语言进行描述，可以看到，表述变得非常简单。在这里，对向量求导、求积分的意思是</p>
+<script type="math/tex; mode=display">
+\mathbf{y}'=\begin{bmatrix}y_1'\\ \vdots \\ y_n'\end{bmatrix} \\
+\int\mathbf{y}dx=\begin{bmatrix}\int y_1dx\\ \vdots \\\int y_ndx\end{bmatrix}</script><p>但是直接进行下去也似乎漫无边际。我们希望，能把这个$c$给稳定下来，所以我们会尝试加一些限制条件。这样的限制应该是$n-1$条。这就好比，如果要在平面中确定，和一条直线垂直的直线，那么只需要一个向量就行了。如果要在空间中确定，和一个平面垂直的一条直线，确定两个向量就行了——所谓两条相交直线确定一个平面。</p>
+<p>我们来分析一下怎么确定会更好。对$y$求导，我们有</p>
+<script type="math/tex; mode=display">
+y_p'=\mathbf{c'\cdot y+c\cdot y'}</script><p>如果我们令$c’y=0$，那么就有</p>
+<script type="math/tex; mode=display">
+y''_p=(\mathbf{c \cdot y'})'=\mathbf{c' \cdot y'}+\mathbf{c \cdot y''}</script><p>如果再令$\mathbf{c’ \cdot y’}=0$，继续下去，甚至是$\mathbf{c’ \cdot y^{(k)}}=0$，其中$0 \leq k \leq n-2$，那么对应就有$y_p^{(k)}=cy^{(k)}$。而且接下来求导就变得比较简单。但是，如果我们令$\mathbf{c \cdot y^{(p)}}=0$，就很麻烦了，因为接下来多了像是$c’,c’’,\cdots$这种未知量。这会让等式越来越长，没法表达。所以，我们选择限制条件</p>
+<script type="math/tex; mode=display">
+\mathbf{c' \cdot y^{(k)}}=0\quad 0 \leq k \leq n-2</script><p>已经选择了$n-1$个限制条件，那么能不能凑个整，得到第$n$个式子？那样的话，有$n$个未知数，有$n$个等式，像是再搞矩阵了。我们还有一点根本没用上：最开始的方程。对于$0 \leq k \leq n-1$，我们已经已经有(可以手动验算一下)：</p>
+<script type="math/tex; mode=display">
+y_{p}^{(k)}=\mathbf{c \cdot y^{(k)}}</script><p>所以就有</p>
+<script type="math/tex; mode=display">
+y_p^{(n)}=\mathbf{c' \cdot y^{(n-1)}}+\mathbf{c \cdot y^{(n)}}</script><p>这个时候，回到最开始的方程，代入这$n$个等式，有</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+y_p^{(n)}+a_1y_p^{(n-1)}+\cdots+a_ny_p&=f\\
+\mathbf{c' \cdot y^{(n-1)}}+\mathbf{c \cdot y^{(n)}}+a_1\mathbf{c\cdot y^{(n-1)}}+\cdots+a_n\mathbf{c \cdot y}&=f\\
+\mathbf{c' \cdot y^{(n-1)}}+\mathbf{c \cdot}\left(\mathbf{y^{(n)}}+a_1\mathbf{y^{(n-1)}}+\cdots+a_n\mathbf{y}\right)&=f \\
+\mathbf{c' \cdot y^{(n-1)}}&=f
+\end{aligned}</script><p>最后一个等号成立是因为，在$\mathbb{y}$中，每个分量$y_k$都满足$y_k+a_1y_k^{(n-1)}+\cdot+a_ny_k=0$。所以这些向量加起来是一个$0$向量。</p>
+<p>所以我们有了关于$\mathbf{c’}$的$n$个等式，也就是说</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+c_1'y_1+\cdots+c_n'y_n&=&0 \\
+c_1'y_1'+\cdots+c_n'y_n'&=&0 \\
+\cdots\cdots\cdots\cdots\\
+c_1'y_1^{(n-2)}+\cdots+c_n'y_{n}^{(n-2)}&=&0 \\
+c_1'y_1^{(n-1)}+\cdots+c_n'y_{n}^{(n-1)}&=&f
+\end{cases}</script><p>如果我们写成矩阵的形式，就有</p>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+y_1 & y_2 & \cdots&y_{n} \\
+y_1' & y_2' & \cdots&y_{n}' \\
+\vdots&\vdots&\ddots&\vdots \\
+y_1^{(n-2)} & y_2^{(n-2)} & \cdots&y_{n}^{(n-2)} \\
+y_1^{(n-1)} & y_2^{(n-1)} & \cdots&y_{n}^{(n-1)} \\
+\end{bmatrix}
+\begin{bmatrix}
+c_1'\\
+c_2'\\
+\vdots \\
+c_{n-1}' \\
+c_n'
+\end{bmatrix}=
+\begin{bmatrix}
+0 \\
+0 \\
+\vdots \\
+0 \\
+f
+\end{bmatrix}</script><p>如果你学习了<strong>Cramer法则</strong>，那么怎么解决这个问题已经浮现在眼前了。没错，我们可以直接利用Cramer法则，求出$\mathbf{c’}$，然后再求积分。我们用线性代数，将这个结构厘清，又简单利用微积分，将结果得出。</p>
+<p>对于每个$c_k’$，我们有</p>
+<script type="math/tex; mode=display">
+c_k'=\frac{W_k}{W}</script><p>从而$c_k = \int\frac{W_k}{W}dx$，重复$n$次，就得到了整个$y_p$，从而得到我们想要的解。其中$W$为上式中由$y_1,y_2,\cdots,y_n$构成的矩阵的行列式，而$W_k$是将$W$中第$k$列换成$(0,0,\cdots,0,f)^T$之后得到的矩阵的行列式。具体而言，我们有</p>
+<script type="math/tex; mode=display">
+y=\sum_{k=1}^{n}C_ky_k+\sum_{k=1}^{n}y_k\int\frac{W_k(x)}{W(x)}dx</script><p>并没有什么诡异又空穴来风的公式需要记忆，这一切都来得很自然。可能会有人注意到，如果这里的$W(x)=0$该怎么办？这其实说明，选择的解，<strong>并没有代表性</strong>，其中的一个解，可以用另外几个解表示出来。比如方程$y’’=y$，应该选择解$e^{x},e^{-x}$，不应该选择$e^{x}$和$2e^{x}$，因为这个时候$e^{x}$可以很直接地表示出$2e^{x}$来。</p>
+<h2 id="一个例子"><a href="#一个例子" class="headerlink" title="一个例子"></a>一个例子</h2><p>这篇博客里并没有直接解释怎么直接解出高阶常微分方程，实际上这个问题并不见得有多简单。但是，如果我们有了超能力，能解出方程右边等于$0$时候的解，就能得到所有实际要求的解了。我们可以试着解一个方程。</p>
+<blockquote>
+<script type="math/tex; mode=display">
+y''+y-2y=x</script></blockquote>
+<p>如果要解$y’’+y-2y=0$，可以得到一组具有代表性的解：$e^{x}$和$e^{-2x}$。这个时候的$W$和$W_k$就可以直接求出来了。</p>
+<script type="math/tex; mode=display">
+W(x)=\begin{vmatrix}e^x&e^{-2x} \\e^x&-2e^{-2x}\end{vmatrix}=-3e^{-x}</script><script type="math/tex; mode=display">
+W_1(x)=\begin{vmatrix}0 & e^{-2x} \\x&-2e^{-2x}\end{vmatrix}=-xe^{-2x}</script><script type="math/tex; mode=display">
+W_2(x)=\begin{vmatrix}e^x&0\\e^x&x\end{vmatrix}=xe^x</script><p>从而</p>
+<script type="math/tex; mode=display">
+y=e^x(C_1+\int_0^x\frac{s}{3}e^{-s}ds)+e^{-2x}(C_2+\int_0^x\frac{-s}{3}e^{2s}ds)</script><p>假设我们知道在原点处的取值情况，例如$\begin{cases}y(0)&amp;=0\\ y’(0)&amp;=1\end{cases}$，我们就能得到方程组</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+C_1+C_2&=0 \\
+C_1-2C_2&=1
+\end{cases}</script><p>解出$C_1=\frac{1}{3}$，$C_2=-\frac{1}{3}$.</p>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../16/ivp-picard-differnt-level/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            Prove Picard&#39;s Existence and Uniqueness Theorem on Different Levels
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../07/alguien-desordena-estas-rosas/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            关于《有人弄乱了这束玫瑰花》
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2020/05/12/linear-ode-chapter-3/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

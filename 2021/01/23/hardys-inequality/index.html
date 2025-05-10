@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>Several ways to prove Hardy&#39;s inequality | Desvl&#39;s blog</title>
+
+
+    <meta name="keywords" content="Real and Complex Analysis, Walter Rudin, Inequality, Hardy">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="Suppose $1 &lt; p &lt; \infty$ and $f \in L^p((0,\infty))$ (with respect to Lebesgue measure of course) is a nonnegative function, take  F(x) &#x3D; \frac{1}{x}\int_0^x f(t)dt \quad 0 &lt; x">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Several ways to prove Hardy&#39;s inequality">
+<meta property="og:url" content="https://desvl.xyz/2021/01/23/hardys-inequality/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="Suppose $1 &lt; p &lt; \infty$ and $f \in L^p((0,\infty))$ (with respect to Lebesgue measure of course) is a nonnegative function, take  F(x) &#x3D; \frac{1}{x}\int_0^x f(t)dt \quad 0 &lt; x">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-01-23T13:05:28.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:10.020Z">
+<meta property="article:author" content="Desvl">
+<meta property="article:tag" content="Real and Complex Analysis">
+<meta property="article:tag" content="Walter Rudin">
+<meta property="article:tag" content="Inequality">
+<meta property="article:tag" content="Hardy">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        Several ways to prove Hardy&#39;s inequality
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2021/01/" class="post-meta__date button">2021-01-23</a>
+        
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/" class="button">Analysis</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/Functional-Analysis/" class="button">Functional Analysis</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/Functional-Analysis/L-p-space/" class="button">$L^p$-space</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/Integration-Theory/" class="button">Integration Theory</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Minkowski%E2%80%99s-integral-inequality"><span class="toc-number">1.</span> <span class="toc-text">Minkowski’s integral inequality</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#A-constructive-approach"><span class="toc-number">2.</span> <span class="toc-text">A constructive approach</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Integration-by-parts"><span class="toc-number">3.</span> <span class="toc-text">Integration by parts</span></a></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Minkowski%E2%80%99s-integral-inequality"><span class="toc-number">1.</span> <span class="toc-text">Minkowski’s integral inequality</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#A-constructive-approach"><span class="toc-number">2.</span> <span class="toc-text">A constructive approach</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Integration-by-parts"><span class="toc-number">3.</span> <span class="toc-text">Integration by parts</span></a></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <p>Suppose $1 &lt; p &lt; \infty$ and $f \in L^p((0,\infty))$ (with respect to Lebesgue measure of course) is a nonnegative function, take</p>
+<script type="math/tex; mode=display">
+F(x) = \frac{1}{x}\int_0^x f(t)dt \quad 0 < x <\infty,</script><p>we have Hardy’s inequality $\def\lrVert[#1]{\lVert #1 \rVert}$</p>
+<script type="math/tex; mode=display">
+\lrVert[F]_p \leq q\lrVert[f]_p</script><p>where $\frac{1}{p}+\frac{1}{q}=1$ of course.</p>
+<p>There are several ways to prove it. I think there are several good reasons to write them down thoroughly since that may be why you find this page. Maybe you are burnt out since it’s <em>left as exercise</em>. You are assumed to have enough knowledge of Lebesgue measure and integration.</p>
+<h2 id="Minkowski’s-integral-inequality"><a href="#Minkowski’s-integral-inequality" class="headerlink" title="Minkowski’s integral inequality"></a>Minkowski’s integral inequality</h2><blockquote>
+<p>Let $S_1,S_2 \subset \mathbb{R}$ be two measurable set, suppose $F:S_1 \times S_2 \to \mathbb{R}$ is measurable, then</p>
+<script type="math/tex; mode=display">
+\left[\int_{S_2} \left\vert\int_{S_1}F(x,y)dx \right\vert^pdy\right]^{\frac{1}{p}} \leq \int_{S_1} \left[\int_{S_2} |F(x,y)|^p dy\right]^{\frac{1}{p}}dx.</script><p>A proof can be found at <a target="_blank" rel="noopener" href="https://www.college-de-france.fr/media/en-pierre-louis-lions/UPL3685291072245700610_Persson___Lecture_2.pdf">here</a> by turning to Example A9. You may need to replace all measures with Lebesgue measure $m$.</p>
+</blockquote>
+<p>Now let’s get into it. For a measurable function in this place we should have $G(x,t)=\frac{f(t)}{x}$. If we put this function inside this inequality, we see</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+ \lrVert[F]_p &= \left[\int_0^\infty \left\vert \int_0^x \frac{f(t)}{x}dt \right\vert^p dx\right]^{\frac{1}{p}} \\
+                 &= \left[\int_0^\infty \left\vert \int_0^1 f(ux)du \right\vert^p dx\right]^{\frac{1}{p}} \\
+                 &\leq \int_0^1 \left[\int_0^\infty |f(ux)|^pdx\right]^{\frac{1}{p}}du \\
+                 &= \int_0^1 \left[\int_0^\infty |f(ux)|^pudx\right]^{\frac{1}{p}}u^{-\frac{1}{p}}du \\
+                 &= \lrVert[f]_p \int_0^1 u^{-\frac{1}{p}}du \\
+                 &=q\lrVert[f]_p.
+\end{aligned}</script><p>Note we have used change-of-variable twice and the inequality once. </p>
+<h2 id="A-constructive-approach"><a href="#A-constructive-approach" class="headerlink" title="A constructive approach"></a>A constructive approach</h2><p>I have no idea how people came up with this solution. Take $xF(x)=\int_0^x f(t)t^{u}t^{-u}dt$ where $0&lt;u&lt;1-\frac{1}{p}$. Hölder’s inequality gives us</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+xF(x) &= \int_0^x f(t)t^ut^{-u}dt \\
+      &\leq \left[\int_0^x t^{-uq}dt\right]^{\frac{1}{q}}\left[\int_0^xf(t)^pt^{up}dt\right]^{\frac{1}{p}} \\
+      &=\left(\frac{1}{1-uq}x^{1-uq}\right)^{\frac{1}{q}}\left[\int_0^xf(t)^pt^{up}dt\right]^{\frac{1}{p}}
+\end{aligned}</script><p>Hence</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+F(x)^p & \leq \frac{1}{x^p}\left\{\left(\frac{1}{1-uq}x^{1-uq}\right)^{\frac{1}{q}}\left[\int_0^xf(t)^pt^{up}dt\right]^{\frac{1}{p}}\right\}^{p} \\
+&= \left(\frac{1}{1-uq}\right)^{\frac{p}{q}}x^{\frac{p}{q}(1-uq)-p}\int_0^x f(t)^pt^{up}dt \\
+&= \left(\frac{1}{1-uq}\right)^{p-1}x^{-up-1}\int_0^x f(t)^pt^{up}dt
+\end{aligned}</script><p>Note we have used the fact that $\frac{1}{p}+\frac{1}{q}=1 \implies p+q=pq$ and $\frac{p}{q}=p-1$. Fubini’s theorem gives us the final answer:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\int_0^\infty F(x)^pdx &\leq \int_0^\infty\left[\left(\frac{1}{1-uq}\right)^{p-1}x^{-up-1}\int_0^x f(t)^pt^{up}dt\right]dx \\
+&=\left(\frac{1}{1-uq}\right)^{p-1}\int_0^\infty dx\int_0^x f(t)^pt^{up}x^{-up-1}dt \\
+&=\left(\frac{1}{1-uq}\right)^{p-1}\int_0^\infty dt\int_t^\infty f(t)^pt^{up}x^{-up-1}dx \\
+&=\left(\frac{1}{1-uq}\right)^{p-1}\frac{1}{up}\int_0^\infty f(t)^pdt.
+\end{aligned}</script><p>It remains to find the minimum of $\varphi(u) = \left(\frac{1}{1-uq}\right)^{p-1}\frac{1}{up}$. This is an elementary calculus problem. By taking its derivative, we see when $u=\frac{1}{pq}&lt;1-\frac{1}{p}$ it attains its minimum $\left(\frac{p}{p-1}\right)^p=q^p$. Hence we get</p>
+<script type="math/tex; mode=display">
+\int_0^\infty F(x)^pdx \leq q^p\int_0^\infty f(t)^pdt,</script><p>which is exactly what we want. Note the constant $q$ cannot be replaced with a smaller one. We simply proved the case when $f \geq 0$. For the general case, one simply needs to take absolute value.  </p>
+<h2 id="Integration-by-parts"><a href="#Integration-by-parts" class="headerlink" title="Integration by parts"></a>Integration by parts</h2><p>This approach makes use of properties of $L^p$ space. Still we assume that $f \geq 0$ but we also assume $f \in C_c((0,\infty))$, that is, $f$ is continuous and has compact support. Hence $F$ is differentiable in this situation. Integration by parts gives</p>
+<script type="math/tex; mode=display">
+\int_0^\infty F^p(x)dx=xF(x)^p\vert_0^\infty- p\int_0^\infty xdF^p = -p\int_0^\infty xF^{p-1}(x)F'(x)dx.</script><p>Note since $f$ has compact support, there are some $[a,b]$ such that $f &gt;0$ only if $0 &lt; a \leq x \leq b &lt; \infty$ and hence $xF(x)^p\vert_0^\infty=0$. Next it is natural to take a look at $F’(x)$. Note we have</p>
+<script type="math/tex; mode=display">
+F'(x) = \frac{f(x)}{x}-\frac{\int_0^x f(t)dt}{x^2},</script><p>hence $xF’(x)=f(x)-F(x)$. A substitution gives us</p>
+<script type="math/tex; mode=display">
+\int_0^\infty F^p(x)dx = -p\int_0^\infty F^{p-1}(x)[f(x)-F(x)]dx,</script><p>which is equivalent to say</p>
+<script type="math/tex; mode=display">
+\int_0^\infty F^p(x)dx = \frac{p}{p-1}\int_0^\infty F^{p-1}(x)f(x)dx.</script><p>Hölder’s inequality gives us</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\int_0^\infty F^{p-1}(x)f(x)dx &\leq \left[\int_0^\infty F^{(p-1)q}(x)dx\right]^{\frac{1}{q}}\left[\int_0^\infty f(x)^pdx\right]^{\frac{1}{p}} \\
+&=\left[\int_0^\infty F^{p}(x)dx\right]^{\frac{1}{q}}\left[\int_0^\infty f(x)^pdx\right]^{\frac{1}{p}}.
+\end{aligned}</script><p>Together with the identity above we get</p>
+<script type="math/tex; mode=display">
+\int_0^\infty F^p(x)dx = q\left[\int_0^\infty F^{p}(x)dx\right]^{\frac{1}{q}}\left[\int_0^\infty f(x)^pdx\right]^{\frac{1}{p}}</script><p>which is exactly what we want since $1-\frac{1}{q}=\frac{1}{p}$ and all we need to do is divide $\left[\int_0^\infty F^pdx\right]^{1/q}$ on both sides. So what’s next? Note $C_c((0,\infty))$ is dense in $L^p((0,\infty))$. For any $f \in L^p((0,\infty))$, we can take a sequence of functions $f_n \in C_c((0,\infty))$ such that $f_n \to f$ with respect to $L^p$-norm. Taking $F=\frac{1}{x}\int_0^x f(t)dt$ and $F_n = \frac{1}{x}\int_0^x f_n(t)dt$, we need to show that $F_n \to F$ pointwise, so that we can use Fatou’s lemma. For $\varepsilon&gt;0$, there exists some $m$ such that $\lrVert[f_n-f]_p &lt; \frac{1}{n}$. Thus</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+|F_n(x)-F(x)| &= \frac{1}{x}\left\vert \int_0^x f_n(t)dt - \int_0^x f(t)dt \right\vert \\
+              &\leq \frac{1}{x} \int_0^x |f_n(t)-f(t)|dt \\
+              &\leq \frac{1}{x} \left[\int_0^x|f_n(t)-f(t)|^pdt\right]^{\frac{1}{p}}\left[\int_0^x 1^qdt\right]^{\frac{1}{q}} \\
+              &=\frac{1}{x^{1/p}}\left[\int_0^x|f_n(t)-f(t)|^pdt\right]^{\frac{1}{p}} \\
+              &\leq \frac{1}{x^{1/p}}\lrVert[f_n-f]_p <\frac{\varepsilon}{x^{1/p}}.
+\end{aligned}</script><p>Hence $F_n \to F$ pointwise, which also implies that $|F_n|^p \to |F|^p$ pointwise. For $|F_n|$ we have</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\int_0^\infty |F_n(x)|^pdx &= \int_0^\infty \left\vert\frac{1}{x}\int_0^x f_n(t)dt\right\vert^p dx \\
+&\leq \int_0^\infty \left[\frac{1}{x}\int_0^x |f_n(t)|dt\right]^{p}dx \\
+&\leq q\int_0^\infty |f_n(t)|^pdt
+\end{aligned}</script><p>note the third inequality follows since we have already proved it for $f \geq 0$. By Fatou’s lemma, we have</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\int_0^\infty |F(x)|^pdx &= \int_0^\infty \lim_{n \to \infty}|F_n(x)|^pdx \\
+&\leq \lim_{n \to \infty} \int_0^\infty |F_n(x)|^pdx \\
+&\leq \lim_{n \to \infty}q^p\int_0^\infty |f_n(x)|^pdx \\
+&=q^p\int_0^\infty |f(x)|^pdx.
+\end{aligned}</script>
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"><a href="../../../../tags/Real-and-Complex-Analysis/" class="post-tags__link button"># Real and Complex Analysis</a><a href="../../../../tags/Walter-Rudin/" class="post-tags__link button"># Walter Rudin</a><a href="../../../../tags/Inequality/" class="post-tags__link button"># Inequality</a><a href="../../../../tags/Hardy/" class="post-tags__link button"># Hardy</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../../02/07/dedekind-domain/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            Dedekind Domain and Properties in an Elementary Approach
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../19/tensor-product-universal-property/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            Tensor Product as a Universal Object (Category Theory &amp; Module Theory)
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2021/01/23/hardys-inequality/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>Calculus on Fields - Heights of Polynomials, Mahler&#39;s Measure and Northcott&#39;s Theorem | Desvl&#39;s blog</title>
+
+
+    <meta name="keywords" content="Heights, Diophantus">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="We study the height of polynomials and derive some important tools.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Calculus on Fields - Heights of Polynomials, Mahler&#39;s Measure and Northcott&#39;s Theorem">
+<meta property="og:url" content="https://desvl.xyz/2022/09/04/height-polynomial/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="We study the height of polynomials and derive some important tools.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-09-04T14:39:20.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:10.045Z">
+<meta property="article:author" content="Desvl">
+<meta property="article:tag" content="Heights">
+<meta property="article:tag" content="Diophantus">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        Calculus on Fields - Heights of Polynomials, Mahler&#39;s Measure and Northcott&#39;s Theorem
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2022/09/" class="post-meta__date button">2022-09-04</a>
+        
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/" class="button">Algebra</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/Galois-Theory/" class="button">Galois Theory</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Number-Theory/" class="button">Number Theory</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Number-Theory/Algebraic-Number-Theory/" class="button">Algebraic Number Theory</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Computing-Heights"><span class="toc-number">1.</span> <span class="toc-text">Computing Heights</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Height-and-Products"><span class="toc-number">2.</span> <span class="toc-text">Height and Products</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Original-Version-and-Lehmer%E2%80%99s-Conjecture"><span class="toc-number">3.</span> <span class="toc-text">Original Version and Lehmer’s Conjecture</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-General-Version-and-Jensen%E2%80%99s-Formula"><span class="toc-number">4.</span> <span class="toc-text">The General Version and Jensen’s Formula</span></a></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Computing-Heights"><span class="toc-number">1.</span> <span class="toc-text">Computing Heights</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Height-and-Products"><span class="toc-number">2.</span> <span class="toc-text">Height and Products</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Original-Version-and-Lehmer%E2%80%99s-Conjecture"><span class="toc-number">3.</span> <span class="toc-text">Original Version and Lehmer’s Conjecture</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-General-Version-and-Jensen%E2%80%99s-Formula"><span class="toc-number">4.</span> <span class="toc-text">The General Version and Jensen’s Formula</span></a></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h1 id="Heights"><a href="#Heights" class="headerlink" title="Heights"></a>Heights</h1><blockquote>
+<p><strong>Definition.</strong> For a polynomial with coefficients in a number field $K$</p>
+<script type="math/tex; mode=display">
+f(t_1,\dots,t_n)=\sum_{j_1,\dots,j_n}a_{j_1\dots j_n}t_1^{j_1}\dots t_n^{j_n}
+=\sum_{\mathbf{j}}a_{\mathbf{j}}\mathbf{t}^{\mathbf{j}},</script><p>the <strong>height</strong> of $f$ is defined to be</p>
+<script type="math/tex; mode=display">
+h(f)=\sum_{v \in M_K}\log|f|_v</script><p>where</p>
+<script type="math/tex; mode=display">
+|f|_v=\max_{\mathbf{j}}|a_{\mathbf{j}}|_v</script><p>is the <strong>Gauss norm</strong> for any place $v$.</p>
+</blockquote>
+<p>Here, $M_K$ refers to the canonical set of non-equivalent places on $K$. See first four pages of <a target="_blank" rel="noopener" href="https://www.math.uh.edu/~minru/fields/dictionary.pdf">this document</a> for a reference.</p>
+<p>As one can expect, this can tell us about some complexity of a polynomial, just like how the height of an algebraic number tells us its complexity. Let us compute some examples.</p>
+<h2 id="Computing-Heights"><a href="#Computing-Heights" class="headerlink" title="Computing Heights"></a>Computing Heights</h2><p>Let us consider the simplest one </p>
+<script type="math/tex; mode=display">
+f(x)=x^2-1 \in \mathbb{Q}[x]</script><p>first. Since $|x^2-1|_v=1$ for all places $v$, the height of $f$ is a sum of $0$, which is still $0$.</p>
+<p>Next, we take care of a polynomial that involves prime numbers</p>
+<script type="math/tex; mode=display">
+g(x)=\frac{1}{4}x^4+\frac{1}{3}x^3+\frac{1}{2}x^2+x+2</script><p>We see $|g(x)|_\infty=2$, $|g(x)|_2=2^{-(-2)}=4$, $|g(x)|_3=3^{-(-1)}=3$, and the Gauss norm is $1$ for all other primes. Therefore</p>
+<script type="math/tex; mode=display">
+h(g)=\log{2}+\log{4}+\log{3}=3\log{2}+\log{3}.</script><p>Put $u(x,y)=\sqrt{2}x^2 + 3\sqrt{2}xy+5y^2+7 \in \mathbb{Q}(\sqrt{2})[x,y]$, we can compute its height carefully. Notice that $|\sqrt{2}|_v=\sqrt{|2|_v}$ for all places $v$ and we therefore have</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+h(u) &= \log|u|_\infty + \log|u|_2 + \log|u|_3 + \log|u|_5+\log|u|_7 \\
+     &= \log 7 + \log \sqrt\frac{1}{2}+\log\frac{1}{3}+\log\frac{1}{5}+\log\frac{1}{7} \\
+     &= -\frac{1}{2}\log{2}-\log{3}-\log{5}.
+\end{aligned}</script><h2 id="Height-and-Products"><a href="#Height-and-Products" class="headerlink" title="Height and Products"></a>Height and Products</h2><p>If $f \in K[s_1,\dots,s_n]$ and $g \in K[t_1,\dots,t_m]$ are two polynomials in different variables, then as a polynomial in $K[s_1,\dots,s_n;t_1,\dots,t_m]$, $fg$ has height $h(f)+h(g)$. This is immediately realised once we notice that the height of a polynomial is equal to the height of the vector of coefficients in appropriate projective space. The identity $h(fg)=h(f)+h(g)$ follows from the Segre embedding.</p>
+<p>But if variables coincide, things get different. For example, $h(x+1)=0$ but $h((x+1)^2)=2$. This is because we do not have $|fg|_\infty=|f|_\infty|g|_\infty$. Nevertheless, for non-Archimedean places, things are easier.</p>
+<blockquote>
+<p><strong>Gauss’s lemma.</strong> If $v$ is not Archimedean, then $|fg|_v=|f|_v|g|_v$.</p>
+</blockquote>
+<p><em>Proof.</em> First of all, it suffices to prove it for univariable cases. If $f$ and $g$ have multiple variables $x_1,\dots,x_n$, let $d$ be an integer greater than the degree of $fg$. Then the Kronecker substitution </p>
+<script type="math/tex; mode=display">
+x_j=t^{d^{j-1}}</script><p>reduces our study into $K[t]$. This is because, with such a $d$, this substitution gives a univariable polynomial with the same set of coefficients. </p>
+<p>Therefore we only need to show that $|f(t)g(t)|_v=|f(t)|_v|g(t)|_v$. Without loss of generality we assume that $|f(t)|_v=|g(t)|_v=1$. Write $f(t)=\sum a_k t^k$ and $g(t)=\sum b_k t^k$, we have $f(t)g(t)=\sum c_jt^j$ where $c_j=\sum_{j=k+l}a_kb_l$. </p>
+<p>We suppose that $|fg|_v&lt;1$, i.e., $|c_j|_v&lt;1$ for all $j$, and see what contradiction we will get. If $|a_j|=1$ for all $j$, then $|c_j|_v&lt;1$ implies that $|b_k|_v&lt;1$ for all $k$ and therefore $|g|_v&lt;1$, a contradiction. Therefore we may assume that, without loss of generality, $|a_0|_v&lt;1$ but $|a_1|_v=1$. Then, since</p>
+<script type="math/tex; mode=display">
+|c_j|_v=|a_0b_j+a_1b_{j-1}+\dots|_v<1,</script><p>we have $|a_1b_{j-1}|_v=|b_{j-1}|_v&lt;1$ for all $j \ge 1$. It follows that $|g(t)|_v&lt;1$, still a contradiction. $\square$</p>
+<p>So much for non-Archimedean case. For Archimedean case things are more complicated so we do not have enough space to cover that. Nevertheless, we have</p>
+<blockquote>
+<p><strong>Gelfond’s lemma.</strong> Let $f_1,\dots,f_m$ be complex polynomials in $n$ variables an set $f=f_1\cdots f_n$, then</p>
+<script type="math/tex; mode=display">
+2^{-d}\prod_{j=1}^{m}\ell_\infty(f_j) \le \ell_\infty 
+(f) \le 2^d\prod_{j=1}^{m}\ell_\infty(f_j),</script><p>where $d$ is the sum of the partial degrees of $f$, and $\ell_\infty(f)=\max_j|a_j|=|f|_\infty$. </p>
+</blockquote>
+<p>Combining Gelfond’s lemma and Gauss’s lemma, we obtain</p>
+<script type="math/tex; mode=display">
+\left|h(f)-\sum_{j=1}^{m}h(f_j) \right| \le d\log{2}.</script><h1 id="Mahler-Measure"><a href="#Mahler-Measure" class="headerlink" title="Mahler Measure"></a>Mahler Measure</h1><p>Is not actually given by Mahler initially. It was named after Mahler because he successfully extended it to multivariable cases in an elegant way. We will cover the original motivation anyway.</p>
+<h2 id="Original-Version-and-Lehmer’s-Conjecture"><a href="#Original-Version-and-Lehmer’s-Conjecture" class="headerlink" title="Original Version and Lehmer’s Conjecture"></a>Original Version and Lehmer’s Conjecture</h2><p>Say we want to find prime numbers large enough. Pierce came up with an idea. Consider $p(x) \in \mathbb{Z}[x]$, which is factored into</p>
+<script type="math/tex; mode=display">
+p(x)=a\prod_i(x-\alpha_i).</script><p>Consider $\Delta_n=\prod_i(\alpha^n_i-1)$. Then by some Galois theory, this is indeed an integer. So perhaps we may find some interesting integers in the factors of $\Delta_n$. Also, we expect it to grow slowly. Lehmer studied $\frac{\Delta_{n+1}}{\Delta_n}$ and observed that</p>
+<script type="math/tex; mode=display">
+\lim_{n \to \infty}\frac{|\alpha^{n+1}-1|}{|\alpha^n-1|}=
+\begin{cases}
+|\alpha|, & |\alpha|>1, \\
+1, & |\alpha|<1.
+\end{cases}</script><p>So it makes sense to compare all roots of $p(x)$ with $1$. He therefore suggested the following function related to $p(x)$:</p>
+<script type="math/tex; mode=display">
+M(p)=a\prod_i \max\{1,|\alpha_i|\}.</script><p>This number appears if we consider $\lim_{n \to \infty}\Delta_{n+1}/\Delta_n$.</p>
+<p>He also asked the following question, which is now understood as <strong>Lehmer conjecture</strong>, although in his paper he addressed it as a problem instead of a conjecture:</p>
+<blockquote>
+<p>Is there a constant $c$ such that, $M(p)&gt;1 \implies M(p)&gt;c$?</p>
+</blockquote>
+<p>It remains open but we can mention some key bounds.</p>
+<ul>
+<li>Lehmer himself found that</li>
+</ul>
+<script type="math/tex; mode=display">
+M(x^{10}+x^9-x^7-x^6-x^5-x^4-x^3+x+1)=1.1762808\cdots</script><p>and actually this is the finest result that has ever been discovered. It was because of this discovery that he gave his <em>problem</em>.</p>
+<p>This polynomial has also led to the discovery of a large prime number $\sqrt{\Delta_{379}}=1, 794, 327, 140, 357$, although by studying $x^3-x-1$, we have found a bigger prime number $\Delta_{127}=3, 233, 514, 251, 032, 733$.</p>
+<ul>
+<li>Breusch (and later Smyth) discovered that if $p$ is monic, irreducible and nonreciprocal, i.e. it does not satisfy $p(x)=\pm x^{\deg p}f(1/x)$, then </li>
+</ul>
+<script type="math/tex; mode=display">
+M(p)=1.3247179\cdots=\text{ real root of $x^3-x-1$.}</script><ul>
+<li>E. Dobrowlolski found that, t if $p(x)$ is monic, irreducible and noncyclotomic, and<br>has degree $d$ then</li>
+</ul>
+<script type="math/tex; mode=display">
+M(p)>1+c\left( \frac{\log\log d}{\log d} \right)^3</script><p>for some $c&gt;0$.</p>
+<h2 id="The-General-Version-and-Jensen’s-Formula"><a href="#The-General-Version-and-Jensen’s-Formula" class="headerlink" title="The General Version and Jensen’s Formula"></a>The General Version and Jensen’s Formula</h2><blockquote>
+<p><strong>Definition.</strong> For $f \in \mathbb{C}[x_1,\dots,x_n]$, the <strong>Mahler measure</strong> is defined to be</p>
+<script type="math/tex; mode=display">
+M(f)=\exp\left(\int_{\mathbb{T}^n}\log|f(
+    e^{i\theta_1},\dots,e^{i\theta_n}
+)|d\mu_1\dots d\mu_n \right),</script><p>where $d\mu_i=\frac{1}{2\pi}d\theta_i$, i.e., $d\mu_1\dots d\mu_n$ corresponds to the (completion of) Harr measure on $\mathbb{T}^n$ with total measure $1$.</p>
+</blockquote>
+<p>We see through Jensen’s formula that when $n=1$ this coincides with what we have defined before. Observe first that $M(fg)=M(f)M(g)$. Consider $f(t)=a\prod_{i=1}^{d}(t-\alpha_i)$, then</p>
+<script type="math/tex; mode=display">
+M(f)=M(a)\prod_{i=1}^{d}M(t-\alpha_i)=a\prod_{i=1}^{d}M(t-\alpha_i).</script><p>On the other hand, as an exercise in complex analysis, one can show that</p>
+<script type="math/tex; mode=display">
+\int_0^{2\pi}\log|t-\alpha_i|d\mu=\log^+|\alpha_i|=\log\max\{1,|\alpha_i|\}.</script><p>Combining them, we see</p>
+<script type="math/tex; mode=display">
+M(f)=a\prod_{i=1}^{d}\exp\left(\log^+|\alpha_i|\right) 
+=a\prod_{i=1}^{n}\max\{1,|\alpha_i|\}.</script><p>Taking the logarithm we also obtain <strong>Jensen’s formula</strong></p>
+<script type="math/tex; mode=display">
+\log M(f)=\log|a|+\sum_{i=1}^{d}\log^+|\alpha_i|.</script><p>We first give a reasonable and useful estimation of $M(f)$, which will be used to prove the Northcott’s theorem.</p>
+<blockquote>
+<p><strong>Definition.</strong> For $f(t)=a_dt^d+\dots+a_0$, the $\ell_p$-norm of $f$ is naturally defined to be</p>
+<script type="math/tex; mode=display">
+\ell_p(f)=\left(\sum_{j=0}^{d}|a_j|^p \right)^{\frac{1}{p}}.</script><p>For $p=\infty$, we have $\ell_\infty(f)=\max_j|a_j|$.</p>
+<p><strong>Lemma 1.</strong> Notation being above, $M(f) \le \ell_1(f)$ and</p>
+<script type="math/tex; mode=display">
+{d \choose \lfloor{d/2}\rfloor }^{-1} \ell_\infty(f) 
+\le M(f) \le \ell_2(f) \le
+\sqrt{d+1}\ell_\infty(f).</script></blockquote>
+<p><em>Proof.</em> To begin with, we observe those obvious ones. First of all, </p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+|f(e^{i\theta})|&=|a_d e^{id\theta}+\dots+a_0| \\
+                &\le |a_de^{id\theta}|+\dots+|a_0| \\
+                &=|a_d|+\dots+|a_0| \\
+                &=\ell_1(f).
+\end{aligned}</script><p>Therefore</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+M(f) &=\exp\left(\int_0^{2\pi}\log|f(e^{i\theta})|d\mu \right) \\
+     &\le \exp\left(\int_0^{2\pi}\log\ell_1(f)d\mu \right) \\
+     &=\ell_1(f).
+\end{aligned}</script><p>Next, by Jensen’s inequality</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+M(f) &=\exp\left(\frac{1}{2}\int_0^{2\pi}\log|f(e^{i\theta}) |^2d\mu\right) \\
+     &=\sqrt{\exp\left(
+    \int_0^{2\pi} \log|f(e^{i\theta})|^2d\mu
+ \right)} \\
+     &\le \sqrt{\int_0^{2\pi}|f(e^{i\theta})|^2d\mu} \\
+\end{aligned}</script><p>However, by Parseval’s formula, the last term equals</p>
+<script type="math/tex; mode=display">
+\ell_2(f)=\sqrt{\sum_{j=0}^{d}|a_j|^2} \le \sqrt{d+1}\ell_\infty(f).</script><p>For the remaining inequality, we use Vieta’s formula</p>
+<script type="math/tex; mode=display">
+\left|\frac{a_{d-r}}{a_d} \right| = \left|\sum_{j_1 < \dots< j_r}
+\alpha_{j_1} \cdots \alpha_{j_r}
+ \right|</script><p>and therefore</p>
+<script type="math/tex; mode=display">
+|a_{d-r}| \le {d \choose r}|a_d|\prod_{j=1}^{d}
+\max\{1,|\alpha_j|\}={d \choose r}M(f) 
+\le {d \choose \lfloor{d/2}\rfloor }M(f)</script><p>for all $0 \le r \le d$. Replacing $|a_{d-r}|$ with $\ell_\infty(f)$, we have finished the proof. $\square$</p>
+<p>Before proving Northcott’s theorem, we show the connection between Mahler measure and heights.</p>
+<blockquote>
+<p><strong>Proposition 1.</strong> Let $\alpha \in \overline{\mathbb{Q}}$ and let $f$ be the minimal polynomial of $\alpha$ over $\mathbb{Z}$. Then</p>
+<script type="math/tex; mode=display">
+\log M(f) = \deg(\alpha)h(\alpha)</script><p>and</p>
+<script type="math/tex; mode=display">
+\log|N_{\mathbb{Q}(\alpha)/\mathbb Q}(\alpha)| \le 
+\deg(\alpha)h(\alpha).</script></blockquote>
+<p><em>Proof.</em> Put $d=\deg(\alpha)$ and write</p>
+<script type="math/tex; mode=display">
+f(t)=a_dt^d+\dots+a_0.</script><p>Choose a number field $K$ that contains $\alpha$ and is a Galois extension of $\mathbb{Q}$, with Galois group $G$. Then $(\sigma\alpha:\sigma \in G)$ contains every conjugate of $\alpha$ exactly $[K:\mathbb{Q}]/d$ times. Since $a_0,\dots,a_d$ are coprime, for any non-Archimedean absolute value $v \in M_K$, we must have $\max_i|a_i|_v=|f|_v=1$. Combining with Gauss’s lemma and Galois theory, we see</p>
+<script type="math/tex; mode=display">
+|a_d|_v\prod_{\sigma \in G}\max\{1,|\sigma\alpha|_v\}^{d/[K:\mathbb{Q}]}=1.</script><p>Now we are ready to compute the height of $\alpha$ to rediscover the Mahler’s measure. Notice that</p>
+<script type="math/tex; mode=display">
+h(\alpha)=\sum_{v \in M_K}\log^+|\alpha|_v, \quad h(\sigma\alpha)=h(\alpha),\quad \forall \sigma \in G.</script><p>We therefore obtain</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+h(\alpha)&=\frac{1}{[K:\mathbb{Q}]}\sum_{\sigma \in G}h(\sigma\alpha) \\
+         &=\frac{1}{[K:\mathbb{Q}]}\sum_{v \in M_K}\sum_{\sigma \in G}\log^+|\sigma\alpha|_v \\
+         &=\frac{1}{[K:\mathbb{Q}]}\sum_{v\mid\infty}\sum_{\sigma \in G}\log^+|\sigma\alpha|_v 
+            + \frac{1}{[K:\mathbb{Q}]}\sum_{v\nmid \infty}\sum_{\sigma \in G}\log^+|\sigma\alpha|_v \\
+\end{aligned}</script><p>The last term corresponds to what we have computed above about non-Archimedean absolute values so we break it down a little bit:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\sum_{\sigma \in G}\log^+|\sigma\alpha|_v &=
+    \sum_{\sigma \in G}\log\max\{1,|\sigma\alpha|_v\} \\
+    &=\log\prod_{\sigma \in G}\max\{1,|\sigma\alpha|_v\} \\
+    &=\frac{[K:\mathbb{Q}]}{d}\log\prod_{\sigma \in G}
+        \max\{1,|\sigma\alpha|_v\}^{d/[K:\mathbb{Q}]} \\
+    &=-\frac{[K:\mathbb{Q}]}{d}\log|a_d|_v \\
+    &=\frac{[K:\mathbb{Q}]}{d}\log|a_d|_w
+
+\end{aligned}</script><p>for some $u \mid \infty$, according to the product formula. On the other hand, for $v \mid \infty$,</p>
+<script type="math/tex; mode=display">
+\sum_{\sigma \in G}\log^+|\sigma\alpha|_v = 
+\frac{[K:\mathbb{Q}]}{d}\sum_{j=1}^{d}\log^+|\alpha_j|_v.</script><p>All in all,</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+h(\alpha)&=\frac{1}{[K:\mathbb{Q}]}\frac{[K:\mathbb{Q}]}{d}
+           \sum_{v \mid \infty}\left(
+            \log|a_d|_v+\sum_{j=1}^{d}\log^+|\alpha_j|_v
+       \right) \\
+         &=\frac{1}{d}\log M(f).
+\end{aligned}</script><p>The second assertion follows immediately because</p>
+<script type="math/tex; mode=display">
+\log|N_{\mathbb{Q}(\alpha)/\mathbb{Q}}(\alpha)|=
+\sum_{v\mid \infty}\sum_{j=1}^{d}\log^+|\alpha|_j.</script><h1 id="Northcott’s-Theorem"><a href="#Northcott’s-Theorem" class="headerlink" title="Northcott’s Theorem"></a>Northcott’s Theorem</h1><p>The set of non-zero algebraic integers of height $0$ lies on the unit circle, and they are actually roots of unit, by Kronecker’s theorem. However keep in mind that algebraic integers on the unit circle are not necessarily roots of units. See this short <a target="_blank" rel="noopener" href="http://ramanujan.math.trinity.edu/rdaileda/research/papers/p1.pdf">paper</a>.</p>
+<p>When it comes to algebraic integers of small heights, things may get complicated, but Northcott’s theorem assures that we will be studying a finite set.</p>
+<blockquote>
+<p><strong>Northcott’s Theorem.</strong> Given an integer $N&gt;0$ and a real number $H \ge1$, there are only a finite number of algebraic integers $\alpha$ satisfying $\deg(\alpha) \le N$ and $h(\alpha) \le \log H$.</p>
+</blockquote>
+<p><em>Proof.</em> Let $\alpha$ be a algebraic integer of degree $d&lt;N$ and height $h(\alpha) \le \log H$. Suppose $f(t)=a_dt^d+\dots+a_0 \in \mathbb{Z}[t]$ is the minimal polynomial of $\alpha$. Then lemma 1 shows us that</p>
+<script type="math/tex; mode=display">
+\max|a_i|=\ell_\infty(f) \le {d \choose \lfloor d/2 \rfloor}
+          M(f) \le 2^dM(f).</script><p>On the other hand, by proposition 1,</p>
+<script type="math/tex; mode=display">
+\log M(f) =dh(\alpha) \le d\log{H}=\log H^d,</script><p>we have actually</p>
+<script type="math/tex; mode=display">
+\max|a_i| \le (2H)^d.</script><p>This gives rise to no more than $(2\lfloor (2H)^d \rfloor+1)^{d+1}$ distinct polynomials $f$, which produces at most $d(2\lfloor (2H)^d \rfloor+1)^{d+1}&lt;\infty$ algebraic integers. Ranging through all $d \le N$ we get what we want. $\square$</p>
+<p>We also have the <strong>Northcott property</strong>, where we do not care about degrees. A set $L$ of algebraic integers is said to satisfy Northcott property if, for every $T&gt;0$, the set</p>
+<script type="math/tex; mode=display">
+\{\alpha \in L:h(\alpha)<T\}</script><p>is finite. Such a set $L$ is said to satisfy <strong>Bogomolov property</strong> if, there exists $T&gt;0$ such that the set</p>
+<script type="math/tex; mode=display">
+\{\alpha \in L:0<h(\alpha)<T\}</script><p>is empty. As a matter of elementary topology, Northcott property implies Bogomolov property. It would be quite interesting if $L$ is a field. This <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2005.10609">paper</a> can be quite interesting.</p>
+<h1 id="References-Further-Reading"><a href="#References-Further-Reading" class="headerlink" title="References / Further Reading"></a>References / Further Reading</h1><ul>
+<li><p>Erico Bombieri, Walter Gubler, <em>Heights in Diophantine Geometry</em>.</p>
+</li>
+<li><p>Michel Waldschmidt, <em>Diophantine Approximation on Linear Algebraic Groups, Transcendence Properties of the Exponential Function in Several Variables</em>.</p>
+</li>
+<li><p>Chris Smyth, <em>THE MAHLER MEASURE OF ALGEBRAIC NUMBERS: A SURVEY</em>.</p>
+</li>
+</ul>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"><a href="../../../../tags/Heights/" class="post-tags__link button"># Heights</a><a href="../../../../tags/Diophantus/" class="post-tags__link button"># Diophantus</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../22/cyclotomic-polynomial-elementary/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            Properties of Cyclotomic Polynomials
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../../08/21/hensel-lemma-newton/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            Hensel&#39;s Lemma - A Fair Application of Newton&#39;s Method and &#39;Double Induction&#39;
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2022/09/04/height-polynomial/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>The Big Three Pt. 1 - Baire Category Theorem Explained | Desvl&#39;s blog</title>
+
+
+    <meta name="keywords" content="The big three, Axiom of Choice">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="About the ‘Big Three’There are three theorems about Banach spaces that occur frequently in the crux of functional analysis, which are called the ‘big three’:   The Hahn-Banach Theorem The Banach-Stein">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Big Three Pt. 1 - Baire Category Theorem Explained">
+<meta property="og:url" content="https://desvl.xyz/2020/06/06/big-3-pt-1/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="About the ‘Big Three’There are three theorems about Banach spaces that occur frequently in the crux of functional analysis, which are called the ‘big three’:   The Hahn-Banach Theorem The Banach-Stein">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-06-06T09:18:04.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:09.626Z">
+<meta property="article:author" content="Desvl">
+<meta property="article:tag" content="The big three">
+<meta property="article:tag" content="Axiom of Choice">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        The Big Three Pt. 1 - Baire Category Theorem Explained
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2020/06/" class="post-meta__date button">2020-06-06</a>
+        
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/" class="button">Analysis</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/Functional-Analysis/" class="button">Functional Analysis</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#About-the-%E2%80%98Big-Three%E2%80%99"><span class="toc-number">1.</span> <span class="toc-text">About the ‘Big Three’</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#First-and-second-category"><span class="toc-number">2.</span> <span class="toc-text">First and second category</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Baire-category-theorem-BCT"><span class="toc-number">3.</span> <span class="toc-text">Baire category theorem (BCT)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Proving-BCT-1-and-BCT-2-via-Choquet-game"><span class="toc-number">3.1.</span> <span class="toc-text">Proving BCT 1 and BCT 2 via Choquet game</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Applications-of-BCT"><span class="toc-number">4.</span> <span class="toc-text">Applications of BCT</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-series"><span class="toc-number">5.</span> <span class="toc-text">The series</span></a></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#About-the-%E2%80%98Big-Three%E2%80%99"><span class="toc-number">1.</span> <span class="toc-text">About the ‘Big Three’</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#First-and-second-category"><span class="toc-number">2.</span> <span class="toc-text">First and second category</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Baire-category-theorem-BCT"><span class="toc-number">3.</span> <span class="toc-text">Baire category theorem (BCT)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Proving-BCT-1-and-BCT-2-via-Choquet-game"><span class="toc-number">3.1.</span> <span class="toc-text">Proving BCT 1 and BCT 2 via Choquet game</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Applications-of-BCT"><span class="toc-number">4.</span> <span class="toc-text">Applications of BCT</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-series"><span class="toc-number">5.</span> <span class="toc-text">The series</span></a></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h2 id="About-the-‘Big-Three’"><a href="#About-the-‘Big-Three’" class="headerlink" title="About the ‘Big Three’"></a>About the ‘Big Three’</h2><p>There are three theorems about Banach spaces that occur frequently in the crux of functional analysis, which are called the ‘big three’:</p>
+<blockquote>
+<ol>
+<li>The Hahn-Banach Theorem</li>
+<li>The Banach-Steinhaus Theorem</li>
+<li>The Open Mapping Theorem</li>
+</ol>
+</blockquote>
+<p>The incoming series of blog posts is intended to offer a self-read friendly explanation with richer details. Some basic analysis and topology backgrounds are required.</p>
+<h2 id="First-and-second-category"><a href="#First-and-second-category" class="headerlink" title="First and second category"></a>First and second category</h2><p>The term ‘category’ is due to Baire, who developed the category theorem afterwards. Let $X$ be a  topological space. A set $E \subset X$ is said to be <em>nowhere dense</em> if $\overline{E}$ has empty interior, i.e. $\text{int}(\overline{E})= \varnothing$. </p>
+<p>There are some easy examples of nowhere dense sets. For example, suppose $X=\mathbb{R}$, equipped with the usual topology. Then $\mathbb{N}$ is nowhere dense in $\mathbb{R}$ while $\mathbb{Q}$ is not. It’s trivial since $\overline{\mathbb{N}}=\mathbb{N}$, which has empty interior. Meanwhile $\overline{\mathbb{Q}}=\mathbb{R}$. But $\mathbb{R}$ is open, whose interior is itself. The category is defined using nowhere dense set. In fact,</p>
+<blockquote>
+<ul>
+<li>A set $S$ is <strong>of the first category</strong> if $S$ is a countable union of nowhere dense sets.</li>
+<li>A set $T$ is <strong>of the second category</strong> if $T$ is not of the first category.</li>
+</ul>
+</blockquote>
+<h2 id="Baire-category-theorem-BCT"><a href="#Baire-category-theorem-BCT" class="headerlink" title="Baire category theorem (BCT)"></a>Baire category theorem (BCT)</h2><p>In this blog post, we consider two cases: BCT in complete metric space and in locally compact Hausdorff space. These two cases have nontrivial intersection but they are not equal. There are some complete metric spaces that are not locally compact Hausdorff. </p>
+<p>There are some classic topological spaces, for example $\mathbb{R}^n$, are both complete metric space and locally compact Hausdorff. If a locally compact Hausdorff space happens to be a topological vector space, then this space has finite dimension. Also, a topological vector space has to be Hausdorff. </p>
+<blockquote>
+<p>By a Baire space we mean a <em>topological space</em>  $X$ such that <strong>the intersection of every countable collection of dense open subsets</strong> of $X$ is also dense in $X$. </p>
+</blockquote>
+<p>Baire category states that</p>
+<blockquote>
+<p><strong>(BCT 1)</strong> Every complete metric space is a Baire space.</p>
+<p><strong>(BCT 2)</strong> Every locally compact Hausdorff space is a Baire space.</p>
+</blockquote>
+<p>By taking the complement of the definition, we can see that, <strong>every Baire space is not of the first category</strong>. </p>
+<p>Suppose we have a sequence of sets $\{X_n\}$ where $X_n$ is dense in $X$ for all $n&gt;0$, then $X_0=\cap_n X_n$ is also dense in $X$. Notice then $X_0^{c} = \cup_n X_n^c$, a nowhere dense set and a countable union of nowhere dense sets, i.e. of the first category. </p>
+<h3 id="Proving-BCT-1-and-BCT-2-via-Choquet-game"><a href="#Proving-BCT-1-and-BCT-2-via-Choquet-game" class="headerlink" title="Proving BCT 1 and BCT 2 via Choquet game"></a>Proving BCT 1 and BCT 2 via Choquet game</h3><p>Let $X$ be the given complete metric space or locally Hausdorff space, and $\{X_n\}$ a countable collection of open subsets of $X$. Pick an arbitrary open subsets of $X$, namely $A_0$ (this is possible due to the topology defined on $X$). To prove that $\cap_n V_n$ is dense, we have to show that $A_0 \cap \left(\cap_n V_n\right) \neq \varnothing$. This follows the definition of denseness. Typically we have</p>
+<blockquote>
+<p> A subset $A$ of $X$ is dense if and only if $A \cap U  \neq \varnothing$ for all nonempty open subsets $U$ of $X$.</p>
+</blockquote>
+<p>We pick a sequence of nonempty open sets $\{A_n\}$ inductively. With $A_{n-1}$ being picked, and since $V_n$ is open and dense in $X$, the intersection $V_n \cap A_{n-1}$ is nonempty and open. $A_n$ can be chosen such that</p>
+<script type="math/tex; mode=display">
+\overline{A}_n \subset V_n \cap A_{n-1}</script><p>For BCT 1, $A_n$ can be chosen to be open balls with radius $&lt; \frac{1}{n}$; for BCT 2, $A_n$ can be chosen such that the closure is compact. Define</p>
+<script type="math/tex; mode=display">
+C = \bigcap_{n=1}^{\infty}\overline{A}_n</script><p>Now, if $X$ is a locally compact Hausdorff space, then due to the compactness, $C$ is not empty, therefore we have</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+K \subset A_0 \\
+K \subset V_n \quad(n \in \mathbb{N})
+\end{cases}</script><p>which shows that $A_0 \cap V_n \neq \varnothing$. BCT 2 is proved.</p>
+<p>For BCT 1, we cannot follow this since it’s not ensured that $X$ has the Heine-Borel property, for example when $X$ is the Hilbert space (this is also a reason why BCT 1 and BCT 2 are not equivalent). The only tool remaining is Cauchy sequence. But how and where?</p>
+<p>For any $\varepsilon &gt; 0$, we have some $N$ such that $\frac{1}{N} &lt; \varepsilon$. For all $m&gt;n&gt;N$, we have $A_m \subset A_n\subset A_N$, therefore the centers of $\{A_n\}$ form a Cauchy sequence, converging to some point of $K$, which implies that $K \neq \varnothing$. BCT 1 follows.</p>
+<h2 id="Applications-of-BCT"><a href="#Applications-of-BCT" class="headerlink" title="Applications of BCT"></a>Applications of BCT</h2><p>BCT will be used directly in the big three. It can be considered as the origin of them. But there are many other applications in different branches of mathematics. The applications shown below are in the same pattern: <strong>if it does not hold, then we have a Baire space of the first category, which is not possible.</strong></p>
+<blockquote>
+<p>$\mathbb{R}$ is uncountable</p>
+</blockquote>
+<p>Suppose $\mathbb{R}$ is countable, then we have</p>
+<script type="math/tex; mode=display">
+\mathbb{R}=\bigcup_{n=1}^{\infty}\{x_n\}</script><p>where $x_n$ is a real number. But $\{x_n\}$ is nowhere dense, therefore $\mathbb{R}$ is of the first category. A contradiction.</p>
+<blockquote>
+<p>Suppose that $f$ is an entire function, and that in every power series</p>
+<script type="math/tex; mode=display">
+f(z)=\sum_{n=1}^{\infty}c_n(z-a)^n</script><p>has at least one coefficient is $0$, then $f$ is a polynomial (there exists a $N$ such that $c_n=0$ for all $n&gt;N$).</p>
+</blockquote>
+<p>You can find the proof <a href="/2020/03/14/topological-property-of-the-zeros-of-a-holomorphic-function/#A-simple-application-Feat-Baire-Category-Theorem">here</a>. We are using the fact that $\mathbb{C}$ is complete.</p>
+<blockquote>
+<p>An infinite dimensional Banach space $B$ has no countable basis</p>
+</blockquote>
+<p>Assume that $B$ has a countable basis $\{x_1,x_2,\cdots\}$ and define</p>
+<script type="math/tex; mode=display">
+B_n=\text{span}\{x_1,x_2,\cdots,x_n\}</script><p>It can be easily shown that $B_n$ is nowhere dense. In this sense, $B=\cup_n B_n$. A contradiction since $B$ is a complete metric space.</p>
+<h2 id="The-series"><a href="#The-series" class="headerlink" title="The series"></a>The series</h2><p>Since there is no strong reason to write more posts on this topic, i.e. the three fundamental theorems of linear functional analysis, I think it’s time to make a list of the series. It’s been around half a year.</p>
+<ul>
+<li>The Big Three Pt. 1 - Baire Category Theorem Explained</li>
+<li><a href="/2020/06/30/big-3-pt-2/">The Big Three Pt. 2 - The Banach-Steinhaus Theorem</a></li>
+<li><a href="/2020/08/12/big-3-pt-3/">The Big Three Pt. 3 - The Open Mapping Theorem (Banach Space)</a></li>
+<li><a href="/2020/09/12/big-3-pt-4/">The Big Three Pt. 4 - The Open Mapping Theorem (F-Space)</a></li>
+<li><a href="/2020/10/01/big-3-pt-5/">The Big Three Pt. 5 - The Hahn-Banach Theorem (Dominated Extension)</a></li>
+<li><a href="/2020/11/13/big-3-pt-6/">The Big Three Pt. 6 - Closed Graph Theorem with Applications</a></li>
+</ul>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"><a href="../../../../tags/The-big-three/" class="post-tags__link button"># The big three</a><a href="../../../../tags/Axiom-of-Choice/" class="post-tags__link button"># Axiom of Choice</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../30/big-3-pt-2/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            The Big Three Pt. 2 - The Banach-Steinhaus Theorem
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../01/jordan-form-example/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            Jordan标准形的求法——以一个四阶矩阵为例
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2020/06/06/big-3-pt-1/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

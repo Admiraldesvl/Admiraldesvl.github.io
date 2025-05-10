@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>Irreducible Representations of GL_2(F_q) | Desvl&#39;s blog</title>
+
+
+    <meta name="keywords" content="Study new content, Fulton-Harris">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="In this post we follow the step of Fulton-Harris to classify all irreducible representations of $GL_2(\mathbb{F}_q)$. A character table is added at the end.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Irreducible Representations of GL_2(F_q)">
+<meta property="og:url" content="https://desvl.xyz/2022/08/12/rep-gl2-fq/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="In this post we follow the step of Fulton-Harris to classify all irreducible representations of $GL_2(\mathbb{F}_q)$. A character table is added at the end.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-08-12T11:47:38.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:10.421Z">
+<meta property="article:author" content="Desvl">
+<meta property="article:tag" content="Study new content">
+<meta property="article:tag" content="Fulton-Harris">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        Irreducible Representations of GL_2(F_q)
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2022/08/" class="post-meta__date button">2022-08-12</a>
+        
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/" class="button">Algebra</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/Representation-Theory/" class="button">Representation Theory</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Linear-Algebra/" class="button">Linear Algebra</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/Finite-Groups/" class="button">Finite Groups</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/Finite-Fields/" class="button">Finite Fields</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Attempt-1-Subrepresentations-of-the-Permutation"><span class="toc-number">1.</span> <span class="toc-text">Attempt 1 - Subrepresentations of the Permutation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Attempt-2-Pontryagin-Dual"><span class="toc-number">2.</span> <span class="toc-text">Attempt 2 - Pontryagin Dual</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Attempt-3-Pontryagin-Dual-x-Pontryagin-Dual"><span class="toc-number">3.</span> <span class="toc-text">Attempt 3 - Pontryagin Dual x Pontryagin Dual</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Attempt-4-Pontryagin-Dual-of-K"><span class="toc-number">4.</span> <span class="toc-text">Attempt 4 - Pontryagin Dual of K</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Attempt-5-Making-Use-of-All-of-Them"><span class="toc-number">5.</span> <span class="toc-text">Attempt 5 - Making Use of All of Them</span></a></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Attempt-1-Subrepresentations-of-the-Permutation"><span class="toc-number">1.</span> <span class="toc-text">Attempt 1 - Subrepresentations of the Permutation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Attempt-2-Pontryagin-Dual"><span class="toc-number">2.</span> <span class="toc-text">Attempt 2 - Pontryagin Dual</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Attempt-3-Pontryagin-Dual-x-Pontryagin-Dual"><span class="toc-number">3.</span> <span class="toc-text">Attempt 3 - Pontryagin Dual x Pontryagin Dual</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Attempt-4-Pontryagin-Dual-of-K"><span class="toc-number">4.</span> <span class="toc-text">Attempt 4 - Pontryagin Dual of K</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Attempt-5-Making-Use-of-All-of-Them"><span class="toc-number">5.</span> <span class="toc-text">Attempt 5 - Making Use of All of Them</span></a></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>The group $GL_2(\mathbb{F}_q)$ consists of invertible $2 \times 2$ matrices with entries in the finite field $\mathbb{F}_q$, where $q=p^n$ for some prime $p$ (throughout we exclude the case when $p=2$ because it can be quite difficult). As a $\mathbb{F}_p$-vector space, $\mathbb{F}_q$ has dimension $n$. The Galois group $G(\mathbb{F}_q/\mathbb{F}_p)$ is cyclic and is generated by the Frobenius map. </p>
+<p>The field $\mathbb{F}_q$ itself is already pretty complicated, let alone a matrix group over it. In this post we try to follow Fulton-Harris’ idea on <em>Representation Theory: A First Course</em> to classify all irreducible representations of $G=GL_2(\mathbb{F}_q)$. To be specific, we are talking about group homomorphisms $\rho:G \to GL(V)$ where $V$ is a $\mathbb{C}$-vector space.</p>
+<p>First of all we determine the cardinality of $G=GL_2(\mathbb{F}_q)$. Along the way, we will introduce some important subgroups.</p>
+<script type="math/tex; mode=display">
+G \supset B = \left\{\begin{pmatrix}a & b \\ 0 & d\end{pmatrix}:a,d \ne 0\right\} \supset
+ N= \left\{\begin{pmatrix}1 & b \\ 0 & 1\end{pmatrix}\right\}.</script><p>The cardinality of $G$ is determined by the class formula, consider the canonical action on $\mathbb{P}^1(\mathbb{F}_q)$.</p>
+<p>First of all, notice that $|\mathbb{P}^1(\mathbb{F}_q)|=q+1$. There are $q^2$ elements in $\mathbb{F}_q \times \mathbb{F}_q$, excluding the zero, we have $q^2-1$ remaining. Since $(r:s)=a(r:s)$ for all $a \in \mathbb{F}_q^\ast$, we divide $q^2-1$ by $|\mathbb{F}_q^\ast|=q-1$ to obtain the cardinality of the projective space. </p>
+<p>The action of $G$ on $\mathbb{P}^1(\mathbb{F}_q)$ is defined canonically as follows:</p>
+<script type="math/tex; mode=display">
+\begin{pmatrix}
+a & b \\
+c & d
+\end{pmatrix}(r:s)=(ar+bs:cr+ds).</script><p>In particular, $B$ is the isotropy group of the set $\{(1:0)\}$, because in this case, $(ar+bs:cr+ds)=(a:0)=(1:0)$. There are $(q-1)(q-1)q$ elements of $B$.</p>
+<p>Since $G$ clearly acts on $\mathbb{P}^1(\mathbb{F}_q)$ transitively, by the <a target="_blank" rel="noopener" href="https://ncatlab.org/nlab/show/class+equation">class equation</a>, we have</p>
+<script type="math/tex; mode=display">
+|G|=|B||\mathbb{P}^1(\mathbb{F}_q)|=(q-1)^2q(q+1).</script><p>In general, the cardinality of $GL_n(\mathbb{F}_q)$ is $\prod_{k=0}^{n-1}(q^n-q^k)$. One can check <a target="_blank" rel="noopener" href="https://www.mit.edu/~fengt/alggroups.pdf">this document</a>.</p>
+<p>We next consider the diagonal subgroup</p>
+<script type="math/tex; mode=display">
+D=\left\{\begin{pmatrix}a & 0 \\ 0 & d\end{pmatrix}:a,d \ne 0 \right\} = \mathbb{F}_q^\ast \times \mathbb{F}_q^\ast.</script><p>Let $\mathbb{F}’=\mathbb{F}_{q^2}$ be the extension of $\mathbb{F}_q$ of degree $2$. We can certainly identify $GL_2(\mathbb{F}_q)$ as the group of $\mathbb{F}_q$-linear invertible automorphisms of $\mathbb{F}’$. Each $h \in (\mathbb{F}’)^\ast$ induces a $\mathbb{F}_q$-linear automorphism by multiplication, hence $h$ can be embedded into $GL_2(\mathbb{F}_q)$. The question is, how. Let $K = (\mathbb{F}’)^\ast$ be this subgroup. We write down the matrix representation explicitly.</p>
+<p>Let $\varepsilon $ be a generator of the cyclic group $\mathbb{F}_q^\ast$, then $X^2-\varepsilon$ is irreducible in $\mathbb{F}_q[X]$. We therefore have $\mathbb{F}_{q^2} \cong \mathbb{F}_q[X]/(X^2-\varepsilon)$. We see $\{1,X\}$, or more precisely, $\{1,\sqrt\varepsilon\}$, is a basis of $\mathbb{F}_{q^2}$ as a vector space over $\mathbb{F}_q$. We can then identify $(\mathbb{F}’)^\ast$ as a subgroup $K$ of $G$ where</p>
+<script type="math/tex; mode=display">
+K=\left\{\begin{pmatrix}x & \varepsilon{y} \\
+                        y & x\end{pmatrix}:\text{$x$ and $y$ not identically zero}\right\} \cong (\mathbb{F}')^\ast.</script><p>The isomorphism is given by</p>
+<script type="math/tex; mode=display">
+\begin{pmatrix}x & \varepsilon{y} \\
+                        y & x\end{pmatrix} \leftrightarrow \zeta = x + y\sqrt\varepsilon.</script><p>To make $K$ a subgroup of $G$, each entry must be in $\mathbb{F}_q$. That’s why we write $\varepsilon$ instead of $\sqrt\varepsilon$ in the definition of $K$.</p>
+<h1 id="Conjugacy-Classes"><a href="#Conjugacy-Classes" class="headerlink" title="Conjugacy Classes"></a>Conjugacy Classes</h1><p><em>At the end of this section one can see a table of the result.</em></p>
+<p>To matrices, conjugacy gives rise to eigenvalues and Jordan canonical form. So we immediately come up with the three following forms:</p>
+<script type="math/tex; mode=display">
+a_x = \begin{pmatrix}x & 0 \\ 0 & x \end{pmatrix}, \quad
+b_x = \begin{pmatrix}x & 1 \\ 0 & x \end{pmatrix}, \quad
+c_{x,y} = \begin{pmatrix}x & 0 \\ 0 & y \end{pmatrix} (x \ne y).</script><p>For each $x$ and $y$, $a_x$, $b_x$ and $c_{x,y}$ represents three different conjugacy classes respectively, and they do not intersect. We will study these three families of conjugacy classes and see how far we can go. Spoiler: we will miss $\frac{q(q-1)}{2}$ conjugacy classes, which will be found in the subgroup $K$.</p>
+<p>Conjugacy classes represented by $a_x$ is the easiest one. Since scalar matrices commutes with any matrix, for any invertible matrix $A$, we have</p>
+<script type="math/tex; mode=display">
+A^{-1}\begin{pmatrix}x & 0 \\ 0 & x \end{pmatrix}A=\begin{pmatrix}x & 0 \\ 0 & x \end{pmatrix}A^{-1}A=\begin{pmatrix}x & 0 \\ 0 & x \end{pmatrix}.</script><p>Therefore there is only one element in the conjugacy class represented by $a_x$. Ranging through all $x \ne 0$, we obtain $q-1$ such classes.</p>
+<p>For Jordan canonical form like $b_x$, the story is different. Ranging through all $x \ne 0$, we again obtain $q-1$ such classes. Nevertheless, to determine the cardinality of each class, it is unrealistic to work only in the scope of matrices.</p>
+<p>Let $\mathcal{C}=(b_x)$ be a conjugacy class. Let $G$ act on $\mathcal{C}$ by conjugation. The action is transitive: for $A,B \in \mathcal{C}$, there are invertible matrices $U$ and $V$ such that $U^{-1}AU=b_x=V^{-1}BV$, and therefore $A=(VU^{-1})^{-1}B(VU^{-1})$. </p>
+<p>To determine the cardinality of $\mathcal{C}$, we use the class formula again. Suppose $A=(a_{ij})$ fixes $b_x$, i.e. $A^{-1}b_xA=b_x$, or $b_xA=Ab_x$, then</p>
+<script type="math/tex; mode=display">
+Ab_x=\begin{pmatrix}
+a_{11}x & a_{11}+a_{12}x \\
+a_{21}x & a_{21}+a_{22}x
+\end{pmatrix}
+= 
+\begin{pmatrix}
+a_{21}+a_{11}x & a_{22}+a_{12}x \\
+a_{21}x & a_{22}x
+\end{pmatrix} = b_x A.</script><p>The equation above implies that $c=0$ and $a=d$. Therefore the isotropy group of $\{b_x\}$ is</p>
+<script type="math/tex; mode=display">
+J=\left\{\begin{pmatrix}a & b \\ 0 & a \end{pmatrix}:a \ne 0\right\}.</script><p>It follows that $|\mathcal{C}|=|G|/|J|=(q^2-q)(q^2-1)/(q^2-q)=q^2-1$. </p>
+<p>Let $\mathcal{D}=(c_{x,y})$ be a conjugacy class. Ranging through all $x,y \ne 0$ with $y \ne x$, then divide it by $2$, we obtain $\frac{(q-1)(q-2)}{2}$ conjugacy classes in the same form of $\mathcal{D}$. We divide it by $2$ because $c_{x,y}$ is conjugate to $c_{y,x}$ as they share the same eigenvalues. </p>
+<p>We determine the cardinality of $\mathcal{D}$ in the same way as $\mathcal{C}$. The isotropy group of $\{c_{x,y}\}$ is $D$ in the introduction. Therefore $|\mathcal{D}|=|G|/|D|=q^2+q$.</p>
+<p>Now let’s count how many conjugacy classes we have obtained:</p>
+<script type="math/tex; mode=display">
+1(q-1)+(q^2-1)(q-1)+(q^2+q)\frac{(q-1)(q-2)}{2}=\frac{1}{2}(q^4-3q^2+2q).</script><p>We still need to find $\frac{q^2(q-1)^2}{2}$ elements. Look at subgroups we derived in the introduction. Subgroups like $B$, $N$ and $D$ all go down into Jordan canonical form immediately, but $K$ is not the case. Consider</p>
+<script type="math/tex; mode=display">
+d_{x,y}=\begin{pmatrix} x & \varepsilon{y} \\ y & x \end{pmatrix}, \quad y \ne 0.</script><p>Then the eigenvalues of $d_{x,y}$ are $x\pm \sqrt\varepsilon y$, none of which lies in $\mathbb{F}_q$. Therefore it has nothing to do with Jordan canonical form. We will explore the remainder of conjugacy classes of $G$ here. </p>
+<p>Ranging through all $x$ and $y \ne 0$, then divide it by $2$, we obtain $\frac{q(q-1)}{2}$ conjugacy classes. We divide it by $2$ because $d_{x,y}$ and $d_{x,-y}$ are conjugate by any</p>
+<script type="math/tex; mode=display">
+\begin{pmatrix}
+a & -\varepsilon{c} \\
+c & -a
+\end{pmatrix}.</script><p>Now let $\mathcal{E}=(d_{x,y})$ be a conjugacy class. Notice the isotropy group of $d_{x,y}$ is $K$, so we can obtain the cardinality $|\mathcal{E}|=|G|/|K|=(q-1)^2q(q+1)/(q^2-1)=q^2-q$. Now our search is complete.</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Representative</th>
+<th style="text-align:center">Number of Elements in Class</th>
+<th style="text-align:center">Number of Classes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$a_x=\begin{pmatrix}x &amp; 0 \\ 0 &amp; x\end{pmatrix}$</td>
+<td style="text-align:center">$1$</td>
+<td style="text-align:center">$q-1$</td>
+</tr>
+<tr>
+<td style="text-align:center">$b_x = \begin{pmatrix}x &amp; 1 \\ 0 &amp; x \end{pmatrix}$</td>
+<td style="text-align:center">$q^2-1$</td>
+<td style="text-align:center">$q-1$</td>
+</tr>
+<tr>
+<td style="text-align:center">$c_{x,y} = \begin{pmatrix}x &amp; 0 \\ 0 &amp; y \end{pmatrix} (x \ne y)$</td>
+<td style="text-align:center">$q^2+q$</td>
+<td style="text-align:center">$\frac{(q-1)(q-2)}{2}$</td>
+</tr>
+<tr>
+<td style="text-align:center">$d_{x,y}=\begin{pmatrix} x &amp; \varepsilon{y} \\ y &amp; x \end{pmatrix}, y \ne 0$</td>
+<td style="text-align:center">$q^2-q$</td>
+<td style="text-align:center">$\frac{q(q-1)}{2}$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><em>These matrices would not frequently appear in the remainder of the post because it will mess up the format.</em>  </p>
+<h1 id="Irreducible-Representations"><a href="#Irreducible-Representations" class="headerlink" title="Irreducible Representations"></a>Irreducible Representations</h1><p>There are $q-1+q-1+\frac{(q-1)(q-2)+q(q-1)}{2}=q^2-1$ conjugacy classes, so we need to find $q^2-1$ irreducible representations. Of course we cannot list down all of them. We will instead classify them with certain reasonings. A character table can be found in the next section. </p>
+<p>Some computations are omitted because if not, this section would be unreadable. However, the author of this post has checked most of them on paper. The reader should find it easy to compute by themselves. For completed computation, one refers to <a target="_blank" rel="noopener" href="https://math.mit.edu/~etingof/replect.pdf">this note</a>. Note however the classification is a little bit different from here. Reading this first may help you to get the hang of it.</p>
+<h2 id="Attempt-1-Subrepresentations-of-the-Permutation"><a href="#Attempt-1-Subrepresentations-of-the-Permutation" class="headerlink" title="Attempt 1 - Subrepresentations of the Permutation"></a>Attempt 1 - Subrepresentations of the Permutation</h2><p>Recall how we find irreducible representations of $\mathfrak{S}_3$: consider permutation of a basis in a vector space of dimension $3$. We do a similar thing here. Let $G$ acts on $\mathbb{P}^1(\mathbb{F}_q)$ by permutation. This induces a $q+1$ dimensional representation $W$ because $\mathbb{P}^1(\mathbb{F}_q)$ has $q+1$ elements. It contains the trivial representation $U$. Let $V$ be the complement of $U$, i.e. $W=U \oplus V$, then $V$ has dimension $q$. Now we determine the character of $V$. Since $\chi_V=\chi_W-\chi_U=\chi_W-1$, we only need to calculate $\chi_W$, i.e. to see fixed points of the permutation on each conjugacy class.</p>
+<ol>
+<li><p>$\chi_W(a_x)=q+1$. It fixes every point.</p>
+</li>
+<li><p>$\chi_W(b_x)=1$. It only fixes one point: $(1:0)$.</p>
+</li>
+<li><p>$\chi_W(c_{x,y})=2$. It fixes two points: $(1:0)$ and $(0:1)$.</p>
+</li>
+<li><p>$\chi_W(d_{x,y})=0$. If $d_{x,y}$ fixes $(a:b)$, then $a^2=\varepsilon b^2$, and this cannot happen.</p>
+</li>
+</ol>
+<p>Therefore we have</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">$a_x$</th>
+<th style="text-align:center">$b_x$</th>
+<th style="text-align:center">$c_{x,y}$</th>
+<th style="text-align:center">$d_{x,y}$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$\chi_V$</td>
+<td style="text-align:center">$q$</td>
+<td style="text-align:center">$0$</td>
+<td style="text-align:center">$1$</td>
+<td style="text-align:center">$-1$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>We see, $(\chi_V,\chi_V)=1$. Therefore $V$ is irreducible and we cannot decompose $W$ further. We have to find different approaches.</p>
+<h2 id="Attempt-2-Pontryagin-Dual"><a href="#Attempt-2-Pontryagin-Dual" class="headerlink" title="Attempt 2 - Pontryagin Dual"></a>Attempt 2 - Pontryagin Dual</h2><p>The Pontryagin dual of a group $H$ is defined to be</p>
+<script type="math/tex; mode=display">
+\hat{H}=\operatorname{Hom}(H,S^1).</script><p>If $H$ admits a topology, we may want to eliminate non-continuous homomorphisms but it’s not our concern here because we only care about finite groups now, which admits discrete topology. Notice that if $H$ is finite and cyclic, then $\hat{H} \cong H$. We will use this fact right now.</p>
+<p>Since $G$ can be pretty big, it is not realistic to study all eigenvalues of representations. Instead, we consider the Pontryagin dual of $\mathbb{F}_q^\ast$, which is again a finite cyclic group. For each of the $q-1$ elements in $\hat{H}$, $\alpha:\mathbb{F}_q^\ast \to S^1$, we have a one-dimensional representation $U_\alpha$ of $G$ defined by</p>
+<script type="math/tex; mode=display">
+\chi_{U_\alpha}(g)=\alpha(\det(g)), \quad g \in G.</script><p>Note the trivial representation is one of the $U_\alpha$, once one realises that $\alpha$ defined by $\alpha(x)=1$ for all $x \in \mathbb{F}_q^\ast$ is also a homomorphism into $S^1$.</p>
+<p>Tensoring $U_\alpha$ with $V$, we obtain another family of irreducible representations $\{V_\alpha = V \otimes U_\alpha\}$. Note $V$ is one of the $V_\alpha$. The character table of them are easily computed.</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">$a_x$</th>
+<th style="text-align:center">$b_x$</th>
+<th style="text-align:center">$c_{x,y}$</th>
+<th style="text-align:center">$d_{x,y}$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$U_\alpha$</td>
+<td style="text-align:center">$\alpha(x)^2$</td>
+<td style="text-align:center">$\alpha(x)^2$</td>
+<td style="text-align:center">$\alpha(x)\alpha(y)$</td>
+<td style="text-align:center">$\alpha(x^2-\varepsilon y^2)$</td>
+</tr>
+<tr>
+<td style="text-align:center">$V_\alpha$</td>
+<td style="text-align:center">$q\alpha(x)^2$</td>
+<td style="text-align:center">$0$</td>
+<td style="text-align:center">$\alpha(x)\alpha(y)$</td>
+<td style="text-align:center">$-\alpha(x^2-\varepsilon y^2)$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="Attempt-3-Pontryagin-Dual-x-Pontryagin-Dual"><a href="#Attempt-3-Pontryagin-Dual-x-Pontryagin-Dual" class="headerlink" title="Attempt 3 - Pontryagin Dual x Pontryagin Dual"></a>Attempt 3 - Pontryagin Dual x Pontryagin Dual</h2><p>We have successfully determined $2(q-1)$ irreducible representations, still $(q-1)^2$ of them to be found. We now make use of those subgroups we have determined. For each $\alpha,\beta \in \widehat{\mathbb{F}_q^\ast}$, we have a new character of a representation:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\gamma_{\alpha,\beta}:B \to B/N \cong D \cong \mathbb{F}^\ast \times \mathbb{F}^\ast
+ &\xrightarrow{(\alpha,\beta)}\mathbb{C}^\ast \times \mathbb{C}^\ast \xrightarrow{\times}\mathbb{C}^\ast
+\\
+\begin{pmatrix}
+a & b \\ 0 & d
+\end{pmatrix}
+&\mapsto \alpha(a)\beta(b)
+\end{aligned}</script><p>Let $W’_{\alpha,\beta}$ be the representation of $B$ with character $\gamma_{\alpha,\beta}$, and let $W_{\alpha,\beta}=\operatorname{Ind}_B^G W_{\alpha,\beta}’$. We can quite easily (no, with a lot of dirty computation) write down the character table of $W_{\alpha,\beta}$.</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">$a_x$</th>
+<th style="text-align:center">$b_x$</th>
+<th style="text-align:center">$c_x$</th>
+<th style="text-align:center">$d_x$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$W_{\alpha,\beta}$</td>
+<td style="text-align:center">$(a+1)\alpha(x)\beta(x)$</td>
+<td style="text-align:center">$\alpha(x)\beta(x)$</td>
+<td style="text-align:center">$\alpha(x)\beta(y)+\alpha(y)\beta(x)$</td>
+<td style="text-align:center">$0$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>If $\alpha=\beta$, then $W_{\alpha,\beta}=U_\alpha \oplus V_\beta$ so not irreducible. However, if $\alpha \ne \beta$, then $W_{\alpha,\beta} \cong W_{\beta,\alpha}$ is irreducible, if one computes $(\chi,\chi)$. The dimension of $W_{\alpha,\beta}$ is $[G:B]=q+1$, and there are $\frac{1}{2}(q-1)(q-2)$ of them. Still there are $\frac{1}{2}q(q-1)$ irreducible representations to be found.</p>
+<h2 id="Attempt-4-Pontryagin-Dual-of-K"><a href="#Attempt-4-Pontryagin-Dual-of-K" class="headerlink" title="Attempt 4 - Pontryagin Dual of K"></a>Attempt 4 - Pontryagin Dual of K</h2><p>We haven’t used this subgroup yet so we first explore it in the same vein as attempt 3. We consider the the dual of $\mathbb{F}’ \cong K$. Each $\varphi:(\mathbb{F}’)^\ast \to \mathbb{C}^\ast$ also determines a representation on $K$ with character $\varphi$. One immediately think about $\operatorname{Ind}_K^G(\varphi)$, for which we simply write $\operatorname{Ind}(\varphi)$. It is easy to compute the character table so far.</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">$a_x$</th>
+<th style="text-align:center">$b_x$</th>
+<th style="text-align:center">$c_{x,y}$</th>
+<th style="text-align:center">$d_{x,y}$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$\operatorname{Ind}(\varphi)$</td>
+<td style="text-align:center">$q(q-1)\varphi(x)$</td>
+<td style="text-align:center">$0$</td>
+<td style="text-align:center">$0$</td>
+<td style="text-align:center">$\varphi(\zeta)+\varphi(\zeta)^q$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>We put $\zeta=x+y\sqrt\varepsilon \in K = (\mathbb{F}’)^\ast$. Since $\operatorname{Ind}(\varphi) \cong \operatorname{Ind}(\varphi^q)$, we obtain $\frac{1}{2}q(q-1)$ representations out of this, with the restriction that $\varphi^q \ne \varphi$. Nevertheless, we have $(\chi,\chi)=q$ if $\varphi^q=\varphi$, $(\chi,\chi)=q-1$ if $\varphi^q \ne \varphi$. We still need to work on it from different direction.</p>
+<h2 id="Attempt-5-Making-Use-of-All-of-Them"><a href="#Attempt-5-Making-Use-of-All-of-Them" class="headerlink" title="Attempt 5 - Making Use of All of Them"></a>Attempt 5 - Making Use of All of Them</h2><p>Let’s try to tensor what we have found. It is easy to see that $V_\alpha \otimes U_\gamma = V_{\alpha\gamma}$ and $W_{\alpha,\beta} \otimes U_{\gamma}=W_{\alpha\gamma,\beta\gamma}$. So we cannot find anything new here. But tensoring $W_{\alpha,\beta}$ and $V_\alpha$ gives us something quite different. We see for $\alpha \ne 1$,</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">$a_x$</th>
+<th style="text-align:center">$b_x$</th>
+<th style="text-align:center">$c_{x,y}$</th>
+<th style="text-align:center">$d_{x,y}$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$V \otimes W_{\alpha,1}$</td>
+<td style="text-align:center">$q(q+1)\alpha(x)$</td>
+<td style="text-align:center">$0$</td>
+<td style="text-align:center">$\alpha(x)+\alpha(y)$</td>
+<td style="text-align:center">$0$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Let $\varphi \in \widehat{(\mathbb{F}’)^\ast}$ be a homomorphism such that $\varphi|_{\mathbb{F}_{q}^\ast}=\alpha$. Computing inner products gives us</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+(\chi_{V \otimes W_{\alpha,1}},\chi_{W_{\alpha,1}})&=2, \\
+(\chi_{V \otimes W_{\alpha,1}},\chi_{V \otimes W_{\alpha,1}})&=q+3, \\
+(\chi_{\operatorname{Ind}(\varphi)},\chi_{W_{\alpha,1}}) &= 1, \\
+(\chi_{\operatorname{Ind}(\varphi)},\chi_{V \otimes W_{\alpha,1}}) &= q.
+\end{aligned}</script><p>We see $W_{\alpha,1}$ is contained in the representation determined by $\operatorname{Ind}(\varphi)$. We also see $W_{\alpha,1}$ is contained in $V \otimes W_{\alpha,1}$. Besides, $\operatorname{Ind}(\varphi)$ and $V \otimes W_{\alpha,1}$ has a lot of subrepresentations in common. The first guess would be that $\operatorname{Ind}(\varphi)$ is a subrepresentation of $V \otimes W_{\alpha,1}$. So, maybe we can find something we have been missing here. For this reason, consider the virtual character</p>
+<script type="math/tex; mode=display">
+\chi_\varphi=\chi_{V \otimes W_{\alpha,1}}-\chi_{W_{\alpha,1}}-\chi_{\operatorname{Ind}(\varphi)}.</script><p>We can compute that $(\chi_\varphi,\chi_\varphi)=1$. To see this is actually a real character, we compute the character table.</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">$a_x$</th>
+<th style="text-align:center">$b_x$</th>
+<th style="text-align:center">$c_{x,y}$</th>
+<th style="text-align:center">$d_{x,y}$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$\chi_\varphi$</td>
+<td style="text-align:center">$(q-1)\alpha(x)$</td>
+<td style="text-align:center">$-\alpha(x)$</td>
+<td style="text-align:center">$0$</td>
+<td style="text-align:center">$\varphi(\zeta)+\varphi(\zeta)^q$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>It follows that $\chi_\varphi(1)=q-1&gt;0$. Hence $\chi_\varphi$ is irreducible. Since each $\chi_\varphi$ is determined by $\varphi$ with $\varphi^q \ne \varphi$, and there are $\frac{1}{2}q(q-1)$ of such $\varphi$, we have actually determined all of the irreducible characters. They are denoted by $X_\varphi$.</p>
+<h1 id="Character-Table"><a href="#Character-Table" class="headerlink" title="Character Table"></a>Character Table</h1><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">$GL_2(\mathbb{F}_q)$</th>
+<th style="text-align:center">$a_x$</th>
+<th style="text-align:center">$b_x$</th>
+<th style="text-align:center">$c_{x,y}$</th>
+<th style="text-align:center">$d_{x,y}\leftrightarrow\zeta$</th>
+<th style="text-align:center">$\dim$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$U_\alpha$</td>
+<td style="text-align:center">$\alpha(x^2)$</td>
+<td style="text-align:center">$\alpha(x^2)$</td>
+<td style="text-align:center">$\alpha(xy)$</td>
+<td style="text-align:center">$\alpha(\zeta^q)$</td>
+<td style="text-align:center">$1$</td>
+</tr>
+<tr>
+<td style="text-align:center">$V_\alpha$</td>
+<td style="text-align:center">$q\alpha(x^2)$</td>
+<td style="text-align:center">$0$</td>
+<td style="text-align:center">$\alpha(xy)$</td>
+<td style="text-align:center">$-\alpha(\zeta^q)$</td>
+<td style="text-align:center">$q$</td>
+</tr>
+<tr>
+<td style="text-align:center">$W_{\alpha,\beta}$</td>
+<td style="text-align:center">$(q+1)\alpha(x)\beta(x)$</td>
+<td style="text-align:center">$\alpha(x)\beta(x)$</td>
+<td style="text-align:center">$\alpha(x)\beta(y)+\alpha(y)\beta(x)$</td>
+<td style="text-align:center">$0$</td>
+<td style="text-align:center">$q+1$</td>
+</tr>
+<tr>
+<td style="text-align:center">$X_\varphi$</td>
+<td style="text-align:center">$(q-1)\varphi(x)$</td>
+<td style="text-align:center">$-\varphi(x)$</td>
+<td style="text-align:center">$0$</td>
+<td style="text-align:center">$-(\varphi(\zeta)+\varphi(\zeta^q))$</td>
+<td style="text-align:center">$q-1$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>A few remarks are in order. We can call these four classes of irreducible representations in the following way (excerpted from <a target="_blank" rel="noopener" href="https://math.ou.edu/~kmartin/repthy/gl2q.pdf">this document</a>):</p>
+<ol>
+<li><p>$U_\alpha$: $1$-dimensional representations. There are $q-1$ of them.</p>
+</li>
+<li><p>$V_\alpha=V \otimes U_\alpha$: $q$-dimensional representations. Here $V$ is also called Steinberg representation. There are $q-1$ of them.</p>
+</li>
+<li><p>$W_{\alpha,\beta}$: ($q+1$)-dimensional irreducible principle series. There are $\frac{1}{2}(q-1)(q-2)$ of them. Some authors may also treat $q$-dimensional representations as principle series.</p>
+</li>
+<li><p>$X_\varphi$: irreducible cuspidal representations or complementary series representations. There are $\frac{1}{2}q(q-1)$ of them. A representation is cuspidal if the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Jacquet_module">Jacquet module</a> is trivial. </p>
+</li>
+</ol>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"><a href="../../../../tags/Study-new-content/" class="post-tags__link button"># Study new content</a><a href="../../../../tags/Fulton-Harris/" class="post-tags__link button"># Fulton-Harris</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../21/hensel-lemma-newton/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            Hensel&#39;s Lemma - A Fair Application of Newton&#39;s Method and &#39;Double Induction&#39;
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../../07/26/segre-embedding-et-height/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            Segre Embedding And Heights
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2022/08/12/rep-gl2-fq/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

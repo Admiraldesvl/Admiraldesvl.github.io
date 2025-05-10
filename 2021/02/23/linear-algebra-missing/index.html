@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>(Kind of) Missing Content in Your Linear Algebra Class (Still on Progress) | Desvl&#39;s blog</title>
+
+
+    <meta name="keywords" content="Forever on progress">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="I think it’s quite often that, when you are learning mathematics beyond linear algebra, you are stuck at some linear algebra problems, but you haven’t learnt that systematically before although you wi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="(Kind of) Missing Content in Your Linear Algebra Class (Still on Progress)">
+<meta property="og:url" content="https://desvl.xyz/2021/02/23/linear-algebra-missing/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="I think it’s quite often that, when you are learning mathematics beyond linear algebra, you are stuck at some linear algebra problems, but you haven’t learnt that systematically before although you wi">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://desvl.xyz/img/torus.jpg">
+<meta property="article:published_time" content="2021-02-23T18:09:05.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:10.160Z">
+<meta property="article:author" content="Desvl">
+<meta property="article:tag" content="Forever on progress">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://desvl.xyz/img/torus.jpg">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        (Kind of) Missing Content in Your Linear Algebra Class (Still on Progress)
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2021/02/" class="post-meta__date button">2021-02-23</a>
+        
+    <span class="separate-dot"></span><a href="../../../../categories/Linear-Algebra/" class="button">Linear Algebra</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#If-you-care-more-about-algebra"><span class="toc-number">1.</span> <span class="toc-text">If you care more about algebra</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Linear-algebra-is-not-just-about-real-and-complex-numbers"><span class="toc-number">1.1.</span> <span class="toc-text">Linear algebra is not just about real and complex numbers</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#The-general-linear-group"><span class="toc-number">1.2.</span> <span class="toc-text">The general linear group</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Basis-of-vector-spaces"><span class="toc-number">1.3.</span> <span class="toc-text">Basis of vector spaces</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Tensor-product"><span class="toc-number">1.4.</span> <span class="toc-text">Tensor product</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Direct-sum-and-direct-product"><span class="toc-number">1.4.1.</span> <span class="toc-text">Direct sum and direct product</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Tensor-product-as-the-essential-multiplication"><span class="toc-number">1.4.2.</span> <span class="toc-text">Tensor product as the essential multiplication</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#The-absolute-definition-of-tensor-product"><span class="toc-number">1.4.3.</span> <span class="toc-text">The absolute definition of tensor product</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Duality-and-transpose"><span class="toc-number">1.5.</span> <span class="toc-text">Duality and transpose</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#If-you-care-more-about-analysis-and-topology"><span class="toc-number">2.</span> <span class="toc-text">If you care more about analysis and topology</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Differentiation"><span class="toc-number">2.1.</span> <span class="toc-text">Differentiation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#An-eigenvalue-problem-proved-with-fixed-point-theorem"><span class="toc-number">2.2.</span> <span class="toc-text">An eigenvalue problem proved with fixed point theorem</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Exterior-differentiation-and-Jacobian-determinant"><span class="toc-number">2.3.</span> <span class="toc-text">Exterior differentiation and Jacobian determinant</span></a></li></ol></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#If-you-care-more-about-algebra"><span class="toc-number">1.</span> <span class="toc-text">If you care more about algebra</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Linear-algebra-is-not-just-about-real-and-complex-numbers"><span class="toc-number">1.1.</span> <span class="toc-text">Linear algebra is not just about real and complex numbers</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#The-general-linear-group"><span class="toc-number">1.2.</span> <span class="toc-text">The general linear group</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Basis-of-vector-spaces"><span class="toc-number">1.3.</span> <span class="toc-text">Basis of vector spaces</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Tensor-product"><span class="toc-number">1.4.</span> <span class="toc-text">Tensor product</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Direct-sum-and-direct-product"><span class="toc-number">1.4.1.</span> <span class="toc-text">Direct sum and direct product</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Tensor-product-as-the-essential-multiplication"><span class="toc-number">1.4.2.</span> <span class="toc-text">Tensor product as the essential multiplication</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#The-absolute-definition-of-tensor-product"><span class="toc-number">1.4.3.</span> <span class="toc-text">The absolute definition of tensor product</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Duality-and-transpose"><span class="toc-number">1.5.</span> <span class="toc-text">Duality and transpose</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#If-you-care-more-about-analysis-and-topology"><span class="toc-number">2.</span> <span class="toc-text">If you care more about analysis and topology</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Differentiation"><span class="toc-number">2.1.</span> <span class="toc-text">Differentiation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#An-eigenvalue-problem-proved-with-fixed-point-theorem"><span class="toc-number">2.2.</span> <span class="toc-text">An eigenvalue problem proved with fixed point theorem</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Exterior-differentiation-and-Jacobian-determinant"><span class="toc-number">2.3.</span> <span class="toc-text">Exterior differentiation and Jacobian determinant</span></a></li></ol></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <p>I think it’s quite often that, when you are learning mathematics beyond linear algebra, you are stuck at some linear algebra problems, but you haven’t learnt that systematically before although you wish you had. In this blog post we will go through some content that is not universally taught but quite often used in further mathematics. But this blog post does not serve as a piece of textbook. If you find some interesting topics, you know what document you should read later, and study it later. </p>
+<p>This post is still on progress, neither is it finished nor polished properly. For the coming days there will be new contents, untill this line is deleted. What I’m planning to add at this moment:</p>
+<ul>
+<li>Transpose is not just about changing indices of its components.</li>
+<li>Norm and topology in vector spaces</li>
+<li>Representing groups using matrices</li>
+</ul>
+<span id="more"></span>
+<h2 id="If-you-care-more-about-algebra"><a href="#If-you-care-more-about-algebra" class="headerlink" title="If you care more about algebra"></a>If you care more about algebra</h2><p>Since the background of the reader varies a lot, I will try to organise contents depending on topic and required background. For the following section, you are assumed to be familiar with basic abstract algebra terminologies, for example, group, ring, fields.</p>
+<h3 id="Linear-algebra-is-not-just-about-real-and-complex-numbers"><a href="#Linear-algebra-is-not-just-about-real-and-complex-numbers" class="headerlink" title="Linear algebra is not just about real and complex numbers"></a>Linear algebra is not just about real and complex numbers</h3><p>When learning linear algebra, we were always thinking about real or complex vectors, matrices. This makes sense because $\mathbb{R}$ and $\mathbb{C}$ are the closest number <strong>fields</strong> to our real life. But we should not have the stereotype that linear algebra is all about real and complex spaces, or properties of $\mathbb{R}^n$ and $\mathbb{C}^n$. Never has there been such an restriction. In fact, $\mathbb{R}$ and $\mathbb{C}$ can be replaced with any field $\mathbb{F}$, and there are vast differences depending on the properties of $\mathbb{F}$. </p>
+<p>There are already some differences about linear algebra over $\mathbb{R}$ and $\mathbb{C}$. Since $\mathbb{C}$ is algebraically closed, that is, all polynomials of order $n \geq 1$ have $n$ roots, dealing with eigen functions has been much ‘safer’. Besides, for example, we can diagnoalise the matrix</p>
+<script type="math/tex; mode=display">
+A = \begin{pmatrix}-1& -1 \\ 2 & 1 \end{pmatrix}</script><p>in $\mathbb{C}$ but not in $\mathbb{R}$.</p>
+<p>When $\mathbb{F}$ above is finite, there are a lot more interesting things. It’s not just saying, $\mathbb{F}$ is a field, and is finite. For example, if $\mathbb{F}=\mathbb{R}$, we have</p>
+<script type="math/tex; mode=display">
+\begin{pmatrix}
+1&0&2 \\
+2&3&1 \\
+1&4&0
+\end{pmatrix}^{-1}
+=
+\begin{pmatrix}
+-\frac{2}{3} & -\frac{4}{3} & -1 \\
+\frac{1}{6}&-\frac{1}{3}&\frac{1}{2} \\
+\frac{5}{6}&-\frac{2}{3}&\frac{1}{2}
+\end{pmatrix}.</script><p>There shouldn’t be any problem. However, on the other hand, if $\mathbb{F}=\mathbb{Z}_5$, we have</p>
+<script type="math/tex; mode=display">
+\begin{pmatrix}
+1&0&2 \\
+2&3&1 \\
+1&4&0
+\end{pmatrix}^{-1}
+=
+\begin{pmatrix}
+1&3&4 \\
+1&3&3\\
+0&1&3
+\end{pmatrix}.</script><p>In application, when working on applied algebra, it’s quite often to meet finite fields. What if we want to solve linear equation over a finite field? That’s when linear algebra over finite fields comes in. Realise this before it’s late! By the way, we are working on rings in lieu of fields, we find ourselves in module theory.</p>
+<h3 id="The-general-linear-group"><a href="#The-general-linear-group" class="headerlink" title="The general linear group"></a>The general linear group</h3><p>The set of all invertible $n \times n$ matrices forms a multiplicative group (and you should have no problem verifying this). The notation won’t go further than $GL(n)$, $GL(n,\mathbb{F})$, $GL_n(\mathbb{F})$ or simply $GL_n$. The set of all orthomormal matrices, which is also a multiplicative group and written as $O(n)$, is obviously subgroup of $GL(n)$ since for all $A \in O(n)$, we have $\det{A} = \pm 1 \neq 0$ all the time. $O(n)$ contains $SO(n)$ as a subgroup, whose elements have determinant $1$. One should not mess up with $SO(n)$ and $SL(n)$ which is the group of all matrices of determinant $1$. In fact $SO(n)$ is a proper subset of $SL(n)$ and $SL(n) \cap O(n) = SO(n)$. In general we have</p>
+<script type="math/tex; mode=display">
+SO(n) \subset SL(n) \subset GL(n), \\
+SO(n) \subset O(n) \subset GL(n).</script><p>Now we consider a more detailed group structure between $GL(n)$ and $O(n)$. I met the following problem on a differential topology book and was about fibre and structure group. But for now it’s simply a linear algebra problem. The crux is finding the ‘square root’ of a positive defined matrix. </p>
+<blockquote>
+<p>There is a direct product decomposition</p>
+<script type="math/tex; mode=display">
+GL(n,\mathbb{R})=O(n) \times \{\text{positive definite symmetric matrices}\}.</script></blockquote>
+<p>This decomposition is pretty intuitive. For example if a matrix $A \subset GL(n,\mathbb{R})$ has determinant $a$, we may be looking for a positive definite matrix of determinant $|a|$, and another matrix of determinant $\frac{a}{|a|}$, which is expected to be orthonormal as well. We can consider $O(n)$ as a rotation of basis (change the direction), and the positive definite symmetric matrix as scaling (change the size). Similar result hold if we change the order of multipication. It worth mentioning that by direct product we mean it’s up to the order of eigenvalues. </p>
+<p><strong>Proof.</strong> For any invertible matrix $A$, we see $AA^T$ is positive definite and symmetric. Therefore there exists some $P \in O(n)$ such that </p>
+<script type="math/tex; mode=display">
+P^T AA^TP = \operatorname{diag}(\lambda_1,\lambda_2,\cdots,\lambda_n).</script><p>We assume that $\lambda_1\leq \lambda_2 \leq \cdots \leq \lambda_n$ to preserve uniqueness. Note $\lambda_k&gt;0$ for all $1 \leq k \leq n$ since $AA^T$ is positive definite. We write $\Lambda=\operatorname{diag}(\sqrt\lambda_1,\sqrt\lambda_2,\cdots,\sqrt\lambda_n)$ which gives</p>
+<script type="math/tex; mode=display">
+AA^T = P\Lambda^2P^T.</script><p>Define the square root $B=\sqrt{AA^T}=\sqrt{A^TA}$ by</p>
+<script type="math/tex; mode=display">
+B = P\Lambda P^T.</script><p>Then $B^2=P\Lambda P^T P \Lambda P^T = AA^T$. Note $B$ is also a positive definite symmetric matrix and is unique for given $A$. Let $v_1,v_2,\cdots,v_n$ be the orthonormal and linear independent eigenvectors of $B$ with respect to $\sqrt\lambda_1, \sqrt\lambda_2, \cdots, \sqrt\lambda_n$. We first take a look at the following basis:</p>
+<script type="math/tex; mode=display">
+e_1=\frac{1}{\sqrt{\lambda_1}}Av_1,e_2=\frac{1}{\sqrt{\lambda_2}}Av_2,\cdots,e_n=\frac{1}{\sqrt{\lambda_n}}Av_n.</script><p>Note </p>
+<script type="math/tex; mode=display">
+\left(\frac{1}{\sqrt{\lambda_i}}Av_i\right)^{T}\left(\frac{1}{\sqrt{\lambda_j}}Av_j\right)=\frac{1}{\sqrt{\lambda_i\lambda_j}}v_i^TA^TAv_j=\frac{1}{\sqrt{\lambda_i\lambda_j}}v_i^TB^2v_j=\frac{\sqrt{\lambda_j}}{\sqrt{\lambda_i}}v_i^Tv_j.</script><p>So if the value above is $1$ if $i = j$ and $0$ if $i \neq j$. $\{e_1,e_2,\cdots,e_n\}$ is a basis since $A$ is invertible, and later we know it is orthonormal. </p>
+<p>Then we take </p>
+<script type="math/tex; mode=display">
+U = (e_1,e_2,\cdots,e_n)
+\begin{pmatrix}
+v_1^T \\
+v_2^T \\
+\vdots \\
+v_n^T
+\end{pmatrix}</script><p>We see</p>
+<script type="math/tex; mode=display">
+UU^T = (e_1,e_2,\cdots,e_n)\begin{pmatrix}
+v_1^T \\
+v_2^T \\
+\vdots \\
+v_n^T
+\end{pmatrix}(v_1,v_2,\cdots,v_n)\begin{pmatrix}
+e_1^T \\
+e_2^T \\
+\vdots \\
+e_n^T
+\end{pmatrix} = I = U^TU</script><p>since both $\{e_1,e_2,\cdots,e_n\}$ and $\{v_1,v_2,\cdots,v_n\}$ are orthonormal. On the other hand, we need to prove that $A=UB$. First of all,</p>
+<script type="math/tex; mode=display">
+Uv_k =(e_1,e_2,\cdots,e_n)
+\begin{pmatrix}
+v_1^T \\
+v_2^T \\
+\vdots \\
+v_n^T.
+\end{pmatrix} v_k = (e_1,e_2,\cdots,e_n)
+\begin{pmatrix}
+0\\
+\vdots \\
+v_k^Tv_k \\
+\vdots
+\end{pmatrix} = e_k.</script><p>(Note we used the fact that $\{v_k\}$ are orthonormal.) This yields</p>
+<script type="math/tex; mode=display">
+UPv_k = U \sqrt\lambda_kv_k = \sqrt\lambda_ke_k=\frac{\sqrt\lambda_k}{\sqrt\lambda_k}Av_k=Av_k.</script><p>Therefore $A=UB$ holds on a set of basis, therefore holds on $\mathbb{R}^n$. This gives the desired conclusion. For any invertible $n \times n$ matrix $A$ we have a unique decomposition</p>
+<script type="math/tex; mode=display">
+A = UB</script><p>where $U \in O(n)$ and $B$ is a positive definitive symmetric matrix. $\square$</p>
+<h3 id="Basis-of-vector-spaces"><a href="#Basis-of-vector-spaces" class="headerlink" title="Basis of vector spaces"></a>Basis of vector spaces</h3><p>Basis of a vector space is not coming from nowhere. The statement that all vector spaces have a basis is derived from axiom of choice and the fact that all non-zero elements in a field is invertible. I have written an article proving this already, see <a href="/2021/01/15/vector-space-and-basis/">here</a> (this is relatively advanced). On the other hand, since elements of a ring are not necessarily invertible, modules over a ring are not equipped with basis in general.</p>
+<p>It is also worth mentioning that, a vector space of finite dimension is not necessarily of finite dimension. Infinite dimensional vector space is not some fancy thing. It’s quite simple: the set of basis is not finite. It can be countable or uncountable. And there is a pretty straightforward example: the set of all continuous functions $f:\mathbb{R} \to \mathbb{R}$. </p>
+<h3 id="Tensor-product"><a href="#Tensor-product" class="headerlink" title="Tensor product"></a>Tensor product</h3><p>One of the most important concepts developed in 20th century is, when studying a set, one can study functions defined on it. For example, let’s consider $[0,1]$ and $(0,1)$. If we consider the set of all continuous functions on $[0,1]$, which is written as $C([0,1])$, we see everything is fine. It’s fine to define norm on it, to define distance on it, and the norm and distance are complete. However, things are messy on $C((0,1))$. Defining a norm on it results in abnormal behaviour. If you are interested you can check <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Normed_vector_space#Normable_spaces">here</a>. </p>
+<p>Now let’s consider the unit circle $S^1$ on the plane. The real continuous functions defined on $S^1$ can be considered as periodic functions defined on $\mathbb{R}$. So we may have a lot to do with it. If we are interested in the torus (the picture below is from wikipedia),</p>
+<p><img src="\img\torus.jpg" alt="Source via wiki"></p>
+<p>which is homeomorphic to $S^1 \times S^1$, how can we study the functions on it? We may consider $C(S^1) \times C(S^1)$, but as we will show later, there are some problems about that. Anyways, it makes sense to define ‘product’ from two vector spaces, which can ‘expand’ it. </p>
+<h4 id="Direct-sum-and-direct-product"><a href="#Direct-sum-and-direct-product" class="headerlink" title="Direct sum and direct product"></a>Direct sum and direct product</h4><p>Let’s review direct sum and direct product first. For  the direct product of $A$ and $B$, we ask for a algebraic structure on the Cartesian product $A \times B$. For example, $(a,b)+(a’,b’)=(a+a’,b+b’)$. That is, the operation is defined componentwise. This works fine for groups since for each group there is only one binary operation. But at this point we don’t care about scalar multiplication.</p>
+<p>There are two types of direct sum, inner and outer. For a vector space $V$ over a field $\mathbb{F}$, we consider two (or even more) subspaces $W$ and $W’$. We have a ‘bigger’ subspace generated by adding $W$ and $W’$ together, namely $W+W’$, which contains all elements of the form $w+w’$ where $w \in W$ and $w’ \in W’$. The representation is not guaranteed to be unique. That is, for $z=w+w’$, we may have $w_1 \in W$ and $w_1’ \in W’$ such that $z=w_1+w_1’$ but $w \neq w_1’$. This would be weird. Fortunately, the representation is unique if and only if $W \cap W’$ is trivial. In this case we say the sum of $W$ and $W’$ is direct, and write $W \bigoplus W’$. This is inner direct sum. </p>
+<p>Can we represent the direct sum using an ordered pair? Of course we can. Elements in $W \bigoplus W’$ can be written in the form $(w,w’) \in W \times W’$, and the addition is defined componentwise. That is, $(w,w’)+(w_1,w_1’)=(w+w_1,w’+w_1’)$ (which is in fact $(w+w’)+(w_1+w_1’)=(w+w_1)+(w’+w_1’)$). It seems that we don’t go further than direct product. However we need to consider the scalar product. For $\alpha \in \mathbb{F}$, we have $\alpha(w,w’) = (\alpha{w},\alpha{w’})$ this is because $\alpha(w+w’)=\alpha{w}+\alpha{w’}$. We call this <strong>inner</strong> direct sum because $W$ and $W’$ are <em>inside</em> $V$. One may ask, since $w+w’=w’+w$, why the pair is ordered? For $w+w’$ we have the first one to be an element of $W$ and the second one to be $W’$ but for $w’+w$ we can’t.</p>
+<p>Outer direct sum is different. To define this one considers two <em>arbitrary</em> vector spaces $W$ and $V$ over $\mathbb{F}$. It is not guaranteed that $W$ and $V$ are both subspaces of a bigger vector space. For example it’s legit to take $W$ to be $\mathbb{R}$ over itself and $V$ to be all real functions. $W \bigoplus V$ is defined to be the set of all ordered pairs $(w,v)$ with $w \in W$ and $v \in V$. The addition is defined componentwise, and scalar multiplication is defined to be $\alpha(w,v)=(\alpha{w},\alpha{v})$. One may also write $w+v$ if context is clear.</p>
+<p>When the number of vector spaces is finite, we don’t distinguish between direct product and direct sum. When the index is infinite, for example when we consider $\prod_{i=1}^{\infty}X_i$ and $\bigoplus_{i=1}^{\infty}X_i$, things are different. To be precise, in the language of category theory, direct product is the <em>product</em>, and direct sum is the <em>coproduct</em>. </p>
+<h4 id="Tensor-product-as-the-essential-multiplication"><a href="#Tensor-product-as-the-essential-multiplication" class="headerlink" title="Tensor product as the essential multiplication"></a>Tensor product as the essential multiplication</h4><p>We are not touching the definition but first of all let’s imagine what we have for multiplication. Let $W$ and $V$ be two vector spaces over $\mathbb{F}$ and we use $\cdot$ to be the multiplication for the time being. Law of distribution should hold, that is, we have $w \cdot v + w’ \cdot v = (w+w’) \cdot v$ and $w \cdot v + w \cdot v’ = w \cdot (v+v’)$. On the other hand, scalar multiplication should be operated on a single component, that is, $\alpha(w \cdot v)=(\alpha w) \cdot v = w \cdot (\alpha v)$. </p>
+<p>It seems illegal to use $\cdot$ so let’s use ordered pair. Under these laws, we have</p>
+<script type="math/tex; mode=display">
+(w+w',v)=(w,v)+(w',v) \quad (w,v+v')=(w,v)+(w,v'), \\
+\alpha(w,v)=(\alpha w,v) = (w,\alpha v).</script><p>It makes sense to call it ‘bilinear’. Fixing one component, we have a linear transform. However, direct product and direct product do not work here at all. If it would work, we have $(w,v)+(w’,v)=(w+w’,v+v)$. This gives rise to the tensor product: we need a legit multiplication works on vector and vector. </p>
+<h4 id="The-absolute-definition-of-tensor-product"><a href="#The-absolute-definition-of-tensor-product" class="headerlink" title="The absolute definition of tensor product"></a>The absolute definition of tensor product</h4><p>We have got the spirit of tensor product. A direct product is not OK. There has to be bilinear operation on itself no matter what. For two vector spaces $V$ and $W$, we write the tensor product by $V \bigotimes W$, for $v \in V$ and $w \in W$, we denote its tensor product by $v \otimes w$, which can be considered as a image or value of a bilinear function $\varphi(\cdot,\cdot):V \times W \to V \bigotimes W$. There are many bilinear map with domain $V \times W$. We ask the tensor product to be the essential one. </p>
+<blockquote>
+<p>The <strong>tensor product</strong> $V \bigotimes W$ of $V$ and $W$, is the vector space having the following properties.</p>
+<ol>
+<li><p>There exists the canonical bilinear map $\varphi(\cdot,\cdot):V \times W \to V \otimes W$, and we write $\varphi(v,w) = v \otimes w \in V \bigotimes W$. </p>
+</li>
+<li><p>For any bilinear map $h(\cdot,\cdot):V \times W \to U$, there exists a unique linear map </p>
+<script type="math/tex; mode=display">
+\lambda:V \otimes W \to U</script><p>such that $\lambda(\varphi(v,w)) = h(v,w)$ for all $(v,w) \in V \times W$. This is called the <strong>universal property</strong> of $V \bigotimes W$.</p>
+</li>
+</ol>
+</blockquote>
+<p>It can be easily verified that, if $V$ and $W$ have two tensor products, then they are isomorphic (hint: use the universal property). So all tensor products of $V$ and $W$ are isomorphic, we only need to pick the obvious one (as long as it exists). But we don’t have too much space for it. For further study I recommend the following documents:</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://www.uio.no/studier/emner/matnat/math/nedlagte-emner/MAT-INF2360/v12/tensortheory.pdf">Definition and properties of tensor products</a>. This one involves a considerable amount of explicit calculation and is of elementary approach.</li>
+<li><a target="_blank" rel="noopener" href="http://math.stanford.edu/~conrad/diffgeomPage/handouts/tensorbasis.pdf">Tensor products and bases</a>. This one proves the existence in an abstract way.</li>
+<li><a href="/2021/01/19/tensor-product-universal-property/">Tensor Product as a Universal Object (Category Theory &amp; Module Theory)</a>. One of my recent blog posts. The topics here are relatively advanced, and I don’t think it’s a good idea to use the language of category theory at this early point. </li>
+</ol>
+<h3 id="Duality-and-transpose"><a href="#Duality-and-transpose" class="headerlink" title="Duality and transpose"></a>Duality and transpose</h3><p>Let $\mathbb{F}$ be any field (it can be replaced with a commutative ring if you want to), and $E,F$ be two modules over $\mathbb{F}$. We will have a glance at the definition of dual space and more importantly, we see what is a transpose. In general we study the <a target="_blank" rel="noopener" href="https://mathworld.wolfram.com/BilinearForm.html">bilinear form</a></p>
+<script type="math/tex; mode=display">
+f:E \times F \to \mathbb{F}.</script><p>Sometimes for simplicity we also write $f(x,y)=\langle x,y \rangle$. The set of all bilinear forms of $E \times F$ into $\mathbb{F}$ will be denoted by $L^2(E,F;\mathbb{F})$ and you may have seen it earlier. </p>
+<p>We define the <strong>kernel</strong> of $f$ on the left to be $F^\perp$ and on the right to be $E^\perp$. Recall that for $S \subset E$, $S^\perp$ consists all $y$ such that $f(x,y)=0$ whenever $x \in S$; similarly, for $T \subset F$, $T^\perp$ consists all $x$ such that $f(x,y)=0$ whenever $y \in T$. Respectively, we say $f$ is <strong>non-degenerate</strong> on the left/right if the kernel on the left/right is trivial. </p>
+<p>One of the simplest example is the case when $E=\mathbb{F}^m$ and $F=\mathbb{F}^n$. We take a $m \times n$ matrix $A$ over $\mathbb{F}$. Define $f(x,y) = x^T A y$. This is a classic bilinear form. Whether it is non-degenerate on the left or on the right depends on the linear independency of row vectors and column vectors. $\def\opn{\operatorname}$</p>
+<p>The bilinear form $f$ gives rise to a homomorphism of $E$ to a ‘space of essential arrows’:</p>
+<script type="math/tex; mode=display">
+\varphi_f:E \to \opn{Hom}_\mathbb{F}(F,\mathbb{F})</script><p>given by</p>
+<script type="math/tex; mode=display">
+\varphi_f(x)(y) = f(x,y)=\langle x, y \rangle.</script><p>$\opn{Hom}_\mathbb{F}(F,\mathbb{F})$ contains all linear maps of $F$ into $\mathbb{F}$. One can imagine $\opn{Hom}_\mathbb{F}(F,\mathbb{F})$ to be a set of ‘arrows’ from $F$ to $\mathbb{F}$. </p>
+<h2 id="If-you-care-more-about-analysis-and-topology"><a href="#If-you-care-more-about-analysis-and-topology" class="headerlink" title="If you care more about analysis and topology"></a>If you care more about analysis and topology</h2><p>Now let’s see what we can do in analysis and topology. </p>
+<h3 id="Differentiation"><a href="#Differentiation" class="headerlink" title="Differentiation"></a>Differentiation</h3><p>Let’s consider all complex polynomials of order $\leq 5$. This is a complex vector space and is in fact isomorphic to $\mathbb{C}^6$ since we have a bijection mapping $a_0+a_1z+a_2z^2+a_3z^3+a_4z^4+a_5z^5$ to $(a_0,a_1,a_2,a_3,a_4,a_5)^T$. Therefore we can simply use matrix and vectors. We represent differentiation via matrices. This is a straightforward work. We pick the natural basis $\{1,z,z^2,z^3,z^4,z^5\}$ to begin with and write the differentiation as $\mathscr{D}$. Since $\def\ms{\mathscr}$</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\ms{D}(1)&=0 &\quad
+\ms{D}(z)&=1 \\
+\ms{D}(z^2)&=2z &\quad
+\ms{D}(z^3)&=3z^2 \\
+\ms{D}(z^4)&=4z^3 &\quad
+\ms{D}(z^5)&=5z^4
+\end{aligned}</script><p>We get a matrix corresponding to $\ms{D}$ by</p>
+<script type="math/tex; mode=display">
+D=\begin{pmatrix}
+0&1&0&0&0&0 \\
+0&0&2&0&0&0 \\
+0&0&0&3&0&0 \\
+0&0&0&0&4&0 \\
+0&0&0&0&0&5 \\
+0&0&0&0&0&0
+\end{pmatrix}</script><p>Next we try to obtain the Jordan normal form of $D$. Since the minimal polynomial of $D$ is merely $m(\lambda)=\lambda^6$, we cannot diagonalise it. After some computation we get</p>
+<script type="math/tex; mode=display">
+D =SJS^{-1}= \begin{pmatrix}
+1&0&0&0&0&0 \\
+0&1&0&0&0&0 \\
+0&0&\frac{1}{2}&0&0&0 \\
+0&0&0&\frac{1}{6}&0&0 \\
+0&0&0&0&\frac{1}{24}&0 \\
+0&0&0&0&0&\frac{1}{120}
+\end{pmatrix}
+\begin{bmatrix}
+0&1&0&0&0&0 \\
+0&0&1&0&0&0 \\
+0&0&0&1&0&0 \\
+0&0&0&0&1&0 \\
+0&0&0&0&0&1 \\
+0&0&0&0&0&0
+\end{bmatrix}
+\begin{pmatrix}
+1&0&0&0&0&0 \\
+0&1&0&0&0&0 \\
+0&0&2&0&0&0 \\
+0&0&0&6&0&0 \\
+0&0&0&0&24&0 \\
+0&0&0&0&0&120
+\end{pmatrix}</script><p>where the matrix $J$ in the square bracket is our Jordan normal form. This makes sense since if we consider the basis $\{1,z,\frac{1}{2}z^2,\frac{1}{6}z^3,\frac{1}{24}z^4,\frac{1}{120}z^5\}$, we see under this basis,</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\ms{D}(1) &= 0 &\quad \ms{D}(z) &=1 \\
+\ms{D}(\frac{1}{2}z^2)&= z &\quad \ms{D}(\frac{1}{6}z^3) &= \frac{1}{2}z^2 \\
+\ms{D}(\frac{1}{24}z^4)&=\frac{1}{6}z^3 &\quad \ms{D}(\frac{1}{120}z^5)&=\frac{1}{24}z^4
+\end{aligned}</script><p>which coincides with $J$. </p>
+<p>We already know $\ms{D}^6=0$ but we can also get this by considering $D^6=SJ^6S^{-1}=0$ since $J^6=0$. Further, the format of $S$ should have you realise that we have a hidden $e$, that is</p>
+<script type="math/tex; mode=display">
+e = {\color\red{1+1+\frac{1}{2}+\frac{1}{6}+\frac{1}{24}+\frac{1}{120}}}+\frac{1}{720}+\cdots,</script><p>and the basis is in fact first $6$ terms of the expansion of $\exp{z}$.</p>
+<p>If this cannot fansinate you I don’t know what can!</p>
+<hr>
+<p>Next we consider an example on infinite dimensional vector spaces. Consider $E=C_c^\infty(\mathbb{R})$, the infinite dimensional vectror space of $C^\infty$ functions on $\mathbb{R}$ with compact support, namely, for $f \in C_c^\infty(\mathbb{R})$, we have $f \in C^\infty$ and there exists some $0&lt;K&lt;\infty$ such that $f(x)=0$ outside $[-K,K]$.  Next consider the bilinear form $E \times E \to \mathbb{R}$ defined by the following inner product:</p>
+<script type="math/tex; mode=display">
+\langle f,g \rangle =\int_{-\infty}^{\infty}f(x)g(x)dx.</script><p>Note the differential operator $\ms{D}:E \to E$ is a linear map of $E$ into $E$, so let’s find its transpose $\ms{D}^T$. That is, we need to find the unique linear map $\ms{D}^T:E \to E$ such that</p>
+<script type="math/tex; mode=display">
+\langle \ms{D}f,g\rangle = \langle f,\ms{D}^Tg \rangle.</script><p> This is a simple application of integration by parts:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\langle \ms{D}f,g \rangle &= \int_{-\infty}^{\infty}g(x)df(x) \\
+                          &= f(x)g(x)|_{-\infty}^{\infty} - \int_{-\infty}^{\infty}f(x)dg(x) \\
+                          &=\int_{-\infty}^{\infty}f(x)(-\ms{D})g(x)dx \\
+                          &=\langle f,(-\ms{D})g\rangle
+\end{aligned}</script><p>Hence the <strong>transpose</strong> of differentiation $\ms{D}$ is $-\ms{D}$. So we can say it’s skew-symmetric for some obvious reason. But the matrix of $\ms{D}$ in $n$-polynomial space is not.</p>
+<h3 id="An-eigenvalue-problem-proved-with-fixed-point-theorem"><a href="#An-eigenvalue-problem-proved-with-fixed-point-theorem" class="headerlink" title="An eigenvalue problem proved with fixed point theorem"></a>An eigenvalue problem proved with fixed point theorem</h3><blockquote>
+<p><strong>(Perron’s theorem)</strong> Let $A$ be a $n \times n$ matrix having all components $a_{ij}&gt;0$, then it must have a positive eigenvalue $\lambda_0$, and a unique corresponding positive eigenvector, i.e., $x=(x_1,x_2,\cdots,x_n)^T$ such that $x_i&gt;0$ for all $i = 1,2,\cdots,n$. </p>
+</blockquote>
+<p>In fact, the positive eigenvalue is the spectral radius of $A$, which is often written as $\rho(A)$. I recommend reading the following documents:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://pi.math.cornell.edu/~web6720/Perron-Frobenius_Hannah%20Cairns.pdf">A short proof of Perron’s theorem</a>. This mentioned more algebraic properties of $\rho(A)$.</li>
+<li><a target="_blank" rel="noopener" href="https://warwick.ac.uk/fac/sci/maths/people/staff/oleg_zaboronski/fm/pf_theory.pdf">The Perron-Frobenius Theorem</a>. This paper mentioned some real life application (modelling growth of a population) and has some exercises to work on.</li>
+<li><a target="_blank" rel="noopener" href="http://www.maths.nuigalway.ie/~rquinlan/linearalgebra/lecture2526.pdf">Proof of the Frobenius-Perron Theorem</a>. This paper is more elementary-focused. </li>
+</ul>
+<p>But here we are using Brouwer’s fixed point theorem (you may find an elementary proof on <a target="_blank" rel="noopener" href="https://projecteuclid.org/download/pdf_1/euclid.tmj/1178244835">project Euclid</a>). In the following proof, we write $D_n$ to denote $n$-disk and $\Delta^n$ to denote $n$-simplex. That is,</p>
+<script type="math/tex; mode=display">
+D_n = \{x \in \mathbb{R}^{n+1}:\lVert x \rVert \leq 1\}, \quad \Delta^n = \left\{(x_1,x_2,\cdots,x_n,x_{n+1}) \in \mathbb{R}^{n+1}:\sum_{i=1}^{n+1}x_i=1, x_i \geq 0\right\}.</script><p>Note $D_n$ is homeomorphic to $\Delta^n$. Further we have a lemma:</p>
+<blockquote>
+<p><strong>(Lemma)</strong> If $f:X \to X$ is a continuous function and $X$ is homeomorphic to $D_n$, then $f$ has a fixed point as well.</p>
+</blockquote>
+<p><strong>Proof of the lemma.</strong> Let $\varphi$ be the homeomorphism from $X$ to $D_n$. Then $\varphi \circ f \circ \varphi^{-1}:D_n \to D_n$ has a fixed point, according to Brouwer’s fixed point theorem, suppose we have</p>
+<script type="math/tex; mode=display">
+\varphi \circ f \circ \varphi^{-1}(y)=y.</script><p>Then</p>
+<script type="math/tex; mode=display">
+f \circ \varphi^{-1}(y)=\varphi^{-1}(y)</script><p>and hence $\varphi^{-1}(y) \in X$ is our fixed point. $\square$</p>
+<hr>
+<p>Now we are ready to prove Perron’s theorem using Brouwer’s fixed point theorem. </p>
+<p><strong>Proof of Perron’s theorem.</strong> Define $\sigma(x)=\sum_{i=1}^{n}x_i$ where $x = (x_1,x_2,\cdots,x_n)^T$, we see since it’s linear, it’s continuous (it’s not generally true for infinite dimensional spaces, but it’s safe now, and you can see <a target="_blank" rel="noopener" href="https://math.stackexchange.com/questions/112985/every-linear-mapping-on-a-finite-dimensional-space-is-continuous">this question</a> on mathstackexchange for a proof). Similarly $A$ is continuous as well. Also, by definition, $x \in \Delta^{n-1}$ if and only if $\sigma(x)=1$. We see Define a function $g:\Delta^{n-1} \to \Delta^{n-1}$ by </p>
+<script type="math/tex; mode=display">
+g(x)=\frac{Ax}{\sigma(Ax)}.</script><p>We will show that this function is well-defined. Since $x \in \Delta^{n-1}$, not all components of $x$ are equal to $0$ since if so, we get $x_1+x_2+\cdots+x=0$, contradicting the assumption that $x \in \Delta^{n-1}$. Note we can write down $Ax$ explicitly (this is an elementary linear algebra thing):</p>
+<script type="math/tex; mode=display">
+Ax = \left(\sum_{j=1}^{n}a_{1j}x_j,\sum_{j=1}^{n}a_{2j}x_j,\cdots,\sum_{j=1}^{n}a_{nj}x_j\right)^T.</script><p>Since $A$ has all components greater than $0$, we see all components of $Ax$ are greater than $0$ as well. Hence $\sigma(Ax)&gt;0$. On the other hand, $g(x) \in \Delta^{n-1}$ since $\sigma(g(x))=\frac{\sigma(Ax)}{\sigma(Ax)}=1$. Since $A$, $\sigma$, $y=\frac{1}{x}$ are continuous, being a composition of continuous functions, $g$ is continuous.</p>
+<p>However, since $\Delta^{n-1}$ is homeomorphic to $D_{n-1}$, $g$ has a fixed point according to the lemma. Hence  there exists some $y \in \Delta^{n-1}$ such that</p>
+<script type="math/tex; mode=display">
+g(x)=\frac{Ay}{\sigma(Ay)}=y \implies Ay = \sigma(Ay)y.</script><p>But as we have already proved, $\lambda_0=\sigma(Ay)$ is continuous. On the other hand, all components of $y$ are positive since all components of $Ay$ are positive. The proof is completed. $\square$</p>
+<h3 id="Exterior-differentiation-and-Jacobian-determinant"><a href="#Exterior-differentiation-and-Jacobian-determinant" class="headerlink" title="Exterior differentiation and Jacobian determinant"></a>Exterior differentiation and Jacobian determinant</h3><p>You are assumed to be familiar with multivariable calculus when reading this subsection since we are discussing it right now. But in general this section is much beyond elementary linear algebra. First of all we are presenting the <em>ultimate</em> abstract extension of the usual gradient, curl, and divergence. We simply consider the $C^\infty$ functions $\mathbb{R}^3 \to \mathbb{R}^3$. When working on gradient, we consider something like $\def\pf[#1]{\frac{\partial f}{\partial #1}}$</p>
+<script type="math/tex; mode=display">
+df = \frac{\partial f}{\partial x}dx + \pf[y]dy+\pf[z]dz.</script><p>When working on curl, we consider</p>
+<script type="math/tex; mode=display">
+\left(\frac{\partial f_3}{\partial y}-\frac{\partial f_2}{\partial z}\right)dydz - \left(\frac{\partial f_1}{\partial z}-\frac{\partial f_3}{\partial x}\right)dydz + \left(\frac{\partial f_2}{\partial x}-\frac{\partial f_1}{\partial y}\right)dydz.</script><p>Finally for divergence we consider</p>
+<script type="math/tex; mode=display">
+\left(\frac{\partial f_1}{\partial x}+\frac{\partial f_2}{\partial y}+\frac{\partial f_3}{\partial z}\right)dxdydz.</script><p>They were connected by Green’s theorem, Gauss’s theorem, Stokes’ theorem. But are they abruptly connected for no reason but numerical equality? Fortunately, no. Let’s see why.</p>
+<p>First of all for convenience we write $(x_1,x_2,x_3)$ instead of $(x,y,z)$. Define $dx_idx_j=-dx_jdx_i$ for all $i,j = 1,2,3$. Note this implies that $dx_idx_i=0$. For $d$ we have the definition as follows:</p>
+<ol>
+<li>If $f$ is a $C^\infty$ function, then $df = \sum_{i=1}^{3}\pf[x_i]dx_i$.</li>
+<li>If $\omega$ is of the <em>form</em> $\sum f_{i_1 \cdots i_q}dx_{i_1}\dots dx_{i_q}$, then $d\omega=\sum df_{i_1 \cdots i_q}dx_{i_1}\dots dx_{i_q}$. </li>
+</ol>
+<p>Then gradient, curl and divergence follows in the nature of things. You can verify that the second one is actually equal to $d(f_1dx+f_2dy+f_3dz)$ and the third one is equal to $d(f_1dydz-f_2dxdz+f_3dxdy)$. We call $d$ the exterior differentiation. </p>
+<p>Linear algebra is not just for $\mathbb{R}^3$ space, so is exterior differentiation. Let $\Omega^\ast$ be the algebra over $\mathbb{R}$ (for algebra over a field, see <a target="_blank" rel="noopener" href="https://sites.math.washington.edu/~mitchell/Algf/alg.pdf">this</a>), generated by $dx_1,\dots,dx_n$ with the multiplication defined by an  <strong>anti-commutative</strong> multiplication $dx_idx_j=-dx_jdx_i$ for all $i,j=1,2,\cdots,n$. As a vector space over $\mathbb{R}$, $\Omega^\ast$ is of dimension $2^n$ with a basis</p>
+<script type="math/tex; mode=display">
+1,dx_i,dx_idx_j,dx_idx_jdx_k,dx_1\dots dx_n</script><p>where $i&lt;j&lt;k$. Let $C^\infty$ itself be the vector space of $C^\infty$ functions on $\mathbb{R}$, and we define the $C^\infty$ differential <em>forms</em> on $\mathbb{R}^n$ by</p>
+<script type="math/tex; mode=display">
+\Omega^\ast(\mathbb{R^n}) = C^\infty \bigotimes_\mathbb{R} \Omega^\ast.</script><p>For simplicity we omit the tensor product symbol $\otimes$. As a result, for any $\omega \in \Omega^\ast(\mathbb{R})$, we have $\omega$ to be a simple $C^\infty$ function (why don’t we call it a $0$-form? ) or we have $\omega = \sum f_{i_1\cdots i_q}dx_{i_1}\dots dx_{i_q}$, and we call it a $q$-form since the maximal degree of $dx_j$ is $q$. Also we can define $\Omega^q(\mathbb{R}^n)$ to be the vector space of $q$-forms. Consider the differential defined $d$ defined by</p>
+<script type="math/tex; mode=display">
+d:\Omega^q(\mathbb{R}^n) \to \Omega^{q+1}(\mathbb{R}^n)</script><ol>
+<li>If $f$ is a $C^\infty$ function, then $df = \sum_{i=1}^{n}\pf[x_i]dx_i$.</li>
+<li>If $\omega$ is of the <em>form</em> $\sum f_{i_1 \cdots i_q}dx_{i_1}\dots dx_{i_q}$, then $d\omega=\sum df_{i_1 \cdots i_q}dx_{i_1}\dots dx_{i_q}$. </li>
+</ol>
+<p>This is what we call the exterior differentiation. It’s the ultimate abstract extension of gradient, curl and divergence. Your calculus teacher may have warned you, that you cannot deal with $dx$ independently. So is it safe to work like this? Yes, there is nothing to worry about. We are doing abstraction algebraically. </p>
+<p>There are so many concepts can be understood in a linear algebra way. For example we also have</p>
+<script type="math/tex; mode=display">
+\Omega^\ast(\mathbb{R}) = \bigoplus_{q=0}^{n}\Omega^q(\mathbb{R}^n).</script><p>In fact Green’s theorem, Gauss’ theorem and Stokes’ theorem have a ultimate abstract extension as well, which is called the general Stokes’ theorem:</p>
+<blockquote>
+<p>If $\omega$ is an $(n-1)$-form with compact support on an oriented manifold $M$ of dimension $n$ and if $\partial M$ is given the induced orientation, then</p>
+<script type="math/tex; mode=display">
+\int_M d\omega = \int_{\partial M}\omega.</script></blockquote>
+<p>We are not diving into this theorem but we will conclude this subsection by a glimpse on integration. Recall that the Riemann integral of a differentiable function $f:\mathbb{R}^n \to \mathbb{R}$ can be written as</p>
+<script type="math/tex; mode=display">
+\int_{\mathbb{R}^n}f|dx_1\dots dx_n| = \lim_{\Delta x_i \to 0}f\Delta x_1 \dots \Delta x_n.</script><p>Here we add the absolute value function to $dx_1 \dots dx_n$ is to emphasise the distinction between the Riemann integral of a function and the integral of differential form, since order only matters in the latter case. For the latter case, if $\pi$ is a <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Permutation_group">permutation</a> of $1,2,\cdots,n$ or we simply say $\pi \in S_n$, then</p>
+<script type="math/tex; mode=display">
+\int_{\mathbb{R}^n} f dx_{\pi(1)}\dots dx_{\pi(n)} = (\operatorname{sgn}\pi) \int_{\mathbb{R}^n} f |dx_{\pi(1)}\dots dx_{\pi(n)}|=(\operatorname{sgn}\pi)\int_{\mathbb{R}^n}f|dx_1\dots dx_n|.</script><p>This definition is natural and obvious. Since $\operatorname{sgn} \pi$ is equal to the determinant of the matrix representing $\pi$ (see <a target="_blank" rel="noopener" href="https://mathworld.wolfram.com/PermutationMatrix.html">here</a>), it’s natural to consider the determinant. Consider the function</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\Pi: \mathbb{R}^n &\to \mathbb{R}^n \\
+(x_1,x_2,\cdots,x_n)&\mapsto (x_{\pi(1)},x_{\pi(2)},\cdots,x_{\pi(n)})
+\end{aligned}</script><p>Then $J(\Pi)=\operatorname{sgn}\pi$. This is quite similar to what we expect from Jacobian determinant in general, which describes change-of-variable essentially. Let $x_1,x_2,\cdots,x_n$ be a basis of $\mathbb{R}^n$ and $T:\mathbb{R}^n \to \mathbb{R}^n$ be a diffeomorphism. We have a new basis $y_1,y_2,\cdots,y_n$ given by</p>
+<script type="math/tex; mode=display">
+y_i = \pi_i (T(x_1,x_2,\cdots,x_n))</script><p>where $\pi_i:(a_1,a_2,\cdots,a_n) \mapsto a_i$ is the $i$th projection. Namely</p>
+<script type="math/tex; mode=display">
+(y_1,y_2,\cdots,y_n)^T=T(x_1,x_2,\cdots,x_n)=(T_1,T_2,\cdots,T_n)^T,</script><p> written in column vectors. We now show that</p>
+<script type="math/tex; mode=display">
+dy_1\dots dy_n = J(T) dx_1\cdots dx_n.</script><p>First we recall that $J(T)$ is the determinant of $(\partial T_i / \partial x_j)$, and the determinant of a matrix $(a_{ij})$ is defined by</p>
+<script type="math/tex; mode=display">
+\sum_{\sigma}\epsilon(\sigma)a_{1,\sigma(1)}a_{2,\sigma(2)}\cdots a_{n,\sigma(n)},</script><p>where $\epsilon(\sigma)$ is actually $\operatorname{sgn}\sigma$ and $\sigma$ ranges through all permutation of $1,2,\cdots,n$. We need something to coincide. First of all, we compute $dy_i$. Note</p>
+<script type="math/tex; mode=display">
+\frac{\partial y_i}{\partial x_j} = \frac{\partial T_i}{\partial x_j}.</script><p>Hence</p>
+<script type="math/tex; mode=display">
+dy_i = \sum_{j=1}^{n}\frac{\partial T_i}{\partial x_j}dx_j.</script><p>We get, as a result,</p>
+<script type="math/tex; mode=display">
+dy_1dy_2\cdots dy_n = \prod_{i=1}^{n}\left(\sum_{j=1}^{n}\frac{\partial T_i}{\partial x_j}dx_j\right).</script><p>After cancelling out so many zeros, we get $J(T)$. You don’t have to expand the identity. Pick a component $\frac{\partial T_1}{\partial x_{j_1}}dx_{j_1}$ from $dy_1$. Then when we pick another component from $dy_2$ to get it multiplied with the first one, say $\frac{\partial T_2}{\partial x_{j_2}}dx_{j_2}$, then we must have $j_1 \neq j_2$ since if not, then $dx_{j_1}dx_{j_2}=0$, and we cancel that. The rule remains the same (but even stricter) when we pick components from $dy_3$, $dy_4$, and until $dy_n$. In the end, $j_1,j_2,\cdots,j_n$ are pairwise unequal. This corresponds exactly a permutation of $1,2,\cdots,n$. Hence we get</p>
+<script type="math/tex; mode=display">
+dy_1dy_2\cdots dy_n = \sum_\sigma \left(\prod_{j=1}^{n} \frac{\partial T_i}{\partial x_{\sigma (i)}}dx_{\sigma(i)}\right) = \sum_{\sigma}\frac{\partial T_1}{\partial x_{\sigma(1)}}\frac{\partial T_2}{\partial x_{\sigma(2)}}\cdots \frac{\partial T_n}{\partial x_{\sigma(n)}}dx_{\sigma(1)}dx_{\sigma(2)}\cdots dx_{\sigma(n)}.</script><p>On the other hand, $dx_{\sigma(1)}dx_{\sigma(2)}\cdots dx_{\sigma(n)}=\epsilon(\sigma)dx_1dx_2\cdots dx_n$, and if we put this inside the expansion of $dy_1dy_2\cdots dy_n$, we get</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+dy_1dy_2\cdots dy_n &= \sum_{\sigma}\epsilon(\sigma)\frac{\partial T_1}{\partial x_{\sigma(1)}}\frac{\partial T_2}{\partial x_{\sigma(2)}}\cdots \frac{\partial T_n}{\partial x_{\sigma(n)}}dx_1dx_2\cdots dx_n \\
+&=\left(\sum_{\sigma}\epsilon(\sigma)\frac{\partial T_1}{\partial x_{\sigma(1)}}\frac{\partial T_2}{\partial x_{\sigma(2)}}\cdots \frac{\partial T_n}{\partial x_{\sigma(n)}}\right)dx_1dx_2\cdots dx_n \\
+&=J(T)dx_1dx_2\cdots dx_n.
+\end{aligned}</script><p>We answered a calculus question in an algebraic way (and more than that if you review more related concepts in calculus).</p>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"><a href="../../../../tags/Forever-on-progress/" class="post-tags__link button"># Forever on progress</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../../03/30/quasi-analytic-classs/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            Quasi-analytic Classes
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../07/dedekind-domain/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            Dedekind Domain and Properties in an Elementary Approach
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2021/02/23/linear-algebra-missing/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

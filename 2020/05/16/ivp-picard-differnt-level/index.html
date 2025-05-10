@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>Prove Picard&#39;s Existence and Uniqueness Theorem on Different Levels | Desvl&#39;s blog</title>
+
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="IVP and Picard’sBy IVP (Initial Value Problem), we mean the problem about solving  \begin{cases} \frac{dy}{dx}&#x3D;f(x,y) \\ y(x_0)&#x3D;y_0 \end{cases}Of course we do hope we can solve this problem easily wit">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Prove Picard&#39;s Existence and Uniqueness Theorem on Different Levels">
+<meta property="og:url" content="https://desvl.xyz/2020/05/16/ivp-picard-differnt-level/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="IVP and Picard’sBy IVP (Initial Value Problem), we mean the problem about solving  \begin{cases} \frac{dy}{dx}&#x3D;f(x,y) \\ y(x_0)&#x3D;y_0 \end{cases}Of course we do hope we can solve this problem easily wit">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-05-16T17:41:33.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:10.072Z">
+<meta property="article:author" content="Desvl">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        Prove Picard&#39;s Existence and Uniqueness Theorem on Different Levels
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2020/05/" class="post-meta__date button">2020-05-16</a>
+        
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#IVP-and-Picard%E2%80%99s"><span class="toc-number">1.</span> <span class="toc-text">IVP and Picard’s</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Proving-Picard%E2%80%99s-existence-and-uniqueness-theorem"><span class="toc-number">2.</span> <span class="toc-text">Proving Picard’s existence and uniqueness theorem</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Some-preparation"><span class="toc-number">2.1.</span> <span class="toc-text">Some preparation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#A-sketch-of-the-proof-in-elementary-calculus"><span class="toc-number">2.2.</span> <span class="toc-text">A sketch of the proof in elementary calculus</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Osgood%E2%80%99s-condition-ensures-uniqueness"><span class="toc-number">2.3.</span> <span class="toc-text">Osgood’s condition ensures uniqueness</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Proof-of-Osgood%E2%80%99s"><span class="toc-number">2.3.1.</span> <span class="toc-text">Proof of Osgood’s</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Banach-FPT-is-applied-onto-Picard%E2%80%99s"><span class="toc-number">2.4.</span> <span class="toc-text">Banach FPT is applied onto Picard’s</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#What-is-Banach-FPT-Fixed-Point-Theorem"><span class="toc-number">2.4.1.</span> <span class="toc-text">What is Banach FPT (Fixed Point Theorem)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Proving-Picard%E2%80%99s-using-Banach-FPT"><span class="toc-number">2.4.2.</span> <span class="toc-text">Proving Picard’s using Banach FPT</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Complete-metric-space"><span class="toc-number">2.4.2.1.</span> <span class="toc-text">Complete metric space</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Contraction-map"><span class="toc-number">2.4.2.2.</span> <span class="toc-text">Contraction map</span></a></li></ol></li></ol></li></ol></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#IVP-and-Picard%E2%80%99s"><span class="toc-number">1.</span> <span class="toc-text">IVP and Picard’s</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Proving-Picard%E2%80%99s-existence-and-uniqueness-theorem"><span class="toc-number">2.</span> <span class="toc-text">Proving Picard’s existence and uniqueness theorem</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Some-preparation"><span class="toc-number">2.1.</span> <span class="toc-text">Some preparation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#A-sketch-of-the-proof-in-elementary-calculus"><span class="toc-number">2.2.</span> <span class="toc-text">A sketch of the proof in elementary calculus</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Osgood%E2%80%99s-condition-ensures-uniqueness"><span class="toc-number">2.3.</span> <span class="toc-text">Osgood’s condition ensures uniqueness</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Proof-of-Osgood%E2%80%99s"><span class="toc-number">2.3.1.</span> <span class="toc-text">Proof of Osgood’s</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Banach-FPT-is-applied-onto-Picard%E2%80%99s"><span class="toc-number">2.4.</span> <span class="toc-text">Banach FPT is applied onto Picard’s</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#What-is-Banach-FPT-Fixed-Point-Theorem"><span class="toc-number">2.4.1.</span> <span class="toc-text">What is Banach FPT (Fixed Point Theorem)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Proving-Picard%E2%80%99s-using-Banach-FPT"><span class="toc-number">2.4.2.</span> <span class="toc-text">Proving Picard’s using Banach FPT</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Complete-metric-space"><span class="toc-number">2.4.2.1.</span> <span class="toc-text">Complete metric space</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Contraction-map"><span class="toc-number">2.4.2.2.</span> <span class="toc-text">Contraction map</span></a></li></ol></li></ol></li></ol></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h2 id="IVP-and-Picard’s"><a href="#IVP-and-Picard’s" class="headerlink" title="IVP and Picard’s"></a>IVP and Picard’s</h2><p>By IVP (Initial Value Problem), we mean the problem about solving</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+\frac{dy}{dx}=f(x,y) \\
+y(x_0)=y_0
+\end{cases}</script><p>Of course we do hope we can solve this problem easily with a simple result. But that won’t happen if the function $f$ is ‘ugly’ enough. Hence the problem is, generally and theoretically, when we can get a unique solution? When does some solution exist? Fortunately Picard ensured that</p>
+<blockquote>
+<p>If $f$ is uniformly Lipschitz continuous in $y$ and continuous in $x$ on $R=\{(x,y):|x-x_0| \leq a,|y-y_0| \leq b\}$, then for some $\varepsilon&gt;0$, there exists a unique solution $y$ to the IVP on the interval $[x_0-\varepsilon,x_0+\varepsilon]$.</p>
+</blockquote>
+<p>Interesting enough, there are several ways to prove it on different levels. This blog post offers two proofs.</p>
+<h2 id="Proving-Picard’s-existence-and-uniqueness-theorem"><a href="#Proving-Picard’s-existence-and-uniqueness-theorem" class="headerlink" title="Proving Picard’s existence and uniqueness theorem"></a>Proving Picard’s existence and uniqueness theorem</h2><h3 id="Some-preparation"><a href="#Some-preparation" class="headerlink" title="Some preparation"></a>Some preparation</h3><p>By uniformly Lipschitz continuous, we mean that for all $y \in R$, $f$ satisfies</p>
+<script type="math/tex; mode=display">
+\left\vert f(x,y_1) - f(x,y_2)\right\vert \leq L\left\vert y_1 - y_2 \right\vert</script><p>for some $L &gt; 0$. This condition is useful in many different branch of mathematics.</p>
+<p>Also, it’s trivial to verify that the IVP is equivalent to</p>
+<script type="math/tex; mode=display">
+y=y_0+\int_{x_0}^{x}f(x,y)dx</script><p>And yes, our job becomes finding such a $y$ satisfying this equation.</p>
+<h3 id="A-sketch-of-the-proof-in-elementary-calculus"><a href="#A-sketch-of-the-proof-in-elementary-calculus" class="headerlink" title="A sketch of the proof in elementary calculus"></a>A sketch of the proof in elementary calculus</h3><p>Honestly the proof is kind of long. I’ll leave the basic steps here. First, we define the Picard sequence by</p>
+<script type="math/tex; mode=display">
+y_{n+1}(x)=y_0+\int_{x_0}^{x}f(x,y_n(x))dx \quad |x-x_0| \leq \varepsilon</script><p>for $n=0,1,\cdots$. It can be shown by induction that</p>
+<script type="math/tex; mode=display">
+|y_n(x)-y_0| \leq M|x-x_0|</script><p>where $M = \sup\limits_{(x,y) \in R}|f(x,y)|$ and $\varepsilon = \min\left(a,\frac{b}{M}\right)$. We want to prove that</p>
+<script type="math/tex; mode=display">
+\lim_{n \to \infty}y_n=\sum_{n=1}^{\infty}(y_{n+1}(x)-y_n(x))=y</script><p>is the solution to the IVP, where Lipschitz condition comes into play by considering</p>
+<script type="math/tex; mode=display">
+|y_{n+1}(x)-y_n(x)| \leq \frac{M}{L}\frac{(L|x-x_0|)^{n+1}}{(n+1)!}</script><p>Finally, it should be shown that $y$ is the unique solution. To do this, it can be shown that, if we have two solutions, say $y=u(x)$ and $y=v(x)$, then $u(x)-v(x)=0$.</p>
+<h3 id="Osgood’s-condition-ensures-uniqueness"><a href="#Osgood’s-condition-ensures-uniqueness" class="headerlink" title="Osgood’s condition ensures uniqueness"></a>Osgood’s condition ensures uniqueness</h3><p>Osgood’s condition is much weaker than Lipschitz’s. Under Osgood’s condition, it’s easy to check the uniqueness (existence is not guaranteed), but there is no way to get the result (while Lipschitz’s show you the way) through this condition.</p>
+<blockquote>
+<p>$f(x,y)$ has <strong>at most one</strong> solution in every point in $R$ if $f$ is continuous and satisfies the <strong>Osgood’s condition</strong>, namely</p>
+<script type="math/tex; mode=display">
+|f(x,y_1)-f(x,y_2)| \leq F(|y_1-y_2|)</script><p>in $R$ where $F$ is a continuous function such that $F(t)&gt;0$ for all $r&gt;0$.  Also, $F$ is defined in such a way that</p>
+<script type="math/tex; mode=display">
+\int_{0}^{r_1}\frac{1}{F(r)}dr=\infty</script><p>for some $r_1&gt;0$. </p>
+</blockquote>
+<p>Naturally, if we define $F(r)=Lr$, we have $\int_{0}^{r_1}\frac{1}{Lr}dr=\infty$. </p>
+<h4 id="Proof-of-Osgood’s"><a href="#Proof-of-Osgood’s" class="headerlink" title="Proof of Osgood’s"></a>Proof of Osgood’s</h4><p>We’ll prove this theorem indirectly. That is, if there exists some point $(x_0,y_0) \in R$ such that $f$ has at least two solutions, then $f$ does not satisfy Osgood’s condition, which is equivalent to the statement that if $f$ satisfies Osgood’s, then $f$ has no more than solution.</p>
+<hr>
+<p>Suppose now there exists a point $(x_0,y_0) \in R$ such that $y’=f(x,y)$ has two distinct solutions</p>
+<script type="math/tex; mode=display">
+y_1(x)\quad y_2(x)</script><p>and $y_1 \neq y_2$ for at $x_1 \neq x_0$. W.L.O.G. we suppose that $x_1 &gt; x_0$. Define</p>
+<script type="math/tex; mode=display">
+x_s = \sup_{x \in [x_0,x_1]}\{x:y_1(x)=y_2(x)\}</script><p>and $r(x)=y_1(x)-y_2(x)$ on $[x_s,x_1]$. The derivative of $r$ is interesting since we have</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+r'(x)&=y_1'(x)-y_2'(x) \\
+&=f(x,y_1(x))-f(x,y_2(x)) \\
+& \leq |f(x,y_1)-f(x,y_2)| \\
+& \leq F(|y_1-y_2|)=F(r)
+\end{aligned}</script><p>Then the desired improper integral converges since we have</p>
+<script type="math/tex; mode=display">
+\int_{0}^{r_1}\frac{dr}{F(r)}=\int_{x_s}^{x_1}\frac{r'(x)dx}{F(r(x))} \leq x_1-x_s</script><p>Therefore $f$ does not satisfy Osgood’s condition. </p>
+<h3 id="Banach-FPT-is-applied-onto-Picard’s"><a href="#Banach-FPT-is-applied-onto-Picard’s" class="headerlink" title="Banach FPT is applied onto Picard’s"></a>Banach FPT is applied onto Picard’s</h3><h4 id="What-is-Banach-FPT-Fixed-Point-Theorem"><a href="#What-is-Banach-FPT-Fixed-Point-Theorem" class="headerlink" title="What is Banach FPT (Fixed Point Theorem)"></a>What is Banach FPT (Fixed Point Theorem)</h4><p>A map $T: X \mapsto X$ defined on a complete metric space $(X,d)$ is a contraction if there exists some $k \in [0,1)$ such that</p>
+<script type="math/tex; mode=display">
+d(T(x),T(y)) \leq k(x,y)</script><p>Banach Fixed Point Theorem states that, $T$ admits a fixed point, namely $T(x)=x$ for some $x \in X$. </p>
+<p>The proof is an application of Cauchy sequence (notice that $(X,d)$ is complete). Pick an arbitrary $x_0 \in X$, by defining $T(x_n)=x_{n+1}$, we have</p>
+<script type="math/tex; mode=display">
+d(x_{n},x_{n-1})=d(T(x_{n-1}),T(x_{n-2})) \leq kd(x_{n-1},x_{n-2})</script><p>which finally goes to</p>
+<script type="math/tex; mode=display">
+d(x_n,x_{n-1}) \leq k^{n-1}d(x_1,x_0)</script><p>$\{x_n\}$ is Cauchy then since we have</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+d(x_m,x_n) &\leq d(x_m,x_{m-1})+d(x_{m-1},x_{m-2})+\cdots+d(x_{n+1},x_n) \\
+&\leq (k^{m-1}+k^{m-2}+\cdots+k^{n})d(x_1,x_0) \\
+&\leq \frac{q^n}{1-q}d(x_1,x_0) \\
+& \to 0 \quad(n \to\infty)
+\end{aligned}</script><p>Since $(X,d)$ is complete, we see $\{x_n\}$ converges. Also, $T$ is (uniformly) continuous, therefore</p>
+<script type="math/tex; mode=display">
+\lim_{n \to \infty}x_n=\lim_{n \to \infty}x_{n+1}=x=T(x)</script><p>Uniqueness of the fixed point follows from the uniqueness of limit.</p>
+<h4 id="Proving-Picard’s-using-Banach-FPT"><a href="#Proving-Picard’s-using-Banach-FPT" class="headerlink" title="Proving Picard’s using Banach FPT"></a>Proving Picard’s using Banach FPT</h4><p>Fortunately, Picard’s existence and uniqueness theorem can be directly proved using Banach FPT. All we need is a proper translation. </p>
+<h5 id="Complete-metric-space"><a href="#Complete-metric-space" class="headerlink" title="Complete metric space"></a>Complete metric space</h5><p>Let $\mathcal{C_B}(R)$ be all bounded continuous function on $R$, then $\mathcal{C_B}(R)$ is complete considering the metric by </p>
+<script type="math/tex; mode=display">
+d(f,g)=\sup|f(x)-g(x)|</script><h5 id="Contraction-map"><a href="#Contraction-map" class="headerlink" title="Contraction map"></a>Contraction map</h5><p>The functional $T:\mathcal{C_B}(R)\mapsto\mathcal{C_B}(R)$ by</p>
+<script type="math/tex; mode=display">
+T(y)=y_0+\int_{x_0}^{x}f(x,y)dx</script><p>is the contraction we are looking for, if we take uniform Lipschitz’s condition into consideration. Namely, if we have $\varepsilon&lt;\frac{1}{L}$, we can see that</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+d(T(r),T(s)) &= \sup\left\vert \int_{x_0}^{x}(f(x,r)-f(x,s))dx \right\vert \\
+             &\leq\sup\int_{x_0}^{x}|f(x,r)-f(x,s)|dx \\
+             &\leq L\varepsilon d(r,s)
+\end{aligned}</script><p>Therefore by Banach FPT, the functional $T$ has a unique fixed point, which is equivalent to Picard’s existence and uniqueness theorem. Further, the solution can be obtained by taking</p>
+<script type="math/tex; mode=display">
+y_{n+1}=T(y_n)</script><p>where $y(x_0)=y_0$ comes from the initial value problem. Picard’s follows from FPT.</p>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../17/linear-ode-but-quotient-space/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            Linear ODE but Quotient Spaces
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../12/linear-ode-chapter-3/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            线性ODE（三）——初探高阶线性方程
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2020/05/16/ivp-picard-differnt-level/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

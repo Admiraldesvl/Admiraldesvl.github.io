@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>Irreducible Representations of SO(3) and the Laplacian | Desvl&#39;s blog</title>
+
+
+    <meta name="keywords" content="Study new content">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="In this post, irreducible representations of $SO(3)$ are studied, with much more extensive applications of linear algebra.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Irreducible Representations of SO(3) and the Laplacian">
+<meta property="og:url" content="https://desvl.xyz/2022/06/16/so3-laplacian/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="In this post, irreducible representations of $SO(3)$ are studied, with much more extensive applications of linear algebra.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-06-16T14:20:02.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:10.525Z">
+<meta property="article:author" content="Desvl">
+<meta property="article:tag" content="Study new content">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        Irreducible Representations of SO(3) and the Laplacian
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2022/06/" class="post-meta__date button">2022-06-16</a>
+        
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/" class="button">Algebra</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/Representation-Theory/" class="button">Representation Theory</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Linear-Algebra/" class="button">Linear Algebra</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/Lie-Groups/" class="button">Lie Groups</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#General-Strategy-amp-Playground"><span class="toc-number">1.</span> <span class="toc-text">General Strategy &amp; Playground</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Characters-of-SO-3"><span class="toc-number">2.</span> <span class="toc-text">Characters of SO(3)</span></a></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#General-Strategy-amp-Playground"><span class="toc-number">1.</span> <span class="toc-text">General Strategy &amp; Playground</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Characters-of-SO-3"><span class="toc-number">2.</span> <span class="toc-text">Characters of SO(3)</span></a></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>In our <a href="/2022/05/08/rep-SU2/">previous post</a> on the irreducible representations of $SU(2)$ and $SO(3)$, the irreducible representations of $SU(2)$ has been determined explicitly: $V_n=\operatorname{Sym}^n\mathbb{C}^2$, and irreducible representations $W_n$ of $SO(3)$ correspond to $V_{2n}$. </p>
+<p>The result is satisfying for $SU(2)$ but not for $SO(3)$. We hope it has something to do with $\mathbb{R}^3$ but $V_{2n}$ has not. In this post, we are delivering a much clearer characterisation of $W_n$.</p>
+<p>This post would be relatively easier to read than the previous post. Other than the basic language of representation theory (of Lie groups), only multivariable calculus and linear algebra are needed. </p>
+<p>The group $SO(3)$ has a rich background in physics. See, for example, “<a target="_blank" rel="noopener" href="https://physics.stackexchange.com/q/129326">Why do we look at the representations of $SO(3)$ in QM?</a>“ on Physics Stack Exchange.</p>
+<h2 id="General-Strategy-amp-Playground"><a href="#General-Strategy-amp-Playground" class="headerlink" title="General Strategy &amp; Playground"></a>General Strategy &amp; Playground</h2><p>Like in the previous post, we first determine a good playground and then show that this is all we need. The playground here is</p>
+<script type="math/tex; mode=display">
+P_\ell=\mathbb{C} \otimes_\mathbb{R}\operatorname{Sym}^\ell \mathbb{R}^3.</script><p>The reason for the symmetric product of $\mathbb{R}^3$ is simple: we will be working on homogeneous polynomials (these functions can be considered to be defined on the unit sphere). We complexify this space to make sure that we will not worry about eigenvalues (of $SO(3)$). In other words, $P_\ell$ is the complex vector space of homogeneous polynomials in three variables of degree $\ell$, viewed as functions on $\mathbb{R}^3$.</p>
+<p>Recall that </p>
+<script type="math/tex; mode=display">
+\dim \operatorname{Sym}^\ell \mathbb{R}^3 = {\ell+3-1 \choose \ell}={\ell + 2 \choose \ell}={\ell+2 \choose 2}=\frac{(\ell+2)(\ell+1)}{2}.</script><p>Therefore $\dim P_\ell=\frac{(\ell+2)(\ell+1)}{2}$, as a $\mathbb{C}$-vector space. We will extract what we want from spaces of this form.</p>
+<h1 id="The-Representation-of-SO-3-And-the-Laplacian"><a href="#The-Representation-of-SO-3-And-the-Laplacian" class="headerlink" title="The Representation of SO(3) And the Laplacian"></a>The Representation of SO(3) And the Laplacian</h1><p>The action of $SO(3)$ or $GL(3,\mathbb{R})$ in general on $P_\ell$ is defined in a similar way. For any $A \in GL(3,\mathbb{R})$ and $f \in P_\ell$, we define</p>
+<script type="math/tex; mode=display">
+(Af)(x)=f(xA).</script><p>Here, $x=(x_1,x_2,x_3) \in \mathbb{R} \times \mathbb{R} \times \mathbb{R}$, and $xA$ is a product of $x$ and $A$ in the sense of matrix multiplication. It is easy to verify that this indeed gives rise to a group representation.</p>
+<p>To study this representation, we need to find some morphisms $P_\ell \to P_\ell$. The most obvious choice is the Laplacian, which is given by</p>
+<script type="math/tex; mode=display">
+\Delta:f \mapsto \left(\frac{\partial^2}{\partial x_1^2}+\frac{\partial^2}{\partial x_2^2}+\frac{\partial^2}{\partial x_3^2}\right)f.</script><p>In other words, $\Delta$ is the trace of the Hessian matrix of $f$. Trace is used in representation theory to define character so there is a chance to find its good connection to the representation of $SO(3)$. </p>
+<p>We shall also not forget the <strong>kernel</strong> of the Laplacian, which is called <strong>harmonic polynomials</strong> of degree $\ell$ in this context:</p>
+<script type="math/tex; mode=display">
+\mathfrak{H}_\ell = \{f \in P_\ell:\Delta{f}=0\}.</script><p>Since functions in $P_\ell$ are homogeneous, the value of $f$ at a point $x$ is determined by the value at $\frac{x}{|x|} \in S^2$, the unit sphere. Therefore we also call $\mathfrak{H}_\ell$ the <strong>spherical harmonics</strong> of degree $\ell$. And we certainly need to know the nullity of $\Delta$.</p>
+<blockquote>
+<p> <strong>Lemma 1.</strong> The dimension of $\mathfrak{H}_\ell$ is $2\ell+1$.</p>
+</blockquote>
+<p><em>Proof.</em> To begin with, we need to write a more explicit expression of the Laplacian. First of all we perform a Taylor expansion of $f \in P_\ell$ with respect to the first variable $x_1$:</p>
+<script type="math/tex; mode=display">
+f(x_1,x_2,x_3)=\sum_{k=0}^{\ell}\frac{f_k(x_2,x_3)}{k!}x_1^k.</script><p>Here, $f_k(x_2,x_3)$ is homogeneous of degree $\ell-k$ in $x_2,x_3$. Therefore we only need to study one term of the right hand side.</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\Delta \frac{f_k(x_2,x_3)}{k!}x_1^k &= \frac{f_k(x_2,x_3)}{k!}k(k-1)x_1^{k-2}+\frac{x_1^k}{k!}\left(\frac{\partial^2 f_k}{\partial x_2^2}+\frac{\partial^2 f_k}{\partial x_3^2}\right) \\
+&= \frac{f_k(x_2,x_3)}{(k-2)!}x_1^{k-2}+\frac{x_1^k}{k!}\left(\frac{\partial^2 f_k}{\partial x_2^2}+\frac{\partial^2 f_k}{\partial x_3^2}\right)
+\end{aligned}</script><p>Now we can put them together naturally:</p>
+<script type="math/tex; mode=display">
+\Delta f = \sum_{k=0}^{\ell-2}\frac{f_{k+2}}{k!}x_1^{k}+\sum_{k=0}^{\ell}\frac{x_1^k}{k!}\left(\frac{\partial^2 f_k}{\partial x_2^2}+\frac{\partial^2 f_k}{\partial x_3^2}\right)</script><p>Let’s try to explore the last term a little bit more. If $k=\ell-1$ or $\ell$, then $f_k$ is of order $0$ and $1$ and consequently the second order derivative is $0$. Therefore we write</p>
+<script type="math/tex; mode=display">
+\Delta f = \sum_{k=0}^{\ell-2}\frac{x_1^k}{k!}\left[f_{k+2}+\left(\frac{\partial^2 f_k}{\partial x_2^2}+\frac{\partial^2 f_k}{\partial x_3^2}\right)\right]</script><p>It follows that $\Delta{f}=0$ if and only if</p>
+<script type="math/tex; mode=display">
+f_{k+2}+\left(\frac{\partial^2 f_k}{\partial x_2^2}+\frac{\partial^2 f_k}{\partial x_3^2}\right)=0.</script><p>Therefore, once $f_0$ and $f_1$ are determined, all of $f_k$ are determined and so is $f$ itself. Translating into the language of linear algebra,</p>
+<script type="math/tex; mode=display">
+\dim \mathfrak{H}_\ell=\dim P_\ell^2+\dim P_{\ell-2}^2</script><p>where $P_k^2$ is the space of homogeneous polynomials in two variables, hence is isomorphic to $\mathbb{C} \otimes_\mathbb{R}\operatorname{Sym}^k \mathbb{R}^2$, and we therefore have</p>
+<script type="math/tex; mode=display">
+\dim P_\ell^2 = {\ell+2-1 \choose \ell}=\ell+1, \quad \dim P_{\ell-1}^2 = \ell.</script><p>To conclude,</p>
+<script type="math/tex; mode=display">
+\dim \mathfrak{H}_\ell=\ell+1+\ell=2\ell+1.</script><p>$\square$</p>
+<p>Recall that $\dim W_n=2n+1$. This should not be a coincidence, and we shall dive into it right now. To do this we immediately establish the connection between $\Delta$ and $SO(3)$. </p>
+<blockquote>
+<p><strong>Lemma 2.</strong> The action of the Laplacian on $C^\infty(\mathbb{R}^3;\mathbb{C})$ (which contains $P_\ell$ for all $\ell \ge 0$) commutes with the action of $SO(3)$, i.e. $\Delta$ is $SO(3)$-equivariant.</p>
+</blockquote>
+<p><em>Proof.</em> Really routine verification. $\square$</p>
+<p>As a result, we have an very important result:</p>
+<blockquote>
+<p><strong>Theorem 1.</strong> The space $\mathfrak{H}_\ell$ is an $SO(3)$-invariant subspace of $P_\ell$.</p>
+</blockquote>
+<h2 id="Characters-of-SO-3"><a href="#Characters-of-SO-3" class="headerlink" title="Characters of SO(3)"></a>Characters of SO(3)</h2><p>We start with a direct observation of matrices in $SO(3)$. Roughly speaking, an $SO(3)$ rotation can be “downgraded” into a rotation on a plane:</p>
+<blockquote>
+<p><strong>Lemma 2.</strong> Every element in $SO(3)$ is conjugate to $R(t)$, where</p>
+<script type="math/tex; mode=display">
+R(t)= \begin{pmatrix}1 & 0 & 0 \\
+                    0&\cos{t}&-\sin{t} \\
+                    0&\sin{t}&\cos{t} \end{pmatrix}.</script></blockquote>
+<p><em>Proof.</em> Pick any $A \in SO(3)$. First of all we observe that $A$ has an eigenvalue $1$. Note</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\det (I-A)&=\det(AA^T-A) \\
+          &=\det(A(A^T-I)) \\
+          &=\det(A)\det(A^T-I) \\
+          &=\det(A-I) \\
+          &=-\det(I-A)
+\end{aligned}</script><p>we therefore have $\det(I-A)=0$. Hence we can pick $v_1 \in \ker(I-A) \setminus \{0\}$ with norm $1$. Pick $v_2 \in \mathbb{R}^3$ pedicular to $v_1$ with norm $1$ and $v_3=v_1 \times v_2$. Then $\{v_1,v_2,v_3\}$ is an orthonormal basis and $V=(v_1,v_2,v_3)$ is in $SO(3)$. The matrix $A$ is therefore conjugate to</p>
+<script type="math/tex; mode=display">
+V^{-1}AV=R=\begin{pmatrix}1 & 0 & 0 \\
+                    0&a&b \\
+                    0&c&d \end{pmatrix} \in SO(3).</script><p>In particular, $R \in SO(3)$ also implies</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+a^2+b^2=1 \\
+b^2+d^2=1 \\
+a^2+c^2=1 \\
+b^2+d^2=1 \\
+ad-bc=1
+\end{cases}</script><p>Solving this equation system we must have $a=d$, $b=-c$ so that we can assign $a=\cos{t}$ and $c=\sin{t}$, and the result follows. $\square$</p>
+<p>Since characters are invariant under conjugation, the study of the character of $SO(3)$ is reduced to $T$, the subgroup generated by matrices of the form $R(t)$. But direct computation is a nightmare so we try our best to do it elegantly. For this reason, we return to the irreducible representations of $SU(2)$ (there are only two variables, anyway). The canonical map $SU(2) \to SO(3)$ has a specific value:</p>
+<script type="math/tex; mode=display">
+e(t)=\begin{pmatrix}
+\exp(it) & 0 \\
+0 & \exp(-it)
+\end{pmatrix} \mapsto
+\begin{pmatrix}
+1 & 0 & 0 \\
+0 & \cos{2t} & -\sin{2t} \\
+0 & \sin{2t} & \cos{2t}
+\end{pmatrix}=R(2t).</script><p>One can refer to <a target="_blank" rel="noopener" href="https://www.mat.univie.ac.at/~westra/so3su2.pdf">this document</a> for the map above. Our study of characters is now reduced to $SU(2)$, because $\chi_{W_n}(R(t))=\chi_{V_{2n}}(e(t/2))$, using the facts that character is invariant under isomorphism and that $V_{2n} \cong W_n$. We can compute that</p>
+<script type="math/tex; mode=display">
+\chi_{V_{2n}}(e(t/2))=\sum_{k=0}^{2n}\exp\left(i(2n-2k)\frac{t}{2}\right)=\sum_{k=0}^{2n}\exp(i(n-k)t).</script><p>Now we are ready for the irreducible representations of $SO(3)$.</p>
+<h1 id="Determining-All-the-Irreducible-SO-3-modules"><a href="#Determining-All-the-Irreducible-SO-3-modules" class="headerlink" title="Determining All the Irreducible SO(3)-modules"></a>Determining All the Irreducible SO(3)-modules</h1><p>Since we basically have $\dim \mathfrak{H}_\ell=\dim W_\ell$, it is natural to guess that $\mathfrak{H}_\ell \cong W_\ell$, in the sense of $SO(3)$-modules, and the following theorem answers this question affirmatively.</p>
+<blockquote>
+<p><strong>Theorem 2.</strong> The space $\mathfrak{H}_\ell$ is isomorphic to $W_\ell$. In other words, irreducible $SO(3)$-modules are determined by spherical harmonics whose Laplacians are $0$.</p>
+</blockquote>
+<p><em>Proof.</em> We will use the fact every compact Lie group is completely reducible. (First of all, $SO(3)$ is compact as it is a closed subgroup of $GL(3,\mathbb{R})$; see p. 3 of <a target="_blank" rel="noopener" href="https://www.maths.tcd.ie/pub/coursework/424/GpReps-II.pdf">this document</a>. On the other hand, the fact that every compact Lie group is completely reducible can be found in section 3 of <a target="_blank" rel="noopener" href="http://staff.ustc.edu.cn/~wangzuoq/Courses/13F-Lie/Notes/Lec%2020.pdf">this document</a>.)</p>
+<p>Therefore we have</p>
+<script type="math/tex; mode=display">
+\mathfrak{H}_\ell= \bigoplus_{\nu}W_{n_\nu}</script><p>where each $W_{n_\nu}$ is an irreducible representation of $SO(3)$. Applying dimension on both sides yields</p>
+<script type="math/tex; mode=display">
+2\ell+1 = \sum_{\nu}(2n_\nu+1).</script><p>To prove that $\mathfrak{H}_\ell=W_{\ell}$, it suffices to show that $n_\nu \ge \ell$ for some $n_\nu$. On the other hand, applying characters on both sides yields</p>
+<script type="math/tex; mode=display">
+\chi_{\mathfrak{H}_\ell}(R(t))=\sum_{n_\nu}\sum_{k=-n_\nu}^{n_\nu}\exp(ikt).</script><p>In other words, the character is a linear combination of $\exp(ikt)$ with $|k| \le \max_\nu n_\nu$ for all $k$. Each $\exp(ikt)$ appeared above is an eigenvalue of the action of $R(t)$. We have no idea about the distribution of $k$ and we don’t have to because our job is done if we can show that the action of $R(t)$ has an eigenvalue $\exp(-i\ell t)$.</p>
+<p>To do this, we can consider vector $f(x_1,x_2,x_3)=(x_2+ix_3)^\ell \in \mathfrak{H}_\ell$. This is because for this vector we have</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+(R(t)f_\ell)(t)&=\left(x_2\cos{t}+x_3\sin{t}+i(-x_2\sin{t}+x_3\cos{t})\right)^\ell \\
+               &=(e^{-it}x_2+ie^{-it}x_3)^\ell \\
+               &=e^{-i\ell t}(x_2+ix_3)^\ell \\
+               &=e^{-i\ell t}f_\ell(t).
+\end{aligned}</script><p>$\square$</p>
+<h1 id="Ending-Remarks"><a href="#Ending-Remarks" class="headerlink" title="Ending Remarks"></a>Ending Remarks</h1><ul>
+<li><p>There are no even-dimensional irreducible representations of $SO(3)$. This is what every reader has to take away from this post.</p>
+</li>
+<li><p>We find the eigenvalue because it shows that $\exp(-i\ell t)$ appears in the summand of $\chi_{\mathfrak{H}_\ell}(R(t))$, hence $|-\ell|=\ell \le \max n_\nu$. Since $\{n_\nu\}$ is finite, the maximum can be attained, and therefore our argument on dimension is done.</p>
+</li>
+<li><p>The representation of $U(2)$ can be deduced algebraically, for one only need to notice that $U(2) = (S^1 \times SU(2))/H$, where $H=\{(1,I),(-1,-I)\}$. One will also need an odd-even argument just like we did to $SO(3)$.</p>
+</li>
+<li><p>Likewise, since $O(3)=SO(3) \times \mathbb{Z}/2\mathbb{Z}$, we can deduce irreducible representations of $O(3)$ in a similar fashion.</p>
+</li>
+</ul>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"><a href="../../../../tags/Study-new-content/" class="post-tags__link button"># Study new content</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../30/calculus-field-01/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            The Calculus of Fields - Absolute Values
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../../05/08/rep-SU2/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            Study Irreducible Representations of SU(2) Using Fourier Series
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2022/06/16/so3-laplacian/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

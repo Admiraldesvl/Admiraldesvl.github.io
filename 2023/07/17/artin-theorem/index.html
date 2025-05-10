@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>Artin&#39;s Theorem of Induced Characters | Desvl&#39;s blog</title>
+
+
+    <meta name="keywords" content="Study new content, Jean-Pierre Serre">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="We give a relatively more detailed proof of Artin&#39;s theorem in representation theory of finite groups as well as an example of dihedral group.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Artin&#39;s Theorem of Induced Characters">
+<meta property="og:url" content="https://desvl.xyz/2023/07/17/artin-theorem/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="We give a relatively more detailed proof of Artin&#39;s theorem in representation theory of finite groups as well as an example of dihedral group.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-07-17T19:39:59.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:09.562Z">
+<meta property="article:author" content="Desvl">
+<meta property="article:tag" content="Study new content">
+<meta property="article:tag" content="Jean-Pierre Serre">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        Artin&#39;s Theorem of Induced Characters
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2023/07/" class="post-meta__date button">2023-07-17</a>
+        
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/" class="button">Algebra</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/Representation-Theory/" class="button">Representation Theory</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Linear-Algebra/" class="button">Linear Algebra</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/Finite-Groups/" class="button">Finite Groups</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#i-gt-ii"><span class="toc-number">1.</span> <span class="toc-text">(i) &#x3D;&gt; (ii)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ii-gt-i"><span class="toc-number">2.</span> <span class="toc-text">(ii) &#x3D;&gt; (i)</span></a></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#i-gt-ii"><span class="toc-number">1.</span> <span class="toc-text">(i) &#x3D;&gt; (ii)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ii-gt-i"><span class="toc-number">2.</span> <span class="toc-text">(ii) &#x3D;&gt; (i)</span></a></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>When studying a linear space, when some subspaces are known, we are interested in the contribution of these subspaces, by studying their sum or (inner) direct sum if possible. This philosophy can be applied to many other fields.</p>
+<p>In the context of representation theory, say, we are given a finite group $G$, with a subgroup $H$, we want to know how a character of $H$ is related to a character of $G$, through induction if anything. Next we state the content of this post more formally.</p>
+<p>Let $G$ be a finite group with distinct irreducible characters $\chi_1,\dots,\chi_h$. A class function $f$ on $G$ is a character if and only if it is a linear combination of the $\chi_i$’s with non-negative integer coefficients. We denote the space of characters by $R^+(G)$. However, $R^+(G)$ lacks a satisfying algebraic structure, as one is not even allowed to freely do subtraction. For this reason, we extend the coefficients to all of integers, by defining</p>
+<script type="math/tex; mode=display">
+R(G)=\mathbb{Z}\chi_1 \oplus \cdots \oplus \mathbb{Z}\chi_h.</script><p>An element of $R(G)$ is called a <em>virtual character</em> because when one coefficient of some $\chi_i$ is negative, it cannot be a character in the usual sense. Note that $R(G)$ is a finitely generated free abelian group, hence we are free to do subtraction in the normal sense.</p>
+<p>Besides, since the product of two characters are still a character, we see $R(G)$ is a ring (not necessarily commutative). To be precise, it is a subring of the ring $F_\mathbb{C}(G)$, the ring of class functions of $G$ over $\mathbb{C}$. Furthermore, we actually have $F_\mathbb{C}(G) \cong \mathbb{C} \otimes R(G)$.</p>
+<p>Let $H$ be a subgroup of $G$. Then the operation of restriction and induction defines homomorphisms $\mathrm{Res}:R(G) \to R(H)$ and $\mathrm{Ind}:R(H) \to R(G)$. By extending Frobenius reciprocity linearly, still we find that $\mathrm{Res}$ and $\mathrm{Ind}$ are adjoints of each other. We also notice that the image of $\mathrm{Ind}:R(H) \to R(G)$ is a right ideal of $R(G)$. This is because, for any $\varphi \in R(H)$ and $\psi \in R(G)$, one has</p>
+<script type="math/tex; mode=display">
+\mathrm{Ind}(\varphi)\cdot \psi = \mathrm{Ind}(\psi \cdot \mathrm{Res}(\psi)) \in \operatorname{Im}(\mathrm{Ind}).</script><p>But being an ideal should not be the end of our story. We want to know what happens if we consider more than one subgroups. For example, since every group is the union of all of its cyclic groups, what if we consider all cyclic subgroups of $G$? We are also interested in how all these ideals work together. This is where Artin’s theorem comes in.</p>
+<h1 id="Artin’s-Theorem-Statement-and-a-Concrete-Example"><a href="#Artin’s-Theorem-Statement-and-a-Concrete-Example" class="headerlink" title="Artin’s Theorem - Statement and a Concrete Example"></a>Artin’s Theorem - Statement and a Concrete Example</h1><blockquote>
+<p><strong>Artin’s Theorem.</strong> Let $X$ be a family of subgroups of a finite group $G$. Let $\mathrm{Ind}:\oplus_{H \in X}R(H) \to R(G)$ be the homomorphism defined by the family of $\mathrm{Ind}_H^G$, $H \in X$. Then the following statements are equivalent:</p>
+<p>(i) $G$ is the union of the conjugates of all $H \in X$. Equivalently, for any $\sigma \in G$, there is some $H \in X$ such that $H$ contains a conjugate of $\sigma$.</p>
+<p>(ii) The cokernel of $\mathrm{Ind}:\bigoplus_{H \in X}R(H) \to R(G)$ is finite. </p>
+</blockquote>
+<p><strong>Example.</strong> Put $G=D_4$, the dihedral group consists of rotations ($\sigma$) and flips ($\tau$) of the square. We write</p>
+<script type="math/tex; mode=display">
+G=\{1,\sigma,\sigma^2,\sigma^3,\tau,\tau\sigma,\tau\sigma^2,\tau\sigma^3\}.</script><p>In this example we take $X=\{\langle\sigma\rangle,\langle\tau\rangle,\langle\tau\sigma\rangle\}$. First of all we put down the character table of $G$:</p>
+<script type="math/tex; mode=display">
+\begin{array}{c|ccccc}
+   G & 1 & \sigma^2 & \sigma & \tau & \sigma\tau \\
+   \hline
+   \chi_1 & 1 & 1 & 1 & 1 & 1 \\
+   \chi_2 & 1 & 1 & -1 & 1 & -1 \\
+   \chi_3 & 1 & 1 & -1 & -1 & 1 \\
+   \chi_4 & 1 & 1 & 1 & -1 & -1 \\
+    \chi_5 & 2 & -2 & 0 & 0 & 0
+\end{array}</script><p>The character table of elements of $X$ is not difficult to carry out as they are characters of cyclic groups.</p>
+<script type="math/tex; mode=display">
+\begin{array}{c|cccc}
+\langle\sigma\rangle & 1 & \sigma & \sigma^2 & \sigma^3 \\
+\hline
+\chi_1^\sigma & 1 & 1 & 1 & 1 \\
+\chi_2^\sigma & 1 & i & -1 & -i \\
+\chi_3^\sigma & 1 & -1 & 1 & -1 \\
+\chi_4^\sigma & 1 & -i & -1 & i
+\end{array}\quad\quad
+\begin{array}{c|cc}
+\langle\tau\rangle & 1 &\tau \\
+\hline
+\chi_1^\tau & 1 & 1 \\
+\chi_2^\tau & 1 & -1 
+\end{array}\quad\quad
+\begin{array}{c|cc}
+\langle\tau\sigma\rangle & 1 &\tau\sigma \\
+\hline
+\chi_1^{\tau\sigma} & 1 & 1 \\
+\chi_2^{\tau\sigma} & 1 & -1 
+\end{array}</script><p>Instead of writing something like $\mathrm{Ind}_{\langle\sigma\rangle}^{D_4}\chi_1^\sigma=\chi_1+\chi_4$ manually for all characters, we put all of them in an induction-restriction table:</p>
+<script type="math/tex; mode=display">
+\begin{array}{c|cccc|cc|cc}
+D_4 & \langle\sigma\rangle & & & &\langle\tau\rangle & & \langle\tau\sigma\rangle & \\
+ &\chi_1^\sigma & \chi_2^\sigma & \chi_3^\sigma &\chi_4^\sigma &\chi_1^\tau & \chi_2^\tau & \chi_1^{\sigma\tau} & \chi_2^{\sigma\tau} \\
+ \hline
+\chi_1 & 1 & 0 & 0 & 0 & 1 & 0 & 1 & 0 \\
+\chi_2 & 0 & 0 & 1 & 0 & 1 & 0 & 0 & 1 \\
+\chi_3 & 0 & 0 & 1 & 0 & 0 & 1 & 1 & 0 \\
+\chi_4 & 1 & 0 & 0 & 0 & 0 & 1 & 0 & 1 \\
+\chi_5 & 0 & 1 & 0 & 1 & 1 & 1 & 1 & 1
+\end{array}</script><p>which yields a matrix naturally:</p>
+<script type="math/tex; mode=display">
+T=\left(\begin{array}{cccc|cc|cc}
+1 & 0 & 0 & 0 & 1 & 0 & 1 & 0 \\
+0 & 0 & 1 & 0 & 1 & 0 & 0 & 1 \\
+0 & 0 & 1 & 0 & 0 & 1 & 1 & 0 \\
+1 & 0 & 0 & 0 & 0 & 1 & 0 & 1 \\
+0 & 1 & 0 & 1 & 1 & 1 & 1 & 1
+\end{array}
+\right).</script><p>How to read the induction-restriction table? For example, the first column is $\langle \mathrm{Ind}_{\langle\sigma\rangle}^{D_4}\chi_1^\sigma,\chi_j\rangle$.  Since $\mathrm{Ind}_{\langle\sigma\rangle}^{D_4}\chi_1^\sigma=\chi_1+\chi_4$, the column becomes $(1,0,0,1,0)$. On the other hand, the rows are indicated by the inner product with restriction. For example, since we have $\mathrm{Res}_{\langle\sigma\rangle}^{D_4}\chi_5=1$, thus $\langle\chi_4^\sigma,\mathrm{Res}_{\langle\sigma\rangle}^{D_4}\chi_5\rangle=1$ and therefore $T_{54}=1$. Induction and restriction coexist up to a transpose, which is another way to illustrate Frobenius reciprocity.</p>
+<p>We obtain the induction map explicitly:</p>
+<script type="math/tex; mode=display">
+R(\langle\sigma\rangle) \oplus R(\langle\tau\rangle) \oplus R(\langle\tau\sigma\rangle)  \xrightarrow{\mathrm{Ind}}R(D_4), \\
+\mathbb{Z}^4 \oplus \mathbb{Z}^2 \oplus \mathbb{Z}^2 \xrightarrow{\text{multiplication by $T$}} \mathbb{Z}^5</script><p>where the basis of $R(D_4)$ is $\chi_1,\dots,\chi_5$ and the basis of $R(\langle\sigma\rangle) \oplus R(\langle\tau\rangle) \oplus R(\langle\tau\sigma\rangle)$ is given by the second row of the induction-restriction table. By doing Gaussian elimination of rows and columns of $T$ (over $\mathbb{Z}$), i.e. changing the basis for $\mathbb{Z}^5$ and $\mathbb{Z}^8$, the matrix $T$ is reduced to the form</p>
+<script type="math/tex; mode=display">
+U=\begin{pmatrix}
+1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 2 & 0 & 0 & 0
+\end{pmatrix}</script><p>The image of $U$ is $\mathbb{Z} \oplus \mathbb{Z} \oplus \mathbb{Z} \oplus \mathbb{Z} \oplus 2\mathbb{Z}$, hence the cokernel of the induction map is</p>
+<script type="math/tex; mode=display">
+\mathbb{Z}^5/(\mathbb{Z} \oplus \mathbb{Z} \oplus \mathbb{Z} \oplus \mathbb{Z} \oplus 2\mathbb{Z})\cong \mathbb{Z}/2\mathbb{Z},</script><p>which is certainly finite. One can also verify that $X$ satisfies (i).</p>
+<h1 id="Proof-of-Artin’s-Theorem"><a href="#Proof-of-Artin’s-Theorem" class="headerlink" title="Proof of Artin’s Theorem"></a>Proof of Artin’s Theorem</h1><h2 id="i-gt-ii"><a href="#i-gt-ii" class="headerlink" title="(i) =&gt; (ii)"></a>(i) =&gt; (ii)</h2><p>Consider the exact sequence</p>
+<script type="math/tex; mode=display">
+\bigoplus_{H \in X}R(H) \xrightarrow{\mathrm{Ind}}R(G) \to \mathrm{coker}(\mathrm{Ind}) \to 0.</script><p>To show that $\mathrm{coker}(\mathrm{Ind})$ is finite (it is a finitely generated ring to begin with), it suffices to show that it suffices to see its result from tensoring with $\mathbb{Q}$, in other words, that</p>
+<script type="math/tex; mode=display">
+1_\mathbb{Q}\otimes\mathrm{Ind}:\bigoplus_{H \in X}\mathbb{Q} \otimes R(H) \to \mathbb{Q}\otimes R(G)</script><p>is a surjective map, i.e. it has trivial cokernel. This is equivalent to the surjectivity of the $\mathbb{C}$-linear map</p>
+<script type="math/tex; mode=display">
+1_\mathbb{C}\otimes\mathrm{Ind}:\bigoplus_{H\in X}\mathbb{C}\otimes R(H) \to \mathbb{C} \otimes R(G).</script><p>By Frobenius reciprocity, this is on the other hand equivalent to the injectivity of</p>
+<script type="math/tex; mode=display">
+1 \otimes \mathrm{Res}:\mathbb{C}\otimes R(G) \to \bigoplus_{H \in X}\mathbb{C} \otimes R(H).</script><p>Notice that $\mathbb{C} \otimes R(G)$ is the space of class functions of $G$. For a class function $f$ of $G$, if its restriction on each $H$ is $0$, according to (i), all values of $f$ have been determined, therefore $f$ is $0$ everywhere.</p>
+<h2 id="ii-gt-i"><a href="#ii-gt-i" class="headerlink" title="(ii) =&gt; (i)"></a>(ii) =&gt; (i)</h2><p>Let $S$ be the union of the conjugates of the subgroups $H \in X$. Then we write elements in $\oplus_{H \in X}R(H)$ as $g=\sum_{H \in X}\mathrm{Ind}_H^G(f_H)$. It follows that $g$ always vanishes on $G \setminus S$. If (ii) holds, then</p>
+<script type="math/tex; mode=display">
+1_\mathbb{C}\otimes\mathrm{Ind}:\bigoplus_{H\in X}\mathbb{C}\otimes R(H) \to \mathbb{C} \otimes R(G)</script><p>is a surjective map. Therefore class functions of $G$, i.e. elements of $\mathbb{C} \otimes R(G)$ vanish on $G \setminus S$, which forces $G \setminus S$ to be empty, i.e. $G=S$.</p>
+<h1 id="References-Further-Reading"><a href="#References-Further-Reading" class="headerlink" title="References / Further Reading"></a>References / Further Reading</h1><ul>
+<li>Jean-Pierre Serre, <em>Linear Representations of Finite Groups</em>.</li>
+<li>Kiyoshi Igusa, <em><a target="_blank" rel="noopener" href="https://people.brandeis.edu/~igusa/Math101bS07/Math101b_notesD.pdf">ALGEBRA II, PART D: REPRESENTATIONS OF GROUPS</a></em></li>
+</ul>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"><a href="../../../../tags/Study-new-content/" class="post-tags__link button"># Study new content</a><a href="../../../../tags/Jean-Pierre-Serre/" class="post-tags__link button"># Jean-Pierre Serre</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../../08/12/sl2-decomposition/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            SL(2,R) As a Topological Space and Topological Group
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../../05/27/chinese-remainder-theorem-ring-theory/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            Chinese Remainder Theorem in Several Scenarios of Ring Theory
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2023/07/17/artin-theorem/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

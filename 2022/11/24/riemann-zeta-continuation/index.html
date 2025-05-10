@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>A Step-by-step of the Analytic Continuation of the Riemann Zeta Function | Desvl&#39;s blog</title>
+
+
+    <meta name="keywords" content="Analytic Continuation, Riemann">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="We compute the analytic continuation of the Riemann Zeta function and after that the reader will realise that asserting $1+2+\dots&#x3D;-\frac{1}{12}$ without enough caution is not a good idea.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="A Step-by-step of the Analytic Continuation of the Riemann Zeta Function">
+<meta property="og:url" content="https://desvl.xyz/2022/11/24/riemann-zeta-continuation/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="We compute the analytic continuation of the Riemann Zeta function and after that the reader will realise that asserting $1+2+\dots&#x3D;-\frac{1}{12}$ without enough caution is not a good idea.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-11-24T14:56:23.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:10.461Z">
+<meta property="article:author" content="Desvl">
+<meta property="article:tag" content="Analytic Continuation">
+<meta property="article:tag" content="Riemann">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        A Step-by-step of the Analytic Continuation of the Riemann Zeta Function
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2022/11/" class="post-meta__date button">2022-11-24</a>
+        
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/" class="button">Analysis</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/Complex-Analysis/" class="button">Complex Analysis</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Behaviour-of-the-Jacobi-Theta-Function"><span class="toc-number">1.</span> <span class="toc-text">Behaviour of the Jacobi Theta Function</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Mellin-Transform-of-the-Theta-Function-and-the-Zeta-Function"><span class="toc-number">2.</span> <span class="toc-text">The Mellin Transform of the Theta Function and the Zeta Function</span></a></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Behaviour-of-the-Jacobi-Theta-Function"><span class="toc-number">1.</span> <span class="toc-text">Behaviour of the Jacobi Theta Function</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Mellin-Transform-of-the-Theta-Function-and-the-Zeta-Function"><span class="toc-number">2.</span> <span class="toc-text">The Mellin Transform of the Theta Function and the Zeta Function</span></a></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>The <strong>Riemann zeta function</strong> is widely known (to be the analytic continuation of Euler’s zeta function):</p>
+<script type="math/tex; mode=display">
+\zeta(s)=\sum_{n=1}^{\infty}\frac{1}{n^s}.</script><p>It is widely known mainly because of the celebrated hypothesis by Riemann that remains unsolved after more than a century’s attempts by mathematicians and 150 million attempts by computers:</p>
+<blockquote>
+<p><strong>Riemann Hypothesis:</strong> The non-trivial zeros of $\zeta(s)$ lie on the line $\Re(s)=\frac{1}{2}$.</p>
+</blockquote>
+<p>The audience are told by pop-science how important and mysterious this hypothesis is. Or how disastrous if this would be solved one day. We can put them aside. A question is, why would Riemann ever think about the zero set of <em>such</em> a function? Why not something else? According to Riemann, the distribution function of primes</p>
+<script type="math/tex; mode=display">
+\pi(x)=\sum_{p\text{ prime}}^{p \le x}1</script><p>may be written as the series</p>
+<script type="math/tex; mode=display">
+\pi(x)=R(x)-\sum_{\rho}R(x^\rho)</script><p>where</p>
+<script type="math/tex; mode=display">
+R(x)=1+\sum_{n=1}^{\infty}\frac{1}{n\zeta(n+1)}\frac{(\log{x})^n}{n!}</script><p>and $\rho$ varies over all zeros of $\zeta(s)$. With these being said, once this <em>hypothesis</em> is proven true, we may have a much more concrete say of the distribution of prime numbers.</p>
+<p>But this is not the topic of this post actually. The author of this post is not trying to prove the Riemann Hypothesis in a few pages, and nobody could. In this post, we investigate the analytic continuation of $\zeta(s)$ step-by-step, so that it will make sense to even think about evaluating the value at $\frac{1}{2}$. For the theory of analytic continuation, I recommend <em>Real and Complex Analysis</em> by Walter Rudin. Although in his book he went into modular function and Picard’s little theorem, instead of $\zeta(s)$ function and related.</p>
+<p>We will transfer the problem of $\zeta$ function into $\Gamma$ function and $\theta$ function, and uncover what we want through the Merlin transform, in the sense that we will observe the so-called complete zeta function, which will bring us to THE continuation we are looking for.</p>
+<p>We will carry out details more about non-trivial processes, rather than basic complex analysis. The reader may skip our preparation if they are familiar with these contents.</p>
+<h1 id="Gamma-Function"><a href="#Gamma-Function" class="headerlink" title="Gamma Function"></a>Gamma Function</h1><p>The Gamma function should be studied in an analysis course:</p>
+<script type="math/tex; mode=display">
+\Gamma(s)=\int_0^\infty e^{-t}t^{s-1}dt,s>0.</script><p>In an analysis course we have studied some of this function’s important properties:</p>
+<ul>
+<li><p>$\Gamma(1)=1$.</p>
+</li>
+<li><p>$\Gamma(s+1)=s\Gamma(s)$ (as a result $n!=\Gamma(n+1)$)</p>
+</li>
+<li><p>$\log\Gamma(s)$ is a convex function.</p>
+</li>
+</ul>
+<p>In this section however, we will study it in the context of complex analysis.</p>
+<blockquote>
+<p><strong>Theorem 1.</strong> The Gamma function</p>
+<script type="math/tex; mode=display">
+ \Gamma(s)=\int_0^\infty e^{-t}t^{s-1}dt</script><p> is well-defined as an analytic function in the half plane $\Re(s)&gt;0$. </p>
+</blockquote>
+<p><em>Proof.</em> If we write $s=u+iv$ with $u&gt;0$ and $t=e^c$, then</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+|e^{-t}t^{s-1}|&=|e^{-t}t^{u-1}||t^{iv}| \\
+               &=|e^{-t}t^{u-1}||e^{icv}| \\
+               &=e^{-t}t^{u-1}.
+\end{aligned}</script><p>Therefore</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\int_{0}^{\infty}|e^{-t}t^{s-1}|dt &= \int_0^\infty e^{-t}
+t^{u-1}dt \\
+&=\Gamma(u) \\
+&<\infty.
+\end{aligned}</script><p>The desired properties then follows. $\square$</p>
+<blockquote>
+<p><strong>Theorem 2.</strong> If $\Re(s)&gt;0$, then </p>
+<script type="math/tex; mode=display">
+\Gamma(s+1)=s\Gamma(s),</script><p>and as a consequence $\Gamma(n+1)=n!$ for $n=0,1,\dots$.</p>
+</blockquote>
+<p><em>Proof.</em> The second statement follows immediately because $\Gamma(1)=1$. For the first equation, we do a integration by parts:</p>
+<script type="math/tex; mode=display">
+\int_{\varepsilon}^{1/\varepsilon}\frac{d}{dt}(e^{-t} t^s)dt
+=-\int_{\varepsilon}^{1/\varepsilon}e^{-t}t^sdt
++s\int_{\varepsilon}^{1/\varepsilon}e^{-t}t^{s-1}dt.</script><p>Taking $\varepsilon \to 0$, we get what we want. $\square$</p>
+<p>Now we are ready for the analytic continuation for the Gamma function, which builds a bridge to the analytic continuation of $\zeta$.</p>
+<blockquote>
+<p><strong>Theorem 3.</strong> The function $\Gamma(s)$ defined in theorem 1 admits an analytic continuation to a meromorphic function on the complex plane whose singularities are simple poles at $0,-1,\dots$, with corresponding residue $\frac{(-1)^n}{n!}$.</p>
+</blockquote>
+<p><em>Proof.</em> It suffices to show that we can continuate $\Gamma$ to $\Re(s)&gt;-m$, for all $m&gt;0$, which implies that we can extend it to all the complex plane. For this reason, we put $\Gamma_0(s)=\Gamma(s)$, which is defined in theorem 1. Then</p>
+<script type="math/tex; mode=display">
+\Gamma_1(s)=\frac{\Gamma_0(s+1)}{s}</script><p>is THE analytic continuation of $\Gamma_0(s)$ at $\Re(s)&gt;-1$, with the only singularity $s=0$. Then</p>
+<script type="math/tex; mode=display">
+\operatorname{Res}_{s=0}\Gamma_1(s)=\lim_{s \to 0}s\Gamma_1(s)
+=\Gamma_0(1)=1.</script><p>Likewise, we can define</p>
+<script type="math/tex; mode=display">
+\Gamma_2(s)=\frac{\Gamma_1(s+1)}{s}=\frac{\Gamma_0(s+2)}{s(s+1)}.</script><p>Overall, whenever $m \ge 1$ is an integer, we can define</p>
+<script type="math/tex; mode=display">
+\Gamma_m(s)=\frac{\Gamma_0(s+m)}{\prod_{j=1}^{m-1}(s-j)}.</script><p>This function is meromorphic in $\Re(s)&gt;-m$ and has simple poles at $s=0,-1,\dots,-m+1$ with residues</p>
+<script type="math/tex; mode=display">
+\operatorname{res}_{s=-n}\Gamma_m(s)=
+\frac{\Gamma(-n+m)}{
+    (m-1-n)!(-1)(-2)\dots(-n)
+}=\frac{(-1)^n}{n!}.</script><p>Successive applications of the lemma shows that $\Gamma_m(s)=\Gamma(s)$ for $\Re(s)&gt;0$. Therefore we have obtained the analytic continuation through this process. $\square$</p>
+<p>Throughout, unless specified, we will call the function obtained in the proof of theorem 3 as THE function $\Gamma$. </p>
+<p>For all $s \in \mathbb{C}$, this function satisfies $\Gamma(s+1)=s\Gamma(s)$ as it should be.</p>
+<p>Before we proceed, we develop two relationships between the $\Gamma$ function and the $\zeta$ function, to convince the reader that we are not doing nothing.</p>
+<p>If we perform a change of variable $t=nu$ in the definition of $\Gamma(s)$, we see</p>
+<script type="math/tex; mode=display">
+\int_{0}^\infty e^{-nu}n^{s}u^{s-1}du=\Gamma(s).</script><p>This is to say,</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\frac{1}{n^s}\Gamma(s)&=\int_0^\infty e^{-nu}u^{s-1}du \\
+\end{aligned}</script><p>Taking the sum of all $n$, we see</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\Gamma(s)\sum_{n=1}^{\infty}\frac{1}{n^s}&=\Gamma(s)\zeta(s) \\
+&=
+    \sum_{n=1}^{\infty}\int_0^\infty e^{-nu}u^{s-1}du \\
+&=\int_0^\infty \sum_{n=1}^{\infty}e^{-nu}u^{s-1}du \\
+&=\int_0^{\infty}\frac{e^{-u}u^{s-1}}{1-e^{-u}}du \\
+&=\int_0^{\infty}\frac{u^{s-1}}{e^u-1}du.
+\end{aligned}</script><p>This relationship is beautiful, but may make our computation a little bit more complicated. However, if we get our hand dirty earlier, our study will be easier. Thus we will do a “uglier” change of variable $t \mapsto \pi n^2y$ to obtain</p>
+<script type="math/tex; mode=display">
+\pi^{-s}\Gamma(s)\frac{1}{n^{2s}}=\int_0^\infty
+     e^{-\pi n^{2}y }y^{s-1}dy</script><p>which implies</p>
+<script type="math/tex; mode=display">
+\pi^{-s}\Gamma(s)\zeta(2s)=\int_0^\infty \sum_{n=1}^{\infty}
+e^{-\pi n^2y}y^{s-1}dy.</script><p>Either case, it is legal to change the order of summation and integration, because of the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Monotone_convergence_theorem">monotone convergence theorem</a>.</p>
+<p>Before we proceed, we need some more properties of the Gamma function.</p>
+<blockquote>
+<p><strong>Theorem 4 (Euler’s reflection formula).</strong> For all $s \in \mathbb{C}$, </p>
+<script type="math/tex; mode=display">
+\Gamma(s)\Gamma(1-s)=\frac{\pi}{\sin\pi s}.</script></blockquote>
+<p>Observe that this identity makes sense at all poles. Since $\Gamma(s)$ has simple poles at $0,-1,\dots$ meanwhile $\Gamma(1-s)$ has simple poles at $1,2,\dots$. As a result, $\Gamma(s)\Gamma(1-s)$ has simple poles at all integers, a property also shared by $\pi/\sin\pi{s}$.</p>
+<p>By analytic continuation, it suffices to prove it for $0&lt;s&lt;1$ because this result can then be extended to all of $\mathbb{C}$ through analytic continuation.</p>
+<p><em>Proof (real version).</em> We expand the left hand side first:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\Gamma(x)\Gamma(1-x)&=B(x,1-x) \\
+                    &=\int_0^1 t^{1-x}(1-t)^xdt \\
+                    &=\int_0^\infty \frac{1}{y^x(1+y)}dy
+\end{aligned}</script><p>by taking $t=\frac{1}{1+y}$. Next we compute this integral for both $(0,1]$ and $[1,\infty)$.</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\int_0^1\frac{1}{y^x(1+y)}dy &= \int_0^1\frac{1}{y^x}
+    \sum_{n=0}^{\infty}(-y)^ndy \\
+                &= \sum_{n=0}^{\infty}\int_0^1(-y)^{n-x}dy \\
+                &= \sum_{n=0}^{\infty}\frac{(-1)^{n-1}}{n-x}.
+\end{aligned}</script><p>(The exchange of integration and infinite sum is correct due to <a target="_blank" rel="noopener" href="https://sites.math.washington.edu/~morrow/335_16/dominated.pdf">Arzelà’s dominated convergence theorem of Riemann integrals</a>.)</p>
+<p>On the other hand, taking $y=\frac{1}{u}$, we see</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\int_1^\infty\frac{1}{y^x(1+y)}dy &= \int_0^1\frac{u^{x-1}}{1+u}du \\
+&=\frac{1}{x}+\sum_{n=1}^{\infty}\frac{(-1)^n}{n+x}
+\end{aligned}</script><p>Summing up, one has</p>
+<script type="math/tex; mode=display">
+\Gamma(x)\Gamma(1-x)=\frac{1}{x}+\sum_{n=1}^{\infty}
+    (-1)^n\frac{2x}{x^2-n^2}.</script><p>It remains to show that $\pi\csc{\pi{x}}$ satisfies such an expansion as well, which is not straightforward because neither Fourier series nor Taylor series can drive us there directly. One can start with the infinite product expansion of $\sin{x}$ but here we follow an alternative approach. Notice that for $\alpha \in \mathbb{R} \setminus \mathbb{Z}$,</p>
+<script type="math/tex; mode=display">
+\cos\alpha{t}=\frac{\sin\pi \alpha}{\pi \alpha}
++\sum_{n=1}^{\infty}(-1)^n\frac{2\alpha}{\pi(\alpha^2-n^2)}
+\sin\alpha\pi\cos{nt}.</script><p>Taking $t=0$ and multiplying both sides by $\pi\csc\pi\alpha$, we obtain what we want. $\square$</p>
+<p><em>Proof (complex version).</em> By definition,</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\Gamma(1-s)\Gamma(s) &= \int_0^\infty e^{-t}t^{s-1}\Gamma(1-s)dt \\
+      &= \int_0^\infty e^{-t}t^{s-1}\left(\int_0^\infty
+        e^{-v}v^{s}dv\right)dt \\
+      &= \int_0^\infty e^{-t}t^{s-1}t
+         \left(
+         \int_0^\infty e^{-ut}(ut)^{-s}du
+         \right)dt \\
+      &= \int_0^\infty du \int_0^\infty e^{-t(u+1)}u^{-s}dt \\
+      &= \int_0^\infty \frac{u^{-s}}{1+u}du
+\end{aligned}</script><p>Here we performed a change-of-variable on $v=tu$. To compute the last integral, we put $u=e^x$, and it follows that</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\int_0^\infty \frac{u^{-s}}{1+u}du &= \int_0^\infty \frac{e^{(1-s)x}}{1+e^x}dx \\
+\end{aligned}</script><p>The integral on the right hand side can be computed to be $\frac{\pi}{\sin(1-s)\pi}=\frac{s}{\sin\pi s}$. This is a easy consequence of the residue formula (by considering a rectangle with centre $z=\pi i$, height $2\pi$ and one side being the real axis). $\square$</p>
+<p>Here is a bonus of Euler’s reflection formula. Putting $t=u^2$ in the definition of $\Gamma$ function, we also see</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\Gamma(s)&=\int_0^\infty e^{-u^2}u^{2s-2}2udu \\
+        &=2\int_0^\infty e^{-u^2}u^{2s-1}ds.
+\end{aligned}</script><p>Therefore</p>
+<script type="math/tex; mode=display">
+\Gamma(1/2)=2\int_0^\infty e^{-u^2}du=\int_{-\infty}^{\infty}e^{-u^2}du=\sqrt{\pi}.</script><p>To conclude this section, we also mention</p>
+<blockquote>
+<p><strong>Theorem 5 (Legendre duplication formula).</strong></p>
+<script type="math/tex; mode=display">
+\Gamma(s)\Gamma(s+1/2)=\frac{2\sqrt\pi}{2^{2s}}\Gamma(2s).</script></blockquote>
+<p>One can find a proof <a target="_blank" rel="noopener" href="https://proofwiki.org/wiki/Legendre&#39;s_Duplication_Formula">here</a>.</p>
+<h1 id="Mellin-and-Fourier-Transform-of-the-Jacobi-Theta-Function"><a href="#Mellin-and-Fourier-Transform-of-the-Jacobi-Theta-Function" class="headerlink" title="Mellin and Fourier Transform of the Jacobi Theta Function"></a>Mellin and Fourier Transform of the Jacobi Theta Function</h1><h2 id="Behaviour-of-the-Jacobi-Theta-Function"><a href="#Behaviour-of-the-Jacobi-Theta-Function" class="headerlink" title="Behaviour of the Jacobi Theta Function"></a>Behaviour of the Jacobi Theta Function</h2><p>Put $Z(s)=\pi^{-s/2}\Gamma(s/2)\zeta(s)$. It looks we are pretty close to a great property of $\zeta(s)$, if we can figure out  $Z$ a little bit more, because $\pi^{-s/2}$ and $\Gamma(s/2)$ behave nicely. Therefore we introduce the Jacobi theta function</p>
+<script type="math/tex; mode=display">
+\theta(s)=\sum_{n \in \mathbb{Z}}e^{-\pi n^2 s}, \quad \Re(s)>0</script><p>and try to deduce its relation with $Z(s)$. </p>
+<p>To begin with, we first show that</p>
+<blockquote>
+<p><strong>Proposition 1.</strong> The theta function is holomorphic on the right half plane.</p>
+</blockquote>
+<p><em>Proof.</em> Let $C$ be a compact subset of the right half plane, and put $y_0=\inf_{s \in C}\Re(s)$. Pick any $n_0\ge \frac{1}{y_0}$. For $s=u+iv \in C$, we have $u \ge y_0$ and therefore</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\sum_{|n|\ge n_0}|e^{-\pi n^2 s}| &= \sum_{|n| \ge n_0}e^{-\pi n^2 u} \\
+    &\le \sum_{|n| \ge n_0}e^{-\pi n^2 y_0} \\
+    &\le \sum_{|n| \ge n_0}e^{-\pi |n|}
+\end{aligned}</script><p>Therefore $\theta(s)$ converges absolutely on any compact subset of the right half plane. (Note we have used the fact that $n^2y_0 \ge |n|n_0y_0 \ge |n|$ when we are studying the convergence.) Since each term is holomorphic, we have shown that $\theta(s)$ itself is holomorphic. $\square$</p>
+<p>Therefore it is safe to work around theta function. Now we are ready to deduce a functional equation.</p>
+<blockquote>
+<p><strong>Theorem 6.</strong> The theta function satisfies the functional equation on $\{\Re(s)&gt;0\}$:</p>
+<script type="math/tex; mode=display">
+\theta(s)=\frac{1}{\sqrt{s}}\theta\left(\frac{1}{s}\right)</script></blockquote>
+<p>The square root is chosen to be in the branch with positive real part.</p>
+<p><em>Proof.</em> Consider the function $f(x)=e^{-\pi x^2}$. We know that this is the fixed point of Fourier transform (in this convenient form)</p>
+<script type="math/tex; mode=display">
+\hat{g}(t)=\int_{-\infty}^{\infty}
+g(x)e^{-2\pi ixt}dx.</script><p>Now we put $g(x)=e^{-\pi u x^2}=f(\sqrt{u}x)$. The Fourier transform of $g$ is easy to deduce:</p>
+<script type="math/tex; mode=display">
+\hat{g}(t)=\frac{1}{\sqrt{u}}\hat{f}\left(\frac{t}{\sqrt{u}}\right)
+= \frac{1}{\sqrt{u}}e^{-\pi t^2 / u}.</script><p>Since $g(x)$ is a <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Schwartz_space">Schwartz function</a>, by <a target="_blank" rel="noopener" href="https://proofwiki.org/wiki/Poisson_Summation_Formula">Poisson summation formula</a>, we have</p>
+<script type="math/tex; mode=display">
+\sum_{n \in \mathbb{Z}}g(n)=\theta(u)=\sum_{n \in \mathbb Z}
+\hat{g}(n)=\frac{1}{\sqrt{u}}\theta\left(\frac{1}{u}\right).</script><p>The result follows from an analytic continuation. $\square$</p>
+<p>For Schwartz functions, also known as rapidly decreasing functions, we refer the reader to chapter 7 of W. Rudin’s <em>Functional Analysis</em>. </p>
+<p>Next we will study the behaviour of $\theta(s)$ on the half real line, especially at the origin and infinity. By the functional equation above, once we have a better view around the origin, we can quickly know what will happen at the infinity.</p>
+<blockquote>
+<p><strong>Proposition 2.</strong> When the real number $t \to 0$, the theta function is equivalent to $\frac{1}{\sqrt{t}}$. More precisely, when $t$ is small enough, the following inequality holds:</p>
+<script type="math/tex; mode=display">
+\left|\theta(t)-\frac{1}{\sqrt{t}}\right|<e^{-(\pi-1)/t}.</script></blockquote>
+<p><em>Proof.</em> Rewrite $\theta(t)$ in the form</p>
+<script type="math/tex; mode=display">
+\theta(t)=1+2\sum_{n=1}^{\infty}e^{-\pi n^2 t}.</script><p>Therefore</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\left|\theta(t)-\frac{1}{\sqrt{t}}\right| &= \left|
+    \frac{1}{\sqrt{t}}\left(\theta\left(\frac{1}{t}\right)-1\right)
+ \right| \\
+&= \frac{2}{\sqrt{t}}\sum_{n=1}^{\infty}e^{-\pi n^2/t}
+\end{aligned}</script><p>Pick $t&gt;0$ small enough so that</p>
+<script type="math/tex; mode=display">
+e^{-1/t}<\frac{\sqrt{t}}{4}, \quad e^{-2\pi/t}<2.</script><p>It follows that</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\left|\theta(t)-\frac{1}{\sqrt{t}}\right| &= \frac{2}{\sqrt{t}}\sum_{n=1}^{\infty}e^{-\pi n^2/t} \\
+    &< \frac{1}{2}e^{1/t}\sum_{n=1}^{\infty}e^{-\pi/t}
+        e^{-\pi(n^2-1)/t} \\
+    &=\frac{1}{2}e^{-(\pi-1)/t}\sum_{n=1}^{\infty}e^{-\pi(n+1)(n-1)/t}\\
+    &<\frac{1}{2}e^{-(\pi-1)/t}\sum_{n=1}^{\infty}
+        e^{-2\pi(n-1)/t} \\
+    &<\frac{1}{2}e^{-(\pi-1)/t}\sum_{n=1}^{\infty}
+        2^{n-1} \\
+    &=e^{-(\pi-1)/t}.
+\end{aligned}</script><p>$\square$</p>
+<p>As a result, we also know how $\theta(t)$ behaves at the infinity. To be precise, we have the following corollary.</p>
+<blockquote>
+<p><strong>Corollary 1.</strong> The limit of $\theta(t)$ at infinity is $1$ in the following sense: when $t$ is big enough,</p>
+<script type="math/tex; mode=display">
+|\theta(t)-1| < e^{-(\pi-1)t}/\sqrt{t}.</script></blockquote>
+<p><em>Proof.</em> Put $u=\frac{1}{t}$. When $u$ is small enough, we have $|\theta(u)-\frac{1}{\sqrt{u}}|&lt;e^{-(\pi-1)/u}$. As a result,</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+|\theta(t)-1|&=\left|\frac{1}{\sqrt{t}}\theta\left(\frac{1}{t}\right)-1\right| \\
+             &=\left|\sqrt{u}\theta\left(u\right)-1\right| \\
+             &=\sqrt{u}\left|\theta(u)-\frac{1}{\sqrt{u}}\right| \\
+             &<\sqrt{u}e^{-(\pi-1)/u} \\
+             &=\frac{e^{-(\pi-1)t}}{\sqrt{t}}
+\end{aligned}</script><p>as expected. $\square$</p>
+<h2 id="The-Mellin-Transform-of-the-Theta-Function-and-the-Zeta-Function"><a href="#The-Mellin-Transform-of-the-Theta-Function-and-the-Zeta-Function" class="headerlink" title="The Mellin Transform of the Theta Function and the Zeta Function"></a>The Mellin Transform of the Theta Function and the Zeta Function</h2><p>To begin with, we introduce the Mellin transform. In a manner of speaking, this transform can actually be understood as the multiplicative version of a two-sided Laplace transform.</p>
+<blockquote>
+<p><strong>Definition.</strong> Given a function $f:\mathbb{R}_+ \to \mathbb{C}$, the Mellin transform of $f$ is defined to be</p>
+<script type="math/tex; mode=display">
+\mathcal{M}_f(s)=\int_0^\infty f(x)x^{s-1}dx,</script><p>provided that the limit exists.</p>
+</blockquote>
+<p>For example, $\Gamma(s)$ is the Mellin transform of $e^x$. Moreover, for the two-side Laplace transform</p>
+<script type="math/tex; mode=display">
+\mathcal{B}_f(s)=\int_{-\infty}^{+\infty}e^{-sx}f(x)dx,</script><p>we actually have</p>
+<script type="math/tex; mode=display">
+\mathcal{M}_f(s)=\mathcal{B}_{\tilde{f}}(s),</script><p>where $\tilde{f}(x)=f(e^{-x})$.</p>
+<p>Our goal is to recover $Z(s)$ through the Mellin transform of $\theta(x)$. As we have proved earlier,</p>
+<script type="math/tex; mode=display">
+\pi^{-s}\Gamma(s)\zeta(2s)=\int_0^\infty \sum_{n=1}^{\infty}
+e^{-\pi n^2y}x^{s-1}dx.</script><p>It seems we can get our result really quick by studying $\frac{1}{2}(\theta(s)-1)$. However, we see $\theta(x)$ goes to $\frac{1}{\sqrt{x}}$ rapidly as $x \to 0$, and goes to $1$ rapidly as $x \to \infty$. Convergence has to be taken care of. Therefore we add error correction terms. For this reason, we study the function</p>
+<script type="math/tex; mode=display">
+\phi(s)=\int_0^1\left(\theta(x)-\frac{1}{\sqrt{x}}\right)
+x^{s/2-1}dx + \int_1^\infty (\theta(x)-1)x^{s/2-1}dx.</script><p>We use $s/2$ in place of $s$ because we do not want $\zeta$ to be evaluated at $2s$ all the time.</p>
+<p>The partition $(0,1) \cup (1,\infty)$ immediately inspires one to use the change-of-variable $y=\frac{1}{x}$. As a result,</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\phi(s)&=\int_0^1\left(\theta(x)-\frac{1}{\sqrt{x}}\right)
+x^{s/2-1}dx + \int_1^\infty (\theta(x)-1)x^{s/2-1}dx \\
+&= -\int_1^\infty\left(
+    \theta\left(\frac{1}{y}\right)-\sqrt{y}
+\right)y^{1-s/2}(-y^{-2})dy -\int_0^1\left(
+    \theta\left(\frac{1}{y}\right)-1
+\right)y^{1-s/2}(-y^{-2})dy \\
+&=\int_1^\infty (\theta(y)-1)y^{(1-s)/2-1}dy + \int_0^1
+\left(
+\theta(y)-\frac{1}{\sqrt{y}}
+\right)y^{(1-s)/2-1}dy \\
+&= \phi(1-s).
+\end{aligned}</script><p>Now we are ready to compute $\phi(s)$. For the first part,</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\int_0^1\left(\theta(x)-\frac{1}{\sqrt{x}}\right)x^{s/2-1}dx &= 
+\int_0^1\theta(x)x^{s/2-1}dx -\frac{2}{s-1} \\
+&=\int_0^1 \sum_{n=-\infty}^{+\infty}e^{-\pi n^2 x}x^{s/2-1}dx \\
+&= \int_0^1 x^{s/2-1}dx + 2\sum_{n=1}^{\infty}\int_0^1e^{-\pi n^2 x}x^{s/2-1}dx - \frac{2}{s-1} \\
+&= 2\sum_{n=1}^{\infty}\int_0^1e^{-\pi n^2 x}x^{s/2-1}dx    
+    +\frac{2}{s}-\frac{2}{s-1}.
+\end{aligned}</script><p>On the other hand,</p>
+<script type="math/tex; mode=display">
+\int_1^\infty (\theta(x)-1)x^{s/2-1}dx = 
+    2\sum_{n=1}^{\infty}\int_1^\infty e^{-\pi n^2 x}x^{s/2-1}dx.</script><p>Therefore</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\phi(s)&=2\sum_{n=1}^{\infty}\int_0^\infty e^{-\pi n^2 x}
+        x^{s/2-1}dx + \frac{2}{s}-\frac{2}{s-1} \\
+       &=2\left(Z(s)+\frac{1}{s}-\frac{1}{s-1}\right).
+\end{aligned}</script><p>Therefore</p>
+<script type="math/tex; mode=display">
+Z(s)=\pi^{-s/2}\Gamma(s/2)\zeta(s)=\frac{1}{2}\phi(s)-\frac{1}{s}+\frac{1}{s-1}.</script><p>In particular,</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+Z(1-s)&=\frac{1}{2}\phi(1-s)-\frac{1}{1-s}+\frac{1}{1-s-1} \\
+          &=\frac{1}{2}\phi(s)-\frac{1}{s}+\frac{1}{s-1} \\
+          &=Z(s)
+\end{aligned}</script><p>Expanding this equation above, we see</p>
+<script type="math/tex; mode=display">
+\pi^{-(1-s)/2}\Gamma((1-s)/2)\zeta(1-s) = 
+\pi^{-s/2}\Gamma(s/2)\zeta(s).</script><p>This gives</p>
+<script type="math/tex; mode=display">
+\zeta(1-s)=\pi^{\frac{1}{2}-s}\frac{\Gamma\left(
+\frac{s}{2}\right)}{\Gamma\left(\frac{1-s}{2}\right)}\zeta(s).</script><p>Finally we try to simplify the quotient above. By Legendre’s duplication formula,</p>
+<script type="math/tex; mode=display">
+\Gamma(s)=\frac{2^s}{2\sqrt{\pi}}\Gamma\left(\frac{s}{2}\right)
+\Gamma\left(\frac{s+1}{2}\right).</script><p>By Euler’s reflection formula,</p>
+<script type="math/tex; mode=display">
+\Gamma\left(\frac{1-s}{2}\right)\Gamma\left(\frac{1+s}{2}\right)
+=\frac{\pi}{\sin\pi\left(\frac{1-s}{2}\right)}
+=\frac{\pi}{\cos\frac{\pi s}{2}}.</script><p>Inserting these two equations into the right hand side of $\zeta(1-s)$, we obtain</p>
+<blockquote>
+<p><strong>Proposition 3.</strong> The Riemann Zeta function $\zeta(s)$ admits an analytic continuation satisfying the functional equation</p>
+<script type="math/tex; mode=display">
+\zeta(1-s)=2(2\pi)^{-s}\Gamma(s)\cos\frac{\pi s}{2}\zeta(s).</script></blockquote>
+<p>In particular, since we also have </p>
+<script type="math/tex; mode=display">
+\zeta(s)=\frac{\pi^{s/2}}{\Gamma(s/2)}\left(
+\phi(s)-\frac{1}{s}+\frac{1}{s-1}
+\right),</script><p>it is immediate that $\zeta(s)$ admits a simple hole at $s=1$ with residue $1$. Another concern is $s=0$. Nevertheless, since we have</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\zeta(s)&= \frac{\pi^{s/2}}{\Gamma(s/2)}\phi(s)-
+            \frac{\pi^{s/2}}{s\Gamma(s/2)}+\frac{\pi^{s-1}}{\Gamma(s/2)} \\
+&=\frac{\pi^{s/2}}{\Gamma(s/2)}\phi(s)-
+            \frac{2\pi^{s/2}}{\Gamma(s/2+1)}+\frac{\pi^{s-1}}{\Gamma(s/2)}
+\end{aligned}</script><p>there is no pole at $s=0$ (notice that $\phi(s)$ is entire). We now know a little bit more about the analyticity of $\zeta(s)$.</p>
+<blockquote>
+<p><strong>Corollary 2.</strong> The Riemann zeta function $\zeta(s)$ has its analytic continuation defined on $\mathbb{C} \setminus \{1\}$, with a simple pole at $s=1$ with residue $1$.</p>
+</blockquote>
+<h1 id="What-is-1-2-…"><a href="#What-is-1-2-…" class="headerlink" title="What is 1+2+…?"></a>What is 1+2+…?</h1><p>Now we are safe to compute $\zeta(-1)$.</p>
+<script type="math/tex; mode=display">
+\zeta(-1)=2(2\pi)^{-2}\Gamma(2)\zeta(2) =
+\frac{2}{4\pi^2}\cdot 2 \cdot \cos(\pi)\cdot \frac{\pi^2}{6} = - \frac{1}{12}.</script><p>But I believe, after these long computations of the analytical continuation, we can be confident enough to say that, when $\Re(s) \le 1$, the Riemann zeta function $\zeta(s)$ absolutely cannot be immediately explained by its ordinary definition $\sum_{n=1}^{\infty}n^{-s}$. Claiming $1+2+\dots=-\frac{1}{12}$ is a ridiculous and unacceptable abuse of language.</p>
+<p>We conclude this post by citing a criticism by <a target="_blank" rel="noopener" href="https://skullsinthestars.com/2014/01/18/infinite-series-not-quite-as-weird-as-some-would-say/">Greg Gbur</a> on the infamous <a target="_blank" rel="noopener" href="https://youtu.be/w-I6XTVZXww">Numberphile video</a>.</p>
+<blockquote>
+<p>So why is this important?  Part of what I’ve tried to show on this blog is that mathematics and physics can be extremely non-intuitive, even bizarre, but that they have their own rules and logic that make perfect sense once you get familiar with them.  The original video, in my opinion, acts more like a magic trick than an explanation: it shows a peculiar, non-intuitive result and tries to pass it off as absolute truth without qualification.  Making science and math look like incomprehensible magic does not do any favors for the scientists who study it nor for the public who would like to understand it.</p>
+</blockquote>
+<h1 id="References-Further-Reading"><a href="#References-Further-Reading" class="headerlink" title="References / Further Reading"></a>References / Further Reading</h1><ul>
+<li>Serge Lang, <em>Complex Analysis.</em></li>
+<li>Elias M. Stein &amp; Rami Shakarchi, <em>Complex Analysis.</em></li>
+<li>Jürgen Neukirch, <em>Algebraic Number Theory.</em></li>
+<li>Jakob Glas &amp; Kevin Yeh, <em><a target="_blank" rel="noopener" href="https://metaphor.ethz.ch/x/2019/fs/401-4110-19L/sc/talk4.pdf">The Classical Theta Function and the Riemann Zeta Function.</a></em></li>
+</ul>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"><a href="../../../../tags/Analytic-Continuation/" class="post-tags__link button"># Analytic Continuation</a><a href="../../../../tags/Riemann/" class="post-tags__link button"># Riemann</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../../12/02/The-abc-Theorem-of-Polynomials/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            The abc Theorem of Polynomials
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../../09/22/cyclotomic-polynomial-elementary/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            Properties of Cyclotomic Polynomials
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2022/11/24/riemann-zeta-continuation/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

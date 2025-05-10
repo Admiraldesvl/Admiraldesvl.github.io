@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>Elementary Properties of Cesàro Operator in L^2 | Desvl&#39;s blog</title>
+
+
+    <meta name="keywords" content="Exercise solution, Walter Rudin, Functional Analysis">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="We study the average of sum, in the sense of integral.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Elementary Properties of Cesàro Operator in L^2">
+<meta property="og:url" content="https://desvl.xyz/2021/07/08/Cesaro-operator-in-L2/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="We study the average of sum, in the sense of integral.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-07-08T17:19:28.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:09.738Z">
+<meta property="article:author" content="Desvl">
+<meta property="article:tag" content="Exercise solution">
+<meta property="article:tag" content="Walter Rudin">
+<meta property="article:tag" content="Functional Analysis">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        Elementary Properties of Cesàro Operator in L^2
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2021/07/" class="post-meta__date button">2021-07-08</a>
+        
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/" class="button">Analysis</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/Functional-Analysis/" class="button">Functional Analysis</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/Functional-Analysis/L-p-space/" class="button">$L^p$-space</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/Functional-Analysis/Operator-Theory/" class="button">Operator Theory</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/Functional-Analysis/Hilbert-Space/" class="button">Hilbert Space</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#An-example-in-elementary-calculus"><span class="toc-number">1.</span> <span class="toc-text">An example in elementary calculus</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Cesaro-operator"><span class="toc-number">2.</span> <span class="toc-text">The Cesàro operator</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Compactness-and-boundedness-of-this-operator"><span class="toc-number">2.1.</span> <span class="toc-text">Compactness and boundedness of this operator</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Bilateral-shift-spectrum"><span class="toc-number">2.2.</span> <span class="toc-text">Bilateral shift, spectrum</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#References"><span class="toc-number">3.</span> <span class="toc-text">References</span></a></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#An-example-in-elementary-calculus"><span class="toc-number">1.</span> <span class="toc-text">An example in elementary calculus</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Cesaro-operator"><span class="toc-number">2.</span> <span class="toc-text">The Cesàro operator</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Compactness-and-boundedness-of-this-operator"><span class="toc-number">2.1.</span> <span class="toc-text">Compactness and boundedness of this operator</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Bilateral-shift-spectrum"><span class="toc-number">2.2.</span> <span class="toc-text">Bilateral shift, spectrum</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#References"><span class="toc-number">3.</span> <span class="toc-text">References</span></a></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h2 id="An-example-in-elementary-calculus"><a href="#An-example-in-elementary-calculus" class="headerlink" title="An example in elementary calculus"></a>An example in elementary calculus</h2><p>Consider a sequence of real or complex numbers $\{s_n\}$. If $s_n \to s$, then</p>
+<script type="math/tex; mode=display">
+\pi_n = \frac{s_1+\cdots+s_n}{n} \to s.</script><p>Here, $\pi_n$ is called the Cesàro sum of $\{s_n\}$. The proof is rather simple. Given $\varepsilon&gt;0$, there exists some $N&gt;0$ such that $|s_n-s|&lt;\varepsilon$ for all $n &gt; N$. Therefore we can write</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+    |\pi_n - s| &= \left|\frac{s_1+s_2+\cdots+s_N}{n}+\frac{s_{N+1}+\cdots+s_n}{n}-s\right| \\
+                &= \left|\frac{(s_1-s)+(s_2-s)+\cdots+(s_N-s)}{n}+\frac{(s_{N+1}-s)+\cdots+(s_n-s)}{n}\right| \\
+                &\leq \left| \frac{s_1+\cdots+s_N-Ns}{n} \right| + \frac{N}{n}\varepsilon
+\end{aligned}</script><p>For fixed $N$, we can pick $n$ big enough such that $N/n<1/2$ (i.e. $n>2N$) and </p>
+<script type="math/tex; mode=display">
+\left| \frac{s_1+\cdots+s_N-Ns}{n} \right|<\frac{1}{2}\varepsilon.</script><p>Hence $\pi_n$ converges to $s$. But the converse is not true in general. For example, if we put $s_n=(-1)^n$, then it diverges but $\pi_n \to 0$. If $\pi_n$ converges, we say $\{s_n\}$ is Cesàro summable.</p>
+<p>If we treat $\pi_n$ as an integration with respect to the counting measure, things become interesting. Why don’t we investigate the operator defined to be</p>
+<script type="math/tex; mode=display">
+C(f)(x)= \frac{1}{x}\int_0^xf(t)dt.</script><p>In this blog post we investigate this operator in Hilbert space $L^2(0,\infty)$.</p>
+<h2 id="The-Cesaro-operator"><a href="#The-Cesaro-operator" class="headerlink" title="The Cesàro operator"></a>The Cesàro operator</h2><p>Put $L^2=L^2(0,\infty)$ relative to Lebesgue measure, and the Cèsaro operator $C$ is defined as follows:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+(Cf)(s) = \frac{1}{s}\int_0^sf(t)dt.
+\end{aligned}</script><h3 id="Compactness-and-boundedness-of-this-operator"><a href="#Compactness-and-boundedness-of-this-operator" class="headerlink" title="Compactness and boundedness of this operator"></a>Compactness and boundedness of this operator</h3><p>From the example above, we shouldn’t expect $C$ to be too normal or well-behaved, as convergence is not goes as expected. But fortunately it is at the very least continuous: due to Hardy’s inequality, we have $\lVert C \rVert = 2$. I  have organised <a href="2021/01/23/hardys-inequality/">several proofs</a> of this. But $C$ is not <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Compact_operator">compact</a>.</p>
+<p>Here is the proof. Consider a family of functions $\{\varphi_A\}_{A&gt;0}$ where</p>
+<script type="math/tex; mode=display">
+\varphi_A = \sqrt{A}\chi_{(0,1/A]}.</script><p>(I owe <a target="_blank" rel="noopener" href="https://math.stackexchange.com/a/4183622/614535">Oliver Diaz</a> for this family of functions.) It’s not hard to show that $\lVert \varphi_A \rVert = 1$. If we apply $C$ on it we see</p>
+<script type="math/tex; mode=display">
+(C\varphi_A)(x) = \frac{1}{x}\int_0^x\sqrt{A}\chi_{(0,1/A]}dx = \sqrt{A}\left(\chi_{(0,1/A]}(x)+\frac{1}{Ax}\chi_{(1/A,+\infty)}\right)</script><p>Hence $\lVert C\varphi_A \rVert = \frac{\sqrt{1+A^2}}{A}$. Meanwhile for $B&gt;A$, we have</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+C(\varphi_B-\varphi_A)(x) &=\left(\sqrt{B}-\sqrt{A} \right)\chi_{(0,1/B]}(x)+\left(\frac{1}{\sqrt{B}x}-\sqrt{A}\right)\chi_{(1/B,1/A]}(x) \\
+                          &+\left(\frac{1}{\sqrt{B}} - \frac{1}{\sqrt{A}} \right)\frac{1}{x}\chi_{(1/A,+\infty)}(x)
+\end{aligned}</script><p>It follows that</p>
+<script type="math/tex; mode=display">
+|C(\varphi_B-\varphi_A)|(x) \geq \left(\frac{1}{\sqrt{A}}-\frac{1}{\sqrt{B}} \right)\frac{1}{x}\chi_{(1/A,\infty)}(x).</script><p>If we compute the norm on the right hand side we get</p>
+<script type="math/tex; mode=display">
+\|C(\varphi_B-\varphi_A)\| \geq \left|1-\sqrt{\frac{A}{B}} \right|.</script><p>As a result, if we pick $f_n=\varphi_{2^n}$, then for any $m&gt;n$ we get </p>
+<script type="math/tex; mode=display">
+\|C(f_m-f_n)\| \geq \left|1 - \sqrt{2^{n-m}} \right| \geq 1-\frac{1}{\sqrt{2}}.</script><p>Therefore, we find a sequence $(f_n)$ on the unit ball such that $(Cf_n)$ has no convergent subsequence. </p>
+<p>Also we can find its adjoint operator:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\langle Cf,g \rangle &= \int_0^\infty \left(\frac{1}{s}\int_0^sf(t)dt \right)\overline{g}(s)ds \\
+                     &= \int_0^\infty\left(\int_t^\infty \frac{1}{s}f(t)\overline{g}(s)ds\right)dt \\
+                     &= \int_0^\infty f(t) \left(\int_t^{\infty}\frac{1}{s}\overline{g}(s)ds\right)dt.
+\end{aligned}</script><p>Hence the adjoint is given by</p>
+<script type="math/tex; mode=display">
+(C^\ast f)(t) = \int_t^{\infty}\frac{1}{s}g(s)ds.</script><p>$C^\ast$ is not compact as well. Further, another application of Fubini’s theorem shows that</p>
+<script type="math/tex; mode=display">
+CC^\ast = C + C^\ast=C^\ast C \implies (I-C)(I-C^\ast)=I=(I-C^\ast)(I-C)</script><p>Hence $I-C$ is an isometry, and $C$ is normal.</p>
+<h3 id="Bilateral-shift-spectrum"><a href="#Bilateral-shift-spectrum" class="headerlink" title="Bilateral shift, spectrum"></a>Bilateral shift, spectrum</h3><p>In this section we study the spectrum of $C$ and $C^\ast$, which will be derived from properties of bilateral shift, which comes from $\ell^2$ space. For convenience we write $\mathbb{N}=\mathbb{Z}_{\geq 0}$. This section can also help you understand the connection between $L^2(0,1)$ and $L^2(0,\infty)$.</p>
+<p>An operator $U$ on a Hilbert space $H$ is called a <em>simple unilateral shift</em> if $H$ has a orthonormal basis $\{e_n\}$ such that $U(e_n)=e_{n+1}$ for all $n \in \mathbb{N}$. This is nothing but right-shift operator in the sense of basis. Besides, we call $U$ a <em>unilateral shift of multiplicity $m$</em> if $U$ is a direct sum of $m$ simple unilateral shifts (note: $m$ can be any cardinal number, finite or infinite). </p>
+<p>If we consider the difference between $\mathbb{N}$ and $\mathbb{Z}$, we have the definition of <em>bilateral shift</em>. An operator $W$ on $K$ is called a <em>simple bilateral shift</em> if $K$ has a orthonormal basis $\{e_n\}$ such that $We_{n}=e_{n+1}$ for all $n \in \mathbb{Z}$. Besides, if we consider the subspace $H$ which is spanned by $\{e_n\}$, we see $W|_H$ is simply a unilateral shift. Before we begin, we investigate some elementary properties of uni/bilateral shifts.</p>
+<blockquote>
+<p><strong>(Proposition 1)</strong> A simple unilateral shift $U$ is an isometry. </p>
+</blockquote>
+<p><em>Proof.</em> Note $(Ue_m,Ue_n)=(e_{m+1},e_{n+1})=\delta_{m+1,n+1}=\delta_{mn}=(e_m,e_n)$. $\square$</p>
+<blockquote>
+<p><strong>(Proposition 2)</strong> A simple bilateral shift $W$ is unitary, hence is also an isometry.</p>
+</blockquote>
+<p><em>Proof.</em> Note $(We_m,e_n)=(e_{m+1},e_n)=\delta_{m+1,n}=\delta_{m,n-1}=(e_m,W^{-1}e_n)$, from which it follows that $W^\ast=W^{-1}$. $\square$ </p>
+<p>Now let the Hilbert space $K$ and its subspace $H$ (invariant under $W$) be given. Consider the ‘orthonormal’ operator given by $Re_n=e_{-(n+1)}$. It follows that $R$ is a unitary involution and</p>
+<script type="math/tex; mode=display">
+Re_0=W^{-1}e_0 \quad RH = H^{\perp} \quad R \circ W = W^{-1} \circ R.</script><p>With these tools, we are ready for the most important theorems.</p>
+<blockquote>
+<p>$W=I-C^\ast$ is a simple bilateral shift on $K=L^2$.</p>
+</blockquote>
+<p><strong>Step 1 - Obtaining missing subspace, operator and basis</strong> </p>
+<p>Here we put $H=L^2(0,1)$, which can be canonically embedded into $L^2(0,\infty)$ in the obvious way (consider all $L^2$ functions vanish outside $(0,1)$). It is natural to put this, as there are many similarities between $L^2(0,1)$ and $L^2(0,\infty)$. </p>
+<p>Explicitly,</p>
+<script type="math/tex; mode=display">
+(Wf)(x) = f(x) - \int_x^\infty \frac{1}{t}f(t)dt, \quad x \in L^2(0,\infty).</script><p>Also we claim the basis to be generated by $e_0= \chi_{(0,1)}$. First of all we show that $(We_n)_{n \geq 0}$ is orthonormal. Note as we have proved, $W^\ast W = (I-C)(I-C^\ast)=I$. Without loss of generality we assume that $m \geq n$ and therefore</p>
+<script type="math/tex; mode=display">
+(e_m,e_n)=(W^me_0,W^ne_0)=((W^\ast)^nW^me_0,e_0)=((W^\ast W)^nW^{m-n}e_0,e_0)=(W^{m-n}e_0,e_0).</script><p>If $m=n$, then $(e_m,e_n)=(e_0,e_0)=1$. Hence it is reduced to prove that $(W^ke_0,e_0)=0$ for all $k&gt;0$. First of all we have</p>
+<script type="math/tex; mode=display">
+(We_0,e_0)=(e_0,e_0)-(C^\ast e_0,e_0)=1-(C^\ast e_0,e_0)</script><p>meanwhile</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+    (C^\ast e_0,e_0) &= \int_0^1 \left(\int_x^1 \frac{1}{t}dt \right)dx \\
+                     &= \int_0^1(-\ln{x})dx \\
+                     &= (-x\ln{x}+x)|_0^1 = 1
+\end{aligned}</script><p>Hence $We_0 \perp e_0$. Suppose now we have $(W^{k-1}e_0,e_0)=0$, then</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+    (W^ke_0,e_0)&=(WW^{k-1}e_0,e_0) \\
+                &=((I-C^\ast)W^{k-1}e_0,e_0) \\
+                &= (W^{k-1}e_0,e_0)-(C^\ast W^{k-1}e_0,e_0) \\
+                &= -(W^{k-1}e_0,C e_0) \\
+                &= -\int_0^1W^{k-1}e_0(x)\frac{1}{x}\left(\int_0^xdt\right)dx \\
+                &= -\int_0^1 W^{k-1}e_0(x)\frac{1}{x} \cdot x dx \\
+                &= -(W^{k-1}e_0,e_0) \\
+                &= 0.
+
+\end{aligned}</script><p>Note $W^ke_0 \in L^2(0,\infty)$ always vanishes when $x \geq 1$: when we are doing inner product, $[1,\infty)$ is automatically excluded. With these being said, $(W^ne_0)_{n \geq 0}$ forms a orthonormal set. By The Hausdorff Maximality Theorem, it is contained in a maximal orthonormal set. But since $H=L^2(0,1)$ is separable (admitting a countable basis, <a target="_blank" rel="noopener" href="https://math.stackexchange.com/questions/2290144/l2-is-separable-for-regular-borel-measures-on-mathbb-rd">proof</a>), $(W^ke_0)_k$ forms a basis of $H$. From now on we write $\{e_n\}$. </p>
+<p>To find the involution $R$, note first $W=I-C^\ast$ is already unitary (also, if it is not unitary, then it cannot be a bilateral shift, we have nothing to prove), whose inverse or adjoint is $W^\ast=I-C$ as we have proved earlier. Hence we have</p>
+<script type="math/tex; mode=display">
+Re_0=e_{-1}=(I-C)e_0=\chi_{(0,1)}-\frac{1}{x}\int_0^xdt = -\frac{1}{x}\chi_{[1,\infty)}</script><p>But we have no idea what $R$ is exactly. We need to find it manually (or we have to guess). First of all it shall be guaranteed that $RH=H^\perp$. Since $H$ contains all $L^2$ functions vanish on $[1,\infty)$, functions in $RH$ should vanish on $(0,1)$. It is natural to put $R(f)(x)=g(x)f\left( \frac{1}{x}\right)$ for the time being. $g$ should be determined by $e_{-1}$. Note $e_0\left(\frac{1}{x}\right)=\chi_{[1,\infty)}$ almost everywhere, we shall put $g(x)=-\frac{1}{x}$. It is then clear that $Re_0=W^{-1}e_0$ and $RH=H^\perp$. For the third condition, we need to show that</p>
+<script type="math/tex; mode=display">
+W \circ R \circ W = R.</script><p>Note</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+W \circ R \circ W(f) &= W \circ R \left(f(x)-\int_x^\infty\frac{1}{t}f(t)dt\right) \\
+                     &= W \left(-\frac{1}{x}f\left(\frac{1}{x}\right)+\frac{1}{x}\int_{1/x}^{\infty}f(t)dt \right) \\
+                     &= -\frac{1}{x}f\left(\frac{1}{x}\right)+\underbrace{\frac{1}{x}\int_{1/x}^{\infty}f(t)dt + \int_x^\infty \frac{1}{t^2}f\left(\frac{1}{t}\right)dt + \int_x^\infty \frac{1}{t^2}\int_{1/t}^{\infty}f(u)du}_{=0 \text{ by Fubini's theorem, similar to proving }CC^\ast=C+C^\ast.} \\
+                     &= R(f).
+\end{aligned}</script><p><strong>Step 2 - With these, $W$ in step 1 has to be a simple bilateral shift</strong> </p>
+<p>This is independent to the spaces chosen. To finish the proof, we need a lemma:</p>
+<blockquote>
+<p>Suppose $K$ is a Hilbert space, $H$ is a subspace and $e_0 \in H$. $W$ is a unitary operator such that $W^ne_0 \in H$ for all $n \geq 0$ and $\{e_n=W^ne_0\}_{n \geq 0}$ forms a orthonormal basis of $H$. $R$ is a unitary involution on $K$ such that</p>
+<script type="math/tex; mode=display">
+Re_0 = W^{-1}e_0 \quad RH=H^\perp \quad R \circ W = W^{-1} \circ R</script><p>then $W$ is a simple bilateral shift.</p>
+</blockquote>
+<p>Indeed, objects mentioned in step 1 fit in this lemma. To begin with, we write $e_n=W^ne_0$ for all $n \in \mathbb{Z}$. Then $\{e_n\}$ is an orthonormal set because for arbitrary $m,n \in \mathbb{Z}$, there is a $j \in \mathbb{Z}$ such that $m+j,n+j \geq 0$. Therefore</p>
+<script type="math/tex; mode=display">
+(e_m,e_n)=(W^je_m,W^je_n)=(W^{m+j}e_0,W^{n+j}e_0)=(e_{m+j},e_{n+j})=\delta_{m+j,n+j}=\delta_{m,n}.</script><p>Since $(e_0,e_1,\cdots)$ spans $H$, $RH=H^{\perp}$, we see $(Re_0,Re_1,\cdots)$ spans $H^{\perp}$. But</p>
+<script type="math/tex; mode=display">
+Re_n=RW^ne_0=W^{-n}Re_0=W^{-n-1}e_0=e_{-n-1},</script><p>hence $\{e_{-1},e_{-2},\cdots\}$ spans $H^\perp$. By definition of $W$, it is indeed a bilateral shift. And our proof is done $\square$</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li>Walter Rudin, <em>Functional Analysis</em>.</li>
+<li>Arlen Brown, P. R. Halmos, A. L. Shields, <em>Cesàro operators</em>.</li>
+</ul>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"><a href="../../../../tags/Exercise-solution/" class="post-tags__link button"># Exercise solution</a><a href="../../../../tags/Walter-Rudin/" class="post-tags__link button"># Walter Rudin</a><a href="../../../../tags/Functional-Analysis/" class="post-tags__link button"># Functional Analysis</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../24/Curse-of-Knowledge/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            Curse of Knowledge
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../../05/26/left-shift/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            Left Shift Semigroup and Its Infinitesimal Generator
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2021/07/08/Cesaro-operator-in-L2/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

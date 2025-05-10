@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>The concept of generalised functions (distributions) and derivatives | Desvl&#39;s blog</title>
+
+
+    <meta name="keywords" content="Study new content">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="In this post, we study the concept of generalised functions (a.k.a. distributions), and let&#39;s see how to evaluate the derivative no matter the function is differentiable or not.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The concept of generalised functions (distributions) and derivatives">
+<meta property="og:url" content="https://desvl.xyz/2021/08/16/the-concept-of-distribution/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="In this post, we study the concept of generalised functions (a.k.a. distributions), and let&#39;s see how to evaluate the derivative no matter the function is differentiable or not.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-08-16T09:27:24.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:10.604Z">
+<meta property="article:author" content="Desvl">
+<meta property="article:tag" content="Study new content">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        The concept of generalised functions (distributions) and derivatives
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2021/08/" class="post-meta__date button">2021-08-16</a>
+        
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/" class="button">Analysis</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/Functional-Analysis/" class="button">Functional Analysis</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#A-function-of-bad-blood-among-physicists"><span class="toc-number">1.</span> <span class="toc-text">A function of bad blood among physicists</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#On-backgrounds"><span class="toc-number">2.</span> <span class="toc-text">On backgrounds</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Motivation-the-vector-space-of-distributions"><span class="toc-number">3.</span> <span class="toc-text">Motivation: the vector space of distributions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What-is-distribution-and-extended-differentiation-exactly"><span class="toc-number">4.</span> <span class="toc-text">What is distribution and extended differentiation exactly</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Distribution-derivative"><span class="toc-number">4.1.</span> <span class="toc-text">Distribution derivative</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Why-integration-by-parts"><span class="toc-number">4.2.</span> <span class="toc-text">Why integration by parts</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Product-rule-of-differentiation"><span class="toc-number">4.3.</span> <span class="toc-text">Product rule of differentiation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Dirac-delta-distribution"><span class="toc-number">4.4.</span> <span class="toc-text">Dirac delta distribution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Topology"><span class="toc-number">5.</span> <span class="toc-text">Topology</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Topology-attempt-1-norm"><span class="toc-number">5.1.</span> <span class="toc-text">Topology attempt 1 - norm</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Topology-attempt-2-enhancement"><span class="toc-number">5.2.</span> <span class="toc-text">Topology attempt 2 - enhancement</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Continuity-and-category"><span class="toc-number">5.3.</span> <span class="toc-text">Continuity and category</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Calculus-of-distributions"><span class="toc-number">6.</span> <span class="toc-text">Calculus of distributions</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Absolute-continuity"><span class="toc-number">6.1.</span> <span class="toc-text">Absolute continuity</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Convergence-uniform"><span class="toc-number">6.2.</span> <span class="toc-text">Convergence (uniform?)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Convolution"><span class="toc-number">6.3.</span> <span class="toc-text">Convolution</span></a></li></ol></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#A-function-of-bad-blood-among-physicists"><span class="toc-number">1.</span> <span class="toc-text">A function of bad blood among physicists</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#On-backgrounds"><span class="toc-number">2.</span> <span class="toc-text">On backgrounds</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Motivation-the-vector-space-of-distributions"><span class="toc-number">3.</span> <span class="toc-text">Motivation: the vector space of distributions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What-is-distribution-and-extended-differentiation-exactly"><span class="toc-number">4.</span> <span class="toc-text">What is distribution and extended differentiation exactly</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Distribution-derivative"><span class="toc-number">4.1.</span> <span class="toc-text">Distribution derivative</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Why-integration-by-parts"><span class="toc-number">4.2.</span> <span class="toc-text">Why integration by parts</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Product-rule-of-differentiation"><span class="toc-number">4.3.</span> <span class="toc-text">Product rule of differentiation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Dirac-delta-distribution"><span class="toc-number">4.4.</span> <span class="toc-text">Dirac delta distribution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Topology"><span class="toc-number">5.</span> <span class="toc-text">Topology</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Topology-attempt-1-norm"><span class="toc-number">5.1.</span> <span class="toc-text">Topology attempt 1 - norm</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Topology-attempt-2-enhancement"><span class="toc-number">5.2.</span> <span class="toc-text">Topology attempt 2 - enhancement</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Continuity-and-category"><span class="toc-number">5.3.</span> <span class="toc-text">Continuity and category</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Calculus-of-distributions"><span class="toc-number">6.</span> <span class="toc-text">Calculus of distributions</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Absolute-continuity"><span class="toc-number">6.1.</span> <span class="toc-text">Absolute continuity</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Convergence-uniform"><span class="toc-number">6.2.</span> <span class="toc-text">Convergence (uniform?)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Convolution"><span class="toc-number">6.3.</span> <span class="toc-text">Convolution</span></a></li></ol></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>To begin with we consider a calculus problem that you may have seen in your exam:</p>
+<blockquote>
+<p>Let $f$ be a <em>continuous</em> function on $[0,\infty)$ that $\lim_{x \to \infty} f(x)=l$. Prove that</p>
+<script type="math/tex; mode=display">
+\int_0^\infty \frac{f(ax)-f(bx)}{x}\mathrm{d}x = (f(0)-l)\ln\frac{b}{a}</script></blockquote>
+<p>And we solve this problem as follows. Put $g(x)=f(x)-l$, then $\lim_{x \to \infty}g(x)=0$. Consider the two variable function $F(x,y)=-g’(xy)$ and the range $D=\{(x,y):x \ge 0, a \le y \le b\}$​, we have this result:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\iint_D F(x,y)\mathrm{d}x\mathrm{d}y &= \int_0^\infty\mathrm{d}x\int_a^b -g'(xy)\mathrm{d}y \\
+                                     &= \int_0^\infty \frac{g(ax)-g(bx)}{x}\mathrm{d}x \\
+                                     &= \int_a^b \mathrm{d}y \int_0^\infty -g'(xy)\mathrm{d}x \\
+                                     &= \int_a^b \frac{g(0)}{y}\mathrm{d}y \\
+                                     &=g(0)\ln\frac{b}{a} \\
+\end{aligned}</script><p>Substituting $g(x)$​ with $f(x)-l$​ gives exactly what we want, isn’t it? <strong>Well, the more analysis you learn, the more absurd this proof has been you will realise.</strong> If you write this in an exam you will get $0$​​ mark no matter what. There are two major mistakes:</p>
+<ol>
+<li>Can we change the order of integration? We have no idea. But it is certain that we cannot change the order with ease, and we have some <a href="2020/03/23/fubini-counterex-and-why/">counterexamples</a>.</li>
+<li>Is this function <em>even</em> differentiable? We also have no idea. It is <em>almost certain</em> that $f$​ is not (the probability that $f$ is differentiable is $0$), see <a href="2020/07/04/nowhere-differentiable-functions/">this post</a> to learn why if you have some background in functional analysis.</li>
+</ol>
+<p>For a good proof, please turn to <a target="_blank" rel="noopener" href="https://math.stackexchange.com/a/1046094/614535">math.stackexchange</a>. This is not easy at all. </p>
+<p>The problem is, it is really <em>unfair</em> that in some circumstances we have to axe out all properties of differentiation. If you are studying differential equations, and a non-differentiable function pops up, you have no way to go. Sometimes, chances are that you even have <em>no idea</em> whether a function is differentiable. </p>
+<p>So this post is written. We introduce the concept of (Schwartz) <strong>distribution</strong> (a.k.a. <strong>generalised functions</strong>), where differentiation is significantly extended, to obtain <strong>derivative</strong> in a generalised sense. Roughly speaking, after distribution being introduced, differentiation can be done with absolute ease.</p>
+<h2 id="A-function-of-bad-blood-among-physicists"><a href="#A-function-of-bad-blood-among-physicists" class="headerlink" title="A function of bad blood among physicists"></a>A <em>function</em> of bad blood among physicists</h2><p>In fact, physicists have been using distribution long before mathematicians established formal theories. For example the $\delta$​​ <em>function</em> introduced by Dirac that you may have met in Fourier transform:</p>
+<script type="math/tex; mode=display">
+\delta(x) = \begin{cases}\infty &\quad x=0, \\ 0&\quad \text{others} .\end{cases}</script><p>And it is required that</p>
+<script type="math/tex; mode=display">
+\int_{-\infty}^{\infty}\delta(x)\mathrm{d}x=1.</script><p>But this does not make any sense in calculus. Von Neumann, in his book on quantum physics, warned against the theory using this function, and dismissed this function because this was a “fiction”. Not so pleasant. He tried with a lot of effort to demonstrate that, quantum physics could live without such a “fiction”. As you can imagine, this function may have created some bad blood between von Neumann and Dirac. </p>
+<p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Laurent_Schwartz">Laurent Schwartz</a> however, managed to be a peacemaker. He developed the theory of distribution (which is exactly what we are talking about in this post), and the “fiction” became an easy “fact”. Years later, he became the 1950 Fields Medalist (one of the most prestigious medal/awards in mathematics) at the age of 35 with reason</p>
+<blockquote>
+<p>Developed the theory of distributions, a new notion of generalized function motivated by the Dirac delta-function of theoretical physics. (<a target="_blank" rel="noopener" href="https://www.mathunion.org/fileadmin/IMU/Prizes/Fields/1950/index.html">Source</a>)</p>
+</blockquote>
+<p>As you can see later, thanks to Schwartz, the twisted $\delta$ function is well-defined and is really plain and elegant. So von Neumann didn’t need to be angry later.</p>
+<h2 id="On-backgrounds"><a href="#On-backgrounds" class="headerlink" title="On backgrounds"></a>On backgrounds</h2><p>By <em>concept</em> I mean, I will try to include basic ideas (without many proofs though they can be delivered), so that the serious study of it can be simpler (it can be really tough!). It is not possible that you can solve problems on distributions after reading this post. </p>
+<p>There will be two parts. Part one focus on motivation and what is going on. I will try to make it readable to many people having finished calculus or more ideally undergraduate analysis and linear algebra, though rigour is not always guaranteed. It would be better if you know some differential equation theory, but that’s not a must. If you already have the background to read part 2, then part 1 is much easier for you and therefore is served as a good source of intuition and motivation.</p>
+<p>If you still need to understand differentiation in single-variable calculus, then you have no need to struggle on generalised differentiation at an early point. It does not help. The requirements of linear algebra are vector spaces, subspaces and linear maps. You should know that integration and differentiation are linear maps. This is a graduate course topic, it is not realistic to assume reader to have no idea about calculus and linear algebra. </p>
+<p>The second part will be much more advanced, and you are expected to have some background in topological vector spaces (functional analysis). Both parts cannot be considered as a lecture note but they may help you find where you are when you study this concept seriously.</p>
+<h1 id="Part-I-Integration-by-Parts"><a href="#Part-I-Integration-by-Parts" class="headerlink" title="Part I - Integration by Parts"></a>Part I - Integration by Parts</h1><p>Throughout, we consider functions on $\mathbb{R}$​​ with real value. These theories can be generalised to $\mathbb{R}^n$​​ with complex value where partial derivative can take part in, but we are not doing that here. At the end of the day, these work would not be a big deal.</p>
+<h2 id="Motivation-the-vector-space-of-distributions"><a href="#Motivation-the-vector-space-of-distributions" class="headerlink" title="Motivation: the vector space of distributions"></a>Motivation: the vector space of distributions</h2><p>In calculus, a lot of functions we study are smooth (for example, $y=\sin{x}$), and we write $C^\infty$ as they are <em>infinitely differentiable</em>. This is a vector space and this vector space differentiation can be done <em>with absolute ease</em>. For given $f \in C^\infty$, we have $f’,f’’,\cdots,f^{(k)}$ well defined for all $k = 1,2,\cdots$. But in vector spaces like $C^2$, $C^1$, or even $C$, differentiation can only be done with caution: we may only have $f’’$ and no $f^{(3)}$, or even $f’$ does not exist. We don’t <em>feel like</em> this kind of caution. Hence we introduce the concept of <strong>distribution</strong> which is also known as <strong>generalised functions</strong>. We want a space where we can still do differentiation with absolute ease. We may need to <em>modify</em> our definition of differentiation such that it works on every continuous functions (but it shall not lost its meaning within $C^\infty$​). Bearing these in mind, we have several settings or expectations for distributions:</p>
+<blockquote>
+<ol>
+<li>Every continuous function should be (considered as) a distribution. (So we can take <em>derivatives</em> for all continuous functions without to many worry. Unlike the calculus problem at the beginning.)</li>
+<li>The “modified differentiation” should make sure that the “modified derivative” of a distribution is still a distribution. In other words, distributions are “infinitely differentiable” (which makes differential equation theory much easier). In the language of algebra, the “modified derivative” should be an endomorphism. </li>
+<li>The usual formal rules of calculus should hold. For example in the new sense we should still have $(fg)’=f’g+g’f$​​. (Our modified differentiation should not go to far.)</li>
+<li>Convergence properties should also be available. (Validating this requires more theories so this can only be mentioned in part 2.)</li>
+</ol>
+</blockquote>
+<p>Let’s write our desired distribution as $\mathscr{D}’$​​​, and all continuous functions $C$​​​. All $C,C^\infty,\mathscr{D}’$​​​​ are considered as real vector spaces and we should have</p>
+<script type="math/tex; mode=display">
+C^\infty \subset C \subset \mathscr{D}'</script><p>in the sense of subspaces. </p>
+<h2 id="What-is-distribution-and-extended-differentiation-exactly"><a href="#What-is-distribution-and-extended-differentiation-exactly" class="headerlink" title="What is distribution and extended differentiation exactly"></a>What is distribution and <em>extended</em> differentiation exactly</h2><blockquote>
+<p>Here is a breakdown of these concepts. You will see terminologies and definitions later.</p>
+<ul>
+<li>A smooth, continuous or more generally, locally integrable function, give rise to a bounded linear functional. The converse is not guaranteed to be true, but we <em>pretend</em> it to be true, so all <strong>bounded linear functionals</strong> give rise to distributions, a.k.a. generalised functions (this name is nice because we <em>pretend</em> the converse to be true). <strong>Whenever you are asked what is generalised function, you can say, it is a linear map, and sometimes it can be determined by a normal function.</strong></li>
+<li>For these distributions or generalised functions, we modify the derivative with respect to integration by parts. The modified derivative cannot be put down explicitly but we don’t care, because integration by parts doesn’t give us many problems. <strong>Whenever you are asked how the derivative of a non-differentiable function is given, you can say, it is given by pretending nothing wrong in integration by parts.</strong></li>
+</ul>
+</blockquote>
+<p>We now try to understand what we really what about distribution. We start our study through integration, <strong>because differentiation does not work</strong>. Given $f \in C \subset \mathscr{D}’$, we first need to make sure $\int f\phi$ is well-defined, for <em>some</em> $\phi\in C^\infty$​, because we want to do integration by parts, which involves <strong>some differentiation</strong>, and we may make use of it.</p>
+<p> If $f$​ is not even a continuous function, we still need to consider <em>some</em> $\phi$ in the same manner, or our extension would be abrupt.</p>
+<p>Let’s talk about these $\phi$​​​ a little bit, with respect to integration by parts. Consider the bump function</p>
+<script type="math/tex; mode=display">
+\phi(x) = \begin{cases} \exp(\frac{1}{(x-a)(x-b)}) & \quad a < x < b, \\ 0 &\quad  \text{ otherwise. }\end{cases}</script><p>On $(a,b)$, we have $ \phi\ne 0$. On the boundary $a$ and $b$ we have $\phi(x)=0$ but that shouldn’t be a problem, because they are the alpha and omega. Points outside $[a,b]$ have no contribution to the value of this function. For some obvious reason we call $[a,b]$ the <em>closure</em> of $(a,b)$. In general, given a real-valued function $f$, we call the closure of the set of points where $f(x) \ne 0$ the <strong>support</strong> of $f$. As you can tell, the support of $\phi$ is $[a,b]$.</p>
+<p>If $\phi$ has unbounded support (the support of a function $f$ is the closure of the set of points $x$ where $f(x) \ne 0$), then we may need to discuss limit at infinity. But we don’t want improper integrals at all. Hence the support of $\phi$ are always assumed to be <strong>closed and bounded</strong> subset of $\mathbb{R}$ It is closed because it is defined to be a closure. These closed and bounded sets are called <em>compact</em> sets. If you are not familiar with topology, it is OK at this moment to consider compact sets as bounded closed interval $[a,b]$.</p>
+<p>The test function space $\mathscr{D}$ is defined to be all $C^\infty$ functions with compact support. This is indeed a vector space and the verification is a good excise on both linear algebra and calculus. What about $\mathscr{D}’$​​​? Here we demonstrate how things are extended. </p>
+<p>For each $f \in C$​ (which contains $C^\infty$​​), we have a functional (a functional is a linear map between a vector space and its base field, here is $\mathbb{R}$. Nothing special, just a different name that has been used by mathematicians for decades!)</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+    \Lambda_f: \mathscr{D} &\to \mathbb{R}, \\
+                \phi &\mapsto \int f\phi.
+\end{aligned}</script><p>This functional is <strong>bounded</strong> for all $\phi \in \mathscr{D}$ because if $\phi$ has support $K$​​, then</p>
+<script type="math/tex; mode=display">
+|\Lambda_f(\phi)|=\left|\int_K f\phi\right|  \le \left(\int_K |f| \right)\sup_{x \in K}|\phi|.</script><p>A continuous function on a compact set is always bounded (<a target="_blank" rel="noopener" href="https://proofwiki.org/wiki/Continuous_Function_on_Compact_Space_is_Bounded">proof</a>), hence the integral on the right hand side is always bounded. If it touches infinity a lot of problems are also touched. </p>
+<p>In general, a <strong>bounded linear functional</strong> $\Lambda:\mathscr{D} \to \mathbb{R}$​ is called a <em>distribution</em>, which forms $\mathscr{D}’$​​​ exactly.​ Since every continuous function $f$ gives rise to a unique bounded functional $\Lambda_f$, we consider $C$ as a subspace of $\mathscr{D}’$​. Such a function give rise to a functional, which is called distribution. The converse is not generally true, but we <em>pretend</em> it to be true (we pretend the functional gives rise to a function anyway), which makes our study easier, hence the name <em>generalised function</em> is well-deserved.</p>
+<h3 id="Distribution-derivative"><a href="#Distribution-derivative" class="headerlink" title="Distribution derivative"></a>Distribution derivative</h3><p>Differential operator $D$ in $C^\infty$ should be extended naturally into $\mathscr{D}’$​ naturally. There are many ways to extend a linear function. For example the identity map $i:\mathbb{R} \to \mathbb{R}$ has at least two ways to be extended into $\mathbb{R}^2$:</p>
+<ol>
+<li>$I:\mathbb{R}^2 \to \mathbb{R}^2$​ by $(x,y) \mapsto (x,y)$​.</li>
+<li>$\pi:\mathbb{R}^2 \to \mathbb{R}$​ by $(x,y) \mapsto x$​.</li>
+</ol>
+<p>The restriction of these two maps on $\mathbb{R}$ is the same as $i$. </p>
+<p>But if we extend $D$​​ in several ways, things would be messy. Originally derivative is defined in the sense of limit, but for a non-differentiable function, we cannot do that. We need an extension that makes most sense: it is by validating <strong>integration by parts</strong>. It seems like we are developing some advanced concepts, but still we need to make use of elementary ones.</p>
+<p>For $f(x)=\sin{x}$ and $\phi \in \mathscr{D}$, we have</p>
+<script type="math/tex; mode=display">
+\Lambda_{f'}(\phi)=\int f'\phi = \int \phi\cos{x} = \underbrace{\phi\sin{x}|_{-\infty}^{\infty}}_{\text{zero}} -\int \phi'\sin x=-\Lambda_f(\phi')</script><p>The derivative of $f$ is assigned to the derivative of $\phi$. Again we are using integration by parts. If $f$ is not assumed to be differentiable, we <em>pretend</em> it is, skip the body and jump to the result immediately. For example, $f(x)=|x|$ is not differentiable, but we do that anyway:</p>
+<script type="math/tex; mode=display">
+\int |x|'\phi = -\int |x|\phi'.</script><p>In general for $f \in C^\infty$, we have (this can be verified by some computation)</p>
+<script type="math/tex; mode=display">
+\Lambda_{D^k f}(\phi)=\int D^k f \phi = (-1)^k \int fD^k\phi = (-1)^k \Lambda _f(D^k\phi).</script><p>Differentiation for distributions (on top of $C^\infty$ functions) should be in the same <strong>shape</strong>, hence we define the $k$-th <strong>distribution derivative</strong> of a distribution $\Lambda$ by</p>
+<script type="math/tex; mode=display">
+D^k\Lambda: \phi \mapsto (-1)^{k}\Lambda(D^k\phi).</script><p>Since all $\phi$ are assumed to be of $C^\infty$, there are no problem with this formula and this differentiation is defined for all $\Lambda$​. We don’t care about first order limit on a continuous but not differentiable function. What matters here is the differentiation on test functions.</p>
+<h3 id="Why-integration-by-parts"><a href="#Why-integration-by-parts" class="headerlink" title="Why integration by parts"></a>Why integration by parts</h3><p>Try to recall what you have learnt about integration by parts. We have</p>
+<script type="math/tex; mode=display">
+\int uv' = \int (uv)' - \int u'v</script><p>because</p>
+<script type="math/tex; mode=display">
+(uv)' = u'v+uv'.</script><p>Therefore, if our generalisation of differentiation (though we do not know how to do yet) pays respect to integration by parts, then we can still work on product rule of differentiation, hence the usual formal rules of calculus would not go too far. If our extension conflicts with integration by parts, then the ordinary meaning of differentiation is damaged.</p>
+<hr>
+<p>Let’s sum up what has happened. We have obtained an inclusion</p>
+<script type="math/tex; mode=display">
+C^\infty \subset C \subset \mathscr{D}'.</script><p>Every distribution is infinitely differentiable because functions in $\mathscr{D}$ are. If $f \in C^\infty$, then the $k$-th derivative can be understood in both the sense of ordinary differentiation and the sense of distribution because it is given by</p>
+<script type="math/tex; mode=display">
+\phi \mapsto (-1)^k\int f \phi^{(k)} = \int f^{(k)}\phi\quad \forall \phi \in \mathscr{D}.</script><p>This is independent to the choice of $\phi$​​. If $h$ is a function such that $\int h\phi = \int f^{(k)}\phi$, then $h=f^{(k)}$.</p>
+<p>If $f$​ is merely continuous, still we can write the $k$​​-th derivative as</p>
+<script type="math/tex; mode=display">
+\phi \mapsto (-1)^{k} \int f \phi^{(k)} \quad \forall \phi \in \mathscr{D}.</script><p>At this point, whether $f$​ is differentiable or not is not of our concern. Since $\phi$​​ is smooth, the formula above is well-defined. In general we don’t even care whether $f$​​ is continuous or even integrable, as long as it gives rise to a <strong>bounded</strong> linear functional, which can be guaranteed by  being <em>locally integrable</em>. A function is locally integrable if $\int_K |f|&lt;\infty$ for all compact $K \subset \mathbb{R}$. In particular, $K$ can be taken to be any bounded closed interval. <strong>As long as $f$​​ is locally integrable (for example, differentiable, continuous, or simply bounded), we can assign <em>derivative</em> in the new sense (integration by parts).</strong></p>
+<h3 id="Product-rule-of-differentiation"><a href="#Product-rule-of-differentiation" class="headerlink" title="Product rule of differentiation"></a>Product rule of differentiation</h3><p>We want something like $(fg)’=f’g+fg’$​. To avoid confusion we use $D$​ to denote the derivative on distribution and $f’$​ to denote the derivative in the ordinary sense. This is pretty hard but for a multiplication of a $C^\infty$​ function and a distribution it is not that hard. Suppose $\Lambda \in \mathscr{D}’$​ and $f \in C^\infty$​. We define their ‘product’ by</p>
+<script type="math/tex; mode=display">
+(f\Lambda)(\phi) = \Lambda(f\phi).</script><p>We have another distribution and derivative follows in a natural way:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+    D(f\Lambda)(\phi) &=-(f\Lambda)(\phi') \\
+                      &= -\Lambda(f\phi') \\
+\end{aligned}</script><p>Meanwhile</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+(f'\Lambda+fD\Lambda)(\phi) &= \Lambda(f'\phi)+D\Lambda(f\phi) \\
+                            &= \Lambda(f'\phi)-\Lambda(f'\phi+f\phi') \\
+                            &=-\Lambda(f\phi').
+\end{aligned}</script><p>Things still work in this aspect.</p>
+<p>We haven’t verify convergence yet, but that requires much more knowledge on functional analysis, so we don’t do that here but in part 2. Fortunately, things would go in an intuitive way.</p>
+<h3 id="Dirac-delta-distribution"><a href="#Dirac-delta-distribution" class="headerlink" title="Dirac delta distribution"></a>Dirac delta distribution</h3><p>Consider the linear functional on $\mathscr{D}$ by</p>
+<script type="math/tex; mode=display">
+\delta(\phi)=\phi(0).</script><p>This is bounded and is in fact our rigour definition of Dirac $\delta$ function (Von Neumann can relax then!). It does have the <em>required property</em>. Say, if we realise this function as integration (informally) as</p>
+<script type="math/tex; mode=display">
+\delta(\phi)=\int \delta\phi=\phi(0) \quad \forall \phi \in \mathscr{D},</script><p>then $\delta$​ can indeed be considered as a <em>function</em> whose support is the origin, and the integral over $\mathbb{R}$ is $1$.</p>
+<p>The <em>derivative</em> of $\delta$ is well-presented as well. Note $\delta’(\phi)=\delta(\phi’)$, hence we have</p>
+<script type="math/tex; mode=display">
+\delta'(\phi)=\phi'(0).</script><hr>
+<p>So much for part 1. If you don’t have many background in functional analysis, then part 2 is not recommended, as you have no idea what is going on at all. It is not feasible to make part 2 to be readable to more people.</p>
+<h1 id="Part-II-Topology-and-Calculus-a-Overview"><a href="#Part-II-Topology-and-Calculus-a-Overview" class="headerlink" title="Part II - Topology and Calculus  - a Overview"></a>Part II - Topology and Calculus  - a Overview</h1><p>Here we provide some basic facts of test functions and distributions, assuming the reader some background in functional analysis. No proof is delivered because if I do this post can be as long as I want. I hope by organising facts here I can help you realise what is going on before you drown yourself in details of a proof. It is recommended to see the table of content on the right hand side first if you are on PC. </p>
+<h2 id="Topology"><a href="#Topology" class="headerlink" title="Topology"></a>Topology</h2><p>In brief, test functions are smooth functions with compact support. By the <strong>support</strong> of a function we mean the <em>closure</em> of the set $\{x:f(x) \ne 0\}$​. Let $K$​ be a compact set in $\mathbb{R}$​, then $\mathscr{D}_K$​ denotes a subspace of $C^\infty$​ whose support lies in $K$​​. Since a closed subset of a compact set itself is compact, we see all functions in $\mathscr{D}_K$​ have compact support. </p>
+<p>Test function space is defined by</p>
+<script type="math/tex; mode=display">
+\mathscr{D} := \bigcup_{K \text{ compact}}\mathscr{D}_K.</script><p>And the distribution space $\mathscr{D}’$​​ is defined to be the dual space of $\mathscr{D}$​​, i.e. the space of <em>continuous</em> linear functionals of $\mathscr{D}$​​. But if we don’t know the topology of $\mathscr{D}$​​, we cannot proceed. <em>Here is how we attempt to establish the norm.</em></p>
+<h3 id="Topology-attempt-1-norm"><a href="#Topology-attempt-1-norm" class="headerlink" title="Topology attempt 1 - norm"></a>Topology attempt 1 - norm</h3><p>Consider the norm for $\phi \in \mathscr{D}$ for all $N=0,1,2,\cdots$ by</p>
+<script type="math/tex; mode=display">
+\| \phi \|_N = \sup_{x \in \mathbb{R}; n \le N}|D^nf|.</script><p>This induces a local base</p>
+<script type="math/tex; mode=display">
+V_N = \left\{ \phi \in \mathscr{D}_K:\|\phi\|_N \le \frac{1}{N} \right\} \quad (N=1,2,3,\cdots).</script><p>And we get a locally convex metrisable topology on $\mathscr{D}$. </p>
+<p>If this topology makes $\mathscr{D}$ a Banach space, then it would be fantastic - a lot of Banach space technique can be used. However, this topology is too <em>small</em> to be complete. One simply need to consider this sequence:</p>
+<script type="math/tex; mode=display">
+\psi_m(x)=\phi(x-1)+\frac{1}{2}\phi(x-2)+\cdots+\frac{1}{m}\phi(x-m)</script><p>where $\phi \in \mathscr{D}_{[0,1]}$ and $\phi&gt;0$ on $(0,1)$. This sequence is Cauchy but the limit has no bounded support hence does not lie in $\mathscr{D}$.</p>
+<h3 id="Topology-attempt-2-enhancement"><a href="#Topology-attempt-2-enhancement" class="headerlink" title="Topology attempt 2 - enhancement"></a>Topology attempt 2 - enhancement</h3><p>This time we do an <em>enhancement</em> on the previous topology, which makes $\mathscr{D}$ a locally convex topological space, which is complete and has the Heine-Borel property (closed and bounded set is compact and vice versa). We still need the topology defined in our first attempt. It is broken into three steps:</p>
+<blockquote>
+<ol>
+<li>For each compact set $K$, let $\tau_K$​ denote the subspace topology of $\mathscr{D}$ defined in attempt 1.</li>
+<li>Let $\beta$ be the collection of all convex balanced set $W \subset \mathscr{D}$ such that $\mathscr{D}_K \cap W \in \tau_K$ for all compact $K$​. (A set $W$ is balanced if $\alpha{W} \subset W$ for all $|\alpha| \le 1$.)</li>
+<li>The new topology $\tau$ is defined to be the collection of all unions of sets of the form $\phi + W$ with $\phi \in \mathscr{D}$ and $W \in \beta$.</li>
+</ol>
+</blockquote>
+<p>This is the topology we want, and one can indeed verify that $\tau$ is a topology, with local base $\beta$. This topology has the following properties:</p>
+<blockquote>
+<ol>
+<li>$\tau$ makes $\mathscr{D}$ a locally convex topological vector space.</li>
+<li>$\mathscr{D}$ has the Heine-Borel property.</li>
+<li>In $\mathscr{D}$, every Cauchy sequence converges.</li>
+</ol>
+</blockquote>
+<p>Locally, <strong>the topology of $\mathscr{D}_K$​ is the same as $\tau_K$​​​</strong>. Hence we can still use properties of these norms if we want. In fact, this $\tau_K$ makes $\mathscr{D}_K$​​​ a Fréchet space, i.e. locally compact and complete metric space.</p>
+<h3 id="Continuity-and-category"><a href="#Continuity-and-category" class="headerlink" title="Continuity and category"></a>Continuity and category</h3><p>We cannot discuss continuity without topology. But still continuity has to be treated carefully. For example the space $L^p([0,1])$ with $0&lt;p&lt;1$​​ is weird: the dual space is trivial, due to its topology: the only two open convex sets are empty set and itself. Fortunately we have the following, which is quite intuitive.</p>
+<blockquote>
+<p>Suppose $\Lambda$ is a linear mapping of $\mathscr{D}$ into a locally compact convex space $Y$ (which can be $\mathbb{R}$, $\mathbb{C}$ or $\mathscr{D}$​ itself). Then the following are equivalent:</p>
+<ol>
+<li>$\Lambda$ is continuous. (We care about the behaviour of $\mathscr{D}’$)</li>
+<li>$\Lambda$ is bounded. (You must have learnt the equivalence of 1 and 2 already)</li>
+<li>$\phi_i \to 0$ in $\mathscr{D}$ implies $\Lambda\phi_i \to 0$ in $Y$.</li>
+<li>The restriction of $\Lambda$ to every $\mathscr{D}_K$ is continuous.</li>
+</ol>
+</blockquote>
+<p>In particular, it follows that the differential operator $D^n$ is continuous for all $n$​. We also have some knowledge of the behaviour of $\mathscr{D}’$ now:</p>
+<blockquote>
+<p>If $\Lambda$ is a linear functional on $\mathscr{D}$, then the following are equivalent:</p>
+<ol>
+<li>$\Lambda \in \mathscr{D}’$.</li>
+<li>To every compact set $K$ there corresponds a nonnegative integer $N$ and a constant $C&lt;\infty$ such that the inequality </li>
+</ol>
+<script type="math/tex; mode=display">
+|\Lambda\phi| \le C \|\phi\|_N</script><p>holds for every $\mathscr{D}_K$.</p>
+</blockquote>
+<hr>
+<p>Consider the Dirac distribution on $x$ given by</p>
+<script type="math/tex; mode=display">
+\delta_x(\phi)=\phi(x)\quad \phi \in \mathscr{D}.</script><p>This is indeed a distribution. The case when $x=0$ gives us the Dirac function in physics. Note</p>
+<script type="math/tex; mode=display">
+\mathscr{D}_K = \bigcap_{x \in K^c}\ker\delta_x,</script><p>$\mathscr{D}_K$ is a <strong>closed subspace</strong> of $\mathscr{D}$. Since $\mathscr{D}_K$ is also nowhere dense, and there is a countable collection of $K_i \subset \mathbb{R}$ (for example $K_i=[-i,i]$) such that $\mathscr{D} = \bigcup \mathscr{D}_i$ (of the first category), and $\mathscr{D}$ itself is complete, by <a href="2020/06/06/big-3-pt-1/">Baire’s Category Theorem</a>, $\mathscr{D}$ is not metrisable. This is a flaw of the topology of $\mathscr{D}$, though is not that troublesome.</p>
+<h2 id="Calculus-of-distributions"><a href="#Calculus-of-distributions" class="headerlink" title="Calculus of distributions"></a>Calculus of distributions</h2><p>We have shown that every $C^\infty$ functions can be considered as a distribution. In general, for a function $f$ one only need to require that $f$ is <strong>locally integrable</strong>, i.e. for every compact set $K$ we have</p>
+<script type="math/tex; mode=display">
+\int_K |f|<\infty.</script><p>If we define $\Lambda_f:\phi \mapsto \int f\phi$, we see</p>
+<script type="math/tex; mode=display">
+|\Lambda_f(\phi)|\le \left( \int_K |f| \right)\sup|\phi|, \quad \phi \in \mathscr{D}_K.</script><p>In particular, at the very least, all $L^1$​​ functions can be considered as distributions. </p>
+<p>On the other hand, if $\mu$ is a positive measure on $\mathbb{R}$ with $\mu(K)&lt;\infty$ for all compact $K$, then</p>
+<script type="math/tex; mode=display">
+\Lambda_\mu:\phi \to \int \phi d\mu</script><p>also defines a distribution.</p>
+<h3 id="Absolute-continuity"><a href="#Absolute-continuity" class="headerlink" title="Absolute continuity"></a>Absolute continuity</h3><p>We know the fundamental theorem of calculus in $L^1$ only hold when the function $f$​ is <em>absolutely continuous</em>. The Cantor function $f$ is differentiable almost everywhere on $[0,1]$ but</p>
+<script type="math/tex; mode=display">
+\int_0^1 f'(x)\mathrm{d}x = 0, \quad f(1)-f(0)=1.</script><p>This restriction still makes sense here. Pick $f$ to be a left-continuous function with bounded variation. Then it can be shown that</p>
+<script type="math/tex; mode=display">
+D\Lambda_f = \Lambda_\mu</script><p>where $\mu([a,b))=f(b)-f(a)$​​. Hence $D\Lambda_f=\Lambda_{Df}$ if and only if $f$ is <em>absolutely continuous</em>.</p>
+<h3 id="Convergence-uniform"><a href="#Convergence-uniform" class="headerlink" title="Convergence (uniform?)"></a>Convergence (uniform?)</h3><p>We consider the weak*-topology of $\mathscr{D}’$ by</p>
+<script type="math/tex; mode=display">
+\Lambda_i \to \Lambda: \lim_{i \to \infty}\Lambda_i\phi = \Lambda\phi \quad \forall \phi \in \mathscr{D}.</script><p>Then fortunately this limit operator commutes with differential operator in a natural way, which may remind you of uniform convergence. In fact,</p>
+<script type="math/tex; mode=display">
+\Lambda_i \to \Lambda \implies \Lambda \in \mathscr{D} \text{ and }D^k\Lambda_i \to D^k\Lambda \quad \forall k=1,2,\cdots.</script><p>To prove this one needs Banach-Steinhaus theorem. Here concludes our four requirements of distributions.</p>
+<h3 id="Convolution"><a href="#Convolution" class="headerlink" title="Convolution"></a>Convolution</h3><p>Convolution plays an important role in Fourier analysis, and here is how to invite distribution to the party. </p>
+<p>Normally for two $L^1$ functions $f,g$ we define </p>
+<script type="math/tex; mode=display">
+(f \ast g)(x)=\int_\mathbb{R}f(y)g(x-y)\mathrm{d}y.</script><p>We can create more symbols to make life easier:</p>
+<ol>
+<li>$\tau_xu(y)=u(y-x)$.</li>
+<li>$\check{u}(y)=u(-y)$.</li>
+</ol>
+<p>It follows that $\tau_x\check{u}(y)=\check{u}(y-x)=u(x-y)$. Hence</p>
+<script type="math/tex; mode=display">
+(f \ast g)(x) = \int_\mathbb{R} f(y)(\tau_x\check{g})(y)\mathrm{d}y.</script><p>It shows that $g \to (f \ast g)(x)$ is actually a linear functional of $\Lambda_f$, $\tau_x$ and $g \mapsto \check{g}$. But $\Lambda_f$ itself can be a distribution, hence we define convolution for a distribution and a smooth function by</p>
+<script type="math/tex; mode=display">
+L \ast \phi(x) = L(\tau_x\check{\phi}), \quad L \in \mathscr{D}', \phi \in \mathscr{D}.</script><p>Convolution can be characterised in a natural way. In fact, for any $T:\mathscr{D} \to C^\infty$, if </p>
+<script type="math/tex; mode=display">
+\tau_x T = T\tau_x,</script><p>then there is a unique $L \in \mathscr{D}’$ such that</p>
+<script type="math/tex; mode=display">
+T\phi = L\ast \phi.</script><p>As you can imagine, this setting creates a lot of potentials for Fourier transform. </p>
+<h1 id="References-and-Further-Reading"><a href="#References-and-Further-Reading" class="headerlink" title="References and Further Reading"></a>References and Further Reading</h1><ul>
+<li>Walter Rudin, <em>Functional Analysis</em>, Second Edition. (Part II of the book)</li>
+<li>Peter Lax, <em>Functional Analysis</em>. (Appendix B)</li>
+<li><a target="_blank" rel="noopener" href="https://stanford.library.sydney.edu.au/archives/fall2018/index.html">Stanford Encyclopedia of Philosophy Archive (Fall 2018 Edition)</a>, Quantum Theory: von Neumann vs. Dirac.</li>
+</ul>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"><a href="../../../../tags/Study-new-content/" class="post-tags__link button"># Study new content</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../../10/02/ba-algebra/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            The Banach Algebra of Borel Measures on Euclidean Space
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../../07/24/Curse-of-Knowledge/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            Curse of Knowledge
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2021/08/16/the-concept-of-distribution/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

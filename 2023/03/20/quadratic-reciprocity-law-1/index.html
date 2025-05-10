@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>The Quadratic Reciprocity Law | Desvl&#39;s blog</title>
+
+
+    <meta name="keywords" content="Serre">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="In this post we deliver the basic computation of the quadratic reciprocity law and see its importance in algebraic number theory.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Quadratic Reciprocity Law">
+<meta property="og:url" content="https://desvl.xyz/2023/03/20/quadratic-reciprocity-law-1/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="In this post we deliver the basic computation of the quadratic reciprocity law and see its importance in algebraic number theory.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-03-20T11:12:03.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:10.356Z">
+<meta property="article:author" content="Desvl">
+<meta property="article:tag" content="Serre">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        The Quadratic Reciprocity Law
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2023/03/" class="post-meta__date button">2023-03-20</a>
+        
+    <span class="separate-dot"></span><a href="../../../../categories/Number-Theory/" class="button">Number Theory</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Number-Theory/Algebraic-Number-Theory/" class="button">Algebraic Number Theory</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Number-Theory/Elementary-Number-Theory/" class="button">Elementary Number Theory</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Basic-Computation"><span class="toc-number">1.</span> <span class="toc-text">Basic Computation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Gauss%E2%80%99s-Quadratic-Reciprocity-Law"><span class="toc-number">2.</span> <span class="toc-text">Gauss’s Quadratic Reciprocity Law</span></a></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Basic-Computation"><span class="toc-number">1.</span> <span class="toc-text">Basic Computation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Gauss%E2%80%99s-Quadratic-Reciprocity-Law"><span class="toc-number">2.</span> <span class="toc-text">Gauss’s Quadratic Reciprocity Law</span></a></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>Historically, thanks to Gauss, the quadratic reciprocity law marked the beginning of algebraic number theory. Therefore it it deserves a good dose of attention. However, whacking the definition to the beginner would not work pretty well.</p>
+<p>We consider the equation</p>
+<script type="math/tex; mode=display">
+x^2+by = a,\; (a,b\in \mathbb{Z}),</script><p>one of the simplest non-trivial multi-variable Diophantine equations that can be imagined. Trying to violently search all solutions without any precaution is not wise. Therefore we consider reductions first. In order that $x^2+by=a$ has a solution, it is necessary that</p>
+<script type="math/tex; mode=display">
+x^2 \equiv a \pmod{b}.</script><p>Then the Chinese remainder theorem inspires us to first look into the case when $b$ is a prime. The case when $b=2$ is excluded because we are only allowed to study whether $x$ is odd or even. </p>
+<p>Therefore we study the equation $x^2=a$ in the finite field of order $p$ where $p \ne 2$. We give a very straightforward characterisation, which is seemingly stupid. For $a \in \mathbf{F}_p^\ast$, define</p>
+<script type="math/tex; mode=display">
+\left(\frac{a}{p}\right)=\begin{cases}
+\;\;\;1 & \text{$x^2=a$ has at least one solution in $\mathbf{F}_p$,} \\
+-1 & \text{$x^2=a$ has no solution in $\mathbf{F}_p$.}
+\end{cases}</script><p>It is also convenient to define $\left(\frac{0}{p}\right)=0$. </p>
+<p>This post will start with an equivalent form that is easier to compute (although less intuitive).  Then we will demonstrate how to do basic computation of it, and finally we try to view it in a view of algebraic number theory.</p>
+<h1 id="Elementary-Observations"><a href="#Elementary-Observations" class="headerlink" title="Elementary Observations"></a>Elementary Observations</h1><h2 id="Basic-Computation"><a href="#Basic-Computation" class="headerlink" title="Basic Computation"></a>Basic Computation</h2><p>We begin with a simplified formula for the Legendre symbol. </p>
+<blockquote>
+<p><strong>Proposition 1.</strong> $\left(\frac{a}{p}\right) = a^\frac{p-1}{2}$ for $a \in \mathbf{F}_p^\ast$.</p>
+</blockquote>
+<p>N.B. The power on the right hand side is taken in the corresponding finite field. For example, $\left(\frac{2}{3}\right)=2=-1$ in $\mathbf{F}_3$. By abuse of language, we identify integers $1$ and $-1$ with its canonical images in the finite field.</p>
+<p><em>Proof.</em> Notice that $\left(\frac{a}{p}\right)=1$ if and only if $a \in \mathbf{F}_p^{\ast 2}$. The rest comes from the following lemma which deserves to be stated separately in a more general literature. $\square$</p>
+<blockquote>
+<p><strong>Lemma 1.</strong> Let $p$ be a prime (it can be $2$ this time) and $K$ a finite field of order $q=p^n$ for some $n&gt;0$. Then</p>
+<ol>
+<li><p>If $p=2$, then all elements of $K$ are squares.</p>
+</li>
+<li><p>If $p \ne 2$, then the squares $K^{\ast 2}$ of $K^\ast$ form a subgroup of index $2$ in $K^*$; it is the kernel of the map $p:x \mapsto x^{(q-1)/2}$ from $K^\ast $ to $\{-1,1\}$.</p>
+<p>To be precise, one has an exact sequence of cyclic groups:</p>
+<script type="math/tex; mode=display">
+1 \to K^{\ast 2} \to K^\ast \xrightarrow{p} \{1,-1\} \to 1.</script></li>
+</ol>
+</blockquote>
+<p><em>Proof.</em> The first case is a restatement on the condition of Frobenius endomorphism being an automorphism (see <a target="_blank" rel="noopener" href="https://ncatlab.org/nlab/show/Frobenius+morphism#for_fields_2">nlab</a>). For the second case, let $\overline{K}$ be an algebraic closure of $K$. If $x \in K^\ast$, let $y \in \overline{K}$ be a square root of $x$, i.e. such that $y^2=x$. We have</p>
+<script type="math/tex; mode=display">
+y^{q-1}=x^{(q-1)/2} = \pm 1 \;\text{ since }x^{q-1}=1.</script><p>Since $x \in K^{\ast 2}$ if and only if $y \in K^\ast$, which is equivalent to $y^{q-1}=p(x)=1$, one has $\ker p = K^{\ast 2}$. The rest follows from elementary calculation. $\square$ </p>
+<p>You need to recall or study basic structures of finite fields. For example, a finite field is always of prime power order. All finite fields of order $p^n$ are isomorphic, uniquely determined as a subfield of an algebraic closure of $\mathbf{F}_p$, being the splitting field of the polynomial $X^{p^n}-X$. Besides, the multiplicative group of a finite field is cyclic. </p>
+<p>From proposition 1 it follows that</p>
+<blockquote>
+<p><strong>Corollary 1.</strong> For any prime number $p \ne 2$,</p>
+<ol>
+<li>The Legendre symbol is multiplicative, i.e. $\left(\frac{ab}{p}\right)=\left(\frac{a}{p}\right)\left(\frac{b}{p}\right)$.</li>
+<li>$\left(\frac{1}{p}\right)=1$</li>
+<li>$\left(\frac{-1}{p}\right)=(-1)^{\varepsilon(p)}$ where $\varepsilon(p)=\frac{p-1}{2} \pmod{2}$.</li>
+</ol>
+</blockquote>
+<p>The harder thing to compute is the Legendre symbol when $a=2$.</p>
+<blockquote>
+<p><strong>Proposition 2.</strong> One has $\left(\frac{2}{p}\right)=(-1)^{\omega(p)}$ where $\omega(p)=\frac{p^2-1}{8}\pmod{2}$.</p>
+</blockquote>
+<p>We want to find a square root of $2$, i.e. an element $y$ satisfying $y^2=2$ so that computing $2^{(p-1)/2}$ becomes computing $y^{p-1}$. This is not a easy job, and we do not expect to find it inside the field. For example, $\left(\frac{2}{3}\right)=2=-1$ and $\left(\frac{2}{5}\right)=4=-1$, meaning there is not such a $y$ in $\mathbf{F}_3$ and $\mathbf{F}_5$. However, there is an easy way to generate a $2$. Consider $y=\alpha+\alpha^{-1}$, then $y^2=2+\alpha^2+\alpha^{-2}$. If we have $\alpha^2+\alpha^{-2}=0$ then we are done. To find such an $\alpha$, notice that $\alpha^2+\alpha^{-2}=0$ implies that $\alpha^4+1=0$. Therefore $\alpha^8=1$. It suffices to use a primitive $8$th root of unity.</p>
+<p><em>Proof.</em> Let $\alpha$ be a primitive $8$th root of unity in a algebraic closure $\Omega$ of $\mathbf{F}_p$. Then $y=\alpha+\alpha^{-1}$ verifies $y^2=2$. Since $\Omega$ has characteristic $p$, we have</p>
+<script type="math/tex; mode=display">
+y^p=\alpha^p+\alpha^{-p}.</script><p>Observe that if $p \equiv 1 \pmod{8}$, then $y^p=\alpha+\alpha^{-1}=y$ (we used the fact that $\alpha$ is an $8$th root of unity). Therefore $y^{p-1}=\left(\frac{2}{p}\right)=1$. This inspires us to determine $y^{p-1}$ through the relation between $p$ and $8$. As $p$ is odd, there are four possibilities: $p\equiv 1,3,5,7 \pmod{8}$.</p>
+<p>If $p \equiv 7 \pmod{8}$, i.e. $p \equiv -1 \pmod{8}$, we still have $y^p=\alpha^{-1}+\alpha=y$. Therefore $\left(\frac{2}{p}\right)=1$ whenever $p \equiv \pm 1 \pmod{8}$. This discovery inspires us to study $p \equiv \pm 5 \pmod{8}$ together. When this is the case, one finds $y^p=\alpha^5+\alpha^{-5}$. Since $\alpha^4=\alpha^{-4}=-1$ (the primitivity of $\alpha$ matters here), $y^p$ becomes $-(\alpha+\alpha^{-1})=-y$. Cancelling $y$ on both sides, we obtain $y^{p-1}=\left(\frac{2}{p}\right)=-1$. To conclude,</p>
+<script type="math/tex; mode=display">
+\left(\frac{2}{p}\right)=\begin{cases}
+1 &p\equiv \pm 1\pmod{8} \\
+-1 & p\equiv \pm 5 \pmod{8}
+\end{cases}</script><p>It remains to justify the $\omega$ function as above. We need to find a function $\omega(n)$ such that $\omega(n) \equiv 0 \pmod 2$ when $p \equiv \pm 1 \pmod 8$ and $\omega(n) \equiv 1 \pmod 2$ when $p \equiv \pm 5 \pmod 8$. If we square $p$, we can ignore the difference of the signs:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+p&=8k \pm 1 \implies p^2=64k^2\pm 16k+1 \implies p^2-1=8 \cdot 2 \cdot (4k^2\pm k), \\
+p&=8k \pm 5 \implies p^2=64k^2\pm 80k +25 \implies p^2-1 = 8 \cdot (8k^2\pm10k+3).
+\end{aligned}</script><p>Therefore, whether $(p^2-1)/8$ is odd or even is completely determined by the remainder of $p$ modulo $8$. We therefore put $\omega(p)=(p^2-1)/8$ and this concludes our proof. $\square$</p>
+<p>To conclude in simpler form, we have</p>
+<ul>
+<li>$1$ is always a square root in a finite field.</li>
+<li>$-1$ is a square root in $\mathbf{F}_p$ if and only if $\frac{p-1}{2}$ is even, i.e., $p \equiv 1 \pmod{4}$.</li>
+<li>$2$ is a square root in $\mathbf{F}_p$ if and only if $\frac{p^2-1}{8}$ is even, i.e. $p \equiv \pm 1 \pmod{8}$.</li>
+</ul>
+<h2 id="Gauss’s-Quadratic-Reciprocity-Law"><a href="#Gauss’s-Quadratic-Reciprocity-Law" class="headerlink" title="Gauss’s Quadratic Reciprocity Law"></a>Gauss’s Quadratic Reciprocity Law</h2><p>Nevertheless, you do not want to compute $\left(\frac{37}{53}\right)$ by hand in the basic way as above. However, granted the following law, things is much easier.</p>
+<blockquote>
+<p><strong>Proposition 3 (Gauss’s Quadratic Reciprocity Law).</strong> For two distinct odd prime numbers $p$ and $\ell$, the following identity holds:</p>
+<script type="math/tex; mode=display">
+\left(\frac{\ell}{p}\right)\left(\frac{p}{\ell}\right)=(-1)^{\varepsilon(p)\varepsilon(\ell)}.</script><p>Alternatively,</p>
+<script type="math/tex; mode=display">
+\left(\frac{\ell}{p}\right)=\left(\frac{p}{\ell}\right)(-1)^{\varepsilon(\ell)\varepsilon(p)}.</script></blockquote>
+<p>Instead of computing $37^{(53-1)/2}$ modulo $53$, we obtain $\left(\frac{37}{53}\right)$ in a much easier way</p>
+<script type="math/tex; mode=display">
+\left(\frac{37}{53}\right)=\left(\frac{53}{37}\right)=\left(\frac{16}{37}\right)=\left(\frac{2}{37}\right)^4=1.</script><p>In other words, there exist solutions of the equation $x^2+53y=37$. </p>
+<p>The proof is carried out by Gauss sum. The proof looks contrived, but one can see a lot of important tricks. We will use corollary 1.1 frequently.</p>
+<p><em>Proof.</em> Again, let $\Omega$ be an algebraic closure of $\mathbf{F}_p$, and let $\omega \in \Omega$ be a primitive $\ell$-th root of unity. If $x \in \mathbf{F}_\ell$, then $\omega^x$ is well-defined. Thus it is legitimate to write the “Gauss sum”:</p>
+<script type="math/tex; mode=display">
+y = \sum_{x \in \mathbf{F}_\ell}\left(\frac{x}{\ell}\right)\omega^x.</script><p>Following the inspiration of what we have done in proposition 2, we study $y^2$ and $y^{p-1}$ again. The second one is quick.</p>
+<blockquote>
+<p> <strong>Claim 1.</strong> $y^{p-1}=\left(\frac{p}{\ell}\right)$.</p>
+</blockquote>
+<p>To show claim $1$, we notice that, as $\Omega$ is of characteristic $p$, we have</p>
+<script type="math/tex; mode=display">
+y^p = \sum_{x \in \mathbf{F}_\ell}\left(\frac{x}{p}\right)\omega^{xp}=\sum_{z \in \mathbf{F}_\ell}\left(\frac{zp^{-1}}{\ell}\right)\omega^z=\left(\frac{p^{-1}}{\ell}\right)\sum_{z \in \mathbf{F}_\ell}\left(\frac{z}{\ell}\right)\omega^z = \left(\frac{p^{-1}}{\ell}\right)y</script><p>and therefore</p>
+<script type="math/tex; mode=display">
+y^{p-1}=\left(\frac{p^{-1}}{\ell}\right)=\left(\frac{p}{\ell}\right).</script><blockquote>
+<p><strong>Claim 2.</strong> $y^2 = \left(\frac{-1}{\ell}\right)\ell$ (by abuse of language, $\ell$ (the one outside the Legendre symbol) is used to denote the image of $\ell$ in the field $\mathbf{F}_p$.)</p>
+</blockquote>
+<p>Notice that</p>
+<script type="math/tex; mode=display">
+y^2= \sum_{x,z \in \mathbf{F}_\ell}\left(\frac{xz}{\ell}\right)\omega^{x+z}=\sum_{u \in \mathbf{F}_\ell}\omega^u\left(\sum_{t \in \mathbf{F}_\ell}\left(\frac{t(u-t)}{\ell}\right)\right)=\sum_{u \in \mathbf{F}_\ell}\omega^u\left(\sum_{t \in \mathbf{F}_\ell^\ast}\left(\frac{t(u-t)}{\ell}\right)\right).</script><p>Terms where $t=0$ are ignored safely. Then we notice that</p>
+<script type="math/tex; mode=display">
+\left(\frac{t(u-t)}{\ell}\right)=\left(\frac{-t^2}{\ell}\right)\left(\frac{1-ut^{-1}}{\ell}\right)=\left(\frac{-1}{\ell}\right)\left(\frac{t^2}{\ell}\right)\left(\frac{1-ut^{-1}}{\ell}\right)=\left(\frac{-1}{\ell}\right)\left(\frac{1-ut^{-1}}{\ell}\right).</script><p>For this reason we put</p>
+<script type="math/tex; mode=display">
+C_u=\sum_{t \in \mathbf{F}_\ell^\ast}\left(\frac{1-ut^{-1}}{\ell}\right).</script><p>It follows that</p>
+<script type="math/tex; mode=display">
+y^2 = \left(\frac{-1}{\ell}\right)\sum_{u \in \mathbf{F}_\ell}C_u\omega^u.</script><p>It remains to compute the coefficients $C_u$. We see</p>
+<script type="math/tex; mode=display">
+C_0 = \sum_{t \in \mathbf{F}_\ell^{\ast}}\left(\frac{1}{\ell}\right)=\sum_{t \in \mathbf{F}_\ell^\ast}1=\ell-1.</script><p>When $u \ne 0$, the term $s=1-ut^{-1}$ runs over all of $\mathbf{F}_\ell$ except $1$. Therefore</p>
+<script type="math/tex; mode=display">
+C_u=\sum_{s \in \mathbf{F}_\ell}\left(\frac{s}{\ell}\right)-\left(\frac{1}{\ell}\right)=-\left(\frac{1}{\ell}\right)=-1,</script><p>since $[\mathbf{F}_\ell:\mathbf{F}_\ell^2]=2$ (read: exactly half of the elements of $\mathbf{F}_\ell$ are squares, the rest are not). Therefore</p>
+<script type="math/tex; mode=display">
+y^2=\left(\frac{-1}{\ell}\right)(\ell-1-w-w^2-\dots-w^{\ell-1})</script><p>Recall that $1-\omega^\ell=(1-\omega)(1+\omega+\dots+\omega^{\ell-1})=0$. As $\omega$ is a primitive root, we see $\omega \ne 1$ and therefore $1+\omega+\dots+\omega^{-\ell-1}=0$. The result follows.</p>
+<p>Finally, the reciprocity follows because</p>
+<script type="math/tex; mode=display">
+y^{p-1}=(y^2)^{\frac{p-1}{2}}=\left(\frac{\left(\frac{-1}{\ell}\right)\ell}{p}\right)=\left(\frac{p}{\ell}\right).</script><p>We invite the reader to expand the identity above using corollary 1 and see the result. $\square$</p>
+<h1 id="Observation-from-Algebraic-Number-Theory"><a href="#Observation-from-Algebraic-Number-Theory" class="headerlink" title="Observation from Algebraic Number Theory"></a>Observation from Algebraic Number Theory</h1><p>In this section we introduce some observation from a point of view of algebraic number theory without complete proofs.</p>
+<p>Let $p$ be an odd prime, and $\zeta_p$ a primitive $p$-th root of unity. We have seen that the Gauss’s sum</p>
+<script type="math/tex; mode=display">
+S_p = \sum_{x \in \mathbf{F}_p}\xi_p^x</script><p> satisfies the relation</p>
+<script type="math/tex; mode=display">
+S^2_p=\left(\frac{-1}{p}\right)p \implies \sqrt{p}=\sqrt{\left(\frac{-1}{p}\right)}S_p.</script><p>Therefore the field $\mathbb{Q}(\sqrt{p})$ is contained in $\mathbb{Q}(\zeta_p)$ or $\mathbb{Q}(\zeta_p,i)$, depending on the sign of $\left(\frac{-1}{p}\right)$. The first one is a cyclotomic extension of $\mathbb{Q}$ by definition. The second one is not, but is a finite abelian extension of $\mathbb{Q}$. However, every finite abelian extension of $\mathbb{Q}$ is a subfield of a cyclotomic field. See <a target="_blank" rel="noopener" href="https://math.mit.edu/classes/18.785/2015fa/LectureNotes19.pdf">this note</a>. To conclude,</p>
+<blockquote>
+<p>Every field of the form $\mathbb{Q}(\sqrt{p})$ lies in a subfield of $\mathbb{Q}(\zeta_m)$ for some $m&gt;1$.</p>
+</blockquote>
+<p>Solving the equation $x^2 \equiv a \pmod p$ also inspires us to look at the quadratic field $K=\mathbb{Q}(\sqrt{a})$. For simplicity we assume that $a$ is square free. If $\left(\frac{a}{p}\right)=1$, then there exists $\alpha \in \mathbb{Z}$ such that</p>
+<script type="math/tex; mode=display">
+x^2-a \equiv (x-\alpha)(x+\alpha)\pmod p.</script><p>This equation is interesting because on the left hand side we actually have the minimal polynomial of $K$, namely $p(x)=x^2-a$. The equation split completely modulo $p$. The relation above actually signifies that there exists prime ideals $\mathfrak{P}_1,\mathfrak{P}_2\subset \mathfrak{o}_k$ such that</p>
+<script type="math/tex; mode=display">
+(p)=\mathfrak{P}_1^{e_1}\mathfrak{P}_2^{e_2}</script><p>where the <strong>ramification indices</strong> $e_1=e_2=1$. This says the prime ideal $(p)$ is <strong>totally split</strong> in $\mathbb{Q}(\sqrt{a})$. Conversely, if $(p)$ is totally split in $\mathbb{Q}(\sqrt{a})$ (where $(a,p)=1$ for sure), then $\left(\frac{a}{p}\right)=1$. To conclude,</p>
+<blockquote>
+<p>The Legendre symbol $\left(\frac{a}{p}\right)=1$ if and only if $(p)$ totally splits in $\mathbb{Q}(\sqrt{a})$.</p>
+</blockquote>
+<p>In fact, one can have a more profound observation of number fields which will imply the quadratic reciprocity law:</p>
+<blockquote>
+<p>Let $\ell$ and $p$ be two distinct odd primes, $S_\ell=\left(\frac{-1}{\ell}\right)\ell$, then $(p)$ is totally split in $\mathbb{Q}(S_\ell)$ if and only if $(p)$ splits totally into two an even number of prime ideals in $\mathbb{Q}(\zeta_\ell)$.</p>
+</blockquote>
+<p>Besides you may want to know about <a target="_blank" rel="noopener" href="https://websites.math.leidenuniv.nl/algebra/artin.pdf">Artin’s reciprocity</a> which generalised Gauss’s reciprocity, but that’s quite advanced topic (class field theory). This also shows the significance of quadratic reciprocity law. </p>
+<h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><ul>
+<li>Jean-Pierre Serre, A Course in Arithmetic</li>
+<li>Jürgen Neukirch, Algebraic Number Theory</li>
+<li>Serge Lang, Algebraic Number Theory</li>
+</ul>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"><a href="../../../../tags/Serre/" class="post-tags__link button"># Serre</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../../04/06/projective-rep-so3/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            Projective Representations of SO(3)
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../../02/13/vague-convergence/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            Vague Convergence in Measure-theoretic Probability Theory - Equivalent Conditions
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2023/03/20/quadratic-reciprocity-law-1/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

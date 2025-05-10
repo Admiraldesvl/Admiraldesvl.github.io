@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>Examples in Galois Theory 2 - Cubic Extensions | Desvl&#39;s blog</title>
+
+
+    <meta name="keywords" content="Galois, Examples in Galois Theory">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="We study the Galois group of a cubic polynomial over a field with characteristic not equal to 2 and 3.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Examples in Galois Theory 2 - Cubic Extensions">
+<meta property="og:url" content="https://desvl.xyz/2022/03/27/galois-example-2/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="We study the Galois group of a cubic polynomial over a field with characteristic not equal to 2 and 3.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-03-27T14:30:54.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:09.968Z">
+<meta property="article:author" content="Desvl">
+<meta property="article:tag" content="Galois">
+<meta property="article:tag" content="Examples in Galois Theory">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        Examples in Galois Theory 2 - Cubic Extensions
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2022/03/" class="post-meta__date button">2022-03-27</a>
+        
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/" class="button">Algebra</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/Group-Theory/" class="button">Group Theory</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/Galois-Theory/" class="button">Galois Theory</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <p>Let $K$ be a field of characteristic $\ne 2$ and $3$. In this post we discuss the Galois group of a cubic polynomial $f$ over $K$. The process is not very hard but there are some quite non-trivial observations.</p>
+<p>Let $k$ be an arbitrary field and suppose $f(X) \in k[X]$ is separable and, i.e., $f$ has no multiple roots in an algebraic closure, and of degree $\ge 1$. Let</p>
+<script type="math/tex; mode=display">
+f(X)=(X-x_1)\cdots(X-x_n)</script><p>be its factorisation in a splitting field $F$. Put $G=G(L/k)$. We say that $G$ is the Galois group of $f$ over $k$. Let $x_i$ be a root of $f$ and pick any $\sigma \in G$. By definition of Galois group, we see $\sigma(x_i)$ is still a root of $f$ (consider the map $\tilde\sigma:L[X] \to L[X]$ induced by $\sigma$ naturally; it is the identity when restricted to $k[X]$). This is to say, elements of $G$ permutes the roots of $f$.</p>
+<p>For example, consider $L=\mathbb{C}$, $k=\mathbb{R}$, $f(X)=X^2+1$. The Galois group $G$ contains two elements and is generated by complex conjugation $\sigma:a+bi \mapsto a-bi$. A root of $f$ is $i$, and $\sigma(i)=-i$ is another root.</p>
+<p>Based on this fact, we can consider $G$ as a subgroup of $\mathfrak{S}_n$, where $n$ is the degree of $f$. The structure of $\mathfrak{S}_n$ can be extremely complicated, but for now we assume that they are well-known. The question is, what subgroup is $G$ inside $\mathfrak{S}_n$. Let’s take a look into the case when $n=3$.</p>
+<p>To begin with we note that we can assume that the quadratic term is $0$. Let $f(X)=X^3+aX^2+bX+c$ be a polynomial, then</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+f\left(X-\frac{a}{3}\right) &= \left( X-\frac{a}{3}\right)^3+a\left( X-\frac{a}{3}\right)^2+b\left( X-\frac{a}{3}\right)+c \\
+&= X^3-aX^2+\frac{a^2}{3}X-\frac{a^3}{27} + aX^2-\frac{6a^3}{3}X+\cdots
+\end{aligned}</script><p>and as a result $aX^2$ is cancelled. A translation does not change any property of a polynomial except the value of its roots. Therefore we can reduce our study to polynomials in the depressed form</p>
+<script type="math/tex; mode=display">
+f(X)=X^3+aX+b.</script><p>In fact, for all $g(X)=X^n+a_{n-1}X^{n-1}+\dots+a_0$, we can cancel out $a_{n-1}X^{n-1}$ by a substitution $Y=X-\frac{a_{n-1}}{n}$.</p>
+<h1 id="Irreducibility"><a href="#Irreducibility" class="headerlink" title="Irreducibility"></a>Irreducibility</h1><p>Now back to our main story. First of all we study irreducibility. If $f$ is irreducible, then clearly it has no root in $K$. On the other hand, if $f$ has no root in $K$, does that mean $f$ is irreducible over $K$? This does not hold in general for all polynomials. For example, the polynomial $g(X)=(X^2+1)^2$ is not irreducible yet it has no root in $\mathbb{R}$ or $\mathbb{Q}$. But fortunately, $3$ is a beautiful number and we can proceed. Were $f$ irreducible, there would be a factorisation</p>
+<script type="math/tex; mode=display">
+f(X)=p_1(X)p_2(X)</script><p>with each $p_i(X)$ being a proper factor of $f(X)$. However, this is to say, at least one of $p_i(X)$ has degree $1$. A contradiction. We therefore have a result as follows:</p>
+<blockquote>
+<p><strong>Proposition 1.</strong> Let $f(X)$ be a cubic polynomial in $K[X]$ where $\operatorname{char}K=0,5,7,\dots$, then $f$ is irreducible over $K$ if and only if $f$ has no root in $K$.</p>
+</blockquote>
+<h1 id="The-Galois-group"><a href="#The-Galois-group" class="headerlink" title="The Galois group"></a>The Galois group</h1><p>Notation being above, we assume that $f$ is irreducible. Let $L$ be the splitting field of $f$. We claim that $f$ is separable. Before proving the claim, one should notice that the characteristic matters a lot. For example, $X^3-2$ is irreducible over $\mathbb{Q}$ but $X^3-2=(X+1)^3$ over $\mathbf{F}_3[X]$ and we therefore have a triple root.</p>
+<p>$f$ is separable if and only if $\gcd(f,f’)=0$. The derivative of $f$, which should be simplified because $f$ has been, is given by</p>
+<script type="math/tex; mode=display">
+f'(X)=3X^2+a.</script><p>It is not equal to $a$ because the characteristic of $K$ is not $3$. We will show carefully that $f(X)$ is separable by working on these two polynomials.</p>
+<p>The first question is the value of $a$ and $b$. If some of them is $0$ then things may be easier or harder. Note first we must have $b \ne 0$ because if not then $f(X)=X(X^2+a)$ and this is not irreducible. If $a=0$, then $f(X)=X^3+b$ and $f’(X)=3X^2 \ne 0$ because $\operatorname{char}K \ne 3$. It follows that $(f,f’)=0$ because either $X$ or $X^2$ divides $X^3+b$. </p>
+<p>Now there only remains the most general case: $a \ne 0$ and $b \ne 0$. This is where the Euclidean Algorithm kicks in. Recall that for any three polynomials $p,q,r$ in $K[X]$, we have</p>
+<script type="math/tex; mode=display">
+\gcd(p,q)=\gcd(q,p)=\gcd(q,p+rq).</script><p>This is how the Euclidean Algorithm works. Note we can write</p>
+<script type="math/tex; mode=display">
+f(X)=\frac{1}{3}Xf'(X)+\underbrace{\frac{2}{3}aX+b}_{r_0(X)}.</script><p>It follows that $\gcd(f,f’)=\gcd(f’,r_0)$. We next work on $f’$ and $r_0$.</p>
+<script type="math/tex; mode=display">
+f'(X)=\frac{9}{2a}X\left(\frac{2}{3}aX+b\right)+\underbrace{\left(-\frac{9b}{2a}X+a\right)}_{r_1(X)}.</script><p>However, $r_0(X)$ and $r_1(X)$ has common divisor $0$, which implies that $f$ and $f’$ has common divisor $0$. Whichever the case is, we have $\gcd(f,f’)=0$ and therefore $f$ is separable. Note the fact that the characteristic of $K$ is not $2$ or $3$ is frequently used here, otherwise there are a lot of equations making no sense.</p>
+<p>Where we are at? We want to ensure that $f$ is separable so that working with the Galois group of $f$ is not that troublesome. And $f$ is. We now back to the study of the Galois group $G=G(L/K)$, where $L$ is the splitting field of $f$. Let $\alpha_1$, $\alpha_2$, $\alpha_3$ be the roots of $f$ and pick one of them as $\alpha$. We see $[K(\alpha):K]=3$.</p>
+<p>Since $G$ permutes three elements, $G$ has to be a subgroup of $\mathfrak{S}_3$. Therefore $|G|=[L:K] \ge [K(\alpha):K]=3$, which implies that $|G|=3$ or $6$. In the first case, $G=\mathfrak{A}_3$, the alternating group. In the second case, $G=\mathfrak{S}_3$ and $K(\alpha)$ is not normal over $K$ because, there is an irreducible polynomial $f(X) \in K[X]$ which has a root in $K(\alpha)$ that does not split into linear factors in $K(\alpha)$. This is the definition of normal extension.</p>
+<p>The question now is, when $G$ is $\mathfrak{S}_3$ and when it is $\mathfrak{A}_3$? We get a good chance to review finite group theory. This is answered by the sign of elements in $G$. To be precise, $G=\mathfrak{S}_3$ if and only if $G$ has an odd element. If not then $G=\mathfrak{A}_3$. To work with this, we recall how the sign function work. Put</p>
+<script type="math/tex; mode=display">
+\delta=(\alpha_1-\alpha_2)(\alpha_2-\alpha_3)(\alpha_3-\alpha_1).</script><p>For any $\sigma \in G$, we have $\sigma(\delta)=\varepsilon(\sigma)\delta$, where $\varepsilon(\sigma)$ is the sign of $\sigma$. If we put $\Delta=\delta^2$, which is the discriminant, we see $\sigma(\Delta)=\Delta$. Therefore $\Delta \in L^G=K$. But wait, since $\sigma(\delta)=\pm\delta$, the sign is not guaranteed, we see $\delta$ is not guaranteed to be in $K$. This is where we crack the problem.</p>
+<p>If $\delta \in K$, or more precisely, $\sqrt\Delta \in K$, then $\sigma(\delta)=\delta$ and it follows that $\varepsilon(\sigma)=1$ for all $\sigma \in G$. This can only happen if $G=\mathfrak{A}_3$.</p>
+<p>If $\sqrt\Delta \not\in K$, then $\delta$ is not fixed by $G$. There is some $\sigma \in G$ such that $\sigma(\delta)=-\delta$, which is to say that $\varepsilon(\sigma)=-1$. This can only happen when $G=\mathfrak{S}_3$.</p>
+<p>We have the following conclusion.</p>
+<blockquote>
+<p><strong>Proposition 2.</strong> Notation being above. Assume that $f$ is irreducible. Then the Galois group of $f$ is $\mathfrak{S}_3$ if and only if $\sqrt\delta \not\in K$. The group is $\mathfrak{A}_3$ if and only if $\sqrt\Delta \in K$.</p>
+</blockquote>
+<p>A dirty calculation shows that $\Delta=-4a^3-27b^2$. One can show this using <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Vieta%27s_formulas">Vieta’s formulas</a>. You shan’t feel this to be strange because in the quadratic case we have $\Delta=b^2-4ac$ and we did care if $\Delta&gt;0$, which amounts to whether $\sqrt\Delta \in \mathbb{R}$.</p>
+<hr>
+<p>Let’s conclude this post by a handy but nontrivial example. Consider</p>
+<script type="math/tex; mode=display">
+f(X)=X^3-X-1</script><p>The discriminant is $-4 \cdot(-1)^3-27 \cdot (-1)^2=-23$, which lies in $\mathbb{Q}(\sqrt{-23})$ and therefore the Galois group over it is $\mathfrak{A}_3$. However, when the base field is a subfield, for example, $\mathbb{Q}$, then the Galois group is $\mathfrak{S}_3$.</p>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"><a href="../../../../tags/Galois/" class="post-tags__link button"># Galois</a><a href="../../../../tags/Examples-in-Galois-Theory/" class="post-tags__link button"># Examples in Galois Theory</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../29/galois-example-3/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            Examples in Galois Theory 3 - Polynomials of Prime Degree and Pairs of Nonreal Roots
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../16/galois-example-1/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            Examples in Galois Theory 1 - Complex Field is Algebraically Closed
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2022/03/27/galois-example-2/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>线性空间的循环子空间与简单应用 | Desvl&#39;s blog</title>
+
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="矩阵的有理标准形矩阵对角化分解虽然会得到最简单的形式，但是条件是很苛刻的。它要求被分解的$n$阶矩阵有$n$个线性不相关的特征向量，具体地说，一个矩阵可对角化当且仅当对应特征值的几何重数等于对应的代数重数。还有可能需要扩张数域，例如实矩阵解出复根，考虑复特征向量。所以说这种分解不稳定。而且它并不能直接反映一个矩阵的所有性质。幸运的是，除了对角化分解之外还有一些不同的矩阵分解办法。虽然形式上不如对角">
+<meta property="og:type" content="article">
+<meta property="og:title" content="线性空间的循环子空间与简单应用">
+<meta property="og:url" content="https://desvl.xyz/2020/01/22/cyclic-decomposition/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="矩阵的有理标准形矩阵对角化分解虽然会得到最简单的形式，但是条件是很苛刻的。它要求被分解的$n$阶矩阵有$n$个线性不相关的特征向量，具体地说，一个矩阵可对角化当且仅当对应特征值的几何重数等于对应的代数重数。还有可能需要扩张数域，例如实矩阵解出复根，考虑复特征向量。所以说这种分解不稳定。而且它并不能直接反映一个矩阵的所有性质。幸运的是，除了对角化分解之外还有一些不同的矩阵分解办法。虽然形式上不如对角">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-01-21T23:00:00.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:09.828Z">
+<meta property="article:author" content="Desvl">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        线性空间的循环子空间与简单应用
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2020/01/" class="post-meta__date button">2020-01-22</a>
+        
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9F%A9%E9%98%B5%E7%9A%84%E6%9C%89%E7%90%86%E6%A0%87%E5%87%86%E5%BD%A2"><span class="toc-number">1.</span> <span class="toc-text">矩阵的有理标准形</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E7%A9%BA%E9%97%B4"><span class="toc-number">2.</span> <span class="toc-text">循环空间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9B%B6%E5%8C%96%E5%AD%90"><span class="toc-number">3.</span> <span class="toc-text">零化子</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E6%89%BE%E5%88%B0%E6%9C%80%E5%B0%8F%E9%9B%B6%E5%8C%96%E5%AD%90"><span class="toc-number">3.1.</span> <span class="toc-text">如何找到最小零化子</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E7%A9%BA%E9%97%B4%E7%9A%84%E7%BB%B4%E5%BA%A6%E3%80%81%E5%9F%BA"><span class="toc-number">3.2.</span> <span class="toc-text">循环空间的维度、基</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E7%A9%BA%E9%97%B4%E7%9A%84%E5%AE%9E%E4%BE%8B"><span class="toc-number">4.</span> <span class="toc-text">循环空间的实例</span></a></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9F%A9%E9%98%B5%E7%9A%84%E6%9C%89%E7%90%86%E6%A0%87%E5%87%86%E5%BD%A2"><span class="toc-number">1.</span> <span class="toc-text">矩阵的有理标准形</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E7%A9%BA%E9%97%B4"><span class="toc-number">2.</span> <span class="toc-text">循环空间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9B%B6%E5%8C%96%E5%AD%90"><span class="toc-number">3.</span> <span class="toc-text">零化子</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E6%89%BE%E5%88%B0%E6%9C%80%E5%B0%8F%E9%9B%B6%E5%8C%96%E5%AD%90"><span class="toc-number">3.1.</span> <span class="toc-text">如何找到最小零化子</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E7%A9%BA%E9%97%B4%E7%9A%84%E7%BB%B4%E5%BA%A6%E3%80%81%E5%9F%BA"><span class="toc-number">3.2.</span> <span class="toc-text">循环空间的维度、基</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E7%A9%BA%E9%97%B4%E7%9A%84%E5%AE%9E%E4%BE%8B"><span class="toc-number">4.</span> <span class="toc-text">循环空间的实例</span></a></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h3 id="矩阵的有理标准形"><a href="#矩阵的有理标准形" class="headerlink" title="矩阵的有理标准形"></a>矩阵的有理标准形</h3><p>矩阵对角化分解虽然会得到最简单的形式，但是条件是很苛刻的。它要求被分解的$n$阶矩阵有$n$个线性不相关的特征向量，具体地说，一个矩阵可对角化当且仅当对应特征值的几何重数等于对应的代数重数。还有可能需要扩张数域，例如实矩阵解出复根，考虑复特征向量。所以说这种分解不稳定。而且它并不能直接反映一个矩阵的所有性质。幸运的是，除了对角化分解之外还有一些不同的矩阵分解办法。虽然形式上不如对角矩阵一样简洁，但是却能体现不同的性质——例如对特征多项式的分解。而且，这些分解办法对任何矩阵都是可行的。</p>
+<p>首先要介绍的是<strong>有理标准形(rational form)</strong>。这里的“有理”和$\mathbb{Q}$没有关系。所谓“rational”是因为，不同于其他几种分解方式，这种分解不需要扩张数域。具体来说，对域$\mathbb{F}$上<strong>任意</strong>方阵$A$，存在$\mathbb{F}$上的可逆矩阵$P$使得 <script type="math/tex">B=P^{-1}AP=\text{diag}(C(m_1),\cdots,C(m_r))</script></p>
+<p>其中，$C(m_i)$是$m_i\in\mathbb{F}(\lambda)$的友阵(companion matrix)，是由$\mathbb{F}$上的多项式$m_i$唯一决定的。这些多项式也是由$A$唯一决定的，叫做矩阵的不变因子。</p>
+<p>这些多项式也有特殊的性质(这也是这种分解的意义所在)。首先，$m_1$是$A$的最小多项式，$A$的特征多项式可以表示为$f(\lambda)=m_1\cdots{m_r}$。在顺序上，应该有$m_i|m_{i-1}(i=2,3,\cdots，r)$。也就是说次数大的在前面小的在后面。</p>
+<p>一个多项式的友阵是指这样的一个方阵： </p>
+<script type="math/tex; mode=display">C(c_0+c_1t+\cdots+c_{n-1}t^{n-1}+t^n)=\begin{pmatrix} 0&0&\cdots&0&-c_0 \\  
+1&0&\cdots&0&-c_1 \\  
+0&1&\cdots&0&-c_2 \\  
+\vdots&\vdots&\ddots&\vdots&\vdots \\  
+0&0&\cdots&1&-c_{n-1} \end{pmatrix}</script><p>不难发现，一个多项式的方阵是被这一个方阵唯一决定的。讨论这个矩阵的特征多项式可以发现特征多项式$f$即为此多项式。</p>
+<p>这篇博客里会先介绍一下这种分解的背景和一些相对粗略简单的分解实例。矩阵有理标准形的完整论述会放到接下来的博客中。</p>
+<h3 id="循环空间"><a href="#循环空间" class="headerlink" title="循环空间"></a>循环空间</h3><p>需要指出，这样一个标准型涉及到线性空间的循环分解，而循环分解又涉及到循环空间这一概念。“循环”这一概念体现在被同一个线性变换<strong>反复</strong>作用。循环空间指的是对某一线性变换，某一向量的最小不变子空间。</p>
+<p>设$V$是数域$\mathbb{F}$上的线性空间，对于固定的线性变换$\mathscr{A}$，和一个指定的向量$\alpha \in V$，应该有 <script type="math/tex">\mathscr{A}\alpha, \mathscr{A}^2\alpha, \cdots\in{V}</script></p>
+<p>考虑到线性空间对向量的加法和数乘的封闭性，$\mathbb{F}$上的全体多项式就恰好固定了这些向量。也就是说，对于最小不变子空间$W$，应该包含$\mathbb{F}$上全体多项式$\mathbb{F}[\lambda]$的像 <script type="math/tex">\mathbb{F}[{\lambda}]{\alpha}=\mathbb{F}[\mathscr{A}]\alpha=\{g(\mathscr{A})\alpha :g(\lambda)\in\mathbb{F}[\lambda]\}</script></p>
+<p>另一方面，$\mathbb{F}[\lambda]\alpha$已经是不变子空间，因此有$W=\mathbb{F}[\lambda]\alpha$。$W$称为$\alpha$生成$\mathscr{A}$的<strong>循环子空间</strong>，如果有$W=V$，那么$V$称为<strong>循环空间</strong>，$\alpha$称为$V$的循环向量。</p>
+<h3 id="零化子"><a href="#零化子" class="headerlink" title="零化子"></a>零化子</h3><p>在接触循环分解之前，先需要考察一下循环空间的“大小”。一些线性空间的基本性质要在这里搞明白。这样一个线性空间的维数是多少? 怎样能找到这个线性空间的零向量? 线性空间的基怎么找到? 既然是不变子空间，那么限制线性变换的方阵表示又是怎样? 这些问题都需要通过分析零化子来解决。</p>
+<blockquote>
+<p>如果对多项式$g(\lambda)$有 <script type="math/tex">g(\lambda)\alpha=g(\mathscr{A})\alpha=0</script> 那么$g(\lambda)$称为$\alpha$的零化子(aka 零化多项式)。</p>
+</blockquote>
+<p>$\alpha$的次数最低的首一零化多项式称为最小零化子。显然，零化子是最小零化子的倍。注意这里的零化子是相对于$\alpha$，这和线性变换的零化子是两回事。接下来会通过分析线性相关性找出最小零化子。</p>
+<h4 id="如何找到最小零化子"><a href="#如何找到最小零化子" class="headerlink" title="如何找到最小零化子"></a><strong>如何找到最小零化子</strong></h4><p>选取循环向量$\alpha\in{W}$，再考察向量$\mathscr{A}\alpha$是否和$\alpha$线性相关，如果否，也将$\mathscr{A}\alpha$选取，再按照同样的办法选取$\mathscr{A}^2\alpha,\cdots,\mathscr{A}^{k-1}\alpha$，而$\alpha,\mathscr{A}\alpha,\mathscr{A}^2\alpha,\cdots,\mathscr{A}^{k-1}\alpha,\mathscr{A}^k\alpha$线性相关。根据线性空间的性质，$\mathscr{A}^k\alpha$可以被前面$(k-1)$个向量线性表示出来。也就是说有$c_0,\cdots,c_{k-1}\in\mathbb{F}$使得 <script type="math/tex">\mathscr{A}^{k}\alpha+c_{k-1}\mathscr{A}^{k-1}\alpha+\cdots+c_1\mathscr{A}\alpha+c_0\alpha=0</script></p>
+<p>如果令$m_{\alpha}(\lambda)=\lambda^k+c_{k-1}\lambda^{k-1}+\cdots+c_0$，那么就有$m_\alpha(\mathscr{A})\alpha=0$。也就是说，$m_\alpha$是$\alpha$的零化子。接下来需要验证这是次数最低的首一多项式。</p>
+<p>设$g(\lambda)$为$\alpha$的零化多项式。那么$g(\lambda)$可以写成 <script type="math/tex">g(\lambda)=m_{\alpha}(\lambda)q(\lambda)+r(\lambda)</script></p>
+<p>其中，$r=0$或$\text{deg}r&lt;k$。$r=0$时，显然$g(\lambda)$是$m_{\alpha}(\lambda)$的倍。而$\text{deg}r&lt;\text{deg}g$时不然。因此只需要证明第二种情况是不存在的即可。注意到 <script type="math/tex">0=g(\mathscr{A})\alpha=m_{\alpha}(\mathscr{A})q(\mathscr{A})\alpha+r(\mathscr{A})\alpha=r(\mathscr{A})\alpha</script></p>
+<p>如果有$r\neq{0}$，则$\text{deg}r&lt;k$，这和$\alpha,\mathscr{A}\alpha,\cdots,\mathscr{A}^{k-1}\alpha$线性无关矛盾。因此，$m_{\alpha}(\lambda)$即为所求最小零化子。</p>
+<h4 id="循环空间的维度、基"><a href="#循环空间的维度、基" class="headerlink" title="循环空间的维度、基"></a><strong>循环空间的维度、基</strong></h4><p>在求最小零化子的时候，我们找到了$k$个线性无关的向量。然后第$k+1$个可以用这$k$个向量表示。这里的$k$应该和这个循环空间有着特殊的关系。注意到这$k$个向量能表示$\mathscr{A}^{k}\alpha$。那么能不能表示$W$中全部向量? 如果是这样的话，这$k$个向量就是这个循环空间的基，$k$就是维度(这可以联想到抽象代数中的循环空间的阶)。</p>
+<p>已知 <script type="math/tex">\mathscr{A}^{k}\alpha=-(c_{k-1}\mathscr{A}^{k-1}\alpha+\cdots+c_1\mathscr{A}\alpha+c_0\alpha)</script></p>
+<p>两边分别用$\mathscr{A}$作用，那么左边是$\mathscr{A}^{k+1}\alpha$，右边是$\alpha,\mathscr{A}\alpha,\cdots,\mathscr{A}^{k-1}$的线性组合(注意，等式右边$\mathscr{A}$的次数分别为$k，k-1,\cdots，1$，而$\mathcal{A}^{k}$已经可以被线性表示)。递推下去可知，对于所有$n&gt;=0$，$A^{n}$都可以被$\alpha,\mathscr{A}\alpha,\mathscr{A}^{k-1}\alpha$线性表示。也就是说，$\alpha,\mathscr{A}\alpha,\mathscr{A}^{k-1}\alpha$是$W$的一组基，$W$的维度为$k$，也就是$\alpha$的最小零化子的最高次。</p>
+<p>此外不难验证，$\mathscr{A}$在$W$上的限制对应的矩阵$A_W$即为$C(m_\alpha)$。</p>
+<h3 id="循环空间的实例"><a href="#循环空间的实例" class="headerlink" title="循环空间的实例"></a>循环空间的实例</h3><p>不妨讨论一下特征向量。设非零向量$\alpha$是$\mathscr{A}$的特征向量。那么由$\alpha$生成的循环子空间的维度只能是$1$。</p>
+<p>首先$\alpha$和自己线性不相关，而$\mathscr{A}\alpha=\lambda\alpha$，故与$\alpha$已经线性相关。此时也得到极小零化子为$\mathscr{A}\alpha-\lambda\alpha$。而循环子空间也已经被确定，是$\alpha$所在的”直线”$\mathbb{F}\alpha$。假设$\alpha=(1,0)^T$，$V=\mathbb{R}^{(2)}$，那么这个循环空间就是$y$轴。</p>
+<hr>
+<p>为了体现循环空间对数域的”稳定性”，现在讨论线性空间$V=\mathbb{Q}^3$上的线性变换。也就是说，我们会尝试对有理数三阶方阵进行分解。</p>
+<p>设有矩阵 <script type="math/tex">A=\begin{pmatrix} 1&0&0 \\  
+0&1&1 \\  
+1&1&0 \end{pmatrix}</script></p>
+<p>和定义在$V$上的线性变换$\mathscr{A}(x)=Ax$。设$V$的自然基为$\varepsilon_1,\varepsilon_2,\varepsilon_3$。现在讨论一下由$\varepsilon_1$生成的循环空间$W_1$。显然$W_1$的维数不超过$3$。<strong>循环</strong>对$\varepsilon_1$作用$\mathscr{A}$，能得到</p>
+<script type="math/tex; mode=display">\mathscr{A}\varepsilon_1=(1,0,1)^T,\mathscr{A}^2\varepsilon_1=(1,1,1),\mathscr{A}^3\varepsilon_1=(1,2,2)</script><p>可以验证，$\varepsilon_1,\mathscr{A}\varepsilon_1,\mathscr{A}^2\varepsilon_1$线性不相关，又有$\mathscr{A}^3\varepsilon_1=-\varepsilon_1+2\mathscr{A}^2\varepsilon_1$可知，最小零化子为 <script type="math/tex">m_1(\lambda)=\lambda^3-2\lambda^2+1</script> 注意到系数全是整数。从而得到在$\varepsilon_1,\mathscr{A}\varepsilon_1,\mathscr{A}^2\varepsilon_1$下$\mathscr{A}$这个线性变换的方阵表示为$m_1(\lambda)$的友阵 </p>
+<script type="math/tex; mode=display">B=\begin{pmatrix} 0&0&-1 \\  
+1&0&0 \\  
+0&1&2 \end{pmatrix}</script><p>另一方面，自然基到$\varepsilon_1,\mathscr{A}\varepsilon_1,\mathscr{A}^2\varepsilon_1$这组基的过渡方阵又有</p>
+<script type="math/tex; mode=display">P=\begin{pmatrix} 1&1&1 \\  
+0&0&1 \\  
+0&1&1 \end{pmatrix}</script><p>不难验证，$B=P^{-1}AP$。整个运算推导过程没有脱离$\mathbb{Q}$。这是理所当然的。整个过程中只有域$\mathbb{Q}$上的加法和乘法运算。但是特征值分解不一定能这么”稳定”。矩阵$A$本身就是一个很有意思的反例： 特征值中出现了无理数。</p>
+<p>实际上，矩阵$B$就是矩阵$A$的有理标准形，而且特征多项式$f=m_1$。显然$m_1$被$A$唯一决定。这是一个比较特殊的例子(不妨试试用$\varepsilon_2$进行一下循环分解)。接下来的博客会讨论一下更普遍的结论和性质。</p>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../28/conductor/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            线性变换不变子空间的导子及其性质
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../17/abstract-lebesgue-integral/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            抽象Lebesgue积分的构建
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2020/01/22/cyclic-decomposition/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

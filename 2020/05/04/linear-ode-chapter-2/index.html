@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>线性ODE（二）——用矩阵表示方程组 | Desvl&#39;s blog</title>
+
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="矩阵表示的目的的确，看似普通的一元常微分方程，就已经存在非常难解，或者无法用初等形式得到解的方程了，例如Airy方程$y’’&#x3D;xy$。它的解是这个样子的：  \begin{aligned}y&amp;&#x3D;a_0\left\{1+\sum_{n&#x3D;1}^{\infty}\frac{x^{3n}}{(3n)(3n-1)(3n-4)\cdots6\cdot5\cdot3\cdot2}\right\} \\ &amp;+a_">
+<meta property="og:type" content="article">
+<meta property="og:title" content="线性ODE（二）——用矩阵表示方程组">
+<meta property="og:url" content="https://desvl.xyz/2020/05/04/linear-ode-chapter-2/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="矩阵表示的目的的确，看似普通的一元常微分方程，就已经存在非常难解，或者无法用初等形式得到解的方程了，例如Airy方程$y’’&#x3D;xy$。它的解是这个样子的：  \begin{aligned}y&amp;&#x3D;a_0\left\{1+\sum_{n&#x3D;1}^{\infty}\frac{x^{3n}}{(3n)(3n-1)(3n-4)\cdots6\cdot5\cdot3\cdot2}\right\} \\ &amp;+a_">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-05-03T22:00:00.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:10.200Z">
+<meta property="article:author" content="Desvl">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        线性ODE（二）——用矩阵表示方程组
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2020/05/" class="post-meta__date button">2020-05-04</a>
+        
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9F%A9%E9%98%B5%E8%A1%A8%E7%A4%BA%E7%9A%84%E7%9B%AE%E7%9A%84"><span class="toc-number">1.</span> <span class="toc-text">矩阵表示的目的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%B8%B8%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E7%BB%84"><span class="toc-number">2.</span> <span class="toc-text">多元线性常微分方程组</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8E%E6%96%B9%E7%A8%8B%E7%BB%84%E5%88%B0%E7%9F%A9%E9%98%B5"><span class="toc-number">2.1.</span> <span class="toc-text">从方程组到矩阵</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AB%98%E9%98%B6%E5%B8%B8%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E5%92%8C%E5%A4%9A%E5%85%83%E5%B8%B8%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E7%BB%84"><span class="toc-number">2.2.</span> <span class="toc-text">高阶常微分方程和多元常微分方程组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A5%E4%B8%8B%E6%9D%A5%E7%9A%84%E5%86%85%E5%AE%B9"><span class="toc-number">2.3.</span> <span class="toc-text">接下来的内容</span></a></li></ol></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9F%A9%E9%98%B5%E8%A1%A8%E7%A4%BA%E7%9A%84%E7%9B%AE%E7%9A%84"><span class="toc-number">1.</span> <span class="toc-text">矩阵表示的目的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%B8%B8%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E7%BB%84"><span class="toc-number">2.</span> <span class="toc-text">多元线性常微分方程组</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8E%E6%96%B9%E7%A8%8B%E7%BB%84%E5%88%B0%E7%9F%A9%E9%98%B5"><span class="toc-number">2.1.</span> <span class="toc-text">从方程组到矩阵</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AB%98%E9%98%B6%E5%B8%B8%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E5%92%8C%E5%A4%9A%E5%85%83%E5%B8%B8%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E7%BB%84"><span class="toc-number">2.2.</span> <span class="toc-text">高阶常微分方程和多元常微分方程组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A5%E4%B8%8B%E6%9D%A5%E7%9A%84%E5%86%85%E5%AE%B9"><span class="toc-number">2.3.</span> <span class="toc-text">接下来的内容</span></a></li></ol></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h2 id="矩阵表示的目的"><a href="#矩阵表示的目的" class="headerlink" title="矩阵表示的目的"></a>矩阵表示的目的</h2><p>的确，看似普通的一元常微分方程，就已经存在非常难解，或者无法用初等形式得到解的方程了，例如Airy方程$y’’=xy$。它的解是这个样子的：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}y&=a_0\left\{1+\sum_{n=1}^{\infty}\frac{x^{3n}}{(3n)(3n-1)(3n-4)\cdots6\cdot5\cdot3\cdot2}\right\} \\ &+a_1\left\{x+\sum_{n=1}^{\infty}\frac{x^{3n+1}}{(3n+1)(3n)(3n-2)(3n-3)\cdots7\cdot6\cdot4\cdot3}\right\}\end{aligned}</script><p>这个看似平凡的方程的解就这么复杂，我们更不能指望有解决更多未知函数或者次数更高的方程，能总是得到简洁的结果。但是在宏观上的处理还是可行的，这也给我们解决比较简单的方程（也可能是将复杂的问题在局部进行简化近似）创造了可能性。</p>
+<p>在求解一般的线性方程组时，我们将一个方程组表示成一个矩阵和列向量的乘积的形式。这种表示方法可以简化表示，还可以充分运用矩阵的性质，像是行列式、秩、标准型等等。在解决线性微分方程组时，我们也想进行类似的 操作。具体而言，我们想解决这样几个问题：</p>
+<ol>
+<li>假设我们已经得到了方程的解，那么这些解有怎样的性质？和一般的实数范围的方程组的解有什么不同？</li>
+<li>既然求导是线性运算，我们在线性代数中的理论，有多少可以用上？</li>
+<li>如果要求解的方程组的系数全是实数，那么能不能运用实矩阵的性质，对矩阵进行简化（例如化为对角型等），对方程求解进行简化？</li>
+</ol>
+<h2 id="多元线性常微分方程组"><a href="#多元线性常微分方程组" class="headerlink" title="多元线性常微分方程组"></a>多元线性常微分方程组</h2><h3 id="从方程组到矩阵"><a href="#从方程组到矩阵" class="headerlink" title="从方程组到矩阵"></a>从方程组到矩阵</h3><p>我们考虑这种形式的方程组：</p>
+<script type="math/tex; mode=display">
+\begin{cases}y_1'=a_{11}(x)y_1+a_{12}(x)y_2+\cdots+a_{1n}(x)y_n(x)+f_1(x) \\\cdots\cdots\cdots\cdots \\y_n'=a_{n1}(x)y_1+a_{n2}(x)y_2+\cdots+a_{nn}(x)y_n(x)+f_n(x)\end{cases}</script><p>这个时候，如果我们令</p>
+<script type="math/tex; mode=display">
+\mathbf{y}=\begin{pmatrix}y_1 \\y_2 \\\cdots \\y_n\end{pmatrix},\quad\mathbf{f}(x)=\begin{pmatrix}f_1(x) \\f_2(x) \\\cdots \\f_n(x)\end{pmatrix}</script><p>以及</p>
+<script type="math/tex; mode=display">
+\mathbf{A}(x)=\begin{pmatrix}a_{11}(x) &a_{12}(x) & \cdots & a_{1n}(x) \\a_{21}(x) &a_{22}(x) & \cdots & a_{1n}(x) \\\vdots & \vdots & \ddots & \vdots \\a_{n1}(x) & a_{n2}(x) & \cdots & a_{nn}(x)\end{pmatrix}</script><p>那么这个方程组就可以写成</p>
+<script type="math/tex; mode=display">
+\frac{d\mathbf{y}}{dx}=\mathbf{A}(x)\mathbf{y}+\mathbf{f}(x)</script><h3 id="高阶常微分方程和多元常微分方程组"><a href="#高阶常微分方程和多元常微分方程组" class="headerlink" title="高阶常微分方程和多元常微分方程组"></a>高阶常微分方程和多元常微分方程组</h3><p>高阶方程是指的这种形式</p>
+<script type="math/tex; mode=display">
+y^{(n)}+a_1(x)y^{(n-1)}+\cdots+a_{n}(x)y=f(x)</script><p>这个方程看似和多元方程组没有关系，但是如果我们新定义若干变量，加上一些约束关系，这个方程就<strong>是</strong>一个多元方程了</p>
+<script type="math/tex; mode=display">
+\begin{cases}y_1=y \\y_2 = y' \\\cdots \\y_k = y^{(k-1)} \\\cdots\\y_{n}=y^{(n-1)}\end{cases}</script><p>我们又知道</p>
+<script type="math/tex; mode=display">
+y^{(n)}=y_n'=-(a_n(x)y_1+\cdots+a_1(x)y_n)+f(x)</script><p>那么这个时候，一个矩阵已经浮现出来了：</p>
+<script type="math/tex; mode=display">
+\mathbf{A}(x)=\begin{pmatrix}    0 & 1 & 0 & \cdots & 0 \\    0 & 0 & 1 & \cdots & 0 \\    \vdots & \vdots & \vdots & \ddots & \vdots \\    0 & 0 & 0 & \cdots & 1 \\    -a_n(x)&-a_{n-1}(x)&-a_{n-2}(x) & \cdots & -a_1(x)\end{pmatrix}</script><p>同时有</p>
+<script type="math/tex; mode=display">
+\mathbf{f}(x)=\begin{pmatrix}0 \\0 \\\vdots \\0 \\f(x)\end{pmatrix}</script><p>这时，矩阵运算就变得自然了，也就是说，$\frac{d\mathbf{y}}{dx}=\mathbf{A}(x)\mathbf{y}+\mathbf{f}(x)$。如果了解过友阵，那么看到这里的$\mathbf{A}(x)$难免要想到它。如果这里的$a_i(x)$都是常数，那么这个矩阵就是一个常见的多项式的友阵。有意思的是，这不是巧合。</p>
+<blockquote>
+<p>对于多项式$f(\lambda)=\lambda^k+c_{k-1}\lambda^{k-1}+\cdots+c_0$，对应的友阵$C(f)$为</p>
+<script type="math/tex; mode=display">
+\begin{pmatrix}0 & 1 & 0 & \cdots & 0 \\    0 & 0 & 1 & \cdots & 0 \\    \vdots & \vdots & \vdots & \ddots & \vdots \\    0 & 0 & 0 & \cdots & 1 \\    -c_n&-c_{n-1}&-c_{n-2} & \cdots & -c_1\end{pmatrix}</script><p>不难验证，$C(f)$的特征多项式为$f$。有些场合会把友阵写成上述矩阵的转置。</p>
+</blockquote>
+<p>但是我们应该直接把高阶微分方程直接看成一个多元微分方程组吗？那样远远不够。高阶微分方程对应的矩阵的特殊结构，导致它具有一些特殊的性质，这些性质不是讨论多元微分方程组的性质能替代的。</p>
+<h3 id="接下来的内容"><a href="#接下来的内容" class="headerlink" title="接下来的内容"></a>接下来的内容</h3><p>虽然可能有点唐突，我们接下来会先假设，我们已经能很轻松得到一个矩阵对应的解，然后需要做的工作是搞清其中的结构。在获得适量的结论（但是不应该过于深入）之后，我们会尝试讨论最简单的方程：高阶微分方程，也就是</p>
+<script type="math/tex; mode=display">
+y^{(n)}+a_1(x)y^{(n-1)}+\cdots+a_{n}(x)y=f(x)</script><p>包括一些可行的解法，和用线性代数工具进行操作的实例。标准化、Cramer法则等等，都会在这里很自然地出现。接下来，我们会讨论稍微复杂点的方程组：常系数微分方程组，即系数矩阵$\mathbf{A}(x)$为常数的矩阵。最后，我们会尝试得到对于所有方程组的一些普遍性结论。</p>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../07/alguien-desordena-estas-rosas/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            关于《有人弄乱了这束玫瑰花》
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../01/linear-ode-chapter-1/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            线性ODE（一）——线性方程的思想与一阶方程
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2020/05/04/linear-ode-chapter-2/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

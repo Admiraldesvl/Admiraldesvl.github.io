@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>Cauchy sequence in group theory | Desvl&#39;s blog</title>
+
+
+    <meta name="keywords" content="Serge Lang, Cauchy">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="Recall - Cauchy sequence in analysisBefore we go into group theory, let’s recall how Cauchy sequence is defined in analysis. Real&#x2F;complex numberA sequence $(x_n)_{n&#x3D;1}^{\infty}$ of real&#x2F;complex number">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cauchy sequence in group theory">
+<meta property="og:url" content="https://desvl.xyz/2020/08/01/cauchy-sequence-in-group-theory/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="Recall - Cauchy sequence in analysisBefore we go into group theory, let’s recall how Cauchy sequence is defined in analysis. Real&#x2F;complex numberA sequence $(x_n)_{n&#x3D;1}^{\infty}$ of real&#x2F;complex number">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-08-01T13:52:06.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:09.724Z">
+<meta property="article:author" content="Desvl">
+<meta property="article:tag" content="Serge Lang">
+<meta property="article:tag" content="Cauchy">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        Cauchy sequence in group theory
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2020/08/" class="post-meta__date button">2020-08-01</a>
+        
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/" class="button">Algebra</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/Group-Theory/" class="button">Group Theory</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Recall-Cauchy-sequence-in-analysis"><span class="toc-number">1.</span> <span class="toc-text">Recall - Cauchy sequence in analysis</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Real-complex-number"><span class="toc-number">1.1.</span> <span class="toc-text">Real&#x2F;complex number</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Metric-space"><span class="toc-number">1.2.</span> <span class="toc-text">Metric space</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Topological-vector-space"><span class="toc-number">1.3.</span> <span class="toc-text">Topological vector space</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Topological-group"><span class="toc-number">1.4.</span> <span class="toc-text">Topological group</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Completeness"><span class="toc-number">2.</span> <span class="toc-text">Completeness</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Completing-a-group"><span class="toc-number">3.</span> <span class="toc-text">Completing a group</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Cauchy-sequence"><span class="toc-number">3.1.</span> <span class="toc-text">Cauchy sequence</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Null-sequence"><span class="toc-number">3.2.</span> <span class="toc-text">Null sequence</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cauchy-sequence-and-null-sequence-as-groups"><span class="toc-number">3.3.</span> <span class="toc-text">Cauchy sequence and null sequence as groups</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#The-factor-group"><span class="toc-number">3.4.</span> <span class="toc-text">The factor group</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Remarks"><span class="toc-number">4.</span> <span class="toc-text">Remarks</span></a></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Recall-Cauchy-sequence-in-analysis"><span class="toc-number">1.</span> <span class="toc-text">Recall - Cauchy sequence in analysis</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Real-complex-number"><span class="toc-number">1.1.</span> <span class="toc-text">Real&#x2F;complex number</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Metric-space"><span class="toc-number">1.2.</span> <span class="toc-text">Metric space</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Topological-vector-space"><span class="toc-number">1.3.</span> <span class="toc-text">Topological vector space</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Topological-group"><span class="toc-number">1.4.</span> <span class="toc-text">Topological group</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Completeness"><span class="toc-number">2.</span> <span class="toc-text">Completeness</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Completing-a-group"><span class="toc-number">3.</span> <span class="toc-text">Completing a group</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Cauchy-sequence"><span class="toc-number">3.1.</span> <span class="toc-text">Cauchy sequence</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Null-sequence"><span class="toc-number">3.2.</span> <span class="toc-text">Null sequence</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cauchy-sequence-and-null-sequence-as-groups"><span class="toc-number">3.3.</span> <span class="toc-text">Cauchy sequence and null sequence as groups</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#The-factor-group"><span class="toc-number">3.4.</span> <span class="toc-text">The factor group</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Remarks"><span class="toc-number">4.</span> <span class="toc-text">Remarks</span></a></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h2 id="Recall-Cauchy-sequence-in-analysis"><a href="#Recall-Cauchy-sequence-in-analysis" class="headerlink" title="Recall - Cauchy sequence in analysis"></a>Recall - Cauchy sequence in analysis</h2><p>Before we go into group theory, let’s recall how Cauchy sequence is defined in analysis.</p>
+<h3 id="Real-complex-number"><a href="#Real-complex-number" class="headerlink" title="Real/complex number"></a>Real/complex number</h3><p>A sequence $(x_n)_{n=1}^{\infty}$ of real/complex numbers is called a Cauchy sequence if, for every $\varepsilon&gt;0$, there is a positive integer $N$ such that for all $m,n&gt;N$, we have</p>
+<script type="math/tex; mode=display">
+|x_m-x_n|<\varepsilon.</script><p>That said, the <strong>distance</strong> between two numbers is always ‘too close’. Notice that only distance is involved, the definition of Cauchy sequence in metric space comes up in the natural of things.</p>
+<h3 id="Metric-space"><a href="#Metric-space" class="headerlink" title="Metric space"></a>Metric space</h3><p>Given a metric space $(X,d)$, a sequence $(x_n)_{n=1}^{\infty}$ is Cauchy if for every real number $\varepsilon&gt;0$, there is a positive integer $N$ such that, for all $m,n&gt;N$, the distance by</p>
+<script type="math/tex; mode=display">
+d(x_m,x_n)<\varepsilon.</script><h3 id="Topological-vector-space"><a href="#Topological-vector-space" class="headerlink" title="Topological vector space"></a>Topological vector space</h3><p>By considering the topology induced by metric, we see that $x_n$ lies in a neighborhood of $x_m$ with radius $\varepsilon$. But a topology can be constructed by neighborhood, hence the Cauchy sequence for topological vector space follows.</p>
+<p>For a topological vector space $X$, pick a local base $\mathcal{B}$, then $(x_n)_{n=1}^{\infty}$ is a Cauchy sequence if for each member $U \in \mathcal{B}$, there exists some number $N$ such that for $m,n&gt;N$, we have</p>
+<script type="math/tex; mode=display">
+x_m-x_n \in U.</script><p>But in a topological space, it’s not working. Consider two topological space by</p>
+<script type="math/tex; mode=display">
+X=(0,1)\quad Y=(1,+\infty)</script><p>with usual topology. We have $X \simeq Y$ since we have the map by</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+h:X &\to Y \\
+  x &\mapsto \frac{1}{x}
+\end{aligned}</script><p>as a homeomorphism. Consider the Cauchy sequence $(\frac{1}{n+1})_{n=1}^{\infty}$, we see $(h(\frac{1}{n+1}))_{n=1}^{\infty}=(n+1)_{n=1}^{\infty}$ which is not Cauchy. This counterexample shows that being a Cauchy sequence is not preserved by homeomorphism. </p>
+<h3 id="Topological-group"><a href="#Topological-group" class="headerlink" title="Topological group"></a>Topological group</h3><p>Similarly, one can have a Cauchy sequence in a topological group (bu considering subtraction as inverse).</p>
+<p>A sequence $(x_n)_{n=1}^{\infty}$ in a topological group $G$ is a Cauchy sequence if for every open neighborhood $U$ of the identity $G$, there exists some number $N$ such that whenever $m,n&gt;N$, we have</p>
+<script type="math/tex; mode=display">
+x_nx_m^{-1} \in U</script><h2 id="Completeness"><a href="#Completeness" class="headerlink" title="Completeness"></a>Completeness</h2><p>A metric space $(X,d)$ where every Cauchy sequence converges is complete.</p>
+<p>Spaces like $\mathbb{R}$, $\mathbb{C}$ are complete with Euclid metric. But consider the sequence in $\mathbb{Q}$ by</p>
+<script type="math/tex; mode=display">
+a_n=\left(1+\frac{1}{n}\right)^{n}</script><p>we have $a_n\in\mathbb{Q}$ for all $n$ but the sequence does not converge in $\mathbb{Q}$. Indeed in $\mathbb{R}$ we can naturally write $a_n \to e$ but $e \notin \mathbb{Q}$ as we all know.</p>
+<p>There are several ways to construct $\mathbb{R}$ from $\mathbb{Q}$. One of the most famous methods is Dedekind’s cut. However you can find no explicit usage of Cauchy sequence. There is another method by using Cauchy sequence explicitly. We are following that way algebraically.</p>
+<h2 id="Completing-a-group"><a href="#Completing-a-group" class="headerlink" title="Completing a group"></a>Completing a group</h2><p>Suppose we are given a group $G$ with a sequence of normal subgroups $(H_n)_{n=1}^{\infty}$ with $H_n \supset H_{n+1}$ for all $n$, all of which has finite index. We are going to complete this group.</p>
+<h3 id="Cauchy-sequence"><a href="#Cauchy-sequence" class="headerlink" title="Cauchy sequence"></a>Cauchy sequence</h3><p>A sequence $(x_n)_{n=1}^{\infty}$ in $G$ will be called <strong>Cauchy sequence</strong> if given $H_k$, there exists some $N&gt;0$ such that for $m,n&gt;N$, we have</p>
+<script type="math/tex; mode=display">
+x_nx_m^{-1} \in H_k</script><p>Indeed, this looks very similar to what we see in topological group, but we don’t want to grant a topology to the group anyway. This definition does not go to far from the original definition of Cauchy sequence in $\mathbb{R}$ as well. If you treat $H_k$ as some ‘small’ thing, it shows that $x_m$ and $x_n$ are close enough (by considering $x_nx_m^{-1}$ as their difference).</p>
+<h3 id="Null-sequence"><a href="#Null-sequence" class="headerlink" title="Null sequence"></a>Null sequence</h3><p>A sequence $(x_n)_{n=1}^{\infty}$ in $G$ will be called <strong>null sequence</strong> if given $k$, there exists some $N&gt;0$ such that for all $n&gt;N$, we have</p>
+<script type="math/tex; mode=display">
+x_n\in H_k</script><p>or you may write $x_ne^{-1} \in H_k$. It can be considered as being <em>arbitrarily close to the identity $e$</em>.</p>
+<h3 id="Cauchy-sequence-and-null-sequence-as-groups"><a href="#Cauchy-sequence-and-null-sequence-as-groups" class="headerlink" title="Cauchy sequence and null sequence as groups"></a>Cauchy sequence and null sequence as groups</h3><blockquote>
+<p>The Cauchy sequences (of $G$) form a group under termwise product</p>
+</blockquote>
+<p><em>Proof.</em> Let $C$ be the set of Cauchy sequences, we shall show that $C$ forms a group. For $(x_1,x_2,\cdots),(y_1,y_2,\cdots)\in C$, the product is defined by</p>
+<script type="math/tex; mode=display">
+(x_1,x_2,\cdots)(y_1,y_2,\cdots)=(x_1y_1,x_2y_2,\cdots)</script><p>The associativity follows naturally from the associativity of $G$. To show that $(x_1y_1,x_2y_2,\cdots)$ is still a Cauchy sequence, notice that for big enough $m$, $n$ and some $k$, we have</p>
+<script type="math/tex; mode=display">
+x_nx_m^{-1}\in H_k \quad y_ny_m^{-1}\in H_k.</script><p>But $(x_ny_n)(x_my_m)^{-1}=x_ny_ny_m^{-1}x_m^{-1}$. To show that this is an element of $H_k$, notice that</p>
+<script type="math/tex; mode=display">
+x_ny_ny_m^{-1}x_m^{-1}=(x_ny_ny_m^{-1}{\color{red}{x_n^{-1}}})({\color{red}{x_n}}x_m^{-1})</script><p>Since $y_ny_m^{-1}\in H_k$, $H_k$ is normal, we have $x_ny_ny_mx_n^{-1} \in H_k$. Since $x_nx_m^{-1} \in H_k$, $(x_ny_n)(x_my_m)^{-1}$ can be viewed as a product of two elements of $H_k$, therefore is an element of $H_k$.</p>
+<p>Obviously, if we define $e_C=(e_G,e_G,\cdots)$, where $e_G$ is the identity of $G$, $e_C$ becomes the identity of $C$, since</p>
+<script type="math/tex; mode=display">
+(x_1,x_2,\cdots)(e_G,e_G,\cdots)=(x_1,x_2,\cdots)=(e_G,e_G,\cdots)(x_1,x_2,\cdots).</script><p>Finally the inverse. We need to show that</p>
+<script type="math/tex; mode=display">
+(x_1,x_2,\cdots)^{-1}=(x_1^{-1},x_2^{-1},\cdots)</script><p>is still an element of $C$. This is trivial since if we have</p>
+<script type="math/tex; mode=display">
+x_nx_m^{-1} \in H_k</script><p>then</p>
+<script type="math/tex; mode=display">
+(x_n^{-1})(x_m^{-1})^{-1}=x_n^{-1}x_m \in H_k</script><p>as $H_k$ is a group.</p>
+<hr>
+<blockquote>
+<p>The null sequences (of $G$) form a group, further, it’s a normal subgroup of $C$, that is, the group of Cauchy sequences.</p>
+</blockquote>
+<p>Let $N$ be the set of null sequences of $G$. Still, the identity is defined by $(e_G,e_G,\cdots)$, and there is no need to duplicate the validation. And the associativity still follows from $G$. To show that $N$ is closed under termwise product, namely if $(x_n),(y_n) \in N$, then $(x_ny_n)\in N$, one only need to notice that, for big $n$, we already have</p>
+<script type="math/tex; mode=display">
+x_n,y_n \in H_k.</script><p>Therefore $x_ny_n \in H_k$ since $x_n$ and $y_n$ are two elements of $H_k$.</p>
+<p>To show that $(x_n^{-1})$, which should be treated as the inverse of $(x_n)$, is still in $N$, notice that if $x_n \in H_k$, then $x_n^{-1} \in H_k$.</p>
+<p>Next, we shall show that $N$ is a subgroup of $C$, which is equivalent to show that every null sequence is Cauchy. Given $H_p \supset H_q$, for $(x_n)\in{N}$, there are some big enough $m$ and $n$ such that</p>
+<script type="math/tex; mode=display">
+x_n \in H_p \quad x_m \in H_q</script><p>therefore</p>
+<script type="math/tex; mode=display">
+x_nx_m^{-1} \in H_p</script><p>as desired. Finally, pick $(p_n) \in N$ and $(q_n) \in C$, we shall show that $(q_n)(p_n)(q_n)^{-1} \in N$. That is, the sequence $(q_np_nq_n^{-1})$ is a null sequence. Given $H_k$, we have some big $n$ such that</p>
+<script type="math/tex; mode=display">
+p_n \in H_k</script><p>therefore</p>
+<script type="math/tex; mode=display">
+q_np_nq_n^{-1} \in H_k</script><p>since $H_k$ is normal. Our statement is proved.</p>
+<h3 id="The-factor-group"><a href="#The-factor-group" class="headerlink" title="The factor group"></a>The factor group</h3><blockquote>
+<p>The factor group $C/N$ is called the <strong>completion</strong> of $G$ (with respect to $(H_n)$).</p>
+</blockquote>
+<p>As we know, the elements of $C/N$ are cosets. A coset can be considered as an element of $G$’s completion. Let’s head back to some properties of factor group. Pick $x,y \in C$, then $xN=yN$ if and only if $x^{-1}y \in N$. With that being said, two Cauchy sequences are equivalent if their ‘difference’ is a null sequence. </p>
+<p>Informally, consider the addictive group $\mathbb{Q}$. There are two Cauchy sequence by</p>
+<script type="math/tex; mode=display">
+(1,1,1,\cdots,1,\cdots) \\
+(0.9,0.99,0.999,0.9999,\cdots).</script><p>They are equivalent since</p>
+<script type="math/tex; mode=display">
+(0.1,0.01,0.001,\cdots)</script><p>is a null sequence. That’s why people say $0.99999… = 1$ (in analysis, the difference is convergent to $0$; but in algebra, we say the two sequences are equivalent). Another example, $\ln{2}$ can be represented by the equivalent class of</p>
+<script type="math/tex; mode=display">
+(0.6,0.69,0.693,\cdots).</script><hr>
+<h2 id="Remarks"><a href="#Remarks" class="headerlink" title="Remarks"></a>Remarks</h2><p>We made our completion using Cauchy sequences. The completion is filled with some Cauchy sequence and some additions of ‘nothing’, whence the gap disappears.</p>
+<p>Again, the sequence of normal subgroups does not have to be indexed by $\mathbb{N}$. It can be indexed by any directed partially ordered set, or simply partially ordered set. Removing the restriction of index set gives us a great variety of implementation.</p>
+<p>However, can we finished everything about completing $\mathbb{Q}$ using this? The answer is, no - the multiplication is not verified! To finish this, field theory have to be taken into consideration.</p>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"><a href="../../../../tags/Serge-Lang/" class="post-tags__link button"># Serge Lang</a><a href="../../../../tags/Cauchy/" class="post-tags__link button"># Cauchy</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../12/big-3-pt-3/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            The Big Three Pt. 3 - The Open Mapping Theorem (Banach Space)
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../../07/31/frechet-derivative/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            A Brief Introduction to Fréchet Derivative
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2020/08/01/cauchy-sequence-in-group-theory/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

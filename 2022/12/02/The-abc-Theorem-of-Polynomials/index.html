@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>The abc Theorem of Polynomials | Desvl&#39;s blog</title>
+
+
+    <meta name="keywords" content="Exercise solution, Study new content, Serge Lang">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="In this post we show the Mason-Stothers theorem, the so-called $abc$ theorem for polynomials, and derive Fermat&#39;s Last theorem and Davenport&#39;s inequality for polynomials. These three theorems correspo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The abc Theorem of Polynomials">
+<meta property="og:url" content="https://desvl.xyz/2022/12/02/The-abc-Theorem-of-Polynomials/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="In this post we show the Mason-Stothers theorem, the so-called $abc$ theorem for polynomials, and derive Fermat&#39;s Last theorem and Davenport&#39;s inequality for polynomials. These three theorems correspo">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-12-02T15:27:19.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:10.584Z">
+<meta property="article:author" content="Desvl">
+<meta property="article:tag" content="Exercise solution">
+<meta property="article:tag" content="Study new content">
+<meta property="article:tag" content="Serge Lang">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        The abc Theorem of Polynomials
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2022/12/" class="post-meta__date button">2022-12-02</a>
+        
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/" class="button">Algebra</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/Polynomials/" class="button">Polynomials</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <p>Let $K$ be an algebraically closed field of characteristic $0$. Instead of studying the polynomial ring $K[X]$ as a whole, we pay a little more attention to each polynomial. A reasonable thing to do is to count the number of distinct zeros. We define</p>
+<script type="math/tex; mode=display">
+n_0(f)=\text{number of distinct roots of $f$.}</script><p>For example, If $f(X)=(X-1)^{100}$, we have $n_0(f)=1$. It seems we are diving into calculus but actually there is still a lot of algebra.</p>
+<h1 id="The-abc-of-Polynomials"><a href="#The-abc-of-Polynomials" class="headerlink" title="The abc of Polynomials"></a>The abc of Polynomials</h1><blockquote>
+<p><strong>Theorem 1 (Mason-Stothers).</strong> Let $a(X),b(X),c(X) \in K[X]$ be polynomials such that $(a,b,c)=1$ and $a+b=c$. Then</p>
+<script type="math/tex; mode=display">
+\max\{\deg a,\deg b,\deg c\} \le n_0(abc)-1.</script></blockquote>
+<p><em>Proof.</em> Putting $f=a/c$ and $g=b/c$, we have</p>
+<script type="math/tex; mode=display">
+f+g=1.</script><p>This implies</p>
+<script type="math/tex; mode=display">
+f'+g'=\frac{f'}{f}f+\frac{g'}{g}g=0 \implies \frac{g}{f}=\frac{b}{a}=-\frac{f'/f}{g'/g}.</script><hr>
+<p>We interrupt the proof here for some good reasons. Rational functions of the form $f’/f$ remind us of the chain rule applied to $\log{x}$. In the context of calculus, we have $\left(\log{f(x)}\right)’=f’/f$. On the ring $K[x]$, we define $D:K[x] \to K[x]$ to be the formal derivative morphism. Then this endomorphism extends to $K(x)$ by</p>
+<script type="math/tex; mode=display">
+D(f/g)=\frac{gDf-fDg}{g^2}.</script><p>On $K(x)^\ast$ (read: the multiplicative group of the rational function field $K(x)$), we define the logarithm derivative</p>
+<script type="math/tex; mode=display">
+L(f)=\frac{Df}{f}.</script><p>It follows that </p>
+<script type="math/tex; mode=display">
+L(fg)=\frac{D(fg)}{fg}=\frac{fDg+gDf}{fg}=L(f)+L(g).</script><p>Also observe that, just as in calculus, if $f$ is a constant function, then $D(f)=0$. Now we write</p>
+<script type="math/tex; mode=display">
+f(X)=c\prod(X-\alpha_i)^{m_i}.</script><p>Then it follows that</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+f'/f=L(f)&=L(c)+\sum L\left((X-\alpha_i)^{m_i} \right) \\
+         &= m_i\sum L(X-\alpha_i) \\
+         &= \sum\frac{m_i}{X-\alpha_i}.
+\end{aligned}</script><p>Now we can be back to the proof.</p>
+<hr>
+<p><em>Proof (continued).</em> Since $K$ is algebraically closed,</p>
+<script type="math/tex; mode=display">
+a(X)=c_1\prod(X-\alpha_i)^{m_i}, \quad b(X)=c_2\prod(X-\beta_j)^{n_j}, \quad c(X)=c_3\prod(X-\gamma_k)^{r_k}.</script><p>We see, for example</p>
+<script type="math/tex; mode=display">
+f(X)=c_1 c_3^{-1}\prod(X-\alpha_i)^{m_i}\prod(X-\gamma_k)^{-r_k}.</script><p>Therefore</p>
+<script type="math/tex; mode=display">
+f'/f=\sum\frac{m_i}{X-\alpha_i}-\sum\frac{r_k}{X-\gamma_k}.</script><p>Likewise</p>
+<script type="math/tex; mode=display">
+g'/g=\sum\frac{n_j}{X-\beta_j}-\sum\frac{r_k}{X-\gamma_k}.</script><p>Combining both, we obtain</p>
+<script type="math/tex; mode=display">
+\frac{b}{a}= -\frac{\sum\frac{m_i}{X-\alpha_i}-\sum\frac{r_k}{X-\gamma_k}}{\sum\frac{n_j}{X-\beta_j}-\sum\frac{r_k}{X-\gamma_k}}.</script><p>Next, multiplying $f’/f$ and $g’/g$ by</p>
+<script type="math/tex; mode=display">
+N_0(X)=\prod(X-\alpha_i)\prod(X-\beta_j)\prod(X-\gamma_k),</script><p>which has degree $n_0(abc)$ (since $(a,b,c)=1$, these three polynomials share no root). Both $N_0f’/f$ and $N_0g’/g$ are polynomials of degrees at most $n_0(abc)-1$ (this is because $\deg h’=\deg h-1$ for non-constant $h \in K[X]$, while $f$ and $g$ are non-constant (why?); we assume $\operatorname{char} K=0$ for this reason). </p>
+<p>Next we observe the degrees of $a,b$ and $c$. Since $a+b=c$, we actually have $\deg c \le \max\{\deg a,\deg b\}$. Therefore $\max\{\deg a,\deg b,\deg c\}=\max\{\deg a,\deg b\}$. From the relation</p>
+<script type="math/tex; mode=display">
+\frac{b}{a}=-\frac{N_0f'/f}{N_0g'/g},</script><p>and the assumption that $(a,b)=1$, one can find polynomial $h \in K[X]$ such that</p>
+<script type="math/tex; mode=display">
+bh=-N_0f'/f,\quad ah = N_0g'/g.</script><p>Taking the degrees of both sides, we see</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\deg b \le \deg N_0f'/f \le n_0(abc)-1, \\
+\deg a \le \deg N_0g'/g \le n_0(abc)-1.
+\end{aligned}</script><p>This proves the theorem. $\square$</p>
+<h1 id="Applications"><a href="#Applications" class="headerlink" title="Applications"></a>Applications</h1><p>We present some applications of this theorem.</p>
+<blockquote>
+<p><strong>Corollary 1 (Fermat’s theorem for polynomials).</strong> Let $a(X),b(X)$ and $c(X)$ be relatively prime polynomials in $K[X]$ such that not all of them are constant, and such that </p>
+<script type="math/tex; mode=display">
+a(X)^n+b(X)^n=c(X)^n.</script><p>Then $n \le 2$.</p>
+</blockquote>
+<p>Alternatively one can argue the curve $x^n+y^n=1$ on $K(X)$.</p>
+<p><em>Proof.</em> Since $a,b$ and $c$ are relatively prime, we also have $a^n$, $b^n$ and $c^n$ to be relatively prime. By Mason-Stothers theorem,</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\deg a^n = n\deg a &\le n_0(a^nb^nc^n)-1 \\
+                   &=   n_0(abc)-1 \\
+                   &\le \deg(abc)-1 \\
+                   &= \deg a + \deg b + \deg c - 1.
+\end{aligned}</script><p>Replacing $a$ by $b$ and $c$, we see</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+n\deg a \le \deg a + \deg b + \deg c - 1 \\
+n\deg b \le \deg a + \deg b + \deg c - 1 \\
+n\deg c \le \deg a + \deg b + \deg c - 1 
+\end{cases}</script><p>It follows that</p>
+<script type="math/tex; mode=display">
+n(\deg a + \deg b + \deg c) \le 3(\deg a + \deg b + \deg c) - 1.</script><p>In this case $n&lt;3$. $\square$</p>
+<blockquote>
+<p><strong>Corollary 2 (Davenport’s inequality).</strong> Let $f,g \in K[X]$ be non-constant polynomials such that $f^3-g^2 \ne 0$. Then</p>
+<script type="math/tex; mode=display">
+\deg (f^3-g^2) \ge \frac{1}{2}\deg f + 1.</script></blockquote>
+<p>One may discuss cases separately on whether $f$ and $g$ are coprime, and try to apply Mason-Stothers theorem respectively, and many documents only record the proof of coprime case, which is a shame. The case when $f$ and $g$ are not coprime can be a nightmare. Instead, for sake of accessibility, we offer the elegant proof given by Stothers, starting with a lemma about the degree of the difference of two polynomials.</p>
+<blockquote>
+<p><strong>Lemma 1.</strong> Suppose $p,q \in K[X]$ are two distinct non-constant polynomials, then</p>
+<script type="math/tex; mode=display">
+\deg(p-q) \ge \deg p - n_0(p)-n_0(q)+1.</script></blockquote>
+<p><em>Proof.</em> Let $k(f)$ be the leading coefficient of a polynomial $f$. If $\deg p \ne \deg q$ or $k(p) \ne k(q)$, then $\deg(p-q)\ge \deg p \ge \deg p - n_0(p)-n_0(q)+1$ because $n_0(p) \ge 1$ and $n_0(q) \ge 1$.</p>
+<p>Next suppose $\deg p = \deg q$ and $k(p)=k(q)$. If $(p,q)=1$, then by Mason-Stothers,</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\deg p &\le n_0(pq(p-q))-1 \\
+       &=n_0(p)+n_0(q)+n_0(p-q)-1 \\
+       &\le n_0(p)+n_0(q)+\deg(p-q)-1.
+\end{aligned}</script><p>Otherwise, suppose $(p,q)=r$. Then $p/r$ and $q/r$ are coprime. Again by Mason-Stothers,</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\deg(p/r) &\le n_0\left\{\frac{p}{r}\cdot\frac{q}{r}\cdot\frac{p-q}{r}\right\}-1 \\
+          &\le n_0(p/r)+n_0(q/r)+\deg((p-q)/r)-1
+\end{aligned}</script><p>Therefore</p>
+<script type="math/tex; mode=display">
+n_0(p/r)+n_0(q/r) \ge \deg(p/r)-\deg((p-q)/r)+1=\deg(p)+\deg(p-q)+1</script><p>On the other hand,</p>
+<script type="math/tex; mode=display">
+n_0(p)+n_0(q) \ge n_0(p/r)+n_0(q/r)+n_0(r) \ge n_0(p/r)+n_0(q/r).</script><p>Combining all these inequalities, we obtain what we want. $\square$</p>
+<hr>
+<p><em>Proof (of corollary 2).</em> Put $\deg{f}=m$ and $\deg{g}=n$. If $3m \ne 2n$, then</p>
+<script type="math/tex; mode=display">
+\deg(f^3-g^2) \ge \deg(f^3)=3m\ge \frac{1}{2}m+1</script><p>because $m \ge 1$. Next we assume that $3m=2n$, or in other word, $m=2r$ and $n=3r$. By lemma 1, we can write</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\deg(f^3-g^2) & \ge \deg(f^3)-n_0(f^3)-n_0(g^2)+1 \\
+              & \ge 6r - 2r - 3r + 1 \\
+              & \ge r+1 \\
+              & = \frac{1}{2}\deg f + 1.
+\end{aligned}</script><p>This proves the inequality. $\square$</p>
+<p>One may also generalise the case to $f^m-g^n$. But we put down some more important remarks. First of all, Mason-Stothers is originally a generalisation of Davenport’s inequality (by Stothers). I personally do not think any mortal can find the original paper of Davenport’s inequality, but on [Shioda 04] there is a reproduced proof using linear algebra (lemma 3.1).</p>
+<p>For more geometrical interpretation, one may be interested in [Zannier 95], where Riemann’s existence theorem is also discussed.</p>
+<p>In Stothers’s paper [Stothers 81], the author discussed the condition where the equality holds. If you look carefully you will realise his theorem 1.1 is exactly the Mason-Stothers theorem.</p>
+<h1 id="References-Further-Reading"><a href="#References-Further-Reading" class="headerlink" title="References / Further Reading"></a>References / Further Reading</h1><ul>
+<li>[Davenport 65] H. Davenport, <em>On $f^3(t)-g^2(t)$</em>, 1965. (can someone find a digital copy of this paper?)</li>
+<li>[Ma 84] R. C. Mason, <em>Diophantine Equations over Function Fields</em>, 1984.</li>
+<li>[Shioda 04] Tetsuji Shioda, <em>The abc-theorem, Davenport’s inequality and elliptic surfaces</em>, 2004 (<a target="_blank" rel="noopener" href="https://www2.rikkyo.ac.jp/web/shioda/papers/esdstadd.pdf">https://www2.rikkyo.ac.jp/web/shioda/papers/esdstadd.pdf</a>)</li>
+<li>[Stothers 81] W. W. Stothers, <em>POLYNOMIAL IDENTITIES AND HAUPTMODULN</em>, 1981. (<a target="_blank" rel="noopener" href="https://doi.org/10.1093/qmath/32.3.349">https://doi.org/10.1093/qmath/32.3.349</a>)</li>
+<li>[Zannier 95] Umberto Zannier (Venezia), <em>On Davenport’s bound for the degree of $f^3-g^2$ and Riemann’s Existence Theorem</em>, 1995. (<a target="_blank" rel="noopener" href="https://eudml.org/doc/206763">https://eudml.org/doc/206763</a>)</li>
+</ul>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"><a href="../../../../tags/Exercise-solution/" class="post-tags__link button"># Exercise solution</a><a href="../../../../tags/Study-new-content/" class="post-tags__link button"># Study new content</a><a href="../../../../tags/Serge-Lang/" class="post-tags__link button"># Serge Lang</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../05/regular-local-ring-cohen-macaulay/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            Every Regular Local Ring is Cohen-Macaulay
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../../11/24/riemann-zeta-continuation/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            A Step-by-step of the Analytic Continuation of the Riemann Zeta Function
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2022/12/02/The-abc-Theorem-of-Polynomials/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

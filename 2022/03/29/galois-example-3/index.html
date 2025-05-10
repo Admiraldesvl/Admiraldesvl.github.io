@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>Examples in Galois Theory 3 - Polynomials of Prime Degree and Pairs of Nonreal Roots | Desvl&#39;s blog</title>
+
+
+    <meta name="keywords" content="Examples in Galois Theory">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="In this episode we focus on the rational field. What can we know about the Galois group of an irreducible polynomial with prime degree? There is a method by counting the number of nonreal roots. From">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Examples in Galois Theory 3 - Polynomials of Prime Degree and Pairs of Nonreal Roots">
+<meta property="og:url" content="https://desvl.xyz/2022/03/29/galois-example-3/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="In this episode we focus on the rational field. What can we know about the Galois group of an irreducible polynomial with prime degree? There is a method by counting the number of nonreal roots. From">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-03-29T15:32:59.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:09.981Z">
+<meta property="article:author" content="Desvl">
+<meta property="article:tag" content="Examples in Galois Theory">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        Examples in Galois Theory 3 - Polynomials of Prime Degree and Pairs of Nonreal Roots
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2022/03/" class="post-meta__date button">2022-03-29</a>
+        
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/" class="button">Algebra</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/Group-Theory/" class="button">Group Theory</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/Galois-Theory/" class="button">Galois Theory</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Simplest-Case"><span class="toc-number">1.</span> <span class="toc-text">The Simplest Case</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%9CLinear%E2%80%9D-Generalisation"><span class="toc-number">2.</span> <span class="toc-text">“Linear” Generalisation</span></a></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Simplest-Case"><span class="toc-number">1.</span> <span class="toc-text">The Simplest Case</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%9CLinear%E2%80%9D-Generalisation"><span class="toc-number">2.</span> <span class="toc-text">“Linear” Generalisation</span></a></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>In the <a href="/2022/03/27/galois-example-2/">previous post</a> we are convinced that the Galois group of a separable irreducible polynomial $f$ can be realised as a subgroup of the symmetric group, the elements of which permute the roots of $f$. We worked on cubic polynomials over a field with characteristic not equal to $2$ and $3$, and this definitely works with $\mathbb{Q}$. In this post we go one step further.</p>
+<p>Let $f \in \mathbb{Q}[X]$ be an irreducible polynomial of prime degree $p$. Since it is also separable (see lemma 9.12.1 on <a target="_blank" rel="noopener" href="https://stacks.math.columbia.edu/tag/09GZ">the stack project</a>), we can safely work on its Galois group $G$. One immediately wants to question the position of $\mathfrak{S}_p$. Indeed we have $G \subset \mathfrak{S}_p$. The question is, when does the equality hold? It is not likely to have an immediate answer. However, we have some interesting sufficient conditions, which will be discussed in this post.</p>
+<h1 id="Generators-of-the-Symmetric-Group"><a href="#Generators-of-the-Symmetric-Group" class="headerlink" title="Generators of the Symmetric Group"></a>Generators of the Symmetric Group</h1><p>We present some handy results in finite group theory that will be used in the main result. One may skip this section until needed. I will collapse the proof in case one wants to treat it as an exercise.</p>
+<blockquote>
+<p><strong>Lemma 1.</strong> Let $p$ be a prime number. The symmetric group $\mathfrak{S}_p$ is generated by $[12 \cdots p]$ and an arbitrary transposition $[rs]$.</p>
+</blockquote>
+<p><em>Proof.</em> We prove this by presenting several sets of generators of $\mathfrak{S}_n$ where $n$ is a positive integer. </p>
+<ol>
+<li><p>It is generated by cycles. This is a really, really routine verification and sometimes this is assumed as a fact.</p>
+</li>
+<li><p>It is generated by transpositions, i.e., $2$-cycles. It suffices to show that a cycle is a product of transpositions. Indeed, for any cycle $[i_1\dots i_k]$ in $\mathfrak{S}_n$, we have $[i_1\cdots i_k]=[i_1i_2][i_2i_3]\cdots[i_{k-1}i_k]$. This proves our statement.</p>
+</li>
+<li><p>It is generated by translations of the form $[1k]$. It suffices to show that a transposition is generated as such. For any transposition $[rs]$, we have $[rs]=[1r][1s][1r]$.</p>
+</li>
+<li><p>It is generated by adjacent translations, i.e. the generators can be of the form $[k-1 ,k]$. This follows from the following identity:</p>
+</li>
+</ol>
+<script type="math/tex; mode=display">
+[1k]=[12][23]\cdots[k-1,k][k-2,k-1]\cdots [23][12]</script><ol>
+<li>It is generated by two elements: $\sigma=[12]$ and $\tau=[12\cdots n]$. This follows from the following identity:</li>
+</ol>
+<script type="math/tex; mode=display">
+\tau^{k-2}\sigma\tau^{-(k-2)}=[\tau^{k-2}(1)\tau^{k-2}(2)]=[k-1,k].</script><p>Now, back to the case when $n=p$ is prime. Put $\sigma=[rs]$ and $\tau=[12\cdots p]$. If $s-r=1$ then it is already proved in 5 by several conjugations. Therefore we may assume that $d=s-r&gt;1$. From now on integers may be a number in either $\mathbb{Z}$ or $\mathbf{F}_p=\mathbb{Z}/p\mathbb{Z}$, depending on the context. Recall that $\mathbf{F}_p$ is a field. Pick the integer $w$ such that $dw=1$ in $\mathbf{F}_p$. By conjugation we see $\tau$ and $\sigma$ generate</p>
+<script type="math/tex; mode=display">
+[1,1+d],[1+d,1+2d],\dots,[1+(w-1)d,1+wd].</script><p>The product of elements above is $[1,1+wd]=[12]$. Therefore we are still back to 5. $\square$</p>
+<h1 id="Computing-the-Galois-Group"><a href="#Computing-the-Galois-Group" class="headerlink" title="Computing the Galois Group"></a>Computing the Galois Group</h1><p>We have many good reasons to study the Galois group of <em>something</em>. It would be great if the group can be written down explicitly. In this section we show that the group can be revealed by the number of nonreal roots.</p>
+<h2 id="The-Simplest-Case"><a href="#The-Simplest-Case" class="headerlink" title="The Simplest Case"></a>The Simplest Case</h2><blockquote>
+<p><strong>Proposition 1.</strong> Let $f(X) \in \mathbb{Q}[X]$ be an irreducible polynomial of prime degree. If $f$ has precisely two nonreal roots, then the Galois group $G$ over $\mathbb{Q}$ is $\mathfrak{S}_p$.</p>
+</blockquote>
+<p><em>Proof.</em> Let $L$ be the splitting field of $f$. It suffices to show that $G$ contains a transposition and a $p$-cycle, which is $[12\cdots p]$. By the Sylow’s theorem, $G$ has a subgroup $H$ of order $p$, which can only be cyclic. Say $H=\langle \sigma \rangle$. Suppose $\sigma$ is of cycle type $(k_1,\dots,k_r)$. Then the period of $\sigma$, which equals $p$, is the least common multiple of $k_1,\dots,k_r$, where $k_1+\dots+k_r=p$. This can only happen when $r=1$ and $k_1=p$. Therefore $\sigma$ is a $p$-cycle. </p>
+<p>In fact, $\sigma$ can be considered as $[12\dots p]$. Suppose the order of roots of $f$ is given, for which we have $\sigma=[i_1 i_2 \dots i_p]$. Then If we re-order these roots, by putting the $k$th root to be the original $i_k$th root, then we can write $\sigma=[12\dots p]$. (This re-ordering is, in fact, a conjugation.)</p>
+<p>It remains to prove that $G$ contains a transposition. Let $\alpha$ and $\beta$ be two nonreal roots of $f$. Since $\overline{\alpha}$ is also a root of $f$ (because coefficients of $f$ are real; if $\sum_{n=0}^{p}a_n\alpha^n=0$, then $\sum_{n=0}^{p}a_n\overline{\alpha}^n=\sum_{n=0}^{p}\overline{a_n\alpha^n}=\overline{0}=0$) we see $\beta=\overline{\alpha}$. Therefore complex conjugation over $\mathbb{Q}(\alpha)$ extends to $L$ as an element of order $2$, which is a transposition in $G$. This proves our assertion. $\square$</p>
+<p>For example, consider the polynomial</p>
+<script type="math/tex; mode=display">
+f(X)=X^5-4X+2.</script><p>With calculus one can show that it has exactly three roots, hence it has two nonreal roots. Eisenstein’s criterion shows that $f$ is irreducible. Therefore we are allowed to use proposition 1. The Galois group of $f$ is $\mathfrak{S}_5$.</p>
+<p>This also works fine when $p=2$ or $3$. The case when $p=2$ is nothing but working around a quadratic polynomial. When $f(X)$ is irreducible of degree $3$, and it has two nonreal roots, we also know that it has an irrational root. Let the roots be $a+bi,a-bi,c$ where $b \ne 0$ and $c$ is irrational. We see </p>
+<script type="math/tex; mode=display">
+\sqrt\Delta=2bi(c-a-bi)(c-a+bi)=2bi[(c-a)^2+b^2] \not \in \mathbb{Q}.</script><p>Therefore the Galois group is $\mathfrak{S}_3$.</p>
+<h2 id="“Linear”-Generalisation"><a href="#“Linear”-Generalisation" class="headerlink" title="“Linear” Generalisation"></a>“Linear” Generalisation</h2><p>It is way too ambitious to restrict ourselves in one single pair of roots. Also, it seems we have ignored the alternating group $\mathfrak{A}_p$ for no reason. Oz Ben-Shimol gave us a nice way to work around this (see <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/0709.2868.pdf">arXiv:0709.2868</a>). The whole paper is not easy but the result is pretty beautiful and generalised what we said above as $p \ge 5$.</p>
+<blockquote>
+<p><strong>Proposition 2.</strong> Let $f \in \mathbb{Q}[X]$ be an irreducible polynomial of prime degree $p \ge 5$. Suppose that $f$ has $k&gt;0$ pairs of nonreal roots. If $p \ge 4k+1$, then the Galois group $G$ is isomorphic to $\mathfrak{A}_p$ or $\mathfrak{S}_p$. If $k$ is odd then $G \cong \mathfrak{S}_p$.</p>
+</blockquote>
+<p>The proof is done by showing that $\mathfrak{A}_p \subset G \subset \mathfrak{S}_p$. As the index of $\mathfrak{A}_p$ is $2$, $G$ can only be one of them. The solvability of $G$ is also concerned here. </p>
+<p>Indeed, what we have proved in “the simplest case” is nothing but $k=1$. When $p \ge 5$ we clearly have $p \ge 1+4 \times 1$. This refined the result of A. Bialostocki and T. Shaska (see <a target="_blank" rel="noopener" href="https://arxiv.org/abs/math/0601397"> arXiv:math/0601397</a>), and the inequality used to be</p>
+<script type="math/tex; mode=display">
+p \ge k(k\log k+2\log k+3).</script><p>When $k$ is big enough, we have $k(k\log{k}+2\log{k}+3) \ge 4k+1$. Oz Ben-Shimol’s result is a refinement because it is saying, $p$ does not need to that big. He also offered a refined algorithm to compute the Galois group, which we will present below. Also, computing $4k+1$ is much easier than computing $k^2\log{k}$ plus something.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Input: An irreducible polynomial f(X) over Q with prime degree p &gt;= 5</span><br><span class="line">Output: The Galois group Gal(f/Q)</span><br><span class="line">begin</span><br><span class="line">    r:=NumberOfRealRoots(f(X))</span><br><span class="line">    k:=(p-r)/2</span><br><span class="line">    if k&gt;0 and p&gt;=4k+1 then</span><br><span class="line">        if k is odd then</span><br><span class="line">            Gal(f/Q)=S_p;</span><br><span class="line">        else</span><br><span class="line">            if ∆(f) is a complete square then</span><br><span class="line">                Gal(f/Q)=A_p;</span><br><span class="line">            else</span><br><span class="line">                Gal(f/Q)=S_p;</span><br><span class="line">            endif;</span><br><span class="line">        endif;</span><br><span class="line">    else</span><br><span class="line">        ReductionMethod(f(X));</span><br><span class="line">    endif;</span><br><span class="line">end;</span><br></pre></td></tr></table></figure>
+<p>Here, $\Delta(f)$ is the discriminant of $f$. We have seen that whether $\Delta$ is a perfect square matters a lot. The discussion of <code>ReductionMethod</code> can be trailed in Oz Ben-Shimol’s paper.</p>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"><a href="../../../../tags/Examples-in-Galois-Theory/" class="post-tags__link button"># Examples in Galois Theory</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../../04/15/riemann-mapping-theorem-proof/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            A Detailed Proof of the Riemann Mapping Theorem
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../27/galois-example-2/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            Examples in Galois Theory 2 - Cubic Extensions
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2022/03/29/galois-example-3/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

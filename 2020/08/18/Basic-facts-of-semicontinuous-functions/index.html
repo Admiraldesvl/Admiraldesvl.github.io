@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>Basic Facts of Semicontinuous Functions | Desvl&#39;s blog</title>
+
+
+    <meta name="keywords" content="Exercise solution, Real and Complex Analysis, Walter Rudin">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="ContinuityWe are restricting ourselves into $\mathbb{R}$ endowed with normal topology. Recall that a function is continuous if and only if for any open set $U \subset \mathbb{R}$, we have  \{x:f(x) \i">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Basic Facts of Semicontinuous Functions">
+<meta property="og:url" content="https://desvl.xyz/2020/08/18/Basic-facts-of-semicontinuous-functions/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="ContinuityWe are restricting ourselves into $\mathbb{R}$ endowed with normal topology. Recall that a function is continuous if and only if for any open set $U \subset \mathbb{R}$, we have  \{x:f(x) \i">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-08-18T15:12:52.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:09.587Z">
+<meta property="article:author" content="Desvl">
+<meta property="article:tag" content="Exercise solution">
+<meta property="article:tag" content="Real and Complex Analysis">
+<meta property="article:tag" content="Walter Rudin">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        Basic Facts of Semicontinuous Functions
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2020/08/" class="post-meta__date button">2020-08-18</a>
+        
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/" class="button">Analysis</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/Elementary/" class="button">Elementary</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/Elementary/Continuity/" class="button">Continuity</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Continuity"><span class="toc-number">1.</span> <span class="toc-text">Continuity</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Definition-of-semicontinuous"><span class="toc-number">2.</span> <span class="toc-text">Definition of semicontinuous</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Relation-with-continuous-functions"><span class="toc-number">3.</span> <span class="toc-text">Relation with continuous functions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Examples"><span class="toc-number">4.</span> <span class="toc-text">Examples</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Addition-of-semicontinuous-functions"><span class="toc-number">5.</span> <span class="toc-text">Addition of semicontinuous functions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Maximum-and-minimum"><span class="toc-number">6.</span> <span class="toc-text">Maximum and minimum</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Approximating-integrable-functions"><span class="toc-number">7.</span> <span class="toc-text">Approximating integrable functions</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Generalisation"><span class="toc-number">7.1.</span> <span class="toc-text">Generalisation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Is-the-reverse-approximation-always-possible"><span class="toc-number">7.2.</span> <span class="toc-text">Is the reverse approximation always possible?</span></a></li></ol></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Continuity"><span class="toc-number">1.</span> <span class="toc-text">Continuity</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Definition-of-semicontinuous"><span class="toc-number">2.</span> <span class="toc-text">Definition of semicontinuous</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Relation-with-continuous-functions"><span class="toc-number">3.</span> <span class="toc-text">Relation with continuous functions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Examples"><span class="toc-number">4.</span> <span class="toc-text">Examples</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Addition-of-semicontinuous-functions"><span class="toc-number">5.</span> <span class="toc-text">Addition of semicontinuous functions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Maximum-and-minimum"><span class="toc-number">6.</span> <span class="toc-text">Maximum and minimum</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Approximating-integrable-functions"><span class="toc-number">7.</span> <span class="toc-text">Approximating integrable functions</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Generalisation"><span class="toc-number">7.1.</span> <span class="toc-text">Generalisation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Is-the-reverse-approximation-always-possible"><span class="toc-number">7.2.</span> <span class="toc-text">Is the reverse approximation always possible?</span></a></li></ol></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h2 id="Continuity"><a href="#Continuity" class="headerlink" title="Continuity"></a>Continuity</h2><p>We are restricting ourselves into $\mathbb{R}$ endowed with normal topology. Recall that a function is continuous if and only if for any open set $U \subset \mathbb{R}$, we have</p>
+<script type="math/tex; mode=display">
+\{x:f(x) \in U\}=f^{-1}(U)</script><p>to be open. One can rewrite this statement using $\varepsilon-\delta$ language. To say a function $f: \mathbb{R} \to \mathbb{R}$ continuous at $f(x)$, we mean for any $\varepsilon&gt;0$, there exists some $\delta&gt;0$ such that for $t \in (x-\delta,x+\delta)$, we have</p>
+<script type="math/tex; mode=display">
+|f(x)-f(t)|<\varepsilon.</script><p>$f$ is continuous on $\mathbb{R}$ if and only if $f$ is continuous at every point of $\mathbb{R}$.</p>
+<p>If $(x-\delta,x+\delta)$ is replaced with $(x-\delta,x)$ or $(x,x+\delta)$, we get left continuous and right continuous, one of which plays an important role in probability theory.</p>
+<p>But the problem is, sometimes continuity is too strong for being a restriction, but the ‘direction’ associated with left/right continuous functions are unnecessary as well. For example the function</p>
+<script type="math/tex; mode=display">
+f(x)=\chi_{(0,1)}(x)</script><p>is neither left nor right continuous (globally), but it is a thing. Left/right continuity is not a perfectly weakened version of continuity. We need something different.</p>
+<h2 id="Definition-of-semicontinuous"><a href="#Definition-of-semicontinuous" class="headerlink" title="Definition of semicontinuous"></a>Definition of semicontinuous</h2><p>Let $f$ be a real (or extended-real) function on $\mathbb{R}$. The semicontinuity of $f$ is defined as follows.</p>
+<blockquote>
+<p>If</p>
+<script type="math/tex; mode=display">
+\{x:f(x)>\alpha\}</script><p>is open for all real $\alpha$, we say $f$ is <em>lower</em> semicontinuous.</p>
+<p>If</p>
+<script type="math/tex; mode=display">
+\{x:f(x)<\alpha\}</script><p>is open for all real $\alpha$, we say $f$ is <em>upper</em> semicontinuous.</p>
+</blockquote>
+<p>Is it possible to rewrite these definitions à la $\varepsilon-\delta$? The answer is yes if we restrict ourselves in metric space.</p>
+<blockquote>
+<p>$f: \mathbb{R} \to \mathbb{R}$ is upper semicontinuous at $x$ if, for every $\varepsilon&gt;0$, there exists some $\delta&gt;0$ such that for $t \in (x-\delta,x+\delta)$, we have</p>
+<script type="math/tex; mode=display">
+f(t)<f(x)+\varepsilon</script><p>$f: \mathbb{R} \to \mathbb{R}$ is lower semicontinuous at $x$ if, for every $\varepsilon&gt;0$, there exists some $\delta&gt;0$ such that for $t \in (x-\delta,x+\delta)$, we have</p>
+<script type="math/tex; mode=display">
+f(t)>f(x)-\varepsilon</script></blockquote>
+<p>Of course, $f$ is upper/lower semicontinuous on $\mathbb{R}$ if and only if it is so on every point of $\mathbb{R}$. One shall find no difference between the definitions in different styles.</p>
+<h2 id="Relation-with-continuous-functions"><a href="#Relation-with-continuous-functions" class="headerlink" title="Relation with continuous functions"></a>Relation with continuous functions</h2><p>Here is another way to see it. For the continuity of $f$, we are looking for <em>arbitrary</em> open subsets $V$ of  $\mathbb{R}$, and $f^{-1}(V)$ is expected to be open. For the lower/upper semicontinuity of $f$, however, the open sets are restricted to be like $(\alpha,+\infty]$ and $[-\infty,\alpha)$. Since all open sets of $\mathbb{R}$ can be generated by the union or intersection of sets like $[-\infty,\alpha)$ and $(\beta,+\infty]$, we immediately get</p>
+<blockquote>
+<p>$f$ is continuous if and only if $f$ is both upper semicontinuous and lower semicontinuous.</p>
+</blockquote>
+<p><em>Proof.</em> If $f$ is continuous, then for any $\alpha \in \mathbb{R}$, we see $[-\infty,\alpha)$ is open, and therefore</p>
+<script type="math/tex; mode=display">
+f^{-1}([-\infty,\alpha))</script><p>has to be open. The upper semicontinuity is proved. The lower semicontinuity of $f$ is proved in the same manner.</p>
+<p>If $f$ is both upper and lower semicontinuous, we see</p>
+<script type="math/tex; mode=display">
+f^{-1}((\alpha,\beta))=f^{-1}([-\infty,\beta)) \cap f^{-1}((\alpha,+\infty])</script><p>is open. Since every open subset of $\mathbb{R}$ can be written as a countable union of segments of the above types, we see for any open subset $V$ of $\mathbb{R}$, $f^{-1}(V)$ is open. (If you have trouble with this part, it is recommended to review the definition of topology.) $\square$</p>
+<h2 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h2><p>There are two important examples.</p>
+<blockquote>
+<ol>
+<li>If $E \subset \mathbb{R}$ is open, then $\chi_E$ is lower semicontinuous.</li>
+<li>If $F \subset \mathbb{R}$ is closed, then $\chi_F$ is upper semicontinuous.</li>
+</ol>
+</blockquote>
+<p>We will prove the first one. The second one follows in the same manner of course. For $\alpha<0$, the set $A=\chi_E^{-1}((\alpha,+\infty])$ is equal to $\mathbb{R}$, which is open. For $\alpha \geq 1$, since $\chi_E \leq 1$, we see $A=\varnothing$. For $0 \leq \alpha < 1$ however, the set of $x$ where $\chi_E>\alpha$ has to be $E$, which is still open.</p>
+<p>When checking the semicontinuity of a function, we check from bottom to top or top to bottom. The function $\chi_E$ is defined by</p>
+<script type="math/tex; mode=display">
+\chi_E(x)=\begin{cases}
+1 \quad x \in E \\
+0 \quad x \notin E
+\end{cases}.</script><h2 id="Addition-of-semicontinuous-functions"><a href="#Addition-of-semicontinuous-functions" class="headerlink" title="Addition of semicontinuous functions"></a>Addition of semicontinuous functions</h2><blockquote>
+<p>If $f_1$ and $f_2$ are upper/lower semicontinuous, then so is $f_1+f_2$.</p>
+</blockquote>
+<p><em>Proof.</em> We are going to prove this using different tools. Suppose now both $f_1$ and $f_2$ are upper semicontinuous. For $\varepsilon&gt;0$, there exists some $\delta_1&gt;0$ and $\delta_2&gt;0$ such that</p>
+<script type="math/tex; mode=display">
+f_1(t) < f_1(x)+\varepsilon/2 \quad t \in (x-\delta_1,x+\delta_1), \\
+f_2(t) < f_2(x) + \varepsilon/2 \quad t \in (x-\delta_2,x+\delta_2).</script><p><em>Proof.</em> If we pick $\delta=\min(\delta_1,\delta_2)$, then we see for all $t \in (x-\delta,x+\delta)$, we have</p>
+<script type="math/tex; mode=display">
+f_1(t)+f_2(t)<f_1(x)+f_2(x)+\varepsilon.</script><p>The upper semicontinuity of $f_1+f_2$ is proved by considering all $x \in \mathbb{R}$.</p>
+<p>Now suppose both $f_1$ and $f_2$ are lower semicontinuous. We have an identity by</p>
+<script type="math/tex; mode=display">
+\{x:f_1+f_2>\alpha\}=\bigcup_{\beta\in\mathbb{R}}\{x:f_1>\beta\}\cap\{x:f_2>\alpha-\beta\}.</script><p>The set on the right side is always open. Hence $f_1+f_2$ is lower semicontinuous. $\square$</p>
+<hr>
+<p>However, when there are infinite many semicontinuous functions, things are different.</p>
+<blockquote>
+<p>Let $\{f_n\}$ be a sequence of nonnegative functions on $\mathbb{R}$, then</p>
+<ul>
+<li>If each $f_n$ is lower semicontinuous, then so is $\sum_{1}^{\infty}f_n$.</li>
+<li>If each $f_n$ is upper semicontinuous, then $\sum_{1}^{\infty}f_n$ is not necessarily upper semicontinuous.</li>
+</ul>
+</blockquote>
+<p><em>Proof.</em> To prove this we are still using the properties of open sets. Put $g_n=\sum_{1}^{n}f_k$. Now suppose all $f_k$ are lower. Since $g_n$ is a finite sum of lower functions, we see each $g_n$ is lower. Let $f=\sum_{n}f_n$. As $f_k$ are non-negative, we see $f(x)&gt;\alpha$ if and only if there exists some $n_0$ such that $g_{n_0}(x)&gt;\alpha$. Therefore</p>
+<script type="math/tex; mode=display">
+\{x:f(x)>\alpha\}=\bigcup_{n \geq n_0}\{x:g_n>\alpha\}.</script><p>The set on the right hand is open already. </p>
+<p>For the upper semicontinuity, it suffices to give a counterexample, but before that, we shall give the motivation.</p>
+<p>As said, the characteristic function of a closed set is upper semicontinuous. Suppose $\{E_n\}$ is a sequence of almost disjoint closed set, then $E=\cup_{n\geq 1}E_n$ is not necessarily closed, therefore $\chi_E=\sum\chi_{E_n}$ (a.e.) is not necessarily upper semicontinuous. Now we give a concrete example. Put $f_0=\chi_{[1,+\infty]}$ and $f_n=\chi_{E_n}$ for $n \geq 1$ where</p>
+<script type="math/tex; mode=display">
+E_n=\{x:\frac{1}{1+n} \leq x \leq \frac{1}{n}\}.</script><p>For $x &gt; 0$, we have $f=\sum_nf_n \geq 1$. Meanwhile, $f^{-1}([-\infty,1))=[-\infty,0]$, which is not open. $\square$</p>
+<p>Notice that $f$ can be defined on any topological space here.</p>
+<h2 id="Maximum-and-minimum"><a href="#Maximum-and-minimum" class="headerlink" title="Maximum and minimum"></a>Maximum and minimum</h2><p>There is one fact we already know about continuous functions.</p>
+<blockquote>
+<p>If $X$ is compact, $f: X \to \mathbb{R}$ is continuous, then there exists some $a,b \in X$ such that $f(a)=\min f(X)$, $f(b)=\max f(X)$.</p>
+</blockquote>
+<p>In fact, $f(X)$ is compact still. But for semicontinuous functions, things will be different but reasonable. For upper semicontinuous functions, we have the following fact.</p>
+<blockquote>
+<p>If $X$ is compact and $f: X \to (-\infty,+\infty)$ is upper semicontinuous, then there exists some $a \in X$ such that $f(a)=\max f(X)$. </p>
+</blockquote>
+<p>Notice that $X$ is not assumed to hold any other topological property. It can be Hausdorff or Lindelöf, but we are not asking for restrictions like this. The only property we will be using is that every open cover of $X$ has a finite subcover. Of course, one can replace $X$ with any compact subset of $\mathbb{R}$, for example, $[a,b]$.</p>
+<p><em>Proof.</em> Put $\alpha=\sup f(X)$, and define</p>
+<script type="math/tex; mode=display">
+E_n=\{x:f(x)<\alpha-\frac{1}{n}\}.</script><p>If $f$ attains no maximum, then for any $x \in X$, there exists some $n \geq 1$ such that $f(x)&lt;\alpha-\frac{1}{n}$. That is, $x \in E_n$ for some $n$. Therefore $\bigcup_{n \geq 1}E_n$ covers $X$. But this cover has no finite subcover of $X$. A contradiction since $X$ is compact. $\square$</p>
+<h2 id="Approximating-integrable-functions"><a href="#Approximating-integrable-functions" class="headerlink" title="Approximating integrable functions"></a>Approximating integrable functions</h2><p>This is a comprehensive application of several properties of semicontinuity. </p>
+<blockquote>
+<p>(<strong>Vitali–Carathéodory theorem</strong>) Suppose $f \in L^1(\mathbb{R})$, where $f$ is a real-valued function. For $\varepsilon&gt;0$, there exist some functions $u$ and $v$ on $\mathbb{R}$ such that $u \leq f \leq v$, $u$ is an upper semicontinuous function bounded above, and $v$ is lower semicontinuous bounded below, and</p>
+<script type="math/tex; mode=display">
+\boxed{\int_{\mathbb{R}}(v-u)dm<\varepsilon}</script></blockquote>
+<p>It suffices to prove this theorem for $f \geq 0$ (of course $f$ is not identically equal to $0$ since this case is trivial). Since $f$ is the pointwise limit of an increasing sequence of simple functions $s_n$, can to write $f$ as</p>
+<script type="math/tex; mode=display">
+f=s_1+\sum_{n=2}^{\infty}(s_n-s_{n-1}).</script><p>By putting $t_1=s_1$, $t_n=s_n-s_{n-1}$ for $n \geq 2$, we get $f=\sum_n t_n$. We can write $f$ as</p>
+<script type="math/tex; mode=display">
+f=\sum_{k=1}^{\infty}c_k\chi_{E_k}</script><p>where $E_k$ is measurable for all $k$. Also, we have</p>
+<script type="math/tex; mode=display">
+\int_X f d\mu = \sum_{k=1}^{\infty}c_km(E_k),</script><p>and the series on the right hand converges (since $f \in L^1$. By the properties of Lebesgue measure,  there exists a compact set $F_k$ and an open set $V_k$ such that $F_k \subset E_k \subset V_k$ and $c_km(V_k-F_k)&lt;\frac{\varepsilon}{2^{k+1}}$. Put</p>
+<script type="math/tex; mode=display">
+v=\sum_{k=1}^{\infty}c_k\chi_{V_k},\quad u=\sum_{k=1}^{N}c_k\chi_{F_k}</script><p>(now you can see $v$ is lower semicontinuous and $u$ is upper semicontinuous). The $N$ is chosen in such a way that</p>
+<script type="math/tex; mode=display">
+\sum_{k=N+1}^{\infty}c_km(E_K)<\frac{\varepsilon}{2}.</script><p>Since $V_k \supset E_k$, we have $\chi_{V_k} \geq \chi_{E_k}$. Therefore $v \geq f$. Similarly, $f \geq u$. Now we need to check the desired integral inequality. A simple recombination shows that</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+v-u&=\sum_{k=1}^{\infty}c_k\chi_{V_k}-\sum_{k=1}^{N}c_k\chi_{F_k} \\
+   &\leq \sum_{k=1}^{\infty}c_k\chi_{V_k}-\sum_{k=1}^{N}c_k\chi_{F_k}+\sum_{k=N+1}^{\infty}c_k(\chi_{E_k}-\chi_{F_k}) \\
+   &=\sum_{k=1}^{\infty}c_k(\chi_{V_k}-\chi_{F_k})+\sum_{k=N+1}^{\infty}c_k\chi_{E_k}.
+\end{aligned}.</script><p>If we integrate the function above, we get</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\int_{\mathbb{R}}(v-u)dm &\leq \sum_{k=1}^{\infty}c_k\mu(V_k-E_k)+\sum_{k=N+1}^{\infty}c_k\chi_{E_k} \\
+&< \sum_{k=1}^{\infty}\frac{\varepsilon}{2^{k+1}}+\frac{\varepsilon}{2} \\
+&=\varepsilon.
+\end{aligned}</script><p>This proved the case when $f \geq 0$. In the general case, we write $f=f^{+}-f^{-}$. Attach the semicontinuous functions to $f^{+}$ and $f^{-}$ respectively by $u_1 \leq f^{+} \leq v_1$ and $u_2 \leq f^{-} \leq v_2$. Put $u=u_1-v_2$, $v=v_1-u_2$. As we can see, $u$ is upper semicontinuous and $v$ is lower semicontinuous. Also, $u \leq f \leq v$ with the desired property since</p>
+<script type="math/tex; mode=display">
+\int_\mathbb{R}(v-u)dm=\int_\mathbb{R}(v_1-u_1)dm+\int_\mathbb{R}(v_2-u_2)dm<2\varepsilon,</script><p>and the theorem follows. $\square$</p>
+<h3 id="Generalisation"><a href="#Generalisation" class="headerlink" title="Generalisation"></a>Generalisation</h3><p>Indeed, the only property about measure used is the existence of $F_k$ and $V_k$. The domain $\mathbb{R}$ here can be replaced with $\mathbb{R}^k$ for $1 \leq k &lt; \infty$, and $m$ be replaced with the respective $m_k$. Much more generally, the domain can be replaced by any locally compact Hausdorff space $X$ and the measure by any measure associated with <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Riesz–Markov–Kakutani_representation_theorem">the Riesz-Markov-Kakutani representation theorem</a> on $C_c(X)$.</p>
+<h3 id="Is-the-reverse-approximation-always-possible"><a href="#Is-the-reverse-approximation-always-possible" class="headerlink" title="Is the reverse approximation always possible?"></a>Is the reverse approximation always possible?</h3><p>The answer is no. Consider the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Smith%E2%80%93Volterra%E2%80%93Cantor_set">fat Cantor set</a> $K$, which has Lebesgue measure $\frac{1}{2}$. We shall show that $\chi_K$ can not be approximated below by a lower semicontinuous function.</p>
+<blockquote>
+<p>If $v$ is a lower semicontinuous function such that $v \leq \chi_K$, then $v \leq 0$.</p>
+</blockquote>
+<p><em>Proof.</em> Consider the set $V=v^{-1}((0,1])=v^{-1}((0,+\infty))$. Since $v \leq \chi_K$, we have $V \subset K$. We will show that $V$ has to be empty.</p>
+<p>Pick $t \in V$. Since $V$ is open, there exists some neighbourhood $U$ containing $t$ such that $U \subset V$. But $U=\varnothing$ since $U \subset K$ and $K$ has an empty interior. Therefore $V = \varnothing$. That is, $v \leq 0$ for all $x$. $\square$</p>
+<p>Suppose $u$ is an upper semicontinuous function such that $u \geq f$. For $\varepsilon=\frac{1}{2}$, we have</p>
+<script type="math/tex; mode=display">
+\int_{\mathbb{R}}(u-v)dm \geq \int_\mathbb{R}(f-v)dm \geq \frac{1}{2}.</script><p>This example shows that there exist some integrable functions that are not able to reversely approximated in the sense of the Vitali–Carathéodory theorem.</p>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"><a href="../../../../tags/Exercise-solution/" class="post-tags__link button"># Exercise solution</a><a href="../../../../tags/Real-and-Complex-Analysis/" class="post-tags__link button"># Real and Complex Analysis</a><a href="../../../../tags/Walter-Rudin/" class="post-tags__link button"># Walter Rudin</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../26/r-s-integral/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            Introducing Riemann-Stieltjes Integral
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../16/An-Introduction-to-Quotient-Space/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            An Introduction to Quotient Space
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2020/08/18/Basic-facts-of-semicontinuous-functions/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>Quasi-analytic Vectors and Hamburger Moment Problem (Operator Theory) | Desvl&#39;s blog</title>
+
+
+    <meta name="keywords" content="Hamberger Moment Problem, Quasi-analytic">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="Analytic and quasi-analytic vectorsGuided by researches in function theory, operator theorists gave the analogue to quasi-analytic classes. Let $A$ be an operator in a Banach space $X$. $A$ is not nec">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Quasi-analytic Vectors and Hamburger Moment Problem (Operator Theory)">
+<meta property="og:url" content="https://desvl.xyz/2021/05/10/analytic-hamburger/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="Analytic and quasi-analytic vectorsGuided by researches in function theory, operator theorists gave the analogue to quasi-analytic classes. Let $A$ be an operator in a Banach space $X$. $A$ is not nec">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-05-10T08:49:49.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:09.551Z">
+<meta property="article:author" content="Desvl">
+<meta property="article:tag" content="Hamberger Moment Problem">
+<meta property="article:tag" content="Quasi-analytic">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        Quasi-analytic Vectors and Hamburger Moment Problem (Operator Theory)
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2021/05/" class="post-meta__date button">2021-05-10</a>
+        
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/" class="button">Analysis</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/Functional-Analysis/" class="button">Functional Analysis</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/Functional-Analysis/Operator-Theory/" class="button">Operator Theory</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Analytic-and-quasi-analytic-vectors"><span class="toc-number">1.</span> <span class="toc-text">Analytic and quasi-analytic vectors</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hamburger-moment-problem"><span class="toc-number">2.</span> <span class="toc-text">Hamburger moment problem</span></a></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Analytic-and-quasi-analytic-vectors"><span class="toc-number">1.</span> <span class="toc-text">Analytic and quasi-analytic vectors</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hamburger-moment-problem"><span class="toc-number">2.</span> <span class="toc-text">Hamburger moment problem</span></a></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h2 id="Analytic-and-quasi-analytic-vectors"><a href="#Analytic-and-quasi-analytic-vectors" class="headerlink" title="Analytic and quasi-analytic vectors"></a>Analytic and quasi-analytic vectors</h2><p>Guided by researches in function theory, operator theorists gave the analogue to quasi-analytic classes. Let $A$ be an operator in a Banach space $X$. $A$ is not necessarily bounded hence the domain $D(A)$ is not necessarily to be the whole space. We say $x \in X$ is a $C^\infty$ vector if $x \in \bigcap_{n \geq 1}D(A^n)$. This is quite intuitive if we consider the differential operator. A vector is analytic if the series</p>
+<script type="math/tex; mode=display">
+\sum_{n=0}^{\infty}\lVert{A^n x}\rVert\frac{t^n}{n!}</script><p>has a positive radius of convergence. Finally, we say $x$ is quasi-analytic for $A$ provided that</p>
+<script type="math/tex; mode=display">
+\sum_{n=0}^{\infty}\left(\frac{1}{\lVert A^n x \rVert}\right)^{1/n} = \infty</script><p>or equivalently its nondecreasing majorant. Interestingly, if $A$ is symmetric, then $\lVert{A^nx}\rVert$ is log convex.</p>
+<p>Based on the density of quasi-analytic vectors, we have an interesting result.</p>
+<blockquote>
+<p><strong>(Theorem)</strong> Let $A$ be a symmetric operator in a Hilbert space $\mathscr{H}$. If the set of quasi-analytic vectors spans a dense subset, then $A$ is essentially self-adjoint.</p>
+</blockquote>
+<p>This theorem can be considered as a corollary to <a href="/2021/03/30/quasi-analytic-classs/#The-fundamental-theorem-about-quasi-analytic-classes">the fundamental theorem of quasi-analytic classes</a>, by applying suitable Banach space techniques in lieu.</p>
+<span id="more"></span>
+<h2 id="Hamburger-moment-problem"><a href="#Hamburger-moment-problem" class="headerlink" title="Hamburger moment problem"></a>Hamburger moment problem</h2><p>For a positive sequence $\{a_n\}$, we see it is the moment of a positive measure $\mu$, i.e. $a_n = \int_\mathbb{R}t^n d\mu(t)$ if and only if it is positively definite (<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Hamburger_moment_problem#Characterization">proof</a>). But the uniqueness is not guaranteed. Here we have a sufficient condition for this - using the concept of the quasi-analytic vector. This is an old theorem (1922) but we are using operator theory to prove it which appeared decades later.</p>
+<blockquote>
+<p><strong>(Carleman’s condition)</strong> Suppose $\{a_n\}$ is the moment sequence of a positive measure $\mu$ on $\mathbb{R}$, then $\mu$ is uniquely determined provided that $\sum a_{2n}^{-1/2n}=\infty$.</p>
+</blockquote>
+<p><strong>Proof.</strong> Consider the Hilbert space</p>
+<script type="math/tex; mode=display">
+\mathscr{H}= L^2(\mathbb{R},\gamma)</script><p>and the operator</p>
+<script type="math/tex; mode=display">
+    A:f(t) \mapsto tf(t).</script><p>It is clear that $A$ is self-adjoint. We shall work on the constant function $u(t) \equiv 1 \in \mathscr{H}$. Since $A^nu = t^n$, we see $u \in C^\infty$, otherwise, $a_n$ is not defined. On the other hand, we have</p>
+<script type="math/tex; mode=display">
+    (A^n u, u) = a_n \implies (A^{2n} u,u) = \lVert A^n u \rVert^2 =  |(A^n u, u)|^2 = a_{2n}.</script><p>But $a_{2n}^{-1/2n}=\lVert A^n u \rVert^{-1/n}$ and as a result, we see $\sum a_{2n}^{-1/2n}= \sum \lVert A^n u \rVert^{-1/n} = \infty$, hence $u$ is quasi-analytic. In general, $t^n = A^n u$ is quasi-analytic for all $n \geq 0$.<br>Consider the space of polynomial $\mathcal{P}[t]$ with closure $\mathscr{H}_1$. It follows from the theorem above that $A_1 = A|_{\mathcal{P}[t]}$ is essentially self-adjoint in $\mathscr{H}_1$. Hence $\mathscr{H}_1$ is invariant under the one-parameter group $e^{iAs}$. Pick $y \in \mathcal{P}[t]^{\perp}$, we see</p>
+<script type="math/tex; mode=display">
+(y,e^{iAs}u) = \int_\mathbb{R}e^{-ist}y(t)d\gamma(t) = 0,</script><p>which implies that $y = 0$ a.e. [$\gamma$]. It follows that $\mathscr{H}_1 = \mathscr{H}$ or equivalently $\mathcal{P}[t]$ is dense in $\mathscr{H}$.<br>Suppose now we have another generating measure $\nu$ of $\{a_n\}$. With respect to $\nu$, $\mathcal{P}[t]$ is still a dense space. But the norm on $\mathcal{P}[t]$ is fixed by $\{a_n\}$, hence we obtain an isometry between $\mathcal{P}[t]_\gamma$ and $\mathcal{P}[t]_\nu$, which extends to the isometry between $L^2(\mathbb{R},\gamma)$ and $L^2(\mathbb{R},\nu)$ which forces $\gamma$ and $\nu$ to be equal. $\blacksquare$</p>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"><a href="../../../../tags/Hamberger-Moment-Problem/" class="post-tags__link button"># Hamberger Moment Problem</a><a href="../../../../tags/Quasi-analytic/" class="post-tags__link button"># Quasi-analytic</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../26/left-shift/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            Left Shift Semigroup and Its Infinitesimal Generator
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../../03/30/quasi-analytic-classs/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            Quasi-analytic Classes
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2021/05/10/analytic-hamburger/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>Rings of Fractions and Localisation | Desvl&#39;s blog</title>
+
+
+    <meta name="keywords" content="Atiyah-MacDonald, Universal Property">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="Is perhaps the most important technical tools in commutative algebra. In this post we are covering definitions and simple properties. Also we restrict ourselves into ring theories and no further than">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Rings of Fractions and Localisation">
+<meta property="og:url" content="https://desvl.xyz/2021/01/14/rings-of-fractions-and-localization/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="Is perhaps the most important technical tools in commutative algebra. In this post we are covering definitions and simple properties. Also we restrict ourselves into ring theories and no further than">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-01-13T23:26:18.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:10.474Z">
+<meta property="article:author" content="Desvl">
+<meta property="article:tag" content="Atiyah-MacDonald">
+<meta property="article:tag" content="Universal Property">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        Rings of Fractions and Localisation
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2021/01/" class="post-meta__date button">2021-01-14</a>
+        
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/" class="button">Algebra</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/Commutative-Algebra/" class="button">Commutative Algebra</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Multiplicatively-closed-subset"><span class="toc-number">1.</span> <span class="toc-text">Multiplicatively closed subset</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ring-of-fractions-of-a-ring"><span class="toc-number">2.</span> <span class="toc-text">Ring of fractions of a ring</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Cases-and-examples"><span class="toc-number">2.1.</span> <span class="toc-text">Cases and examples</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Local-ring-and-localization"><span class="toc-number">3.</span> <span class="toc-text">Local ring and localization</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Example"><span class="toc-number">3.1.</span> <span class="toc-text">Example</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Universal-property"><span class="toc-number">4.</span> <span class="toc-text">Universal property</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Principal-and-factorial-ring"><span class="toc-number">5.</span> <span class="toc-text">Principal and factorial ring</span></a></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Multiplicatively-closed-subset"><span class="toc-number">1.</span> <span class="toc-text">Multiplicatively closed subset</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ring-of-fractions-of-a-ring"><span class="toc-number">2.</span> <span class="toc-text">Ring of fractions of a ring</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Cases-and-examples"><span class="toc-number">2.1.</span> <span class="toc-text">Cases and examples</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Local-ring-and-localization"><span class="toc-number">3.</span> <span class="toc-text">Local ring and localization</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Example"><span class="toc-number">3.1.</span> <span class="toc-text">Example</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Universal-property"><span class="toc-number">4.</span> <span class="toc-text">Universal property</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Principal-and-factorial-ring"><span class="toc-number">5.</span> <span class="toc-text">Principal and factorial ring</span></a></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <p>Is perhaps the most important technical tools in commutative algebra. In this post we are covering definitions and simple properties. Also we restrict ourselves into ring theories and no further than that. Throughout, we let $A$ be a commutative ring. With extra effort we can also make it to non-commutative rings for some results but we are not doing that here.</p>
+<p>In fact the construction of $\mathbb{Q}$ from $\mathbb{Z}$ has already been an example. For any $a \in \mathbb{Q}$, we have some $m,n \in \mathbb{Z}$ with $n \neq 0$ such that $a = \frac{m}{n}$. As a matter of notation we may also say an ordered pair $(m,n)$ determines $a$. Two ordered pairs $(m,n)$ and $(m’,n’)$ are <em>equivalent</em> if and only if</p>
+<script type="math/tex; mode=display">
+mn'-m'n=0.</script><p>But we are only using the ring structure of $\mathbb{Z}$. So it is natural to think whether it is possible to generalize this process to all rings. But we are also using the fact that $\mathbb{Z}$ is an entire ring (or  alternatively integral domain, they mean the same thing). However there is a way to generalize it. $\def\mfk{\mathfrak}$</p>
+<h2 id="Multiplicatively-closed-subset"><a href="#Multiplicatively-closed-subset" class="headerlink" title="Multiplicatively closed subset"></a>Multiplicatively closed subset</h2><blockquote>
+<p><strong>(Definition 1)</strong> A <em>multiplicatively closed subset</em> $S \subset A$ is a set that $1 \in S$ and if $x,y \in S$, then $xy \in S$. </p>
+</blockquote>
+<p>For example, for $\mathbb{Z}$ we have a multiplicatively closed subset</p>
+<script type="math/tex; mode=display">
+\{1,2,4,8,\cdots\} \subset \mathbb{Z}.</script><p>We can also insert $0$ here but it may produce some bad result. If $S$ is also an ideal then we must have $S=A$ so this is not very interesting. However the complement is interesting.</p>
+<blockquote>
+<p><strong>(Proposition 1)</strong> Suppose $A$ is a commutative ring such that $1 \neq 0$. Let $S$ be a multiplicatively closed set that does not contain $0$. Let $\mfk{p}$ be the maximal element of ideals contained in $A \setminus S$, then $\mfk{p}$ is prime.</p>
+</blockquote>
+<p><em>Proof.</em> Recall that $\mfk{p}$ is prime if for any $x,y \in A$ such that $xy \in \mfk{p}$, we have $x \in \mfk{p}$ or $y \in \mfk{p}$. But now we fix $x,y \in \mfk{p}^c$. Note we have a strictly bigger ideal $\mfk{q}_1=\mfk{p}+Ax$. Since $\mfk{p}$ is maximal in the ideals contained in $A \setminus S$, we see</p>
+<script type="math/tex; mode=display">
+\mfk{q}_1 \cap S \neq \varnothing.</script><p>Therefore there exist some $a \in A$ and $p \in \mfk{p}$ such that</p>
+<script type="math/tex; mode=display">
+p+ax \in S.</script><p>Also, $\mfk{q}_2=\mfk{p}+Ay$ has nontrivial intersection with $S$ (due to the maximality of $\mfk{p}$), there exist some $a’ \in A$ and $p’ \in \mfk{p}$ such that</p>
+<script type="math/tex; mode=display">
+p' + a'y \in S.</script><p>Since $S$ is closed under multiplication, we have</p>
+<script type="math/tex; mode=display">
+(p+ax)(p'+a'y) = pp'+p'ax+pa'y+aa'xy \in S.</script><p>But since $\mfk{p}$ is an ideal, we see $pp’+p’ax+pa’y \in \mfk{p}$. Therefore we must have $xy \notin \mfk{p}$ since if not, $(p+ax)(p’+a’y) \in \mfk{p}$, which gives $\mfk{p} \cap S \neq \varnothing$, and this is impossible. $\square$</p>
+<hr>
+<p>As a corollary, for an ideal $\mfk{p} \subset A$, if $A \setminus \mfk{p}$ is multiplicatively closed, then $\mfk{p}$ is prime. Conversely, if we are given a prime ideal $\mfk{p}$, then we also get a multiplicatively closed subset.</p>
+<blockquote>
+<p><strong>(Proposition 2)</strong> If $\mfk{p}$ is a prime ideal of $A$, then $S = A \setminus \mfk{p}$ is multiplicatively closed.</p>
+</blockquote>
+<p><em>Proof.</em> First $1 \in S$ since $\mfk{p} \neq A$. On the other hand, if $x,y \in S$ we see $xy \in S$ since $\mfk{p}$ is prime. $\square$</p>
+<hr>
+<h2 id="Ring-of-fractions-of-a-ring"><a href="#Ring-of-fractions-of-a-ring" class="headerlink" title="Ring of fractions of a ring"></a>Ring of fractions of a ring</h2><p>We define a equivalence relation on $A \times S$ as follows:</p>
+<script type="math/tex; mode=display">
+(a,s) \sim (b,t) \iff \exists u \in S, (at-bs)u=0.</script><blockquote>
+<p><strong>(Proposition 3)</strong> $\sim$ is an equivalence relation.</p>
+</blockquote>
+<p><em>Proof.</em> Since $(as-as)1=0$ while $1 \in S$, we see $(a,s) \sim (a,s)$. For being symmetric, note that</p>
+<script type="math/tex; mode=display">
+(at-bs)u=0 \implies (bs-at)u=0 \implies (b,t) \sim (a,s).</script><p>Finally, to show that it is transitive, suppose $(a,s) \sim (b,t)$ and $(b,t) \sim (c,u)$. There exist $u,v \in S$ such that</p>
+<script type="math/tex; mode=display">
+(at-bs)v=(bu-ct)w=0.</script><p>This gives $bsv=atv$ and $buw = ctw$, which implies</p>
+<script type="math/tex; mode=display">
+bsvuw=atvuw=ctwsv \implies (au-cs)tvw =0.</script><p>But $tvw \in S$ since $t,v,w \in S$ and $S$ is multiplicatively closed. Hence</p>
+<script type="math/tex; mode=display">
+[(a,s) \sim (b,t)] \land [(b,t) \sim (c,u)] \implies (a,s) \sim (c,u).</script><p>$\square$</p>
+<p>Let $a/s$ denote the equivalence class of $(a,s)$. Let $S^{-1}A$ denote the set of equivalence classes (it is not a good idea to write $A/S$ as it may coincide with the notation of factor group), and we put a ring structure on $S^{-1}A$ as follows:</p>
+<script type="math/tex; mode=display">
+(a/s)+(b/t)=(at+bs)/st, \\
+(a/s)(b/t)=ab/st.</script><p>There is no difference between this one and the one in elementary algebra. But first of all we need to show that $S^{-1}A$ indeed form a ring. </p>
+<blockquote>
+<p><strong>(Proposition 4)</strong> The addition and multiplication are well defined. Further, $S^{-1}A$ is a commutative ring with identity.</p>
+</blockquote>
+<p><em>Proof.</em> Suppose $(a,s) \sim (a’,s’)$ and $(b,t) \sim (b’,t’)$ we need to show that</p>
+<script type="math/tex; mode=display">
+(a/s)+(b/t)=(a'/s')+(b'/t')</script><p>or</p>
+<script type="math/tex; mode=display">
+(at+bs)/st = (a't'+b's')/s't'.</script><p>There exists $u,v \in S$ such that</p>
+<script type="math/tex; mode=display">
+(as'-a's)u=0 \quad (bt'-b't)v=0.</script><p>If we multiply the first equation by $vtt’$ and second equation by $uss’$, we see</p>
+<script type="math/tex; mode=display">
+as'uvtt'-a'suvtt'+bt'vuss'-b'tvuss'=[(at)s't'+(bs)s't'-(a't')st-(b's')st]uv,</script><p>which is exactly what we want.</p>
+<p>On the other hand, we need to show that</p>
+<script type="math/tex; mode=display">
+ab/st = a'b'/s't'.</script><p>That is,</p>
+<script type="math/tex; mode=display">
+\exists y \in S,(abs't'-a'b'st)y=0.</script><p>Again, we have </p>
+<script type="math/tex; mode=display">
+(as'-a's)u=(as'-a's)uvbt'=(abs't'-a'bst')uv=0, \\
+(bt'-b't)v=(bt'-b't)vua's=(a'bst'-a'b'st)uv=0.</script><p>Hence</p>
+<script type="math/tex; mode=display">
+(abs't'-a'bst')uv+(a'bst'-a'b'st)uv=(abs't'-a'b'st)uv=0.</script><p>Since $uv \in S$, we are done.</p>
+<p>Next we show that $S^{-1}A$ has a ring structure. If $0 \in S$, then $S^{-1}A$ contains exactly one element $0/1$ since in this case, all pairs are equivalent:</p>
+<script type="math/tex; mode=display">
+(at-bs)0=0.</script><p>We therefore only discuss the case when $0 \notin S$. First $0/1$ is the zero element with respect to addition since</p>
+<script type="math/tex; mode=display">
+0/1+a/s = (0s+1a)/1s = a/s.</script><p>On the other hand, we have the inverse $-a/s$:</p>
+<script type="math/tex; mode=display">
+-a/s+a/s = (-as+as)/ss=0/ss=0/1.</script><p>$1/1$ is the unit with respect to multiplication:</p>
+<script type="math/tex; mode=display">
+(1/1)(a/s)=1a/1s=a/s.</script><p>Multiplication is associative since</p>
+<script type="math/tex; mode=display">
+[(a/s)(b/t)](c/u)=(ab/st)(c/u)=abc/stu. \\
+(a/s)[(b/t)(c/u)]=(a/s)(bc/tu)=abc/stu.</script><p>Multiplication is commutative since</p>
+<script type="math/tex; mode=display">
+ab/st+(-ba)/st=(abst-bast)/s^2t^2=0.</script><p>Finally distributivity.</p>
+<script type="math/tex; mode=display">
+(a/s+b/t)(c/u)=(c/u)(a/s+b/t)=[(at+bs)/st](c/u)=(act+bcs)/stu \\
+(a/s)(c/u)+(b/t)(c/u)=ac/su+bc/tu=(actu+bcsu)/stu^2=(act/bcs)/stu</script><p>Note $ab/cb=a/c$ since $(abc-abc)1=0$. $\square$ $\def\mb{\mathbb}$</p>
+<h3 id="Cases-and-examples"><a href="#Cases-and-examples" class="headerlink" title="Cases and examples"></a>Cases and examples</h3><p>First we consider the case when $A$ is entire. If $0 \in S$, then $S^{-1}A$ is trivial, which is not so interesting. However, provided that $0 \notin S$, we get some well-behaved result:</p>
+<blockquote>
+<p><strong>(Proposition 5)</strong> Let $A$ be an entire ring, and let $S$ be a multiplicatively closed subset of $A$ that does not contain $0$, then the natural map</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\varphi_S: A &\to S^{-1}A \\
+           x &\mapsto x/1
+\end{aligned}</script><p>is injective. Therefore it can be considered as a natural inclusion. Further, every element of $\varphi_S(S)$ is invertible.</p>
+</blockquote>
+<p><em>Proof.</em> Indeed, if $x/1=0/1$, then there exists $s \in S$ such that $xs=0$. Since $A$ is entire and $s \neq 0$, we see $x=0$, hence $\varphi_S$ is entire. For $s \in S$, we see $\varphi_S(s)=s/1$. However $(1/s)\varphi_S(s)=(1/s)(s/1)=s/s=1$. $\square$</p>
+<p>Note since $A$ is entire we can also conclude that $S^{-1}A$ is entire. As a word of warning, the ring homomorphism $\varphi_S$ is <em>not</em> in general injective since, for example, when $0 \in S$, this map is the zero.</p>
+<p>If we go further, making $S$ contain all non-zero element, we have:</p>
+<blockquote>
+<p><strong>(Proposition 6)</strong> If $A$ is entire and $S$ contains all non-zero elements of $A$, then $S^{-1}A$ is a field, called the <strong>quotient field</strong> or the <strong>field of fractions</strong>. </p>
+</blockquote>
+<p><em>Proof.</em> First we need to show that $S^{-1}A$ is entire. Suppose $(a/s)(b/t)=ab/st =0/1$ but $a/s \neq 0/1$, we see however</p>
+<script type="math/tex; mode=display">
+ab/st=0/1 \implies \exists u \in S, (ab-0)u=0 \implies ab=0.</script><p>Since $A$ is entire, $b$ has to be $0$, which implies $b/t=0/1$. Second, if $a/s \neq 0/1$, we see $a \neq 0$ and therefore is in $S$, hence we’ve found the inverse $(a/s)^{-1}=s/a$. $\square$ </p>
+<p>In this case we can identify $A$ as a subset of $S^{-1}A$ and write $a/s=s^{-1}a$.</p>
+<p>Let $A$ be a commutative ring, an let $S$ be the set of invertible elements of $A$. If $u \in S$, then there exists some $v \in S$ such that $uv=1$. We see $1 \in S$ and if $a,b \in S$, we have $ab \in S$ since $ab$ has an inverse as well. This set is frequently denoted by $A^\ast$, and is called the group of <strong>invertible</strong> elements of $A$. For example for $\mb{Z}$ we see $\mb{Z}^\ast$ consists of $-1$ and $1$. If $A$ is a field, then $A^\ast$ is the multiplicative group of non-zero elements of $A$. For example $\mb{Q}^\ast$ is the set of all rational numbers without $0$. For $A^\ast$ we have</p>
+<blockquote>
+<p>If $A$ is a field, then $(A^\ast)^{-1}A \simeq A$.</p>
+</blockquote>
+<p><em>Proof.</em> Define</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\varphi_S:A &\to (A^\ast)^{-1}A \\
+          x &\mapsto x/1.
+\end{aligned}</script><p>Then as we have already shown, $\varphi_S$ is injective. Secondly we show that $\varphi_S$ is surjective. For any $a/s \in (A^\ast)^{-1}A$, we see $as^{-1}/1 = a/s$. Therefore $\varphi_S(as^{-1})=a/s$ as is shown. $\square$ </p>
+<hr>
+<p>Now let’s see a concrete example. If $A$ is entire, then the polynomial ring $A[X]$ is entire. If $K = S^{-1}A$ is the quotient field of $A$, we can denote the quotient field of $A[X]$ as $K(X)$. Elements in $K(X)$ can be naturally called <strong>rational polynomials</strong>, and can be written as $f(X)/g(X)$ where $f,g \in A[X]$. For $b \in K$, we say a rational function $f/g$ is <strong>defined</strong> at $b$ if $g(b) \neq 0$.  Naturally this process can be generalized to polynomials of $n$ variables. </p>
+<h2 id="Local-ring-and-localization"><a href="#Local-ring-and-localization" class="headerlink" title="Local ring and localization"></a>Local ring and localization</h2><p>We say a commutative ring $A$ is local if it has a unique maximal ideal. Let $\mfk{p}$ be a prime ideal of $A$, and $S = A \setminus \mfk{p}$, then $A_{\mfk{p}}=S^{-1}A$ is called the <strong>local ring of $A$ at $\mfk{p}$</strong>. Alternatively, we say the process of passing from $A$ to $A_\mfk{p}$ is <em>localization</em> at $\mfk{p}$. You will see it makes sense to call it localization:</p>
+<blockquote>
+<p><strong>(Proposition 7)</strong> $A_\mfk{p}$ is local. Precisely, the unique maximal ideal is </p>
+<script type="math/tex; mode=display">
+I=\mfk{p}A_\mfk{p}=\{a/s:a \in \mfk{p},s \in S\}.</script><p>Note $I$ is indeed equal to $\mfk{p}A_\mfk{p}$.</p>
+</blockquote>
+<p><em>Proof.</em> First we show that $I$ is an ideal. For $b/t \in A_\mfk{p}$ and $a/s \in I$, we see</p>
+<script type="math/tex; mode=display">
+(b/t)(a/s)=ba/ts \in A_\mfk{p}</script><p>since $a \in \mfk{p}$ implies $ba \in \mfk{p}$. Next we show that $I$ is maximal, which is equivalent to show that $A_\mfk{p}/I$ is a field.  For $b/t \notin I$, we have $b \in S$, hence it is legit to write $t/b$. This gives</p>
+<script type="math/tex; mode=display">
+(b/t+I)(t/b+I)=1/1+I.</script><p>Hence we have found the inverse. </p>
+<p>Finally we show that $I$ is the unique maximal ideal. Let $J$ be another maximal ideal. Suppose $J \neq I$, then we can pick $m/n \in J \setminus I$. This gives $m \in S$ since if not $m \in \mfk{p}$ and then $m/n \in I$. But for $n/m \in A_\mfk{p}$ we have</p>
+<script type="math/tex; mode=display">
+(m/n)(n/m)=1/1 \in J.</script><p>This forces $J$ to be $A_\mfk{p}$ itself, contradicting the assumption that $J$ is a maximal ideal. Hence $I$ is unique. $\square$</p>
+<h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><p>Let $p$ be a prime number, and we take $A=\mb{Z}$ and $\mfk{p}=p\mb{Z}$. We now try to determine what do $A_\mfk{p}$ and $\mfk{p}A_\mfk{p}$ look like. First $S = A \setminus \mfk{p}$ is the set of all entire numbers prime to $p$. Therefore $A_\mfk{p}$ can be considered as the ring of all rational numbers $m/n$ where $n$ is prime to $p$, and $\mfk{p}A_\mfk{p}$ can be considered as the set of all rational numbers $kp/n$ where $k \in \mb{Z}$ and $n$ is prime to $p$.</p>
+<p>$\mb{Z}$ is the simplest example of ring and $p\mb{Z}$ is the simplest example of prime ideal. And $A_\mfk{p}$ in this case shows what does localization do: $A$ is ‘expanded’ with respect to $\mfk{p}$. Every member of $A_\mfk{p}$ is related to $\mfk{p}$, and the maximal ideal is determined by $\mfk{p}$. </p>
+<hr>
+<p>Let $k$ be a infinite field. Let $A=k[x_1,\cdots,x_n]$ where $x_i$ are independent indeterminates, $\mfk{p}$ a prime ideal in $A$. Then $A_\mfk{p}$ is the ring of all rational functions $f/g$ where $g \notin \mfk{p}$. We have already defined rational functions. But we can go further and demonstrate the prototype of the local rings which arise in algebraic geometry. Let $V$ be the variety defined by $\mfk{p}$, that is,</p>
+<script type="math/tex; mode=display">
+V=\{x=(x_1,x_2,\cdots,x_n) \in k^n:\forall f \in \mfk{p}, f(x)=0\}.</script><p>Then what about $A_\mfk{p}$? We see since for $f/g \in A_\mfk{p}$ we have $g \notin \mfk{p}$, therefore for $g(x)$ is not equal to $0$ almost everywhere on $V$. That is, $A_\mfk{p}$ can be identified with the ring of all rational functions on $k^n$ which are defined at <em>almost all</em> points of $V$. We call this the local ring of $k^n$ <strong>along the variety</strong> $V$. </p>
+<h2 id="Universal-property"><a href="#Universal-property" class="headerlink" title="Universal property"></a>Universal property</h2><p>Let $A$ be a ring and $S^{-1}A$ a ring of fractions, then we shall see that $\varphi_S:S \to S^{-1}A$ has a universal property. </p>
+<blockquote>
+<p><strong>(Proposition 8)</strong> Let $g:A \to B$ be a ring homomorphism such that $g(s)$ is invertible in $B$ for all $s \in S$, then there exists a unique homomorphism $h:S^{-1}A \to B$ such that $g = h \circ \varphi_S$. </p>
+</blockquote>
+<p><em>Proof.</em> For $a/s \in S^{-1}A$, define $h(a/s)=g(a)g(s)^{-1}$. It looks immediate but we shall show that this is what we are looking for and is unique. </p>
+<p>Firstly we need to show that it is well defined. Suppose $a/s=a’/s’$, then there exists some $u \in S$ such that</p>
+<script type="math/tex; mode=display">
+(as'-a's)u=0.</script><p>Applying $g$ on both side yields</p>
+<script type="math/tex; mode=display">
+(g(a)g(s')-g(a')g(s))g(u)=0.</script><p>Since $g(x)$ is invertible for all $s \in S$, we therefore get</p>
+<script type="math/tex; mode=display">
+g(a)g(s)^{-1}=g(a')g(s')^{-1}.</script><p>It is a homomorphism since</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+h[(a/s)(a'/s')]&=g(a)g(a')g(s)^{-1}g(s')^{-1} \\
+h(a/s)h(a'/s')&=g(a)g(s)^{-1}g(a')g(s')^{-1},
+\end{aligned}</script><p>and</p>
+<script type="math/tex; mode=display">
+h(a/s+a'/s')=h((as'+a's)/ss')=g(as'+a's)g(ss')^{-1} \\
+h(a/s)+h(a'/s')=g(a)g(s)^{-1}+g(a')g(s')^{-1}</script><p>they are equal since</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+g(as'+a's)g(ss')^{-1}&=g(as')g(ss')^{-1}+g(a's)g(ss')^{-1} \\
+&=g(a)g(s')g(s)^{-1}g(s')^{-1}+g(a')g(s)g(s)^{-1}g(s')^{-1} \\
+&=g(a)g(s)^{-1}+g(a')g(s')^{-1}.
+\end{aligned}</script><p>Next we show that $g=h \circ \varphi_S$. For $a \in A$, we have</p>
+<script type="math/tex; mode=display">
+h(\varphi_S(a))=h(a/1)=g(a)g(1)^{-1}=g(a).</script><p>Finally we show that $h$ is unique. Let $h’$ be a homomorphism satisfying the condition, then for $a \in A$ we have</p>
+<script type="math/tex; mode=display">
+h'(a/1)=h'(\varphi_S(a))=g(a).</script><p>For $s \in S$, we also have</p>
+<script type="math/tex; mode=display">
+h'(1/s)=h'((s/1)^{-1})=h'(\varphi_S(s)^{-1})=h'(\varphi_S(s))^{-1}=g(s)^{-1}.</script><p>Since $a/s = (a/1)(1/s)$ for all $a/s \in S^{-1}A$, we get</p>
+<script type="math/tex; mode=display">
+h'(a/s)=h'((a/1)(1/s))=g(a)g(s)^{-1}.</script><p>That is, $h’$ (or $h$) is totally determined by $g$. $\square$</p>
+<hr>
+<p>Let’s restate it in the language of category theory (you can skip it if you have no idea what it is now). Let $\mfk{C}$ be the category whose objects are ring-homomorphisms</p>
+<script type="math/tex; mode=display">
+f:A \to B</script><p>such that $f(s)$ is invertible for all $s \in S$. Then according to proposition 5, $\varphi_S$ is an object of $\mfk{C}$. For two objects $f:A \to B$ and $f’:A \to B’$, a morphism $g \in \operatorname{Mor}(f,f’)$ is a homomorphism</p>
+<script type="math/tex; mode=display">
+g:B \to B'</script><p>such that $f’=g \circ f$. So here comes the question: what is the position of $\varphi_S$?</p>
+<p>Let $\mfk{A}$ be a category. an object $P$ of $\mfk{A}$ is called <strong>universally attracting</strong> if there exists a unique morphism of each object of $\mfk{A}$ into $P$, an is called <strong>universally repelling</strong> if for every object of $\mfk{A}$ there exists a unique morphism of $P$ into this object. Therefore we have the answer for $\mfk{C}$.</p>
+<blockquote>
+<p><strong>(Proposition 9)</strong> $\varphi_S$ is a universally repelling object in $\mfk{C}$.</p>
+</blockquote>
+<h2 id="Principal-and-factorial-ring"><a href="#Principal-and-factorial-ring" class="headerlink" title="Principal and factorial ring"></a>Principal and factorial ring</h2><p>An ideal  $\mfk{o} \in A$ is said to be <strong>principal</strong> if there exists some $a \in A$ such that $Aa = \mfk{o}$. For example for $\mb{Z}$, the ideal</p>
+<script type="math/tex; mode=display">
+\{\cdots,-2,0,2,4,\cdots\}</script><p>is principal and we may write $2\mb{Z}$. If every ideal of a <strong>commutative</strong> ring $A$ is principal, we say $A$ is principal. Further we say $A$ is a <strong>PID</strong> if $A$ is also an integral domain (entire). When it comes to ring of fractions, we also have the following proposition:</p>
+<blockquote>
+<p><strong>(Proposition 10)</strong> Let $A$ be a principal ring and $S$ a multiplicatively closed subset with $0 \notin S$, then $S^{-1}A$ is principal as well.</p>
+</blockquote>
+<p><em>Proof.</em> Let $I \subset S^{-1}A$ be an ideal. If $a \in S$ where $a/s \in I$, then we are done since then $(s/a)(a/s) = 1/1 \in I$, which implies $I=S^{-1}A$ itself, hence we shall assume $a \notin S$ for all $a/s \in I$. But for $a/s \in I$ we also have $(a/s)(s/1)=a/1 \in I$. Therefore $J=\varphi_S^{-1}(I)$ is not empty. $J$ is an ideal of $A$ since for $a \in A$ and $b \in J$, we have $\varphi_S(ab) =ab/1=(a/1)(b/1) \in I$ which implies $ab \in J$. But since $A$ is principal, there exists some $a$ such that $Aa = J$. We shall discuss the relation between $S^{-1}A(a/1)$ and $I$. For any $(c/u)(a/1)=ca/u \in S^{-1}A(a/1)$, clearly we have $ca/u \in I$, hence $S^{-1}A(a/1)\subset I$. On the other hand, for $c/u \in I$, we see $c/1=(c/u)(u/1) \in I$, hence $c \in J$, and there exists some $b \in A$ such that $c = ba$, which gives $c/u=ba/u=(b/u)(a/1) \in I$. Hence $I \subset S^{-1}A(a/1)$, and we have finally proved that $I = S^{-1}A(a/1)$. $\square$</p>
+<p>As an immediate corollary, if $A_\mfk{p}$ is the localization of $A$ at $\mfk{p}$, and if $A$ is principal, then $A_\mfk{p}$ is principal as well. Next we go through another kind of rings. A ring is called <strong>factorial</strong> (or a <strong>unique factorization ring</strong> or <strong>UFD</strong>) if it is entire and if every non-zero element has a unique factorization into irreducible elements. An element $a \neq 0$ is called <strong>irreducible</strong> if it is not a unit and whenever $a=bc$, then either $b$ or $c$ is a unit. For all non-zero elements in a factorial ring, we have</p>
+<script type="math/tex; mode=display">
+a=u\prod_{i=1}^{r}p_i,</script><p> where $u$ is a <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Unit_(ring_theory">unit</a>) (invertible).</p>
+<p>In fact, every PID is a UFD (<a target="_blank" rel="noopener" href="https://planetmath.org/everypidisaufd">proof here</a>). Irreducible elements in a factorial ring is called <strong>prime elements</strong> or simply <strong>prime</strong> (take $\mathbb{Z}$ and prime numbers as an example). Indeed, if $A$ is a factorial ring and $p$ a prime element, then $Ap$ is a prime ideal. But we are more interested in the ring of fractions of a factorial ring.</p>
+<blockquote>
+<p><strong>(Proposition 11)</strong> Let $A$ be a factorial ring and $S$ a multiplicatively closed subset with $0 \notin S$, then $S^{-1}A$ is factorial.</p>
+</blockquote>
+<p><em>Proof.</em> Pick $a/s \in S^{-1}A$. Since $A$ is factorial, we have $a=up_1 \cdots p_k$ where $p_i$ are primes and $u$ is a unit. But we have no idea what are irreducible elements of $S^{-1}A$. Naturally our first attack is $p_i/1$. And we have no need to restrict ourselves to $p_i$, we should work on all primes of $A$. Suppose $p$ is a prime of $A$. If $p \in S$, then $p/1 \in S$ is a unit, not prime. If $Ap \cap S \neq \varnothing$, then $rp \in S$ for some $r \in A$. But then</p>
+<script type="math/tex; mode=display">
+(p/1)(r/rp)=1,</script><p>again $p/1$ is a unit, not prime. Finally if $Ap \cap S = \varnothing$, then $p/1$ is prime in $S^{-1}A$. For any</p>
+<script type="math/tex; mode=display">
+(a/s)(b/t)=ab/st=p/1,</script><p>we see $ab=stp \not\in S$. But this also gives $ab \in Ap$ which is a prime ideal, hence we can assume $a \in Ap$ and write $a=rp$ for some $r \in A$. With this expansion we get</p>
+<script type="math/tex; mode=display">
+ab=stp \implies rbp=stp \implies rb=st \implies (r/s)(b/t)=1/1.</script><p>Hence $b/t$ is a unit, $p/1$ is a prime. </p>
+<p>Conversely, suppose $a/s$ is irreducible in $S^{-1}A$. Since $A$ is factorial, we may write $a=u\prod_{i}p_i$. $a$ cannot be an element of $S$ since $a/s$ is not a unit. We write</p>
+<script type="math/tex; mode=display">
+a/s=1/s[(u/1)(p_1/1)(p_2/1)\cdots(p_n/1)]</script><p>We see there is some $v \in A$ such that $uv=1$ and accordingly $(u/1)(v/1)=uv/1=1/1$, hence $u/1$ is a unit. We claim that there exist a unique $p_k$ such that $1 \leq k \leq n$ and $Ap \cap S = \varnothing$. If not exists, then all $p_j/1$ are units. If both $p_{k}$ and $p_{k’}$ satisfy the requirement and $p_k \neq p_k’$, then we can write $a/s$ as</p>
+<script type="math/tex; mode=display">
+a/s = \{1/s[(u/1)(p_1/1)\cdots(p_{k-1}/1)(p_{k+1}/1)\cdots(p_{k'-1}/1)(p_{k'+1}/1)\cdots(p_n/1)](p_k/1)\}(p_{k'}/1).</script><p>Neither the one in curly bracket nor $p_{k’}/1$ is unit, contradicting the fact that $a/s$ is irreducible. Next we show that $a/s=p_k/1$. For simplicity we write </p>
+<script type="math/tex; mode=display">
+b = u\prod_{i=1 \\ i \neq k}^{n} p_i, \quad a = bp_k.</script><p>Note $a/s = bp_k/s = (b/s)(p_k/1)$. Since $a/s$ is irreducible, $p_k/1$ is not a unit, we conclude that $b/s$ is a unit. We are done for the study of irreducible elements of $S^{-1}A$: it is of the form $p/1$ (up to a unit) where $p$ is prime in $A$ and $Ap \cap S = \varnothing$. </p>
+<p>Now we are close to the fact that $S^{-1}A$ is also factorial. For any $a/s \in S^{-1}A$, we have an expansion</p>
+<script type="math/tex; mode=display">
+a/s=1/s[(u/1)(p_1/1)(p_2/1)\cdots(p_n/1)].</script><p>Let $p’_1,p’_2,\cdots,p’_j$ be those whose generated prime ideal has nontrivial intersection with $S$, then $p’_1/1, p’_2/1,\cdots,p’_j/1$ are units of $S^{-1}A$. Let $q_1,q_2,\cdots,q_k$ be other $p_i$’s, then $q_1/1,q_2/1,\cdots,q_k/1$ are irreducible in $S^{-1}A$. This gives</p>
+<script type="math/tex; mode=display">
+a/s = [(1/s)(p'_1/1)(p'_2/1)\cdots(p'_j/1)]\prod_{i=1}^{k}(q_i/1).</script><p>Hence $S^{-1}A$ is factorial as well. $\square$</p>
+<p>We finish the whole post by a comprehensive proposition:</p>
+<blockquote>
+<p><strong>(Proposition 12)</strong> Let $A$ be a factorial ring and $p$ a prime element, $\mfk{p}=Ap$. The localization of $A$ at $\mfk{p}$ is principal.</p>
+</blockquote>
+<p><em>Proof.</em> For $a/s \in S^{-1}A$, we see $p$ does not divide $s$ since if $s = rp$ for some $r \in A$, then $s \in \mfk{p}$, contradicting the fact that $S = A \setminus \mfk{p}$. Since $A$ is factorial, we may write $a = cp^n$ for some $n \geq 0$ and $p$ does not divide $c$ as well (which gives $c \in S$. Hence $a/s = (c/s)(p^n/1)$. Note $(c/s)(s/c)=1/1$ and therefore $c/s$ is a unit. For every $a/s \in S^{-1}A$ we may write it as</p>
+<script type="math/tex; mode=display">
+a/s = u(p^n/1),</script><p> where $u$ is a unit of $S^{-1}A$. </p>
+<p>Let $I$ be any ideal in $S^{-1}A$, and </p>
+<script type="math/tex; mode=display">
+m = \min\{n:u(p^n/1) \in I, u \text{ is a unit }\}.</script><p>Let’s discuss the relation between $S^{-1}A(p^m/1)$ and $I$. First we see $S^{-1}A(p^m/1)=S^{-1}A(up^m/1)$ since if $v$ is the inverse of $u$, we get</p>
+<script type="math/tex; mode=display">
+vS^{-1}A(up^m/1)=S^{-1}A(p^m/1) \subset S^{-1}A(up^m/1), \\
+S^{-1}A(up^m/1)=uS^{-1}A(p^m/1)\subset S^{-1}A(p^m/1).</script><p>Any element of $S^{-1}A(up^m/1)$ is of the form</p>
+<script type="math/tex; mode=display">
+vup^{m+k}/1=v(p^k/1)up^m/1.</script><p>Since $up^m/1 \in I$, we see $vup^{m+k}/1 \in I$ as well, hence $S^{-1}A(up^m/1) \subset I$. On the other hand, any element of $I$ is of the form $wup^{m+n}/1=w(p^n/1)u(p^m/1)$ where $w$ is a unit and $n \geq 0$. This shows that $vup^{m+n}/1 \in S^{-1}A(up^m/1)$. Hence $S^{-1}A(p^m/1)=S^{-1}A(up^m/1)=I$ as we wanted. $\square$</p>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"><a href="../../../../tags/Atiyah-MacDonald/" class="post-tags__link button"># Atiyah-MacDonald</a><a href="../../../../tags/Universal-Property/" class="post-tags__link button"># Universal Property</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../15/vector-space-and-basis/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            Why Does a Vector Space Have a Basis (Module Theory)
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../10/the-grothendieck-group/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            The Grothendienck Group
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2021/01/14/rings-of-fractions-and-localization/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

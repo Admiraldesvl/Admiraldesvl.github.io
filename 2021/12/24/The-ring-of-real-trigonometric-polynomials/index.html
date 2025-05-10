@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>The ring of real trigonometric polynomials | Desvl&#39;s blog</title>
+
+
+    <meta name="keywords" content="Study new content, Noetherian">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="The ringThroughout we consider the polynomial ring  R&#x3D;\mathbb{R}[\cos{x},\sin{x}].This ring has a lot of non-trivial properties which give us a good chance to study commutative ring theory.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The ring of real trigonometric polynomials">
+<meta property="og:url" content="https://desvl.xyz/2021/12/24/The-ring-of-real-trigonometric-polynomials/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="The ringThroughout we consider the polynomial ring  R&#x3D;\mathbb{R}[\cos{x},\sin{x}].This ring has a lot of non-trivial properties which give us a good chance to study commutative ring theory.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-12-23T23:00:00.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:10.651Z">
+<meta property="article:author" content="Desvl">
+<meta property="article:tag" content="Study new content">
+<meta property="article:tag" content="Noetherian">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        The ring of real trigonometric polynomials
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2021/12/" class="post-meta__date button">2021-12-24</a>
+        
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/" class="button">Algebra</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/Commutative-Algebra/" class="button">Commutative Algebra</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-ring"><span class="toc-number">1.</span> <span class="toc-text">The ring</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Normal-Noetherian-ring"><span class="toc-number">1.1.</span> <span class="toc-text">Normal Noetherian ring</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Irreducible-Elements"><span class="toc-number">1.2.</span> <span class="toc-text">Irreducible Elements</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Dedekind-Domain"><span class="toc-number">1.3.</span> <span class="toc-text">Dedekind Domain</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Krull-Domain-Ideal-Class-Group-Half-Factorial-Domain"><span class="toc-number">1.4.</span> <span class="toc-text">Krull Domain, Ideal Class Group, Half-Factorial Domain</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Maximal-ideals-of-R"><span class="toc-number">1.5.</span> <span class="toc-text">Maximal ideals of $R$</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#References"><span class="toc-number">2.</span> <span class="toc-text">References</span></a></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-ring"><span class="toc-number">1.</span> <span class="toc-text">The ring</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Normal-Noetherian-ring"><span class="toc-number">1.1.</span> <span class="toc-text">Normal Noetherian ring</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Irreducible-Elements"><span class="toc-number">1.2.</span> <span class="toc-text">Irreducible Elements</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Dedekind-Domain"><span class="toc-number">1.3.</span> <span class="toc-text">Dedekind Domain</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Krull-Domain-Ideal-Class-Group-Half-Factorial-Domain"><span class="toc-number">1.4.</span> <span class="toc-text">Krull Domain, Ideal Class Group, Half-Factorial Domain</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Maximal-ideals-of-R"><span class="toc-number">1.5.</span> <span class="toc-text">Maximal ideals of $R$</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#References"><span class="toc-number">2.</span> <span class="toc-text">References</span></a></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h2 id="The-ring"><a href="#The-ring" class="headerlink" title="The ring"></a>The ring</h2><p>Throughout we consider the polynomial ring</p>
+<script type="math/tex; mode=display">
+R=\mathbb{R}[\cos{x},\sin{x}].</script><p>This ring has a lot of non-trivial properties which give us a good chance to study commutative ring theory. </p>
+<span id="more"></span>
+<p>First of all, note it is immediate that</p>
+<script type="math/tex; mode=display">
+R \cong \mathbb{R}[X,Y]/(X^2+Y^2-1)</script><p>if the map is given by $X \mapsto \cos x$ and $Y \mapsto \sin x$. Besides, in $R$ we have</p>
+<script type="math/tex; mode=display">
+\sin^2x=(1-\cos{x})(1+\cos{x})=\sin{x}\cdot\sin{x}</script><p>which indicates us to study whether $R$ is a UFD. In fact, it is not, because the ideal class group is $\mathbb{Z}/2\mathbb{Z}$. A Dedekind domain is a UFD if and only if its ideal class group is trivial (<a target="_blank" rel="noopener" href="https://math.mit.edu/classes/18.785/2017fa/LectureNotes3.pdf">corollary 3.22</a>). </p>
+<p>This blog post is inspired by an exercise on Serge Lang’s <em>Algebra</em>. But when writing this blog post, I found some paywalls. It would be absurd of me to direct a random reader to these paywalls. So it is very likely that I will include proofs as many as possible (when there is an absurd paywall, and chances are I will rework them for readability). But I can’t remove the assumption that the reader has finished Atiyah-MacDonald full book or equivalences at the very least. I will add more topics in the future but that is not an easy job.</p>
+<h3 id="Normal-Noetherian-ring"><a href="#Normal-Noetherian-ring" class="headerlink" title="Normal Noetherian ring"></a>Normal Noetherian ring</h3><p>By Hilbert’s basis theorem, $\mathbb{R}[\cos{x},\sin{x}]$ is Noetherian because it is a finite $\mathbb{R}$-algebra. Now we are interested in the normality of it. Since $\mathbb{R}[X,Y]/(X^2+Y^2-1) \cong \mathbb{R}[X][Y]/(Y^2-(1-X^2))$ and $2$ is a unit, $1-X^2$ is square-free but not a unit, we can apply the following lemma to show that $R$ is a normal Noetherian ring (integrally closed in its field of fraction). For the definition and properties of a normal ring, please refer to the <a target="_blank" rel="noopener" href="https://stacks.math.columbia.edu/tag/037B">stack project</a>.</p>
+<blockquote>
+<p> <strong>(Lemma 1)</strong> Let $A$ be a factorial ring with the field of fraction $K$ in which $2$ is a unit, $a$ in $A$ a square-free element (i.e., if $p$ is a prime element in $A$, then $a \not\in p^2A)$ which is not a unit. Then $A[T]/(T^2-a)$ is normal.</p>
+</blockquote>
+<details>
+    <summary>Click to expand the proof.</summary>
+<i>Proof.</i> By definition, we need to show that $A[T]/(T^2-a)$ is integrally closed in its field of fraction $L$. First we investigate the structure of $L$.<br>
+Let $t$ be the image of $T$ in $A[T]/(T^2-a)$ and in $L$. Then it is clear that $A[t] \cong A[T]/(T^2-a)$ and we can write $L=K(t)$. Note an element in $K(t)$ is of degree at most $1$, which is to say every element in $L$ can be written uniquely as a sum $r+st$ where $r,s \in K$. To prove integral closeness, we need to find minimal polynomial of $r+st$. <br>
+Next we show when $A[t]$ is integrally closed. Note
+$$
+    \begin{aligned}
+        \left[(r+st)-r\right]^2=(st)^2 &= s^2[T^2+(T^2-a)]\\
+                            &= s^2[a+T^2-a+(T^2-a)]\\
+                            &= as^2
+    \end{aligned}
+$$
+Hence $f(X)=(X-r)^2-as^2$ sends $r+st$ to $0$. For polynomial of degree $1$, we can only write $g(X)=X-X$ such that $g(r+st)=0$, which is absurd. Hence $f(X)$ is the minimal polynomial of $r+st$. With these being said, $r+st$ is integral over $A[t]$ if and only if $-2r \in A[t]$ and $r^2-as^2 \in A[t]$. We need to show this implies $r+st \in A[t]$. Since we can consider $A$ to be a subring of $A[t]$, it suffices to show that $r,s \in A$, provided $-2r \in A$ and $r^2-as^2 \in A$ when $s \ne 0$.<br>
+Since $2$ is a unit in $A$, $-2r \in A$ clearly implies $r \in A$. It remains to prove that $-as^2 \in A$. For $s \in K$, we can write $s=s_1/s_2$ with $s_1,s_2 \in A$ relatively prime. We shall show that $s_2$ will always be a unit, which implies that $s \in A$.  Write $as^2=h$, then we have $as_1^2=hs_2^2$. Assume $s_2$ is not a unit, then there is a prime $p$ divides $s_2$ as $A$ is a factorial ring. hence $as_1^2 = hs_2^2 \in p^2A$. Since $s_1$ and $s_2$ are relatively prime, $p$ and $p^2$ do not divide $s_1$, hence $a \in p^2A$, a contradiction (we have assumed $a$ to be square-free. Also, the assumption that $a$ is not a unit is used here to reach the contradiction). Hence $s_2$ is a unit, $s \in A$ and therefore $-as^2 \in A$. The proof is complete. $\square$
+</details>
+
+<p>Of course, I shan’t be this lazy. It is clear that in the factorial ring $A=\mathbb{R}[X]$, $2$ is a unit. By square-free, we mean, if $p \in A$ is prime, then $a \not \in  p^2A$. For example, in $\mathbb{Z}$, $12$ is not square-free because $12=2^2 \times 3 \in 2^2\mathbb{Z}$ while $14$ is square-free because $14=2 \times 7$ and square does not appear.  And for $1-X^2$ things is clear because we only have $1-X^2=(1-X)(1+X)$ - there is no square. We require $2$ to be a unit because if not this argument becomes much more difficult to prove. We shall return to normality after we study the irreducible elements. </p>
+<hr>
+<p>To conclude we have got a satisfying result: <br></p>
+<blockquote>
+<p><strong>(Proposition 1)</strong> $R$ is a normal Noetherian ring.</p>
+</blockquote>
+<h3 id="Irreducible-Elements"><a href="#Irreducible-Elements" class="headerlink" title="Irreducible Elements"></a>Irreducible Elements</h3><p>With help of Fourier transform or elementary trigonometric relations, every polynomial in $R=\mathbb{R}[\cos{x},\sin{x}]$ can be written in the form</p>
+<script type="math/tex; mode=display">
+P(x) = a_0+\sum_{k=1}^{n}(a_k\cos{kx}+b_k\sin{kx})</script><p>where $a_0,a_k,b_k \in \mathbb{R}$. Define the degree $\delta(P)$ to be the maximum of integers $r,s$ where $a_r,b_s \ne 0$. Then a direct computation shows that $\delta(PQ)=\delta(P)+\delta(Q)$. This is not the case when the scalar is complex. For example, $(\cos{x}+i\sin{x})(\cos{x}-i\sin{x})=1$.</p>
+<p>If $\delta(P)=0$, then $P(x)=a_0$ is zero or a unit. If $\delta(P)=1$, then if we have $P=P_1P_2$, then $\delta(P_1)+\delta(P_2)=1$. One of them has to be unit, hence $P$ is irreducible. If $\delta(P)=2$, then $P$ is reducible because we can solve equations in the expansion of the product</p>
+<script type="math/tex; mode=display">
+(a+b\sin{x}+c\cos{x})(a'+b'\sin{x}+c'\cos{x}).</script><p>By induction all polynomials of degree $\ge 2$ is reducible. Hence irreducible elements are of the form</p>
+<script type="math/tex; mode=display">
+a+b\sin{x}+c\cos{x} \quad (b,c) \ne (0,0).</script><p>But since $R$ is not a UFD, we cannot work on the ideal $(a+b\sin{x}+c\cos{x})$ directly. We need to dive into abstraction for a long time.</p>
+<h3 id="Dedekind-Domain"><a href="#Dedekind-Domain" class="headerlink" title="Dedekind Domain"></a>Dedekind Domain</h3><p>We now proceed to another satisfying result.</p>
+<blockquote>
+<p><strong>(Proposition 2)</strong> $R$ is a Dedekind domain.</p>
+</blockquote>
+<p><em>Proof.</em> Throughout, we work on the form $R \cong \mathbb{R}[X,Y]/(X^2+Y^2-1)$. Since $\mathbb{R}[X,Y]$ is of Krull dimension $2$ (see Atiyah-MacDonald exercise 11.7, where a solution is almost given), $X^2+Y^2-1$ is irreducible, we have a prime ideal $(X^2+Y^2-1)$, and all prime ideals $P \subset \mathbb{R}[X,Y]$ strictly containing $(X^2+Y^2-1)$ are maximal. Next, let the canonical map $\pi:\mathbb{R}[X,Y] \to \mathbb{R}[X,Y]/(X^2+Y^2-1)$ be given. By proposition 1.1 of Atiyah-MacDonald, $\pi(P)$ are maximal ideals in $\mathbb{R}[X,Y]/(X^2+Y^2-1)$ provided that $P \supsetneq (X^2+Y^2-1)$ is prime. If nontrivial ideal $Q \subset \mathbb{R}[X,Y]/(X^2+Y^2-1)$ is prime, then $\pi^{-1}(Q)=Q^c$ is also prime, and it contains $(X^2+Y^2-1)$ strictly, which implies that $Q$ is maximal. Hence $R$ is of Krull dimension $1$. By proposition 1, $R$ is integrally closed, hence it is Dedekind. $\square$</p>
+<h3 id="Krull-Domain-Ideal-Class-Group-Half-Factorial-Domain"><a href="#Krull-Domain-Ideal-Class-Group-Half-Factorial-Domain" class="headerlink" title="Krull Domain, Ideal Class Group, Half-Factorial Domain"></a>Krull Domain, Ideal Class Group, Half-Factorial Domain</h3><p>Let $A$ be an integral domain and $P$ be the set of all prime ideals of height $1$, i.e. the set of all prime ideals that only contain itself as a nonzero prime ideal. Then $A$ is a Krull domain if</p>
+<p>(KD1)  $A_{\mathfrak{p}}$ is a discrete valuation ring for all $\mathfrak{p} \in P$.<br>(KD2) $A$ is the intersection of these discrete valuation rings (all considered as subrings of the field of fraction of $A$.<br>(KD3) Any nonzero element of $A$ is contained in only a finite number of height $1$ prime ideals.</p>
+<p>To proceed our study of $R$, we need a lemma:</p>
+<blockquote>
+<p><strong>(Lemma 2)</strong> If $A$ is a Dedekind domain, then $A$ is also a Krull domain.</p>
+</blockquote>
+<details>
+    <summary> Click to expand the proof </summary>
+<i>Proof.</i> Since in a Dedekind domain, every prime ideal is of height $1$, (KD1) coincides with one of the equivalent definition of Dedekind domain.<br>
+Next we prove (KD3). Pick any nonzero $a \in A$. If $a$ is a unit, then it is contained in $0$ ideals. If not, consider the ring $(a)=aA$. We have a unique factorisation as a product of prime ideals:
+$$
+    (a)= \mathfrak{p}_1^{r_1}\cdots\mathfrak{p}_n^{r_n} \subset \bigcap_{j=1}^{n}\mathfrak{p}_j.
+$$
+Hence (KD3) is proved.<br>
+For (KD2), note first $A \subset \bigcap_{\mathfrak{p}}A_{\mathfrak{p}}$ because the natural map $A \to A_{\mathfrak{p}}$ is injective for all $\mathfrak{p}$. Hence it suffices to prove the reverse. But elements in $A_{\mathfrak{p}}$ are of the form $a/s$. Hence we expect those elements of the form $b/1$ to be in $A$. Therefore it suffices to prove that $b/1 \in (a/1)A_{\mathfrak{p}}$ for all prime $\mathfrak{p}$ implies $b \in aA$ for all $a,b \in A$, $a ,b\ne 0$. Put
+$$
+    (a)=\mathfrak{p}_1^{r_1}\cdots\mathfrak{p}_n^{r_n}
+$$
+we see $\mathfrak{q}_i = \mathfrak{p}_i^{r_i}$ is $\mathfrak{p}_i$-primary and we obtain a primary decomposition. Note we in particular have
+$$
+    b \in \bigcap_{j=1}^{n}\left(aA_{\mathfrak{p}_i} \cap A \right) = \bigcap_{j=1}^{n}\mathfrak{q}_i = aA
+$$
+because each $\mathfrak{p}_i$ has height $1$. $\square$
+</details>
+
+<p>Which is to say that</p>
+<blockquote>
+<p><strong>(Proposition 3)</strong> $R$ is a Krull domain.</p>
+</blockquote>
+<p>We know that since $R$ is Dedekind, its fractional ideals form an abelian group. This gives rise to the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Ideal_class_group">ideal class group</a>. By a result of Samuel, we have a shockingly simple fact:</p>
+<blockquote>
+<p><strong>(Proposition 4)</strong> The ideal class group $Cl(R) \cong \mathbb{Z}/2\mathbb{Z}$.</p>
+</blockquote>
+<p>Which can be considered as a corollary to this following statement:</p>
+<blockquote>
+<p><strong>(Samuel)</strong> Let $F$ be a non-degenerate quadratic form in $k[X_1,X_2,X_3]$. Let $A_F=k[X_1,X_2,X_3]/(F)$. Then $Cl(A_F)=\mathbb{Z}/2\mathbb{Z}$ if and only if there is a nontrivial solution to $F(X_1,X_2,X_3)=0$ in $k$.</p>
+</blockquote>
+<p>One can find this result via <a target="_blank" rel="noopener" href="http://www.math.tifr.res.in/~publ/ln/tifr30.pdf">this link</a>, and refer to <strong>study of plane conics</strong>. </p>
+<p>With these being said, by theorem 8 of Zaks’ <a target="_blank" rel="noopener" href="https://www.ams.org/journals/bull/1976-82-05/S0002-9904-1976-14130-4/home.html">paper</a>, one sees that $R$ is a HFD domain. To be precise, for polynomials $x_1,x_2,\cdots,x_n$ and $y_1,y_2,\cdots,y_m$, if $x_1x_2\cdots x_n=y_1y_2\cdots y_m$, then $m=n$. I may recover the proof here one day, but it would be much more difficult than writing everything you have seen here. This ring $R$​ also shows that HFD is not necessarily UFD.</p>
+<h3 id="Maximal-ideals-of-R"><a href="#Maximal-ideals-of-R" class="headerlink" title="Maximal ideals of $R$"></a>Maximal ideals of $R$</h3><p>Since $Cl(R) \cong \mathbb{Z}/2\mathbb{Z}$, for any maximal ideal $M \subset A$, either it is principal or $M^2$ is principal. If $M$ and $M’$ are two non-principal ideal, then $MM’$ is principal. Conversely, for any irreducible $z \in R$, either $(z)$ is maximal or $(z)=MM’$ for some maximal ideal $M$ and $M’$, and $M$ and $M’$ may coincide. We have given the form of irreducible elements</p>
+<script type="math/tex; mode=display">
+z = a+b\sin{x}+c\cos{x},\quad (b,c) \ne (0,0).</script><p>So we are now interested in these $a,b,c$​. We will do some high school trick first. If we put</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+k = \frac{a}{\sqrt{b^2+c^2}} \\
+b' = \frac{b}{\sqrt{b^2+c^2}} \\
+c' = \frac{c}{\sqrt{b^2+c^2}}
+\end{cases}</script><p>then $z= \sqrt{a^2+b^2}(\sin(x+\alpha)+k)$​ where $b’=\cos\alpha$​ and $c’ = \sin\alpha$​. Since $\sqrt{a^2+b^2} \in \mathbb{R}$​​ it suffices to study ​elements of the form $\sin(x+\alpha)+k$​. </p>
+<p>Define a shift morphism $h:R \to R$ by</p>
+<script type="math/tex; mode=display">
+h(\cos{x})=\cos(x+\alpha), \quad h(\sin{x}) = \sin(x+\alpha), \quad h(t) = t</script><p>This map is clearly an isomorphism. More importantly, since</p>
+<script type="math/tex; mode=display">
+h(\sin{x}+k)=\sin(x+\alpha)+k,</script><p>the primary decomposition of $(\sin(x+\alpha)+k)$ and $(\sin{x}+k)$​ are of the same form. We are interested in the ring $R/(\sin{x}+k)$, where it is natural to study the behaviour of $\cos{x}$​. For this reason we consider the substitution morphism</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+g:\mathbb{R}[X] & \to R \\
+             X  & \mapsto \cos{x}.
+\end{aligned}</script><p>We first compute the inverse image $g^{-1}[(\sin{x}+k)]$​. It is natural to think about cancelling $\sin x$ into $\cos x$. Note $(\sin x + k)( \sin x - k) = (\sin^2x -k^2) = (1- \cos^2x-k^2)$, pick whichever $P(X) \in (1-k^2-X^2)$, we have</p>
+<script type="math/tex; mode=display">
+g(P(X))=P(\cos{x}) = (1-\cos^2x-k^2)Q(\cos{x})=(\sin{x}+k)(\sin{x}-k)Q(\cos{x})</script><p>Hence $(1-k^2-X^2)\subset g^{-1}[(\sin{x}+k)]$​. For the converse, note that if nonzero $P \in g^{-1}[(\sin x + k)]$, we have $\deg P &gt; 1$ because trigonometric polynomial of the form $a+b\cos x$ can never be divided by $\sin x + k$​. By Euclidean algorithm, we find $Q(X)$, $R(X)$ such that</p>
+<script type="math/tex; mode=display">
+P(X)=Q(X)(1-k^2-X^2) + R(X)</script><p>with $\deg R \le 1.$​ But when $P \in g^{-1}[(\sin x + k)]$​, we must have $R(X)=0$​​, according to our study of the degree earlier. Hence we must have $P(X) \in (1-k^2-X^2)$​, which is to say</p>
+<script type="math/tex; mode=display">
+g^{-1}[(\sin x + k)]= (1-k^2-X^2).</script><p>This induces an isomorphism</p>
+<script type="math/tex; mode=display">
+\mathbb{R}[X]/(1-k^2-X^2) \cong R/(k+\sin x).</script><p>And it is much easier to study the ideal $1-k^2-X^2$. To be precise,</p>
+<ol>
+<li>$k^2=1 \iff (1-k^2-X^2)=(X)^2 \iff (k+\sin x)=M^2$ for some maximal ideal $M$, because $(X)$ is a maximal ideal.</li>
+<li>$k^2&lt;1 \iff (1-k^2-X^2)$​ is a product of two distinct maximal ideals $\iff (k+\sin x)$ is a product of two distinct maximal ideals $M$ and $M’$.</li>
+<li>$k^2&gt;1 \iff (1-k^2-X^2)$ is maximal $\iff$ $(k+\sin x)$ is maximal.</li>
+</ol>
+<p>Therefore maximal ideals of $R$​ are determined by $k$, or more precisely the relation between $c^2$ and $a^2+b^2$​. Moreover, let $M$ be a maximal ideal, we have</p>
+<ol>
+<li>If $M$​ is principal, then there exists $\alpha$ and $k$ such that</li>
+</ol>
+<script type="math/tex; mode=display">
+M = (\sin(x+\alpha) + k)</script><p>and $R/M \cong \mathbb{C}$​.</p>
+<ol>
+<li>If $M$​ is not principal, then there exists $\alpha \in \mathbb{R}$ such that</li>
+</ol>
+<script type="math/tex; mode=display">
+M = (\sin(x+\alpha)+1,\cos(x+\alpha)), \quad M^2 = (\sin(x+\alpha)+1).</script><p>and $R/M \cong \mathbb{R}$.</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ol>
+<li>Robert M. Fossum, <em>The Divisor Class Group of a Krull Domain</em>.</li>
+<li>M. F. Atiyah, FRS &amp;  I. G. MacDonald, <em>Introduction to Commutative Algebra</em>.</li>
+<li>Macro Fontana, Salah-Eddine Kabbaj, Sylvia Wiegand, <em>Commutative Ring Theory and Applications.</em></li>
+<li>Hideyuki Matsumura, <em>Commutative Ring Theory</em>.</li>
+<li>P. Samuel, <em>Lectures on Unique Factorization Domains</em>.</li>
+<li>A. Zaks, <em>Half Factorial Domains</em>.</li>
+</ol>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"><a href="../../../../tags/Study-new-content/" class="post-tags__link button"># Study new content</a><a href="../../../../tags/Noetherian/" class="post-tags__link button"># Noetherian</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../29/the-ring-of-trigonometric-polynomial-with-complex-scalar/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            The ring of trigonometric polynomials with complex scalars
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../../10/10/Characters-in-Analysis-and-Algebra/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            Characters in Analysis and Algebra
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2021/12/24/The-ring-of-real-trigonometric-polynomials/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

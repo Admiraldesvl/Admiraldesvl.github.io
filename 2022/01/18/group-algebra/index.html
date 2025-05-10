@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>The Group Algebra of A Finite Group and Maschke&#39;s Theorem | Desvl&#39;s blog</title>
+
+
+    <meta name="keywords" content="Study new content, Serge Lang, Axiom of Choice, Division Ring, J-P Serre">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="In this post we give several forms of Masher&#39;s theorem by studying group algebra, which eventually becomes a study of semisimple rings. One can consider this post a chaotic evil introduction to repres">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Group Algebra of A Finite Group and Maschke&#39;s Theorem">
+<meta property="og:url" content="https://desvl.xyz/2022/01/18/group-algebra/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="In this post we give several forms of Masher&#39;s theorem by studying group algebra, which eventually becomes a study of semisimple rings. One can consider this post a chaotic evil introduction to repres">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-01-18T17:58:55.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:09.993Z">
+<meta property="article:author" content="Desvl">
+<meta property="article:tag" content="Study new content">
+<meta property="article:tag" content="Serge Lang">
+<meta property="article:tag" content="Axiom of Choice">
+<meta property="article:tag" content="Division Ring">
+<meta property="article:tag" content="J-P Serre">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        The Group Algebra of A Finite Group and Maschke&#39;s Theorem
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2022/01/" class="post-meta__date button">2022-01-18</a>
+        
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/" class="button">Algebra</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/Representation-Theory/" class="button">Representation Theory</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/Group-Algebra/" class="button">Group Algebra</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/Non-Commutative-Ring/" class="button">Non-Commutative Ring</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Simple-and-Semisimple-Modules"><span class="toc-number">1.</span> <span class="toc-text">Simple and Semisimple Modules</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Simplicity"><span class="toc-number">1.1.</span> <span class="toc-text">Simplicity</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Semisimplicity"><span class="toc-number">1.2.</span> <span class="toc-text">Semisimplicity</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Jacobson-Radical-and-Semisimplicity"><span class="toc-number">1.3.</span> <span class="toc-text">Jacobson Radical and Semisimplicity</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Group-algebra-and-representation"><span class="toc-number">2.</span> <span class="toc-text">Group algebra and representation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Semisimplicity-of-Group-Algebra-Over-A-Field"><span class="toc-number">2.1.</span> <span class="toc-text">Semisimplicity of Group Algebra Over A Field</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Structure-theorem-of-semisimple-rings"><span class="toc-number">3.</span> <span class="toc-text">Structure theorem of semisimple rings</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Wedderburn-Artin-Ring-Theory"><span class="toc-number">4.</span> <span class="toc-text">Wedderburn-Artin Ring Theory</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Back-to-representation-theory"><span class="toc-number">4.1.</span> <span class="toc-text">Back to representation theory</span></a></li></ol></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Simple-and-Semisimple-Modules"><span class="toc-number">1.</span> <span class="toc-text">Simple and Semisimple Modules</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Simplicity"><span class="toc-number">1.1.</span> <span class="toc-text">Simplicity</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Semisimplicity"><span class="toc-number">1.2.</span> <span class="toc-text">Semisimplicity</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Jacobson-Radical-and-Semisimplicity"><span class="toc-number">1.3.</span> <span class="toc-text">Jacobson Radical and Semisimplicity</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Group-algebra-and-representation"><span class="toc-number">2.</span> <span class="toc-text">Group algebra and representation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Semisimplicity-of-Group-Algebra-Over-A-Field"><span class="toc-number">2.1.</span> <span class="toc-text">Semisimplicity of Group Algebra Over A Field</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Structure-theorem-of-semisimple-rings"><span class="toc-number">3.</span> <span class="toc-text">Structure theorem of semisimple rings</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Wedderburn-Artin-Ring-Theory"><span class="toc-number">4.</span> <span class="toc-text">Wedderburn-Artin Ring Theory</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Back-to-representation-theory"><span class="toc-number">4.1.</span> <span class="toc-text">Back to representation theory</span></a></li></ol></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <p><em>In this post, the reader is assumed to have a background in elementary representation theory. Any chapter one of a book in representation theory will do the trick. Also, I have to assume some background in ring theory and module theory. Although we may assume a ring to be non-commutative, it is always considered unitary (having $1$).</em></p>
+<p>Let $G$ be a finite group and $R$ be a commutative ring. The <em>algebra</em> of $G$ over $R$ is denoted by $R[G]$, which firstly is an algebra over $R$. The basis of $R[G]$ is given by $e_s$ where $s \in G$. The product rule on $R[G]$ is made of</p>
+<script type="math/tex; mode=display">
+e_s e_t = e_{st},\quad \forall s,t \in G.</script><p>With this being said, given $u=\sum_{s \in G}a_se_s$ and $v=\sum_{t \in G}b_te_t$, we have</p>
+<script type="math/tex; mode=display">
+uv = \sum_{s \in G}\sum_{t \in G}a_sb_te_{st}.</script><p>For example, take $G=C_3=\{1,x,x^2\}$, the cyclic group of three elements. If $u=a_1e_1+a_xe_x$ and $v=b_xe_x+b_{x^2}e_{x^2}$, then</p>
+<script type="math/tex; mode=display">
+uv = a_xb_{x^2}e_1+a_1b_xe_x+(a_1b_{x^2}+a_xb_x)e_{x^2}.</script><p>As one will notice, the structure of this algebra should be determined by both $G$ and $R$ although we don’t know what would happen at this moment. If we take $R=\mathbb{C}$, then everything is very <em>simple</em>. A lot of things in elementary linear algebra can be recovered here. And that is part of the mission of this blog post. Before we dive in we need to look into group algebra in a general setting first. It is not often to see group algebra and representation theory to be treated together but let’s try it. While the majority of this post is (non-commutative) ring theory and module theory, we encourage the reader to try to use representation theory as examples. Standalone examples may drive us too far and we may not have enough space for them.</p>
+<h1 id="Basic-Facts-of-Group-Algebra-And-Its-Connection-to-Representation-Theory"><a href="#Basic-Facts-of-Group-Algebra-And-Its-Connection-to-Representation-Theory" class="headerlink" title="Basic Facts of Group Algebra And Its Connection to Representation Theory"></a>Basic Facts of Group Algebra And Its Connection to Representation Theory</h1><p>First of all, we list some very obvious facts that do not even need proof.</p>
+<blockquote>
+<ol>
+<li><p>$R[G]$ is a free $R$-module with dimension $|G|$.</p>
+</li>
+<li><p>$R[G]$ is itself a ring. The commutativity of $R[G]$ is determined by $G$.</p>
+</li>
+</ol>
+</blockquote>
+<p>However, as one may ignore,</p>
+<blockquote>
+<p><strong>Proposition 1.</strong> $R[G]$ is <strong>not</strong> a division ring.</p>
+</blockquote>
+<p><em>Proof.</em> Pick $g \in G$ that is not the identity. Then $e_1-e_g$ is a zero-divisor because if we take $m=|G|$, then</p>
+<script type="math/tex; mode=display">
+(e_1-e_g)(e_1+e_g+\cdots+e_{g^{m-1}})=e_1-e_1=0.</script><p>But in a division ring, there is no zero-divisor. $\square$</p>
+<p>As a ring, we certainly can consider modules over $R[G]$, which brings us the following section.</p>
+<h2 id="Simple-and-Semisimple-Modules"><a href="#Simple-and-Semisimple-Modules" class="headerlink" title="Simple and Semisimple Modules"></a>Simple and Semisimple Modules</h2><h3 id="Simplicity"><a href="#Simplicity" class="headerlink" title="Simplicity"></a>Simplicity</h3><p>Let $R$ be a ring (not assumed to be commutative here). An $R$-module $E$ is called <strong>simple</strong> it has no nontrivial submodule. This may remind you of irreducible or simple representations of a group. We will see the connection later. Following the definition, we immediately have a special version of Schur’s lemma:</p>
+<blockquote>
+<p><strong>Proposition 2 (Schur’s Lemma).</strong> Let $E,F$ be two simple $R$-modules. Every nontrivial homomorphism $f:E \to F$ is an isomorphism. </p>
+</blockquote>
+<p><em>Proof.</em> Note $\ker{f}$ and $f(E)$ are submodules of $E$ and $F$ respectively. Since $f$ is nontrivial and $E,F$ are simple, we have $\ker{f}=0$ and $f(E)=F$, which is to say that $f$ is an isomorphism. $\square$</p>
+<blockquote>
+<p><strong>Corollary 1.</strong> If $E$ is a simple $R$-module, then $\operatorname{End}_R(E)$ is a division ring.</p>
+</blockquote>
+<p><em>Proof.</em> If $f:E \to E$ is nontrivial, then according to Schur’s lemma, it has an inverse. $\square$</p>
+<p>This definitely reminds you of irreducible representations. But irreducible representations are not always the case, so are simple modules. Recall the Maschke’s theorem in representation theory: <em>Every representation of a finite group over $\mathbb{C}$ having positive dimension is completely reducible.</em> For modules, we have a similar statement.</p>
+<h3 id="Semisimplicity"><a href="#Semisimplicity" class="headerlink" title="Semisimplicity"></a>Semisimplicity</h3><blockquote>
+<p><strong>Definition-Proposition 3.</strong> Let $E$ be an $R$-module. Then the following three conditions are equivalent:</p>
+<p><strong>SS 1.</strong> $E$ is a sum of simple $R$-modules.</p>
+<p><strong>SS 2.</strong> $E$ is a direct sum of simple $R$-modules.</p>
+<p><strong>SS 3.</strong> For every submodule $E’$ of $E$, there is another submodule $F$ such that $E = E’ \oplus F$, i.e. every submodule is a direct summand.</p>
+<p>If $E$ satisfies the three conditions above, then $E$ is called <strong>semisimple</strong>. A ring $R$ is semisimple if it is a semisimple module over itself.</p>
+</blockquote>
+<p><em>Proof.</em> Assume <strong>SS 1</strong>, say we have $E=\sum_{i \in I}E_i$. Let $J$ be the maximal subset of $I$ such that $E_0=\sum_{j \in J}E_j$ is a direct sum (this $J$ exists by Zorn’s lemma). Pick any $i \in I$. Then $E_i \cap E_0$ is a submodule of $E_i$, which can either be $0$ or $E_i$. If $E_i \cap E_0 = E_i$ then $E_i \subset E_0$. If the intersection is $0$ however, $E_0 +E_i$ is direct, which is to say that $J \cup\{i\} \supsetneq J$ is the subset of $I$ yielding a direct sum. A contradiction. Hence $E_i \subset E_0$ holds for all $i \in I$, i.e. $E_0 = E$.</p>
+<p>Next we assume <strong>SS 2</strong> and we have $E = \bigoplus_{i \in I}E_i$. Pick any submodule $E’ \subset E$. Let $J$ be the maximal subset of $I$ such that $E_0=E’+\bigoplus_{j \in J}E_j$ is direct. In the same manner we see $E_i \cap E_0=E_i$ for all $i \in I$, which proves <strong>SS 3</strong>.</p>
+<p>Finally we assume <strong>SS 3</strong>. Let $E_0=\sum_{i \in I}E_i$ be the sum of all simple modules of $E$. Then there is a submodule $F$ of $E$ such that $E=E_0 \oplus F$. Assume $F \ne 0$, then $F$ has a simple submodule, which contradicts the definition of $E_0$. Hence $F=0$ and $E_0=E$. The reason why nontrivial $F$ must have a simple submodule is contained in the following lemma. $\square$</p>
+<blockquote>
+<p><strong>Lemma 4.</strong> Let $E$ be an $R$-module satisfying <strong>SS 3</strong>, then every nontrivial submodule $F$ has a simple submodule.</p>
+</blockquote>
+<p><em>Proof.</em> It suffices to show that every nontrivial principal module has a simple submodule. Indeed, for any $F \ne 0$, we pick a nonzero $v \in F$, then $Rv \subset F$.</p>
+<p>Let $L$ be the kernel of the morphism</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+R &\to Rv \\
+a &\mapsto av.
+\end{aligned}</script><p>Then $L$ is a left ideal, which is contained in a maximal ideal $M$ of $R$. It follows that $Mv$ is a maximal submodule of $Rv$ because $M/L$ is a maximal ideal of $R/L$ and the following isomorphism</p>
+<script type="math/tex; mode=display">
+R/L \cong Rv.</script><p>By <strong>SS 3</strong>, we can find a submodule $M’$ such that</p>
+<script type="math/tex; mode=display">
+E = Mv \oplus M'</script><p>which gives</p>
+<script type="math/tex; mode=display">
+Rv = E \cap Rv = (Mv \cap Rv) \oplus (M' \cap Rv)=Mv \oplus (M' \cap Rv).</script><p>We claim that $M’ \cap Rv$ is maximal. Pick any proper submodule $E’ \subset M’ \cap Rv$, then $Mv \oplus E’$ is a submodule of $Rv$, which has to be $Mv$, i.e. $E’=0$ because of the maximality of $Mv$. This proves our statement. $\square$</p>
+<blockquote>
+<p><strong>Proposition 5.</strong> Let $E$ be a semisimple $R$-module, then every nontrivial submodule and quotient module of $E$ is semisimple.</p>
+</blockquote>
+<p><em>Proof.</em> Pick nontrivial submodule $F$ of $E$. Let $J$ be the maximal subset of $I$ such that</p>
+<script type="math/tex; mode=display">
+F + \bigoplus_{j \in J}E_j</script><p>is direct. Then the direct sum is actually $E$. Therefore $F=\bigoplus_{k \in K}E_k$ where $K = I \setminus J$. In particular, since $(F \oplus F’)/F \cong F’$, a quotient module of $E$ is semisimple. $\square$</p>
+<blockquote>
+<p><strong>Corollary 6.</strong> $R$ is a semisimple ring if and only if every $R$-module is semisimple.</p>
+</blockquote>
+<p><em>Proof.</em> By the universal property of free modules, every $R$-module is a factor module of a free $R$-module, while a free $R$-module is a direct sum of some copies of $R$. Hence if $R$ is semisimple then every $R$-module is semisimple. Conversely, if every $R$-module is semisimple, then $R$ is semisimple because it is a left module over itself. $\square$</p>
+<h3 id="Jacobson-Radical-and-Semisimplicity"><a href="#Jacobson-Radical-and-Semisimplicity" class="headerlink" title="Jacobson Radical and Semisimplicity"></a>Jacobson Radical and Semisimplicity</h3><p>Let $R$ be a ring. We say it is a finite dimensional algebra if it is also a vector space over some field $K$ of finite dimension. We study the Jacobson radical $J(R)=\bigcup\{\text{left maximal ideals of }R\}$ in this subsection, which will be used in next section.</p>
+<p> We summarise what we want to prove in the following proposition.</p>
+<blockquote>
+<p><strong>Proposition 7 (Jacobson Radical).</strong> Let $R$ be a ring (not necessarily commutative) and $J(R)$ be the Jacobson radical of $R$, then</p>
+<ol>
+<li><p>$J(R)$ is a two-sided ideal containing all nilpotent elements.</p>
+</li>
+<li><p>For every simple $R$-module $E$ we have $J(R)E=0$. More precisely, $J(R)=\{a \in R:aE=0\text{ for all simple (R)-modulle (E)}\}$</p>
+</li>
+<li><p>Suppose $R$ is a finite dimensional algebra (or more generally, $R$ is Artinian), then $R/J(R)$ is semisimple, and if $I$ is a two-sided ideal such that $R/I$ is semisimple, then $J(R) \subset I$. It follows that $R$ is semisimple if and only if $J(R)$ is trivial.</p>
+</li>
+<li><p>Assumption being above, $J(R)$ is nilpotent.</p>
+</li>
+</ol>
+</blockquote>
+<p><em>Proof.</em> We first prove 2. Pick any $a \in R$ such that $a$ annihilate all simple $R$-module. For any maximal left ideal $M$, $R/M$ is simple. Therefore $a(R/M)=0$, which implies that $a \in M$. Therefore $a \in J(R)$. </p>
+<p>Conversely, suppose $J(R)E \ne 0$ for some simple $E$. Since $J(R)E$ is a submodule of $E$ and $E$ is simple, we have $J(R)E=E$. More precisely, there exists some $x \in E$ such that $J(R)x=E$. Therefore there exists $a \in J(R)$ such that $ax=x$. $a-1$ is in the annihilator $\operatorname{Ann}(x)$, which is contained in a maximal ideal $M$ (does not equal $R$). But we also have $J(R) \subset M$. Therefore $a \in M$ and $a-1 \in M$, which implies that $1 \in M$ and this is absurd. Hence 2 is proved.</p>
+<p>Next we prove 1. By definition $J(R)$ is a left ideal. Now pick any $a \in J(R)$ and $b \in R$. It follows that $abE=0$ for all simple $E$. Indeed, if $bE \ne 0$, then $bE=E$ and therefore $abE=aE=0$. If $a$ is nilpotent and $E$ is simple, then $aE=0$. If not, say $aE=E$ and $a^n=0$, then $0=a^nE=a(a^{n-1}E)=aE=E$. A contradiction. Therefore 1 is proved as well. </p>
+<p>To prove 3, we first note that $R$ is Artinian: every descending chain of left ideals $J_1 \supsetneq J_2 \supsetneq \cdots$ must stop. This is determined by the dimension of $R$. It follows that $J(R)$ is the intersection of finitely many maximal ideals, for the descending chain</p>
+<script type="math/tex; mode=display">
+M_1 \supset M_1 \cap M_2 \supset M_1 \cap M_2 \cap M_3 \supset \cdots\supset J(R)</script><p>must be finite. Therefore we can write $J(R)=\bigcap_{i=1}^{n}M_n$ for some maximal ideals of $R$. Now consider the map</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\phi:R/J(R) &\to R/M_1 \oplus R/M_2 \oplus \cdots \oplus R/M_n \\
+    x+J(R)  &\mapsto (x+M_1,x+M_2,\dots,x+M_n).
+\end{aligned}</script><p>Since $J(R)=\bigcap_{i=1}^{n}M_i$, this follows from nothing but the Chinese Remainder Theorem. $\phi$ is an isomorphism and each $R/M_i$ is simple. We are done.</p>
+<p>Now suppose $I$ is a two-sided ideal such that $R/I$ is semisimple. By definition we can write</p>
+<script type="math/tex; mode=display">
+R/I=\bigoplus_{j \in J}L_j</script><p>for some simple $L_j$. Pick any $a \in J(R)$, we have $aL_j=0$ for all $j$, therefore $a(R/I)=0$, which implies that $a \in I$, i.e. $J(R) \subset I$. (In fact, according to the structure theorem of semisimple ring, $J$ is finite.)</p>
+<p>If $J(R)=0$, then $A/J(R)=A$ is semisimple. Conversely, if $A$ is semisimple, then $I=0$ is a two-sided ideal such that $A/I$ is semisimple. Hence $J(R)$ has to be trivial as well. </p>
+<p>To prove 4, we work on the descending chain $N \supset N^2 \supset N^3 \supset \cdots$. Let $N^\infty$ be the ideal where the chain stops to shrink. Then according to <a target="_blank" rel="noopener" href="https://blog.jpolak.org/?p=1729">Nakayama’s lemma</a>, $NN^\infty=N^\infty$, which implies that $N^\infty=0$. $\square$</p>
+<h2 id="Group-algebra-and-representation"><a href="#Group-algebra-and-representation" class="headerlink" title="Group algebra and representation"></a>Group algebra and representation</h2><p>Let $R$ be a commutative ring and $G$ a finite group. Let $E$ be an $R$-module. We can study the representation</p>
+<script type="math/tex; mode=display">
+\rho: G \to \operatorname{Aut}_{R}E</script><p>and we can also study the ring homomorphism</p>
+<script type="math/tex; mode=display">
+\lambda:R[G] \to \operatorname{End}_{R}E.</script><p>We show that they are the same thing. Given $\lambda$, then for any $g \in G$, $\lambda(e_g)$ is an automorphism because $\lambda(e_g)\lambda(e_{g^{-1}})=\lambda(e_1)=1$. Therefore $\lambda$ gives rise to representation $\rho:g \mapsto \lambda(e_g)$.</p>
+<p>Conversely, for an representation $\rho$ and any $g \in G$, $\rho(g)$ is automatically an endomorphism and therefore we have a map</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\lambda:R[G] &\to \operatorname{End}_{R}E \\
+\sum_{g \in G}a_ge_g &\mapsto \sum_{g \in G}a_g\rho(g).
+\end{aligned}</script><p>Therefore, the study of group representation can also be transferred into the study of group algebra. For simplicity we call such a module $E$ together with a representation $\rho$ as a $G$-module, which you may have known. <em>Note such a $G$-module can also be considered as a module over $R[G]$ in the usual sense. Conversely, an $R[G]$-module is a $G$-module.</em> When the context is clear, we write $gx$ in place of $\rho(g)x$.</p>
+<h3 id="Semisimplicity-of-Group-Algebra-Over-A-Field"><a href="#Semisimplicity-of-Group-Algebra-Over-A-Field" class="headerlink" title="Semisimplicity of Group Algebra Over A Field"></a>Semisimplicity of Group Algebra Over A Field</h3><p>We generalise Maschke’s theorem in an arbitrary field $K$. </p>
+<blockquote>
+<p><strong>Theorem 8 (Maschke).</strong> Let $G$ be a finite group of order $n$. Let $K$ be a field, then $K[G]$ is semisimple if and only if the characteristic of $K$ does not divide $n$ (it can also be $0$).</p>
+</blockquote>
+<p>In introductory representation theory, we study the case when $K=\mathbb{R}$ or $\mathbb{C}$, whose characteristic is definitely $0$.</p>
+<p><em>Proof.</em> Let $E$ be a $G$-module, and let $F$ be a $G$-submodule. We show that $F$ is a direct summand of $E$, i.e., there exists some $E’ \subset E$ such that $E = E’ \oplus F$. It is natural to think about the projection $\pi:E \to F$ where $\pi(x)=x$ for all $x \in F$. It is seemingly clear that $E=\ker\pi \oplus F$ is what we want, but we can’t do this: we only know that $\pi$ is a $K$-linear map, but we have no idea if it is a $K[G]$-linear map. To work around this problem, we modify the projection into a $K[G]$-linear map.</p>
+<p>To do this, we <em>average</em> $\pi$ over conjugation. To be precise, we consider the map</p>
+<script type="math/tex; mode=display">
+\varphi:x \mapsto \frac{1}{n}\sum_{g \in G}g^{-1} \circ\pi\circ g(x)</script><p>This map is $K[G]$-linear. We therefore can write $E=\ker\varphi \oplus F$ because it is the left inverse of the inclusion $i:F \to E$. Indeed, for any $x \in F$, we have</p>
+<script type="math/tex; mode=display">
+\varphi(x)=\frac{1}{n}\sum_{g \in G}g^{-1} \circ g(x)=\frac{1}{n}\sum_{g \in G}x=x.</script><p>Note, since $F$ is a $G$-module, we have $g(x) \in F$ and therefore $\pi \circ g(x)=g(x)$. Also, the fact that $\operatorname{char}K \nmid n$ is used here: if the characteristic divides $n$, then $\sum_{g \in G}x=0$. Moreover, $n \cdot 1=0$ in $K$ and therefore $\frac{1}{n}$ is not defined.</p>
+<p>Next we suppose that $p=\operatorname{char} K$ divides $n$. Consider the element</p>
+<script type="math/tex; mode=display">
+s=\sum_{g \in G}e_g.</script><p>Note $gs:=e_gs$ for all $g \in G$ and therefore $s^2=(\sum_{g \in G}e_g)s=ns=0$ because $p \mid n$. Therefore $s$ is a nonzero nilpotent element, i.e. $J(K[G]) \ne 0$, from which it follows that $K[G]$ is not semisimple according to proposition 7. $\square$</p>
+<p>In other words, if $E$ is a finitely dimensional representation over $K$ of group $G$, and the characteristic of $K$ does not divide $|G|$, then $E$ is completely reducible. Recall we also have matrix decomposition of a matrix representation. But this is not very easy to generalise. To work with it we need a clearer look at semisimple rings.</p>
+<h1 id="Structure-of-Semisimple-Group-Algebras"><a href="#Structure-of-Semisimple-Group-Algebras" class="headerlink" title="Structure of Semisimple Group Algebras"></a>Structure of Semisimple Group Algebras</h1><p>It would be great that, given a matrix representation of a representation, we can decompose it into diagonal block matrix, with each block being a subrepresentation. But it would not be a easy job: we need to know whether the field is algebraically closed, the characteristic of it, et cetera. Perhaps we need some Galois theory but it has gone too far from this post. Anyway we need to see through the structure to know how to work with it. </p>
+<h2 id="Structure-theorem-of-semisimple-rings"><a href="#Structure-theorem-of-semisimple-rings" class="headerlink" title="Structure theorem of semisimple rings"></a>Structure theorem of semisimple rings</h2><p>In this section we study the structure of $R$ in a more detailed way. We say a ring is <strong>simple</strong> if it is semisimple and all of its simple left ideals are isomorphic. A left ideal is called simple if it is a simple left $R$-module.</p>
+<blockquote>
+<p><strong>Theorem 9 (Structure theorem of semisimple rings).</strong> Let $R$ be a semisimple ring. Then the isomorphic class of left ideals of $R$ is finite. Say it is represented by $L_1,L_2,\dots,L_s$. If $R_i = \sum_{L \cong L_i}L$ (the sum of all left ideals isomorphic to $L_i$), then $R_i$ is a two-sided ideal, and is a simple ring. One can write $R$ as a product</p>
+<script type="math/tex; mode=display">
+R=\prod_{i=1}^{s}R_i.</script><p>Besides, $R$ admits a Peirce decomposition with respect to these $R_i$. There are elements $e_i \in R_i$ such that</p>
+<script type="math/tex; mode=display">
+1=e_1+\cdots+e_s.</script><p>The $e_i$ are idempotent ($e_i^2=e_i$), orthogonal ($e_ie_j=0$ if $i \ne j$). As a ring, $e_i$ is the multiplication identity of $R_i$, and $R_i=e_iR=Re_i$.</p>
+</blockquote>
+<p><em>Proof.</em> To begin with we first study the behaviour of simple left ideals.</p>
+<blockquote>
+<p><strong>Lemma 10.</strong> Let $L$ be a simple left ideal of $R$ and $E$ be a simple $R$-module, then $LE = 0$ unless $L \cong E$.</p>
+</blockquote>
+<p><em>Proof of the lemma.</em> Since $E$ is simple, $LE=0$ or $E$. If $LE=E$, then there exists some $y \in E$ such that $Ly=E$ (again by the simplicity of $E$). Therefore the map</p>
+<script type="math/tex; mode=display">
+a \mapsto ay</script><p>is surjective. It is injective because the kernel is a submodule of $L$ and it has to be trivial. $\blacksquare$</p>
+<p>According to this lemma, $R_i R_j=0$ whenever $i \ne j$. This will be frequently used. For the time being we can write $R=\sum_{i \in I}R_i$ although we don’t know whether $I$ is finite. Firstly we show that $R_i$ is also a right ideal (since it is a sum of left ideals, it is by default a left ideal):</p>
+<script type="math/tex; mode=display">
+R_i \subset R_i R = R_i R_i \subset R_i \implies R_iR=R.</script><p>Therefore $R_i$ is also a right ideal for all $i$. But before we proceed we need to explain the relation above. Since $R$ contains the unit, we must have $R_i \subset R_i R$. We have $R_iR=R_iR_i$ because $R_iR_j=0$ for all $i \ne j$ and $R$ is a sum of all $R_j$ over $j \in I$. Therefore other terms are eliminated. Finally, we have $R_iR_i \subset R_i$ simply because $R_i$ is a left ideal.</p>
+<p>Also note that $R_i \cap R_j=0$ for all $i \ne j$ because it is an intersection of two distinct classes of simple modules. Therefore we can write $R=\bigoplus_{i \in I}R_i$ for the time being.</p>
+<p>Now consider $1=\sum_{i \in I}e_i$ with $e_i \in R_i$. This sum is finite (by definition of direct sum, where cofiniteness is required). Let $J \subset I$ be the finite subset such that $e_j \ne 0$ for all $j \in J$. It follows that $R_i=0$ for all $i \in I \setminus J$ because $R_i = 1 \cdot R_i = \sum_{j \in J}e_jR_i = 0$. We can therefore write $R=\bigoplus_{i=1}^{n}R_i$. All other direct summands are trivial. Since each $R_i$ represents a isomorphic class of simple left ideals, the class of simple left ideals are finite. </p>
+<p> Now we study the relation of $e_i$, $R_i$ and $R$. For any $a_i \in R_i$, we have</p>
+<script type="math/tex; mode=display">
+a_i=a_i(e_1+\cdots+e_n)=a_ie_i=(e_1+\cdots+e_n)a_i=e_ia_i.</script><p>Therefore $e_i$ is the unit in $R_i$ (it follows automatically that $e_i^2=e_i$). For any $a \in R$, we put $a_i=ae_i$, then there is a unique decomposition</p>
+<script type="math/tex; mode=display">
+a=a_1+\cdots+a_n.</script><p>This gives us a projection $R_i=Re_i=e_iR$. We also have $e_ie_j=0$ if $i \ne j$. Since $R_iR_j=0$, we can safely write $R=\prod_{i=1}^{n}R_i$. Each $R_i$ is simple because (1) it is semisimple ($R_i=\sum_{L \cong L_i}L$ and each $L$ is also a simple $R_i$-module) and (2) all simple left ideals of $R_i$ are isomorphic. To show this, assume that $L \subset R_i$ is a left ideal that is not isomorphic to $L_i$. Since we have $L = R_iL = RR_iL = RL$, $L$ is also a simple left ideal of $R$. But it contradicts the definition of $R_i$. $\square$</p>
+<p>Let’s extract more information from this theorem. First of all the sum of $1$ is also finite in every $R_i$, hence each $R_i$ is also a finite direct sum. To be precise,</p>
+<blockquote>
+<p><strong>Theorem 11.</strong> Every simple ring $R$ admits a finite direct sum of simple left ideals</p>
+<script type="math/tex; mode=display">
+R = \bigoplus_{i=1}^{n}R_i.</script></blockquote>
+<p><em>Proof.</em> Since $R$ is semisimple, it is a sum of simple left ideals, the collection of which can be chosen to be direct. Say we have $R=\bigoplus_{i \in I}R_i$. </p>
+<p>Consider $1 \in R$:</p>
+<script type="math/tex; mode=display">
+1=\sum_{i \in I}x_i</script><p>where $x_i \in R_i$. This sum is finite, say we have $1=\sum_{i=1}^{n}x_i$ and $x_i \ne 0$. Then </p>
+<script type="math/tex; mode=display">
+R=1 \cdot R = \bigoplus_{i=1}^{n}x_iR=\bigoplus_{i=1}^{n}R_i.</script><p>This proves our assertion. $\square$</p>
+<p>Combining theorem 9 and 11, we see</p>
+<blockquote>
+<p><strong>Corollary 12.</strong> Every semisimple ring $R$ admits a decomposition</p>
+<script type="math/tex; mode=display">
+R=n_1L_1 \oplus \cdots \oplus n_rL_r</script><p>where $n_iL_i$ denotes $n_i$ direct sums of isomorphic simple left ideals $L_i$. This direct sum is unique in the following sense. $L_1,\dots,L_r$ are unique up to isomorphism. $(n_i,L_i)$ are unique up to a permutation.</p>
+</blockquote>
+<p>This must reminds you of the isotropical decomposition of a representation into irreducible representations. They are the same thing. It used the semisimplicity of $\mathbb{C}[G]$ and here we are talking about the semisimplicity of an arbitrary ring.</p>
+<p>We include here a elementary ring theory result that really doesn’t need a proof here.</p>
+<blockquote>
+<p> <strong>Proposition 13.</strong> Let $R_1, R_2,\cdots, R_n$ be rings with units. The direct product</p>
+<script type="math/tex; mode=display">
+R=R_1 \times \cdots \times R_n</script><p>has the following property. Every ideal (no matter left, right or two-sided) of $R_i$ is an ideal of $R$. Every minimal ideal of $R_i$ is an ideal of $R$. Every minimal ideal of $R$ is an ideal of some $R_i$.</p>
+</blockquote>
+<p>The proof is quite similar to how we prove that $R_i$ is simple in our proof of theorem 9. This actually shows that</p>
+<blockquote>
+<p><strong>Corollary 14.</strong> If $R_1,\cdots,R_n$ are semisimple rings, then so is</p>
+<script type="math/tex; mode=display">
+R=R_1 \times \cdots \times R_n.</script></blockquote>
+<h2 id="Wedderburn-Artin-Ring-Theory"><a href="#Wedderburn-Artin-Ring-Theory" class="headerlink" title="Wedderburn-Artin Ring Theory"></a>Wedderburn-Artin Ring Theory</h2><p>We want to work with matrices, i.e., we want to work with linear equations. This becomes possible because of Wedderburn-Artin ring theory. We don’t know what can happen yet, so we can only try to generalise things very carefully. </p>
+<p>When talking about matrices, we can talk about endormorphisms as well. So our first step is to find a bridge to endormorphisms. We now to need to consider $R$ as a left module over itself.</p>
+<p>The most immediate one is multiplication. For $a \in R$, we may consider the multiplication induced by $a$:</p>
+<script type="math/tex; mode=display">
+\lambda_a:x \mapsto ax.</script><p>It may looks natural but unfortunately it is not necessarily an endomorphism. The reason is simple because we have $\lambda_a(yx)\ne y\lambda_a(x)$ in general. However we can define</p>
+<script type="math/tex; mode=display">
+\rho_a:x \mapsto xa.</script><p>Now $\rho_a(yx)=y\rho_a(x)$ holds naturally. We can show that every endomorphism is defined in this way. Consider the map $\rho:a \mapsto (x \mapsto xa)$. We have</p>
+<ol>
+<li><p>$\rho$ is anti-homomorphism. Indeed, $\rho(ab)=\rho(b)\rho(a)$ for all $a,b \in R$ and $\rho(a+b)=\rho(a)+\rho(b)$.</p>
+</li>
+<li><p>$\rho$ is surjective (as a function, not a homomorphism). For any $\psi:x \mapsto \psi(x)$, we have $\psi(x)=\psi(x \cdot 1)=x\psi(1)$. Therefore $\rho(\psi(1))=\psi$.</p>
+</li>
+<li><p>$\rho$ is injective. If $\rho(a)(x)=xa=0$ for all $x \in R$, then in particular $\rho(a)(1)=a=0$.</p>
+</li>
+</ol>
+<p>We can call $\rho$ an <em>anti-isomorphism</em> but that causes headaches. Instead, if we consider the opposite ring $A^{op}$ where addition is the same as $A$ and multiplication $\ast$ is given by</p>
+<script type="math/tex; mode=display">
+a \ast b = ba</script><p>then we have</p>
+<blockquote>
+<p><strong>Proposition 14.</strong> Let $R$ be a ring. There is a natural isomorphism $R^{op} \cong \operatorname{End}_R(R)$ given by $a \mapsto (x \mapsto xa)$.</p>
+</blockquote>
+<p>Note $(R^{op})^{op}=R$ so we may be able to take the opposite to decompose $\operatorname{End}_R(R)$ and take the opposite again.</p>
+<p>Now write $R=\bigoplus_{i=1}^{r}n_iL_i$ as in corollary 12. We therefore have</p>
+<script type="math/tex; mode=display">
+R^{op} \cong \bigoplus_{i=1}^{r}\operatorname{End}_R(n_iL_i).</script><p>However, by Schur’s lemma, $D_i=\operatorname{End}_R(L_i)$ is a division ring (we don’t necessarily have a field here). Therefore</p>
+<script type="math/tex; mode=display">
+\operatorname{End}_R(n_iL_i) \cong \operatorname{Mat}_{n_i}(D_i).</script><p>For each $f \in \operatorname{End}_R(n_kL_k)$, we have a corresponding matrix $(p_ift_j)$:</p>
+<script type="math/tex; mode=display">
+L_k \xrightarrow{t_j}L_k \oplus \cdots \oplus L_k \xrightarrow{f} L_k \oplus \cdots\oplus L_k \xrightarrow{p_i}L_k</script><p>where $t_j$ is the inclusion and $p_i$ is projection. This is to say, the isomorphism is given by</p>
+<script type="math/tex; mode=display">
+f \mapsto (p_ift_j)</script><p>The verification is a matter of linear algebra and techniques frequently used in this post.</p>
+<p>Therefore we have </p>
+<script type="math/tex; mode=display">
+R^{op}\cong \bigoplus_{i=1}^{r}\operatorname{Mat}_{n_i}(D_i).</script><p>Taking the opposite again we have</p>
+<script type="math/tex; mode=display">
+R=(R^{op})^{op} \cong \bigoplus_{i=1}^{r}\operatorname{Mat}_{n_i}(D_i^{op}).</script><p>The isomorphism $\operatorname{Mat}_n(D)^{op} \cong \operatorname{Mat}_n(D^{op})$ is given by transpose of a matrix. However, the opposite ring of a division ring is still a division ring, we therefore have a decomposition</p>
+<script type="math/tex; mode=display">
+R=\bigoplus_{i=1}^{r}\operatorname{Mat}_{n_i}(D_i).</script><p>where $D_i$ is a division ring.</p>
+<p>Conversely, rings of the form above is semisimple. This is easy because for $R=\operatorname{Mat}_n(D)$, the only proper two-sided ideal is trivial, hence $J(R)$ is also trivial, but $R/J(R)$ is semisimple. See the lemma below.</p>
+<blockquote>
+<p><strong>Lemma.</strong> Let $R$ be a ring. All two-sided ideals of $\operatorname{Mat}_n(R)$ are of the form $\operatorname{Mat}_n(I)$ where $I$ is a two-sided ideal of $R$.</p>
+</blockquote>
+<p><em>Proof.</em> If $I$ is a two-sided ideal of $R$, then clearly $\operatorname{Mat}_n(I)$ is a two-sided ideal of $\operatorname{Mat}_n(R)$. Conversely, suppose $J \subset \operatorname{Mat}_n(R)$ is a two-sided ideal, we show that $J=\operatorname{Mat}_n(I)$ for some $I \subset R$. To be precise, put</p>
+<script type="math/tex; mode=display">
+I=\{a \in R:\text{$a$ is the $(1,1)$-th element of $A$ for some $A \in J$}\}.</script><p>Then $I$ is a two-sided ideal. Now pick some $A \in \operatorname{Mat}_n(R)$. Let $E_{ij}$ be the element whose is $1$ on its $(i,j)$-th element and $0$ everywhere else. For any matrix $A=(a_{ij})$, we have</p>
+<script type="math/tex; mode=display">
+E_{ij}AE_{k\ell}=a_{jk}E_{i\ell}.</script><p>Therefore if $A \in J$, then $a_{11} \in A$ and in particular,</p>
+<script type="math/tex; mode=display">
+E_{1j}AE_{k1}=a_{jk}E_{11} \in J \implies a_{jk} \in I</script><p>for all $j,k$. Therefore $J \subset \operatorname{Mat}_n(I)$. Conversely, for any $a \in I$, we can find $A=(a_{ij}) \in J$ such that $a=a_{11}$. Now $aE_{i\ell}=E_{i1}AE_{1\ell} \in J$. Note a matrix $A=(a_{ij}) \in \operatorname{Mat}_n(I)$ can be written in the form $\sum_{i,\ell}a_{i\ell}E_{i\ell}$ where $a_{i\ell} \in I$. This proves that $\operatorname{Mat}_n(I) \subset J$. $\square$</p>
+<p>It follows that a matrix algebra over a division ring or a field is semisimple. But let’s head back to where we were. </p>
+<p>The direct sum (or product because it is finite) of matrix algebras over division rings</p>
+<script type="math/tex; mode=display">
+\operatorname{Mat}_{n_1}(D_1) \oplus \cdots \oplus \operatorname{Mat}_{n_r}(D_r).</script><p>To conclude, we have the Wedderburn-Artin theorem.</p>
+<blockquote>
+<p><strong>Theorem 15 (Wedderburn-Artin).</strong> $R$ is a semisimple ring if and only if it can be written as a direct sum (or product because they are the same when finite) of matrix algebras over some division rings</p>
+<script type="math/tex; mode=display">
+R \cong \operatorname{Mat}_{n_1}(D_1) \oplus \cdots \oplus \operatorname{Mat}_{n_r}(D_r).</script></blockquote>
+<p>Since the opposite of a division ring is a division ring, we also have</p>
+<blockquote>
+<p><strong>Corollary 16.</strong> A ring $R$ is semisimple if and only if $R^{op}$ is.</p>
+</blockquote>
+<h3 id="Back-to-representation-theory"><a href="#Back-to-representation-theory" class="headerlink" title="Back to representation theory"></a>Back to representation theory</h3><p>Now back to representation theory. But it can be extremely hard: we have no idea about the division ring. However, when the ring is algebraically closed, there is no problem. Note some author also use <em>skew field</em> in place of division ring.</p>
+<blockquote>
+<p><strong>Proposition 17.</strong> Let $K$ be an algebraically closed field and $D$ be a finite dimensional division ring over $K$, then $D \cong K$.</p>
+</blockquote>
+<p><em>Proof.</em> Pick $a \in D$ that is not $0$. Note the map $\rho_a:x \mapsto ax$ is a $K$-linear map. Since $K$ is algebraically closed, $\rho_a$ has at least one eigenvalue, say $\lambda$. It follows that</p>
+<script type="math/tex; mode=display">
+(\lambda{e}-a)x=0</script><p>for some nonzero $x$ where $e$ is the unit of $D$. Since $D$ is a division ring, we have $a=\lambda{e}$. We actually established an isomorphism $a \mapsto \lambda$ and therefore $D \cong K$. $\square$</p>
+<p>If you have studied Banach algebra theory, you will realise that this nothing but Gelfand-Mazur theorem (see any book in functional analysis that discusses Banach algebra, for example, <em>Functional Analysis</em> by W. Rudin). In infinite dimensional space we have to consider the topology of the field and the algebra.</p>
+<p>Therefore we can now state Maschke’s theorem in the finest way possible:</p>
+<blockquote>
+<p><strong>Theorem 18 (Maschke).</strong> Let $G$ be a finite group, and $K$ be an algebraically closed field whose characteristic does not divide the order of $G$, then</p>
+<script type="math/tex; mode=display">
+K[G]=\operatorname{Mat}_{n_1}(K) \oplus \cdots \oplus \operatorname{Mat}_{n_r}(K).</script><p>Those $n_i$ are uniquely determined. In particular, $n_1^2+\cdots+n_r^2=|G|$.</p>
+</blockquote>
+<h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><ul>
+<li><p><em>Algebra Revised Third Edition</em>, Serge Lang.</p>
+</li>
+<li><p><em>Abstract Algebra</em>, Pierre Antoine Grillet.</p>
+</li>
+<li><p><em>Linear Representation of Finite Groups</em>, Jean-Pierre Serre</p>
+</li>
+</ul>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"><a href="../../../../tags/Study-new-content/" class="post-tags__link button"># Study new content</a><a href="../../../../tags/Serge-Lang/" class="post-tags__link button"># Serge Lang</a><a href="../../../../tags/Axiom-of-Choice/" class="post-tags__link button"># Axiom of Choice</a><a href="../../../../tags/Division-Ring/" class="post-tags__link button"># Division Ring</a><a href="../../../../tags/J-P-Serre/" class="post-tags__link button"># J-P Serre</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../../03/16/galois-example-1/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            Examples in Galois Theory 1 - Complex Field is Algebraically Closed
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../../../2021/12/29/the-ring-of-trigonometric-polynomial-with-complex-scalar/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            The ring of trigonometric polynomials with complex scalars
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2022/01/18/group-algebra/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

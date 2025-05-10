@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>Picard&#39;s Little Theorem and Twice-Punctured Plane | Desvl&#39;s blog</title>
+
+
+    <meta name="keywords" content="Walter Rudin, Study new content, Analytic Continuation">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="We show that the range of a non-constant entire function&#39;s range cannot be a twice-punctured plane.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Picard&#39;s Little Theorem and Twice-Punctured Plane">
+<meta property="og:url" content="https://desvl.xyz/2023/09/18/picard-little/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="We show that the range of a non-constant entire function&#39;s range cannot be a twice-punctured plane.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-09-18T11:47:20.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:10.276Z">
+<meta property="article:author" content="Desvl">
+<meta property="article:tag" content="Walter Rudin">
+<meta property="article:tag" content="Study new content">
+<meta property="article:tag" content="Analytic Continuation">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        Picard&#39;s Little Theorem and Twice-Punctured Plane
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2023/09/" class="post-meta__date button">2023-09-18</a>
+        
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/" class="button">Analysis</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/Complex-Analysis/" class="button">Complex Analysis</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>Let $f:\mathbb{C} \to \mathbb{C}$ be a holomorphic function. By Liouville’s theorem, if $f(\mathbb{C})$ is bounded, then $f$ has to be a constant function. However, there is a much stronger result. In fact, if $f(\mathbb{C})$ differs $\mathbb{C}$ from exactly $2$ points, then $f$ is a constant. In other words, suppose $f$ is non-constant, then the equation $f(z)=a$ for all $a \in \mathbb{C}$ except at most one $a$. To think about this, if $f$ is a non-constant polynomial, then $f(z)=a$ always has a solution (the fundamental theorem of algebra). If, for example, $f(z)=\exp(z)$, then $f(z)=a$ has no solution only if $a=0$.</p>
+<p>The proof will not be easy. It will not be proved within few lines of obvious observations, either in elementary approaches or advanced approaches. In this post we will follow the later by studying the twice-punctured plane $\mathbb{C} \setminus\{0,1\}$. To be specific, without loss of generality, we can assume that $0$ and $1$ are not in the range of $f$. Then $f(\mathbb{C}) \subset \mathbb{C}\setminus\{0,1\}$. Next we use advanced tools to study $\mathbb{C}\setminus\{0,1\}$ in order to reduce the question to Liouville’s theorem by constructing a bounded holomorphic function related to $f$.</p>
+<p>We will find a holomorphic covering map $\lambda:\mathfrak{H} \to \mathbb{C}\setminus\{0,1\}$ and then replace $\mathfrak{H}$ with the unit disc $D$ using the Cayley transform $z \mapsto \frac{z-i}{z+i}$. Then the aforementioned $f$ will be lifted to a holomorphic function $F:\mathbb{C} \to D$, which has to be constant due to Liouville’s theorem, and as a result $f$ is constant.</p>
+<p>With these being said, we need analytic continuation theory to establish the desired $\lambda$, and on top of that, (algebraic) topology will be needed to justify the function $F$.</p>
+<h1 id="Analytic-Continuation"><a href="#Analytic-Continuation" class="headerlink" title="Analytic Continuation"></a>Analytic Continuation</h1><p>For a concrete example of analytic continuation, I recommend <a href="2022/11/24/riemann-zeta-continuation/">this post on the Riemann $\zeta$ function</a>. In this post however, we only focus on the basic language of it in order that we can explain later content using analytic continuation.</p>
+<p>Our continuation is always established “piece by piece”, which is the reason we formulate continuation in the following sense.</p>
+<blockquote>
+<p><strong>Definition 1.</strong> A <em>function element</em> is an ordered pair $(f,D)$ where $D$ is an open disc and $f \in H(D)$. Two function elements $(f_1,D_1)$ and $(f_2,D_2)$ are <em>direct continuation</em> of each other if $D_1 \cap D_2 \ne \varnothing$ and $f_1=f_2$ on $D$. In this case we write</p>
+<script type="math/tex; mode=display">
+(f_1,D_1) \sim (f_2,D_2).</script></blockquote>
+<p>The notion of ordered pair may ring a bell of sheaf and stalk. Indeed some authors do formulate analytic continuation in this language, see for example <a target="_blank" rel="noopener" href="https://link.springer.com/book/10.1007/978-3-030-59365-0">Principles of Complex Analysis</a> by <a target="_blank" rel="noopener" href="https://link.springer.com/book/10.1007/978-3-030-59365-0#author-0-0">Serge Lvovski</a>. </p>
+<p>The $\sim$ relation is by definition reflective and symmetric, but not transitive. To see this, let $\omega$ be the primitive $3$-th root of unity. Let $D_0, D_1,D_2$ be open discs with radius $1$ and centres $\omega^0,\omega^1,\omega^2$. Since the $D_i$ are simply connected, we can always pick $f_i \in H(D_i)$ such that $f_i^2(z)=z$, and $(f_0,D_0) \sim (f_1,D_1)$ and $(f_1,D_1) \sim (f_2,D_2)$ but on $D_0 \cap D_2$ one has $f_2 =-f_0 \ne f_0$. Indeed there is nothing mysterious: we are actually rephrasing the fact that square root function cannot be defined at a region containing $0$.</p>
+<blockquote>
+<p><strong>Definition 2.</strong> A <em>chain</em> is a finite sequence $\mathscr{C}$ of discs $(D_0,D_1,\dots,D_n)$ such that $D_{i-1} \cap D_i \ne \varnothing$ for $i=1,\dots,n$. If $(f_0,D_0)$ is given and if there exists function elements $(f_i,D_i)$ such that $(f_{i-1},D_{i-1}) \sim (f_i,D_i)$ for $i=1,\dots,n$, then $(f_n,D_n)$ is said to be the <em>analytic continuation of $(f_0,D_0)$ along $\mathscr{C}$</em>.</p>
+<p>A chain $\mathscr{C}=(D_0,\dots,D_n)$ is said to <em>cover</em> a curve $\gamma$ with parameter interval $[0,1]$ if there are numbers $0=s_0&lt;s_1&lt;\dots&lt;s_n=1$ such that $\gamma(0)$ is the centre of $D_0$, $\gamma(1)$ is the centre of $D_n$, and</p>
+<script type="math/tex; mode=display">
+\gamma([s_i,s_{i+1}]) \subset D_i \quad(i=0,\dots,n-1).</script><p>If $(f_0,D_0)$ can be continued along this $\mathscr{C}$ to $(f_n,D_n)$, we call $(f_n,D_n)$ an <em>analytic continuation of $(f_0,D_0)$ along $\gamma$</em>; $(f_0,D_0)$ is then said to <em>admit</em> an analytic continuation along $\gamma$.</p>
+</blockquote>
+<p>Either way, it is not necessary that $(f_0,D_0) \sim (f_n,D_n)$. However, unicity of $(f_n,D_n)$ is always guaranteed. We will sketch out the proof on unicity.</p>
+<blockquote>
+<p><strong>Lemma 1.</strong> Suppose that $D_0 \cap D_1 \cap D_2 \ne \varnothing$, $(D_0,f_0) \sim (D_1,f_1)$ and $(D_1,f_1) \sim (D_2,f_2)$, then $(D_0,f_0) \sim (D_2,f_2)$.</p>
+</blockquote>
+<p><em>Proof.</em> By assumption, $f_0=f_1$ in $D_0 \cap D_1$, and $f_1=f_2$ in $D_1 \cap D_2$. It follows that $f_0=f_2$ in $D_0 \cap D_1 \cap D_2$, which is open and non-empty. Since $f_0$ and $f_2$ are holomorphic in $D_0 \cap D_2$ and $D_0 \cap D_2$ is connected, we have $f_0 = f_2$ in $D_0 \cap D_2$. This is because on a open connected set $D_0 \cap D_2$, the zero of $f_0-f_2$ is not discrete. Therefore $f_0-f_2$ has to be $0$ everywhere on $D_0 \cap D_2$. $\square$</p>
+<blockquote>
+<p><strong>Theorem 1.</strong> If $(f,D)$ is a function element and $\gamma$ is a curve which starts at the centre of $D$, then $(f,D)$ admits at most one analytic continuation along $\gamma$. </p>
+</blockquote>
+<p><em>Sketch of the proof.</em> Let $\mathscr{C}_1=(A_0,A_1,\dots,A_m)$ and $\mathscr{C}_2=(B_0,B_1,\dots,B_n)$ be two chains that cover $\gamma$. If $(f,D)$ can be analytically continued along $\mathscr{C}_1$ to a function element $(g_m,A_m)$ and along $\mathscr{C}_2$ to $(h_n,B_n)$, then $g_m=h_n$ in $A_m \cap B_n$.</p>
+<p>We are also given partitions $0=s_0&lt;s_1&lt;\dots&lt;s_m=s_{m+1}=1$ and $0=t_0&lt;t_1&lt;\dots&lt;t_n=t_{n+1}=1$ such that</p>
+<script type="math/tex; mode=display">
+\gamma([s_i,s_{i+1}]) \subset A_1,\;\gamma([t_j,t_{j+1}]) \subset B_j,\; (0\le i \le m, 0 \le j \le n),</script><p> and function elements $(g_i,A_i) \sim (g_{i+1},A_{i+1})$ and $(h_j,B_j) \sim (h_{j+1},B_{j+1})$ for $0 \le i \le m-1$ and $0 \le j \le n-1$ with $g_0=h_0=f$. The poof is established by showing that the continuation is compatible with intersecting intervals, where lemma 1 will be used naturally. To be specific, if $0 \le i \le m$ and $0 \le j \le n$, and if $[s_i,s_{i+1}] \cap [t_j,t_{j+1}] \ne \varnothing$, then $(g_i, A_i) \sim (h_j,B_j)$.</p>
+<h1 id="The-Monodromy-Theorem"><a href="#The-Monodromy-Theorem" class="headerlink" title="The Monodromy Theorem"></a>The Monodromy Theorem</h1><p>The monodromy theorem asserts that on a simply connected region $\Omega$, for a function element $(f,D)$ with $D \subset \Omega$, we can extend it to all $\Omega$ if $(f,D)$ can be continued along all curves. To prove this we need homotopy properties of analytic continuation and simply connected spaces.</p>
+<blockquote>
+<p><strong>Definition 1.</strong> A simply connected space is a path connected topological space $X$ with trivial fundamental group $\pi_1(X,x_0)=\{e\}$ for all $x_0 \in X$.</p>
+</blockquote>
+<p>The following fact is intuitive and will be used in the monodromy theorem.</p>
+<blockquote>
+<p><strong>Lemma 2.</strong> Let $X$ be a simply connected space and let $\gamma_1$ and $\gamma_2$ be two closed curves $[0,1] \to X$ with $\gamma_1(0)=\gamma_2(0)$ and $\gamma_1(1)=\gamma_2(1)$. Then $\gamma_1$ and $\gamma_2$ are homotopic.</p>
+</blockquote>
+<p><em>Proof.</em> Let $\gamma_i^{-1}$ be the curve defined by $\gamma_i^{-1}(t)=\gamma_i(1-t)$ for $i=1,2$. Then</p>
+<script type="math/tex; mode=display">
+\gamma_1 \simeq \gamma_1 \ast \gamma_2^{-1} \ast \gamma_2 \simeq e \ast \gamma_2 \simeq \gamma_2</script><p>where $e$ is the identity of $\pi_1(X,\gamma_1(0))$. $\square$</p>
+<p>Next we prove the two-point version of the monodromy theorem.</p>
+<blockquote>
+<p><strong>Monodromy theorem (two-point version).</strong> Let $\alpha,\beta$ be two points on $\mathbb{C}$ and $(f,D)$ be a function element where $D$ is centred at $\alpha$. Let $\{\gamma_t\}$ be a homotopy class indexed by a map $H(s,t):[0,1] \times [0,1] \to \mathbb{C}$ with the same origin $\alpha$ and terminal $\beta$. If $(f,D)$ admits analytic continuation along each $\gamma_t$, to an element $(g_t,D_t)$, then $g_1=g_0$. </p>
+</blockquote>
+<p>In brief, analytic continuation is faithful along homotopy classes. By being indexed by $H(s,t)$ we mean that $\gamma_t(s)=H(s,t)$. We need the uniform continuity of $H(s,t)$.</p>
+<p><em>Proof.</em> Fix $t \in [0,1]$. By definition, there is a chain $\mathscr{C}=(A_0,\dots,A_n)$ which covers $\gamma_t$, with $A_0=D$, such that $(g_t,D_t)$ is obtained by continuation of $(f,D)$ along $\mathscr{C}$. There are numbers $0=s_0&lt;\dots&lt;s_n=1$ such that</p>
+<script type="math/tex; mode=display">
+E_i=\gamma_t([s_i,s_{i+1}]) \subset A_i,\;(i=0,1,\dots,n-1).</script><p>For each $i$, define</p>
+<script type="math/tex; mode=display">
+d_i=\inf\{|x-y|:x \in E_i,y \in A_i^c\}.</script><p>The $d_i$ makes sense and is always positive, because $E_i$ is always compact and $A_i$ is an open set. Then pick any $\varepsilon \in (0,\min_i\{d_i\})$. Since $H(s,t)$ is uniformly continuous, there exists a $\delta&gt;0$ such that</p>
+<script type="math/tex; mode=display">
+|\gamma_t(s)-\gamma_u(s)|<\varepsilon,\; \forall t,u,s \in [0,1]; |u-t|<\delta.</script><p>We claim that $\mathscr{C}$ also covers $\gamma_u$. To do this, pick any $s \in [s_i,s_{i+1}]$. Then $\gamma_u(s) \in A_i$ because</p>
+<script type="math/tex; mode=display">
+|\gamma_t(s)-\gamma_u(s)| <\varepsilon<d_i=\inf\{|x-y|:x \in E_i,y\not\in A_i\}.</script><p>Therefore by theorem 1, we have $g_t=g_u$. Notice that for any $t \in [0,1]$, there is a segment $I_t$ such that $g_u=g_t$ for all $u \in [0,1] \cap I_t$. Since $[0,1]$ is compact, there are finitely many $I_t$ that cover $[0,1]$. Since $[0,1]$ is connected, we see, after a finite number of steps, we can reach $g_0=g_1$. $\square$</p>
+<blockquote>
+<p><strong>Momodromy theorem.</strong> Suppose $\Omega$ is a simply connected open subset of the plane, $(f,D)$ is a function element with $D \subset \Omega$, and $(f,D)$ can be analytically continued along every curve in $\Omega$ that starts at the centre of $D$. Then there exists $g \in H(\Omega)$ such that $g(z)=f(z)$ for all $z \in D$.</p>
+</blockquote>
+<p><em>Proof.</em> Let $\gamma_0$ and $\gamma_1$ be two curves in $\Omega$ from the centre $\alpha$ of $D$ to some point $\beta \in \Omega$. Then the two-point monodromy theorem and lemma 2 ensures us that these two curves lead to the same element $(g_\beta,D_\beta)$, where $D_\beta \subset \Omega$ is a circle with centre at $\beta$. If $D_{\beta_1}$ intersects $D_\beta$, then $(g_{\beta_1},D_{\beta_1})$ can be obtained by continuing $(f,D)$ to $\beta$, then along the segment connecting $\beta$ and $\beta_1$. By definition of analytic continuation, $g_{\beta_1}=g_\beta$ in $D_{\beta_1} \cap D_\beta$. Therefore the definition </p>
+<script type="math/tex; mode=display">
+g(z)=g_{\beta}(z),\; z \in D_\beta,\beta\in \Omega</script><p>is a consistent definition and gives the desired holomorphic extension of $f$. $\square$</p>
+<h1 id="Modular-Function"><a href="#Modular-Function" class="headerlink" title="Modular Function"></a>Modular Function</h1><p>Let $\mathfrak{H}$ be the open upper half plane. We will find a function $\lambda \in H(\mathfrak{H})$ whose image is $E=\mathbb{C} \setminus\{0,1\}$ and is in fact the (holomorphic) covering space of $E$. The function $\lambda$ is called a modular function. </p>
+<p>As usual, consider the action of $G=SL(2,\mathbb{Z})$ on $\mathfrak{H}$ given by</p>
+<script type="math/tex; mode=display">
+\begin{pmatrix}
+a & b \\
+c & d
+\end{pmatrix}z=\frac{az+b}{cz+d}.</script><blockquote>
+<p><strong>Definition 2.</strong> A <strong>Modular function</strong> is a holomorphic (or meromorphic) function $f$ on $\mathfrak{H}$ which is invariant under a non-trivial subgroup $\Gamma$ of $G$. That is, for any $\varphi \in \Gamma$, one has $f \circ \varphi=f$.</p>
+</blockquote>
+<p>In this section, we consider this subgroup:</p>
+<script type="math/tex; mode=display">
+\Gamma=\left\{\begin{pmatrix}
+a & b \\
+c & d
+\end{pmatrix} \in SL(2,\mathbb{Z}):a,d \equiv 1 \bmod{2};b,c\equiv0\bmod{2}\right\}.</script><p>It has a fundamental domain</p>
+<script type="math/tex; mode=display">
+Q=\{z=x+iy \in \mathfrak{H}:y>0,-1 \le x <1,|2z+1| \ge 1,|2z-1|>1\}.</script><p>Basically, $Q$ is bounded by two vertical lines $x=1$ and $x=-1$ vertically, and two semicircles with centre at $x=\frac{1}{2}$ and $x=-\frac{1}{2}$ with diameter $1$, but only the left part contains boundary points. The term <em>fundamental domain</em> will be justified by the following theorem.</p>
+<blockquote>
+<p><strong>Theorem 4.</strong> Let $\Gamma$ and $Q$ be as above. </p>
+<p>(a) Let $\varphi_1,\varphi_2$ be two distinct elements of $\Gamma$, then $\varphi_1(Q) \cap \varphi_2(Q) = \varnothing$.</p>
+<p>(b) $\bigcup_{\varphi \in \Gamma}\varphi(Q)=\mathfrak{H}$.</p>
+<p>(c) $\Gamma$ is generated by two elements</p>
+<script type="math/tex; mode=display">
+\sigma=\begin{pmatrix}
+1 & 0 \\
+2 & 1
+\end{pmatrix},\;
+\tau=\begin{pmatrix}
+1 & 2 \\
+0 & 1
+\end{pmatrix}</script></blockquote>
+<p><em>Sketch of the proof.</em> Let $\Gamma_1$ be the subgroup of $\Gamma$ generated by $\sigma$ and $\tau$, and show (b’):</p>
+<script type="math/tex; mode=display">
+\bigcup_{\varphi \in \Gamma_1}\varphi(Q)=\mathfrak{H}.</script><p>Then (a) and (b’) would imply that $\Gamma_1=\Gamma$ and (b) is proved. To prove (a), one will replace $\varphi_1$ with the identity element and discuss the relationship between $c$ and $d$ for $\varphi_2=\begin{pmatrix}a &amp; b \\ c &amp; d \end{pmatrix}$. To prove (b’), one need to notice that</p>
+<script type="math/tex; mode=display">
+\Sigma = \bigcup_{\varphi \in \Gamma_1}\varphi(Q) \supset\{z \in \mathfrak{H}:|2z-(2m+1)| \ge 1,m \in \mathbb{Z}\}.</script><p>For $w \in \mathfrak{H}$, by picking $\varphi_0 \in \Gamma$ that maximises $\Im\varphi_0(w)$, only to show that $z=\varphi_0(w) \in \Sigma$ and therefore $w \in \Sigma$.</p>
+<hr>
+<p>We are now allowed to introduce the modular function.</p>
+<blockquote>
+<p><strong>Theorem 5.</strong> Notation being above, there exists a function $\lambda \in H(\mathfrak{H})$ such that</p>
+<p>(a) $\lambda \circ \varphi = \lambda$ for every $\varphi \in \Gamma$.</p>
+<p>(b) $\lambda$ is one-to-one on $Q$.</p>
+<p>(c) $\lambda(\mathfrak{H})=\lambda(Q)=E=\mathbb{C}\setminus\{0,1\}$.</p>
+<p>(d) $\lambda$ has the real axis as its natural boundary. That is, $\lambda$ has no holomorphic extension to any region that properly contains $\mathfrak{H}$.</p>
+</blockquote>
+<p><em>Proof.</em> Consider</p>
+<script type="math/tex; mode=display">
+Q_0=\{z \in \mathfrak{H}:0<\Re z <1,|2z-1|>1\} \subset Q.</script><p>This is a simply connected region with simple boundary. There is a continuous function $h$ which is one-to-one on $\overline{Q}_0$ and is holomorphic in $Q_0$ such that $h(Q_0)=\mathfrak{H}$, $h(0)=0$, $h(1)=1$ and $h(\infty)=\infty$. This is a consequence of conformal mapping theory.</p>
+<p>The <a target="_blank" rel="noopener" href="https://mathweb.ucsd.edu/~jmckerna/Teaching/19-20/Spring/120B/l_22.pdf">Schwartz reflection principle</a> extends $h$ to a continuous function on $\overline{Q}$ which is a conformal mapping of $Q^\circ$ (the interior of $Q$) onto the plane minus the non-negative real axis, by the formula</p>
+<script type="math/tex; mode=display">
+h(-x+iy)=\overline{h(x+iy)}.</script><p>Note the extended $h$ is one-to-one on $Q$, and $h(Q)$ is $E$ defined in (c).</p>
+<p>On the boundary of $Q$, the function $h$ is real. In particular,</p>
+<script type="math/tex; mode=display">
+h(-1+iy)=h(1+iy)=h((-1+iy)+2)=h(\tau(-1+iy))\quad (0<y<\infty)</script><p>and that</p>
+<script type="math/tex; mode=display">
+h\left(-\frac{1}{2}+\frac{1}{2}e^{i\theta}\right)=h\left(\frac{1}{2}+\frac{1}{2}e^{i(\pi-\theta)}\right)=h\left(\sigma\left(-\frac{1}{2}+\frac{1}{2}e^{i\theta}\right)\right).</script><p>We now define</p>
+<script type="math/tex; mode=display">
+\lambda(z)=h(\varphi^{-1}(z))</script><p>for $\varphi \in \Gamma$ and $z \in \varphi(Q)$. This definition makes sense because for each $z \in \mathfrak{H}$, there is one and only one $\varphi \in \Gamma$ such that $z \in \varphi(Q)$. Properties (a) (b) and (c) follows immediately.</p>
+<p>Notice $\lambda$ is continuous on</p>
+<script type="math/tex; mode=display">
+Q \cup \tau^{-1}(Q) \cup \sigma^{-1}(Q),</script><p>and therefore on an open set $V$ containing $Q$. Cauchy’s theorem shows that $\lambda$ is holomorphic in $V$. Since $\mathfrak{H}$ is covered by the union of the sets $\varphi(V)$ for $\varphi \in \Gamma$, and since $\lambda \circ \varphi = \lambda$, we conclude that $\lambda \in H(\mathfrak{H})$. </p>
+<p>Finally, the set of all numbers $\varphi(0)=b/d$ is dense on the real axis. If $\lambda$ could be analytically continued to a region which properly contains $\mathfrak{H}$, the zeros of $\lambda$ would have a limit point in this region, which is impossible since $\lambda$ is not constant. $\square$</p>
+<p>We are now ready for the pièce de résistance of this post.</p>
+<h1 id="Picard’s-Little-Theorem"><a href="#Picard’s-Little-Theorem" class="headerlink" title="Picard’s Little Theorem"></a>Picard’s Little Theorem</h1><blockquote>
+<p><strong>Theorem (Picard).</strong> If $f$ is an entire function and if there are two distinct complex numbers $\alpha$ and $\beta$ such that are not in the range of $f$, then $f$ is constant.</p>
+</blockquote>
+<p>The proof is established by considering an analytic continuation of a function $g$ associated with $f$. The continuation will be originated at the origin and validated by monodromy theorem. Then by Cayley’s transformation, we find out the range of $g$ is bounded and hence $g$ is constant, so is $f$.</p>
+<p><em>Proof.</em> First of all notice that without loss of generality, we assume that $\alpha=0$ and $\beta=1$, because otherwise we can replace $f$ with $(f-\alpha)/(\beta-\alpha)$. That said, the range of $f$ is $E$ in theorem 5. There is a disc $A_0$ with centre at $0$ so that $f(A_0)$ lies in a disc $D_0 \subset E$. </p>
+<p>For every disc $D \subset E$, there is an associated region $V \subset \mathfrak{H}$ such that $\lambda$ in theorem 5 is one-to-one on $V$ and $\lambda(V)=D$; each such $V$ intersects at most two of the domains $\varphi(Q)$. Corresponding to each choice of $V$, there is a function $\psi \in H(D)$ such that $\psi(\lambda(z))=z$ for all $z \in V$.</p>
+<p>Now let $\psi_0 \in H(D_0)$ be the function such that $\psi_0(\lambda(z))=z$ as above. Define $g(z)=\psi_0(f(z))$ for $z \in A_0$. We claim that $g(z)$ can be analytically continued to an entire function.</p>
+<p>If $D_1$ is another disc in $E$ with $D_0 \cap D_1 \ne \varnothing$, we can choose a corresponding $V_1$ so that $V_0 \cap V_1 \ne \varnothing$. Then $(\psi_0,D_0)$ and $(\psi_1,D_1)$ are direct analytic continuations of each other. We can proceed this procedure all along to find a direct analytic continuation $(\psi_{i+1},D_{i+1})$ of $(\psi_i,D_i)$ with $V_{i+1} \cap V_i \ne 0$. Note $\psi_i(D_i) \subset V_i \subset \mathfrak{H}$ for all $i$.</p>
+<p>Let $\gamma$ be a curve in the plane which starts at $0$. The range of $f \circ \gamma$ is a compact subset of $E$ and therefore $\gamma$ can be covered by a chain of discs, say $A_0,\dots,A_n$, so that each $f(A_i)$ is in a disc $D_i \subset E$. By considering function elements $\{(\psi_{i},D_i)\}$, composing with $f$ on each $D_i$ (this is safe because $f$ is entire), we get an analytic continuation of $(g,A_0)$ along the chain $(A_0,\dots,A_n)$. Note $\psi_i \circ f(A_i) \subset \psi_i(D_i) \subset \mathfrak{H}$ again. </p>
+<p>Since $\gamma$ is arbitrary, we have shown that $(g,A_0)$ can be analytically continued along every curve in the plane. The monodromy theorem implies that $g$ extends to an entire function. Thus proving our claim given before. </p>
+<p>Note the range of the extended $g$ on every possible $A_i$ has range lying inside $\mathfrak{H}$. Therefore $g(\mathbb{C}) \subset \mathfrak{H}$. It follows that</p>
+<script type="math/tex; mode=display">
+h=\frac{g-i}{g+i} \in H(\mathbb{C})</script><p>has range in the unit disc. By Liouville’s theorem, $h$ is a constant function. Thus $g$ is constant too. </p>
+<p>Now we move back to $f$ by looking at $A_0$. Since $\psi_0$ is one-to-one on $f(A_0)$ and $A_0$ is not empty and open, $f(A_0)$ has to be a singleton. Thus $f$ is constant on $A_0$. If we represent $f$ as a power series on a disc lying inside $A_0$, we see $f$ has to be a constant. $\square$</p>
+<p>Note we have also seen that the range of a non-constant function cannot be half of a plane. But this result is useless because we can find two points on a large chunk of a plane after all.</p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
+<li>Walter Rudin, <em>Real and Complex Analysis</em>.</li>
+<li>Tammo tom Dieck, <em>Algebraic Topology</em>.</li>
+</ul>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"><a href="../../../../tags/Walter-Rudin/" class="post-tags__link button"># Walter Rudin</a><a href="../../../../tags/Study-new-content/" class="post-tags__link button"># Study new content</a><a href="../../../../tags/Analytic-Continuation/" class="post-tags__link button"># Analytic Continuation</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../../10/21/solvable-by-radical/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            A Separable Extension Is Solvable by Radicals Iff It Is Solvable
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../../08/12/sl2-decomposition/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            SL(2,R) As a Topological Space and Topological Group
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2023/09/18/picard-little/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

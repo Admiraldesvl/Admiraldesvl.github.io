@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>准素分解与准素标准型 | Desvl&#39;s blog</title>
+
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="特征向量的推广Matlab(以及很多支持矩阵运算的编程语言)里，知道了一个方阵的特征值，怎么计算特征向量? 有一个比较形象的解决方案: null(A-c.*I) 其中$A$表示矩阵，$c$表示一个特征值，$I$表示单位矩阵。(这篇博客里讨论的线性空间都是有限维线性空间$V$，讨论域$\mathbb{F}$。) 这个办法可能有点笨，但它解释了一个简单的概念。一个矩阵指定特征值的特征向量，正好是一个特">
+<meta property="og:type" content="article">
+<meta property="og:title" content="准素分解与准素标准型">
+<meta property="og:url" content="https://desvl.xyz/2020/02/08/primary-decomposition/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="特征向量的推广Matlab(以及很多支持矩阵运算的编程语言)里，知道了一个方阵的特征值，怎么计算特征向量? 有一个比较形象的解决方案: null(A-c.*I) 其中$A$表示矩阵，$c$表示一个特征值，$I$表示单位矩阵。(这篇博客里讨论的线性空间都是有限维线性空间$V$，讨论域$\mathbb{F}$。) 这个办法可能有点笨，但它解释了一个简单的概念。一个矩阵指定特征值的特征向量，正好是一个特">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-02-07T23:00:00.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:10.302Z">
+<meta property="article:author" content="Desvl">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        准素分解与准素标准型
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2020/02/" class="post-meta__date button">2020-02-08</a>
+        
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F%E7%9A%84%E6%8E%A8%E5%B9%BF"><span class="toc-number">1.</span> <span class="toc-text">特征向量的推广</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A9%BA%E9%97%B4%E5%87%86%E7%B4%A0%E5%88%86%E8%A7%A3%E2%80%94%E2%80%94%E5%9F%BA%E4%BA%8E%E6%9E%81%E5%B0%8F%E5%A4%9A%E9%A1%B9%E5%BC%8F%E7%9A%84%E5%B9%BF%E4%B9%89%E7%89%B9%E5%BE%81%E5%AD%90%E7%A9%BA%E9%97%B4%E5%88%86%E8%A7%A3"><span class="toc-number">2.</span> <span class="toc-text">空间准素分解——基于极小多项式的广义特征子空间分解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9F%A9%E9%98%B5%E7%9A%84%E5%87%86%E7%B4%A0%E6%A0%87%E5%87%86%E5%BD%A2"><span class="toc-number">3.</span> <span class="toc-text">矩阵的准素标准形</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%87%86%E7%B4%A0%E5%88%86%E8%A7%A3%E4%B8%8E%E6%9E%81%E5%B0%8F%E5%A4%9A%E9%A1%B9%E5%BC%8F"><span class="toc-number">3.1.</span> <span class="toc-text">准素分解与极小多项式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%87%86%E7%B4%A0%E5%88%86%E8%A7%A3%E5%92%8C%E7%89%B9%E5%BE%81%E5%A4%9A%E9%A1%B9%E5%BC%8F"><span class="toc-number">3.2.</span> <span class="toc-text">准素分解和特征多项式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%86%E7%B4%A0%E5%88%86%E8%A7%A3%E7%9A%84%E5%AE%9E%E4%BE%8B%EF%BC%8C%E4%BB%A5%E5%8F%8A%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E7%9F%A9%E9%98%B5%E6%98%AF%E5%90%A6%E5%8F%AF%E4%BB%A5%E5%AF%B9%E8%A7%92%E5%8C%96"><span class="toc-number">4.</span> <span class="toc-text">准素分解的实例，以及如何判断矩阵是否可以对角化</span></a></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F%E7%9A%84%E6%8E%A8%E5%B9%BF"><span class="toc-number">1.</span> <span class="toc-text">特征向量的推广</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A9%BA%E9%97%B4%E5%87%86%E7%B4%A0%E5%88%86%E8%A7%A3%E2%80%94%E2%80%94%E5%9F%BA%E4%BA%8E%E6%9E%81%E5%B0%8F%E5%A4%9A%E9%A1%B9%E5%BC%8F%E7%9A%84%E5%B9%BF%E4%B9%89%E7%89%B9%E5%BE%81%E5%AD%90%E7%A9%BA%E9%97%B4%E5%88%86%E8%A7%A3"><span class="toc-number">2.</span> <span class="toc-text">空间准素分解——基于极小多项式的广义特征子空间分解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9F%A9%E9%98%B5%E7%9A%84%E5%87%86%E7%B4%A0%E6%A0%87%E5%87%86%E5%BD%A2"><span class="toc-number">3.</span> <span class="toc-text">矩阵的准素标准形</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%87%86%E7%B4%A0%E5%88%86%E8%A7%A3%E4%B8%8E%E6%9E%81%E5%B0%8F%E5%A4%9A%E9%A1%B9%E5%BC%8F"><span class="toc-number">3.1.</span> <span class="toc-text">准素分解与极小多项式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%87%86%E7%B4%A0%E5%88%86%E8%A7%A3%E5%92%8C%E7%89%B9%E5%BE%81%E5%A4%9A%E9%A1%B9%E5%BC%8F"><span class="toc-number">3.2.</span> <span class="toc-text">准素分解和特征多项式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%86%E7%B4%A0%E5%88%86%E8%A7%A3%E7%9A%84%E5%AE%9E%E4%BE%8B%EF%BC%8C%E4%BB%A5%E5%8F%8A%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E7%9F%A9%E9%98%B5%E6%98%AF%E5%90%A6%E5%8F%AF%E4%BB%A5%E5%AF%B9%E8%A7%92%E5%8C%96"><span class="toc-number">4.</span> <span class="toc-text">准素分解的实例，以及如何判断矩阵是否可以对角化</span></a></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h3 id="特征向量的推广"><a href="#特征向量的推广" class="headerlink" title="特征向量的推广"></a>特征向量的推广</h3><p>Matlab(以及很多支持矩阵运算的编程语言)里，知道了一个方阵的特征值，怎么计算特征向量? 有一个比较形象的解决方案:</p>
+<pre><code>null(A-c.*I)
+</code></pre><p>其中$A$表示矩阵，$c$表示一个特征值，$I$表示单位矩阵。(这篇博客里讨论的线性空间都是有限维线性空间$V$，讨论域$\mathbb{F}$。) 这个办法可能有点笨，但它解释了一个简单的概念。一个矩阵指定特征值的特征向量，正好是一个特殊线性变换的核。只需要注意下面的等式: </p>
+<script type="math/tex; mode=display">
+    \text{ker}(\mathscr{A}-c\mathscr{I})=\{\alpha|(\mathscr{A}-c\mathscr{I})\alpha=0\{</script><p>但是有一点很有意思: $\lambda-c$又是一个多项式。这就引导我们通过线性变换<strong>多项式</strong>的核这一概念推广特征子空间和特征向量。</p>
+<p> 对多项式形式$f\in\mathbb{F}[\lambda]$，记 </p>
+<script type="math/tex; mode=display">
+     \text{ker}(f)=\{\alpha\in{V}|f(\mathscr{A})\alpha=0\{</script><p>为属于$f$的<strong>广义特征子空间</strong>，其中的向量称为<strong>广义特征向量</strong>。结合线性空间和多项式的若干性质，不难得到如下几个基本结论。</p>
+<blockquote>
+<p>性质1: 设$f，g\in\mathbb{F}[\lambda]$，$m=m(\lambda)$是$\mathscr{A}$的极小多项式，则有如下结论:</p>
+<ol>
+<li>$\text{ker}(1)=0$，$\text{ker}(m)=V$</li>
+<li>若$g|f$，那么$\text{ker}(g)\subset\text{ker}(f)$</li>
+<li>$\text{ker}(f)\cap\text{ker}(g)=\text{ker}(\text{gcd}(f,g))$</li>
+<li>$\text{ker}(f)+\text{ker}(g)=\text{ker}(\text{lcm}(f,g))$</li>
+<li>若$\text{gcd}(f,g)=1$，那么$\text{ker}(fg)=\text{ker}(f)\oplus\text{ker}(g)$</li>
+</ol>
+</blockquote>
+<p>应该注意到，多项式的加法、乘法、最小公倍数、最大公因子等与线性空间子空间的基本性质在这里是互相融洽的。</p>
+<h3 id="空间准素分解——基于极小多项式的广义特征子空间分解"><a href="#空间准素分解——基于极小多项式的广义特征子空间分解" class="headerlink" title="空间准素分解——基于极小多项式的广义特征子空间分解"></a>空间准素分解——基于极小多项式的广义特征子空间分解</h3><p>再说一下最常见的特征值分解。这个分解主要是通过解<strong>特征多项式</strong>的根，找到一组特征向量构成的基，得到对角形。Cayley-Hamilton定理告诉我们，特征多项式是一个零化多项式。也就是说，设$\mathscr{A}:V\to{V}$，$f$是$\mathscr{A}$的特征多项式，那么对于$\alpha\in{V}$，有$f(\mathscr{A})\alpha=0$。</p>
+<p>满足$g(\mathscr{A})\alpha=0(\alpha\in{V})$的多项式$g(\lambda)$称为零化多项式，全体零化多项式中次数最低的首一多项式(最高次数项系数为$1$)称为极小多项式，记为$m(\lambda)$。不难验证，对于任一零化多项式$g(\lambda)$，都有$m(\lambda)|g(\lambda)$，也就是说，$g(\lambda)=m(\lambda)n(\lambda)$，其中$n(\lambda)$是一个多项式(次数可能为$0$)。而$m(\lambda)$的存在性与唯一性也可以很容易得到证明.</p>
+<p>准素分解就是通过对极小多项式进行分解得到的，和循环分解类似，是一个很稳定的分解.</p>
+<p>接下来我们回顾一下多项式的一个基本性质:</p>
+<blockquote>
+<p>域$\mathbb{F}$上任一非常数多项式$f\in\mathbb{F}[X]$均可以唯一分解成不可约多项式乘积，即 </p>
+<script type="math/tex; mode=display">
+    f=p_1p_2\cdots{}p_m</script><p>其中$p_i$是不可约多项式，且是唯一的(不考虑常数和次序)。对于$i\neq{j}$，一定有$\text{gcd}(p_i,p_j)=1$.</p>
+</blockquote>
+<p>那么我们就可以唯一分解$m$了。不妨设$m(\lambda)=\prod_{i=1}^{s}p_i(\lambda)^{r_i}$。又设$W_i=\text{ker}(p_i^{r_i})$，那么根据性质1，$V$就可以唯一分解(不考虑次序)成</p>
+<blockquote>
+<script type="math/tex; mode=display">
+    V=W_1\oplus W_2\oplus\cdots\oplus W_s.</script></blockquote>
+<p>而且不难验证，$W_i$是$\mathscr{A}$的不变子空间。此即准素分解。总而言之，将一个线性变换的极小多项式分解成互质因子的乘积，将整个线性空间分解成这些多项式因子的核的直和，即为准素分解.</p>
+<h3 id="矩阵的准素标准形"><a href="#矩阵的准素标准形" class="headerlink" title="矩阵的准素标准形"></a>矩阵的准素标准形</h3><p>现已将$V$分解成几个子空间的直和。如果分别在这几个子空间选取一组基，合成$V$的基，就能得到准素标准形。具体地说，</p>
+<blockquote>
+<p>存在$\mathbb{F}$上的可逆矩阵$P$使得$A=P\text{diag}(A_1，\cdots，A_s)P^{-1}$.</p>
+</blockquote>
+<p>其中$A_i$就是$\mathscr{A}$限制在$W_i$上的线性变换的矩阵。这里的基的选择是任意的，但是得到的准对角矩阵又是怎样的性质? 接下来从极小多项式和特征多项式入手。</p>
+<h4 id="准素分解与极小多项式"><a href="#准素分解与极小多项式" class="headerlink" title="准素分解与极小多项式"></a><strong>准素分解与极小多项式</strong></h4><hr>
+<p>我们肯定希望这样的分解比较”干净”。根据极小多项式分解子空间，那么子空间的性质也应该和极小多项式的分解相融洽。也就是说，</p>
+<blockquote>
+<p>$\mathscr{A}_i=\mathscr{A}\vert_{W_i}$的极小多项式为$p_i(\lambda)^{r_i}$.</p>
+</blockquote>
+<p>下面给出证明。</p>
+<hr>
+<p>因为$W_i=\text{ker}(p_i^{r_i})$，对$\alpha\in{W_i}$，一定有$p_i(\mathscr{A}_i)^{r_i}=0$，也就是说，$p_i(\lambda)^{r_i}$一定是$\mathscr{A}_i$的零化多项式。</p>
+<p>如果$r_i=1$，考虑到$p_i$不可约，那么已经有$p_i(\lambda)^{r_i}$是$\mathscr{A}_i$的极小多项式。对于$r_i&gt;1$，只需要证明$p_i^{r_i-1}$不是零化多项式，也就是说，证明$\text{ker}(p_i^{r_i})\neq\text{ker}(p_i^{r_i-1})$</p>
+<p>设$q=m/p_i^{r_i}$。那么$q$和$p_i^{r_i-1}$互质。假设$W_i=\text{ker}(p_i^{r_i-1})$，那么一定有 \begin{equation} \begin{aligned} \text{ker}(p_i^{r_i-1}q)&amp;=W_i\oplus\text{ker}(q) \\<br>&amp;=W_i\oplus(W_1\oplus\cdots\oplus W_{i-1}\oplus W_{i+1}\oplus\cdots\oplus W_s )\\<br>&amp;=V \end{aligned} \end{equation}</p>
+<p>但是注意到$\text{deg}(p_i^{r_i-1}q)&lt;\text{deg}(m)$，$\text{ker}(m)=V$，这和$m$的唯一性矛盾。命题得证。</p>
+<h4 id="准素分解和特征多项式"><a href="#准素分解和特征多项式" class="headerlink" title="准素分解和特征多项式"></a><strong>准素分解和特征多项式</strong></h4><p>在<a href="/post/2020-02-03-cyclic-decomposition-and-example/">这篇博客</a>里我们指出，一个线性变换的特征多项式和极小多项式有着相同的不可约因子。也就是说，对于本文中提到的极小多项式，一定有正整数$d_1，d_2，\cdots，d_s$使得$f(\lambda)=\prod_{i=1}^{s}p_i(\lambda)^{d_i}$，其中$d_i\geq r_i$。有意思的是，特征多项式的分解也和准素分解的子空间相洽.</p>
+<blockquote>
+<p>$\mathscr{A}_i$的特征多项式是$p_i(\lambda)^{d_i}$</p>
+</blockquote>
+<p>我们讨论准对角矩阵$B=\text{diag}(A_1，\cdots，A_s)$的特征多项式，因为这和$A$的特征多项式是相等的(为什么?).</p>
+<p>直接计算特征多项式，有 </p>
+<script type="math/tex; mode=display">
+    |\lambda{I}-B|=|\lambda{I_1}-A_1|\cdots|\lambda{I_s}-A_s|</script><p>(注意，这个等式可以看成一个Laplace展开的递归运用。)</p>
+<p>如果设$|\lambda{I_1}-A_1|=f_i(\lambda)$，那么就将$f(\lambda)$分解成了$\textbf{s}$个互质因子 </p>
+<script type="math/tex; mode=display">
+    f(\lambda)=f_1(\lambda)f_2(\lambda)\cdots{}f_s(\lambda)</script><p>其中$f_i(\lambda)$是$A_i$的特征多项式。而$f(\lambda)=\prod_{i=1}^{s}p_i(\lambda)^{d_i}$是唯一分解，不难得到$f_i(\lambda)=p_i(\lambda)^{d_i}$，此即所求结论。</p>
+<h3 id="准素分解的实例，以及如何判断矩阵是否可以对角化"><a href="#准素分解的实例，以及如何判断矩阵是否可以对角化" class="headerlink" title="准素分解的实例，以及如何判断矩阵是否可以对角化"></a>准素分解的实例，以及如何判断矩阵是否可以对角化</h3><p>设矩阵 </p>
+<script type="math/tex; mode=display">
+    A=\begin{bmatrix} 2&-1&2&2 \\  
+    1&0&-2&0 \\  
+    1&0&1&1 \\  
+    -1&1&-2&-1 \end{bmatrix}</script><p>对应线性变换$\mathscr{A}:x\mapsto{Ax}$。现在$\mathbb{R}^4$上进行准素分解.</p>
+<p>$A$的极小多项式为$m(\lambda)=(\lambda-1)^2(\lambda^2+1)$。那么$\mathbb{R}^4$应该分解为 <script type="math/tex">\mathbb{R}^4=\text{ker}[(\lambda-1)^2]\oplus\text{ker}(\lambda^2+1)</script></p>
+<p>在这两个核中分别选取一组基，即得准素分解。这个时候如果用matlab代码解第一个子空间，就可以是</p>
+<pre><code>null((A-I)^2)
+</code></pre><p>在$W_1$中取基$x_1=(0，0，0，1)^T$和$x_2=(2，0，1，0)^T$，在$W_2$中取基$(1，0，0，-1)^T$和$(1，1，0，-1)^T$，得到矩阵 </p>
+<script type="math/tex; mode=display">
+    P=\begin{bmatrix}
+    0&2&1&1 \\  
+    0&0&0&1 \\  
+    0&1&0&0 \\  
+    1&0&-1&-1 \end{bmatrix}</script><p>不难得到准素标准形 </p>
+<script type="math/tex; mode=display">
+    B=P^{-1}AP=\begin{bmatrix} 
+    -1&-4&0&0 \\  
+    1&3&0&0 \\  
+    0&0&-1&-2 \\  
+    0&0&1&1 \end{bmatrix}</script><p>准素分解的若干性质都可以在这个准对角形中得到验证。</p>
+<hr>
+<p>然而，矩阵$A$是不能被对角化的(无论是在$\mathbb{R}$中还是$\mathbb{C}$中)。然而，上篇博客中探讨的矩阵 </p>
+<script type="math/tex; mode=display">
+    C=\begin{bmatrix}
+    0&-1&2&0 \\
+    -1&0&-2&0 \\
+    0&0&-5&0 \\
+    1&1&-2&1 \end{bmatrix}</script><p>是一定可以对角化的(不论在$\mathbb{R}$中还是在$\mathbb{C}$中)。这时为什么? 有没有什么一般化的规则?</p>
+<p>注意$m_c(\lambda)=(\lambda-1)(\lambda+1)(\lambda+5)$，极小多项式的根互异。而$A$的极小多项式的根不是互异的(在$\mathbb{C}$中)。又想，如果一个矩阵的特征多项式的根互异，那么就一定有$n$个特征根，而属于不同特征根的特征向量又是线性无关的，那么就一定能选取一组特征向量构成的基，就一定能对角化。但是这个时候极小多项式一定和特征多项式相等。实际上</p>
+<blockquote>
+<p>域$\mathbb{F}$上的矩阵$A$可以对角化的充分必要条件是，$m(\lambda)$可以写成这种形式 </p>
+<p><script type="math/tex">m(\lambda)=(\lambda-\lambda_1)(\lambda-\lambda_2)\cdots(\lambda-\lambda_s)</script> 其中$\lambda_1，\cdots，\lambda_s\in\mathbb{F}$，且互异.</p>
+</blockquote>
+<p>如果有$P^{-1}AP=\text{diag}(\lambda_1{I_1}，\cdots，\lambda_s{I_s})$，那么通过简单的矩阵运算，可以发现</p>
+<script type="math/tex; mode=display">
+(A-\lambda_1I)(A-\lambda_2I)\cdots(A-\lambda_sI)=0</script><p>因此有</p>
+<script type="math/tex; mode=display">
+m|(\lambda-\lambda_1)\cdots(\lambda-\lambda_s)</script><p>同时，考虑到$\lambda_i$是$A$的特征值，因此是$m$的根，所以有</p>
+<script type="math/tex; mode=display">
+(\lambda-\lambda_1)\cdots(\lambda-\lambda_s)|m</script><p>此即$m=(\lambda-\lambda_1)\cdots(\lambda-\lambda_s)$。</p>
+<p>另一方面，如果$m(\lambda)=(\lambda-\lambda_1)(\lambda-\lambda_2)\cdots(\lambda-\lambda_s)$，那么对$A$进行准素分解能得到 </p>
+<script type="math/tex; mode=display">
+    P^{-1}AP=\text{diag}(A_1，\cdots，A_s)</script><p>接下来，考虑到$A_i$的极小多项式是$\lambda-\lambda_i$，那么就有 </p>
+<script type="math/tex; mode=display">
+    A_i-\lambda_i{I_i}=0</script><p>所以$A$可以被对角化。</p>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../../03/14/topological-property-of-the-zeros-of-a-holomorphic-function/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            Topological properties of the zeros of a holomorphic function
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../03/cyclic-decomposition-and-example/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            线性空间的循环分解
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2020/02/08/primary-decomposition/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

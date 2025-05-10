@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>Tensor Product as a Universal Object (Category Theory &amp; Module Theory) | Desvl&#39;s blog</title>
+
+
+    <meta name="keywords" content="Universal Property">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="IntroductionIt is quite often to see direct sum or direct product of groups, modules, vector spaces. Indeed, for modules over a ring $R$, direct products are also direct products of $R$-modules as wel">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tensor Product as a Universal Object (Category Theory &amp; Module Theory)">
+<meta property="og:url" content="https://desvl.xyz/2021/01/19/tensor-product-universal-property/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="IntroductionIt is quite often to see direct sum or direct product of groups, modules, vector spaces. Indeed, for modules over a ring $R$, direct products are also direct products of $R$-modules as wel">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://desvl.xyz/img/morphism-in-BL.png">
+<meta property="og:image" content="https://desvl.xyz/img/tensor-product-universal.png">
+<meta property="og:image" content="https://desvl.xyz/img/tensor-functor.png">
+<meta property="og:image" content="https://desvl.xyz/img/tensor-double-chain.png">
+<meta property="article:published_time" content="2021-01-19T16:25:09.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:10.572Z">
+<meta property="article:author" content="Desvl">
+<meta property="article:tag" content="Universal Property">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://desvl.xyz/img/morphism-in-BL.png">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        Tensor Product as a Universal Object (Category Theory &amp; Module Theory)
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2021/01/" class="post-meta__date button">2021-01-19</a>
+        
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/" class="button">Algebra</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/Commutative-Algebra/" class="button">Commutative Algebra</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/Category-Theory/" class="button">Category Theory</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/Module-Theory/" class="button">Module Theory</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-category-of-bilinear-or-even-n-multilinear-maps"><span class="toc-number">2.</span> <span class="toc-text">The category of bilinear or even $n$-multilinear maps</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#A-natural-way-to-define-the-tensor-product"><span class="toc-number">3.</span> <span class="toc-text">A natural way to define the tensor product</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Trivial-tensor-product"><span class="toc-number">4.</span> <span class="toc-text">Trivial tensor product</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tensor-product-as-a-binary-operation"><span class="toc-number">5.</span> <span class="toc-text">Tensor product as a binary operation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Maps-between-tensor-products"><span class="toc-number">6.</span> <span class="toc-text">Maps between tensor products</span></a></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-category-of-bilinear-or-even-n-multilinear-maps"><span class="toc-number">2.</span> <span class="toc-text">The category of bilinear or even $n$-multilinear maps</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#A-natural-way-to-define-the-tensor-product"><span class="toc-number">3.</span> <span class="toc-text">A natural way to define the tensor product</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Trivial-tensor-product"><span class="toc-number">4.</span> <span class="toc-text">Trivial tensor product</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tensor-product-as-a-binary-operation"><span class="toc-number">5.</span> <span class="toc-text">Tensor product as a binary operation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Maps-between-tensor-products"><span class="toc-number">6.</span> <span class="toc-text">Maps between tensor products</span></a></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>It is quite often to see direct sum or direct product of groups, modules, vector spaces. Indeed, for modules over a ring $R$, direct products are also <strong>direct products</strong> of $R$-modules as well. On the other hand, the direct sum is a <strong>coproduct</strong> in the category of $R$-modules.</p>
+<p>But what about tensor products? It is some different kind of <em>product</em> but how? Is it related to direct product? How do we write a tensor product down? We need to solve this question but it is not a good idea to dig into numeric works.</p>
+<h2 id="The-category-of-bilinear-or-even-n-multilinear-maps"><a href="#The-category-of-bilinear-or-even-n-multilinear-maps" class="headerlink" title="The category of bilinear or even $n$-multilinear maps"></a>The category of bilinear or even $n$-multilinear maps</h2><p>From now on, let $R$ be a commutative ring, and $M_1,\cdots,M_n$ are $R$-modules. Mainly we work on $M_1$ and $M_2$, i.e. $M_1 \times M_2$ and $M_1 \otimes M_2$. For $n$-multilinear one, simply replace $M_1\times M_2$ with $M_1 \times M_2 \times \cdots \times M_n$ and $M_1 \otimes M_2$ with $M_1 \otimes \cdots \otimes M_n$. The only difference is the change of symbols. </p>
+<p>The bilinear maps of $M_1 \times M_2$ determines a category, say $BL(M_1 \times M_2)$ or we simply write $BL$. For an object $(f,E)$ in this category we have $f: M_1 \times M_2 \to E$ as a bilinear map and $E$ as a $R$-module of course. For two objects $(f,E)$ and $(g,F)$, we define the morphism between them as a linear function making the following diagram commutative: $\def\mor{\operatorname{Mor}}$</p>
+<p align="center"><img src="/img/morphism-in-BL.png"></p>
+
+<p>This indeed makes $BL$ a category. If we define the morphisms from $(f,E)$ to $(g,F)$ by $\mor(f,g)$ (for simplicity we omit $E$ and $F$ since they are already determined by $f$ and $g$) we see the composition</p>
+<script type="math/tex; mode=display">
+\mor(f,g) \times \mor(h,g) \to \mor(h,f)</script><p>satisfy all axioms for a category:</p>
+<p><strong>CAT 1</strong> Two sets $\mor(f,g)$ and $\mor(f’,g’)$ are disjoint unless $f=f’$ and $g=g’$, in which case they are equal. If $g \neq g’$ but $f = f’$ for example, for any $h \in \mor(f,g)$, we have $g = h \circ f = h \circ f’ \neq g’$, hence $h \notin \mor(f,g)$. Other cases can be verified in the same fashion.</p>
+<p><strong>CAT 2</strong> The existence of identity morphism. For any $(f,E) \in BL$, we simply take the identity map $i:E \to E$. For $h \in \mor(f,g)$, we see $g = h \circ f = h \circ i \circ f$. For $h’ \in \mor(g,f)$, we see $f = h’ \circ g = i \circ h’ \circ g$.</p>
+<p><strong>CAT 3</strong> The law of composition is associative when defined. </p>
+<hr>
+<p>There we have a category. But what about the tensor product? It is defined to be <em>initial</em> (or <em>universally repelling</em>) object in this category. Let’s denote this object by $(\varphi,M_1 \otimes M_2)$.</p>
+<blockquote>
+<p>For any $(f,E) \in BL$, we have a unique morphism (which is a module homomorphism as well) $h:(\varphi,M_1 \otimes M_2) \to (f,E)$. For $x \in M_1$ and $y \in M_2$, we write $\varphi(x,y)=x \otimes y$. We call the existence of $h$ the <strong>universal property</strong> of $(\varphi,M_1 \otimes M_2)$.</p>
+</blockquote>
+<p>The tensor product is unique up to isomorphism. That is, if both $(f,E)$ and $(g,F)$ are tensor products, then $E \simeq F$ in the sense of module isomorphism. Indeed, let $h \in \mor(f,g)$ and $h’ \in \mor(g,h)$ be the unique morphisms respectively, we see $g = h \circ f$, $f = h’ \circ g$, and therefore</p>
+<script type="math/tex; mode=display">
+g = h \circ h' \circ g \\
+f = h' \circ h \circ f</script><p>Hence $h \circ h’$ is the identity of $(g,F)$ and $h’ \circ h$ is the identity of $(f,E)$. This gives $E \simeq F$.</p>
+<p>What do we get so far? For any modules that is connected to $M_1 \times M_2$ with a bilinear map, the tensor product $M_1 \oplus M_2$ of $M_1$ and $M_2$, is always able to be connected to that module with a unique module homomorphism. What if there are more than one tensor products? Never mind. All tensor products are isomorphic. </p>
+<p>But wait, does this definition make sense? Does this product even exist? How can we study the tensor product of two modules if we cannot even write it down? So far we are only working on arrows, and we don’t know what is happening inside an module. It is not a good idea to waste our time on ‘nonsenses’. We can look into it in an natural way. Indeed, if we can find a module satisfying the property we want, then we are done, since this can represent the tensor product under any circumstances. Again, all tensor products of $M_1$ and $M_2$ are isomorphic.</p>
+<h2 id="A-natural-way-to-define-the-tensor-product"><a href="#A-natural-way-to-define-the-tensor-product" class="headerlink" title="A natural way to define the tensor product"></a>A natural way to define the tensor product</h2><p>Let $M$ be the free module generated by the set of all tuples $(x_1,x_2)$ where $x_1 \in M_1$ and $x_2 \in M_2$, and $N$ be the submodule generated by tuples of the following types:</p>
+<script type="math/tex; mode=display">
+(x_1+x_1',x_2)-(x_1,x_2)-(x_1',x_2) \\
+(x_1,x_2+x_2')-(x_1,x_2)-(x_1,x_2') \\
+(ax_1,x_2)-a(x_1,x_2) \\
+(x_1,ax_2) - a(x_1,x_2)</script><p>First we have a inclusion map $\alpha=M_1 \times M_2 \to M$ and the canonical map $\pi:M \to M/N$. We claim that $(\pi \circ \alpha, M/N)$ is exactly what we want. But before that, we need to explain why we define such a $N$. </p>
+<p>The reason is quite simple: We want to make sure that $\varphi=\pi \circ \alpha$ is bilinear. For example, we have $\varphi(x_1+x_1’,x_2)=\varphi(x_1,x_2)+\varphi(x_1’,x_2)$ due to our construction of $N$ (other relations follow in the same manner). This can be verified group-theoretically. Note</p>
+<script type="math/tex; mode=display">
+\varphi(x_1+x_1',x_2)=(x_1+x_1',x_2)+N \\
+\varphi(x_1,x_2)+\varphi(x_1',x_2)=(x_1,x_2)+(x_1',x_2)+N</script><p>but</p>
+<script type="math/tex; mode=display">
+\varphi(x_1+x_1',x_2)-\varphi(x_1,x_2)-\varphi(x_1',x_2)=(x_1+x_1',x_2)-(x_1,x_2)-(x_1',x_2) +N = 0+N.</script><p>Hence we get the identity we want. For this reason we can write</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+(x_1+x_1')\otimes x_2 &= x_1 \otimes x_2 + x_1' \otimes x_2, \\
+x_1 \otimes (x_2 + x_2') &= x_1 \otimes x_2 + x_1 \otimes x_2', \\
+(ax_1) \otimes x_2 &= a(x_1 \otimes x_2), \\
+x_1 \otimes (ax_2) &= a(x_1 \otimes x_2).
+\end{aligned}</script><p>Sometimes to avoid confusion people may also write $x_1 \otimes_R x_2$ if both $M_1$ and $M_2$ are $R$-modules.  But before that we have to verify that this is indeed the tensor product. To verify this, all we need is <a target="_blank" rel="noopener" href="https://arbourj.wordpress.com/2012/04/16/free-module/">the universal property of free modules</a>.</p>
+<p align="center"><img src="/img/tensor-product-universal.png"></p>
+
+<p>By the universal property of $M$, for any $(f,E) \in BL$, we have a induced map $f_\ast$ making the diagram inside commutative. However, for elements in $N$, we see $f_\ast$ takes value $0$, since $f_\ast$ is a bilinear map already. We finish our work by taking $h[(x,y)+N] = f_\ast(x,y)$. This is the map induced by $f_\ast$, following the property of factor module. </p>
+<h2 id="Trivial-tensor-product"><a href="#Trivial-tensor-product" class="headerlink" title="Trivial tensor product"></a>Trivial tensor product</h2><p>For coprime integers $m,n&gt;1$, we have $\def\mb{\mathbb}$</p>
+<script type="math/tex; mode=display">
+\mb{Z}/m\mb{Z} \otimes \mb{Z}/n\mb{Z} = O</script><p>where $O$ means that the module only contains $0$ and $\mb{Z}/m\mb{Z}$ is considered as a module over $\mb{Z}$ for $m&gt;1$. This suggests that, the tensor product of two modules is not necessarily ‘bigger’ than its components. Let’s see why this is trivial. </p>
+<p>Note that for $x \in \mb{Z}/m\mb{Z}$ and $y \in \mb{Z}/n\mb{Z}$, we have</p>
+<script type="math/tex; mode=display">
+m(x \otimes y) = (mx) \otimes y = 0 \\
+n(x \otimes y) = x \otimes(ny) = 0</script><p>since, for example, $mx = 0$ for $x \in \mb{Z}/m\mb{Z}$ and $\varphi(0,y)=0$. If you have trouble understanding why $\varphi(0,y)=0$, just note that the submodule $N$ in our construction contains elements generated by $(0x,y)-0(x,y)$ already.</p>
+<p>By Bézout’s identity, for any $x \otimes y$, we see there are $a$ and $b$ such that $am+bn=1$, and therefore</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+x \otimes y &= (am+bn)(x \otimes y) \\
+            &=am(x \otimes y)+bn (x \otimes y) \\
+            &= 0.
+\end{aligned}</script><p>Hence the tensor product is trivial. This example gives us a lot of inspiration. For example, what if $m$ and $n$ are not necessarily coprime, say $\gcd(m,n)=d$? By Bézout’s identity still we have</p>
+<script type="math/tex; mode=display">
+d(x \otimes y) = (am+bn)(x \otimes y) = 0.</script><p>This inspires us to study the connection between $\mb{Z}/m\mb{Z} \otimes \mb{Z}/n\mb{Z}$ and $\mb{Z}/d\mb{Z}$. By the <strong>universal property</strong>, for the bilinear map $f:\mb{Z}/m\mb{Z} \times \mb{Z}/n\mb{Z} \to \mb{Z}/d\mb{Z}$ defined by </p>
+<script type="math/tex; mode=display">
+(a+m\mb{Z},b+n\mb{Z})\mapsto ab+d\mb{Z}</script><p>(there should be no difficulty to verify that $f$ is well-defined), there exists a unique morphism $h:\mb{Z}/m\mb{Z} \otimes \mb{Z}/n\mb{Z} \to \mb{Z}/d\mb{Z}$ such that</p>
+<script type="math/tex; mode=display">
+h \circ \varphi(a+m\mb{Z},b+n\mb{Z}) = h((a+m\mb{Z}) \otimes(b+n\mb{Z})) = ab+d\mb{Z}.</script><p>Next we show that it has a natural inverse defined by</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+g:\mb{Z}/d\mb{Z} &\to \mb{Z}/m\mb{Z} \otimes \mb{Z}/n\mb{Z} \\
+a+d\mb{Z} &\mapsto (a+m\mb{Z}) \otimes (1+n\mb{Z}).
+\end{aligned}</script><p>Taking $a’ = a+kd$, we show that $g(a+d\mb{Z})=g(a’+\mb{Z})$, that is, we need to show that</p>
+<script type="math/tex; mode=display">
+(a+m\mb{Z})\otimes(1+n\mb{Z}) = (a'+m\mb{Z}) \otimes (1+n\mb{Z}).</script><p>By Bézout’s identity, there exists some $r,s$ such that $rm+sn=d$. Hence $a’ = a + ksn+krm$, which gives</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+(a'+m\mb{Z}) \otimes (1+n\mb{Z}) &= (a+ksn+krm+m\mb{Z}) \otimes(1+n\mb{Z}) \\
+                                 &= (a+ksn+m\mb{Z}) \otimes (1+n\mb{Z}) \\
+                                 &=(a+m\mb{Z}) \otimes(1+n\mb{Z}) + (ksn+m\mb{Z})\otimes(1+n\mb{Z}) \\
+                                 &=(a+m\mb{Z}) \otimes (1+n\mb{Z})
+\end{aligned}</script><p>since</p>
+<script type="math/tex; mode=display">
+(ksn+m\mb{Z}) \otimes (1+n\mb{Z}) =n(ks+m\mb{Z}) \otimes (1+n\mb{Z}) = (ks+m\mb{Z}) \otimes(n+n\mb{Z}) = 0.</script><p>So $g$ is well-defined. Next we show that this is the inverse. Firstly</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+g \circ h((a+m\mb{Z}) \otimes(b+n\mb{Z})) &= g(ab+d\mb{Z})\\
+                                          &= (ab+m\mb{Z}) \otimes (1+n\mb{Z}) \\
+                                          &=b(a+m\mb{Z}) \otimes(1+n\mb{Z}) \\
+                                          &= (a+m\mb{Z}) \otimes (b+n\mb{Z}).
+\end{aligned}</script><p>Secondly,</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+h \circ g(a+d\mb{Z}) &= h((a+m\mb{Z}) \otimes(1+n\mb{Z})) \\
+                     &= a+d\mb{Z}.
+\end{aligned}</script><p>Hence $g = h^{-1}$ and we can say</p>
+<script type="math/tex; mode=display">
+\mb{Z}/m\mb{Z} \otimes \mb{Z} /n\mb{Z} \simeq \mb{Z} /\gcd(m,n)\mb{Z}.</script><p>If $m,n$ are coprime, then $\gcd(m,n)=1$, hence $\mb{Z}/m\mb{Z} \otimes \mb{Z}/n\mb{Z} \simeq \mb{Z}/\mb{Z}$ is trivial. More interestingly, $\mb{Z}/m\mb{Z}\otimes \mb{Z}/m\mb{Z}=\mb{Z}/m\mb{Z}$. But this elegant identity raised other questions. First of all, $\gcd(m,n)=\gcd(n,m)$, which implies</p>
+<script type="math/tex; mode=display">
+\mb{Z}/m\mb{Z} \otimes \mb{Z}/n\mb{Z} \simeq \mb{Z}/\gcd(m,n)\mb{Z} \simeq \mb{Z}/\gcd(n,m)\mb{Z} \simeq\mb{Z}/n\mb{Z}\otimes\mb{Z}/m\mb{Z}.</script><p>Further, for $m,n,r &gt;1$, we have $\gcd(\gcd(m,n),r)=\gcd(m,\gcd(n,r))=\gcd(m,n,r)$, which gives</p>
+<script type="math/tex; mode=display">
+(\mb{Z}/m\mb{Z}\otimes\mb{Z}/n\mb{Z})\otimes\mb{Z}/r\mb{Z} \simeq \mb{Z}/\gcd(m,n)\mb{Z}\otimes\mb{Z}/r\mb{Z} \simeq \mb{Z}/\gcd(m,n,r)\mb{Z} \\
+\mb{Z}/m\mb{Z}\otimes(\mb{Z}/n\mb{Z} \otimes\mb{Z}/r\mb{Z}) \simeq \mb{Z}/m\mb{Z} \otimes\mb{Z}/\gcd(n,r)\mb{Z} \simeq \mb{Z}/\gcd(m,n,r)\mb{Z}</script><p>hence</p>
+<script type="math/tex; mode=display">
+(\mb{Z}/m\mb{Z}\otimes\mb{Z}/n\mb{Z})\otimes\mb{Z}/r\mb{Z} \simeq \mb{Z}/m\mb{Z}\otimes(\mb{Z}/n\mb{Z}\otimes\mb{Z}/r\mb{Z}).</script><p>Hence for modules of the form $\mb{Z}/m\mb{Z}$, we see the tensor product operation is associative and commutative up to isomorphism. Does this hold for all modules? The universal property answers this question affirmatively. From now on we will be keep using the universal property. Make sure that you have got the point already.</p>
+<h2 id="Tensor-product-as-a-binary-operation"><a href="#Tensor-product-as-a-binary-operation" class="headerlink" title="Tensor product as a binary operation"></a>Tensor product as a binary operation</h2><blockquote>
+<p>Let $M_1,M_2,M_3$ be $R$-modules, then there exists a unique isomorphism</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+(M_1 \otimes M_2) \otimes M_3 &\xrightarrow{\simeq} M_1 \otimes (M_2 \otimes M_3) \\
+(x \otimes y) \otimes z &\mapsto x \otimes(y \otimes z)
+\end{aligned}</script><p>for $x \in M_1$, $y \in M_2$, $z \in M_3$.</p>
+</blockquote>
+<p><em>Proof.</em> Consider the map</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\lambda_x:M_2 \times M_3 &\to (M_1 \otimes M_2)\otimes M_3 \\
+          (y,z) &\mapsto (x \otimes y ) \otimes z
+\end{aligned}</script><p>where $x \in M_1$. Since $(\cdot\otimes\cdot)$ is bilinear, we see $\lambda_x$ is bilinear for all $x \in M_1$. Hence by the universal property there exists a unique map of the tensor product:</p>
+<script type="math/tex; mode=display">
+\overline{\lambda}_x:M_2 \otimes M_3 \to (M_1 \otimes M_2) \otimes M_3.</script><p>Next we have the map</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\mu_x: M_1 \times (M_2 \otimes M_3) &\to (M_1 \otimes M_2) \otimes M_3 \\
+(x,y \otimes z) &\mapsto \overline{\lambda}_x(y \otimes z)
+\end{aligned}</script><p>which is bilinear as well. Again by the universal property we have a unique map</p>
+<script type="math/tex; mode=display">
+\overline{\mu}_x: M_1 \otimes (M_2 \otimes M_3) \to (M_1 \otimes M_2) \otimes M_3.</script><p>This is indeed the isomorphism we want. The reverse is obtained by reversing the process. For the bilinear map</p>
+<script type="math/tex; mode=display">
+\lambda_x':M_1 \times M_2 \to M_1 \otimes (M_2 \otimes M_3)</script><p>we get a unique map</p>
+<script type="math/tex; mode=display">
+\overline{\lambda'}_x: M_1 \otimes M_2 \to M_1 \otimes (M_2 \otimes M_3).</script><p>Then from the bilinear map</p>
+<script type="math/tex; mode=display">
+\mu'_x:(M_1 \otimes M_2) \times M_3 \to M_1 \otimes (M_2 \otimes M_3)</script><p>we get the unique map, which is actually the reverse of $\overline{\mu}_x$:</p>
+<script type="math/tex; mode=display">
+\overline{\mu'}_x:(M_1 \otimes M_2) \otimes M_3 \to M_1 \otimes (M_2 \otimes M_3).</script><p>Hence the two tensor products are isomorphic. $\square$</p>
+<blockquote>
+<p>Let $M_1$ and $M_2$ be $R$-modules, then there exists a unique isomorphism</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+M_1 \otimes M_2 &\xrightarrow{\simeq} M_2 \otimes M_1  \\
+x_1 \otimes x_2 &\mapsto x_2 \otimes x_1
+\end{aligned}</script><p>where $x_1 \in M_1$ and $x_2 \in M_2$.</p>
+</blockquote>
+<p><em>Proof.</em> The map</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\lambda:M_1 \times M_2 &\to M_2 \otimes M_1 \\
+(x,y) &\mapsto y \otimes x
+\end{aligned}</script><p>is bilinear and gives us a unique map</p>
+<script type="math/tex; mode=display">
+\overline{\lambda}:M_1 \otimes M_2 \to M_2 \otimes M_1</script><p>given by $x \otimes y \mapsto y \otimes x$. Symmetrically, the map $\lambda’:M_2 \times M_1 \to M_1 \otimes M_2$ gives us a unique map</p>
+<script type="math/tex; mode=display">
+\overline{\lambda'}:M_2 \otimes M_1 \to M_1 \otimes M_2</script><p> which is the inverse of $\overline{\lambda}$. $\square$</p>
+<p>Therefore, we may view the set of all $R$-modules as a commutative semigroup with the binary operation $\otimes$. </p>
+<h2 id="Maps-between-tensor-products"><a href="#Maps-between-tensor-products" class="headerlink" title="Maps between tensor products"></a>Maps between tensor products</h2><p>Consider commutative diagram:</p>
+<p align="center"><img src="/img/tensor-functor.png"></p>
+
+<p>Where $f_i:M_i \to M_i’$ are some module-homomorphism. What do we want here? On the left hand, we see $f_1 \times f_2$ sends $(x_1,x_2)$ to $(f_1(x_1),f_2(x_2))$, which is quite natural. The question is, is there a natural map sending $x_1 \otimes x_2$ to $f_1(x_1) \otimes f_2(x_2)$? This is what we want from the right hand. We know $T(f_1 \times f_2)$ exists, since we have a bilinear map by $\mu = \varphi’ \circ (f_1\times f_2)$. So for $(x_1,x_2) \in M_1 \times M_2$, we have $T(f_1 \times f_2)(x_1 \otimes x_2) = \varphi’ \circ (f_1 \times f_2)(x_1,x_2) = f_1(x_1) \otimes f_2(x_2)$ as what we want. </p>
+<p>But $T$ in this graph has more interesting properties. First of all, if $M_1 = M_1’$ an $M_2 = M_2’$, both $f_1$ and $f_2$ are identity maps, then we see $T(f_1 \times f_2)$ is the identity as well. Next, consider the following chain</p>
+<script type="math/tex; mode=display">
+\cdots \to M_1 \times M_2 \xrightarrow{(f_1 \times f_2)}M_1' \times M_2' \xrightarrow{(g_1 \times g_2)}M_1'' \times M_2''\to \cdots.</script><p>We can make it a double chain:</p>
+<p align="center"><img src="/img/tensor-double-chain.png"></p>
+
+<p>It is obvious that $(g_1 \circ f_1 \times g_2 \circ f_2)=(g_1 \times g_2) \circ (f_1 \times f_2)$, which also gives</p>
+<script type="math/tex; mode=display">
+T(g_1 \times g_2) \circ T(f_1 \times f_2) = T(g_1 \circ f_1 \times g_2 \circ f_2).</script><p>Hence we can say $T$ is functorial. Sometimes for simplicity we also write $T(f_1,f_2)$ or simply $f_1 \otimes f_2$, as it sends $x_1 \otimes x_2$ to $f_1(x_1) \otimes f_2(x_2)$. Indeed it can be viewed as a map </p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+T:L(M_1, M_1') \times L(M_2,M_2') &\to L(M_1 \otimes M_2, M_1' \otimes M_2') \\
+(f_1 \times f_2) &\mapsto f_1 \otimes f_2.
+\end{aligned}</script>
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"><a href="../../../../tags/Universal-Property/" class="post-tags__link button"># Universal Property</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../23/hardys-inequality/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            Several ways to prove Hardy&#39;s inequality
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../15/vector-space-and-basis/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            Why Does a Vector Space Have a Basis (Module Theory)
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2021/01/19/tensor-product-universal-property/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

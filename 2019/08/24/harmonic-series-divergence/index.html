@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>调和级数发散的若干证明 | Desvl&#39;s blog</title>
+
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="命题的提出 设$S_n&#x3D;1+\frac{1}{2}+\frac{1}{3}+\cdots+\frac{1}{n}$, 求证$\{S_n\}$发散  这个数列的发散是很难通过直觉猜出来的, 因为它的增长速度很慢, 会给人以收敛的错觉. 如果用计算机手动运算, 会发现直到$12367$项, 这个数列的值才超过$10$. 但缓慢的增长速度不能说明敛散性. 接下来会给出一系列精彩的证明, 从14~17世纪">
+<meta property="og:type" content="article">
+<meta property="og:title" content="调和级数发散的若干证明">
+<meta property="og:url" content="https://desvl.xyz/2019/08/24/harmonic-series-divergence/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="命题的提出 设$S_n&#x3D;1+\frac{1}{2}+\frac{1}{3}+\cdots+\frac{1}{n}$, 求证$\{S_n\}$发散  这个数列的发散是很难通过直觉猜出来的, 因为它的增长速度很慢, 会给人以收敛的错觉. 如果用计算机手动运算, 会发现直到$12367$项, 这个数列的值才超过$10$. 但缓慢的增长速度不能说明敛散性. 接下来会给出一系列精彩的证明, 从14~17世纪">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-08-23T22:00:00.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:10.033Z">
+<meta property="article:author" content="Desvl">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        调和级数发散的若干证明
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2019/08/" class="post-meta__date button">2019-08-24</a>
+        
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%91%BD%E9%A2%98%E7%9A%84%E6%8F%90%E5%87%BA"><span class="toc-number">1.</span> <span class="toc-text">命题的提出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%81%A5%E8%BF%9C%E7%9A%84%E4%B8%AD%E4%B8%96%E7%BA%AA-Nicole-Oresme-1350-1360"><span class="toc-number">2.</span> <span class="toc-text">遥远的中世纪: Nicole Oresme(1350?-1360?)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Pietro-Mengoli-17%E4%B8%96%E7%BA%AA%E4%B8%AD%E5%8F%B6"><span class="toc-number">3.</span> <span class="toc-text">Pietro Mengoli(17世纪中叶)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Bernoulli%E5%85%84%E5%BC%9F-1689"><span class="toc-number">4.</span> <span class="toc-text">Bernoulli兄弟(1689)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Jacob-Bernoulli"><span class="toc-number">4.1.</span> <span class="toc-text">Jacob Bernoulli</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Johann-Bernoulli"><span class="toc-number">4.2.</span> <span class="toc-text">Johann Bernoulli</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E7%A7%8DCauchy%E5%88%A4%E5%88%AB%E6%B3%95"><span class="toc-number">5.</span> <span class="toc-text">三种Cauchy判别法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Cauchy%E7%A7%AF%E5%88%86%E5%88%A4%E5%88%AB%E6%B3%95"><span class="toc-number">5.1.</span> <span class="toc-text">Cauchy积分判别法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Cauchy%E5%87%9D%E8%81%9A%E5%88%A4%E5%88%AB%E6%B3%95"><span class="toc-number">5.2.</span> <span class="toc-text">Cauchy凝聚判别法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Cauchy%E6%94%B6%E6%95%9B%E5%87%86%E5%88%99"><span class="toc-number">5.3.</span> <span class="toc-text">Cauchy收敛准则</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Honsberger-1976"><span class="toc-number">6.</span> <span class="toc-text">Honsberger(1976)</span></a></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%91%BD%E9%A2%98%E7%9A%84%E6%8F%90%E5%87%BA"><span class="toc-number">1.</span> <span class="toc-text">命题的提出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%81%A5%E8%BF%9C%E7%9A%84%E4%B8%AD%E4%B8%96%E7%BA%AA-Nicole-Oresme-1350-1360"><span class="toc-number">2.</span> <span class="toc-text">遥远的中世纪: Nicole Oresme(1350?-1360?)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Pietro-Mengoli-17%E4%B8%96%E7%BA%AA%E4%B8%AD%E5%8F%B6"><span class="toc-number">3.</span> <span class="toc-text">Pietro Mengoli(17世纪中叶)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Bernoulli%E5%85%84%E5%BC%9F-1689"><span class="toc-number">4.</span> <span class="toc-text">Bernoulli兄弟(1689)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Jacob-Bernoulli"><span class="toc-number">4.1.</span> <span class="toc-text">Jacob Bernoulli</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Johann-Bernoulli"><span class="toc-number">4.2.</span> <span class="toc-text">Johann Bernoulli</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E7%A7%8DCauchy%E5%88%A4%E5%88%AB%E6%B3%95"><span class="toc-number">5.</span> <span class="toc-text">三种Cauchy判别法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Cauchy%E7%A7%AF%E5%88%86%E5%88%A4%E5%88%AB%E6%B3%95"><span class="toc-number">5.1.</span> <span class="toc-text">Cauchy积分判别法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Cauchy%E5%87%9D%E8%81%9A%E5%88%A4%E5%88%AB%E6%B3%95"><span class="toc-number">5.2.</span> <span class="toc-text">Cauchy凝聚判别法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Cauchy%E6%94%B6%E6%95%9B%E5%87%86%E5%88%99"><span class="toc-number">5.3.</span> <span class="toc-text">Cauchy收敛准则</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Honsberger-1976"><span class="toc-number">6.</span> <span class="toc-text">Honsberger(1976)</span></a></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h3 id="命题的提出"><a href="#命题的提出" class="headerlink" title="命题的提出"></a>命题的提出</h3><blockquote>
+<p>设$S_n=1+\frac{1}{2}+\frac{1}{3}+\cdots+\frac{1}{n}$, 求证$\{S_n\}$发散</p>
+</blockquote>
+<p>这个数列的发散是很难通过直觉猜出来的, 因为它的增长速度很慢, 会给人以收敛的错觉. 如果用计算机手动运算, 会发现直到$12367$项, 这个数列的值才超过$10$. 但缓慢的增长速度不能说明敛散性. 接下来会给出一系列精彩的证明, 从14~17世纪纯粹的分式不等式到近现代涉及到微积分等方法.</p>
+<h3 id="遥远的中世纪-Nicole-Oresme-1350-1360"><a href="#遥远的中世纪-Nicole-Oresme-1350-1360" class="headerlink" title="遥远的中世纪: Nicole Oresme(1350?-1360?)"></a>遥远的中世纪: Nicole Oresme(1350?-1360?)</h3><p>这个证明方式是历史上最早的证明, 涉及到简单的不等式放缩和数学归纳.</p>
+<p>考虑到不等式 </p>
+<script type="math/tex; mode=display">
+    \underbrace{\frac{1}{n+1}+\frac{1}{n+2}+\cdots+\frac{1}{2n}}_{\text{$n$项}}>n\cdot\frac{1}{2n}=\frac{1}{2}</script><p>我们分析$\{S_{2^n}\}$这个数列, 发现 </p>
+<script type="math/tex; mode=display">
+    S_1=1+0\cdot\frac{1}{2}</script><script type="math/tex; mode=display">
+    S_2=1+1\cdot\frac{1}{2}</script><script type="math/tex; mode=display">
+    S_4=1+\frac{1}{2}+\frac{1}{2+1}+\frac{1}{2\cdot{2}}>1+\frac{1}{2}+\frac{1}{2}=1+2\cdot\frac{1}{2}</script><script type="math/tex; mode=display">
+    S_8=S_4+\frac{1}{4+1}+\cdots+\frac{1}{4\cdot{2}}>1+3\cdot\frac{1}{2}</script><p>递推下去, 我们能得到 </p>
+<script type="math/tex; mode=display">
+    S_{2^n}\geq 1+n\cdot\frac{1}{2}</script><p>这说明$S_n$有一个子列无界, 故原数列发散. 证毕.</p>
+<p>其实不用局限在$2^n$这一部分, 用同样的办法, 我们能得到 </p>
+<script type="math/tex; mode=display">
+    S_{M^n}\geq 1+n\cdot\frac{M-1}{M}</script><h3 id="Pietro-Mengoli-17世纪中叶"><a href="#Pietro-Mengoli-17世纪中叶" class="headerlink" title="Pietro Mengoli(17世纪中叶)"></a>Pietro Mengoli(17世纪中叶)</h3><p>考虑不等式 </p>
+<script type="math/tex; mode=display">
+    \frac{1}{n-1}+\frac{1}{n}+\frac{1}{n+1}=\frac{1}{n}+\frac{2n}{n^2-1}>\frac{1}{n}+\frac{2n}{n^2}=\frac{3}{n}</script><p>假设原级数收敛到$S$, 那么有 </p>
+<script type="math/tex; mode=display">
+    \begin{aligned}
+        S&=1+\left(\frac{1}{2}+\frac{1}{3}+\frac{1}{4}\right)+\left(\frac{1}{5}+\frac{1}{6}+\frac{1}{7}\right)+\cdots\\  
+         &>1+\frac{3}{3}+\frac{3}{6}+\frac{3}{9}+\cdots\\  
+         &=1+S \end{aligned}</script><p>而$S&gt;1+S$无解, 这说明极限不存在. 证毕.</p>
+<h3 id="Bernoulli兄弟-1689"><a href="#Bernoulli兄弟-1689" class="headerlink" title="Bernoulli兄弟(1689)"></a>Bernoulli兄弟(1689)</h3><p>Bernoulli兄弟的证明发布于 <em>Tractatus de se-riebus infinitis</em> 一书中.</p>
+<h4 id="Jacob-Bernoulli"><a href="#Jacob-Bernoulli" class="headerlink" title="Jacob Bernoulli"></a>Jacob Bernoulli</h4><p>对任意正整数有 </p>
+<script type="math/tex; mode=display">
+    \underbrace{\frac{1}{n+1}+\frac{1}{n+2}+\cdots+\frac{1}{n^2}}_\text{$n^2-n$项}>\frac{n^2-n}{n^2}=1-\frac{1}{n}</script><p>也就是说 </p>
+<script type="math/tex; mode=display">
+    \frac{1}{n}+\frac{1}{n+1}+\cdots+\frac{1}{n^2}>1</script><p>因此有 </p>
+<script type="math/tex; mode=display">
+    \begin{aligned} 
+        \sum_{n=1}^{\infty}\frac{1}{n}&=1+\left(\frac{1}{2}+\frac{1}{3}+\frac{1}{4}\right)+\left(\frac{1}{5}+\cdots+\frac{1}{25}\right)+\cdots\\  
+        &>1+1+1+\cdots 
+    \end{aligned}</script><p>原级数发散. 证毕.</p>
+<h4 id="Johann-Bernoulli"><a href="#Johann-Bernoulli" class="headerlink" title="Johann Bernoulli"></a>Johann Bernoulli</h4><p>考虑级数 </p>
+<script type="math/tex; mode=display">
+    \sum_{n=k}^{\infty}\left(\frac{1}{n}-\frac{1}{n+1}\right)=\sum_{n=k}^{\infty}\frac{1}{n(n+1)}=\frac{1}{k}</script><p>同样, 我们假设级数收敛于$S$ </p>
+<script type="math/tex; mode=display">
+    \begin{aligned} 
+    S&=1+\frac{1}{2}+\frac{1}{3}+\frac{1}{4}+\frac{1}{5}+\cdots\\  
+    &=1+\frac{1}{2}+\frac{2}{6}+\frac{3}{12}+\frac{4}{20}+\frac{5}{30}+\cdots\\  
+    &=1+\left(\frac{1}{2}+\frac{1}{6}+\frac{1}{12}+\cdots\right)+\left(\frac{1}{6}+\frac{1}{12}+\frac{1}{20}+\cdots\right)+\cdots\\  
+    &=1+1+\frac{1}{2}+\frac{1}{3}+\cdots\\  
+    &=1+S \end{aligned}</script><p>而$S=1+S$无解, 这说明极限不存在.</p>
+<h3 id="三种Cauchy判别法"><a href="#三种Cauchy判别法" class="headerlink" title="三种Cauchy判别法"></a>三种Cauchy判别法</h3><p>Cauchy的三种判别法是比较常见且应用非常广泛的, 在微积分课程中也是常客, 现将三种方法列在下面</p>
+<h4 id="Cauchy积分判别法"><a href="#Cauchy积分判别法" class="headerlink" title="Cauchy积分判别法"></a>Cauchy积分判别法</h4><blockquote>
+<p>设$f$在$[1,+\infty)$单调减少, 则级数$\sum_{n=1}^{\infty}f(n)$与广义积分$\int_{1}^{\infty}f(x)dx$同敛散</p>
+</blockquote>
+<p>代入$f(x)=\frac{1}{x}$即可.</p>
+<h4 id="Cauchy凝聚判别法"><a href="#Cauchy凝聚判别法" class="headerlink" title="Cauchy凝聚判别法"></a>Cauchy凝聚判别法</h4><blockquote>
+<p>设$\{a_n\}$是单调减少的整数列, 则正项级数$\sum_{n=1}^{\infty}a_n$收敛的充分必要条件是凝聚项级数$\sum_{n=1}^{\infty}2^na_{2^n}$收敛</p>
+</blockquote>
+<p>这个判别法可以很简单地对$a_n=\frac{1}{n^p}$对应级数的敛散性进行讨论.</p>
+<h4 id="Cauchy收敛准则"><a href="#Cauchy收敛准则" class="headerlink" title="Cauchy收敛准则"></a>Cauchy收敛准则</h4><p>可以发现, $S_{2n}-S_n=\frac{1}{n}+\frac{1}{n+1}+\cdots+\frac{1}{2n}&gt;\frac{n}{2n}=\frac{1}{2}$.</p>
+<p>这说明, 存在$\varepsilon=\frac{1}{2}$, 总有$|S_{2n}-S_n|&gt;\varepsilon$. 这说明了这个级数的发散.</p>
+<h3 id="Honsberger-1976"><a href="#Honsberger-1976" class="headerlink" title="Honsberger(1976)"></a>Honsberger(1976)</h3><p>这个证明是$e^{x}\geq{1+x}$的巧用.</p>
+<p>考虑$e^{S_n}$这个数列, 有</p>
+<script type="math/tex; mode=display">
+    \begin{aligned} 
+        e^{S_n}&=\text{exp}\left(1+\frac{1}{2}+\frac{1}{3}+\frac{1}{4}+\cdots+\frac{1}{n}\right)\\  
+        &=e^{1}e^{\frac{1}{2}}e^{\frac{1}{3}}e^{\frac{1}{4}}\cdots e^{\frac{1}{n}}\\  
+        &>\left(1+1\right)\left(1+\frac{1}{2}\right)\cdots\left(1+\frac{1}{n}\right)\\  
+        &=n+1 \end{aligned}</script><p>$e^{S_n}$的发散便说明了$S_n$的发散.</p>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../../09/07/sup-inf/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            高等数学入门：上下确界及其极限形式
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../19/l-hopital-proof/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            洛必达法则的几种不同的证明
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2019/08/24/harmonic-series-divergence/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>Curse of Knowledge | Desvl&#39;s blog</title>
+
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="You may have known what it is…Let us say you are a programmer who has been working in big companies for a decade. How does it feel when you want to help someone who starts studying programming from sc">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Curse of Knowledge">
+<meta property="og:url" content="https://desvl.xyz/2021/07/24/Curse-of-Knowledge/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="You may have known what it is…Let us say you are a programmer who has been working in big companies for a decade. How does it feel when you want to help someone who starts studying programming from sc">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-07-24T11:29:45.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:09.802Z">
+<meta property="article:author" content="Desvl">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        Curse of Knowledge
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2021/07/" class="post-meta__date button">2021-07-24</a>
+        
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#You-may-have-known-what-it-is%E2%80%A6"><span class="toc-number">1.</span> <span class="toc-text">You may have known what it is…</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#There-are-some-curse-lifters"><span class="toc-number">2.</span> <span class="toc-text">There are some curse lifters</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Me-as-a-blogger"><span class="toc-number">3.</span> <span class="toc-text">Me as a blogger</span></a></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#You-may-have-known-what-it-is%E2%80%A6"><span class="toc-number">1.</span> <span class="toc-text">You may have known what it is…</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#There-are-some-curse-lifters"><span class="toc-number">2.</span> <span class="toc-text">There are some curse lifters</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Me-as-a-blogger"><span class="toc-number">3.</span> <span class="toc-text">Me as a blogger</span></a></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h2 id="You-may-have-known-what-it-is…"><a href="#You-may-have-known-what-it-is…" class="headerlink" title="You may have known what it is…"></a>You may have known what it is…</h2><p>Let us say you are a programmer who has been working in big companies for a decade. How does it feel when you want to help someone who starts studying programming from scratch? You may find it makes no sense that he or she cannot understand that, by copying several lines of code on the book, they has successfully made a programme printing “Hello, world!” on the screen. You know what I am talking about - the curse of knowledge.</p>
+<span id="more"></span>
+<p>When one has successfully learnt some certain skill, they may immediately lose the sense on why other people cannot understand and study. What is the holdup? It becomes increasingly difficult to teach beginners. Blunt simplification does not do the trick all the time.</p>
+<p>This is one of the reasons why becoming a good teacher is so hard. Academia superstars may be super awful in teaching, while teaching superstars may have already ceased focusing on academia. </p>
+<p>I am not writing this post to be a guru and give some steps on how to lift the curse. In fact I think I am suffering from this as well.</p>
+<h2 id="There-are-some-curse-lifters"><a href="#There-are-some-curse-lifters" class="headerlink" title="There are some curse lifters"></a>There are some curse lifters</h2><p>For example, Tien-Yien Li was a famous curse of knowledge lifter. When he did talks, he always tried to start from simple examples (this is adorable of course). When instructing his students, he may ask his students to treat him as a fool, as if he had known nothing. He was indeed a good mathematician and good maths teacher, but I do wonder how practical it is. Can his students do calculus in front of him while assuming he has no idea what is calculus? I have no idea.</p>
+<p>Though I am only guessing, I think ‘fool’ is somewhat over-exaggerating. His students were in the similar field as him, hence it would not be too hard to follow his student at all. Of course the way he instruct his students is adorable as well.</p>
+<h2 id="Me-as-a-blogger"><a href="#Me-as-a-blogger" class="headerlink" title="Me as a blogger"></a>Me as a blogger</h2><p>There was a reader emailed me, giving me suggestion on, well, I should write my post simpler at some certain points. But I declined his suggestion in the end. Am I doing some Serge Lang thing? I have no idea. </p>
+<blockquote>
+<p>In his 1983 book <a target="_blank" rel="noopener" href="https://www.springer.com/gp/book/9780387908373">Fundamentals of Diophantine Geometry</a>, he included <a target="_blank" rel="noopener" href="https://projecteuclid.org/journals/bulletin-of-the-american-mathematical-society-new-series/volume-70/issue-4/Review-Serge-Lang-Diophantine-geometry/bams/1183526083.full">L. J. Mordell’s review</a> of Lang’s own book <a target="_blank" rel="noopener" href="https://www.worldcat.org/title/diophantine-geometry/oclc/651771066">Diophantine Geometry</a> which was ended by</p>
+<blockquote>
+<p>In conclusion, the reader will need no convincing that Lang, as has already been said, is a very learned mathematician, thoroughly familiar with every aspect of the topics he deals with, and their developments. His interesting and valuable historical notes give further evidence of this. Lang assumes that his readers are as knowledgeable as he is, and can grapple with the subject with the same ease that he does. Even if they could, Lang’s style is not such as to make matters easy for them. Lang in writing is not a follower of Gauss, whose motto was “<em>pauca sed matura</em>.” Further thought and care about his book, before publication, would have been well worth while. Those who can understand the book will be indebted to him for having brought together in one volume the important results contained in it. How much greater thanks would he have earned if the book had been written in such a way that more of it could have been more easily comprehended by a larger class of readers! It is to be hoped that so me one will undertake the task of writing such a book.</p>
+</blockquote>
+<p>And he also included his <a target="_blank" rel="noopener" href="https://projecteuclid.org/journals/bulletin-of-the-american-mathematical-society-new-series/volume-76/issue-6/Review-L-J-Mordell-Mordell-Diophantine-equations/bams/1183532391.full">response</a>:</p>
+<blockquote>
+<p>All my books are meant to be understood by readers having the prerequisites for the level at which the books are written. <strong>These prerequisites vary from book to book, depending on the subject matter, my mood, and other aesthetic feelings which I have at the moment of writing.</strong> When I write a standard text in Algebra, I attempt something very different from writing a book which for the first time gives a systematic point of view on the relations of Diophantine equations and the advanced contexts of algebraic geometry. The purpose of the latter is to jazz things up as much as possible. The purpose of the former is to educate someone in the first steps which might eventually culminate in his knowing the jazz too, if his tastes allow him that path. And if his tastes don’t, then my blessings to him also. This is known as aesthetic tolerance. But just as a composer of music (be it Bach or the Beatles), <strong>I have to take my responsibility as to what I consider to be beautiful, and write my books accordingly, not just with the intent of pleasing one segment of the population. Let pleasure then fall where it may.</strong> With best regards, Serge Lang.</p>
+</blockquote>
+</blockquote>
+<p><em>Refer to <a target="_blank" rel="noopener" href="https://www.reddit.com/r/math/comments/ohh5ku/serge_lang_explained_his_philosophy_of_writing/">this reddit post</a> for a discussion.</em></p>
+<p>I can speak with absolute certainty that my posts are much more detailed than Serge Lang.  And Lang never tried to lift the curse. But my posts cannot be readable to everyone. Say my posts on functional analysis, is not prepared for middle school students, unless they are ridiculously exceptional and have studied all prerequisites (linear algebra, real analysis, integration theory, topology) at that time. Though I shall never make my posts as terse as in Lang’s book, it is never my duty to make my posts readable for everyone. So to some extent I fail as well.</p>
+<p>If I try to, over-simplification has to be admitted. And it is against my rule. I do not like over-simplification so I try to make sure everything makes sense. But one would not understand unless he or she has certain prerequisites. I may recover some obstacles and show the clues, but that is so much for it. I can only lift the curse with respect to a certain group of people.</p>
+<p>It seems I did not give a thoughtful discussion. But I do hope my inbox gives me good chance for discussion instead of chance to spark unnecessity. I did not try to close myself and a good evidence is that many of my posts can be found on the first page of Google search. </p>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../../08/16/the-concept-of-distribution/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            The concept of generalised functions (distributions) and derivatives
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../08/Cesaro-operator-in-L2/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            Elementary Properties of Cesàro Operator in L^2
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2021/07/24/Curse-of-Knowledge/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

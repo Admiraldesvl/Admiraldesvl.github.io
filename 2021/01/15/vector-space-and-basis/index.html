@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>Why Does a Vector Space Have a Basis (Module Theory) | Desvl&#39;s blog</title>
+
+
+    <meta name="keywords" content="Serge Lang, Axiom of Choice">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="Module and vector spaceFirst we recall some backgrounds. Suppose $A$ is a ring with multiplicative identity $1_A$. A left module of $A$ is an additive abelian group $(M,+)$, together with an ring oper">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Why Does a Vector Space Have a Basis (Module Theory)">
+<meta property="og:url" content="https://desvl.xyz/2021/01/15/vector-space-and-basis/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="Module and vector spaceFirst we recall some backgrounds. Suppose $A$ is a ring with multiplicative identity $1_A$. A left module of $A$ is an additive abelian group $(M,+)$, together with an ring oper">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-01-15T16:40:01.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:10.737Z">
+<meta property="article:author" content="Desvl">
+<meta property="article:tag" content="Serge Lang">
+<meta property="article:tag" content="Axiom of Choice">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        Why Does a Vector Space Have a Basis (Module Theory)
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2021/01/" class="post-meta__date button">2021-01-15</a>
+        
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/" class="button">Algebra</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/Module-Theory/" class="button">Module Theory</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Module-and-vector-space"><span class="toc-number">1.</span> <span class="toc-text">Module and vector space</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Examples-of-non-free-modules"><span class="toc-number">2.</span> <span class="toc-text">Examples of non-free modules</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Why-does-a-vector-space-have-a-basis"><span class="toc-number">3.</span> <span class="toc-text">Why does a vector space have a basis</span></a></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Module-and-vector-space"><span class="toc-number">1.</span> <span class="toc-text">Module and vector space</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Examples-of-non-free-modules"><span class="toc-number">2.</span> <span class="toc-text">Examples of non-free modules</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Why-does-a-vector-space-have-a-basis"><span class="toc-number">3.</span> <span class="toc-text">Why does a vector space have a basis</span></a></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h2 id="Module-and-vector-space"><a href="#Module-and-vector-space" class="headerlink" title="Module and vector space"></a>Module and vector space</h2><p>First we recall some backgrounds. Suppose $A$ is a ring with multiplicative identity $1_A$. A <strong>left module</strong> of $A$ is an additive abelian group $(M,+)$, together with an <a target="_blank" rel="noopener" href="https://proofwiki.org/wiki/Definition:Linear_Ring_Action">ring operation</a> $A \times M \to M$ such that</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+(a+b)x &= ax+bx \\
+a(x+y) &= ax+ay \\
+a(bx) &= (ab)x \\
+1_Ax &= x
+\end{aligned}</script><p>for $x,y \in M$ and $a,b \in A$. As a corollary, we see $(0_A+0_A)x=0_Ax=0_Ax+0_Ax$, which shows $0_Ax=0_M$ for all $x \in M$. On the other hand, $a(x-x)=0_M$ which implies $a(-x)=-(ax)$. We can also define right $A$-modules but we are not discussing them here.</p>
+<p>Let $S$ be a subset of $M$. We say $S$ is a <strong>basis</strong> of $M$ if $S$ generates $M$ and $S$ is linearly independent. That is, for all $m \in M$, we can pick $s_1,\cdots,s_n \in S$ and $a_1,\cdots,a_n \in A$ such that</p>
+<script type="math/tex; mode=display">
+m = a_1s_1+a_2s_2+\cdots+a_ns_n,</script><p>and, for any $s_1,\cdots,s_n \in S$, we have</p>
+<script type="math/tex; mode=display">
+a_1s_1+a_2s_2+\cdots+a_ns_n=0_M \implies a_1=a_2=\cdots=a_n=0_A.</script><p>Note this also shows that $0_M\notin S$ (what happens if $0_M \in S$?). We say $M$ is <strong>free</strong> if it has a basis. The case when $M$ or $A$ is trivial is excluded. </p>
+<p>If $A$ is a field, then $M$ is called a <strong>vector space</strong>, which has no difference from the one we learn in linear algebra and functional analysis. Mathematicians in functional analysis may be interested in the cardinality of a vector space, for example, when a vector space is of finite dimension, or when the basis is countable. But the basis does not come from nowhere. In fact we can prove that vector spaces have basis, but modules are not so lucky. $\def\mb{\mathbb}$</p>
+<h2 id="Examples-of-non-free-modules"><a href="#Examples-of-non-free-modules" class="headerlink" title="Examples of non-free modules"></a>Examples of non-free modules</h2><p>First of all let’s consider the cyclic group $\mb{Z}/n\mb{Z}$ for $n \geq 2$. If we define </p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\mb{Z} \times \mb{Z}/n\mb{Z} &\to \mb{Z}/n\mb{Z} \\
+(m,k+n\mb{Z}) &\mapsto mk+n\mb{Z}
+\end{aligned}</script><p>which is actually $m$ copies of an element, then we get a module, which will be denoted by $M$. For any $x=k+n\mb{Z} \in M$, we see $nk+n\mb{Z}=0_M$. Therefore for <strong>any</strong> subset $S \subset M$, if $x_1,\cdots,x_k \in M$, we have</p>
+<script type="math/tex; mode=display">
+nx_1+nx_2+\cdots+nx_k = 0_M,</script><p>which gives the fact that $M$ has no basis. In fact this can be generalized further. If $A$ is a ring but not a field, let $I$ be a nontrivial proper ideal, then $A/I$ is a module that has no basis. </p>
+<p>Following $\mb{Z}/n\mb{Z}$ we also have another example on finite order. Indeed, <strong>any finite abelian group is not free as a module over $\mb{Z}$.</strong> More generally, </p>
+<blockquote>
+<p>Let $G$ be a abelian group, and $G_{tor}$ be its <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Torsion_subgroup">torsion subgroup</a>. If $G_{tor}$ is non-trival, then $G$ cannot be a free module over $\mb{Z}$.</p>
+</blockquote>
+<hr>
+<p>Next we shall take a look at infinite rings. Let $F[X]$ be the polynomial ring over a field $F$ and $F’[X]$ be the polynomial sub-ring that have coefficient of $X$ equal to $0$. Then $F[X]$ is a $F’[X]$-module. However it is not free.</p>
+<p>Suppose we have a basis $S$ of $F[X]$, then we claim that $|S|&gt;1$. If $|S|=1$, say $P \in S$, then $P$ cannot generate $F[X]$ since if $P$ is constant then we cannot generate a polynomial contains $X$ with power $1$; If $P$ is not constant, then the constant polynomial cannot be generate. Hence $S$ contains at least two polynomials, say $P_1 \neq 0$ and $P_2 \neq 0$. However, note $-X^2P_1 \in F’[X]$ and $X^2P_2 \in F’[X]$, which gives</p>
+<script type="math/tex; mode=display">
+(X^2P_2)P_1-(X^2P_1)P_2=0.</script><p>Hence $S$ cannot be a basis. </p>
+<h2 id="Why-does-a-vector-space-have-a-basis"><a href="#Why-does-a-vector-space-have-a-basis" class="headerlink" title="Why does a vector space have a basis"></a>Why does a vector space have a basis</h2><p>I hope those examples have convinced you that basis is not a universal thing. We are going to prove that every vector space has a basis. More precisely,</p>
+<blockquote>
+<p>Let $V$ be a nontrivial vector space over a field $K$. Let $\Gamma$ be a set of generators of $V$ over $K$ and $S \subset \Gamma$ is a subset which is linearly independent, then there exists a basis of $V$ such that $S \subset B \subset \Gamma$. </p>
+</blockquote>
+<p>Note we can always find such $\Gamma$ and $S$. For the extreme condition, we can pick $\Gamma=V$ and $S$ be a set containing any single non-zero element of $V$. Note this also gives that we can generate a basis by expanding any linearly independent set. The proof relies on a fact that every non-zero element in a field is invertible, and also, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Zorn%27s_lemma">Zorn’s lemma</a>. In fact, axiom of choice is equivalent to the statement that every vector has a set of basis. The converse can be found <a target="_blank" rel="noopener" href="http://www.math.lsa.umich.edu/~ablass/bases-AC.pdf">here</a>. $\def\mfk{\mathfrak}$</p>
+<p><em>Proof.</em> Define</p>
+<script type="math/tex; mode=display">
+\mfk{T} =\{T \subset \Gamma:S \subset T, \text{ $T$ is linearly independent}\}.</script><p>Then $\mfk{T}$ is not empty since it contains $S$. If $T_1 \subset T_2 \subset \cdots$ is a totally ordered chain in $\mfk{T}$, then $T=\bigcup_{i=1}^{\infty}T_i$ is again linearly independent and contains $S$. To show that $T$ is linearly independent, note that if $x_1,x_2,\cdots,x_n \in T$, we can find some $k_1,\cdots,k_n$ such that $x_i \in T_{k_i}$ for $i=1,2,\cdots,n$. If we pick $k = \max(k_1,\cdots,k_n)$, then </p>
+<script type="math/tex; mode=display">
+x_1,x_2,\cdots,x_n \in \bigcup_{i=1}^{n}T_{k_i}=T_k.</script><p>But we already know that $T_k$ is linearly independent, so $a_1x_1+\cdots+a_nx_n=0_V$ implies $a_1=\cdots=a_n=0_K$. </p>
+<p>By Zorn’s lemma, let $B$ be the maximal element of $\mfk{T}$, then $B$ is also linearly independent since it is an element of $\mfk{T}$. Next we show that $B$ generates $V$. Suppose not, then we can pick some $x \in \Gamma$ that is not generated by $B$. Define $B’=B \cup \{x\}$, we see $B’$ is linearly independent as well, because if we pick $y_1,y_2,\cdots,y_n \in B$, and if</p>
+<script type="math/tex; mode=display">
+\sum_{k=1}^{n}a_ky_k+bx=0_V,</script><p>then if $b \neq 0$ we have</p>
+<script type="math/tex; mode=display">
+x = -\sum_{k=1}^{n}b^{-1}a_ky_k \in B,</script><p>contradicting the assumption that $x$ is not generated by $B$. Hence $b=0_K$. However, we have proved that $B’$ is a linearly independent set containing $B$ and contained in $S$, contradicting the maximality of $B$ in $\mfk{T}$. Hence $B$ generates $V$. $\square$</p>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"><a href="../../../../tags/Serge-Lang/" class="post-tags__link button"># Serge Lang</a><a href="../../../../tags/Axiom-of-Choice/" class="post-tags__link button"># Axiom of Choice</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../19/tensor-product-universal-property/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            Tensor Product as a Universal Object (Category Theory &amp; Module Theory)
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../14/rings-of-fractions-and-localization/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            Rings of Fractions and Localisation
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2021/01/15/vector-space-and-basis/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

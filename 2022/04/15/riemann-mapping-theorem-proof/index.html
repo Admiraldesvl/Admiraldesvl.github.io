@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>A Detailed Proof of the Riemann Mapping Theorem | Desvl&#39;s blog</title>
+
+
+    <meta name="keywords" content="Walter Rudin, Detailed proof, Riemann">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="We offer a detailed proof of the Riemann mapping theorem, which states that every proper simply connected region is conformally equivalent to the open unit disc.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="A Detailed Proof of the Riemann Mapping Theorem">
+<meta property="og:url" content="https://desvl.xyz/2022/04/15/riemann-mapping-theorem-proof/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="We offer a detailed proof of the Riemann mapping theorem, which states that every proper simply connected region is conformally equivalent to the open unit disc.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-04-15T19:26:52.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:10.448Z">
+<meta property="article:author" content="Desvl">
+<meta property="article:tag" content="Walter Rudin">
+<meta property="article:tag" content="Detailed proof">
+<meta property="article:tag" content="Riemann">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        A Detailed Proof of the Riemann Mapping Theorem
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2022/04/" class="post-meta__date button">2022-04-15</a>
+        
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/" class="button">Analysis</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/Complex-Analysis/" class="button">Complex Analysis</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/Complex-Analysis/Conformal-Mapping/" class="button">Conformal Mapping</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Simply-Connected"><span class="toc-number">1.</span> <span class="toc-text">Simply Connected</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Equicontinuity-amp-Normal-Family"><span class="toc-number">2.</span> <span class="toc-text">Equicontinuity &amp; Normal Family</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Schwarz-Lemma"><span class="toc-number">3.</span> <span class="toc-text">The Schwarz Lemma</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Proof-by-Arguing-A-Normal-Family"><span class="toc-number">4.</span> <span class="toc-text">The Proof by Arguing A Normal Family</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-1-Prove-Non-emptiness-Using-Koebe%E2%80%99s-Square-Root-Trick"><span class="toc-number">4.1.</span> <span class="toc-text">Step 1 - Prove Non-emptiness Using Koebe’s Square Root Trick</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-2-Enlarge-the-Range"><span class="toc-number">4.2.</span> <span class="toc-text">Step 2 - Enlarge the Range</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-3-Find-the-Function-with-Largest-range-Namely-the-Disc"><span class="toc-number">4.3.</span> <span class="toc-text">Step 3 - Find the Function with Largest range, Namely the Disc</span></a></li></ol></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Simply-Connected"><span class="toc-number">1.</span> <span class="toc-text">Simply Connected</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Equicontinuity-amp-Normal-Family"><span class="toc-number">2.</span> <span class="toc-text">Equicontinuity &amp; Normal Family</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Schwarz-Lemma"><span class="toc-number">3.</span> <span class="toc-text">The Schwarz Lemma</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Proof-by-Arguing-A-Normal-Family"><span class="toc-number">4.</span> <span class="toc-text">The Proof by Arguing A Normal Family</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-1-Prove-Non-emptiness-Using-Koebe%E2%80%99s-Square-Root-Trick"><span class="toc-number">4.1.</span> <span class="toc-text">Step 1 - Prove Non-emptiness Using Koebe’s Square Root Trick</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-2-Enlarge-the-Range"><span class="toc-number">4.2.</span> <span class="toc-text">Step 2 - Enlarge the Range</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-3-Find-the-Function-with-Largest-range-Namely-the-Disc"><span class="toc-number">4.3.</span> <span class="toc-text">Step 3 - Find the Function with Largest range, Namely the Disc</span></a></li></ol></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h1 id="This-post"><a href="#This-post" class="headerlink" title="This post"></a>This post</h1><p>Is intended to supply a detailed proofs of the Riemann mapping theorem.</p>
+<blockquote>
+<p><strong>Riemann mapping theorem.</strong> Every simply connected region $\Omega \subsetneq \mathbb{C}$ is conformally equivalent to the open unit disc $U$.</p>
+</blockquote>
+<p> Fortunately the proof can be found in many textbooks of complex analysis, but the proof is fairly technical so it can be painful to read. This post can be considered as a painkiller. In this post you will see the proof being filled with many details. However, the writer still encourage the reader to reproduce the proof by their own pen and paper. The writer also hopes that this post can increase the accessibility of this theorem and the proof.</p>
+<p>However, there is a bar. We need to assume some background in complex analysis, although they are very basic already. Minimal prerequisite is being able to answer the following questions.</p>
+<ul>
+<li><p>Contour integration, Cauchy’s formula. </p>
+</li>
+<li><p>Almost uniform convergence. Let $\Omega \subset \mathbb{C}$ be open and suppose that $f_j \in H(\Omega)$ for all $j=1,2,\dots$, and $f_j \to f$ uniformly on every compact subset $K \subset \Omega$. Does $f \in H(\Omega)$? What is the uniform limit of $f’_j$? Informally, we call the phenomenon that a sequence of functions uniformly converges on every compact subset <em>almost uniform</em> convergence. This has nothing to do with <em>almost everywhere</em> in integration theory. In fact, this post does not require background in Lebesgue integration theory.</p>
+</li>
+<li><p>Open mapping theorem (complex analysis version).</p>
+</li>
+<li><p>Maximum modulus principle and some variants.</p>
+</li>
+<li><p>Rouché’s theorem. Or even more, the calculus of residues.</p>
+</li>
+</ul>
+<h1 id="Preparation"><a href="#Preparation" class="headerlink" title="Preparation"></a>Preparation</h1><p>Despite of the prerequisites, we still need some preparation beforehand. </p>
+<h2 id="Simply-Connected"><a href="#Simply-Connected" class="headerlink" title="Simply Connected"></a>Simply Connected</h2><blockquote>
+<p><strong>Definition 1.</strong> Let $X$ be a <strong>connected</strong> topological space. We say $X$ is <strong>simply connected</strong> if every curve is null-homotopic. Let $\gamma:[0,1] \to X$ be a closed curve, i.e., it is a continuous map such that $\gamma(0)=\gamma(1)$. We say $\gamma$ is null-homotopic if it is homotopic to a constant map $\gamma_0:[0,1] \to \{x\}$ with $x \in X$.</p>
+</blockquote>
+<p>Intuitively, if $X$ is simply connected, then $X$ contains no “hole”. For example, the unit disc  $U$ is simply connected. However, $U \setminus \{0\}$ is not. On the other hand, $U \setminus [0,1)$ is still simply connected. Another satisfying result is that every convex and connected open set is simply connected. This is up to a convex combination.</p>
+<p>There are a lot of good properties of simply connected region, which will be summarised below.</p>
+<blockquote>
+<p><strong>Proposition 1.</strong> For a region (open and connected subset of $\mathbb{R}^2$), the following conditions are equivalent. Each one can imply other eight.</p>
+<ol>
+<li>$\Omega$ is homeomorphic to the open unit disc $U$.</li>
+<li>$\Omega$ is simply connected.</li>
+<li>$\operatorname{Ind}_\gamma(\alpha)=0$ for every path $\gamma$ in $\Omega$ and $\alpha \in S^2 \setminus \Omega$, where $S^2$ is the Riemann sphere.</li>
+<li>$S^2 \setminus \Omega$ is connected.</li>
+<li>Every $f \in H(\Omega)$ can be approximated by polynomials, almost uniformly..</li>
+<li>For every $f \in H(\Omega)$ and every closed path $\gamma$ in $\Omega$,<script type="math/tex; mode=display">
+\int_\gamma f(z)\mathrm{d}z=0.</script></li>
+<li>Every $f \in H(\Omega)$ has anti-derivative. That is, there exists an $F \in H(\Omega)$ such that $F’=f$.</li>
+<li>If $f \in H(\Omega)$ and $1/f \in H(\Omega)$, then there exists a $g \in H(\Omega)$ such that $f=\exp{g}$.</li>
+<li>For such $f$, there also exists a $\varphi \in H(\Omega)$ such that $f=\varphi^2$.</li>
+</ol>
+</blockquote>
+<p>5~9 are pretty much saying, calculus is fine here and we are not worrying about nightmare counterexamples, to some extent. Most of the implications $n \implies n+1$ are not that difficult, but there are some deserve a mention. 4 implying 5 is a consequence of Runge’s theorem. In the implication of 7 to 8, one needs to use the fact that $\Omega$ is connected. When we have $f=\exp{g}$, then we can put $\varphi=\exp\frac{g}{2}$ from which we obtain $f=\varphi^2$. 9 implying 1 is partly a consequence of the Riemann mapping theorem. Indeed, if $\Omega$ is the plane then the homeomorphism is easy: $z \mapsto \frac{z}{1+|z|}$ is a homeomorphism of $\Omega$ onto $U$. But we need the Riemann mapping theorem to give the remaining part, when $\Omega$ is a proper subset.</p>
+<p>If you know the definition of sheaf, you will realise that $(\mathbb{C},H(\cdot))$ is indeed a sheaf. For each open subset $\Omega \subset \mathbb{C}$, $H(\Omega)$ is a ring, even more precisely, a $\mathbb{C}$-algebra. The exponential map $\exp:g \mapsto e^g$ is a sheaf morphism. However, we now see that it is surjective if and only if $\Omega$ is simply connected. I hope this can help you figure out an exercise in algebraic geometry. You know, that celebrated book by Robin Hartshorne.</p>
+<p>Since we haven’t prove the Riemann mapping theorem, we cannot use the equivalence above yet. However, we can use 9 right away. This gives rise to Koebe’s square root trick.</p>
+<h2 id="Equicontinuity-amp-Normal-Family"><a href="#Equicontinuity-amp-Normal-Family" class="headerlink" title="Equicontinuity &amp; Normal Family"></a>Equicontinuity &amp; Normal Family</h2><p>Equicontinuity is quite an important concept. You may have seen it in differential equation, harmonic function, maybe just sequence of functions. We will use it to describe a family of functions, where almost uniform convergence can be well established.</p>
+<blockquote>
+<p><strong>Definition 2.</strong> Let $\mathscr{F}$ be a family of functions $(X,d) \to \mathbb{C}$ where $(X,d)$ is a metric space.</p>
+<p>We say that $\mathscr{F}$ is <em>equicontinuous</em> if, to every $\varepsilon&gt;0$, there corresponds a $\delta&gt;0$ such that whenever $d(x,y)&lt;\delta$, we have $|f(x)-f(y)|&lt;\varepsilon$ for all $f \in \mathscr{F}$. In particular, by definition, all functions in $\mathscr{F}$ are uniformly continuous.</p>
+<p>We say that $\mathscr{F}$ is <em>pointwise bounded</em> if, to every $x \in X$, there corresponds some $0 \le M(x) &lt; \infty$ such that $|f(x)| \le M(x)$ for every $f \in \mathscr{F}$.</p>
+<p>We say that $\mathscr{F}$ is <em>uniformly bounded on each compact subset</em> if, to each compact $K \subset X$, there corresponds a number $M(K)$ such that $|f(z)| \le M(K)$ for all $f \in \mathscr{F}$ and $z \in K$.</p>
+</blockquote>
+<p>These concepts are talking about “a family of” continuity and boundedness. In our proof of the Riemann mapping theorem, we do not construct the map explicitly, instead, we will use these concepts above to obtain one (which is a limit) that exists. In this post we simply put $X=\Omega \subset \mathbb{C}$, a simply connected region and $d$ is the natural one.</p>
+<p>A famous result of equicontinuity is Arzelà-Ascoli, which says that pointwise boundedness and equicontinuity implies almost uniform convergence.</p>
+<blockquote>
+<p><strong>Theorem 1 (Arzelà-Ascoli)</strong> Let $\mathscr{F}$ be a family of complex functions on a metric space $X$, which is pointwise bounded and equicontinuous. $X$ is separable, i.e., it contains a countable dense set. Then every sequence $\{f_n\}$ in $\mathscr{F}$ has then a subsequence that converges uniformly on every compact subset of $X$.</p>
+</blockquote>
+<p>Here is a self-contained <a target="_blank" rel="noopener" href="https://mast.queensu.ca/~speicher/Chapter4.pdf">proof</a>.</p>
+<p>Certainly it is OK to let $X$ be a subset of $\mathbb{R}$, $\mathbb{C}$ or their product. We use this in real and complex analysis for this reason. We will need this almost uniform convergence to establish our conformal map. To specify its application in complex analysis, we introduce the concept of normal family.</p>
+<blockquote>
+<p><strong>Definition 3.</strong> Suppose $\mathscr{F} \subset H(\Omega)$, for some region $\Omega \subset \mathbb{C}$. We call $\mathscr{F}$ a <em>normal family</em> if every sequence of members of $\mathscr{F}$ contains a subsequence, which converges uniformly on every compact subset of $\mathscr{F}$. The limit function is not required to be in $\mathscr{F}$.</p>
+</blockquote>
+<p>We now apply Arzelà-Ascoli to complex analysis.</p>
+<blockquote>
+<p><strong>Theorem 2 (Montel).</strong> Suppose $\mathscr{F} \subset H(\Omega)$ is uniformly bounded, then $\mathscr{F}$ is a normal family.</p>
+</blockquote>
+<p><em>Proof.</em> We need to show that $\mathscr{F}$ is “almost” equicontinuous, since uniformly boundedness clearly implies pointwise boundedness, we can apply Arzelà-Ascoli later.</p>
+<p>Let $\{K_n\}$ be a sequence of compact sets such that (1) $\bigcup_n K_n = \Omega$ and (2) $K_n \subset K^\circ_{n+1} \subset K_{n+1}$, the interior of $K_{n+1}$. Then for <strong>every</strong> $z \in K_n$, there exists a positive number $\delta_n$ such that</p>
+<script type="math/tex; mode=display">
+D(z,2\delta_n) \subset K_{n+1}^\circ \subset K_{n+1},</script><p>where $D(a,r)$ is the disc centred at $a$ with radius $r$. If such $\delta_n$ does not exist, then there exists a point $z \in K_{n}$ such that whenever $\delta&gt;0$, $D(z,\delta) \setminus K_{n+1} \ne \varnothing$, which is to say, $z$ is a boundary point. But this is impossible because $z$ lies in the interior of $K_{n+1}$ by definition. </p>
+<p> For such $\delta_n$, we pick $z’,z’’ \in K_n$ such that $|z’-z’’| &lt; \delta_n$. Let $\gamma$ be the positively oriented circle with centre at $z’$ and radius $2\delta_n$, i.e. the boundary of $D(z’,2\delta_n)$. Recall that the Cauchy formula says</p>
+<script type="math/tex; mode=display">
+f(z')=\frac{1}{2\pi{i}}\int_\gamma \frac{f(\zeta)}{\zeta-z'}\mathrm{d}\zeta.</script><p>We will make use of this. By the formula above, we have</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+f(z')-f(z'')&=\frac{1}{2\pi{i}}\int_\gamma f(\zeta)\left(\frac{1}{\zeta-z'}-\frac{1}{\zeta-z''} \right)\mathrm{d}\zeta \\
+            &=\frac{z'-z''}{2\pi{i}}\int_\gamma \frac{f(\zeta)}{(\zeta-z')(\zeta-z'')}\mathrm{d}\zeta.
+\end{aligned}</script><p>Now we make use of our choice of $z’$, $z’’$ and $\gamma$. By definition, for $\zeta \in \gamma^\ast$ (the range of $\gamma$), we have $|\zeta-z’|=2\delta_n$. Since $|z’-z’’|&lt;\delta_n$, we have $|\zeta-z’|=2\delta_n=|\zeta-z’’+z’’-z|\le |\zeta-z’’|+|z’’-z’|$. Therefore $|\zeta-z’’| \ge 2\delta_n-|z’’-z’|&gt;\delta_n$. Bearing this in mind, we see</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+|f(z')-f(z'')| &\le \frac{|z'-z''|}{2\pi}\int_\gamma \frac{|f(\zeta)|}{|\zeta-z'||\zeta-z''|}\mathrm{d}\zeta \\
+               &< \frac{|z'-z''|}{2\pi}\int_\gamma \frac{M(K_{n+1})}{2\delta_n\delta_n}\mathrm{d}\zeta \\
+               &= \frac{|z'-z''|}{2\pi}\frac{M(K_{n+1})}{2\delta_n\delta_n}2\pi\delta_n \\
+               &= \frac{M(K_{n+1})}{2\delta_n}|z'-z''|
+\end{aligned}</script><p>This may looks confusing so we explain it a little more. Since $D(z’,2\delta_n) \subset K^\circ_{n+1}$, we must have $\overline{D}(z’,2\delta_n) \subset K_{n+1}$, therefore whenever $\zeta \in \gamma^\ast=\partial D(z’,2\delta_n)$, we have $|f(\zeta)| \le M(K_{n+1})$. This is where we use the hypothesis of uniformly bounded. we have $|(\zeta-z’)(\zeta-z’’)|&gt;2\delta_n\delta_n$. The integral of the norm of the integrand $\frac{f(\zeta)}{(\zeta-z’)(\zeta-z’’)}$, is therefore bounded by $\frac{M(K_{n+1})}{2\delta_n^2}$. The integral over $\gamma$ is therefore bounded by $\frac{M(K_{n+1})}{2\delta_n^2}$ times $2\pi\delta_n$ and the result follows. </p>
+<p>What does this inequality imply? For $\varepsilon&gt;0$, if we pick $\delta=\min\{\delta_n,\frac{2\delta_n\varepsilon}{M(K_{n+1})}\}$, then $|f(z’)-f(z’’)|&lt;\varepsilon$ for every $f \in \mathscr{F}$ and $|z’-z’’|&lt;\delta$. That is, for each $K_n$, the <strong>restrictions</strong> of the members of $\mathscr{F}$ to $K_n$ form an equicontinuous family.</p>
+<p>Now consider a sequence $\{f_j\}$ in $\mathscr{F}$. For each $n$, we apply Arzelà-Ascoli theorem to the restriction of $\mathscr{F}$ to $K_n$, and it gives us an infinite subset $S_n \subset \mathbb{N}$ such that $f_j$ converges uniformly on $K_n$ as $j \to \infty $ and $j \in S_n$. Note we can make sure $S_n \supset S_{n+1}$ because if the subsequence converges uniformly within $S_{n+1}$ then it converges uniformly within $S_n$ as well. Pick a new sequence $\{s_j\}$ where $s_j \in S_j$, then we see $\lim_{j \to \infty}f_{s_j}$ converges uniformly on every $K_n$ and therefore on every compact subset $K$ of $\Omega$. The statement is now proved. $\square$</p>
+<p><strong>Remarks.</strong> We have no idea what the limit is, and this happens in our proof of the Riemann map theorem as well.</p>
+<p>The sequence $\{K_n\}$ can be constructed explicitly, however. In fact, for every open set $\Omega$ in the plane there is a sequence $\{K_n\}$ of compact sets such that</p>
+<ul>
+<li>$\bigcup_n K_n=\Omega$.</li>
+<li>$K_n \subset K_{n+1}^\circ$.</li>
+<li>For every compact $K \subset \Omega$, there is some $n$ such that $K \subset K_n$.</li>
+<li>Every component of $S^2 \setminus K_n$ contains a component of $S^2 \setminus \Omega$.</li>
+</ul>
+<p>The set is constructed as follows and can be verified to satisfy what we want above. or each $n$, define</p>
+<script type="math/tex; mode=display">
+V_n = D(\infty,n) \cup \bigcup_{a \not\in \Omega}D(a,1/n).</script><p>Then $K=S^2 \setminus V_n$ is what we want. </p>
+<h2 id="The-Schwarz-Lemma"><a href="#The-Schwarz-Lemma" class="headerlink" title="The Schwarz Lemma"></a>The Schwarz Lemma</h2><p>Is another important tool for our proof of the Riemann mapping theorem. We need this lemma to establish important inequalities. This lemma as well as its variants show the rigidity of holomorphic maps. We make use of the maximum modulus theorem. For simplicity, let $H^\infty$ be the Banach space of bounded holomorphic functions on $U$, equipped with supremum norm $| \cdot |_\infty$.</p>
+<blockquote>
+<p><strong>Theorem 3 (Schwarz lemma). </strong> Suppose $f:U \to \mathbb{C}$ is a holomorphic map in $H^\infty$ such that $f(0)=0$ and $|f|_\infty \le 1$, then</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+|f(z)| &\le |z| \quad (z \in U), \\
+|f'(0)| &\le 1;
+\end{aligned}</script><p>on the other hand, if $|f(z)|=|z|$ holds for some $z \in U \setminus \{0\}$, or if $|f’(0)|=1$ holds, then $f(z)=\lambda{z}$ for some complex constant $\lambda$ such that $|\lambda|=1$.</p>
+</blockquote>
+<p><em>Proof.</em> Since $f(0)=0$, $f(z)/z$ has a removable singularity at $z=0$. Hence there exists $g \in H(U)$ such that $f(z)=zg(z)$. Fix $0&lt;r&lt;1$. For any $z \in U$ such that $|z|&lt;r$, we have</p>
+<script type="math/tex; mode=display">
+|g(z)| \le \max_\theta\frac{|f(re^{i\theta})|}{|re^{i\theta}|} \le \frac{1}{r}.</script><p>Therefore when $r \to 1$, we see $|g(z)| \le 1$ for all $z \in U$. Therefore $|f(z)| \le |z|$ follows. On the other hand, if $|g(z)|=1$ at some point, the maximum modulus forces $g(z)$ to be a constant, say $\lambda$, from which it follows that $|\lambda|=|g(z)|=1$ and $f(z)=\lambda{z}$. $\square$</p>
+<p>There are many variances of the Schwarz lemma, and we will be using Schwarz-Pick. </p>
+<blockquote>
+<p><strong>Definition 4.</strong> For any $\alpha \in U$, define</p>
+<script type="math/tex; mode=display">
+\varphi_\alpha(z) = \frac{z-\alpha}{1-\overline\alpha z}.</script></blockquote>
+<p>This family is a subfamily of Möbius transformation, but we are not paying very much attention to this family right now. We need the fact that such $\varphi_\alpha$ is always a one-to-one mapping which carries $S^1$ (the unit circle) onto $S^1$ and $U$ onto $U$ and $\alpha$ to $0$. This requires another application of the maximum modulus theorem. A direct computation shows that</p>
+<script type="math/tex; mode=display">
+\varphi'_\alpha(0)=1-|\alpha|^2, \quad \varphi'_\alpha(\alpha)=\frac{1}{1-|\alpha|^2}.</script><blockquote>
+<p><strong>Theorem 4 (Schwarz-Pick lemma).</strong> Suppose $\alpha,\beta \in U$, $f \in H^\infty$ and $| f|_\infty \le 1$, $f(\alpha)=\beta$. Then</p>
+<script type="math/tex; mode=display">
+|f'(\alpha)| \le \frac{1-|\beta|^2}{1-|\alpha|^2}.</script></blockquote>
+<p><em>Proof.</em> Consider</p>
+<script type="math/tex; mode=display">
+g=\varphi_\beta \circ f \circ \varphi_{-\alpha}.</script><p>We see $g \in H^\infty$ and $|g|_\infty \le 1$. What’s more important, $g(0)=\varphi_\beta \circ f(\alpha)=\varphi_\beta(\beta)=0$. By the Schwarz lemma, $|g’(0)| \le 1$. On the other hand, we see</p>
+<script type="math/tex; mode=display">
+g'(0)=\varphi_\beta'(\beta)f'(\alpha)\varphi_{-\alpha}'(0)</script><p> and therefore</p>
+<script type="math/tex; mode=display">
+|f'(\alpha)| \le \frac{1-|\beta|^2}{1-|\alpha|^2}.</script><p>In particular, equality holds if and only if $g(z)=\lambda{z}$ for some constant $\lambda$. If this is the case, then</p>
+<script type="math/tex; mode=display">
+\varphi_\beta \circ f \circ \varphi_{-\alpha}(z)=\lambda{z} \implies f(z)=\varphi_{-\beta}(\lambda\varphi_\alpha(z)).</script><p>The story can go on but we halt here and continue our story of the Riemann mapping theorem.</p>
+<h1 id="The-Riemann-Mapping-Theorem"><a href="#The-Riemann-Mapping-Theorem" class="headerlink" title="The Riemann Mapping Theorem"></a>The Riemann Mapping Theorem</h1><p>Each $z \ne 0$ determines a <em>direction</em> from the origin, which can be described by</p>
+<script type="math/tex; mode=display">
+A[z]=\frac{z}{|z|}.</script><p>Let $f:\Omega \to \mathbb{C}$ be a map. We say $f$ <em>preserves angles</em> at $z_0 \in \Omega$ if</p>
+<script type="math/tex; mode=display">
+\lim_{r \to 0}e^{-i\theta}A[f(z_0+re^{i\theta})-f(z_0)]</script><p>exists and is independent of $\theta$.</p>
+<p>Conformal mappings preserves angles in a reasonable way. A function $f$ is <strong>conformal</strong> if it is holomorphic and $f’(z) \ne 0$ everywhere. We have a theorem describes that, but it is pretty elementary so we are not including the proof in this post.</p>
+<blockquote>
+<p><strong>Theorem 5.</strong> Let $f$ map a region $\Omega$ into the plane. If $f’(z_0)$ exists at some $z_0 \in \Omega$ and $f’(z_0) \ne 0$, then $f$ preserves angles at $z_0$. Conversely, if the differential $Df$ exists and is different from $0$ at $z_0$, and if $f$ preserves angles at $z_0$, then $f’(z_0)$ exists and is different from $0$.</p>
+</blockquote>
+<p>There is no confusion about $f’(z_0)$. By differential $Df$ we mean a linear map $L:\mathbb{R}^2 \to \mathbb{R}^2$ such that, writing $z_0=(x_0,y_0)$, we have</p>
+<script type="math/tex; mode=display">
+f(x_0+x,y_0+y)=f(x_0,y_0)+L(x,y)+{\sqrt{x^2+y^2}}\eta(x,y)</script><p>where $\eta(x,y) \to 0$ as $x \to 0$ and $y \to 0$. To prove this, one can assume that $z_0=f(z_0)=0$. When the differential exists, one writes</p>
+<script type="math/tex; mode=display">
+f(z)=\alpha{z}+\beta\overline{z}+|z|\eta(z).</script><p>We say that two regions $\Omega_1$ and $\Omega_2$ are <strong>conformally equivalent</strong> if there is a conformal one-to-one mapping of $\Omega_1$ onto $\Omega_2$. The Riemann mapping theorem states that</p>
+<blockquote>
+<p><strong>Theorem 6 (Riemann mapping theorem).</strong> Every proper simply connected region $\Omega$ in the plane is conformally equivalent to the open unit disc $U$.</p>
+</blockquote>
+<p>As a famous example, the upper plane $\mathbb{H}$ is conformally equivalent to $U$ by the Cayley transform.</p>
+<p>As one may expect, this theorem asserts that the study of a simply connected region $\Omega$ can be reduced to $U$ to some extent. But a conformal equivalence is not just about homeomorphism. If $\varphi:\Omega_1 \to \Omega_2$ is a conformal one-to-one mapping, then $\varphi^{-1}:\Omega_2 \to \Omega_1$ is also a conformal mapping. In the language of algebra, such a mapping $\varphi$ <strong>induces</strong> a ring isomorphism</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\varphi^\ast:H(\Omega_2) &\to H(\Omega_1) \\
+                f &\mapsto f \circ \varphi
+\end{aligned}</script><p>Therefore, the ring $H(\Omega_2)$ is algebraically the same as $H(\Omega_1)$. The Riemann mapping theorem also states that, if $\Omega$ is a simply connected region, then $H(\Omega) \cong H(U)$. From this we can exploit much more information on top of homeomorphism. One can also extend the story to $S^2$, the Riemann sphere, but that’s another story.</p>
+<h2 id="The-Proof-by-Arguing-A-Normal-Family"><a href="#The-Proof-by-Arguing-A-Normal-Family" class="headerlink" title="The Proof by Arguing A Normal Family"></a>The Proof by Arguing A Normal Family</h2><p>The proof is fairly technical. But it is a good chance to attest to our skill in complex analysis. The bread and butter of this proof is the following set:</p>
+<script type="math/tex; mode=display">
+\Sigma = \{\psi \in H(\Omega):\psi(\Omega) \subset U;\psi\text{ is one-to-one.}\}</script><p>Our is to prove that there is some $\psi \in \Sigma$ such that $\psi(\Omega)=U$. Note, once the non-emptiness is proved, since $|\psi|&lt;1$ uniformly, we see $\Sigma$ is a <strong>normal family</strong>.</p>
+<h3 id="Step-1-Prove-Non-emptiness-Using-Koebe’s-Square-Root-Trick"><a href="#Step-1-Prove-Non-emptiness-Using-Koebe’s-Square-Root-Trick" class="headerlink" title="Step 1 - Prove Non-emptiness Using Koebe’s Square Root Trick"></a>Step 1 - Prove Non-emptiness Using Koebe’s Square Root Trick</h3><p>Pick $w_0 \in \mathbb{C} \setminus \Omega$. Then $g(z)=z-w_0 \in H(\Omega)$ and what is more important, $\frac{1}{g} \in H(\Omega)$. By 9 of proposition 1, there exists $\varphi \in H(\Omega)$ such that $\varphi^2(z)=g(z)$, i.e., informally, $\varphi(z)=\sqrt{z-w_0}$ in $\Omega$. If $\varphi(z_1)=\varphi(z_2)$, then $\varphi(z_1)^2=\varphi(z_2)^2=z_1-w_0=z_2-w_0$ and then $z_1=z_2$. Therefore $\varphi$ is one-to-one. On the other hand, if $\varphi(z_1)=-\varphi(z_2)$, we still have $\varphi^2(z_1)=\varphi^2(z_2)=z_1-w_0=z_2-w_0$, and $z_1=z_2$. This is shows that the “square-root” is well-defined here. This is the Koebe’s square root trick.</p>
+<p>Since $\varphi$ is an open mapping, there is an open disc $D(a,r) \subset \varphi(\Omega)$, where $a \in \varphi(\Omega)$, $a \ne 0$ and $0&lt;r&lt;|a|$. But by arguments above we have $-a \not\in \varphi(\Omega)$, and therefore $D(-a,r) \cap \varphi(\Omega) = \varnothing$. For this reason, we can put</p>
+<script type="math/tex; mode=display">
+\psi(z) = \frac{r}{a+\varphi(z)}.</script><p>It follows that</p>
+<script type="math/tex; mode=display">
+|\psi(z)| = \frac{r}{|\varphi(z)-(-a)|}< \frac{r}{r}=1</script><p>and therefore $\psi(\Omega) \subset U$. Since $\varphi$ is one-to-one, $\psi$ is one-to-one as well and we deduce that $\psi \in \Sigma$, this set is not empty.</p>
+<p><strong>Remark.</strong> You may have trouble believing that $D(-a,r) \cap \varphi(\Omega)=\varnothing$. But if we pick any $w \in D(-a,r) \cap \varphi(\Omega)$, we have some $z’ \in \Omega$ such that $\varphi(z’)=w$. We also have $|-a-w|&lt;r$ but this implies $|a-(-w)|=|a+w|=|-a-w|&lt;r$, and therefore $-w \in D(a,r) \subset \varphi(\Omega)$. There exists some $z’’ \in \Omega$ such that $\varphi(z’’)=-w$. Hence $-w=w=0$. It follows that $|a|&lt;r$ and this is a contradiction.</p>
+<p>Since $D(-a,r) \cap \varphi(\Omega)=\varnothing$, we have $|\varphi(z)-(-a)|&gt;r$ for all $z \in \Omega$ and therefore $|\psi(z)|&lt;1$ is not a problem either.</p>
+<h3 id="Step-2-Enlarge-the-Range"><a href="#Step-2-Enlarge-the-Range" class="headerlink" title="Step 2 - Enlarge the Range"></a>Step 2 - Enlarge the Range</h3><blockquote>
+<p>If $\psi \in \Sigma$ and $\psi(\Omega) \subsetneqq U$, and $z_0 \in \Omega$, then there exists a $\psi_1 \in \Sigma$ such that $|\psi_1’(z_0)|&gt;|\psi’(z_0)|$.</p>
+</blockquote>
+<p>This step shows that we can “enlarge” the range in some way.</p>
+<p>For convenience we use the Möbius transformation</p>
+<script type="math/tex; mode=display">
+\varphi_\alpha(z) = \frac{z-\alpha}{1-\overline{\alpha}z}.</script><p>Pick $\alpha \in U \setminus \psi(\Omega)$. Then $\varphi_\alpha \circ \psi \in \Sigma$ and $\varphi_\alpha \circ \psi$ has no zero in $\Omega$. Hence there is some $g \in H(\Omega)$ such that</p>
+<script type="math/tex; mode=display">
+g^2=\varphi_\alpha \circ \psi.</script><p>Since $\varphi_\alpha \circ \psi$ is one-to-one, another application of Koebe’s square root trick shows that $g$ is one-to-one. Therefore we have $g \in \Sigma$ as well. If $\psi_1=\varphi_\beta \circ g$ where $\beta=g(z_0)$, we have $\psi_1 \in \Sigma$ (one-to-one). In particular, $\psi_1(z_0)=0$. </p>
+<p>By putting $s(z)=z^2$, we have</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\psi(z)&=\varphi_{-\alpha} \circ g^2(z) \\
+       &= \varphi_{-\alpha} \circ s \circ g(z) \\
+       &= \varphi_{-\alpha} \circ s \circ \varphi_{-\beta} \circ \psi_1(z).
+\end{aligned}</script><p>If we put $F(z)=\varphi_{-\alpha} \circ s \circ \varphi_{-\beta}(z)$, then the chain rule shows that</p>
+<script type="math/tex; mode=display">
+\psi'(z_0) = F'(0)\psi_1'(z_0).</script><p>(Note we used the fact that $\psi_1’(z_0)=0$.) If we can prove that $0&lt;|F’(0)|&lt;1$ then this step is complete. Note $F$ satisfy the condition in Schwarz-Pick lemma and therefore</p>
+<script type="math/tex; mode=display">
+|F'(0)| \le \frac{1-|F(0)|^2}{1-0^2} \le 1.</script><p>The first equality does not hold because $F$ is not of the form $\varphi_{-\sigma}(\lambda\varphi_{\eta}(z))$ for $|\lambda|=1$. On the other hand we have</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+F(0) &= \varphi_{-\alpha}(g(z_0)^2) \\
+     &= \varphi_{-\alpha}(\varphi_\alpha\circ \psi(z_0)) \\
+     &= \psi(z_0) \in U
+\end{aligned}</script><p>Therefore $0&lt;|F’(0)|&lt;1$ and the this step is complete.</p>
+<h3 id="Step-3-Find-the-Function-with-Largest-range-Namely-the-Disc"><a href="#Step-3-Find-the-Function-with-Largest-range-Namely-the-Disc" class="headerlink" title="Step 3 - Find the Function with Largest range, Namely the Disc"></a>Step 3 - Find the Function with Largest range, Namely the Disc</h3><p>We take the contraposition of step 2:</p>
+<blockquote>
+<p>Fix $z_0 \in \Omega$. If $h \in \Sigma$ is an element such that $|h’(z_0)| \ge |\psi’(z_0)|$ for all $\psi \in \Sigma$, then $h(\Omega)=U$.</p>
+</blockquote>
+<p>The proof is complete once we have found such a function! To do this, we use the fact that $\Sigma$ is a normal family. Put</p>
+<script type="math/tex; mode=display">
+\eta = \sup\{|\psi'(z_0)|:\psi \in \Sigma\}.</script><p>By definition of $\eta$, there is a sequence $\{\psi_n\}$ such that $|\psi_n’(z_0)| \to \eta$ in $\Sigma$. By normality of $\Sigma$, we pick a subsequence $\varphi_k=\psi_{n_k}$ that converges uniformly on compact subsets of $\Omega$. Put the uniform limit to be $h \in H(\Omega)$. It follows that $|h’(z_0)|=\eta$. Since $\Sigma \ne \varnothing$ and $\eta \ne 0$, $h$ cannot be a constant. Since $\varphi_n(\Omega) \subset U$, we must have $h(\Omega) \subset \overline{U}$. But since $h$ is open, we are reduced to $h(\Omega) \subset U$.</p>
+<p>It remains to show that $h$ is one-to-one. Fix distinct $z_1, z_2 \in \Omega$. Put $\alpha=h(z_1)$ and $\alpha_n=\varphi_n(z_1)$, then $\alpha_n \to \alpha$. Let $\overline{D}$ be a closed disc in $\Omega$ centred at $z_2$ with interior denoted by $D$ such that</p>
+<ul>
+<li>$z_1 \not\in \overline{D}$.</li>
+<li>$h-\alpha$ has no zero point on the boundary of $\overline{D}$.</li>
+</ul>
+<p>We see $\varphi_n -\alpha_n$ converges to $h-\alpha$, uniformly on $\overline{D}$. They have no zero in $D$ since they are one-to-one and have a zero at $z_1$. By Rouché’s theorem, $h-\alpha$ has no zero in $D$ either, and in particular $h(z_2)-\alpha = h(z_2)-h(z_1) \ne 0$. This completes the proof. $\square$</p>
+<p><strong>Remark.</strong> First of all, such a $\overline{D}$ is accessible. This is because zero points of $h-\alpha$ has no limit point in $\Omega$, i.e., they are discrete (when defining $\overline{D}$, we don’t know how many are there yet).</p>
+<p>Our choice of $\overline{D}$ enables us to use Rouché’s theorem (chances are you didn’t get it). Since $h-\alpha$ has no zero on the boundary, we have $\zeta=\inf_{z \in \partial D}|h(z)-\alpha|&gt;0$. When $n$ is big enough, we see</p>
+<script type="math/tex; mode=display">
+|(h-\alpha)-(\varphi_n-\alpha_n)|<\zeta<|h-\alpha|.</script><p>The second inequality is another application of the maximum modulus theorem. Rouché’s theorem applies here naturally as well. $\square$</p>
+<p>This proof is a reproduction of W. Rudin’s <em>Real and Complex Analysis</em>. For a comprehensive further reading, I highly recommend <a target="_blank" rel="noopener" href="https://terrytao.wordpress.com/2016/10/18/246a-notes-5-conformal-mapping/">Tao’s blog post</a>.</p>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"><a href="../../../../tags/Walter-Rudin/" class="post-tags__link button"># Walter Rudin</a><a href="../../../../tags/Detailed-proof/" class="post-tags__link button"># Detailed proof</a><a href="../../../../tags/Riemann/" class="post-tags__link button"># Riemann</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../../05/06/exp-fourier/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            The Fourier Transform of exp(-cx^2) and Its Convolution
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../../03/29/galois-example-3/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            Examples in Galois Theory 3 - Polynomials of Prime Degree and Pairs of Nonreal Roots
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2022/04/15/riemann-mapping-theorem-proof/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

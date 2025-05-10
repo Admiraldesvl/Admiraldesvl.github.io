@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>Tag: Quasi-analytic | Desvl&#39;s blog</title>
+
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta property="og:type" content="website">
+<meta property="og:title" content="Desvl&#39;s blog">
+<meta property="og:url" content="https://desvl.xyz/tags/Quasi-analytic/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="Desvl">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../css/style/main.css">
+ 
+
+    
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+    <div class="cover">
+        <div class="cover__logo">
+            
+                <h1>Desvl&#39;s blog</h1>
+            
+        </div>
+        
+        
+            <div class="cover__intro">
+                <p>Mathematics. Articles in English (et en français dans le futur).</p>
+ 
+            </div>
+        
+    </div>
+
+            
+
+    
+        <main class="main">
+            
+    <div class="post-list">
+        
+            
+                <div class='post-entry content-card'>
+                    <div class="post-entry__header"></div>
+<div class="post-entry__content">
+    <h2 class="post-entry__title">
+        Quasi-analytic Vectors and Hamburger Moment Problem (Operator Theory)
+    </h2>
+    
+        <h2 id="Analytic-and-quasi-analytic-vectors"><a href="#Analytic-and-quasi-analytic-vectors" class="headerlink" title="Analytic and quasi-analytic vectors"></a>Analytic and quasi-analytic vectors</h2><p>Guided by researches in function theory, operator theorists gave the analogue to quasi-analytic classes. Let $A$ be an operator in a Banach space $X$. $A$ is not necessarily bounded hence the domain $D(A)$ is not necessarily to be the whole space. We say $x \in X$ is a $C^\infty$ vector if $x \in \bigcap_{n \geq 1}D(A^n)$. This is quite intuitive if we consider the differential operator. A vector is analytic if the series</p>
+<script type="math/tex; mode=display">
+\sum_{n=0}^{\infty}\lVert{A^n x}\rVert\frac{t^n}{n!}</script><p>has a positive radius of convergence. Finally, we say $x$ is quasi-analytic for $A$ provided that</p>
+<script type="math/tex; mode=display">
+\sum_{n=0}^{\infty}\left(\frac{1}{\lVert A^n x \rVert}\right)^{1/n} = \infty</script><p>or equivalently its nondecreasing majorant. Interestingly, if $A$ is symmetric, then $\lVert{A^nx}\rVert$ is log convex.</p>
+<p>Based on the density of quasi-analytic vectors, we have an interesting result.</p>
+<blockquote>
+<p><strong>(Theorem)</strong> Let $A$ be a symmetric operator in a Hilbert space $\mathscr{H}$. If the set of quasi-analytic vectors spans a dense subset, then $A$ is essentially self-adjoint.</p>
+</blockquote>
+<p>This theorem can be considered as a corollary to <a href="/2021/03/30/quasi-analytic-classs/#The-fundamental-theorem-about-quasi-analytic-classes">the fundamental theorem of quasi-analytic classes</a>, by applying suitable Banach space techniques in lieu.</p>
+    
+</div>
+<div class="post-entry__meta">
+    <a href="../../archives/2021/05/" class="post-meta__date button">2021-05-10</a>
+    
+    <span class="separate-dot"></span><a href="../../categories/Analysis/" class="button">Analysis</a>
+
+    <span class="separate-dot"></span><a href="../../categories/Analysis/Functional-Analysis/" class="button">Functional Analysis</a>
+
+    <span class="separate-dot"></span><a href="../../categories/Analysis/Functional-Analysis/Operator-Theory/" class="button">Operator Theory</a>
+
+ 
+</div>
+<div class="post-entry__tags"><a href="../Hamberger-Moment-Problem/" class="post-tags__link button"># Hamberger Moment Problem</a><a href="" class="post-tags__link button"># Quasi-analytic</a></div> 
+<a href="../../2021/05/10/analytic-hamburger/" class="post-entry__link">Quasi-analytic Vectors and Hamburger Moment Problem (Operator Theory)</a>
+                </div>
+            
+                <div class='post-entry content-card'>
+                    <div class="post-entry__header"></div>
+<div class="post-entry__content">
+    <h2 class="post-entry__title">
+        Quasi-analytic Classes
+    </h2>
+    
+        We study the concept of quasi-analytic functions, which are quite close to being analytic.
+    
+</div>
+<div class="post-entry__meta">
+    <a href="../../archives/2021/03/" class="post-meta__date button">2021-03-30</a>
+    
+    <span class="separate-dot"></span><a href="../../categories/Analysis/" class="button">Analysis</a>
+
+    <span class="separate-dot"></span><a href="../../categories/Analysis/Complex-Analysis/" class="button">Complex Analysis</a>
+
+ 
+</div>
+<div class="post-entry__tags"><a href="../Real-and-Complex-Analysis/" class="post-tags__link button"># Real and Complex Analysis</a><a href="../Walter-Rudin/" class="post-tags__link button"># Walter Rudin</a><a href="" class="post-tags__link button"># Quasi-analytic</a></div> 
+<a href="../../2021/03/30/quasi-analytic-classs/" class="post-entry__link">Quasi-analytic Classes</a>
+                </div>
+            
+        
+    </div>
+    
+
+
+        </main>
+    
+
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+
+    </body>
+</html>

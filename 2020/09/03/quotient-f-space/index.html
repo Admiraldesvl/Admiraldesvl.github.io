@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>The completeness of the quotient space (topological vector space) | Desvl&#39;s blog</title>
+
+
+    <meta name="keywords" content="Walter Rudin, Functional Analysis, Study new content">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="The GoalWe are going to show the completeness of $X&#x2F;N$ where $X$ is a TVS and $N$ a closed subspace. Alongside, a bunch of useful analysis tricks will be demonstrated (and that’s why you may find this">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The completeness of the quotient space (topological vector space)">
+<meta property="og:url" content="https://desvl.xyz/2020/09/03/quotient-f-space/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="The GoalWe are going to show the completeness of $X&#x2F;N$ where $X$ is a TVS and $N$ a closed subspace. Alongside, a bunch of useful analysis tricks will be demonstrated (and that’s why you may find this">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-09-03T21:11:51.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:10.382Z">
+<meta property="article:author" content="Desvl">
+<meta property="article:tag" content="Walter Rudin">
+<meta property="article:tag" content="Functional Analysis">
+<meta property="article:tag" content="Study new content">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        The completeness of the quotient space (topological vector space)
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2020/09/" class="post-meta__date button">2020-09-03</a>
+        
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/" class="button">Analysis</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/Functional-Analysis/" class="button">Functional Analysis</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/Functional-Analysis/Topological-Vector-Space/" class="button">Topological Vector Space</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Goal"><span class="toc-number">1.</span> <span class="toc-text">The Goal</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-main-process"><span class="toc-number">2.</span> <span class="toc-text">The main process</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Defining-the-quotient-metric-rho"><span class="toc-number">2.1.</span> <span class="toc-text">Defining the quotient metric $\rho$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rho-is-a-metric"><span class="toc-number">2.2.</span> <span class="toc-text">$\rho$ is a metric</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rho-is-translate-invariant"><span class="toc-number">2.3.</span> <span class="toc-text">$\rho$ is translate invariant</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rho-is-well-defined"><span class="toc-number">2.4.</span> <span class="toc-text">$\rho$ is well-defined</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rho-is-compatible-with-tau-N"><span class="toc-number">2.5.</span> <span class="toc-text">$\rho$ is compatible with $\tau_N$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#If-d-is-complete-then-rho-is-complete"><span class="toc-number">2.6.</span> <span class="toc-text">If $d$ is complete, then $\rho$ is complete.</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Remarks"><span class="toc-number">3.</span> <span class="toc-text">Remarks</span></a></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Goal"><span class="toc-number">1.</span> <span class="toc-text">The Goal</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-main-process"><span class="toc-number">2.</span> <span class="toc-text">The main process</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Defining-the-quotient-metric-rho"><span class="toc-number">2.1.</span> <span class="toc-text">Defining the quotient metric $\rho$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rho-is-a-metric"><span class="toc-number">2.2.</span> <span class="toc-text">$\rho$ is a metric</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rho-is-translate-invariant"><span class="toc-number">2.3.</span> <span class="toc-text">$\rho$ is translate invariant</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rho-is-well-defined"><span class="toc-number">2.4.</span> <span class="toc-text">$\rho$ is well-defined</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rho-is-compatible-with-tau-N"><span class="toc-number">2.5.</span> <span class="toc-text">$\rho$ is compatible with $\tau_N$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#If-d-is-complete-then-rho-is-complete"><span class="toc-number">2.6.</span> <span class="toc-text">If $d$ is complete, then $\rho$ is complete.</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Remarks"><span class="toc-number">3.</span> <span class="toc-text">Remarks</span></a></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h2 id="The-Goal"><a href="#The-Goal" class="headerlink" title="The Goal"></a>The Goal</h2><p>We are going to show the completeness of $X/N$ where $X$ is a TVS and $N$ a closed subspace. Alongside, a bunch of useful analysis tricks will be demonstrated (and that’s why you may find this blog post a little tedious.). But what’s more important, the theorem proved here will be used in the future.</p>
+<h2 id="The-main-process"><a href="#The-main-process" class="headerlink" title="The main process"></a>The main process</h2><p>To make it clear, we should give a formal definition of $F$-space.</p>
+<blockquote>
+<p>A topological space $X$ is an $F$-space if its topology $\tau$ is induced by a complete invariant metric $d$.</p>
+</blockquote>
+<p>A metric $d$ on a vector space $X$ will be called invariant if for all $x,y,z \in X$, we have</p>
+<script type="math/tex; mode=display">
+d(x+z,y+z)=d(x,y).</script><p>By complete we mean every Cauchy sequence of $(X,d)$ converges.</p>
+<h3 id="Defining-the-quotient-metric-rho"><a href="#Defining-the-quotient-metric-rho" class="headerlink" title="Defining the quotient metric $\rho$"></a>Defining the quotient metric $\rho$</h3><p>The metric can be inherited to the quotient space naturally (we will use this fact latter), that is</p>
+<blockquote>
+<p>If $X$ is a $F$-space, $N$ is a closed subspace of a topological vector space $X$, then $X/N$ is still a $F$-space.</p>
+</blockquote>
+<p>Suppose $d$ is a complete invariant metric compatible with $\tau_X$. The metric on $X/N$ is defined by</p>
+<script type="math/tex; mode=display">
+\boxed{\rho(\pi(x),\pi(y))=\inf_{z \in N}d(x-y,z)}</script><h3 id="rho-is-a-metric"><a href="#rho-is-a-metric" class="headerlink" title="$\rho$ is a metric"></a>$\rho$ is a metric</h3><p><em>Proof.</em> First, if $\pi(x)=\pi(y)$, that is, $x-y \in N$, we see</p>
+<script type="math/tex; mode=display">
+\rho(\pi(x),\pi(y))=\inf_{z \in N}d(x-y,z)=d(x-y,x-y)=0.</script><p>If $\pi(x) \neq \pi(y)$ however, we shall show that $\rho(\pi(x),\pi(y))&gt;0$. In this case, we have $x-y \notin N$. Since $N$ is closed, $N^c$ is open, and $x-y$ is an interior point of $X-N$. Therefore there exists an open ball  $B_r(x-y)$ centered at $x-y$ with radius $r&gt;0$ such that $B_r(x-y) \cap N = \varnothing$. Notice we have $d(x-y,z)&gt;r$ since otherwise $z \in B_r(x-y)$. By putting</p>
+<script type="math/tex; mode=display">
+r_0=\sup\{r:B_r(x-y) \cap N = \varnothing\},</script><p>we see $d(x-y,z) \geq r_0$ for all $z \in N$ and indeed $r_0=\inf_{z \in N}d(x-y,z)&gt;0$ (the verification can be done by contradiction). In general, $\inf_z d(x-y,z)=0$ if and only if $x-y \in \overline{N}$.</p>
+<p>Next, we shall show that $\rho(\pi(x),\pi(y))=\rho(\pi(y),\pi(x))$, and it suffices to assume that $\pi(x) \neq \pi(y)$. Sgince $d$ is translate invariant, we get</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+d(x-y,z)&=d(x-y-z,0) \\
+        &=d(0,y-x+z) \\
+        &=d(-z,y-x) \\
+        &=d(y-x,-z).
+\end{aligned}</script><p>Therefore the $\inf$ of the left hand is equal to the one of the right hand. The identity is proved.</p>
+<p>Finally, we need to verify the triangle inequality. Let $r,s,t \in X$. For any $\varepsilon&gt;0$, there exist some $z_\varepsilon$ and $z_\varepsilon’$ such that</p>
+<script type="math/tex; mode=display">
+d(r-s,z_\varepsilon)<\rho(\pi(r),\pi(s))+\frac{\varepsilon}{2},\quad d(s-t,z'_\varepsilon)<\rho(\pi(s),\pi(t))+\frac{\varepsilon}{2}.</script><p>Since $d$ is invariant, we see</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+d(r-t,z_\varepsilon+z'_\varepsilon)&=d((r-s)+(s-t)-(z_\varepsilon+z'_\varepsilon),0) \\
+                                   &=d([(r-s)-z_\varepsilon]+[(s-t)-z'_\varepsilon],0) \\
+                                   &=d(r-s-z_\varepsilon,t-s+z'_\varepsilon) \\
+                                   &\leq d(r-s-z_\varepsilon,0)+d(t-s+z'_\varepsilon,0) \\
+                                   &=d(r-s,z_\varepsilon)+d(s-t,z'_\varepsilon)
+\end{aligned}</script><p><em>(I owe <a target="_blank" rel="noopener" href="https://onp4.com/@leechlattice">@LeechLattice</a> for the inequality above.)</em></p>
+<p>Therefore</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+d(r-t,z_\varepsilon+z'_\varepsilon)&\leq d(r-s,z_\varepsilon)+d(s-t,z'_\varepsilon) \\
+    &<\rho(\pi(r),\pi(s))+\rho(\pi(s),\pi(t))+\varepsilon.
+\end{aligned}</script><p><em>(Warning: This does not imply that $\rho(\pi(r),\pi(s))+\rho(\pi(s),\pi(t))=\inf_z d(r-t,z)$ since we don’t know whether it is the lower bound or not.)</em></p>
+<p>If $\rho(\pi(r),\pi(s))+\rho(\pi(s),\pi(t))&lt;\rho(\pi(r),\pi(t))$ however, let</p>
+<script type="math/tex; mode=display">
+0<\varepsilon<\rho(\pi(r),\pi(t))-(\rho(\pi(r),\pi(s))+\rho(\pi(s),\pi(t)))</script><p>then there exists some $z’’_\varepsilon=z_\varepsilon+z’_\varepsilon$ such that</p>
+<script type="math/tex; mode=display">
+d(r-t,z''_\varepsilon)<\rho(\pi(r),\pi(t))</script><p>which is a contradiction since $\rho(\pi(r),\pi(t)) \leq d(r-t,z)$ for all $z \in N$.</p>
+<p><em>(We are using the $\varepsilon$ definition of $\inf$. See <a target="_blank" rel="noopener" href="http://mathonline.wikidot.com/epsilon-definition-of-the-supremum-and-infimum-of-a-bounded#:~:text=Epsilon%20Definition%20of%20The%20Supremum%20and%20Infimum%20of%20a%20Bounded%20Set,-Recall%20from%20The&amp;text=We%20say%20that%20the%20infimum,a%20lower%20bound%20of%20then%20.">here</a>.)</em></p>
+<h3 id="rho-is-translate-invariant"><a href="#rho-is-translate-invariant" class="headerlink" title="$\rho$ is translate invariant"></a>$\rho$ is translate invariant</h3><p>Since $\pi$ is surjective, we see if $u \in X/N$, there exists some $a \in X$ such that $\pi(a)=u$. Therefore</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\rho(\pi(x)+u,\pi(y)+u) &=\rho(\pi(x)+\pi(a),\pi(y)+\pi(a)) \\
+                        &=\rho(\pi(x+a),\pi(y+a)) \\
+                        &=\inf_{z \in N}d(x+a-y-a,z) \\
+                        &=\rho(\pi(x),\pi(y)).
+\end{aligned}</script><h3 id="rho-is-well-defined"><a href="#rho-is-well-defined" class="headerlink" title="$\rho$ is well-defined"></a>$\rho$ is well-defined</h3><p>If $\pi(x)=\pi(x’)$ and $\pi(y)=\pi(y’)$, we have to show that $\rho(\pi(x),\pi(y))=\rho(\pi(x’),\pi(y’))$. In fact,</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\rho(\pi(x),\pi(y)) &\leq \rho(\pi(x),\pi(x'))+\rho(\pi(x'),\pi(y'))+\rho(\pi(y'),\pi(y)) \\
+                    &=\rho(\pi(x'),\pi(y'))
+\end{aligned}</script><p>since $\rho(\pi(x),\pi(x’))=0$ as $\pi(x)=\pi(x’)$. Meanwhile</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\rho(\pi(x'),\pi(y')) &\leq \rho(\pi(x'),\pi(x)) + \rho(\pi(x),\pi(y)) + \rho(\pi(y),\pi(y')) \\
+                      &= \rho(\pi(x),\pi(y)).
+\end{aligned}</script><p>therefore $\rho(\pi(x),\pi(y))=\rho(\pi(x’),\pi(y’))$.</p>
+<h3 id="rho-is-compatible-with-tau-N"><a href="#rho-is-compatible-with-tau-N" class="headerlink" title="$\rho$ is compatible with $\tau_N$"></a>$\rho$ is compatible with $\tau_N$</h3><p>By proving this, we need to show that a set $E \subset X/N$ is open with respect to $\tau_N$ if and only if $E$ is a union of open balls. But we need to show a generalized version:</p>
+<blockquote>
+<p>If $\mathscr{B}$ is a local base for $\tau$, then the collection $\mathscr{B}_N$, which contains all sets $\pi(V)$ where $V \in \mathscr{B}$, forms a local base for $\tau_N$.</p>
+</blockquote>
+<p><em>Proof.</em> We already know that $\pi$ is continuous, linear and open. Therefore $\pi(V)$ is open for all $V \in \mathscr{B}$. For any open set around $E \subset X/N$ containing $\pi(0)$, we see $\pi^{-1}(E)$ is open, and we have</p>
+<script type="math/tex; mode=display">
+\pi^{-1}(E)=\bigcup_{V\in\mathscr{B}}V</script><p>and therefore</p>
+<script type="math/tex; mode=display">
+E=\bigcup_{V \in \mathscr{B}}\pi(V).</script><hr>
+<p>Now consider the local base $\mathscr{B}$ containing all open balls around $0 \in X$. Since</p>
+<script type="math/tex; mode=display">
+\pi(\{x:d(x,0)<r\})=\{u:\rho(u,\pi(0))<r\}</script><p>we see $\rho$ determines $\mathscr{B}_N$. But we have already proved that $\rho$ is invariant; hence $\mathscr{B}_N$ determines $\tau_N$. </p>
+<h3 id="If-d-is-complete-then-rho-is-complete"><a href="#If-d-is-complete-then-rho-is-complete" class="headerlink" title="If $d$ is complete, then $\rho$ is complete."></a>If $d$ is complete, then $\rho$ is complete.</h3><p>Once this is proved, we are able to claim that, if $X$ is a $F$-space, then $X/N$ is still a $F$-space, since its topology is induced by a complete invariant metric $\rho$.</p>
+<p><em>Proof.</em> Suppose $(x_n)$ is a Cauchy sequence in $X/N$, relative to $\rho$. There is a subsequence $(x_{n_k})$ with $\rho(x_{n_k},x_{n_{k+1}})&lt;2^{-k}$.  Since $\pi$ is surjective, we are able to pick some $z_k \in X$ such that $\pi(z_k) = x_{n_k}$ and such that</p>
+<script type="math/tex; mode=display">
+d(z_{k},z_{k+1})<2^{-k}.</script><p>(The existence can be verified by contradiction still.) By the inequality above, we see $(z_k)$ is Cauchy (can you see why?). Since $X$ is complete, $z_k \to z$ for some $z \in X$. By the <strong>continuity</strong> of $\pi$, we also see $x_{n_k} \to \pi(z)$ as $k \to \infty$. Therefore $(x_{n_k})$ converges. Hence $(x_n)$ converges since it has a convergent subsequence. $\rho$ is complete.</p>
+<h2 id="Remarks"><a href="#Remarks" class="headerlink" title="Remarks"></a>Remarks</h2><p>This fact will be used to prove some corollaries in the open mapping theorem. For instance, for any continuous linear map $\Lambda:X \to Y$, we see $\ker(\Lambda)$ is closed, therefore if $X$ is a $F$-space, then $X/\ker(\Lambda)$ is a $F$-space as well. We will show in the future that $X/\ker(\Lambda)$ and $\Lambda(X)$ are homeomorphic if $\Lambda(X)$ is of the second category.</p>
+<p>There are more properties that can be inherited by $X/N$ from $X$. For example, normability, metrizability, local convexity. In particular, if $X$ is Banach, then $X/N$ is Banach as well. To do this, it suffices to define the quotient norm by</p>
+<script type="math/tex; mode=display">
+\lVert \pi(x) \rVert = \inf\{\lVert x-z \rVert:z \in N\}.</script>
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"><a href="../../../../tags/Walter-Rudin/" class="post-tags__link button"># Walter Rudin</a><a href="../../../../tags/Functional-Analysis/" class="post-tags__link button"># Functional Analysis</a><a href="../../../../tags/Study-new-content/" class="post-tags__link button"># Study new content</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../12/big-3-pt-4/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            The Big Three Pt. 4 - The Open Mapping Theorem (F-Space)
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../../08/26/r-s-integral/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            Introducing Riemann-Stieltjes Integral
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2020/09/03/quotient-f-space/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

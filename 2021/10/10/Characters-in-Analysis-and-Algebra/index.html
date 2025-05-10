@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>Characters in Analysis and Algebra | Desvl&#39;s blog</title>
+
+
+    <meta name="keywords" content="character">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="In this post, we study the concept of character, what it is about in abstract harmonic analysis and how to use it Galois theory.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Characters in Analysis and Algebra">
+<meta property="og:url" content="https://desvl.xyz/2021/10/10/Characters-in-Analysis-and-Algebra/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="In this post, we study the concept of character, what it is about in abstract harmonic analysis and how to use it Galois theory.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-10-10T21:49:00.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:09.751Z">
+<meta property="article:author" content="Desvl">
+<meta property="article:tag" content="character">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        Characters in Analysis and Algebra
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2021/10/" class="post-meta__date button">2021-10-10</a>
+        
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/" class="button">Analysis</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/Fourier-Analysis/" class="button">Fourier Analysis</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/" class="button">Algebra</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/Galois-Theory/" class="button">Galois Theory</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Character-in-Fourier-Analysis"><span class="toc-number">1.</span> <span class="toc-text">Character in Fourier Analysis</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linear-Independence-of-Characters"><span class="toc-number">2.</span> <span class="toc-text">Linear Independence of Characters</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hilbert%E2%80%99s-Theorem-90"><span class="toc-number">3.</span> <span class="toc-text">Hilbert’s Theorem 90</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Proof-of-the-Modern-Version"><span class="toc-number">3.1.</span> <span class="toc-text">Proof of the Modern Version</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Proof-of-the-Classic-Version"><span class="toc-number">3.2.</span> <span class="toc-text">Proof of the Classic Version</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Applications"><span class="toc-number">4.</span> <span class="toc-text">Applications</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#References"><span class="toc-number">5.</span> <span class="toc-text">References</span></a></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Character-in-Fourier-Analysis"><span class="toc-number">1.</span> <span class="toc-text">Character in Fourier Analysis</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linear-Independence-of-Characters"><span class="toc-number">2.</span> <span class="toc-text">Linear Independence of Characters</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hilbert%E2%80%99s-Theorem-90"><span class="toc-number">3.</span> <span class="toc-text">Hilbert’s Theorem 90</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Proof-of-the-Modern-Version"><span class="toc-number">3.1.</span> <span class="toc-text">Proof of the Modern Version</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Proof-of-the-Classic-Version"><span class="toc-number">3.2.</span> <span class="toc-text">Proof of the Classic Version</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Applications"><span class="toc-number">4.</span> <span class="toc-text">Applications</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#References"><span class="toc-number">5.</span> <span class="toc-text">References</span></a></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <p>Let $M$ be a monoid and $K$ be a field, then by a character of $G$ in $K$ we mean a monoid-homomorphism</p>
+<script type="math/tex; mode=display">
+\chi:M \to K^\ast.</script><p>By trivial character we mean a character such that $\chi(M)=\{1\}$. We are particularly interested in the linear independence of characters. Functions $f_i:M \to K$ are called <strong>linearly independent over $K$</strong> if whenever</p>
+<script type="math/tex; mode=display">
+a_1f_1+\cdots+a_nf_n=0</script><p>with all $a_i \in K$, we have $a_i=0$ for all $i$. $\def\Tr\operatorname{Tr}$</p>
+<h2 id="Character-in-Fourier-Analysis"><a href="#Character-in-Fourier-Analysis" class="headerlink" title="Character in Fourier Analysis"></a>Character in Fourier Analysis</h2><p>In Fourier analysis we are always interested by functions like $f(x)=e^{-inx}$ or $g(x)= e^{-ixt}$, corresponding to Fourier series (integration on $\mathbb{R}/2\pi\mathbb{Z}$) and Fourier transform. Later mathematicians realised that everything can be set in a locally compact abelian (LCA) group. For this reason we need to generalise these functions, and the bounded ones coincide with our definition of characters. </p>
+<p>Let $G$ be a LCA group, then $\gamma:G \to \mathbb{C}$ is called a <em>character</em> if $|\gamma(x)|=1$ for all $x \in G$ and </p>
+<script type="math/tex; mode=display">
+\gamma(x+y)=\gamma(x)\gamma(y).</script><p>Note since $G$ is automatically a monoid, this coincide with our ordinary definition of character. The set of <em>continuous</em> characters form a group $\Gamma$, which is called the <em>dual group</em> of $G$.</p>
+<p>If $G=\mathbb{R}$, solving the equation $\gamma(x+y)=\gamma(x)\gamma(y)$ in whatever way he or she likes we obtain $\gamma(x)=e^{Ax}$ for some $A \in \mathbb{C}$. But $|e^{Ax}| \equiv 1$ (or merely being bounded) forces $A$ to be purely imaginary, say $A=it$, then we have $\gamma(x)=e^{itx}$. Hence the dual group of $\mathbb{R}$ can be determined by (the speed of) rotation on the unit circle.</p>
+<p>With this we have our generalised version of Fourier transform. Let $G$ be a LCA group, $f \in L^1(G)$, then the <strong>Fourier transform</strong> is given by</p>
+<script type="math/tex; mode=display">
+\hat{f}(\gamma) = \int_G f(x)\gamma(-x)dx, \quad \gamma \in \Gamma.</script><p>One can intuitively verify that $\hat{f}$ is exactly the Gelfand transform of $f$, the step of which will be sketched below. On one hand, one can indeed verify that $f \mapsto \hat{f}(\gamma)$ is indeed a Banach algebra homomorphism $L^1(G) \to \mathbb{C}$, for all $\gamma \in \Gamma$. This is a plain application of Fubini’s theorem. On the other hand, let $h:L^1(G) \to \mathbb{C}$ be any non-trivial Banach algebra homomorphism. One can investigate that $| h | =1$ and hence $h$ is a bounded linear functional. By Riesz’s representation theorem, there is some $\phi \in L^\infty(G)$ with $| \phi|_\infty = 1$ such that</p>
+<script type="math/tex; mode=display">
+h(f) = \int_G f(x)\phi(x)dx.</script><p>We can indeed assume that $\phi$ is continuous. With $h$ being algebra homomorphism, we can see</p>
+<script type="math/tex; mode=display">
+\phi(x+y)=\phi(x)\phi(y).</script><p>We know that $|\phi(x)| \le 1$ but $\phi(-x)=\phi(x)^{-1}$ forces $|\phi(x)|=1$. The proof is done after some routine verification of uniqueness.</p>
+<p>Indeed, with this identification, we can also identify $\Gamma$ as the maximal ideal space of $L^1(G)$, which results in the following interesting characterisation. </p>
+<blockquote>
+<p>If $G$ is discrete, then $\Gamma$ is compact; if $G$ is compact, then $\Gamma$ is discrete.</p>
+</blockquote>
+<p><em>Proof.</em> If $G$ is discrete, then $L^1(G)$ has a unit. The maximal ideal space, which can be identified as $\Gamma$, is a compact Hausdorff space.</p>
+<p>If $G$ is compact, then its Haar measure can be normalised so that $m(G)=1$. We prove that the singleton containing the unit alone is an open set. Let $\gamma \in \Gamma$ be a character $\ne 1$, then there exists some $x_0$ such that $\gamma(x_0) \ne 1$. As a result,</p>
+<script type="math/tex; mode=display">
+\int_G \gamma(x)dx = \gamma(x_0)\int_G \gamma(x-x_0)dx = \gamma(x_0)\int_G \gamma(x)dx</script><p>and hence $\int_G\gamma(x)dx=0$. If $\gamma=1$ then $\int_G \gamma(x)=1$. </p>
+<p>Besides, the compactness of $G$ implies the constant function $f \equiv 1$ is in $L^1(G)$. As a result, $\hat{f}(1)=1$ but $\hat{f}(\gamma)=0$ whenever $\gamma \ne 1$. But $\hat{f}$ is continuous, $\{\gamma:{f}(\gamma) \ne 0\}=\{1\}$ is open. $\square$</p>
+<h2 id="Linear-Independence-of-Characters"><a href="#Linear-Independence-of-Characters" class="headerlink" title="Linear Independence of Characters"></a>Linear Independence of Characters</h2><p>If characters of $G$ are linear independent, then they are pairwise distinct, but what about the converse? Dedekind answered this question affirmatively. But his approach is rather complicated: it needed determinant. However, Artin found a neat way to do it:</p>
+<blockquote>
+<p><strong>Theorem (Dedekind-Artin)</strong> Let $M$ be a monoid and $K$ a field. Let $\chi_1,\dots,\chi_n$ be distinct characters of $G$ in $K$. Then they are linearly independent over $K$.</p>
+</blockquote>
+<p><em>Proof.</em> Suppose this is false. Let $N$ be the smallest integer that</p>
+<script type="math/tex; mode=display">
+a_1\chi_1+a_2\chi_2+\cdots+a_N\chi_N = 0</script><p>but not all $a_i$ are $0$, for distinct $\chi_i$. Since $\chi_1 \ne \chi_2$, there is some $z \in M$ such that $\chi_1(z) \ne \chi_2(z)$. Yet still we have</p>
+<script type="math/tex; mode=display">
+a_1\chi_1(zx)+\cdots+a_N\chi_N(zx)=0.</script><p>Since $\chi_i$ are characters, for all $x \in M$ we have</p>
+<script type="math/tex; mode=display">
+a_1\chi_1(z)\chi_1(x)+\cdots+a_N\chi_N(z)\chi_N(x)=0.</script><p>We now have a linear system</p>
+<script type="math/tex; mode=display">
+\begin{pmatrix}
+a_1 & a_2 & \cdots & a_N \\
+a_1\chi_1(z) & a_2\chi_2(z) & \cdots & a_N\chi_N(z)
+\end{pmatrix}
+\begin{pmatrix}
+\chi_1 \\
+\chi_2 \\
+\vdots \\
+\chi_N
+\end{pmatrix} = 
+\begin{pmatrix}
+0 \\ 0
+\end{pmatrix}</script><p>If we perform Gaussian elimination once, we see</p>
+<script type="math/tex; mode=display">
+\begin{pmatrix}
+a_1 & a_2 & \cdots & a_N \\
+0 & \left(\frac{\chi_2(z)}{\chi_1(z)}-1\right)a_2 & \cdots & \left(\frac{\chi_N(z)}{\chi_1(z)}-1\right)a_N\chi_N(z)
+\end{pmatrix}
+\begin{pmatrix}
+\chi_1 \\
+\chi_2 \\
+\vdots \\
+\chi_N
+\end{pmatrix} = 
+\begin{pmatrix}
+0 \\ 0
+\end{pmatrix}</script><p>But this is to say</p>
+<script type="math/tex; mode=display">
+\left(\frac{\chi_2(z)}{\chi_1(z)}-1\right)a_2\chi_2 + \cdots + \left(\frac{\chi_N(z)}{\chi_1(z)}-1\right)a_N\chi_N(z)\chi_N=0</script><p>Note by assumption $\frac{\chi_2(z)}{\chi_1(z)}-1 \ne 0$ and therefore we found $N-1$ distinct and linearly independent characters, contradicting our assumption. $\square$</p>
+<p>As an application, we consider an $n$-variable equation:</p>
+<blockquote>
+<p>Let $\alpha_1,\cdots,\alpha_n$ be distinct non-zero elements of a field $K$. If $a_1,\cdots,a_n$ are elements of $K$ such that for all integers $v \ge 0$ we have</p>
+<script type="math/tex; mode=display">
+a_1\alpha_1^v + \cdots + a_n\alpha_n^v = 0</script><p>then $a_i=0$ for all $i$.</p>
+</blockquote>
+<p><em>Proof.</em> Consider $n$ distinct characters $\chi_i(v)=\alpha^v$ of $\mathbb{Z}_{\ge 0}$ into $K^\ast$. $\square$</p>
+<h2 id="Hilbert’s-Theorem-90"><a href="#Hilbert’s-Theorem-90" class="headerlink" title="Hilbert’s Theorem 90"></a>Hilbert’s Theorem 90</h2><p>The linear independence of characters gives us a good chance of studying the relation of the field extension and the Galois group.</p>
+<blockquote>
+<p><strong>Hilbert’s Theorem 90 (Modern Version)</strong> Let $K/k$ be a Galois extension with Galois group $G$, then $H^1(G,K^\ast)=1$ and $H^1(G,K)=0$. This is to say, the first cohomology group is trivial for both addition and multiplication.</p>
+</blockquote>
+<p>It may look confusing but the classic version is about cyclic extensions ($K/k$ is cyclic if it is Galois and the Galois group is cyclic).</p>
+<blockquote>
+<p><strong>Hilbert’s Theorem 90 (Classic Version, Multiplicative Form)</strong> Let $K/k$ be cyclic of degree $n$ with Galois group $G$ generated by $\sigma$. Then</p>
+<script type="math/tex; mode=display">
+\frac{\ker N}{1/\sigma{A}} \cong 1</script><p>where $1/\sigma{A}$ consists of all elements of the form $\alpha/\sigma(\alpha)$ with $\alpha \in A$, and $N(\beta)$ is the norm of $\beta \in K$ over $k$. </p>
+</blockquote>
+<p>This corresponds to the statement that $H^1(G,K^\ast)=1$. On the other hand,</p>
+<blockquote>
+<p><strong>Hilbert’s Theorem 90 (Classic Version, Additive Form)</strong> Let $K/k$ be cyclic of degree $n$ with Galois group $G$ generated by $\sigma$. Then</p>
+<script type="math/tex; mode=display">
+\frac{\ker \Tr}{(1-\sigma){A}} \cong 0</script><p>where $(1-\sigma)A$ consists of all elements of the form $(1-\sigma)(\alpha)$ with $\alpha \in A$, and $\Tr(\beta)$ is the norm of $\beta \in K$ over $k$. </p>
+</blockquote>
+<p>This corresponds to, of course, the statement that $H^1(G,K)=0$. Note this indeed asserts an exact sequence</p>
+<script type="math/tex; mode=display">
+0 \to k \to K \xrightarrow{1-\sigma} K \xrightarrow{\Tr} K \to 0.</script><p>Before we prove it we recall what is group cohomology. Let $G$ be a group. We consider the category <strong>$G$-mod</strong> of left $G$-modules. The set of morphisms of two objects $A$ and $B$, for which we write $\operatorname{Hom}_G(A,B)$, consists of all objects of $G$-set maps from $A$ to $B$. The <em>cohomology groups of $G$ with coefficients in $A$</em> is the right derived functor of $\operatorname{Hom}_G(\mathbb{Z},-)$:</p>
+<script type="math/tex; mode=display">
+H^\ast (G,A)  \cong \operatorname{Ext}^\ast_{\mathbb{Z}[G]}(\mathbb{Z},A).</script><p>It follows that $H^0(G,A) \cong \operatorname{Hom}_G(Z,A)=A/\langle ga-a:g \in G,a \in A \rangle $. In particular, if $G$ is trivial, then $\operatorname{Hom}_G(\mathbb{Z},-)$ is exact and therefore $H^\ast(G,A)=0$ whenever $\ast \ne 0$. We will see what will happen when $G$ is a Galois group of a Galois extension. If the modern version is beyond your reach, you can refer to the classic version. As a side note, the modern version can also be done using Shapiro’s lemma.</p>
+<h3 id="Proof-of-the-Modern-Version"><a href="#Proof-of-the-Modern-Version" class="headerlink" title="Proof of the Modern Version"></a>Proof of the Modern Version</h3><p><em>Proof.</em> Note $\alpha:G \to K^\ast$ is an 1-cocyle if and only if $\alpha_{\sigma\tau}=\alpha_\sigma\sigma(\alpha_\tau) $ for all $\sigma,\tau \in G$. By Artin’s lemma, for each 1-cocyle $\alpha$, the following map is nontrivial:</p>
+<script type="math/tex; mode=display">
+\Lambda=\sum_{\sigma \in G}\alpha_\sigma \sigma:K \to K.</script><p>Suppose $\gamma=\Lambda(\theta) \ne 0$. Then</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\tau\gamma &= \tau \sum_{\sigma \in G}\alpha_\sigma \sigma(\theta) 
+           = \sum_{\sigma \in G}\tau(\alpha_\sigma)\tau\sigma(\theta) 
+           = \sum_{\sigma \in G}\alpha_\tau^{-1}\alpha_{\sigma\tau}\tau\sigma(\theta) \\
+           &= \alpha_\tau^{-1}\sum_{\sigma \in G}\alpha_{\sigma\tau}\sigma\tau(\theta) 
+           = \alpha_\tau^{-1}\gamma
+
+\end{aligned}</script><p>which is to say $\alpha_\tau = \gamma/\tau\gamma$. Replacing $\gamma$ with $\gamma^{-1}$ gives what we want: cocycle coincides with coboundary. So much for the multiplicative form.</p>
+<p>For the additive form, take $\theta \in K \setminus \ker Tr$. Given a $1$-cocycle $\alpha$ in the additive group $K$, we put</p>
+<script type="math/tex; mode=display">
+\beta = \frac{1}{\Tr(\theta)}\sum_{\tau \in G}\alpha_\tau \tau(\theta)</script><p>Since cocycle satisfies $\alpha_{\sigma\tau}=\alpha_\sigma+\sigma\alpha_\tau$, we get</p>
+<script type="math/tex; mode=display">
+\sigma\beta = \frac{1}{\Tr(\theta)}\sum_{\tau \in G}(\alpha_{\sigma\tau}-\alpha_\sigma)\sigma\tau(\theta) = \beta -\alpha_\sigma</script><p>which gives $\alpha_\sigma = \beta-\sigma\beta$. Replacing $\beta$ with $-\beta$ gives what we want. $\square$</p>
+<h3 id="Proof-of-the-Classic-Version"><a href="#Proof-of-the-Classic-Version" class="headerlink" title="Proof of the Classic Version"></a>Proof of the Classic Version</h3><p><em>Additive form.</em> Pick any $\beta-\sigma\beta$, we see $\Tr(\beta-\sigma\beta)=\sum_{\tau \in G}\tau\beta-\sum_{\tau \in G}\tau\beta=0$.</p>
+<p>Conversely, assume $\Tr(\alpha)=0$. By Artin’s lemma, the trace function is not trivial, hence there exists some $\theta \in K$ such that $\Tr(\theta)\ne 0$, then we take</p>
+<script type="math/tex; mode=display">
+\beta = \frac{1}{\Tr(\theta)}[\alpha\theta^\sigma+(\alpha+\sigma\alpha)\theta^{\sigma^2}+\cdots+(\alpha+\sigma\alpha+\cdots+\sigma^{n-2}\alpha)\theta^{\sigma^{n-1}}]</script><p>where for convenience we write $\sigma\theta=\theta^\sigma$. Therefore </p>
+<script type="math/tex; mode=display">
+\beta-\sigma\beta = \frac{1}{\Tr(\theta)}\alpha(\theta+\theta^{\sigma}+\theta^{\sigma^2}+\cdots+\theta^{\sigma^{n-1}})=\alpha</script><p>because other terms are cancelled. $\square$</p>
+<p><em>Multiplicative form.</em> This can be done in a quite similar setting. For any $\alpha=\beta/\sigma\beta$, we have</p>
+<script type="math/tex; mode=display">
+N(\alpha)=N(\beta)/N(\sigma\beta)=\left(\prod_{\tau \in G}\tau\beta\right)/ \left( \prod_{\tau \in G}\tau\sigma\beta\right)=1.</script><p>Conversely, assume $N(\alpha)=1$. By Artin’s lemma, following function is not trivial:</p>
+<script type="math/tex; mode=display">
+\Lambda:\operatorname{id}+\alpha\sigma+\alpha^{1+\sigma}\sigma^2+\cdots+\alpha^{1+\sigma+\cdots+\sigma^{n-2}}\sigma^{n-1}.</script><p>Suppose now $\beta=\Lambda(\theta) \ne 0$. It follows that</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\alpha\beta^\sigma &= \alpha(\theta+\alpha\theta^\sigma+\cdots+\alpha^{1+\sigma+\cdots+\sigma^{n-2}}\theta^{\sigma^{n-1}})^\sigma \\
+&= \alpha(\theta^\sigma+\alpha^\sigma\theta^{\sigma^2}+\cdots+\underbrace{\alpha^{\sigma+\sigma^2+\cdots+\sigma^{n-1}}\theta^{\sigma^n}}_{=\alpha^{-1}\theta}) \\
+&= \alpha\theta^\sigma+\alpha^{1+\sigma}+\cdots+\alpha^{1+\sigma+\cdots+\sigma^{n-2}}\theta^{n-1}+\theta \\
+&=\beta
+\end{aligned}</script><p>and this is exactly what we want. $\square$</p>
+<h2 id="Applications"><a href="#Applications" class="headerlink" title="Applications"></a>Applications</h2><p>Consider the extension $\mathbb{Q}(i)/\mathbb{Q}$. The Galois group $G=\{1,\tau\}$ is cyclic and generated by $\tau$ the complex conjugation. Now we pick whatever $N(a+bi)=a^2+b^2=1$ where $a,b \in \mathbb{Q}$, we have some $r=s+ti \in \mathbb{Q}(i)$ such that</p>
+<script type="math/tex; mode=display">
+a+bi = \frac{s+ti}{s-ti}=\frac{s^2-t^2+2sti}{s^2+t^2}= \frac{s^2-t^2}{s^2+t^2}+\frac{2st}{s^2+t^2}i</script><p>If we put $(x,y,z)=(s^2-t^2,2st,s^2+t^2)$, we actually get a Pythagorean triple (if $s,t$ are fractions, we can multiply them with the $\gcd$ of the denominators so they are integers.). Conversely, all Pythagorean triple $(x,y,z)$, we assign it with $\frac{x}{z}+\frac{y}{z}i \in \mathbb{Q}(i)$ then we have an element of norm $1$. Through this we have found all solutions to $x^2+y^2=z^2$. i.e.</p>
+<blockquote>
+<p><strong>Theorem</strong> Integers $x,y,z$ satisfy the Diophantine equation $x^2+y^2=z^2$ if and only if $(x,y,z)$ is proportional to $(m^2-n^2,2mn,m^2+n^2)$ for some integers $m,n$.</p>
+</blockquote>
+<p>This can be generalised to all Diophantine equations of the form $x^2+Axy+By^2=Cz^2$ for some nonzero constant $C$ and constant $A,B$ such that the discriminant $A^2-4B$ is square-free. You can find some discussion <a target="_blank" rel="noopener" href="https://abel.math.harvard.edu/~elkies/Misc/hilbert.pdf">here</a>.</p>
+<p>The additive form is a good friend of “character $p$” things. Artin-Schreier’s theorem is a good example of $p$-to-the-$p$.</p>
+<blockquote>
+<p><strong>Theorem (Artin-Schreier)</strong> Let $k$ be a field of character $p$ and $K/k$ an extension of degree $p$. Then there exists $\alpha \in K$ and $\alpha$ is the zeroof an equation $X^p-X-a=0$ for some $a \in k$.</p>
+</blockquote>
+<p><em>Proof.</em> Note the Galois group $G$ of $K/k$ is cyclic and $\Tr(-1)=p(-1)=0$, we are able to use the additive form. Let $\sigma$ be the generator of $G$, there exists some $\alpha \in K$ such that</p>
+<script type="math/tex; mode=display">
+\sigma\alpha = \alpha+1.</script><p>Hence $\sigma(\sigma(\alpha))=\sigma(\alpha+1)=\alpha+1+1$, and by induction we get</p>
+<script type="math/tex; mode=display">
+\sigma^i(\alpha) = \alpha+i, \quad i=1,2,\cdots,p</script><p>and $\alpha$ has $p$ conjugates. Therefore $[k(\alpha):k] \ge p$. But in the meantime </p>
+<script type="math/tex; mode=display">
+[K:k]=[K:k(\alpha)][k(\alpha):k]</script><p> we can only have $[K:k(\alpha)]=1$, which is to say $K=k(\alpha)$. In the meantime,</p>
+<script type="math/tex; mode=display">
+\sigma(\alpha^p-\alpha)=(\alpha+1)^p-(\alpha+1)=\alpha^p+1^p-\alpha-1 = \alpha^p-\alpha.</script><p>Hence $\alpha^p - \alpha$ lies in the fixed field of $\sigma$, which happens to be $k$. Putting $a=\alpha^p-\alpha$ and our proof is done. $\square$.</p>
+<p>For the case when the character is $0$ please see <a target="_blank" rel="noopener" href="https://www3.risc.jku.at/publications/download/risc_5477/the_two_artin_schreier_theorems__jcapco.pdf">here</a>. There is a converse, which deserves a standalone blog post. It says that the polynomial $f(X)=X^p-X-a$ either has one root in $k$, in which case all its roots are in $k$; or it is irredcible, in which case if $\alpha$ is a root then $k(\alpha)$ is cyclic of degree $p$ over $k$. But I don’t know if many people are fans of “character $p$” things.</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ol>
+<li>Serge Lang, <em>Algbra, Revised Third Edition</em>.</li>
+<li>Charles A. Weibel, <em>An Introduction to Homological Algebra</em>.</li>
+<li>Noam D. Elkies, <em>Pythagorean triples and Hilbert’s Theorem 90</em>. (<a target="_blank" rel="noopener" href="https://abel.math.harvard.edu/~elkies/Misc/hilbert.pdf">https://abel.math.harvard.edu/~elkies/Misc/hilbert.pdf</a>)</li>
+<li>Jose Capco, <em>The Two Artin-Schreier Theorems</em>. (<a target="_blank" rel="noopener" href="https://www3.risc.jku.at/publications/download/risc_5477/the_two_artin_schreier_theorems__jcapco.pdf">https://www3.risc.jku.at/publications/download/risc_5477/the_two_artin_schreier_theorems__jcapco.pdf</a>)</li>
+<li>Walter Rudin, <em>Fourier Analysis on Groups</em>.</li>
+</ol>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"><a href="../../../../tags/character/" class="post-tags__link button"># character</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../../12/24/The-ring-of-real-trigonometric-polynomials/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            The ring of real trigonometric polynomials
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../02/ba-algebra/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            The Banach Algebra of Borel Measures on Euclidean Space
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2021/10/10/Characters-in-Analysis-and-Algebra/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

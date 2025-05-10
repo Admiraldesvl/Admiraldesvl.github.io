@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>The Lebesgue-Radon-Nikodym theorem and how von Neumann proved it | Desvl&#39;s blog</title>
+
+
+    <meta name="keywords" content="Real and Complex Analysis, Walter Rudin, von Neumann, Lebesgue, Radon-Nikodym">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="An introductionIf one wants to learn the fundamental theorem of Calculus in the sense of Lebesgue integral, properties of measures have to be taken into account. In elementary calculus, one may consid">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Lebesgue-Radon-Nikodym theorem and how von Neumann proved it">
+<meta property="og:url" content="https://desvl.xyz/2020/03/29/lebesgue-radon-nikodym/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="An introductionIf one wants to learn the fundamental theorem of Calculus in the sense of Lebesgue integral, properties of measures have to be taken into account. In elementary calculus, one may consid">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-03-29T08:08:44.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:10.135Z">
+<meta property="article:author" content="Desvl">
+<meta property="article:tag" content="Real and Complex Analysis">
+<meta property="article:tag" content="Walter Rudin">
+<meta property="article:tag" content="von Neumann">
+<meta property="article:tag" content="Lebesgue">
+<meta property="article:tag" content="Radon-Nikodym">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        The Lebesgue-Radon-Nikodym theorem and how von Neumann proved it
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2020/03/" class="post-meta__date button">2020-03-29</a>
+        
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/" class="button">Analysis</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/Integration-Theory/" class="button">Integration Theory</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/Measure-Theory/" class="button">Measure Theory</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#An-introduction"><span class="toc-number">1.</span> <span class="toc-text">An introduction</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Notations"><span class="toc-number">1.1.</span> <span class="toc-text">Notations</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Theorem-of-Lebesgue-Radon-Nikodym"><span class="toc-number">2.</span> <span class="toc-text">The Theorem of Lebesgue-Radon-Nikodym</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Proof-explained"><span class="toc-number">3.</span> <span class="toc-text">Proof explained</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-1-Construct-a-bounded-functional"><span class="toc-number">3.1.</span> <span class="toc-text">Step 1 - Construct a bounded functional</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-Replacing-mu-with-a-finite-measure"><span class="toc-number">3.1.1.</span> <span class="toc-text">1.1 Replacing $\mu$ with a finite measure</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-A-bounded-linear-functional-associated-with-lambda"><span class="toc-number">3.1.2.</span> <span class="toc-text">1.2 A bounded linear functional associated with $\lambda$</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-2-Find-the-associated-function-with-respect-to-lambda"><span class="toc-number">3.2.</span> <span class="toc-text">Step 2 - Find the associated function with respect to $\lambda$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-3-Generate-lambda-ac-and-lambda-s-and-the-Radon-Nikodym-derivative-at-one-stroke"><span class="toc-number">3.3.</span> <span class="toc-text">Step 3 - Generate $\lambda_{ac}$ and $\lambda_{s}$ and the Radon-Nikodym derivative at one stroke</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Proving-lambda-s-perp-mu"><span class="toc-number">3.3.1.</span> <span class="toc-text">Proving $\lambda_s \perp \mu$</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Proving-lambda-ac-ll-mu-by-the-Radon-Nikodym-derivative"><span class="toc-number">3.3.2.</span> <span class="toc-text">Proving $\lambda_{ac} \ll \mu$ by the Radon-Nikodym derivative</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-3-Generalization-onto-complex-measures"><span class="toc-number">3.4.</span> <span class="toc-text">Step 3 - Generalization onto complex measures</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-4-Uniqueness-of-the-decomposition"><span class="toc-number">3.5.</span> <span class="toc-text">Step 4 - Uniqueness of the decomposition</span></a></li></ol></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#An-introduction"><span class="toc-number">1.</span> <span class="toc-text">An introduction</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Notations"><span class="toc-number">1.1.</span> <span class="toc-text">Notations</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Theorem-of-Lebesgue-Radon-Nikodym"><span class="toc-number">2.</span> <span class="toc-text">The Theorem of Lebesgue-Radon-Nikodym</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Proof-explained"><span class="toc-number">3.</span> <span class="toc-text">Proof explained</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-1-Construct-a-bounded-functional"><span class="toc-number">3.1.</span> <span class="toc-text">Step 1 - Construct a bounded functional</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-Replacing-mu-with-a-finite-measure"><span class="toc-number">3.1.1.</span> <span class="toc-text">1.1 Replacing $\mu$ with a finite measure</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-A-bounded-linear-functional-associated-with-lambda"><span class="toc-number">3.1.2.</span> <span class="toc-text">1.2 A bounded linear functional associated with $\lambda$</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-2-Find-the-associated-function-with-respect-to-lambda"><span class="toc-number">3.2.</span> <span class="toc-text">Step 2 - Find the associated function with respect to $\lambda$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-3-Generate-lambda-ac-and-lambda-s-and-the-Radon-Nikodym-derivative-at-one-stroke"><span class="toc-number">3.3.</span> <span class="toc-text">Step 3 - Generate $\lambda_{ac}$ and $\lambda_{s}$ and the Radon-Nikodym derivative at one stroke</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Proving-lambda-s-perp-mu"><span class="toc-number">3.3.1.</span> <span class="toc-text">Proving $\lambda_s \perp \mu$</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Proving-lambda-ac-ll-mu-by-the-Radon-Nikodym-derivative"><span class="toc-number">3.3.2.</span> <span class="toc-text">Proving $\lambda_{ac} \ll \mu$ by the Radon-Nikodym derivative</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-3-Generalization-onto-complex-measures"><span class="toc-number">3.4.</span> <span class="toc-text">Step 3 - Generalization onto complex measures</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-4-Uniqueness-of-the-decomposition"><span class="toc-number">3.5.</span> <span class="toc-text">Step 4 - Uniqueness of the decomposition</span></a></li></ol></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h2 id="An-introduction"><a href="#An-introduction" class="headerlink" title="An introduction"></a>An introduction</h2><p>If one wants to learn the fundamental theorem of Calculus in the sense of Lebesgue integral, properties of measures have to be taken into account. In elementary calculus, one may consider something like</p>
+<script type="math/tex; mode=display">
+df(x)=f'(x)dx</script><p>where $f$ is differentiable, say, everywhere on an interval. Now we restrict $f$ to be a differentiable and nondecreasing real function defined on $I=[a,b]$. There we got a one-to-one function defined by</p>
+<script type="math/tex; mode=display">
+g(x)=x+f(x)</script><p>For measurable sets $E\in\mathfrak{M}$, it can be seen that if $m(E)=0$, we have $m(g(E))=0$. Moreover, $g(E) \in \mathfrak{M}$, and $g$ is one-to-one. Therefore we can define a measure like</p>
+<script type="math/tex; mode=display">
+\mu(E)=m(g(E))</script><p>If we have a relation </p>
+<script type="math/tex; mode=display">
+\mu(E)=\int_{E}hdm</script><p>(in fact, this is the Radon-Nikodym theorem we will prove later), the fundamental theorem of calculus for $f$ becomes somewhat clear since if $E=[a,x]$, we got $g(E)=[a+f(a),x+f(x)]$, thus we got</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+    \mu(E)=m(g(E))&=g(x)-g(a)\\
+    &=f(x)-f(a)+\int_a^xdt \\
+    &=\int_a^xh(t)dt
+\end{aligned}</script><p>which trivially implies</p>
+<script type="math/tex; mode=display">
+f(x)-f(a)=\int_a^x[h(t)-1]dt</script><p>the function $h$ looks like to be $g’=f’+1$.</p>
+<p>We are not proving the fundamental theorem here. But this gives rise to a question. Is it possible to find a function such that</p>
+<script type="math/tex; mode=display">
+\mu(E)=\int_{E}hdm</script><p>one may write as</p>
+<script type="math/tex; mode=display">
+d\mu=hdm</script><p>or, more generally, a measure $\mu$ with respect to another measure $\lambda$? Does this $\mu$ exist with respect to $\lambda$? Does this $h$ exist? Lot of questions. Luckily the Lebesgue decomposition and Radon-Nikodym theorem make it possible.</p>
+<h3 id="Notations"><a href="#Notations" class="headerlink" title="Notations"></a>Notations</h3><p>Let $\mu$ be a positive measure on a $\sigma$-algebra $\mathfrak{M}$, let $\lambda$ be any arbitrary measure (positive or complex) defined on $\mathfrak{M}$.</p>
+<p>We write</p>
+<script type="math/tex; mode=display">
+\lambda \ll \mu</script><p>if $\lambda(E)=0$ for every $E\in\mathfrak{M}$ for which $\mu(E)=0$. (You may write $\mu \ll m$ in the previous section.) We say $\lambda$ is <em>absolutely continuous</em> with respect to $\mu$.</p>
+<p>Another relation between measures worth consideration is being mutually singular. If we have $\lambda(E)=\lambda(A \cap E)$ for every $E \in \mathfrak{M}$, we say $\lambda$ is <em>concentrated</em> on $A$.</p>
+<p>If we now have two measures $\mu_1$ and $\mu_2$, two disjoint sets $A$ and $B$ such that $\mu_1$ is concentrated on $A$, $\mu_2$ is concentrated on $B$, we say $\mu_1$ and $\mu_2$ are <em>mutually singular</em>, and write</p>
+<script type="math/tex; mode=display">
+\mu_1 \perp \mu_2</script><h2 id="The-Theorem-of-Lebesgue-Radon-Nikodym"><a href="#The-Theorem-of-Lebesgue-Radon-Nikodym" class="headerlink" title="The Theorem of Lebesgue-Radon-Nikodym"></a>The Theorem of Lebesgue-Radon-Nikodym</h2><blockquote>
+<p>Let $\mu$ be a positive $\sigma$-finite measure on $\mathfrak{M}$, and $\lambda$ a complex measure on $\mathfrak{M}$.</p>
+<ul>
+<li>There exists a unique pair of complex measures $\lambda_{ac}$ and $\lambda_{s}$ on $\mathfrak{M}$ such that</li>
+</ul>
+<script type="math/tex; mode=display">
+\lambda = \lambda_{ac}+\lambda_s \quad \lambda_{ac}\ll\mu\quad \lambda_s \perp \mu</script><ul>
+<li>There is a unique $h \in L^1(\mu)$ such that</li>
+</ul>
+<script type="math/tex; mode=display">
+\lambda_{ac}(E)=\int_{E}hd\mu</script><p>for every $E \in \mathfrak{M}$.</p>
+</blockquote>
+<p>The unique pair $(\lambda_{ac},\lambda_s)$ is called the Lebesgue decomposition; the existence of $h$ is called the Radon-Nikodym theorem, and $h$ is called the Radon-Nikodym derivative. One also writes $d\lambda_{ac}=hd\mu$ or $\frac{d\lambda_{ac}}{d\mu}=h$ in this situation.</p>
+<p>These are two separate theorems, but von Neumann gave the idea to prove these two at one stroke. </p>
+<p>If we already have $\lambda \ll \mu$, then $\lambda_s=0$ and the Radon-Nikodym derivative shows up in the natural of things.</p>
+<p>Also, one cannot ignore the fact that $m$ the Lebesgue measure is $\sigma$-finite. </p>
+<h2 id="Proof-explained"><a href="#Proof-explained" class="headerlink" title="Proof explained"></a>Proof explained</h2><h3 id="Step-1-Construct-a-bounded-functional"><a href="#Step-1-Construct-a-bounded-functional" class="headerlink" title="Step 1 - Construct a bounded functional"></a>Step 1 - Construct a bounded functional</h3><blockquote>
+<p>We are going to employ Hilbert space technique in this proof. Precisely speaking, we are going to construct a bounded linear functional to find another function, namely $g$, which is the epicentre of this proof.</p>
+<p>The boundedness of $\lambda$ is clear since it’s complex, but $\mu$ is only assumed to be $\sigma$-finite. Therefore we need some adjustment onto $\mu$.</p>
+</blockquote>
+<h4 id="1-1-Replacing-mu-with-a-finite-measure"><a href="#1-1-Replacing-mu-with-a-finite-measure" class="headerlink" title="1.1 Replacing $\mu$ with a finite measure"></a>1.1 Replacing $\mu$ with a finite measure</h4><blockquote>
+<p>If $\mu$ is a positive $\sigma$-finite measure on a $\sigma$-algebra $\mathfrak{M}$ in a set $X$, then there is a function $w$ such that $w \in L^1(\mu)$ and $0&lt;w(x)&lt;1$ for every $x \in X$.</p>
+</blockquote>
+<p>The $\sigma$-finiteness of $\mu$ denotes that, there exist some sets $E_n$ such that</p>
+<script type="math/tex; mode=display">
+X=\bigcup_{n=1}^{\infty}E_n</script><p>and that $\mu(E_n)&lt;\infty$ for all $n$.</p>
+<p>Define</p>
+<script type="math/tex; mode=display">
+w_n(x)=
+\begin{aligned}
+\begin{cases}
+\frac{1}{2^n(1+\mu(E_n))}\quad &x \in E_n \\
+0 \quad &x\notin E_n
+\end{cases}
+\end{aligned}</script><p>(you can also say that $w_n=\frac{1}{2^n(1+\mu(E_n))}\chi_{E_n}$), then we have</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+w &= \sum_{n=1}^{\infty}w_n \\
+\end{aligned}</script><p>satisfies $0&lt;w&lt;1$ for all $x$. With $w$, we are able to define a new measure, namely</p>
+<script type="math/tex; mode=display">
+\tilde{\mu}(E)=\int_{E}wd\mu.</script><p>The fact that $\tilde{\mu}(E)$ is a measure can be validated by considering $\int_{E}wd\mu=\int_{X}\chi_{E}wd\mu$. It’s more important that $\tilde{\mu}(E)$ is bounded and $\tilde{\mu}(E)=0$ if and only if $\mu(E)=0$. The second one comes from the strict positivity of $w$. For the first one, notice that</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\tilde{\mu}(X) &\leq \sum_{n=1}^{\infty}\tilde{\mu}(E_n) \\
+               &= \sum_{n=1}^{\infty}\frac{1}{2^n(1+\mu(E_n))} \\
+               &\leq \sum_{n=1}^{\infty}\frac{1}{2^n}
+\end{aligned}</script><h4 id="1-2-A-bounded-linear-functional-associated-with-lambda"><a href="#1-2-A-bounded-linear-functional-associated-with-lambda" class="headerlink" title="1.2 A bounded linear functional associated with $\lambda$"></a>1.2 A bounded linear functional associated with $\lambda$</h4><p>Since $\lambda$ is complex, without loss of generality, we are able to assume that $\lambda$ is a positive bounded measure on $\mathfrak{M}$. By 1.1, we are able to obtain a positive bounded measure by</p>
+<script type="math/tex; mode=display">
+\varphi=\lambda+\tilde{\mu}</script><p>Following the construction of Lebesgue measure, we have</p>
+<script type="math/tex; mode=display">
+\int_{X}fd\varphi=\int_{X}fd\lambda+\int_{X}fwd\mu</script><p>for all nonnegative measurable function $f$. Also, notice that $\lambda \leq \varphi$, we have</p>
+<script type="math/tex; mode=display">
+\left\vert \int_{X}fd\lambda \right\vert \leq \int_{X}|f|d\lambda \leq \int_{X}|f|d\varphi \leq \sqrt{\varphi(X)}\left\Vert f \right\Vert_2</script><p>for $f \in L^2(\varphi)$ by Schwarz inequality.</p>
+<p>Since $\varphi(X)&lt;\infty$, we have </p>
+<script type="math/tex; mode=display">
+\Lambda{f}=\int_{X}fd\lambda</script><p>to be a bounded linear functional on $L^2(\varphi)$.</p>
+<h3 id="Step-2-Find-the-associated-function-with-respect-to-lambda"><a href="#Step-2-Find-the-associated-function-with-respect-to-lambda" class="headerlink" title="Step 2 - Find the associated function with respect to $\lambda$"></a>Step 2 - Find the associated function with respect to $\lambda$</h3><p>Since $L^2(\varphi)$ is a Hilbert space, every bounded linear functional on a Hilbert space $H$ is given by an inner product with an element in $H$. That is, by the completeness of $L^2(\varphi)$, there exists a function $g$ such that</p>
+<script type="math/tex; mode=display">
+\Lambda{f}=\int_{X}fd\lambda=\int_{X}fgd\varphi=(f,g).</script><p>The properties of $L^2$ space shows that $g$ is determined <em>almost everywhere</em> with respect to $\varphi$.</p>
+<p>For $E \in \mathfrak{M}$, we got</p>
+<script type="math/tex; mode=display">
+0 \leq (\chi_{E},g)=\int_{E}gd\varphi=\int_{E}d\lambda=\lambda(E)\leq\varphi(E)</script><p>which implies $0 \leq g \leq 1$ for almost every $x$ with respect to $\varphi$. Therefore we are able to assume that $0 \leq g \leq 1$ without ruining the identity. The proof is in the bag once we define $A$ to be the set where $0 \leq g &lt; 1$ and $B$ the set where $g=1$.</p>
+<h3 id="Step-3-Generate-lambda-ac-and-lambda-s-and-the-Radon-Nikodym-derivative-at-one-stroke"><a href="#Step-3-Generate-lambda-ac-and-lambda-s-and-the-Radon-Nikodym-derivative-at-one-stroke" class="headerlink" title="Step 3 - Generate $\lambda_{ac}$ and $\lambda_{s}$ and the Radon-Nikodym derivative at one stroke"></a>Step 3 - Generate $\lambda_{ac}$ and $\lambda_{s}$ and the Radon-Nikodym derivative at one stroke</h3><p>We claim that $\lambda(A \cap E)$ and $\lambda(B \cap E)$ form the decomposition we are looking for, $\lambda_{ac}$ and $\lambda_s$, respectively. Namely, $\lambda_{ac}=\lambda(A \cap E)$, $\lambda_s=\lambda(B \cap E)$.</p>
+<h4 id="Proving-lambda-s-perp-mu"><a href="#Proving-lambda-s-perp-mu" class="headerlink" title="Proving $\lambda_s \perp \mu$"></a>Proving $\lambda_s \perp \mu$</h4><p>If we combine $\Lambda{f}=(f,g)$ and $\varphi=\lambda+\tilde{\mu}$ together, we have</p>
+<script type="math/tex; mode=display">
+\int_{X}(1-g)fd\lambda=\int_{X}fgwd\mu.</script><p>Put $f=\chi_{B}$, we have</p>
+<script type="math/tex; mode=display">
+\int_{B}wd\mu=0.</script><p>Since $w$ is <em>strictly</em> positive, we see that $\mu(B)=0$. Notice that $A \cap B = \varnothing$ and $A \cup B=X$. For $E \in \mathfrak{M}$, we write $E=E_A \cup E_B$, where $E_A \subset A$ and $E_B \subset B$. Therefore</p>
+<script type="math/tex; mode=display">
+\mu(E)=\mu(E_A)+\mu(E_B)=\mu(E \cap A)+\mu(E \cap B)=\mu(E \cap A).</script><p>Therefore $\mu$ is concentrated on $A$. </p>
+<p>For $\lambda_s$, observe that</p>
+<script type="math/tex; mode=display">
+\lambda_s(E)=\lambda(E \cap B)=\lambda((E \cap B) \cap B)=\lambda_s(E \cap B).</script><p>Hence $\lambda_s$ is concentrated on $B$. This observation shows that $\lambda_s \perp \mu$.</p>
+<h4 id="Proving-lambda-ac-ll-mu-by-the-Radon-Nikodym-derivative"><a href="#Proving-lambda-ac-ll-mu-by-the-Radon-Nikodym-derivative" class="headerlink" title="Proving $\lambda_{ac} \ll \mu$ by the Radon-Nikodym derivative"></a>Proving $\lambda_{ac} \ll \mu$ by the Radon-Nikodym derivative</h4><p>The relation that $\lambda_{ac} \ll \mu$ will be showed by the existence of the Radon-Nikodym derivative.</p>
+<p>If we replace $f$ by</p>
+<script type="math/tex; mode=display">
+(1+g+\cdots+g^n)\chi_E,</script><p>where $E \in \mathfrak{M}$, we have</p>
+<script type="math/tex; mode=display">
+\int_X(1-g)fd\lambda=\int_E(1-g^{n+1})d\lambda=\int_Eg(1+g+\cdots+g^n)wd\mu.</script><p>Notice that</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\int_{E}(1-g^{n+1})d\lambda &=\int\limits_{E \cap A}(1-g^{n+1})d\lambda + \int\limits_{E \cap B}(1-g^{n+1})d\lambda \\
+&=\int\limits_{E \cap A}(1-g^{n+1})d\lambda \\
+&\to\lambda(E \cap A) = \lambda_{ac}(E)\quad(n\to\infty)
+\end{aligned}</script><p>Define $h_n=g(1+g+g^2+\cdots+g^n)w$, we see that on $A$, $h_n$ converges monotonically to</p>
+<script type="math/tex; mode=display">
+h=
+\begin{aligned}
+\begin{cases}
+    \frac{gw}{1-g} \quad &x\in{A}\\
+    0 \quad &x\in{B}
+\end{cases}
+\end{aligned}</script><p>By monotone convergence theorem, we got</p>
+<script type="math/tex; mode=display">
+\lim_{n\to\infty}\int_{E}h_nd\mu = \int_{E}hd\mu=\lambda_{ac}(E).</script><p>for every $E\in\mathfrak{M}$.</p>
+<p>The measurable function $h$ is the desired Radon-Nikodym derivative once we show that $h \in L^1(\mu)$. Replacing $E$ with $X$, we see that</p>
+<script type="math/tex; mode=display">
+\int_{X}|h|d\mu=\int_{X}hd\mu=\lambda_{ac}(X)\leq\lambda(X)<\infty.</script><p>Clearly, if $\mu(E)=0$, we have</p>
+<script type="math/tex; mode=display">
+\lambda_{ac}(E)=\int_{E}hd\mu=0</script><p>which shows that </p>
+<script type="math/tex; mode=display">
+\lambda_{ac}\ll\mu</script><p>as desired.</p>
+<h3 id="Step-3-Generalization-onto-complex-measures"><a href="#Step-3-Generalization-onto-complex-measures" class="headerlink" title="Step 3 - Generalization onto complex measures"></a>Step 3 - Generalization onto complex measures</h3><p>By far we have proved this theorem for positive bounded measure. For real bounded measure, we can apply the proceeding case to the positive and negative part of it. For all complex measures, we have</p>
+<script type="math/tex; mode=display">
+\lambda=\lambda_1+i\lambda_2</script><p>where $\lambda_1$ and $\lambda_2$ are real.</p>
+<h3 id="Step-4-Uniqueness-of-the-decomposition"><a href="#Step-4-Uniqueness-of-the-decomposition" class="headerlink" title="Step 4 - Uniqueness of the decomposition"></a>Step 4 - Uniqueness of the decomposition</h3><p>If we have two Lebesgue decompositions of the same measure, namely $(\lambda_{ac},\lambda_s)$ and $(\lambda’_{ac},\lambda’_s)$, we shall show that</p>
+<script type="math/tex; mode=display">
+\lambda_{ac}-\lambda_{ac}'=\lambda_s'-\lambda_s=0</script><p>By the definition of the decomposition we got</p>
+<script type="math/tex; mode=display">
+\lambda_{ac}-\lambda'_{ac}=\lambda'_s-\lambda_s</script><p>with $\lambda_{ac}-\lambda_{ac}’ \ll \mu$ and $\lambda_{s}’-\lambda_{s}\perp\mu$. This implies that $\lambda’_{s}-\lambda_{s} \ll \mu$ as well. </p>
+<p>Since $\lambda’_s-\lambda_s\perp\mu$, there exists  a set with $\mu(A)=0$ on which $\lambda’_s-\lambda_s$ is concentrated; the absolute continuity shows that $\lambda’_s(E)-\lambda_s(E)=0$ for all $E \subset A$. Hence $\lambda_s’-\lambda_s$ is concentrated on $X-A$. Therefore we got $(\lambda’_s-\lambda_s)\perp(\lambda’_s-\lambda_s)$, which forces $\lambda’_s-\lambda_s=0$. The uniqueness is proved.</p>
+<p>(Following the same process one can also show that $\lambda_{ac}\perp\lambda_s$.)</p>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"><a href="../../../../tags/Real-and-Complex-Analysis/" class="post-tags__link button"># Real and Complex Analysis</a><a href="../../../../tags/Walter-Rudin/" class="post-tags__link button"># Walter Rudin</a><a href="../../../../tags/von-Neumann/" class="post-tags__link button"># von Neumann</a><a href="../../../../tags/Lebesgue/" class="post-tags__link button"># Lebesgue</a><a href="../../../../tags/Radon-Nikodym/" class="post-tags__link button"># Radon-Nikodym</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../../04/18/order-of-limit/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            高等数学入门——理解无穷小的阶（微积分的“科学计数法”）
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../23/fubini-counterex-and-why/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            Counterexamples of Fubini&#39;s theorem
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2020/03/29/lebesgue-radon-nikodym/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

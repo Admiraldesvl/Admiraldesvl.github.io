@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>Examples in Galois Theory 1 - Complex Field is Algebraically Closed | Desvl&#39;s blog</title>
+
+
+    <meta name="keywords" content="Artin, Galois, Examples in Galois Theory">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="We try to prove the fundamental theorem of algebra, that the complex field is algebraically closed, using as little analysis as possible. In other words, the following proof will be *almost* algebraic">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Examples in Galois Theory 1 - Complex Field is Algebraically Closed">
+<meta property="og:url" content="https://desvl.xyz/2022/03/16/galois-example-1/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="We try to prove the fundamental theorem of algebra, that the complex field is algebraically closed, using as little analysis as possible. In other words, the following proof will be *almost* algebraic">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-03-16T15:23:21.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:09.956Z">
+<meta property="article:author" content="Desvl">
+<meta property="article:tag" content="Artin">
+<meta property="article:tag" content="Galois">
+<meta property="article:tag" content="Examples in Galois Theory">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        Examples in Galois Theory 1 - Complex Field is Algebraically Closed
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2022/03/" class="post-meta__date button">2022-03-16</a>
+        
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/" class="button">Algebra</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/Group-Theory/" class="button">Group Theory</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/Galois-Theory/" class="button">Galois Theory</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Preparation"><span class="toc-number">1.</span> <span class="toc-text">Preparation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-main-result"><span class="toc-number">2.</span> <span class="toc-text">The main result</span></a></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Preparation"><span class="toc-number">1.</span> <span class="toc-text">Preparation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-main-result"><span class="toc-number">2.</span> <span class="toc-text">The main result</span></a></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <p>I will be writing a series of posts on important examples and applications of Galois theory, most of which are must-know. You may have know many of them already. I will try my best to make sure that the reader can learn something from these posts. In every post of this series, the background of the fundamental theorem of Galois theory (a.k.a. Galois correspondence), as well as its prerequisites, are assumed to be known.</p>
+<h2 id="Preparation"><a href="#Preparation" class="headerlink" title="Preparation"></a>Preparation</h2><p>The method is presented by Artin: we will be actively using theories of the Sylow group theory. Recall that for a finite group $G$, if $p$ is a prime dividing $|G|$, then there is a $p$-Sylow subgroup. We are not caring about <em>other</em> $p$-Sylow groups here. However, one needs to also recall that a $p$-group $H$ is always solvable. If $|H|&gt;1$, then $H$ admits nontrivial centre. If $|H|=p^n$, then there is a sequence of subgroups</p>
+<script type="math/tex; mode=display">
+\{e\}=H_0 \subset H_1 \subset \cdots \subset H_n=H</script><p>where $H_{i}$ is normal in $H$ for all $i=0,\dots,n$ and $H_{i+1}/H_i$ is cyclic of order $p$. This is to say $|H_i|=p^i$.</p>
+<p>On the other hand, we also make use of analysis (which is Gauss’s idea). For every $a&gt;0$, there is a square root $\sqrt{a}&gt;0$. In other word, we have a positive root of the equation $X^2-a=0$. On the other hand, every polynomial $f(X) \in \mathbb{R}[X]$ of odd degree has a root in $\mathbb{R}$. This is to say, such $f(X)$ is <em>not</em> irreducible over $\mathbb{R}$ unless $\deg f=1$.</p>
+<p>Next we take a look at $\mathbb{C}=\mathbb{R}(i)$, where, $i$ is the imaginary unit, or, algebraically speaking, a root of $g(X)=X^2+1$. Note, every $z \in \mathbb{C}$ has a root. If we write $z=a+bi$, then </p>
+<script type="math/tex; mode=display">
+c=\sqrt{\frac{|z|+a}{2}}, \quad d = \frac{b}{|b|}\sqrt\frac{|z|-a}{2}</script><p>gives rise to $(c+di)^2=a+bi$. It follows that all polynomials $f(X) \in \mathbb{C}[X]$ of order $2$ has a root (if this is not very obvious, use a change-of-variable), hence <em>not</em> irreducible. With this being said, $\mathbb{C}$ does not have an extension of order $2$. Say, if $[E:\mathbb{C}]=2$, then $E=\mathbb{C}[X]/(p(X))$ and $p(X)$ is irreducible. But It can only be of order $2$, which is absurd already.</p>
+<p>We also need a part of the following lemma on field extension. In brief, finite separable extension induces a <em>minimal</em> Galois extension.</p>
+<blockquote>
+<p><strong>Lemma.</strong> Let $E/F$ be a finite separable extension. Then $E$ is contained in an extension $K$ such that $K/F$ is Galois. It is minimal in the sense that, in a fixed algebraic closure $K^\mathrm{a}$ of $K$, any other Galois extension $L$ of $F$ containing $E$ must contain $K$ as well. We have the following tower:</p>
+<script type="math/tex; mode=display">
+F \subset E \subset K \subset L \subset K^\mathrm{a}.</script></blockquote>
+<p><em>Proof.</em> First of all, we can find a finite Galois extension of $F$ containing $E$. For example, the composite of the splitting fields of the minimal polynomials for a basis for $E$ as a $F$-vector space. The intersection of all Galois extensions is exactly what we want. $\square$</p>
+<h2 id="The-main-result"><a href="#The-main-result" class="headerlink" title="The main result"></a>The main result</h2><blockquote>
+<p>The complex field $\mathbb{C}$ is algebraically closed.</p>
+</blockquote>
+<p>The following proof focuses on algebra and tries its best to avoid analysis. If you are a fan of analysis, you can dive into complex analysis and use the maximum modulus theorem to study a polynomial. Or, you can study the behaviour of $\frac{1}{f(z)}$ where $f$ is a polynomial. If $f$ has no root, then perhaps it can only be a constant.</p>
+<p><em>Proof.</em> Let’s firstly make it a problem of Galois theory. Since $\mathbb{R} \supset \mathbb{Q}$, it is of characteristic $0$  (hence perfect) and every finite extension is separable. Hence, in particular, $\mathbb{C}/\mathbb{R}$ is finite and separable. Let $L/\mathbb{C}$ be a finite extension. Then $L/\mathbb{R}$ is still a finite and separable extension, since  both the class of finite extensions and the class of separable extensions are <a target="_blank" rel="noopener" href="https://encyclopediaofmath.org/wiki/Extension_of_a_field">distinguished</a>. </p>
+<p>Applying the lemma above, we can find a finite and Galois extension $K/\mathbb{R}$. We need to prove that $K=\mathbb{C}$.</p>
+<p>Put $G=G(K/\mathbb{R})$. We want to show that $|G|=2$ hence $[K:\mathbb{R}]=[K:\mathbb{C}][\mathbb{C}:\mathbb{R}]=2$ and our result follows immediately. To do this, we first show that $|G|$ is even. Let $H \subset G$ be a $2$-Sylow subgroup of $G$ and we can say $|H|=2^n$, $|G|=2^nm$ and $m$ is even. Now we use the Galois correspondence. Put $F=K^H$. We see $K/F$ is Galois and $[K:F]=2^n$. It follows that $[F:\mathbb{R}]=m$. We claim that $m=1$.</p>
+<p>Indeed, applying the lemma again, we see $F/\mathbb{R}$ is separable. Hence we may apply the primitive element theorem to obtain $F=\mathbb{R}(\alpha)$. $\alpha$ is the root of an irreducible polynomial in $\mathbb{R}[X]$ of degree $m$. But $m$ is odd, we must have $m=1$.</p>
+<p>Therefore $G=H$ is a $2$-group. Since Galois extension remains normal under lifting, we see $K/\mathbb{C}$ is Galois. Let $G_1=G(K/\mathbb{C}) \subset G$ be the Galois group. We next claim that $G_1$ is trivial. If not, then, being a $2$-group, it has a subgroup $G_2$ of index $2$. Put $F’=K^{G_2}$, then we see $[K^{G_2}:\mathbb{C}]=G_1/G_2 \cong\mathbb{Z}/2\mathbb{Z}$. However, as mentioned above, $\mathbb{C}$ has no extension of order $2$. This contradiction implies that $G_1$ is trivial and therefore $K=\mathbb{C}$. $\square$</p>
+<p>Why we have to prove that $K=\mathbb{C}$? If you didn’t get it, let me remind you that a Galois extension is, by definition, an <strong>algebraic</strong> extension which is normal and separable.</p>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"><a href="../../../../tags/Artin/" class="post-tags__link button"># Artin</a><a href="../../../../tags/Galois/" class="post-tags__link button"># Galois</a><a href="../../../../tags/Examples-in-Galois-Theory/" class="post-tags__link button"># Examples in Galois Theory</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../27/galois-example-2/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            Examples in Galois Theory 2 - Cubic Extensions
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../../01/18/group-algebra/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            The Group Algebra of A Finite Group and Maschke&#39;s Theorem
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2022/03/16/galois-example-1/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

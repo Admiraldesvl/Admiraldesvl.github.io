@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>Dedekind Domain and Properties in an Elementary Approach | Desvl&#39;s blog</title>
+
+
+    <meta name="keywords" content="Exercise solution, Serge Lang, Dedekind">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="You can find contents about Dedekind domain (or Dedekind ring) in almost all algebraic number theory books. But many properties can be proved inside ring theory. I hope you can find the solution you n">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Dedekind Domain and Properties in an Elementary Approach">
+<meta property="og:url" content="https://desvl.xyz/2021/02/07/dedekind-domain/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="You can find contents about Dedekind domain (or Dedekind ring) in almost all algebraic number theory books. But many properties can be proved inside ring theory. I hope you can find the solution you n">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-02-07T13:43:22.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:09.854Z">
+<meta property="article:author" content="Desvl">
+<meta property="article:tag" content="Exercise solution">
+<meta property="article:tag" content="Serge Lang">
+<meta property="article:tag" content="Dedekind">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        Dedekind Domain and Properties in an Elementary Approach
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2021/02/" class="post-meta__date button">2021-02-07</a>
+        
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/" class="button">Algebra</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/Commutative-Algebra/" class="button">Commutative Algebra</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Definition"><span class="toc-number">1.</span> <span class="toc-text">Definition</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Propositions"><span class="toc-number">2.</span> <span class="toc-text">Propositions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Characterisation-of-Dedekind-domain"><span class="toc-number">3.</span> <span class="toc-text">Characterisation of Dedekind domain</span></a></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Definition"><span class="toc-number">1.</span> <span class="toc-text">Definition</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Propositions"><span class="toc-number">2.</span> <span class="toc-text">Propositions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Characterisation-of-Dedekind-domain"><span class="toc-number">3.</span> <span class="toc-text">Characterisation of Dedekind domain</span></a></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <p>You can find contents about Dedekind domain (or Dedekind ring) in <em>almost all</em> algebraic number theory books. But many properties can be proved inside ring theory. I hope you can find the solution you need in this post, and this post will not go further than elementary ring theory. With that being said, you are assumed to have enough knowledge of ring and ring of fractions (<a href="/2021/01/14/rings-of-fractions-and-localization/">this post</a> serves well), but not too much mathematics maturity is assumed (at the very least you are assumed to be familiar with terminologies in the linked post).$\def\mb{\mathbb}$ $\def\mfk{\mathfrak}$</p>
+<h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><p>There are several ways to define Dedekind domain since there are several equivalent statements of it. We will start from the one based on ring of fractions. As a friendly reminder, $\mb{Z}$ or any principal integral domain is already a Dedekind domain. In fact Dedekind domain may be viewed as a generalization of principal integral domain. </p>
+<p>Let $\mfk{o}$ be an integral domain (a.k.a. entire ring), and $K$ be its quotient field. A <strong>Dedekind domain</strong> is an integral domain $\mfk{o}$ such that the fractional ideals form a group under multiplication. Let’s have a breakdown. By a <strong>fractional ideal</strong> $\mfk{a}$ we mean a nontrivial additive subgroup of $K$ such that</p>
+<ul>
+<li>$\mfk{o}\mfk{a}=\mfk{a}$,</li>
+<li>there exists some nonzero element $c \in \mfk{o}$ such that $c\mfk{a} \subset \mfk{o}$.</li>
+</ul>
+<p>What does the group look like? As you may guess, the unit element is $\mfk{o}$. For a fractional ideal $\mfk{a}$, we have the inverse to be another fractional ideal $\mfk{b}$ such that $\mfk{ab}=\mfk{ba}=\mfk{o}$. Note we regard $\mfk{o}$ as a subring of $K$. For $a \in \mfk{o}$, we treat it as $a/1 \in K$. This makes sense because the map $i:a \mapsto a/1$ is injective. For the existence of $c$, you may consider it as a restriction that the ‘denominator’ is <em>bounded</em>. Alternatively, we say that fractional ideal of $K$ is a finitely generated $\mfk{o}$-submodule of $K$. But in this post it is not assumed that you have learned module theory.</p>
+<p>Let’s take $\mb{Z}$ as an example. The quotient field of $\mb{Z}$ is $\mb{Q}$. We have a fractional ideal $P$ where all elements are of the type $\frac{np}{2}$ with $p$ prime and $n \in \mb{Z}$. Then indeed we have $\mb{Z}P=P$. On the other hand, take $2 \in \mb{Z}$, we have $2P \subset \mb{Z}$. For its inverse we can take a fractional ideal $Q$ where all elements are of the type $\frac{2n}{p}$. As proved in algebraic number theory, the ring of algebraic integers in a number field is a Dedekind domain.</p>
+<p>Before we go on we need to clarify the definition of ideal multiplication. Let $\mfk{a}$ and $\mfk{b}$ be two ideals, we define $\mfk{ab}$ to be the set of all sums</p>
+<script type="math/tex; mode=display">
+x_1y_1+\cdots+x_ny_n</script><p>where $x_i \in \mfk{a}$ and $y_i \in \mfk{b}$. Here the number $n$ means finite but is not fixed. Alternatively we cay say $\mfk{ab}$ contains all finite sum of products of $\mfk{a}$ and $\mfk{b}$.</p>
+<h2 id="Propositions"><a href="#Propositions" class="headerlink" title="Propositions"></a>Propositions</h2><blockquote>
+<p><strong>(Proposition 1)</strong> A Dedekind domain $\mfk{o}$ is Noetherian. </p>
+</blockquote>
+<p>By Noetherian ring we mean that every ideal in a ring is finitely generated. Precisely, we will prove that for every ideal $\mfk{a} \subset \mfk{o}$ there are $a_1,a_2,\cdots,a_n \in \mfk{a}$ such that, for every $r \in \mfk{a}$, we have an expression</p>
+<script type="math/tex; mode=display">
+r = c_1a_1 + c_2a_2 + \cdots + c_na_n \qquad c_1,c_2,\cdots,c_n \in \mfk{o}.</script><p>Also note that any ideal $\mfk{a} \subset \mfk{o}$ can be viewed as a fractional ideal.</p>
+<p><strong>Proof.</strong> Since $\mfk{a}$ is an ideal of $\mfk{o}$, let $K$ be the quotient field of $\mfk{o}$, we see since $\mfk{oa}=\mfk{a}$, we may also view $\mfk{a}$ as a fractional ideal. Since $\mfk{o}$ is a Dedekind domain, and fractional ideals of $\mfk{a}$ is a group, there is an fractional ideal $\mfk{b}$ such that $\mfk{ab}=\mfk{ba}=\mfk{o}$. Since $1 \in \mfk{o}$, we may say that there exists some $a_1,a_2,\cdots, a_n \in \mfk{a}$ and $b_1,b_2,\cdots,b_n \in \mfk{o}$ such that $\sum_{i = 1 }^{n}a_ib_i=1$. For any $r \in \mfk{a}$, we have an expression</p>
+<script type="math/tex; mode=display">
+r = rb_1a_1+rb_2a_2+\cdots+rb_na_n.</script><p>On the other hand, any element of the form $c_1a_1+c_2a_2+\cdots+c_na_n$, by definition, is an element of $\mfk{a}$. $\blacksquare$</p>
+<p>From now on, the inverse of an fractional ideal $\mfk{a}$ will be written like $\mfk{a}^{-1}$.</p>
+<blockquote>
+<p><strong>(Proposition 2)</strong> For ideals $\mfk{a},\mfk{b} \subset \mfk{o}$, $\mfk{b}\subset\mfk{a}$ if and only if there exists some $\mfk{c}$ such that $\mfk{ac}=\mfk{b}$ (or we simply say $\mfk{a}|\mfk{b}$)</p>
+</blockquote>
+<p><strong>Proof.</strong> If $\mfk{b}=\mfk{ac}$, simply note that $\mfk{ac} \subset \mfk{a} \cap \mfk{c} \subset \mfk{a}$. For the converse, suppose that $a \supset \mfk{b}$, then $\mfk{c}=\mfk{a}^{-1}\mfk{b}$ is an ideal of $\mfk{o}$ since $\mfk{c}=\mfk{a}^{-1}\mfk{b} \subset \mfk{a}^{-1}\mfk{a}=\mfk{o}$, hence we may write $\mfk{b}=\mfk{a}\mfk{c}$. $\blacksquare$</p>
+<blockquote>
+<p><strong>(Proposition 3)</strong> If $\mfk{a}$ is an ideal of $\mfk{o}$, then there are prime ideals $\mfk{p}_1,\mfk{p}_2,\cdots,\mfk{p}_n$ such that</p>
+<script type="math/tex; mode=display">
+\mfk{a}=\mfk{p}_1\mfk{p}_2\cdots\mfk{p}_n.</script></blockquote>
+<p><strong>Proof.</strong> For this problem we use a classical technique: contradiction on maximality. Suppose this is not true, let $\mfk{A}$ be the set of ideals of $\mfk{o}$ that cannot be written as the product of prime ideals. By assumption $\mfk{U}$ is non-empty. Since as we have proved, $\mfk{o}$ is Noetherian, we can pick a maximal element $\mfk{a}$ of $\mfk{A}$ with respect to inclusion. If $\mfk{a}$ is maximal, then since all maximal ideals are prime, $\mfk{a}$ itself is prime as well. If $\mfk{a}$ is properly contained in an ideal $\mfk{m}$, then we write $\mfk{a}=\mfk{m}\mfk{m}^{-1}\mfk{a}$. We have $\mfk{m}^{-1}\mfk{a} \supsetneq \mfk{a}$ since if not, we have $\mfk{a}=\mfk{ma}$, which implies that $\mfk{m}=\mfk{o}$. But by maximality, $\mfk{m}^{-1}\mfk{a}\not\in\mfk{U}$, hence it can be written as a product of prime ideals. But $\mfk{m}$ is prime as well, we have a prime factorization for $\mfk{a}$, contradicting the definition of $\mfk{U}$.</p>
+<p>Next we show unicity up to a permutation. If</p>
+<script type="math/tex; mode=display">
+\mfk{p}_1\mfk{p}_2\cdots\mfk{p}_k=\mfk{q}_1\mfk{q}_2\cdots\mfk{q}_j,</script><p>since $\mfk{p}_1\mfk{p}_2\cdots\mfk{p}_k\subset\mfk{p}_1$ and $\mfk{p}_1$ is prime, we may assume that $\mfk{q}_1 \subset \mfk{p}_1$. By the property of fractional ideal we have $\mfk{q}_1=\mfk{p}_1\mfk{r}_1$ for some fractional ideal $\mfk{r}_1$. However we also have $\mfk{q}_1 \subset \mfk{r}_1$. Since $\mfk{q}_1$ is prime, we either have $\mfk{q}_1 \supset \mfk{p}_1$ or $\mfk{q}_1 \supset \mfk{r}_1$. In the former case we get $\mfk{p}_1=\mfk{q}_1$, and we finish the proof by continuing inductively. In the latter case we have $\mfk{r}_1=\mfk{q}_1=\mfk{p}_1\mfk{q}_1$, which shows that $\mfk{p}_1=\mfk{o}$, which is impossible. $\blacksquare$</p>
+<blockquote>
+<p><strong>(Proposition 4)</strong> Every nontrivial prime ideal $\mfk{p}$ is maximal. </p>
+</blockquote>
+<p><strong>Proof.</strong> Let $\mfk{m}$ be an maximal ideal containing $\mfk{p}$. By proposition 2 we have some $\mfk{c}$ such that $\mfk{p}=\mfk{mc}$. If $\mfk{m} \neq \mfk{p}$, then $\mfk{c} \neq \mfk{o}$, and we may write $\mfk{c}=\mfk{p}_1\cdots\mfk{p}_n$, hence $\mfk{p}=\mfk{m}\mfk{p}_1\cdots\mfk{p}_n$, which is a prime factorisation, contradicting the fact that $\mfk{p}$ has a unique prime factorisation, which is $\mfk{p}$ itself. Hence any maximal ideal containing $\mfk{p}$ is $\mfk{p}$ itself. $\blacksquare$</p>
+<blockquote>
+<p><strong>(Proposition 5)</strong> Suppose the Dedekind domain $\mfk{o}$ only contains one prime (and maximal) ideal $\mfk{p}$, let $t \in \mfk{p}$ and $t \not\in \mfk{p}^2$, then $\mfk{p}$ is generated by $t$.</p>
+</blockquote>
+<p><strong>Proof.</strong> Let $\mfk{t}$ be the ideal generated by $t$. By proposition 3 we have a factorisation</p>
+<script type="math/tex; mode=display">
+\mfk{t}=\mfk{p}^n</script><p>for some $n$ since $\mfk{o}$ contains only one prime ideal. According to proposition 2, if $n \geq 3$, we write $\mfk{p}^n=\mfk{p}^2\mfk{p}^{n-2}$, we see $\mfk{p}^2 \supset \mfk{p}^n$. But this is impossible since if so we have $t \in \mfk{p}^n \subset \mfk{p}^2$ contradicting our assumption. Hence $0&lt;n&lt;3$. But If $n=2$ we have $t \in \mfk{p}^2$ which is also not possible. So $\mfk{t}=\mfk{p}$ provided that such $t$ exists. </p>
+<p>For the existence of $t$, note if not, then for all $t \in \mfk{p}$ we have $t \in \mfk{p}^2$, hence $\mfk{p} \subset \mfk{p}^2$. On the other hand we already have $\mfk{p}^2 = \mfk{p}\mfk{p}$, which implies that $\mfk{p}^2 \subset \mfk{p}$ (proposition 2), hence $\mfk{p}^2=\mfk{p}$, contradicting proposition 3. Hence such $t$ exists and our proof is finished. $\blacksquare$</p>
+<h2 id="Characterisation-of-Dedekind-domain"><a href="#Characterisation-of-Dedekind-domain" class="headerlink" title="Characterisation of Dedekind domain"></a>Characterisation of Dedekind domain</h2><p>In fact there is another equivalent definition of Dedekind domain:</p>
+<blockquote>
+<p>A domain $\mfk{o}$ is Dedekind if and only if</p>
+<ul>
+<li>$\mfk{o}$ is Noetherian.</li>
+<li>$\mfk{o}$ is integrally closed.</li>
+<li>$\mfk{o}$​ has Krull dimension $1$​ (i.e. every non-zero prime ideals are maximal).</li>
+</ul>
+</blockquote>
+<p>This is equivalent to say that faction ideals form a group and is frequently used by mathematicians as well. But we need some more advanced techniques to establish the equivalence. Presumably there will be a post about this in the future.</p>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"><a href="../../../../tags/Exercise-solution/" class="post-tags__link button"># Exercise solution</a><a href="../../../../tags/Serge-Lang/" class="post-tags__link button"># Serge Lang</a><a href="../../../../tags/Dedekind/" class="post-tags__link button"># Dedekind</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../23/linear-algebra-missing/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            (Kind of) Missing Content in Your Linear Algebra Class (Still on Progress)
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../../01/23/hardys-inequality/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            Several ways to prove Hardy&#39;s inequality
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2021/02/07/dedekind-domain/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

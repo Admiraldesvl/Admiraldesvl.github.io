@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>Chinese Remainder Theorem in Several Scenarios of Ring Theory | Desvl&#39;s blog</title>
+
+
+    <meta name="keywords" content="Chinese Remainder Theorem">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="We study the Chinese remainder theorem in various contexts and abstract levels.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Chinese Remainder Theorem in Several Scenarios of Ring Theory">
+<meta property="og:url" content="https://desvl.xyz/2023/05/27/chinese-remainder-theorem-ring-theory/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="We study the Chinese remainder theorem in various contexts and abstract levels.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-05-27T11:09:12.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:09.763Z">
+<meta property="article:author" content="Desvl">
+<meta property="article:tag" content="Chinese Remainder Theorem">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        Chinese Remainder Theorem in Several Scenarios of Ring Theory
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2023/05/" class="post-meta__date button">2023-05-27</a>
+        
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/" class="button">Algebra</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/Commutative-Algebra/" class="button">Commutative Algebra</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/Non-commutative-Algebra/" class="button">Non-commutative Algebra</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Level-1-Ring-with-Unity"><span class="toc-number">1.</span> <span class="toc-text">Level 1 - Ring with Unity</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Level-2-Noncommutative-Ring-without-Unity"><span class="toc-number">2.</span> <span class="toc-text">Level 2 - Noncommutative Ring without Unity</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bonuses"><span class="toc-number">3.</span> <span class="toc-text">Bonuses</span></a></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Level-1-Ring-with-Unity"><span class="toc-number">1.</span> <span class="toc-text">Level 1 - Ring with Unity</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Level-2-Noncommutative-Ring-without-Unity"><span class="toc-number">2.</span> <span class="toc-text">Level 2 - Noncommutative Ring without Unity</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bonuses"><span class="toc-number">3.</span> <span class="toc-text">Bonuses</span></a></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>The classic version of Chinese remainder theorem tells us that we can find solutions out of modulus relations. You may have seen this poem when you were young.</p>
+<blockquote>
+<p>有物不知其數，三三數之剩二，五五數之剩三，七七數之剩二。問物幾何？</p>
+</blockquote>
+<p>Translation:</p>
+<blockquote>
+<p>There are certain things whose number is unknown. If we count them by threes, we have two left over; by fives, we have three left over; and by sevens, two are left over. How many things are there?</p>
+</blockquote>
+<p>This poem can be translated into finding the solution of an equation:</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+x \equiv 2 \pmod 3, \\
+x \equiv 3 \pmod 5, \\
+x \equiv 2 \pmod 7.
+\end{cases}</script><p>In modern language, we consider the integer ring $\mathbb{Z}$ (Z for Zahlen in German). Ideals $(3)$, $(5)$ and $(7)$ are pairwise coprime (or comaximal), and as a result, the map</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\mathbb{Z} &\to \mathbb{Z}/(3) \times \mathbb{Z}/(5) \times \mathbb{Z}/(7) \\
+n &\mapsto (n +(3), n +(5), n +(7))
+\end{aligned}</script><p>is considered. The poem is all about finding a solution to the pre-image of $(2 +(3), 3+(5), 2+ (7))$. The Chinese remainder theorem tells us that, the map is surjective. Actually $233$ is such an element. </p>
+<p>Nevertheless, what really matters here is about rings and ideals. That is why we try revisit the Chinese Remainder theorem in the language of ring theories. Although the importance of the classic version should never been ignored, we should also see it further.</p>
+<p>We will study the Chinese remainder theorem in a ring, assuming the ring is commutative or assume something much weaker. We will also see a special case in Dedekind domains. We try our best to make assumptions as few as possible.</p>
+<h1 id="Chinese-Remainder-Theorem"><a href="#Chinese-Remainder-Theorem" class="headerlink" title="Chinese Remainder Theorem"></a>Chinese Remainder Theorem</h1><p>We want to apply restrictions as little as possible. Let $A$ be a ring that is not necessarily commutative and does not necessarily contain a unit. A lot of things developed in ring theory will fail here, but we can still consider <strong>direct product</strong> of rings and <strong>coprime</strong> (or comaximal) ideals. Two ideals $\mathfrak{a}$ and $\mathfrak{b}$ of $A$ are coprime if $\mathfrak{a}+\mathfrak{b}=A$.  We will do the Chinese remainder theorem on two levels of abstraction. Throughout, when discussing ideals, we are all talking about two-sided ideals.</p>
+<h2 id="Level-1-Ring-with-Unity"><a href="#Level-1-Ring-with-Unity" class="headerlink" title="Level 1 - Ring with Unity"></a>Level 1 - Ring with Unity</h2><p>When the ring has a unit, we have an easy view of the intersection and product of ideals</p>
+<blockquote>
+<p><strong>Proposition 1.</strong> Let $A$ be a ring with unity, $\mathfrak{a}$ and $\mathfrak{b}$ two ideals of $A$. If $\mathfrak{a}$ and $\mathfrak{b}$ are coprime, i.e. $\mathfrak{a}+\mathfrak{b}=A$, then</p>
+<script type="math/tex; mode=display">
+\mathfrak{a} \cap \mathfrak{b}=\mathfrak{ab}+\mathfrak{ba}.</script><p>In particular, when $A$ is commutative, one always has $\mathfrak{a} \cap \mathfrak{b} = \mathfrak{ab}$.</p>
+</blockquote>
+<p><em>Proof.</em> The last statement follows from the relation that $\mathfrak{ab}=\mathfrak{ba}$, therefore it suffices to prove the first relation. Notice that there exists $x \in \mathfrak{a}$ and $y \in \mathfrak{b}$ such that $x+y=1$. As a result, for any $a \in \mathfrak{a} \cap \mathfrak{b}$, one has</p>
+<script type="math/tex; mode=display">
+a=a(x+y)=ax+ay \in \mathfrak{ba}+\mathfrak{ab} \implies \mathfrak{a} \cap \mathfrak{b} \subset \mathfrak{ba}+\mathfrak{ab}.</script><p>Conversely, since both $\mathfrak{a}$ and $\mathfrak{b}$ are two-sided ideals, we see $\mathfrak{ab} \subset \mathfrak{a} \cap \mathfrak{b}$ and $\mathfrak{ba} \subset \mathfrak{a} \cap \mathfrak{b}$, so is their sum. $\square$</p>
+<p>Let $A$ be a ring with unity. Consider a finite number of ideals $\mathfrak{a}_1,\dots,\mathfrak{a}_n$. Define a homomorphism</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\phi:A &\to \prod_{i=1}^{n}(A/\mathfrak{a}_i), \\
+x &\mapsto (x+\mathfrak{a}_1, \dots, x+\mathfrak{a}_n).
+\end{aligned}</script><p>We do not assume that these $\mathfrak{a}_i$ are pairwise coprime just yet. We will see what happens when they are.</p>
+<blockquote>
+<p><strong>Theorem 1.</strong> For the homomorphism $\phi$ defined above,</p>
+<ol>
+<li>$\phi$ is injective if and only if $\bigcap_{i=1}^{n}\mathfrak{a}_i=(0)$.</li>
+<li>If the $\mathfrak{a}_i$ are pairwise coprime and $A$ is commutative, then $\prod_{i=1}^{n}\mathfrak{a}_i=\bigcap_{i=1}^{n}\mathfrak{a}_i$.</li>
+<li>$\phi$ is surjective if and only if the $\mathfrak{a}_i$ are pairwise coprime.</li>
+</ol>
+</blockquote>
+<p><em>Proof.</em> The first statement follows from the fact that $\ker\phi=\bigcap_{i=1}^{n}\mathfrak{a}_i=(0)$.</p>
+<p>For the second statement, according to proposition 1, this equality holds for $n=2$. Now suppose that $n&gt;2$ and this statement holds for $\mathfrak{a}_1,\dots,\mathfrak{a}_{n-1}$. Let $\mathfrak{b}=\prod_{i=1}^{n-1}\mathfrak{a}_i=\bigcap_{i=1}^{n-1}\mathfrak{a}_i$, then we will show that $\mathfrak{a}_n+\mathfrak{b}=A$ and therefore</p>
+<script type="math/tex; mode=display">
+\mathfrak{b}\mathfrak{a}_n=\prod_{i=1}^{n}\mathfrak{a}_i=\mathfrak{b} \cap \mathfrak{a}_n = \bigcap_{i=1}^{n}\mathfrak{a}_i.</script><p>Notice that $\mathfrak{a}_i$ and $\mathfrak{a}_n$ are pairwise coprime for all $1 \le i \le n-1$. Therefore, in particular, for each of these $i$, we have equation $x_i+y_i =1$ where $x_i \in \mathfrak{a}_i$ and $y_i \in \mathfrak{b}_i$. Here we use the fact that $1 \in A$. Commutativity of $A$ is also used because proposition 1 shows us that without commutativity we cannot even prove it for $n=2$.</p>
+<p>From this equation we deduce that</p>
+<script type="math/tex; mode=display">
+\prod_{i=1}^{n-1}x_i = \prod_{i=1}^{n-1}(1-y_i).</script><p>Expanding the product on the right hand side, we see $\prod_{i=1}^{n-1}(1-y_i)=\prod_{i=1}^{n-1}x_i \equiv 1 \pmod{\mathfrak{a}_n}$. This implies that there exists $y \in \mathfrak{a}_n$ such that $\prod_{i=1}^{n-1}x_i+y=1$. Since $\prod_{i=1}^{n-1}x_i \in \mathfrak{b}$, we have shown that $\mathfrak{a}_n+\mathfrak{b}=A$.</p>
+<p>For the third statement, we first assume that $\phi$ is surjective. It suffices to show, for example, $\mathfrak{a}_1$ and $\mathfrak{a}_2$ are coprime. There exists $x \in A$ such that $\phi(x)=(1+\mathfrak{a}_1,0+\mathfrak{a}_2,\dots,0+\mathfrak{a}_n)$. This shows us that $x \in \mathfrak{a}_2$ and $1-x \in \mathfrak{a}_1$. As a result,</p>
+<script type="math/tex; mode=display">
+1=(1-x)+x \in \mathfrak{a}_1+\mathfrak{a}_2,</script><p>hence these two ideals are coprime. This procedure applies to all other $\mathfrak{a}_i$ by merely modifying the index.</p>
+<p>Conversely, assume the $\mathfrak{a}_i$ are pairwise coprime, then it suffices to show that there exists $x \in A$ such that $\phi(x)=(1+\mathfrak{a}_1,0+\mathfrak{a}_2,\dots,0+\mathfrak{a}_n)$ because we can apply the same procedure to all other $i$th component and $1$ can be then replaced with any other element $a$ of $A$ (for example, for this case, we replace $x$ with $ax$). All other cases can be generated by addition.</p>
+<p>Since $\mathfrak{a}_1+\mathfrak{a}_i=(1)$ for all $i&gt;1$, we have $u_i+v_i = 1$ where $u_i \in \mathfrak{a}_1$ and $v_i \in \mathfrak{a}_i$. Take</p>
+<script type="math/tex; mode=display">
+x=\prod_{i=2}^{n}v_i = \prod_{i=2}^{n}(1-u_i),</script><p>  then we see $x \equiv 0 \pmod{\mathfrak{a}_i}$ for all $i&gt;1$ but $x \equiv 1 \pmod{\mathfrak{a}_1}$. This $x$ will be mapped to  $(1+\mathfrak{a}_1,0+\mathfrak{a}_2,\dots,0+\mathfrak{a}_n)$ as expected. $\square$</p>
+<p>It also matters that ideals are two-sided, otherwise these products of $n-1$ terms will make less sense.</p>
+<blockquote>
+<p><strong>Corollary 1 (Chinese Remainder Theorem).</strong> If the $\mathfrak{a}_i$ are pairwise coprime, then $\phi$ is an isomorphism:</p>
+<script type="math/tex; mode=display">
+\frac{A}{\bigcap_{i=1}^{n}\mathfrak{a}_i} \cong \prod_{i=1}^{n}\frac{A}{\mathfrak{a}_i}.</script><p>If $A$ is commutative, then</p>
+<script type="math/tex; mode=display">
+\frac{A}{\prod_{i=1}^{n}\mathfrak{a}_i} \cong \prod_{i=1}^{n}\frac{A}{\mathfrak{a}_i}</script></blockquote>
+<h2 id="Level-2-Noncommutative-Ring-without-Unity"><a href="#Level-2-Noncommutative-Ring-without-Unity" class="headerlink" title="Level 2 - Noncommutative Ring without Unity"></a>Level 2 - Noncommutative Ring without Unity</h2><p>We first need a clarification of what do we mean by “noncommutative ring”. When we say “let $A$ be a noncommutative ring”, we mean $A$ is not necessarily commutative (it can be but we do not care); when we say “$A$ is noncommutative”, we mean $A$ is not commutative. This is a matter of convenience.</p>
+<p>What hurts most on this level is that we cannot use unity anymore this time (there can be a unit, but we should not care here). To work around this, we need to figure out what we essentially did when proving the surjectivity of $\phi$ in theorem 1. We find a suitable element in the first ideal, and a suitable element in the intersection of all other ideals.</p>
+<p>For this reason, we replace being pairwise coprime with a different condition. It is easy to see that if all the ideals are pairwise coprime, then the following condition will be satisfied automatically.</p>
+<blockquote>
+<p><strong>Theorem 2 (Chinese Remainder Theorem).</strong> Let $A$ be a noncommutative ring, let $\mathfrak{a}_1,\dots,\mathfrak{a}_n$ be ideals such that </p>
+<script type="math/tex; mode=display">
+\mathfrak{a}_i+\bigcap_{1 \le j \le n}^{j \ne i}\mathfrak{a}_j = A,</script><p>for all $i=1,2,\dots,n$, then one has an isomorphism</p>
+<script type="math/tex; mode=display">
+\frac{A}{\bigcap_{i=1}^{n}\mathfrak{a}_i} \cong \prod_{i=1}^{n}\frac{A}{\mathfrak{a}_i},</script><p>induced by the map</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\phi:A &\to \prod_{i=1}^{n}\frac{A}{\mathfrak{a}_i} \\
+x &\mapsto (x+\mathfrak{a}_1,\dots,x+\mathfrak{a}_n).
+\end{aligned}</script></blockquote>
+<p><em>Proof.</em> We have $\ker\phi=\bigcap_{i=1}^{n}\mathfrak{a}_i$. Therefore it remains to show that our improved coprime condition implies that $\phi$ is surjective. Again, it suffices to show that the preimage of $(a+\mathfrak{a}_1,0+\mathfrak{a}_2,\dots,0+\mathfrak{a}_n)$ exists for all $r \in A$ (wait! One should not consider $1$ here!). Since $\mathfrak{a}_1+\bigcap_{i=2}^{n}\mathfrak{a}_i=A$, for any $a \in A$, there exists $a_1 \in \mathfrak{a}_1$ and $a_2 \in \bigcap_{i=1}^{n}\mathfrak{a}_2$ such that</p>
+<script type="math/tex; mode=display">
+a=a_1+a_2.</script><p>As a result,</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\phi(a_2)&=(a_2+\mathfrak{a}_1,a_2+\mathfrak{a}_2,\dots,a_2+\mathfrak{a}_n) \\
+         &=(a_1+a_2+\mathfrak{a}_1,0+\mathfrak{a}_2,\dots,0+\mathfrak{a}_n) \\
+         &=(a+\mathfrak{a}_1,0+\mathfrak{a}_2,\dots,0+\mathfrak{a}_n) \\
+\end{aligned}</script><p>This proves the surjectivity of $\phi$. $\square$</p>
+<h2 id="Bonuses"><a href="#Bonuses" class="headerlink" title="Bonuses"></a>Bonuses</h2><p>We </p>
+<blockquote>
+<p><strong>Theorem 3 (Chinese Remainder Theorem).</strong> Let $A$ be a ring, let $\mathfrak{a}_1,\dots,\mathfrak{a}_n$ be let $\mathfrak{a}_1,\dots,\mathfrak{a}_n$ be ideals of $A$. If all the $\mathfrak{a}_i$ are pairwise coprime and for all $i$,</p>
+<script type="math/tex; mode=display">
+A=\mathfrak{a}_i+A^2.</script><p>then Chinese remainder theorem holds.</p>
+</blockquote>
+<p>If $A$ has a unit, then the condition $A=\mathfrak{a}_i+A^2$ is automatically satisfied.</p>
+<p><em>Proof.</em> Assume first all the $\mathfrak{a}_i$ are coprime and satisfy $A=\mathfrak{a}_i+A^2$. It suffices to prove the case when $i=1$. Notice that</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+A=\mathfrak{a}_1+A^2 &= \mathfrak{a}_1+(\mathfrak{a}_1+\mathfrak{a}_2)(\mathfrak{a}_1+\mathfrak{a}_3) \\
+                     &= \mathfrak{a}_1 + \mathfrak{a}_1^2 +\mathfrak{a}_2\mathfrak{a}_1+\mathfrak{a}_1\mathfrak{a}_3+\mathfrak{a}_2\mathfrak{a}_3 \\
+                     &\subset \mathfrak{a}_1 + \mathfrak{a}_2\mathfrak{a}_3 \\
+                     &\subset \mathfrak{a}_1 + \mathfrak{a}_2 \cap \mathfrak{a}_3 \\
+                     &\subset A.
+\end{aligned}</script><p>Therefore $A=\mathfrak{a}_1 + \mathfrak{a}_2 \cap \mathfrak{a}_3$. Suppose now $3&lt;m &lt; n$ and</p>
+<script type="math/tex; mode=display">
+A = \mathfrak{a}_1 + \mathfrak{a}_2 \cap \mathfrak{a}_3 \cap \dots \cap \mathfrak{a}_m,</script><p>then</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+A = \mathfrak{a}_1 + A^2 & = \mathfrak{a}_1 + (\mathfrak{a}_1 + \mathfrak{a}_2 \cap \mathfrak{a}_3 \cap \dots \cap \mathfrak{a}_m)(\mathfrak{a}_1+\mathfrak{a}_{m+1}) \\
+                         & = \mathfrak{a}_1+\mathfrak{a}_1^2 +\mathfrak{a}_1\mathfrak{a}_{m+1}+(\mathfrak{a}_2 \cap \mathfrak{a}_3 \cap \dots \cap \mathfrak{a}_m)\mathfrak{a}_1 + (\mathfrak{a}_2 \cap \mathfrak{a}_3 \cap \dots \cap \mathfrak{a}_m)\mathfrak{a}_{m+1} \\
+                         & \subset \mathfrak{a}_1 + \mathfrak{a}_2 \cap \mathfrak{a}_3 \cap \dots \cap \mathfrak{a}_m \cap \mathfrak{a}_{m+1} \\
+                         &\subset A.
+\end{aligned}</script><p> By induction we have $\mathfrak{a}_1+\bigcap_{j=2}^{n}\mathfrak{a}_j = A$ as desired. The next follows from theorem 2. $\square$</p>
+<p>Finally we offer an interesting version of Chinese remainder theorem, involving Dedekind domains.</p>
+<blockquote>
+<p><strong>Theorem 4 (Chinese Remainder Theorem).</strong> Let $\mathfrak{a}_1,\dots,\mathfrak{a}_n$ be ideals and let $x_1,\dots,x_n$ be elements in a Dedekind domain $A$. Then the system of congruences $x\equiv x_i \pmod{\mathfrak{a}_i}$ ($1 \le i \le n$) has a solution $x$ in $A$ if and only if $x_i \equiv x_j \pmod{\mathfrak{a}_i+\mathfrak{a}_j}$ whenver $i \ne j$.</p>
+</blockquote>
+<p><em>Proof.</em> Define $\phi:A \to \bigoplus_{i=1}^{n}A/\mathfrak{a}_i$ by $x \mapsto (x+\mathfrak{a}_1,\dots,x+\mathfrak{a}_n)$ and $\psi: \bigoplus_{i=1}^{n}A/\mathfrak{a}_i \to \bigoplus_{i&lt;j}A/(\mathfrak{a}_i+\mathfrak{a}_j)$ such that the $(i,j)$-component of $\psi(x_1+\mathfrak{a}_1,\dots,x_n+\mathfrak{a}_n)$ is $x_i-x_j+\mathfrak{a}_i+\mathfrak{a}_j$, then the statement is equivalent to saying that the sequence of $A$-modules</p>
+<script type="math/tex; mode=display">
+A \xrightarrow{\phi}\bigoplus_{i=1}^{n}A/\mathfrak{a}_i \xrightarrow{\psi}\bigoplus_{i<j}A/(\mathfrak{a}_i+\mathfrak{a}_j)</script><p>is exact. It is clear that $\operatorname{im}\phi \subset \ker \psi$. We need to show the converse. Since exactness is a local property, we can assume that $A$ is a discrete valuation ring, meaning that there is an element $x \in A$ such that all ideals $\mathfrak{a}$ are of the form $(x^k)$. Therefore we can rearrange the $\mathfrak{a}_i$ so that $\mathfrak{a}_1 = (x^{k_1}) \supset \mathfrak{a}_2=(x^{k_2}) \supset \cdots \supset \mathfrak{a}_n=(x^{k_n})$. In this case,  one has $k_1 \le k_2 \le \dots \le k_n$. In this case, we have $\mathfrak{a}_i+\mathfrak{a}_j=\mathfrak{a}_i$ whenever $i&lt;j$.</p>
+<p>Now pick $(x_1+\mathfrak{a}_1,\dots,x_n+\mathfrak{a}_n)\in \ker\psi$, then $x_i-x_j \in \mathfrak{a}_i+\mathfrak{a}_j=\mathfrak{a}_i$. Therefore $x_i \equiv x_j \pmod{\mathfrak{a}_i}$. In particular, taking $j=n$, we see</p>
+<script type="math/tex; mode=display">
+\phi(x_n)=(x_n+\mathfrak{a}_1,\dots,x_n+\mathfrak{a}_n)=(x_1+\mathfrak{a}_1,\dots,x_n+\mathfrak{a}_n) \implies (x_1+\mathfrak{a}_1,\dots,x_n+\mathfrak{a}_n)\in \operatorname{im}\phi,</script><p>as is wanted. $\square$</p>
+<h1 id="Examples-and-Remarks"><a href="#Examples-and-Remarks" class="headerlink" title="Examples and Remarks"></a>Examples and Remarks</h1><p>If we replace $A$ with $\mathbb{Z}$ and the $\mathfrak{a}_i$ with ideals generated by coprime numbers, then we reach the classic version of the Chinese remainder theorem.</p>
+<p>For non-commutative case, the reader can read <a href="/2022/01/18/group-algebra/">this post</a></p>
+<p>For another example, we consider the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Lagrange_polynomial">Lagrange interpolation</a>, which is the special case of the Chinese Remainder theorem on the ring $\mathbb{R}[X]$ with extra consideration on evaluations. As you may guess, $\mathbb{R}$ can be replaced with other fields. </p>
+<blockquote>
+<p> Find a polynomial $f(X) \in \mathbb{R}[X]$ passing three points $(1,2)$, $(2,-1)$ and $(3,2)$. </p>
+</blockquote>
+<p>Consider ideals $\mathfrak{a}_1=(x-1)$, $\mathfrak{a}_2=(x-2)$ and $\mathfrak{a}_3=(3,2)$. Then, for example, $f(X) \equiv f_1(X) \pmod{\mathfrak{a}_1}$, where $f_1$ is a real polynomial that attains $2$ at the point $1$. The Chinese Remainder theorem tells us that such $f$ exists. This approach is seemingly an unnecessary overkill but it allows us to view a theorem in numerical analysis in an algebraic way.</p>
+<p>We can also make things that are not related to polynomial rings a matter of polynomial rings. For example, via Chinese Remainder Theorem, we can compute $\mathbb{C} \otimes_\mathbb{R} \mathbb{C}$ in the following way:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\mathbb{C} \otimes_\mathbb{R} \mathbb{C} &\cong \mathbb{C} \otimes_\mathbb{R} \mathbb{R}[X]/(X^2+1) \\
+                                         &\cong (\mathbb{C} \otimes \mathbb{R}[X])/(X^2+1) \\
+                                         &\cong\mathbb{C}[X]/(X^2+1) \\
+                                         &\cong\mathbb{C}[X]/(X-i)(X+i) \\
+                                         &\cong\mathbb{C}[X]/(X-i) \times \mathbb{C}[X]/(X+i) \\
+                                         &\cong \mathbb{C} \times \mathbb{C}
+\end{aligned}</script><p>There is a proof of Hilbert’s theorem 90 (of cyclic extensions) where the isomorphism above is used, with degrees higher than $2$: <a target="_blank" rel="noopener" href="https://mathoverflow.net/a/21117/172944">https://mathoverflow.net/a/21117/172944</a> </p>
+<p>Our last remark shows the geometrical interpretation of Chinese Remainder Theorem. In geometry, we consider the spectrum of a unitary commutative ring, which gives rise to an affine scheme. If $A=\prod_{i=1}^{n}A_i$ is a direct product of such rings $A_i$, then $\operatorname{Spec}A \cong \coprod_{i=1}^{n}\operatorname{Spec}(A_i)$. Conversely, using Chinese remainder theorem, we can show that if $\operatorname{Spec}A$ is a disjoint union of two spectrums, then $A$ is a direct product of two other rings. To be precise:</p>
+<blockquote>
+<p>Let $A$ be a unitary commutative ring, then the following statements are equivalent:</p>
+<ol>
+<li>$X=\operatorname{Spec}(A)$ is disconnected.</li>
+<li>$A=A_1 \times A_2$ where neither of the two rings is a zero ring.</li>
+<li>There is an element $e \ne 0,1$ such that $e^2=e$, i.e. an idempotent element.</li>
+</ol>
+</blockquote>
+<p>In particular, since in a local ring any idempotent element is $0$ or $1$, we see the spectrum of it has to be connected.</p>
+<h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><ul>
+<li><p>Michael Atiyah, I.G. MacDonald, <em>Introduction to Commutative Algebra</em></p>
+</li>
+<li><p>Ravi Vakil, <em>Foundations of Algebraic Geometry</em></p>
+</li>
+</ul>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"><a href="../../../../tags/Chinese-Remainder-Theorem/" class="post-tags__link button"># Chinese Remainder Theorem</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../../07/17/artin-theorem/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            Artin&#39;s Theorem of Induced Characters
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../../04/06/projective-rep-so3/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            Projective Representations of SO(3)
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2023/05/27/chinese-remainder-theorem-ring-theory/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

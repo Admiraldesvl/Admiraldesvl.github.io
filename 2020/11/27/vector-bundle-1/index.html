@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>Study Vector Bundle in a Relatively Harder Way - Definition | Desvl&#39;s blog</title>
+
+
+    <meta name="keywords" content="Serge Lang">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="MotivationDirection is a considerable thing. For example take a look at this picture (by David Gunderman):  The position of the red ball and black ball shows that this triple of balls turns upside dow">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Study Vector Bundle in a Relatively Harder Way - Definition">
+<meta property="og:url" content="https://desvl.xyz/2020/11/27/vector-bundle-1/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="MotivationDirection is a considerable thing. For example take a look at this picture (by David Gunderman):  The position of the red ball and black ball shows that this triple of balls turns upside dow">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://desvl.xyz/img/mobius.gif">
+<meta property="og:image" content="https://desvl.xyz/img/vector-bundle.png">
+<meta property="article:published_time" content="2020-11-27T17:22:57.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:10.711Z">
+<meta property="article:author" content="Desvl">
+<meta property="article:tag" content="Serge Lang">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://desvl.xyz/img/mobius.gif">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        Study Vector Bundle in a Relatively Harder Way - Definition
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2020/11/" class="post-meta__date button">2020-11-27</a>
+        
+    <span class="separate-dot"></span><a href="../../../../categories/Geometry/" class="button">Geometry</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Geometry/Differential-Geometry/" class="button">Differential Geometry</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Geometry/Differential-Geometry/Vector-Bundles/" class="button">Vector Bundles</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Motivation"><span class="toc-number">1.</span> <span class="toc-text">Motivation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#A-Formal-Construction"><span class="toc-number">2.</span> <span class="toc-text">A Formal Construction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Examples"><span class="toc-number">3.</span> <span class="toc-text">Examples</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Trivial-bundle"><span class="toc-number">3.1.</span> <span class="toc-text">Trivial bundle</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mobius-band"><span class="toc-number">3.2.</span> <span class="toc-text">Möbius band</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Tangent-bundle-of-the-sphere"><span class="toc-number">3.3.</span> <span class="toc-text">Tangent bundle of the sphere</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#There-are-still-many-things-remain-undiscovered"><span class="toc-number">4.</span> <span class="toc-text">There are still many things remain undiscovered</span></a></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Motivation"><span class="toc-number">1.</span> <span class="toc-text">Motivation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#A-Formal-Construction"><span class="toc-number">2.</span> <span class="toc-text">A Formal Construction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Examples"><span class="toc-number">3.</span> <span class="toc-text">Examples</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Trivial-bundle"><span class="toc-number">3.1.</span> <span class="toc-text">Trivial bundle</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mobius-band"><span class="toc-number">3.2.</span> <span class="toc-text">Möbius band</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Tangent-bundle-of-the-sphere"><span class="toc-number">3.3.</span> <span class="toc-text">Tangent bundle of the sphere</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#There-are-still-many-things-remain-undiscovered"><span class="toc-number">4.</span> <span class="toc-text">There are still many things remain undiscovered</span></a></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h2 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h2><p>Direction is a considerable thing. For example take a look at this picture (by David Gunderman):</p>
+<p><img src="\img\mobius.gif" alt="mobius"></p>
+<p>The position of the red ball and black ball shows that this triple of balls turns upside down every time they finish one round. This wouldn’t happen if this triple were on a normal band, which can be denoted by $S^1 \times (0,1)$. What would happen if we try to describe their velocity on the Möbius band, both locally and globally? There must be some significant difference from a normal band. If we set some move pattern on balls, for example let them run horizontally or zig-zagly, hopefully we get different <em>set</em> of vectors. those vectors can span some vector spaces as well. </p>
+<h2 id="A-Formal-Construction"><a href="#A-Formal-Construction" class="headerlink" title="A Formal Construction"></a>A Formal Construction</h2><p>Here and in the forgoing posts, we will try to develop purely formally certain functorial constructions having to do with vector bundles. It may be overly generalized, but we will offer some examples to make it concrete.</p>
+<p>Let $M$ be a manifold (of class $C^p$, where $p \geq 0$ and can be set to $\infty$) modeled on a Banach space $\mathbf{E}$. Let $E$ be another topological space and $\pi: E \to M$ a surjective $C^p$-morphism. A <strong>vector bundle</strong> is a topological construction associated with $M$ (base space), $E$ (total space) and $\pi$ (bundle projection) such that, roughly speaking, $E$ is locally a product of $M$ and $\mathbf{E}$.</p>
+<p>We use $\mathbf{E}$ instead of $\mathbb{R}^n$ to include the infinite dimensional cases. We will try to distinguish finite-dimensional and infinite-dimensional Banach spaces here. There are a lot of things to do, since, for example, infinite dimensional Banach spaces have no countable Hamel basis, while the finite-dimensional ones have finite ones (this can be proved by using the Baire category theorem). </p>
+<p>Next we will show precisely how $E$ locally becomes a product space. Let $\mathfrak{U}=(U_i)_i$ be an open covering of $M$, and for each $i$, suppose that we are <em>given</em> a mapping</p>
+<script type="math/tex; mode=display">
+\tau_i:\pi^{-1}(U_i)\to U_i \times E</script><p>satisfying the following three conditions.</p>
+<p><strong>VB 1</strong> $\tau_i$ is a $C^p$ diffeomorphism making the following diagram commutative:</p>
+<p><img src="\img\vector-bundle.png" alt="diagram-000001"></p>
+<p>where $pr$ is the projection of the first component: $(x,y) \mapsto x$. By restricting $\tau_i$ on one point of $U_i$, we obtain an isomorphism on each fiber $\pi^{-1}(x)$:</p>
+<script type="math/tex; mode=display">
+\tau_{ix}:\pi^{-1}(x) \xrightarrow{\simeq} \{x\} \times \mathbf{E}</script><p><strong>VB 2</strong> For each pair of open sets $U_i$, $U_j \in \mathfrak{U}$, we have the map</p>
+<script type="math/tex; mode=display">
+\tau_{jx} \circ \tau_{ix}^{-1}: \mathbf{E} \to \mathbf{E}</script><p>to be a toplinear isomorphism (that is, it preserves $\mathbf{E}$ for being a <em>topological</em> vector space).</p>
+<p><strong>VB 3</strong> For any two members $U_i$, $U_j \in \mathfrak{U}$, we have the following function to be a $C^p$-morphism:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\varphi:U_i \cap U_j &\to L(\mathbf{E},\mathbf{E}) \\
+                x &\mapsto \left(\tau_j\circ \tau_i^{-1}\right)_x
+\end{aligned}</script><p><strong>REMARKS.</strong> As with manifold, we call the set of 2-tuples $(U_i,\tau_i)_i$ a <strong>trivializing covering</strong> of $\pi$, and that $(\tau_i)$ are its <strong>trivializing maps</strong>. Precisely, for $x \in U_i$, we say $U_i$ or $\tau_i$ trivializes at $x$.</p>
+<p>Two trivializing <em>coverings</em> for $\pi$ is said to be <strong>VB-equivalent</strong> if taken together they also satisfy conditions of <strong>VB 2</strong> and <strong>VB 3</strong>. It’s immediate that <strong>VB-equivalence</strong> is an equivalence relation and we leave the verification to the reader. It is this VB-equivalence <em>class</em> of trivializing coverings that determines a structure of <strong>vector bundle</strong> on $\pi$. With respect to the Banach space $\mathbf{E}$, we say that the vector bundle has <strong>fiber</strong> $\mathbf{E}$, or is <strong>modeled on</strong> $\mathbf{E}$. </p>
+<p>Next we shall give some motivations of each condition. Each pair $(U_i,\tau_i)$ determines a local product of ‘a part of the manifold’ and the model space, on the latter of which we can deploy the direction with ease. This is what <strong>VB 1</strong> tells us. But that’s far from enough if we want our vectors fine enough. We do want the total space $E$ to actually be able to qualify our requirements.  As for <strong>VB 2</strong>, it is ensured that using two different trivializing maps will give the same structure of some Banach spaces (with <em>equivalent</em> norms). According to the image of $\tau_{ix}$, we can say, for each point $x \in X$, which can be determined by a fiber $\pi^{-1}(x)$ (the pre-image of $\tau_{ix}$), can be given another Banach space by being sent via $\tau_{jx}$ for some $j$. Note that $\pi^{-1}(x) \in E$, the total space. In fact, <strong>VB 2</strong> has an equivalent alternative:</p>
+<p><strong>VB 2’</strong> On each fiber $\pi^{-1}(x)$ we are given a structure of Banach space as follows. For $x \in U_i$, we have a toplinear isomorphism which is in fact the trivializing map:</p>
+<script type="math/tex; mode=display">
+\tau_{ix}:\pi^{-1}(x)=E_x \to \mathbf{E}.</script><p>As stated, <strong>VB 2</strong> implies <strong>VB 2’</strong>. Conversely, if <strong>VB 2’</strong> is satisfied, then for open sets $U_i$, $U_j \in \mathfrak{U}$, and $x \in U_i \cap U_j$, we have $\tau_{jx} \circ \tau_{ix}^{-1}:\mathbf{E} \to \mathbf{E}$ to be an toplinear isomorphism. Hence, we can consider <strong>VB 2</strong> or <strong>VB 2’</strong> as the refinement of <strong>VB 1</strong>.</p>
+<p>In finite dimensional case, one can omit <strong>VB 3</strong> since it can be implied by <strong>VB 2</strong>, and we will prove it below.</p>
+<blockquote>
+<p><strong>(Lemma)</strong> Let $\mathbf{E}$ and $\mathbf{F}$ be two finite dimensional Banach spaces. Let $U$ be open in some Banach space. Let</p>
+<script type="math/tex; mode=display">
+f:U \times \mathbf{E} \to \mathbf{F}</script><p>be a $C^p$-morphism such that for each $x \in U$, the map</p>
+<script type="math/tex; mode=display">
+f_x: \mathbf{E} \to \mathbf{F}</script><p>given by $f_x(v)=f(x,v)$ is a linear map. Then the map of $U$ into $L(\mathbf{E},\mathbf{F})$ given by $x \mapsto f_x$ is a $C^p$-morphism.</p>
+</blockquote>
+<p><strong>PROOF.</strong> Since $L(\mathbf{E},\mathbf{F})=L(\mathbf{E},\mathbf{F_1}) \times L(\mathbf{E},\mathbf{F_2}) \times \cdots \times L(\mathbf{E},\mathbf{F_n})$ where $\mathbf{F}=\mathbf{F_1} \times \cdots \times \mathbf{F_n}$, by induction on the dimension of $\mathbf{F}$ and $\mathbf{E}$, it suffices to assume that $\mathbf{E}$ and $\mathbf{F}$ are toplinearly isomorphic to $\mathbb{R}$. But in that case, the function $f(x,v)$ can be written $g(x)v$ for some $g:U \to \mathbb{R}$. Since $f$ is a morphism, it follows that as a function of each argument $x$, $v$ is also a morphism, Putting $v=1$ shows that $g$ is also a morphism, which finishes the case when both the dimension of $\mathbf{E}$ and $\mathbf{F}$ are equal to $1$, and the proof is completed by induction. $\blacksquare$ </p>
+<p>To show that <strong>VB 3</strong> is implied by <strong>VB 2</strong>, put $\mathbf{E}=\mathbf{F}$ as in the lemma. Note that $\tau_j \circ \tau_i^{-1}$ maps $U_i \cap U_j \times \mathbf{E}$ to $\mathbf{E}$, and $U_i \cap U_j$ is open, and for each $x \in U_i \cap U_j$, the map $(\tau_j \circ \tau_i^{-1})_x=\tau_{jx} \circ \tau_{ix}^{-1}$ is toplinear, hence linear. Then the fact that $\varphi$ is a morphism follows from the lemma.</p>
+<h2 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h2><h3 id="Trivial-bundle"><a href="#Trivial-bundle" class="headerlink" title="Trivial bundle"></a>Trivial bundle</h3><p>Let $M$ be any $n$-dimensional smooth manifold that you are familiar with, then $pr:M \times \mathbb{R}^n \to M$ is actually a vector bundle. Here the total space is $M \times \mathbb{R}^n$ and the base is $M$ and $pr$ is the bundle projection but in this case it is simply a projection. Intuitively, on a total space, we can determine a point $x \in M$, and another component can be any direction in $\mathbb{R}^n$, hence a <em>vector</em>. </p>
+<p>We need to verify three conditions carefully. Let $(U_i,\varphi_i)_i$ be any atlas of $M$, and $\tau_i$ is the identity map on $U_i$ (which is naturally of $C^p$). We claim that $(U_i,\tau_i)_i$ satisfy the three conditions, thus we get a vector bundle. </p>
+<p>For <strong>VB 1</strong> things are clear: since $pr^{-1}(U_i)=U_i \times \mathbb{R}^n$, the diagram is commutative. Each fiber $pr^{-1}(x)$ is essentially $(x) \times \mathbb{R}^n$, and still, $\tau_{jx} \circ \tau_{ix}^{-1}$ is the identity map between $(x) \times \mathbb{R}^n$ and $(x) \times \mathbb{R}^n$, under the same Euclidean topology, hence <strong>VB 2</strong> is verified, and we have no need to verify <strong>VB 3</strong>.</p>
+<h3 id="Mobius-band"><a href="#Mobius-band" class="headerlink" title="Möbius band"></a>Möbius band</h3><p>First of all, imagine you have embedded a circle into a Möbius band. Now we try to give some formal definition. As with quotient topology, $S^1$ can be defined as</p>
+<script type="math/tex; mode=display">
+S^1=I/\sim_1,</script><p>where $I$ is the unit interval and $0 \sim_1 1$ (identifying two ends). On the other hand, the infinite Möbius band can be defined by</p>
+<script type="math/tex; mode=display">
+B= (I \times \mathbb{R})/\sim_2</script><p>where $(0,v) \sim_2 (1,-v)$ for all $v \in \mathbb{R}$ (not only identifying two ends of $I$ but also ‘flips’ the vertical line). Then all we need is a natural projection on the first component:</p>
+<script type="math/tex; mode=display">
+\pi:B \to S^1.</script><p>And the verification has few difference from the trivial bundle. Quotient topology of Banach spaces follows naturally in this case, but things might be troublesome if we restrict ourself in $\mathbb{R}^n$.</p>
+<h3 id="Tangent-bundle-of-the-sphere"><a href="#Tangent-bundle-of-the-sphere" class="headerlink" title="Tangent bundle of the sphere"></a>Tangent bundle of the sphere</h3><p>The first example is relatively rare in many senses. By $S^n$ we mean the set in $\mathbb{R}^{n+1}$ with</p>
+<script type="math/tex; mode=display">
+S^n=\{(x_0,x_1,\dots,x_n):x_0^2+x_1^2+\cdots+x_n^2=1\}</script><p>and the tangent bundle can be defined by</p>
+<script type="math/tex; mode=display">
+TS^n=\{(\mathbf{x},\mathbf{y}):\langle\mathbf{x},\mathbf{y}\rangle=0\} \subset S^{n} \times\mathbb{R}^{n+1},</script><p>where, of course, $\mathbf{x} \in S^n$ and $\mathbf{y} \in \mathbb{R}^{n+1}$. The vector bundle is given by $pr:TS^n \to S^n$ where $pr$ is the projection of the first factor. This total space is of course much finer than $M \times \mathbb{R}^n$ in the first example. Each point in the manifold now is associated with a <em>tangent space</em> $T_x(M)$ at this point.</p>
+<p>More generally, we can define it in any Hilbert space $H$, for example, $L^2$ space:</p>
+<script type="math/tex; mode=display">
+TS=\{(x,y):\langle x , y \rangle=0\} \subset S \times H</script><p>where</p>
+<script type="math/tex; mode=display">
+S=\{x:\langle x , x \rangle = 1\}.</script><p>The projection is natural:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\pi: TM &\to M \\
+T_x(M) & \mapsto x
+\end{aligned}</script><p>But we will not cover the verification in this post since it is required to introduce the abstract definition of tangent vectors. This will be done in the following post.</p>
+<h2 id="There-are-still-many-things-remain-undiscovered"><a href="#There-are-still-many-things-remain-undiscovered" class="headerlink" title="There are still many things remain undiscovered"></a>There are still many things remain undiscovered</h2><p>We want to study those ‘vectors’ associated to some manifold both globally and locally. For example we may want to describe the tangent line of some curves at some point without heavily using elementary calculus stuff. Also, we may want to describe the vector bundle of a manifold globally, for example, when will we have a trivial one? Can we classify the manifold using the behavior of the bundle? Can we make it a little more abstract, for example, consider the class of all isomorphism bundles? How do one bundle <em>transform</em> to another? But to do this we need a big amount of definitions and propositions.</p>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"><a href="../../../../tags/Serge-Lang/" class="post-tags__link button"># Serge Lang</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../28/A-continuous-function-sending-Lp-functions-to-L1/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            A Continuous Function Sending L^p Functions to L^1
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../13/big-3-pt-6/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            The Big Three Pt. 6 - Closed Graph Theorem with Applications
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2020/11/27/vector-bundle-1/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

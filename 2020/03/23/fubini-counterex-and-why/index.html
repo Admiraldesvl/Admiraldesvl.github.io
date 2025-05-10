@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>Counterexamples of Fubini&#39;s theorem | Desvl&#39;s blog</title>
+
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="Hypotheses in Fubini’s theorem cannot be dispensed withIn this post we proved Fubini’s theorem in the sense of Lebesgue measure, which makes it easier to evaluate multi variable integral. But these tw">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Counterexamples of Fubini&#39;s theorem">
+<meta property="og:url" content="https://desvl.xyz/2020/03/23/fubini-counterex-and-why/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="Hypotheses in Fubini’s theorem cannot be dispensed withIn this post we proved Fubini’s theorem in the sense of Lebesgue measure, which makes it easier to evaluate multi variable integral. But these tw">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-03-23T11:13:44.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:09.918Z">
+<meta property="article:author" content="Desvl">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        Counterexamples of Fubini&#39;s theorem
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2020/03/" class="post-meta__date button">2020-03-23</a>
+        
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Hypotheses-in-Fubini%E2%80%99s-theorem-cannot-be-dispensed-with"><span class="toc-number">1.</span> <span class="toc-text">Hypotheses in Fubini’s theorem cannot be dispensed with</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Counterexamples"><span class="toc-number">2.</span> <span class="toc-text">Counterexamples</span></a></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Hypotheses-in-Fubini%E2%80%99s-theorem-cannot-be-dispensed-with"><span class="toc-number">1.</span> <span class="toc-text">Hypotheses in Fubini’s theorem cannot be dispensed with</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Counterexamples"><span class="toc-number">2.</span> <span class="toc-text">Counterexamples</span></a></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h2 id="Hypotheses-in-Fubini’s-theorem-cannot-be-dispensed-with"><a href="#Hypotheses-in-Fubini’s-theorem-cannot-be-dispensed-with" class="headerlink" title="Hypotheses in Fubini’s theorem cannot be dispensed with"></a>Hypotheses in Fubini’s theorem cannot be dispensed with</h2><p>In <a href="/2020/03/22/fubini-theorem-in-euclidean-space/">this post</a> we proved Fubini’s theorem in the sense of Lebesgue measure, which makes it easier to evaluate multi variable integral. But these two classic counterexamples in this post prevent you from using Fubini’s theorem without enough consideration. </p>
+<h2 id="Counterexamples"><a href="#Counterexamples" class="headerlink" title="Counterexamples"></a>Counterexamples</h2><p>So we said $f(x,y)$ has to be integrable. What if $f$ is not? First let’s see this function.</p>
+<script type="math/tex; mode=display">
+f(x,y)=\frac{y^2-x^2}{(x^2+y^2)^2}=\frac{\partial^2}{\partial x \partial y}\arctan(\frac{y}{x})</script><p>This function is not Lebesgue integrable on $[0,1] \times [0,1]$, since we have</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+    \iint\limits_{D} |f(x,y)|dxdy 
+    & = \int_\varepsilon^1 \int_0^{\frac{\pi}{2}}\frac{r^2|\cos{2\theta}|}{r^4}rd\theta{dr} \\
+    &=\int_\varepsilon^1\frac{1}{r}dr \\
+    &\to \infty \quad (\varepsilon \to 0)
+\end{aligned}</script><p>where $D=\{(x,y):\varepsilon^2 \leq x^2+y^2 \leq 1, x \geq 0, y \geq 0\}$. Fubini’s theorem fails then since</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+    \int_0^1 dx \int_0^1 f(x,y)dy &= \int_0^1 \frac{-1}{1+x^2}dx \\
+    &= -\frac{\pi}{4}
+\end{aligned}</script><p>meanwhile</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+    \int_0^1 dy \int_0^1 f(x,y)dx &= \int_0^1\frac{1}{1+y^2}dy \\
+    &=\frac{\pi}{4}
+\end{aligned}</script><p>See, everything messes up, and the identity disappears. This function is too ‘large’ for Fubini’s theorem to work with, so is the next one.</p>
+<hr>
+<p>The following function is generated by series. First consider the sequence on $[0,1]$ generated by</p>
+<script type="math/tex; mode=display">
+0= \delta_1<\delta_2<\cdots,\delta_n \to 1</script><p>And a sequence of functions $g_n$ generated by $\int_0^1 g_ndx=1$ with supports in $(\delta_n,\delta_{n+1})$.</p>
+<p>Define $f(x,y)$ on $[0,1] \times [0,1]$ such that</p>
+<script type="math/tex; mode=display">
+f(x,y)=\sum_{n=1}^{\infty}[g_n(x)-g_{n+1}(x)]g_n(y)</script><p>The right hand is convergent since for each point $(x,y)$ there is at least one term in this sum that is different from $0$.</p>
+<p>An easy computation shows that</p>
+<script type="math/tex; mode=display">
+\int_0^1\int_0^1 |f(x,y)|dxdy = \infty</script><p>and</p>
+<script type="math/tex; mode=display">
+\int_0^1 dx \int_0^1 f(x,y)dy = 1 \neq 0 = \int_0^1 dy \int_0^1 f(x,y)dx</script>
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../29/lebesgue-radon-nikodym/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            The Lebesgue-Radon-Nikodym theorem and how von Neumann proved it
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../22/fubini-theorem-in-euclidean-space/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            Fubini&#39;s theorem in Euclidean space (Understanding &#39;almost everywhere&#39;)
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2020/03/23/fubini-counterex-and-why/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

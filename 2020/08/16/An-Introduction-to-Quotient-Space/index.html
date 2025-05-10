@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>An Introduction to Quotient Space | Desvl&#39;s blog</title>
+
+
+    <meta name="keywords" content="Exercise solution, Walter Rudin, Functional Analysis, Study new content">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="I’m assuming the reader has some abstract algebra and functional analysis background. You may have learned this already in your linear algebra class, but we are making our way to functional analysis p">
+<meta property="og:type" content="article">
+<meta property="og:title" content="An Introduction to Quotient Space">
+<meta property="og:url" content="https://desvl.xyz/2020/08/16/An-Introduction-to-Quotient-Space/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="I’m assuming the reader has some abstract algebra and functional analysis background. You may have learned this already in your linear algebra class, but we are making our way to functional analysis p">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://desvl.xyz/img/R2-quotient-space.jpg">
+<meta property="og:image" content="https://desvl.xyz/img/diagram-000001.png">
+<meta property="article:published_time" content="2020-08-16T17:49:37.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:09.540Z">
+<meta property="article:author" content="Desvl">
+<meta property="article:tag" content="Exercise solution">
+<meta property="article:tag" content="Walter Rudin">
+<meta property="article:tag" content="Functional Analysis">
+<meta property="article:tag" content="Study new content">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://desvl.xyz/img/R2-quotient-space.jpg">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        An Introduction to Quotient Space
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2020/08/" class="post-meta__date button">2020-08-16</a>
+        
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/" class="button">Analysis</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/Functional-Analysis/" class="button">Functional Analysis</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/Functional-Analysis/Topological-Vector-Space/" class="button">Topological Vector Space</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Motivation"><span class="toc-number">1.</span> <span class="toc-text">Motivation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#The-trouble-with-L-p-spaces"><span class="toc-number">1.1.</span> <span class="toc-text">The trouble with $L^p$ spaces</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vector-spaces-are-groups-anyway"><span class="toc-number">1.2.</span> <span class="toc-text">Vector spaces are groups anyway</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Definition"><span class="toc-number">2.</span> <span class="toc-text">Definition</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Examples"><span class="toc-number">3.</span> <span class="toc-text">Examples</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Topology-of-quotient-space"><span class="toc-number">4.</span> <span class="toc-text">Topology of quotient space</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Definition-1"><span class="toc-number">4.1.</span> <span class="toc-text">Definition</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tau-N-is-a-vector-topology"><span class="toc-number">4.2.</span> <span class="toc-text">$\tau_N$ is a vector topology</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#A-commutative-diagram-by-quotient-space"><span class="toc-number">5.</span> <span class="toc-text">A commutative diagram by quotient space</span></a></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Motivation"><span class="toc-number">1.</span> <span class="toc-text">Motivation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#The-trouble-with-L-p-spaces"><span class="toc-number">1.1.</span> <span class="toc-text">The trouble with $L^p$ spaces</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vector-spaces-are-groups-anyway"><span class="toc-number">1.2.</span> <span class="toc-text">Vector spaces are groups anyway</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Definition"><span class="toc-number">2.</span> <span class="toc-text">Definition</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Examples"><span class="toc-number">3.</span> <span class="toc-text">Examples</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Topology-of-quotient-space"><span class="toc-number">4.</span> <span class="toc-text">Topology of quotient space</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Definition-1"><span class="toc-number">4.1.</span> <span class="toc-text">Definition</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tau-N-is-a-vector-topology"><span class="toc-number">4.2.</span> <span class="toc-text">$\tau_N$ is a vector topology</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#A-commutative-diagram-by-quotient-space"><span class="toc-number">5.</span> <span class="toc-text">A commutative diagram by quotient space</span></a></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <p><em>I’m assuming the reader has some abstract algebra and functional analysis background. You may have learned this already in your linear algebra class, but we are making our way to functional analysis problems.</em></p>
+<h2 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h2><h3 id="The-trouble-with-L-p-spaces"><a href="#The-trouble-with-L-p-spaces" class="headerlink" title="The trouble with $L^p$ spaces"></a>The trouble with $L^p$ spaces</h3><p>Fix $p$ with $1 \leq p \leq \infty$. It’s easy to see that $L^p(\mu)$ is a topological vector space. But it is not a metric space if we define</p>
+<script type="math/tex; mode=display">
+d(f,g)=\lVert f-g \rVert_p.</script><p>The reason is, if $d(f,g)=0$, we can only get $f=g$ a.e., but they are not strictly equal. With that being said, this function $d$ is actually a pseudo metric. This is unnatural. However, the relation $\sim$ by $f \sim g \mathbb{R}ightarrow d(f,g)=0$ is a equivalence relation. This inspires us to take the quotient set into consideration.</p>
+<h3 id="Vector-spaces-are-groups-anyway"><a href="#Vector-spaces-are-groups-anyway" class="headerlink" title="Vector spaces are groups anyway"></a>Vector spaces are groups anyway</h3><p>For a vector space $V$, every subspace of $V$ is a normal subgroup. There is no reason to prevent ourselves from considering the quotient group and looking for some interesting properties. Further, a vector space is an abelian group, therefore any subspace is automatically normal.</p>
+<h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><p>Let $N$ be a subspace of a vector space $X$. For every $x \in X$, let $\pi(x)$ be the coset of $N$ that contains $x$, that is</p>
+<script type="math/tex; mode=display">
+\pi(x)=x+N.</script><p>Trivially, $\pi(x)=\pi(y)$ if and only if $x-y \in N$ (say, $\pi$ is well-defined since $N$ is a vector space). This is a linear function since we also have the addition and multiplication by</p>
+<script type="math/tex; mode=display">
+\pi(x)+\pi(y)=\pi(x+y) \quad \alpha\pi(x)=\pi(\alpha{x}).</script><p>These cosets are the elements of a vector space $X/N$, which reads, the quotient space of $X$ modulo $N$. The map $\pi$ is called the canonical map as we all know.</p>
+<h2 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h2><p><img src="/img/R2-quotient-space.jpg" alt="R^2-quotient"></p>
+<p>First, we shall treat $\mathbb{R}^2$ as a vector space, and the subspace $\mathbb{R}$, which is graphically represented by $x$-axis, as a subspace (we will write it as $X$). For a vector $v=(2,3)$, which is represented by $AB$, we see the coset $v+X$ has something special. Pick any $u \in X$, for example, $AE$, $AC$, or $AG$. We see $v+u$ has the same $y$ value. The reason is simple since we have $v+u=(2+x,3)$, where the $y$ value remains fixed however $u$ may vary.</p>
+<p>With that being said, the set $v+X$, which is not a vector space, can be represented by $\overrightarrow{AD}$. This proceed can be generalized to $\mathbb{R}^n$ with $\mathbb{R}^m$ as a subspace with ease.</p>
+<hr>
+<p>We now consider a fancy example. Consider all rational Cauchy sequences, that is</p>
+<script type="math/tex; mode=display">
+(a_n)=(a_1,a_2,\cdots)</script><p>where $a_k\in\mathbb{Q}$ for all $k$. In analysis class, we learned two facts.</p>
+<ol>
+<li>Any Cauchy sequence is bounded.</li>
+<li>If $(a_n)$ converges, then $(a_n)$ is Cauchy.</li>
+</ol>
+<p>However, the reverse of 2 does not hold in $\mathbb{Q}$. For example, if we put $a_k=(1+\frac{1}{k})^k$, we should have the limit to be $e$, but $e \notin \mathbb{Q}$.</p>
+<p>If we define the addition and multiplication term by term, namely</p>
+<script type="math/tex; mode=display">
+(a_n)+(b_n)=(a_1+b_1,a_2+b_2,\cdots)</script><p>and</p>
+<script type="math/tex; mode=display">
+(\alpha a_n)=(\alpha a_1,\alpha a_2,\cdots)</script><p>where $\alpha \in \mathbb{Q}$, we get a vector space (the verification is easy). The zero vector is defined by</p>
+<script type="math/tex; mode=display">
+(0)=(0,0,\cdots).</script><p>This vector space is denoted by $\overline{\mathbb{Q}}$. The subspace containing all sequences converges to $0$ will be denoted by $\overline{\mathbb{O}}$. Again, $(a_n)+\overline{\mathbb{O}}=(b_n)+\overline{\mathbb{O}}$ if and only if $(a_n-b_n) \in \overline{\mathbb{O}}$. Using the language of equivalence relation, we also say $(a_n)$ and $(b_n)$ are equivalent if $(a_n-b_n) \in \overline{\mathbb{O}}$. For example, the two following sequences are equivalent:</p>
+<script type="math/tex; mode=display">
+(1,1,1,\cdots,1,\cdots)\quad\quad (0.9,0.99,0.999,\cdots).</script><p>Actually, we will get $\mathbb{R} \simeq \overline{\mathbb{Q}}/\overline{\mathbb{O}}$ in the end. But to make sure that this quotient space is exactly the one we meet in our analysis class, there are a lot of verifications should be done.</p>
+<p>We shall give more definitions for calculation. The multiplication of two Cauchy sequences is defined term by term à la the addition. For $\overline{\mathbb{Q}}/\overline{\mathbb{O}}$ we have</p>
+<script type="math/tex; mode=display">
+((a_n)+\overline{\mathbb{O}})+((b_n)+\overline{\mathbb{O}})=(a_n+b_n) + \overline{\mathbb{O}}</script><p>and</p>
+<script type="math/tex; mode=display">
+((a_n)+\overline{\mathbb{O}})((b_n)+\overline{\mathbb{O}})=(a_nb_n)+\overline{\mathbb{O}}.</script><p>As for inequality, a partial order has to be defined. We say $(a_n) &gt; (0)$ if there exists some $N&gt;0$ such that $a_n&gt;0$ for all $n \geq N$. By $(a_n) &gt; (b_n)$ we mean $(a_n-b_n)&gt;(0)$ of course. For cosets, we say $(a_n)+\overline{\mathbb{O}}&gt;\overline{\mathbb{O}}$ if $(x_n) &gt; (0)$ for some $(x_n) \in (a_n)+\overline{\mathbb{O}}$. This is well defined. That is, if $(x_n)&gt;(0)$,  then $(y_n)&gt;(0)$ for all $(y_n) \in (a_n)+\overline{\mathbb{O}}$.</p>
+<p>With these operations being defined, it can be verified that $\overline{\mathbb{Q}}/\overline{\mathbb{O}}$ has the desired properties, for example, the least-upper-bound property. But this goes too far from the topic, we are not proving it here. If you are interested, you may visit <a target="_blank" rel="noopener" href="http://www.math.ucsd.edu/~tkemp/140A/Construction.of.R.pdf">here</a> for more details.</p>
+<hr>
+<p>Finally, we are trying to make $L^p$ a Banach space. Fix $p$ with $1 \leq p &lt; \infty$. There is a seminorm defined for all Lebesgue measurable functions on $[0,1]$ by</p>
+<script type="math/tex; mode=display">
+p(f)=\lVert f \rVert_p=\left\{\int_{0}^{1}|f(t)|^pdt\right\}^{1/p}</script><p>$L^p$ is a vector space containing all functions $f$ with $p(f)&lt;\infty$. But it’s not a normed space by $p$, since $p(f)=0$ only implies $f=0$ almost everywhere. However, the set $N$ which contains all functions that equal $0$ is also a vector space. Now consider the quotient space by</p>
+<script type="math/tex; mode=display">
+\tilde{p}(\pi(f))=p(f),</script><p>where $\pi$ is the canonical map of $L^p$ into $L^p/N$. We shall prove that $\tilde{p}$ is well-defined here. If $\pi(f)=\pi(g)$, we have $f-g \in N$, therefore</p>
+<script type="math/tex; mode=display">
+0=p(f-g)\geq |p(f)-p(g)|,</script><p>which forces $p(f)=p(g)$. Therefore in this case we also have $\tilde{p}(\pi(f))=\tilde{p}(\pi(g))$. This indeed ensures that $\tilde{p}$ is a <em>norm</em>, and $L^p/N$ a Banach space. There are some topological facts required to prove this, we are going to cover a few of them.</p>
+<h2 id="Topology-of-quotient-space"><a href="#Topology-of-quotient-space" class="headerlink" title="Topology of quotient space"></a>Topology of quotient space</h2><h3 id="Definition-1"><a href="#Definition-1" class="headerlink" title="Definition"></a>Definition</h3><p>We know if $X$ is a topological vector space with a topology $\tau$, then the addition and scalar multiplication are continuous. Suppose now $N$ is a closed subspace of $X$. Define $\tau_N$ by</p>
+<script type="math/tex; mode=display">
+\tau_N=\{E \subset X/N:\pi^{-1}(E)\in \tau\}.</script><p>We are expecting $\tau_N$ to be properly-defined. And fortunately, it is. Some interesting techniques will be used in the following section.</p>
+<h3 id="tau-N-is-a-vector-topology"><a href="#tau-N-is-a-vector-topology" class="headerlink" title="$\tau_N$ is a vector topology"></a>$\tau_N$ is a vector topology</h3><p>There will be two steps to get this done.</p>
+<blockquote>
+<p>$\tau_N$ is a topology.</p>
+</blockquote>
+<p>It is trivial that $\varnothing$ and $X/N$ are elements of $\tau_N$. Other properties are immediate as well since we have</p>
+<script type="math/tex; mode=display">
+\pi^{-1}(A \cap B) = \pi^{-1}(A) \cap \pi^{-1}(B)</script><p>and</p>
+<script type="math/tex; mode=display">
+\pi^{-1}(\cup A_\alpha)=\cup\pi^{-1}( A_{\alpha}).</script><p>That said, if we have $A,B\in \tau_N$, then $A \cap B \in \tau_N$ since $\pi^{-1}(A \cap B)=\pi^{-1}(A) \cap \pi^{-1}(B) \in \tau$.</p>
+<p>Similarly, if $A_\alpha \in \tau_N$ for all $\alpha$, we have $\cup A_\alpha \in \tau_N$. Also, by definition of $\tau_N$, $\pi$ is continuous.</p>
+<blockquote>
+<p>$\tau_N$ is a vector topology.</p>
+</blockquote>
+<p>First, we show that a point in $X/N$, which can be written as $\pi(x)$, is closed. Notice that $N$ is assumed to be closed, and</p>
+<script type="math/tex; mode=display">
+\pi^{-1}(\pi(x))=x+N</script><p>therefore has to be closed.</p>
+<p>In fact, $F \subset X/N$ is $\tau_N$-closed if and only if $\pi^{-1}(F)$ is $\tau$-closed. To prove this, one needs to notice that $\pi^{-1}(F^c)=(\pi^{-1}(F))^{c}$.</p>
+<p>Suppose $V$ is open, then</p>
+<script type="math/tex; mode=display">
+\pi^{-1}(\pi(V))=N+V</script><p>is open. By definition of $\tau_N$, we have $\pi(V) \in \tau_N$. Therefore $\pi$ is an open mapping.</p>
+<p>If now $W$ is a neighbourhood of $0$ in $X/N$, there exists a neighbourhood $V$ of $0$ in $X$ such that</p>
+<script type="math/tex; mode=display">
+V + V \subset \pi^{-1}(W).</script><p>Hence $\pi(V)+\pi(V) \subset W$. Since $\pi$ is open, $\pi(V)$ is a neighbourhood of $0$ in $X/N$, this shows that the addition is continuous.</p>
+<p>The continuity of scalar multiplication will be shown in a direct way (so can the addition, but the proof above is intended to offer some special technique). We already know, the scalar multiplication on $X$ by </p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\varphi:\Phi \times X &\to X \\
+           (\alpha,x) &\mapsto \alpha{x}
+\end{aligned}</script><p>is continuous, where $\Phi$ is the scalar field (usually $\mathbb{R}$ or $\mathbb{C}$. Now the scalar multiplication on $X/N$ is by</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\psi: \Phi \times X/N &\to X/N \\
+        (\alpha,x+N) &\mapsto \alpha{x}+N.
+\end{aligned}</script><p>We see $\psi(\alpha,x+N)=\pi(\varphi(\alpha,x))$. But the composition of two continuous functions is continuous, therefore $\psi$ is continuous.</p>
+<h2 id="A-commutative-diagram-by-quotient-space"><a href="#A-commutative-diagram-by-quotient-space" class="headerlink" title="A commutative diagram by quotient space"></a>A commutative diagram by quotient space</h2><p>We are going to talk about a classic commutative diagram that you already see in algebra class.</p>
+<p><img src="/img/diagram-000001.png" alt="diagram-000001"></p>
+<p>There are some assumptions.</p>
+<blockquote>
+<ol>
+<li>$X$ and $Y$ are topological vector spaces.</li>
+<li>$\Lambda$ is linear.</li>
+<li>$\pi$ is the canonical map.</li>
+<li>$N$ is a closed subspace of $X$ and $N \subset \ker\Lambda$.</li>
+</ol>
+</blockquote>
+<p>Algebraically, there exists a unique map $f: X/N \to Y$ by $x+N \mapsto \Lambda(x)$. Namely,  the diagram above is commutative. But now we are interested in some analysis facts.</p>
+<blockquote>
+<p>$f$ is linear.</p>
+</blockquote>
+<p>This is obvious. Since $\pi$ is <strong>surjective</strong>, for $u,v \in X/N$, we are able to find some $x,y \in X$ such that $\pi(x)=u$ and $\pi(y)=v$. Therefore we have</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+f(u+v)=f(\pi(x)+\pi(y))&=f(\pi(x+y)) \\
+                       &=\Lambda(x+y) \\
+                       &=\Lambda(x)+\Lambda(y) \\
+                       &= f(\pi(x))+f(\pi(y)) \\
+                       &=f(u)+f(v)
+\end{aligned}</script><p>and</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+f(\alpha{u})=f(\alpha\pi(x))&=f(\pi(\alpha{x})) \\
+                            &= \Lambda(\alpha{x}) \\
+                            &= \alpha\Lambda(x) \\
+                            &= \alpha{f(\pi(x))} \\
+                            &= \alpha{f(u)}.
+\end{aligned}</script><blockquote>
+<p>$\Lambda$ is open if and only if $f$ is open.</p>
+</blockquote>
+<p>If $f$ is open, then for any open set $U \subset X$, we have</p>
+<script type="math/tex; mode=display">
+\Lambda(U)=f(\pi(U))</script><p>to be an open set since $\pi$ is open, and $\pi(U)$ is an open set.</p>
+<p>If $f$ is not open, then there exists some $V \subset X/N$ such that $f(V)$ is closed. However, since $\pi$ is continuous, we have $\pi^{-1}(V)$ to be open. In this case, we have</p>
+<script type="math/tex; mode=display">
+f(\pi(\pi^{-1}(V)))=f(V)=\Lambda(\pi^{-1}(V))</script><p>to be closed. $\Lambda$ is therefore not open. This shows that if $\Lambda$ is open, then $f$ is open.</p>
+<blockquote>
+<p>$\Lambda$ is continuous if and only if $f$ is continuous.</p>
+</blockquote>
+<p>If $f$ is continuous, for any open set $W \subset Y$, we have $\pi^{-1}(f^{-1}(W))=\Lambda^{-1}(W)$ to be open. Therefore $\Lambda$ is continuous.</p>
+<p>Conversely, if $\Lambda$ is continuous, for any open set $W \subset Y$, we have $\Lambda^{-1}(W)$ to be open. Therefore $f^{-1}(W)=\pi(\Lambda^{-1}(W))$ has to be open since $\pi$ is open. </p>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"><a href="../../../../tags/Exercise-solution/" class="post-tags__link button"># Exercise solution</a><a href="../../../../tags/Walter-Rudin/" class="post-tags__link button"># Walter Rudin</a><a href="../../../../tags/Functional-Analysis/" class="post-tags__link button"># Functional Analysis</a><a href="../../../../tags/Study-new-content/" class="post-tags__link button"># Study new content</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../18/Basic-facts-of-semicontinuous-functions/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            Basic Facts of Semicontinuous Functions
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../14/La-tercera-resignaci%C3%B3n/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            关于《第三次忍受》
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2020/08/16/An-Introduction-to-Quotient-Space/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

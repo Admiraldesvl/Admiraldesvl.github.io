@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>The Big Three Pt. 3 - The Open Mapping Theorem (Banach Space) | Desvl&#39;s blog</title>
+
+
+    <meta name="keywords" content="The big three">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="What is open mappingAn open map is a function between two topological spaces that maps open sets to open sets. Precisely speaking, a function $f: X \to Y$ is open if for any open set $U \subset X$, $f">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Big Three Pt. 3 - The Open Mapping Theorem (Banach Space)">
+<meta property="og:url" content="https://desvl.xyz/2020/08/12/big-3-pt-3/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="What is open mappingAn open map is a function between two topological spaces that maps open sets to open sets. Precisely speaking, a function $f: X \to Y$ is open if for any open set $U \subset X$, $f">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-08-12T20:01:50.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:09.651Z">
+<meta property="article:author" content="Desvl">
+<meta property="article:tag" content="The big three">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        The Big Three Pt. 3 - The Open Mapping Theorem (Banach Space)
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2020/08/" class="post-meta__date button">2020-08-12</a>
+        
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/" class="button">Analysis</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/Functional-Analysis/" class="button">Functional Analysis</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#What-is-open-mapping"><span class="toc-number">1.</span> <span class="toc-text">What is open mapping</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Open-Mapping-Theorem"><span class="toc-number">2.</span> <span class="toc-text">Open Mapping Theorem</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Remarks"><span class="toc-number">2.1.</span> <span class="toc-text">Remarks</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-series"><span class="toc-number">3.</span> <span class="toc-text">The series</span></a></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#What-is-open-mapping"><span class="toc-number">1.</span> <span class="toc-text">What is open mapping</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Open-Mapping-Theorem"><span class="toc-number">2.</span> <span class="toc-text">Open Mapping Theorem</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Remarks"><span class="toc-number">2.1.</span> <span class="toc-text">Remarks</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-series"><span class="toc-number">3.</span> <span class="toc-text">The series</span></a></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h2 id="What-is-open-mapping"><a href="#What-is-open-mapping" class="headerlink" title="What is open mapping"></a>What is open mapping</h2><p>An open map is a function between two topological spaces that maps open sets to open sets. Precisely speaking, a function $f: X \to Y$ is open if for any open set $U \subset X$, $f(U)$ is open in $Y$. Likewise, a closed map is a function mapping closed sets to closed sets.</p>
+<p>You may think open/closed map is an alternative name of continuous function. But it’s not. The definition of open/closed mapping is totally different from continuity. Here are some simple examples.</p>
+<ol>
+<li>$f(x)=\sin{x}$ defined on $\mathbb{R}$ is not open, though it’s continuous. It can be verified by considering $(0,2\pi)$, since we have $f((0,2\pi))=[-1,1]$.</li>
+<li>The projection $\pi: \mathbb{R}^2 \to \mathbb{R}$ defined by $(x,y) \mapsto x$ is open. Indeed, it maps an open ball onto an open interval on $x$ axis.</li>
+<li>The inclusion map $\varphi: \mathbb{R} \to \mathbb{R}^2$ by $x \mapsto (x,0)$ however, is not open. An open interval on the plane is <em>locally closed</em> but not open or closed.</li>
+</ol>
+<p>Under what condition will a continuous linear function between two TVS be an open mapping? We’ll give the answer in this blog post. Open mapping theorem is a sufficient condition on whether a continuous linear function is open.</p>
+<h2 id="Open-Mapping-Theorem"><a href="#Open-Mapping-Theorem" class="headerlink" title="Open Mapping Theorem"></a>Open Mapping Theorem</h2><blockquote>
+<p>Let $X,Y$ be Banach spaces and $T: X \to Y$ a <strong>surjective</strong> bounded linear map. Then $T$ is an open mapping.</p>
+</blockquote>
+<p>The open balls in $X$ and $Y$ are defined respectively by</p>
+<script type="math/tex; mode=display">
+B_r^X=\{x \in X:\lVert x \rVert<r\}\quad\text{and}\quad B_r^Y=\{y \in Y:\lVert y \rVert<r\}</script><p>All we need to do is show that there exists some $r&gt;0$ such that</p>
+<script type="math/tex; mode=display">
+B_r^Y \subset T(B_1^X)</script><p>Since every open set in $X$ or $Y$ can be expressed as a union of open balls. For a ball in $X$ centered at $x \in X$ with radius $r$, we can express it as $x+B_r^X$. After that, it becomes obvious that $T$ maps open set to open set.</p>
+<p>First we have</p>
+<script type="math/tex; mode=display">
+X=\bigcup_{n=1}^{\infty}B_n^{X}.</script><p>The surjectivity of $T$ ensures that</p>
+<script type="math/tex; mode=display">
+Y=\bigcup_{n=1}^{\infty}T(B_n^X).</script><p>Since $Y$ is Banach, or simply a complete metric space, by Baire category theorem, there must be some $n_0 \in \mathbb{N}$ such that $\overline{T(B_{n_0}^{X})}$ has nonempty interior. If not, which means $T(B_n^{X})$ is nowhere dense for all $n \in \mathbb{N}$, we have $Y$ is of the first category. A contradiction.</p>
+<p>Since $x \to nx$ is a homeomorphism of $X$ onto $X$, we see in fact $T(B_n^X)$ is not nowhere dense for all $n \in \mathbb{N}$. Therefore, there exists some $y_0 \in \overline{T(B_1^{X})}$ and some $\varepsilon&gt;0$ such that</p>
+<script type="math/tex; mode=display">
+y_0+B_\varepsilon^Y \subset \overline{T(B_1^X)}</script><p>the open set on the left hand is a neighborhood of $y_0$, which should be in the interior of $\overline{T(B_1^X)}$.</p>
+<p>On the other hand, we claim</p>
+<script type="math/tex; mode=display">
+\overline{T(B_1^X)} - y_0 \subset \overline{T(B_2^X)}.</script><p>We shall prove it as follows. Pick any $y \in \overline{T(B_1^X)}$, we shall show that $y-y_0 \in \overline{T(B_2^X)}$. For $y_0$, there exists a sequence of $y_n$ where $\lVert y_n \rVert &lt;1$ for all $n$ such that $Ty_n \to y_0$. Also we are able to find a sequence of $x_n$ where $\lVert x_n \rVert &lt;1$ for all $n$ such that $Tx_n \to y$. Notice that we also have </p>
+<script type="math/tex; mode=display">
+y-y_0=\lim_{n \to \infty}T(x_n-y_n),</script><p>since</p>
+<script type="math/tex; mode=display">
+\lVert x_n -y_n \rVert \leq \lVert x_n \rVert+\lVert y_n \rVert <2,</script><p>we see $T(x_n-y_n) \in T(B_2^X)$ for all $n$, it follows that</p>
+<script type="math/tex; mode=display">
+y-y_0 \in \overline{T(B_2^X)}.</script><p>Combining all these relations, we get</p>
+<script type="math/tex; mode=display">
+B_\varepsilon^Y \subset \overline{T(B_2^X)}.</script><p>Since $T$ is linear, we see</p>
+<script type="math/tex; mode=display">
+2B_{\varepsilon/2}^{Y} \subset \overline{T(2B_1^X)}=2\overline{T(B_1^X)}.</script><p>By induction we get</p>
+<script type="math/tex; mode=display">
+B_{\varepsilon/2^n}^Y \subset \overline{T(B_{1/2^{n-1}}^X)}</script><p>for all $n \geq 1$.</p>
+<p>We shall show however</p>
+<script type="math/tex; mode=display">
+B_{\varepsilon/4}^Y \subset T(B_1^X).</script><p>For any $u \in B_{\varepsilon/4}^Y$, we have $u \in \overline{T(B_{1/2}^X)}$. There exists some $x_1 \in B_{1/2}^{X}$ such that</p>
+<script type="math/tex; mode=display">
+\lVert u-Tx_1 \rVert < \frac{\varepsilon}{8}.</script><p>This implies that $u-Tx_1 \in B_{\varepsilon/8}^Y$. Under the same fashion, we are able to pick $x_n$ in such a way that</p>
+<script type="math/tex; mode=display">
+\lVert u-Tx_1-Tx_2-\cdots-Tx_n \rVert < \frac{\varepsilon}{2^{n+2}}</script><p>where $\lVert x_n \rVert&lt;2^{-n}$. Now let $z_n=\sum_{k=1}^{n}x_k$, we shall show that $(z_n)$ is Cauchy. For $m&lt;n$, we have</p>
+<script type="math/tex; mode=display">
+\lVert z_n - z_m \rVert =\left\Vert\sum_{k=m+1}^nx_k \right\Vert \leq \sum_{k=m+1}^{n}\lVert x_k\rVert < \frac{1}{2^{m+1}}</script><p>Since $X$ is Banach, there exists some $z \in X$ such that $z_n \to z$. Further we have</p>
+<script type="math/tex; mode=display">
+\lVert z\rVert = \lim_{n \to \infty}\lVert z_n \rVert \leq \sum_{k=1}^{\infty}\lVert x_n \rVert < 1</script><p>therefore $z \in B_1^X$. Since $T$ is bounded, therefore continuous, we get $T(z)=u$. To summarize, for $u \in B_{\varepsilon/4}^Y$, we have some $z \in B_{1}^X$ such that $T(z)=y$, which implies $T(B_1^X) \supset B_{\varepsilon/4}^Y$.</p>
+<p>Let $U \subset X$ be open, we want to show that $T(U)$ is also open. Take $y \in T(U)$, then $y=T(x)$ with $x \in U$. Since $U$ is open, there exists some $\varepsilon&gt;0$ such that $B_{\varepsilon}^{X}+x \subset U$. By the linearity of $T$, we obtain $B_{r\varepsilon}^Y \subset T(B_{\varepsilon}^X)$ for some small $r$. Using the linearity of $T$ again, we obtain</p>
+<script type="math/tex; mode=display">
+B_{r\varepsilon}^Y + y \subset T(B_{\varepsilon}^X+x) \subset T(U)</script><p>which shows that $T(U)$ is open, therefore $T$ is an open mapping.</p>
+<h3 id="Remarks"><a href="#Remarks" class="headerlink" title="Remarks"></a>Remarks</h3><p>One have to notice that the completeness of $X$ and $Y$ has been used more than one time. For example, the existence of $z$ depends on the fact that Cauchy sequence converges in $X$. Also, the surjectivity of $T$ cannot be omitted, can you see why?</p>
+<p>There are some different ways to state this theorem.</p>
+<ul>
+<li>To every $y$ with $\lVert y \rVert &lt; \delta$, there corresponds an $x$ with $\lVert x \rVert&lt;1$ such that $T(x)=y$.</li>
+<li>Let $U$ and $V$ be the open unit balls of the Banach spaces $X$ and $Y$. To every surjective bounded linear map, there corresponds a $\delta&gt;0$ such that</li>
+</ul>
+<script type="math/tex; mode=display">
+T(U) \supset \delta{V}.</script><p>You may also realize that we have used a lot of basic definitions of topology. For example,  we checked the openness of $T(U)$ by using neighborhood. The set $\overline{T(B_1^X)}$ should also remind you of limit point.</p>
+<p>The difference of open mapping and continuous mapping can be viewed via the topologies of two topological vector spaces. Suppose $f: X \to Y$. If for any $U \in \tau_X$, we have $f(U) \in \tau_Y$, where $\tau_X$ and $\tau_Y$ are the topologies of $X$ and $Y$, respectively. But this has nothing to do with continuity. By continuity we mean, for any $V \in \tau_Y$, we have $f^{-1}(V) \in \tau_U$.</p>
+<p>Fortunately, this theorem can be generalized to $F$-spaces, which will be demonstrated in the following blog post of the series. A space $X$ is an $F$-space if its topology $\tau$ is induced by a complete invariant metric $d$. Still, completeness plays a critical rule.</p>
+<h2 id="The-series"><a href="#The-series" class="headerlink" title="The series"></a>The series</h2><p>Since there is no strong reason to write more posts on this topic, i.e. the three fundamental theorems of linear functional analysis, I think it’s time to make a list of the series. It’s been around half a year.</p>
+<ul>
+<li><a href="/2020/06/06/big-3-pt-1/">The Big Three Pt. 1 - Baire Category Theorem Explained</a></li>
+<li><a href="/2020/06/30/big-3-pt-2/">The Big Three Pt. 2 - The Banach-Steinhaus Theorem</a></li>
+<li>The Big Three Pt. 3 - The Open Mapping Theorem (Banach Space)</li>
+<li><a href="/2020/09/12/big-3-pt-4/">The Big Three Pt. 4 - The Open Mapping Theorem (F-Space)</a></li>
+<li><a href="/2020/10/01/big-3-pt-5/">The Big Three Pt. 5 - The Hahn-Banach Theorem (Dominated Extension)</a></li>
+<li><a href="/2020/11/13/big-3-pt-6/">The Big Three Pt. 6 - Closed Graph Theorem with Applications</a></li>
+</ul>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"><a href="../../../../tags/The-big-three/" class="post-tags__link button"># The big three</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../14/La-tercera-resignaci%C3%B3n/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            关于《第三次忍受》
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../01/cauchy-sequence-in-group-theory/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            Cauchy sequence in group theory
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2020/08/12/big-3-pt-3/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

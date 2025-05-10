@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>Vague Convergence in Measure-theoretic Probability Theory - Equivalent Conditions | Desvl&#39;s blog</title>
+
+
+    <meta name="keywords" content="Chung">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="We give an introduction to vague convergence and see several equivalent conditions of it.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vague Convergence in Measure-theoretic Probability Theory - Equivalent Conditions">
+<meta property="og:url" content="https://desvl.xyz/2023/02/13/vague-convergence/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="We give an introduction to vague convergence and see several equivalent conditions of it.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-02-13T15:33:53.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:10.699Z">
+<meta property="article:author" content="Desvl">
+<meta property="article:tag" content="Chung">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        Vague Convergence in Measure-theoretic Probability Theory - Equivalent Conditions
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2023/02/" class="post-meta__date button">2023-02-13</a>
+        
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/" class="button">Analysis</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/Measure-Theory/" class="button">Measure Theory</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Probability-Theory/" class="button">Probability Theory</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Examples-Failure-of-Convergence-on-Intervals"><span class="toc-number">1.</span> <span class="toc-text">Examples: Failure of Convergence on Intervals</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Example-Failure-of-Converging-to-a-Probability-Measure"><span class="toc-number">2.</span> <span class="toc-text">Example: Failure of Converging to a Probability Measure</span></a></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Examples-Failure-of-Convergence-on-Intervals"><span class="toc-number">1.</span> <span class="toc-text">Examples: Failure of Convergence on Intervals</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Example-Failure-of-Converging-to-a-Probability-Measure"><span class="toc-number">2.</span> <span class="toc-text">Example: Failure of Converging to a Probability Measure</span></a></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>In analysis and probability theory, one studies various sort of convergences (of random variables) for various reasons. In this post we study vague convergence, which is responsible for the convergence in distribution.</p>
+<p>Vaguely speaking, vague convergence is the weakest kind of convergence one can expect (whilst still caring about continuity whenever possible). We do not consider any dependence relation between the sequence of random variables.</p>
+<p>Throughout, fix a probability space $(\Omega,\mathscr{F},\mathscr{P})$, where $\Omega$ is the sample space, $\mathscr{F}$ the event space and $\mathscr{P}$ the probability function. Let $(X_n)$ be a sequence of random variables on this space. Each random variable $X_n$ canonically induces a probability space $(\mathbb{R},\mathscr{B},\mu_n)$ where $\mathscr{B}$ is the Borel $\sigma$-measure. To avoid notation hell we only consider the correspondence $X_n \leftrightarrow \mu_n$ where</p>
+<script type="math/tex; mode=display">
+\mu_n(B)=\mathscr{P}(X^{-1}(B))=\mathscr{P}\{X \in B\}.</script><p>Here comes the question: if $X_n$ tends to a limit, then we would expect that $\mu_n$ converges to a limit (say $\mu$) in some sense (at least on some intervals). But is that always the case? Even if the sequence converges, can we even have $\mu(\mathbb{R})=1$? We will see through some examples that this is really not the case.</p>
+<h2 id="Examples-Failure-of-Convergence-on-Intervals"><a href="#Examples-Failure-of-Convergence-on-Intervals" class="headerlink" title="Examples: Failure of Convergence on Intervals"></a>Examples: Failure of Convergence on Intervals</h2><p>Let $X_n\equiv\frac{(-1)^n}{n}$, then $X_n \to 0$ deterministically. For any $a&gt;0$, the sequence $\mu_n((0,a))$ oscillates between $0$ and $1$, i.e. it ends up in the form</p>
+<script type="math/tex; mode=display">
+\dots,0,1,0,1,\dots</script><p>which does not converge at all. Likewise, for any $b&lt;0$, the sequence $\mu_n((b,0))$ oscillates between $1$ and $0$.</p>
+<p>As another example of convergence failure, consider $b_n&lt;0&lt;a_n$ with $a_n \to 0$ and $b_n \to 0$ as $n \to \infty$, and let $X_n$ be the sequence of random variables having the uniform distribution on $(b_n,a_n)$. We see $X_n \to 0$ a.e. but $\mu_n((b,0))$, which subjects to the area under $X_n$ between $b_n$ and $0$, may not converge at all, or converge to any number between $0$ and $1$.</p>
+<h2 id="Example-Failure-of-Converging-to-a-Probability-Measure"><a href="#Example-Failure-of-Converging-to-a-Probability-Measure" class="headerlink" title="Example: Failure of Converging to a Probability Measure"></a>Example: Failure of Converging to a Probability Measure</h2><p>We compose an example where $\mu_n$ converges to a measure $\mu$ where $\mu(\mathbb{R})&lt;1$, preventing $\mu$ from being a probability measure. To do this, fix two positive numbers $\alpha$ and $\beta$ such that $\alpha+\beta&lt;1$. Consider the sequence of random variables $X_n$ with</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+X_n = \begin{cases}
+n & \text{with probability $\alpha$,} \\
+0 & \text{with probability $1-\alpha-\beta$,} \\
+-n &\text{with probability $\beta$.}
+\end{cases}
+\end{aligned}</script><p>Then $X_n \to X$ where</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+X = \begin{cases}
+\infty & \text{with probability $\alpha$,} \\
+0 & \text{with probability $1-\alpha-\beta$,} \\
+-\infty &\text{with probability $\beta$.}
+\end{cases}
+\end{aligned}</script><p>Then $\lim_n\mu_n(\mathbb{R})=1-\alpha-\beta&lt;1$. Atoms of this measure has escaped to $+\infty$ and $-\infty$.</p>
+<p>These examples inspire us to develop a weaker sense of convergence, where we only take intervals into account (because we would expect continuous functions to play a role).</p>
+<h1 id="Definitions"><a href="#Definitions" class="headerlink" title="Definitions"></a>Definitions</h1><p>From the example above, it is clear that it is not expected to reach $=1$ all the time. Therefore we consider $\le 1$ instead, hence the following weakened version of probability measure and distribution function follow.</p>
+<blockquote>
+<p><strong>Definition 1.</strong> A measure $\mu$ on $\mathbb{R}$ is a <em>subprobability measure</em> (s.p.m.) if $\mu(\mathbb{R}) \le 1$. Correspondingly, one defines the <em>subdistribution function</em> (s.d.f.) with respect to $\mu$ by</p>
+<script type="math/tex; mode=display">
+\forall x, F(x)=\mu((-\infty,x]).</script></blockquote>
+<p>When $\mu(\mathbb{R})=1$, there is nothing new, but even if not, we do not have very much obstacles. Still we see $F(x)$ is a right continuous function with $F(-\infty)=0$ and $F(+\infty)=\mu(\mathbb{R}) \le 1$. For brevity’s sake, we will write $\mu((a,b])$ into $\mu(a,b]$ from now on, and similarly for other kind of intervals. We also put $\mu(a,b)=0$ when $a&gt;b$ because why not.</p>
+<p>Our examples also warn us that atoms are a big deal, which leads us to the following definition concerning intervals.</p>
+<blockquote>
+<p><strong>Definition 2.</strong> Notation being above, an interval $(a,b)$ is called a <em>continuous interval</em> if neither $a$ nor $b$ is an <a target="_blank" rel="noopener" href="https://proofwiki.org/wiki/Definition:Atom_of_Measure">atom</a> of $\mu$, i.e. if $\mu(a,b)=\mu[a,b]$. </p>
+</blockquote>
+<p>One can test if $(0,1)$ is a continuous interval in our first group of examples. Now we are ready for the definition of vague convergence.</p>
+<blockquote>
+<p><strong>Definition 3.</strong> A sequence $(\mu_n)$ of s.p.m. is said to <em>converge vaguely</em> to an s.p.m. $\mu$ if there exists a dense subset $D \subset \mathbb{R}$ such that</p>
+<script type="math/tex; mode=display">
+\forall a,b\in D,a<b,\quad \mu_n(a,b] \to \mu(a,b].</script><p>We write $\mu_n \xrightarrow{v} \mu$.</p>
+<p>Let $(F_n)$ be the corresponding s.d.f. of $(\mu_n)$ and $F$ the s.d.f. of $\mu$. Then we say that $F_n$ converges vaguely to $F$ and write $F_n \xrightarrow{v} F$.</p>
+</blockquote>
+<p>It is unfair that we are not building the infrastructure for random variables (r.v.) in this context. We introduce the following concept that you may have already studied in the calculus-based probability theory:</p>
+<blockquote>
+<p><strong>Definition 4.</strong> Let $(X_n)$ be a sequence of r.v.’s with corresponding cumulative distribution functions (c.d.f.) $(F_n)$. We say $X_n$ converge weakly or in distribution to $X$ (with corresponding c.d.f. $F$) if $F_n \xrightarrow{v} F$.</p>
+</blockquote>
+<p>In calculus-based probability theory, one studies that $F_n(x) \to F(x)$ whenever $F$ is continuous at $x$. This definition is easier to understand but has skipped a lot of important details.</p>
+<h1 id="Equivalent-Conditions"><a href="#Equivalent-Conditions" class="headerlink" title="Equivalent Conditions"></a>Equivalent Conditions</h1><p>In this section we study vague convergence in a view of measure theory, utilising $\varepsilon-\delta$ arguments most of the time. We will see that the convergence looks quite similar to the convergence of $\mathbb{R}$. </p>
+<p>Let $(a_n)$ be a sequence of real numbers, we can recall that</p>
+<ul>
+<li>If $(a_n)$ converges, then the limit is unique. </li>
+<li>If $(a_n)$ is bounded, then it has a bounded subsequence.</li>
+<li>If every subsequence of $(a_n)$ converges to $a$, then $a_n$ converges to $a$. </li>
+</ul>
+<p>These results are natural in the context of calculus, but in the world of topology and functional analysis, these are not naturally expected. However, s.p.m.’s enjoy all three of them (for the second point, notice that an s.p.m. is bounded in a sense anyway.) Nevertheless, it would be too ambitious to include everything here and assume that the reader will finish it in one shot.</p>
+<blockquote>
+<p><strong>Theorem 1.</strong> Let $(\mu_n)$ and $\mu$ be s.p.m.’s. The following conditions are equivalent:</p>
+<p>(1) $\mu_n \xrightarrow{v} \mu$.</p>
+<p>(2) For every finite interval $(a,b)$ and $\varepsilon&gt;0$, there exists an $n_0(a,b,\varepsilon)$ such that whenever $n \ge n_0$,</p>
+<script type="math/tex; mode=display">
+\mu(a+\varepsilon,b-\varepsilon)-\varepsilon \le \mu_n(a,b) \le \mu(a-\varepsilon,b+\varepsilon)+\varepsilon</script><p>(3) For every continuity interval $(a,b]$ of $\mu$, we have</p>
+<script type="math/tex; mode=display">
+\mu_n(a,b] \to \mu(a,b].</script><p>When $(\mu_n)$ and $\mu$ are p.m.’s, the second condition is equivalent to the “uniformed” edition:</p>
+<p>(4) For every $\delta&gt;0$ and $\varepsilon&gt;0$, there exists $n_0(\delta,\varepsilon)$ such that if $n \ge n_0$, then for <strong>every</strong> interval $(a,b)$, possibly infinite:</p>
+<script type="math/tex; mode=display">
+\mu(a+\delta,b-\delta)-\varepsilon \le \mu_n(a,b) \le \mu(a-\delta,b+\delta)+\varepsilon.</script></blockquote>
+<p><em>Proof.</em> We first study the equivalence of the first three statements. Suppose $\mu_n$ converges vaguely to $\mu$. We are given a dense subset $D$ of the real line such that whenever $a,b \in D$ and $a<b$, we have $\mu_n(a,b] \to \mu(a,b]$. For every finite interval $(a,b)$ and $\varepsilon>0$, there are $a_1,a_2,b_1,b_2 \in D$ satisfying</p>
+<script type="math/tex; mode=display">
+a-\varepsilon<a_1<a<a_2<a+\varepsilon,\;b-\varepsilon<b_1<b<b_2<b+\varepsilon.</script><p>By vague convergence, there exists $n_0&gt;0$ such that whenever $n \ge n_0$,</p>
+<script type="math/tex; mode=display">
+|\mu_n(a_i,b_j]-\mu(a_i,b_j]|<\varepsilon</script><p>for $i=1,2$ and $j=1,2$. It follows that</p>
+<script type="math/tex; mode=display">
+\mu_n(a,b) \ge \mu_n(a_2,b_1] > \mu_2(a_2,b_1]-\varepsilon\ge \mu(a+\varepsilon,b-\varepsilon)-\varepsilon</script><p>and on the other hand</p>
+<script type="math/tex; mode=display">
+\mu_n(a,b) \le \mu_n(a_1,b_2] < \mu(a_1,b_2]+\varepsilon \le \mu(a-\varepsilon,b+\varepsilon)+\varepsilon.</script><p>Combining both, the implication is clear.</p>
+<p>Next, we assume (2), and let $(a,b)$ be a continuous interval of $\mu$, i.e we have $\mu(a,b)=\mu[a,b]$.  The relation $\mu(a+\varepsilon,b-\varepsilon)-\varepsilon \le \mu_n(a,b)$ implies that</p>
+<script type="math/tex; mode=display">
+\mu(a+\varepsilon,b-\varepsilon) - \varepsilon \le \varliminf_{n\to\infty} \mu_n(a,b)</script><p>holds for all $\varepsilon&gt;0$. On the other hand, as $\varepsilon \to 0$ on the left hand side, we see</p>
+<script type="math/tex; mode=display">
+\mu(a,b) \le \varliminf_{n\to\infty}\mu_n(a,b).</script><p>Likewise, the relation $\mu_n(a,b) \le \mu(a-\varepsilon,b+\varepsilon)+\varepsilon$ yields</p>
+<script type="math/tex; mode=display">
+\varlimsup_{n\to\infty}\mu_n(a,b) \le \mu(a-\varepsilon,b+\varepsilon)+\varepsilon.</script><p>As $\varepsilon \to 0$ on the right hand side, we obtain</p>
+<script type="math/tex; mode=display">
+\varlimsup_{n \to \infty}\mu_n(a,b) \le \mu[a,b]=\mu(a,b).</script><p>To conclude both sides, notice that</p>
+<script type="math/tex; mode=display">
+\mu(a,b) \le \varliminf_{n\to\infty}\mu_n(a,b)\le\varlimsup_{n\to\infty}\mu_n(a,b)\le\mu[a,b]=\mu(a,b).</script><p>This forces $\mu_n(a,b)$ to converge to $\mu(a,b)$. This implies that $\mu_n(a,b] \to \mu(a,b]$. To see this, pick another continuous interval $(a,b’)$ which properly contains $(a,b)$. Then $(b,b’)$ is another continuous interval. It follows that</p>
+<script type="math/tex; mode=display">
+\mu_n(a,b] = \mu_n(a,b')-\mu_n(b,b') \to \mu(a,b')-\mu(b,b')=\mu(a,b].</script><p>Assume (3). Notice that the set of atoms $A$ of $\mu$ has to be at most countable, therefore $D=\mathbb{R} \setminus A$ is dense in $\mathbb{R}$. On the other hand, $(a,b]$ is a continuous interval if and only if $a,b \in D$. This implies (1).</p>
+<hr>
+<p>The arguments above also shows that when discussing vague convergence, one can replace $(a,b]$ with $(a,b)$, $(a,b]$ or $[a,b]$ freely, as long as $(a,b)$ is a continuous interval. It also follows that $\mu_n(\{a\}) \to 0$.</p>
+<hr>
+<p>For (4), as (4) implies (2) (by taking $\delta=\varepsilon&gt;0$), it remains to show that (3) implies (4) assuming that $\mu_n$ and $\mu$ are p.m.’s. Indeed, it suffices to prove it on a finite interval, and we will firstly justify this action. Let $A$ denote the set of atoms of $\mu$. First of all we can pick integer $n&gt;0$ such that $\mu(-n,n) &gt; 1-\frac{\varepsilon}{4}$ (that is, the interval is so big that the measure is close to $1$ enough). Pick $\alpha,\beta \in A^c$ such that $a \le -n$ and $b \ge n$ (this is possible because $A^c$ is dense). For the interval $(\alpha,\beta)$, we can put a finite partition</p>
+<script type="math/tex; mode=display">
+\alpha=a_1<a_2<\dots<a_\ell=\beta</script><p> such that $|a_{j+1}-a_j| \le \delta$ and $a_j \in A^c$ for all $j=1,\dots,\ell-1$. Therefore, we have</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+\mu((a_1,a_\ell)^c)<\frac{\varepsilon}{4}.
+\end{equation}</script><p>By (3), there exists $n_0$ depending on $\varepsilon$ and $\ell$ (thereby $\delta$) such that</p>
+<script type="math/tex; mode=display">
+\sup_{1 \le j \le \ell -1}|\mu(a_j,a_{j+1}]-\mu_n(a_j,a_{j+1}]|  < \frac{\varepsilon}{4\ell},</script><p>for all $n \ge n_0$. Adding over all $j$, replacing the endpoint with open interval, we see</p>
+<script type="math/tex; mode=display">
+|\mu(a_1,a_\ell)-\mu_n(a_1,a_\ell)|<\frac{\varepsilon}{4}.</script><p>It follows that</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\mu_n((a_1,a_\ell)^c) &= 1-\mu_n(a_1,a_\ell) \\
+                      &= \mu((a_1,a_\ell))+\mu((a_1,a_\ell)^c)-\mu_n(a_1,a_\ell) \\
+                      &\le \mu((a_1,a_\ell)^c)+|\mu(a_1,a_\ell)-\mu_n(a_1,a_\ell)| \\
+                      &< \frac{\varepsilon}{2}.
+\end{aligned}</script><p>(This is where being p.m. matters.) Therefore when $n \ge n_0$ and discussing $\mu(a,b)$ versus $\mu_n(a,b)$, ignoring $(a,b) \setminus (a_1,a_\ell)$ results only in an error of $&lt;\frac{\varepsilon}{2}$. Therefore it suffices to assume that $(a,b) \subset (a_1,a_\ell)$ and show that</p>
+<script type="math/tex; mode=display">
+\mu(a+\delta,b-\delta)-\frac{\varepsilon}{2}\le \mu_n(a,b) \le \mu(a-\delta,b+\delta)+\frac{\varepsilon}{2}.</script><p>Since $(a,b) \subset (a_1,a_\ell)$, there exists $j,k$ with $1 \le j \le k &lt; \ell$ such that</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\mu_n(a+\delta,b-\delta)-\frac{\varepsilon}{4} &\le \mu_n(a_{j+1},a_k)-\frac{\varepsilon}{4} \le \mu(a_{j+1},a_k) \le \mu(a,b) \\
+&\le \mu(a_j,a_{k+1}) \le \mu_n(a_j,a_{k+1})+\frac{\varepsilon}{4} \\
+&\le \mu_n(a-\delta,b+\delta) + \frac{\varepsilon}{4}.
+\end{aligned}</script><p>This concludes the proof and demonstrates why our specific choice of $a_j$ is important. $\square$</p>
+<p>We cannot give a treatment of all three points above but the first point, the unicity of vague limit, is now clear.</p>
+<blockquote>
+<p><strong>Corollary 1 (Unicity of vague limit).</strong> Notation being in definition 3. If there is another s.p.m. $\mu’$ and another dense set $D’$ such that whenever $a,b \in D’$ and $a&lt;b$, one has $\mu_n(a,b] \to \mu’(a,b]$, then $\mu$ and $\mu’$ are identical.</p>
+</blockquote>
+<p><em>Proof.</em> Let $A$ be the set of atoms of $\mu$ and $\mu’$; then if $a,b \in A^c$, one has $\mu_n(a,b] \to \mu(a,b]$ and $\mu_n(a,b] \to \mu’(a,b]$. Therefore $\mu(a,b]=\mu’(a,b]$. Since $A^c$ is dense in $\mathbb{R}$, them two must be identical. $\square$ </p>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"><a href="../../../../tags/Chung/" class="post-tags__link button"># Chung</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../../03/20/quadratic-reciprocity-law-1/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            The Quadratic Reciprocity Law
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../../../2022/12/23/pontryagin-dual-q-p/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            The Pontryagin Dual group of Q_p
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2023/02/13/vague-convergence/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

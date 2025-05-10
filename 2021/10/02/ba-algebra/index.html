@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>The Banach Algebra of Borel Measures on Euclidean Space | Desvl&#39;s blog</title>
+
+
+    <meta name="keywords" content="Exercise solution, Real and Complex Analysis, Walter Rudin, Functional Analysis">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="This blog post is intended to deliver a quick explanation of the algebra of Borel measures on $\mathbb{R}^n$. It will be broken into pieces. All complex-valued complex Borel measures $M(\mathbb{R}^n)$">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Banach Algebra of Borel Measures on Euclidean Space">
+<meta property="og:url" content="https://desvl.xyz/2021/10/02/ba-algebra/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="This blog post is intended to deliver a quick explanation of the algebra of Borel measures on $\mathbb{R}^n$. It will be broken into pieces. All complex-valued complex Borel measures $M(\mathbb{R}^n)$">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-10-02T10:20:51.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:09.573Z">
+<meta property="article:author" content="Desvl">
+<meta property="article:tag" content="Exercise solution">
+<meta property="article:tag" content="Real and Complex Analysis">
+<meta property="article:tag" content="Walter Rudin">
+<meta property="article:tag" content="Functional Analysis">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        The Banach Algebra of Borel Measures on Euclidean Space
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2021/10/" class="post-meta__date button">2021-10-02</a>
+        
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/" class="button">Analysis</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/Functional-Analysis/" class="button">Functional Analysis</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/Integration-Theory/" class="button">Integration Theory</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/Functional-Analysis/Banach-Algebra/" class="button">Banach Algebra</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Banach-space"><span class="toc-number">1.</span> <span class="toc-text">Banach space</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Convolution-and-Banach-algebra"><span class="toc-number">2.</span> <span class="toc-text">Convolution and Banach algebra</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Convolution-of-two-Borel-measures-a-Borel-measure"><span class="toc-number">2.1.</span> <span class="toc-text">Convolution of two Borel measures a Borel measure</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Properties-of-convolution-resulting-in-a-Banach-algebra-over-the-complex-field"><span class="toc-number">2.2.</span> <span class="toc-text">Properties of convolution resulting in a Banach algebra over the complex field</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-subalgebra-of-discrete-measures-and-subspace-of-absolutely-continuous-measures"><span class="toc-number">3.</span> <span class="toc-text">The subalgebra of discrete measures and subspace of (absolutely) continuous measures</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-relation-of-M-mathbb-R-n-and-L-1-mathbb-R-n-m"><span class="toc-number">4.</span> <span class="toc-text">The relation of $M(\mathbb{R}^n)$ and $L^1(\mathbb{R}^n,m)$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Group-of-invertible-elements"><span class="toc-number">5.</span> <span class="toc-text">The Group of invertible elements</span></a></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Banach-space"><span class="toc-number">1.</span> <span class="toc-text">Banach space</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Convolution-and-Banach-algebra"><span class="toc-number">2.</span> <span class="toc-text">Convolution and Banach algebra</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Convolution-of-two-Borel-measures-a-Borel-measure"><span class="toc-number">2.1.</span> <span class="toc-text">Convolution of two Borel measures a Borel measure</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Properties-of-convolution-resulting-in-a-Banach-algebra-over-the-complex-field"><span class="toc-number">2.2.</span> <span class="toc-text">Properties of convolution resulting in a Banach algebra over the complex field</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-subalgebra-of-discrete-measures-and-subspace-of-absolutely-continuous-measures"><span class="toc-number">3.</span> <span class="toc-text">The subalgebra of discrete measures and subspace of (absolutely) continuous measures</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-relation-of-M-mathbb-R-n-and-L-1-mathbb-R-n-m"><span class="toc-number">4.</span> <span class="toc-text">The relation of $M(\mathbb{R}^n)$ and $L^1(\mathbb{R}^n,m)$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Group-of-invertible-elements"><span class="toc-number">5.</span> <span class="toc-text">The Group of invertible elements</span></a></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <p>This blog post is intended to deliver a quick explanation of the algebra of Borel measures on $\mathbb{R}^n$. It will be broken into pieces. All complex-valued complex Borel measures $M(\mathbb{R}^n)$ clearly form a vector space over $\mathbb{C}$. The main goal of this post is to show that this is a Banach space and also a Banach algebra.</p>
+<p>In fact, the $\mathbb{R}^n$ case can be generalised into any locally compact abelian group (see any abstract harmonic analysis books), this is because what really matters here is being locally compact and abelian. But at this moment we stick to Euclidean spaces. Note since $\mathbb{R}^n$ is $\sigma$-compact, all Borel measures are regular.</p>
+<p>To read this post you need to be familiar with some basic properties of Banach algebra, complex Borel measures, and the most important, Fubini’s theorem.</p>
+<span id="more"></span>
+<h2 id="Banach-space"><a href="#Banach-space" class="headerlink" title="Banach space"></a>Banach space</h2><p>The norm on $M(\mathbb{R}^n)$ is the <em>total variation</em>:</p>
+<script type="math/tex; mode=display">
+\lVert \mu \rVert = |\mu|(\mathbb{R}^n) = \sup \sum_{i=1}^{\infty}|\mu(E_i)|</script><p>the supremum being taken over all partitions $(E_i)$ of $\mathbb{R}^n$. The supremum on the right-hand side is finite because $\mu$ is assumed to be complex. This norm makes $M(\mathbb{R}^n)$ normed but we are interested in proving this space to be Banach.</p>
+<p>Note each measure in $M(\mathbb{R})$ gives rise to a bounded complex functional</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\Phi_\mu:C_0(\mathbb{R}^n) &\to \mathbb{C} \\
+                        f  &\to \int_{\mathbb{R}^n}fd\mu.
+\end{aligned}</script><p>Note we have $\vert \Phi_\mu(f)\vert = |\int f d\mu| \le \int |f|d|\mu| &lt;\infty$. Indeed the norm of $\Phi_\mu$ is $\lVert \mu \rVert$.</p>
+<p>Conversely, every bounded linear functional $\Phi$ gives rise to a regular Borel measure $\mu$ such that $\Phi(f)=\int fd\mu$ and $\lVert \Phi \rVert = \lVert \mu \rVert$, which is ensured by Riesz representation theorem. This is to say</p>
+<script type="math/tex; mode=display">
+C_0(\mathbb{R}^n)^\ast \cong M(\mathbb{R}^n)</script><p>in the sense of vector space isomorphism and homeomorphism (in fact, isometry). But it is well known that the dual space of a normed vector space is a Banach space, hence $M(\mathbb{R}^n)$ is Banach as is expected.</p>
+<h2 id="Convolution-and-Banach-algebra"><a href="#Convolution-and-Banach-algebra" class="headerlink" title="Convolution and Banach algebra"></a>Convolution and Banach algebra</h2><p>A vector space $V$ over a field $\mathbb{F}$ is called an algebra if there is an $\mathbb{F}$-bilinear form</p>
+<script type="math/tex; mode=display">
+B:V \times V \to V</script><p>. It is a Banach algebra if $V$ itself is Banach and the bilinear form is associative, i.e. $B(x,B(y,z)) = B(B(x,y),z)$ and</p>
+<script type="math/tex; mode=display">
+\lVert B(x,y) \rVert \le \lVert x \rVert \lVert y \rVert.</script><p>We show that $M(\mathbb{R}^n)$ is Banach by taking $B(\lambda,\mu)=\lambda \ast \mu$.</p>
+<h3 id="Convolution-of-two-Borel-measures-a-Borel-measure"><a href="#Convolution-of-two-Borel-measures-a-Borel-measure" class="headerlink" title="Convolution of two Borel measures a Borel measure"></a>Convolution of two Borel measures a Borel measure</h3><p>The convolution of measures is defined in the style of convolution of functions, in a natural sense. For any Borel set $E \subset \mathbb{R}^n$, we can consider the set restricted by addition:</p>
+<script type="math/tex; mode=display">
+E_2 = \{(x,y):x+y \in E\} \subset \mathbb{R}^{2n}.</script><p>Then we define the convolution of $\mu,\lambda \in M(\mathbb{R}^{2n})$ by <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Product_measure">product measure</a></p>
+<script type="math/tex; mode=display">
+(\mu \ast \lambda)(E) = (\mu \times \lambda)(E_2).</script><p>It looks natural but we need many routine verifications. </p>
+<p>First, we need to show that $E_2$ is Borel. In fact, we have</p>
+<script type="math/tex; mode=display">
+\chi_{E_2}(x,y) = \chi_E(x+y).</script><p>Since $E$ is Borel, we see $\chi_E$ is Borel. Meanwhile $\varphi(x,y)=x+y$ is continuous hence Borel. Therefore $\chi_{E_2}$ is Borel as well. It follows that $E_2$ is a Borel set. </p>
+<p>Next, is $\mu \ast \lambda$ an element of $M(\mathbb{R}^n)$? For any Borel set $E$, the value of $\mu \ast \lambda(E)$ is defined in $\mathbb{C}$, so we only need to verify that the definition of measure is satisfied. It shall be shown that</p>
+<script type="math/tex; mode=display">
+(\mu \ast \lambda)\left(\bigcup_{k=1}^{\infty}E^k\right)=\sum_{k=1}^{\infty}(\mu \ast \lambda)(E^k)</script><p>where $E^k$ are pairwise disjoint. Since the “measure” of $E$ is connected to $E_2$, we first show that if $E$ and $F$ are disjoint, then so are $E_2$ and $F_2$. Indeed, if $(x,y) \in E_2 \cap F_2$, then we have $x+y \in E \cap F$, and the set cannot be empty. Hence pairwise disjoint is preserved. Putting $E= \bigcup_{k=1}^{\infty}E^k$, we also need to show that $E_2 = \bigcup_{k=1}^{\infty}E_2^k$. If $x+y \in E$, then it lies in one of $E^k$, hence $(x,y) \in E_2 \implies (x,y) \in E_2^k$ for some $k$. It follows that $E_2 \subset \bigcup_{k=1}^{\infty}E_2^k$. Conversely, for $(x,y) \in \bigcup_{k=1}^{\infty}E_2^k$, we must have some $k$ such that $x+y \in E^k \subset E$, hence $(x,y) \in E_2$, which is to say that $\bigcup_{k=1}^{\infty}E_2^k \subset E_2$. Therefore</p>
+<script type="math/tex; mode=display">
+(\mu \ast \lambda)(E) = (\mu \times \lambda)(E_2) = (\mu \times \lambda)\left( \bigcup_{k=1}^{\infty}E_2^k\right) = \sum_{k=1}^{\infty}(\mu \times \lambda)(E_2^k) = \sum_{k=1}^{\infty}(\mu \ast \lambda)(E^k)</script><p>as is desired.</p>
+<h3 id="Properties-of-convolution-resulting-in-a-Banach-algebra-over-the-complex-field"><a href="#Properties-of-convolution-resulting-in-a-Banach-algebra-over-the-complex-field" class="headerlink" title="Properties of convolution resulting in a Banach algebra over the complex field"></a>Properties of convolution resulting in a Banach algebra over the complex field</h3><p>For any $f \in C_0(\mathbb{R}^n)$, we have a linear functional</p>
+<script type="math/tex; mode=display">
+\Phi:f \mapsto \iint f(x+y)d\mu(x)d\lambda(y) = \int fd(\mu \ast \lambda)</script><p>By Riesz representation theorem, there exists a unique measure $\nu$ such that $\Phi(f)=\int fd\nu$, it follows that $\nu = \mu \ast \lambda$ is uniquely determined. However, we have</p>
+<script type="math/tex; mode=display">
+\iint f(x+y)d\mu(x)d\lambda(y) = \iint f(x+y)d\lambda(x)d\mu(y)=\int fd(\lambda \ast \mu)</script><p>It follows that $\lambda \ast \mu = \nu = \mu \ast \lambda$. This convolution is commutative. Note for complex measures we always have $|\mu|(\mathbb{R}^n)&lt;\infty$ so Fubini’s theorem is always valid.</p>
+<p>Next we show that $\ast$ is associative. It can be carried out by Riesz’s theorem. Put $\nu_1 = \lambda \ast (\mu \ast \gamma)$ and $\nu_2 = (\lambda \ast \mu) \ast \gamma$. It follows that</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+    \int fd\nu_1 &= \iint f(x+y)d\lambda(x)d(\mu \ast \gamma)(y) \\
+                 &= \iiint f(x+y+z)d\lambda(x)d\mu(y)d\gamma(z) \\
+                 &= \iint f(x+y+z)d\gamma(z)d\lambda(x)d\mu(y) \\
+                 &= \iint f(x+y)d\gamma(x)d(\lambda \ast \mu)(y) \\
+                 &= \int fd(\gamma \ast (\lambda \ast \mu)) \\
+                 &= \int fd\nu_2.
+\end{aligned}</script><p>Hence $\nu_1 = \nu_2$, which delivers the associativity of the convolution. To show that $\ast$ makes $M(\mathbb{R}^n)$ a Banach space, we need to show the distribution law. This follows from the definition of product measure because</p>
+<script type="math/tex; mode=display">
+\mu \ast (\lambda_1 + \lambda_2)(E) = \int (\lambda_1 + \lambda_2)(E_{2}^{x})d\mu(x) = \int \lambda_1(E_2^x)d\mu(x) + \int \lambda_2(E_2^x)d\mu(x)</script><p>which is to say $\mu \ast \lambda_1 + \mu \ast \lambda_2 = \mu \ast (\lambda_1 + \lambda_2)$. Therefore $M(\mathbb{R}^n)$ is a complex algebra. It remains to show that $M(\mathbb{R}^n)$ is a Banach algebra. Let $E^1, E^2, \cdots$ be a partition of $\mathbb{R}^n$, we see</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\sum_{k=1}^{\infty}|\mu \ast \lambda(E^k)| &= \sum_{k=1}^{\infty}|(\mu \times \lambda)(E^k_2)| \\
+&= \sum_{k=1}^{\infty} \left|\iint \chi_{E_2^k}d\mu d\lambda\right| \\ 
+&\leq \sum_{k=1}^{\infty} \iint \chi_{E_2^k}d|\mu|d|\lambda| \\
+&\leq |\mu|(\mathbb{R}^n) \cdot |\lambda|(\mathbb{R}^n) \\
+&\leq \lVert \mu \rVert \cdot \lVert \lambda \rVert.
+\end{aligned}</script><p>Hence $\lVert \mu \ast \lambda\rVert \le \lVert \mu \rVert \lVert \lambda \rVert$.</p>
+<p>To conclude, $M(\mathbb{R}^n)$ is a commutative Banach algebra. Even better, this space has a unit which is customarily called the <strong>Dirac measure</strong>. Let $\delta$ be the measure determined by the evaluation functional $\Lambda:f \mapsto f(0)$. It follows that</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\int f d(\delta \ast \mu) &= \iint f(x+y)d\delta(x)d\mu(y) \\
+                          &= \int f(y)d\mu(y) 
+\end{aligned}</script><p>Hence $\delta \ast \mu = \mu$ for all $\mu \in M(\mathbb{R}^n)$. Besides, $\delta$ has norm $1$ because it attains value $1$ at any Borel subset $E \subset \mathbb{R}^n$ containing the origin and value $0$ at any other Borel sets. </p>
+<h2 id="The-subalgebra-of-discrete-measures-and-subspace-of-absolutely-continuous-measures"><a href="#The-subalgebra-of-discrete-measures-and-subspace-of-absolutely-continuous-measures" class="headerlink" title="The subalgebra of discrete measures and subspace of (absolutely) continuous measures"></a>The subalgebra of discrete measures and subspace of (absolutely) continuous measures</h2><blockquote>
+<p>A measure $\mu$ is said to be <em>discrete</em> if there is a countable set $E$ such that $\mu(A)=\mu(A \cap E)$ for all measurable sets $A$ (in general we say $\mu$ is concentrated on $E$). $\mu$ is said to be <em>continuous</em> if $\mu(A)=0$ whenever $A$ only contains a single point. We write $\mu \ll \lambda$, $\mu$ is <em>absolutely continuous</em> with respect to $\lambda$, if $\lambda(A)=0 \implies \mu(A)=0$. </p>
+</blockquote>
+<p>We now play some games between continuous and discrete measures. First, we study the subspace of discrete measures $M_d(\mathbb{R}^n)$. For sum, things are quite straightforward. Suppose $\mu$ is concentrated on $A$ and $\lambda$ is concentrated on $B$, then</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\mu(E) + \lambda(E) &= \mu(E \cap A) + \lambda(E \cap B) \\
+                    &= \mu(E \cap (A \cap (A \cup B))) + \lambda(E \cap (B \cap (A \cup B))) \\
+                    &= \mu(E \cap (A \cup B))+ \lambda(E \cap (A \cup B)).
+\end{aligned}</script><p>Hence $\mu+\lambda$ is concentrated on $A \cup B$.</p>
+<p>For convolution, things are a little trickier. Suppose $\mu = \sum_{i=1}^{\infty}a_i\delta_{x_i}$, $\lambda=\sum_{i=1}^{\infty}b_i\delta_{y_i}$, where the $x_i$ and $y_i$ are distinct points, $\delta_x$ is the Dirac measure concentrated on $\{x\}$ (hence $\delta=\delta_0$), i.e. $\mu$ is concentrated on $A=\{x_i\}_{i=1}^{\infty}$ and $\lambda$ is concentrated on $\{y_i\}_{i=1}^{\infty}$, we see</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+(\mu \ast \lambda)(E) &= \iint \chi_E(x+y)d\mu(x)d\lambda(y) \\
+                      &= \int \sum_{i=1}^{\infty}a_i\chi_E(x_i+y)d\lambda(y) \\
+                      &= \sum_{j=1}^{\infty}\sum_{i=1}^{\infty}a_ib_j\chi_E(x_i+y_j) \\
+                      &= \sum_{j=1}^{\infty}\sum_{i=1}^{\infty}a_ib_j\chi_{E \cap (A+B)}(x_i+y_j) \\
+                      &= (\mu \ast \lambda)(E \cap (A+B)).
+\end{aligned}</script><p>Therefore $M_d(\mathbb{R}^n)$ forms a subalgebra of $M(\mathbb{R}^n)$. </p>
+<p>Next, we focus on the subspace of continuous measures $M_c(\mathbb{R}^n)$. To begin with, we first consider the following identity:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+(\mu \ast \lambda)(E) &= \iint \chi_E(x+y)d\mu(x)d\lambda(y) \\
+                      &= \iint \chi_{E-y}(x)d\mu(x)d\lambda(y) \\
+                      &= \int \mu(E-y)d\lambda(y).
+\end{aligned}</script><p>Suppose $\mu$ is continuous and $E$ is a singleton, then $E-y$ is still a singleton and hence $\mu(E-y)=0$ for all $y$, hence $(\mu \ast \lambda)(E)=0$, i.e. $\mu \ast \lambda$ is still continuous. Therefore the subspace of continuous measures actually forms an ideal.</p>
+<p>Next, suppose $\mu \ll m$ and $m(E)=0$. We see</p>
+<script type="math/tex; mode=display">
+(\mu \ast \lambda)(E) = \int \mu(E-y)d\lambda(y) = 0</script><p>because $m(E)=0$ implies $m(E-y)=0$ for all $y$. Hence the subspace of absolutely continuous measures $M_{ac}(\mathbb{R}^n)$ also forms an ideal. </p>
+<p>Finally, we consider the Radon-Nikodym derivatives (which exists (surjective) and is unique almost everywhere (injective)) of absolutely continuous measures. If</p>
+<script type="math/tex; mode=display">
+\mu(E) = \int_E fdm, \quad \lambda(E) = \int_E gd\mu,</script><p>then the coincide $\mu \ast \lambda$ coincide with $f \ast g$ in the following sense:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+(\mu \ast \lambda)(E) &= \int_{\mathbb{R^n}} \mu(E-t)d\lambda(t) \\
+                      &= \int_{\mathbb{R^n}}\left(\int_{E}f(x+t)dm(x) \right)g(t)dm(t) \\
+                      &= \int_{\mathbb{R}^n}\int_E f(x+t)g(t)dm(x)d(t) \\
+                      &= \int_E (f \ast g)dm
+\end{aligned}</script><p>In other words, we have $d(\mu \ast \lambda) = (f \ast g)dm$. Through this, we established an algebraic isomorphism $M_{ac}(\mathbb{R}^n) \cong L^1(\mathbb{R}^n,m)$.</p>
+<h2 id="The-relation-of-M-mathbb-R-n-and-L-1-mathbb-R-n-m"><a href="#The-relation-of-M-mathbb-R-n-and-L-1-mathbb-R-n-m" class="headerlink" title="The relation of $M(\mathbb{R}^n)$ and $L^1(\mathbb{R}^n,m)$"></a>The relation of $M(\mathbb{R}^n)$ and $L^1(\mathbb{R}^n,m)$</h2><p>$L^1(\mathbb{R}^n,m)$ could’ve been a Banach algebra, but the unit is missing. However one can embed it into $M(\mathbb{R}^n)$ as a subspace of the subalgebra $M_{L^1}(\mathbb{R}^n)$ which contains all complex Borel measures $\mu$ satisfying</p>
+<script type="math/tex; mode=display">
+d\mu = fdm + \lambda d\delta, \quad \lambda \in \mathbb{C}.</script><p>Conversely, by the Lebesgue decomposition theorem, to every $\mu \in M(\mathbb{R}^n)$, we have a unique decomposition</p>
+<script type="math/tex; mode=display">
+\mu = \mu_a + \mu_s</script><p>where $\mu_a \ll m$ and $\mu_s \perp m$. With this being said we have a direct sum</p>
+<script type="math/tex; mode=display">
+M(\mathbb{R}^n) = L^1(\mathbb{R}^n,m) \oplus M_s(\mathbb{R}^n)</script><p>where $M_s(\mathbb{R}^n)$ is the subspace of complex measures singular to $m$. Informally speaking, the Gelfand transform on $L^1(\mathbb{R}^n,m)$ can be identified as the Fourier transform. Hence to study the Gelfand transform on $M(\mathbb{R}^n)$ it suffices to work on $M_s(\mathbb{R}^n)$. This shows the relation between $L^1$ and $C_0$.</p>
+<h2 id="The-Group-of-invertible-elements"><a href="#The-Group-of-invertible-elements" class="headerlink" title="The Group of invertible elements"></a>The Group of invertible elements</h2><p>\Let $G$ be the group of invertible elements of $M=M(\mathbb{R})$, and $G_1$ be the component of $G$ that contains $\delta$. $G_1$ is an open normal subgroup of $G$. Since $M$ is commutative, $G_1=\exp(M)$, and $G/G_1$ contains no nontrivial element of finite order. We will show that $G/G_1$ is actually uncountable. Pick $\alpha \in \mathbb{R}$, assume $\delta_\alpha \in G_1$, then $\delta_\alpha = \exp(\mu_\alpha)$ for some $\mu_\alpha \in M$. Performing Fourier transform on both sides gives</p>
+<script type="math/tex; mode=display">
+\int e^{-ixt}d\delta_\alpha = e^{-i\alpha t} = \int e^{-ixt}d\exp(\mu_\alpha)(x)=e^{\hat{\mu}_\alpha(t)}</script><p>Hence</p>
+<script type="math/tex; mode=display">
+-i\alpha t = \hat{\mu}_\alpha(t)+2k\pi{i}</script><p>Since $\mu_\alpha$ is bounded, so is $\hat{\mu}_\alpha(t)$. Hence $\alpha=0$. This is to say $\delta_\alpha \in G_1 \implies \alpha=0$. Next, consider any $\lambda{G_1} \in G/G_1$. If $\lambda=\delta_\alpha$ for some real $\alpha$, then $\delta_\alpha \in \lambda G_1$ is the only Dirac measure. If not, however, then $\lambda G_1$ contains no Dirac measures. Hence we have obtained an injective but not surjective map</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\Lambda:\mathbb{R} &\to G/G_1, \\
+            \alpha &\mapsto \delta_\alpha G_1.
+\end{aligned}</script><p>This is to say, $G/G_1$ is uncountable.</p>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"><a href="../../../../tags/Exercise-solution/" class="post-tags__link button"># Exercise solution</a><a href="../../../../tags/Real-and-Complex-Analysis/" class="post-tags__link button"># Real and Complex Analysis</a><a href="../../../../tags/Walter-Rudin/" class="post-tags__link button"># Walter Rudin</a><a href="../../../../tags/Functional-Analysis/" class="post-tags__link button"># Functional Analysis</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../10/Characters-in-Analysis-and-Algebra/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            Characters in Analysis and Algebra
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../../08/16/the-concept-of-distribution/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            The concept of generalised functions (distributions) and derivatives
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2021/10/02/ba-algebra/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>线性ODE（四）——常系数高阶线性微分方程的普遍解法 | Desvl&#39;s blog</title>
+
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="最终目标我们要讨论这两种方程的普遍的解决办法  y^{(n)}+a_1y^{(n-1)}+\cdots+a_ny&#x3D;0\\ y^{(n)}+a_1y^{(n-1)}+\cdots+a_ny&#x3D;f(x)\\其中$a_i$为常数。在上篇博客里，我们见到了，假设我们能求出第一个方程，那么第二个方程的解，可以用Cramer法则，通过解普通的线性方程组，再进行积分得到。但是我们假设自己有这个“超能力”，并没有实">
+<meta property="og:type" content="article">
+<meta property="og:title" content="线性ODE（四）——常系数高阶线性微分方程的普遍解法">
+<meta property="og:url" content="https://desvl.xyz/2020/07/16/linear-ode-chapter-4/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="最终目标我们要讨论这两种方程的普遍的解决办法  y^{(n)}+a_1y^{(n-1)}+\cdots+a_ny&#x3D;0\\ y^{(n)}+a_1y^{(n-1)}+\cdots+a_ny&#x3D;f(x)\\其中$a_i$为常数。在上篇博客里，我们见到了，假设我们能求出第一个方程，那么第二个方程的解，可以用Cramer法则，通过解普通的线性方程组，再进行积分得到。但是我们假设自己有这个“超能力”，并没有实">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-07-16T14:38:23.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:10.225Z">
+<meta property="article:author" content="Desvl">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        线性ODE（四）——常系数高阶线性微分方程的普遍解法
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2020/07/" class="post-meta__date button">2020-07-16</a>
+        
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E7%BB%88%E7%9B%AE%E6%A0%87"><span class="toc-number">1.</span> <span class="toc-text">最终目标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E9%A1%B9%E5%BC%8F%E6%96%B9%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">多项式方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9E%E9%A1%BE%E7%AE%80%E5%8D%95%E7%9A%84%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B"><span class="toc-number">2.1.</span> <span class="toc-text">回顾简单的线性方程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%9D%E8%AF%95%E5%AF%B9%E4%B8%8A%E8%BF%B0%E6%96%B9%E7%A8%8B%E8%A7%A3%E6%B3%95%E8%BF%9B%E8%A1%8C%E6%8A%BD%E8%B1%A1"><span class="toc-number">2.2.</span> <span class="toc-text">尝试对上述方程解法进行抽象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B1%82%E5%AF%BC%E7%9A%84%E2%80%9C%E5%A4%9A%E9%A1%B9%E5%BC%8F%E2%80%9D%E2%80%94%E2%80%94%E4%BD%A0%E7%9A%84%E2%80%9C%E8%B6%85%E8%83%BD%E5%8A%9B%E2%80%9D"><span class="toc-number">2.3.</span> <span class="toc-text">求导的“多项式”——你的“超能力”</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B%EF%BC%9A%E5%88%A9%E7%94%A8%E5%A4%9A%E9%A1%B9%E5%BC%8F%E5%8A%9E%E6%B3%95%E8%BF%9B%E8%A1%8C%E6%9C%BA%E6%A2%B0%E5%BC%8F%E6%B1%82%E8%A7%A3"><span class="toc-number">2.4.</span> <span class="toc-text">实例：利用多项式办法进行机械式求解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9-P-D-y-0-%E5%9E%8B%E6%96%B9%E7%A8%8B%E5%9F%BA%E6%9C%AC%E6%83%85%E5%BD%A2%E7%9A%84%E6%80%BB%E7%BB%93"><span class="toc-number">2.5.</span> <span class="toc-text">对$P(D)y&#x3D;0$型方程基本情形的总结</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-P-D-D-lambda-n-%E7%9A%84%E6%83%85%E5%BD%A2"><span class="toc-number">2.5.1.</span> <span class="toc-text">1. $P(D)&#x3D;(D-\lambda)^n$的情形</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-P-D-D-lambda-1-D-lambda-2-cdots-D-lambda-n-%E7%9A%84%E6%83%85%E5%BD%A2-lambda-i-%E4%B9%8B%E9%97%B4%E4%B8%A4%E4%B8%A4%E4%BA%92%E5%BC%82"><span class="toc-number">2.5.2.</span> <span class="toc-text">2. $P(D)&#x3D;(D-\lambda_1)(D-\lambda_2)\cdots(D-\lambda_n)$的情形($\lambda_i$之间两两互异)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E4%B8%80%E8%88%AC%E6%83%85%E5%86%B5%EF%BC%9A-P-D-D-lambda-1-r-1-D-lambda-2-r-2-cdots-D-lambda-k-r-k"><span class="toc-number">2.5.3.</span> <span class="toc-text">3. 一般情况：$P(D)&#x3D;(D-\lambda_1)^{r_1}(D-\lambda_2)^{r_2}\cdots(D-\lambda_k)^{r_k}$</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E9%A1%B9%E5%BC%8F%E6%96%B9%E6%B3%95%E7%9A%84%E6%80%BB%E7%BB%93"><span class="toc-number">2.6.</span> <span class="toc-text">多项式方法的总结</span></a></li></ol></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E7%BB%88%E7%9B%AE%E6%A0%87"><span class="toc-number">1.</span> <span class="toc-text">最终目标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E9%A1%B9%E5%BC%8F%E6%96%B9%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">多项式方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9E%E9%A1%BE%E7%AE%80%E5%8D%95%E7%9A%84%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B"><span class="toc-number">2.1.</span> <span class="toc-text">回顾简单的线性方程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%9D%E8%AF%95%E5%AF%B9%E4%B8%8A%E8%BF%B0%E6%96%B9%E7%A8%8B%E8%A7%A3%E6%B3%95%E8%BF%9B%E8%A1%8C%E6%8A%BD%E8%B1%A1"><span class="toc-number">2.2.</span> <span class="toc-text">尝试对上述方程解法进行抽象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B1%82%E5%AF%BC%E7%9A%84%E2%80%9C%E5%A4%9A%E9%A1%B9%E5%BC%8F%E2%80%9D%E2%80%94%E2%80%94%E4%BD%A0%E7%9A%84%E2%80%9C%E8%B6%85%E8%83%BD%E5%8A%9B%E2%80%9D"><span class="toc-number">2.3.</span> <span class="toc-text">求导的“多项式”——你的“超能力”</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B%EF%BC%9A%E5%88%A9%E7%94%A8%E5%A4%9A%E9%A1%B9%E5%BC%8F%E5%8A%9E%E6%B3%95%E8%BF%9B%E8%A1%8C%E6%9C%BA%E6%A2%B0%E5%BC%8F%E6%B1%82%E8%A7%A3"><span class="toc-number">2.4.</span> <span class="toc-text">实例：利用多项式办法进行机械式求解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9-P-D-y-0-%E5%9E%8B%E6%96%B9%E7%A8%8B%E5%9F%BA%E6%9C%AC%E6%83%85%E5%BD%A2%E7%9A%84%E6%80%BB%E7%BB%93"><span class="toc-number">2.5.</span> <span class="toc-text">对$P(D)y&#x3D;0$型方程基本情形的总结</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-P-D-D-lambda-n-%E7%9A%84%E6%83%85%E5%BD%A2"><span class="toc-number">2.5.1.</span> <span class="toc-text">1. $P(D)&#x3D;(D-\lambda)^n$的情形</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-P-D-D-lambda-1-D-lambda-2-cdots-D-lambda-n-%E7%9A%84%E6%83%85%E5%BD%A2-lambda-i-%E4%B9%8B%E9%97%B4%E4%B8%A4%E4%B8%A4%E4%BA%92%E5%BC%82"><span class="toc-number">2.5.2.</span> <span class="toc-text">2. $P(D)&#x3D;(D-\lambda_1)(D-\lambda_2)\cdots(D-\lambda_n)$的情形($\lambda_i$之间两两互异)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E4%B8%80%E8%88%AC%E6%83%85%E5%86%B5%EF%BC%9A-P-D-D-lambda-1-r-1-D-lambda-2-r-2-cdots-D-lambda-k-r-k"><span class="toc-number">2.5.3.</span> <span class="toc-text">3. 一般情况：$P(D)&#x3D;(D-\lambda_1)^{r_1}(D-\lambda_2)^{r_2}\cdots(D-\lambda_k)^{r_k}$</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E9%A1%B9%E5%BC%8F%E6%96%B9%E6%B3%95%E7%9A%84%E6%80%BB%E7%BB%93"><span class="toc-number">2.6.</span> <span class="toc-text">多项式方法的总结</span></a></li></ol></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h2 id="最终目标"><a href="#最终目标" class="headerlink" title="最终目标"></a>最终目标</h2><p>我们要讨论这两种方程的普遍的解决办法</p>
+<script type="math/tex; mode=display">
+y^{(n)}+a_1y^{(n-1)}+\cdots+a_ny=0\\
+y^{(n)}+a_1y^{(n-1)}+\cdots+a_ny=f(x)\\</script><p>其中$a_i$为常数。在<a href="/2020/05/12/linear-ode-chapter-3/">上篇博客</a>里，我们见到了，假设我们能求出第一个方程，那么第二个方程的解，可以用Cramer法则，通过解普通的线性方程组，再进行积分得到。但是我们假设自己有这个“超能力”，并没有实际的操作方法。这篇博客会赋予我们这个“超能力”。当然也不仅仅是如何快速准确解出方程，更重要的是，能看到经典理论之间朴素而又巧妙的联系。</p>
+<p>这篇博客的方法基于多项式，我想你至少在微积分课上已经知道一些简单的对于多项式的处理了。这里要用到古典代数学基本定理，也就是说</p>
+<blockquote>
+<p>任何一个非零的一元$n$次复系数多项式，都正好有$n$个复数根（重根视为多个根）。</p>
+</blockquote>
+<h2 id="多项式方法"><a href="#多项式方法" class="headerlink" title="多项式方法"></a>多项式方法</h2><h3 id="回顾简单的线性方程"><a href="#回顾简单的线性方程" class="headerlink" title="回顾简单的线性方程"></a>回顾简单的线性方程</h3><p>在这里最适合讨论的应该是</p>
+<script type="math/tex; mode=display">
+y'-ay=0\quad (a \neq 0)</script><p>确实，再简单就是普通的不定积分了。我们再来回顾一下怎么分析这个方程的解的结构。首先，$y=0$显然是一个解，这保证了解的准确性。另一方面，在<a href="/2020/05/01/linear-ode-chapter-1/">第一篇博客</a>里，我们也给出了普遍的通解计算方式</p>
+<script type="math/tex; mode=display">
+y=Ce^{\int adx}=Ce^{ax}</script><p>所以，这个方程的解为</p>
+<script type="math/tex; mode=display">
+y=Ce^{ax}</script><p>其中$C$为任意常数。</p>
+<hr>
+<p>我们也可以尝试一下简单的二阶方程</p>
+<script type="math/tex; mode=display">
+y''-2y'+y=0</script><p>显然，$y=0$仍然是这个方程的一个特殊解。我们希望的是，能解两次$y’+p(x)y=0$形式的方程，因为这种方程的解法我们是已经会了的。</p>
+<p>注意到我们可以把方程写成</p>
+<script type="math/tex; mode=display">
+(y'-y)'-(y'-y)=0</script><p>令$u=y’-y$，那么我们有了</p>
+<script type="math/tex; mode=display">
+u'-u=0</script><p>这个方程的解我们是知道的，实际上我们已经有</p>
+<script type="math/tex; mode=display">
+u=C_1e^{x}</script><p>所以又有了</p>
+<script type="math/tex; mode=display">
+y'-y=C_1e^x</script><p>从而又可以解出</p>
+<script type="math/tex; mode=display">
+y=C_1e^x+C_2xe^{x}</script><h3 id="尝试对上述方程解法进行抽象"><a href="#尝试对上述方程解法进行抽象" class="headerlink" title="尝试对上述方程解法进行抽象"></a>尝试对上述方程解法进行抽象</h3><p>对于一阶方程，就是我们已经学过的办法。而二阶方程，你应该已经察觉到了，似乎有迹可循。注意到，$y’’-2y’+y=0$这个方程，我们是解了两次$y’-y$。这时自然可以想到，对于某个方程可能也可以像是解两次$y’-2y$。注意如果我们把求两次导看成一个”平方“，我们有一个方程</p>
+<script type="math/tex; mode=display">
+\lambda^2-2\lambda+1=(\lambda-1)^2=0</script><p>那么能不能写出一个需要解两次$y’-2y$的方程呢？我们先写出一个关于$\lambda$的方程，再给对应一个微分方程，也就是说</p>
+<script type="math/tex; mode=display">
+(\lambda-2)^2=\lambda^2-4\lambda+4=0</script><p>而对应的方程恰好又有</p>
+<script type="math/tex; mode=display">
+y''-4y'+4y=0=(y'-2y)'-2(y'-2y)</script><p>仍然是要解两次$y’-2y=0$。类似地，也可能某个方程是需要解$n$次$y-3y’$，等等。我们也可以讨论“混合”的场景。比如一个二阶方程，需要先解一次$y-ay’$，再解一次$y-by’$。如果两个颠倒，会不会又有不一样的结果？我们甚至不需要解出结果就可以进行分析。实际上有</p>
+<script type="math/tex; mode=display">
+(y'-ay)'-b(y'-ay)=y''-(a+b)y'+aby=(y'-by)'-a(y'-by)</script><h3 id="求导的“多项式”——你的“超能力”"><a href="#求导的“多项式”——你的“超能力”" class="headerlink" title="求导的“多项式”——你的“超能力”"></a>求导的“多项式”——你的“超能力”</h3><p>我们会给出一个解决常系数齐次方程的普遍办法。我们已经知道，求导是一个线性运算。对一个可导函数求导，得到一个新的函数。那么我们把$y’$记为$Dy$，其中$D$代表线性运算，对于高阶求导，不妨记$y^{(n)}=D^ny$。如果对函数不求导，也就是$D^0y$，我们可以记成$Iy$或者$I$省略不写。</p>
+<p>那么如果我们已经有</p>
+<script type="math/tex; mode=display">
+y^{(n)}+a_1y^{(n-1)}+\cdots+a_ny=0</script><p>也就是说</p>
+<script type="math/tex; mode=display">
+D^ny+a_1D^{n-1}y+\cdots+a_ny=0</script><p>那么我们又得到一个多项式</p>
+<script type="math/tex; mode=display">
+P(D)=D^n+a_1D^{n-1}+\cdots+a_n</script><p>所以原方程又可以写成</p>
+<script type="math/tex; mode=display">
+P(D)y=0</script><p>那么这和上面的例子又有什么关系呢？注意，如果$a_1,\cdots,a_n$为复数，那么$P(D)$总是可以写成下面的形式</p>
+<script type="math/tex; mode=display">
+P(D)=(D-d_1)(D-d_2)\cdots(D-d_n)</script><p>其中$\lambda_i$两两之间可以相等，可以不相等。我们再来看$y’’-2y’+y=0$这个例子。这个时候借助$P(D)$可以把方程写成</p>
+<script type="math/tex; mode=display">
+(D-1)(D-1)y=0</script><p>那么在这个角度下审视这个方程的解法，我们可以设$u=(D-1)y$，通过解$(D-1)u=0$，解出$u$，又解$(D-1)y=u$，就得到了$y$。</p>
+<p>那么普遍的解法我们已经有了，实际上，这是一个递归的办法。</p>
+<blockquote>
+<p>对于方程</p>
+<script type="math/tex; mode=display">
+(D-\lambda_1)(D-\lambda_2)\cdots(D-\lambda_n)y=0</script><p>只需要设$\varphi_1=(D-\lambda_2)\cdots(D-\lambda_n)y$，然后解$(D-\lambda_1)\varphi_1=0$，解出$\varphi_1$；再按照同样的办法进行下去，设$\varphi_2=(D-\lambda_3)\cdots(D-\lambda_n)y$，解出$\varphi_2$，一直进行下去，最后设$\varphi_n=y$，接出来的就是最终结果。这时你已经获得了上篇博客里需要的“超能力”了（注意：这里的$\varphi_n$里已经包含了$n$个常数）。</p>
+</blockquote>
+<p>以上是齐次线性方程的解决办法。对于非齐次线性方程又有什么普遍办法呢？具体办法有三。</p>
+<ol>
+<li>如果可以很轻松地观察出方程的一个特解，比如存在$\mu(x)$使得$P(D)\mu(x)=f(x)$，那么非齐次方程的解就是$\mu(x)+\varphi_n(x)$。</li>
+<li>直接解$P(D)y=f(x)$，方法和上面齐次方程一样，只需要注意，解$\varphi_1$时有$(D-\lambda_1)\varphi_1=f(x)$，递归下去得到的解和方法1是一致的。</li>
+<li>利用上篇博客的办法。注意到最后得到的$\varphi_n(x)$里有$n$个常数，也就是说可以写成$\varphi_n(x)=\sum_{k=1}^{n}C_ku_k(x)$，这里的$u_k(x)$实际上就是所求的基础解系。</li>
+</ol>
+<hr>
+<h3 id="实例：利用多项式办法进行机械式求解"><a href="#实例：利用多项式办法进行机械式求解" class="headerlink" title="实例：利用多项式办法进行机械式求解"></a>实例：利用多项式办法进行机械式求解</h3><script type="math/tex; mode=display">
+y'''-3y''+3y'-y=1\quad y(0)=y'(0)=1</script><p><strong>Step 1: 化简$P(D)$</strong></p>
+<p>这很简单，实际上我们有</p>
+<script type="math/tex; mode=display">
+P(D)=D^3-3D^2+3D-1=(D-1)(D-1)(D-1)</script><p><strong>Step 2: 递归求解</strong></p>
+<p>设</p>
+<script type="math/tex; mode=display">
+\varphi_1=(D-1)^2y</script><p>我们就有</p>
+<script type="math/tex; mode=display">
+(D-1)\varphi_1=1</script><p>解出</p>
+<script type="math/tex; mode=display">
+\varphi_1=C_1e^x-1</script><p>所以又设</p>
+<script type="math/tex; mode=display">
+\varphi_2=(D-1)y</script><p>又有</p>
+<script type="math/tex; mode=display">
+(D-1)\varphi_2=\varphi_1=C_1e^x-1</script><p>得到</p>
+<script type="math/tex; mode=display">
+\varphi_2=C_1xe^x+C_2e^x-1</script><p>最后，解</p>
+<script type="math/tex; mode=display">
+(D-1)\varphi_3=\varphi_2=C_1xe^x+C_2e^x-1</script><p>得</p>
+<script type="math/tex; mode=display">
+y=C_1x^2e^x+C_2xe^x+C_3e^x-1</script><p>其实不难发现，$y=-1$是这个方程的一个特解，而解$y’’’-3y’’+3y’-y=0$得到$y=C_1x^2e^x+C_2xe^x+C_3e^x$，得到的结果和上面的办法是一样的。</p>
+<p>注意到我们还可以把这个方程写成</p>
+<script type="math/tex; mode=display">
+[(y'-y)'-(y'-y)]'-[(y'-y)'-(y'-y)]=1</script><h3 id="对-P-D-y-0-型方程基本情形的总结"><a href="#对-P-D-y-0-型方程基本情形的总结" class="headerlink" title="对$P(D)y=0$型方程基本情形的总结"></a>对$P(D)y=0$型方程基本情形的总结</h3><p>既然我们已经有了机械的解法，那么我们能不能在动手解之前总结一下解的情况？这自然是可行的。我们会尝试讨论$P(D)$的所有基本情形。这里省略了最基本的计算，但是这些计算无非是最基本的一阶方程。</p>
+<h4 id="1-P-D-D-lambda-n-的情形"><a href="#1-P-D-D-lambda-n-的情形" class="headerlink" title="1. $P(D)=(D-\lambda)^n$的情形"></a>1. $P(D)=(D-\lambda)^n$的情形</h4><p>对于这种方程，我们最终要做的是解$n$次$y’-\lambda y$型一阶方程。为了解决这种方程，我们定义</p>
+<script type="math/tex; mode=display">
+\varphi_k(x)=\begin{cases}0 &\quad n=0 \\ (D-\lambda)^{n-k}y&\quad n>1 \end{cases}</script><p>那么只需要解$n$次$(D-\lambda)\varphi_{k+1}=\varphi_k$即可。通过简单的计算，得到</p>
+<script type="math/tex; mode=display">
+y=C_1e^{\lambda x}+C_2xe^{\lambda x}+\cdots+C_nx^{n-1}e^{\lambda x}</script><h4 id="2-P-D-D-lambda-1-D-lambda-2-cdots-D-lambda-n-的情形-lambda-i-之间两两互异"><a href="#2-P-D-D-lambda-1-D-lambda-2-cdots-D-lambda-n-的情形-lambda-i-之间两两互异" class="headerlink" title="2. $P(D)=(D-\lambda_1)(D-\lambda_2)\cdots(D-\lambda_n)$的情形($\lambda_i$之间两两互异)"></a>2. $P(D)=(D-\lambda_1)(D-\lambda_2)\cdots(D-\lambda_n)$的情形($\lambda_i$之间两两互异)</h4><p>我们自然希望能得到类似于有$e^{\lambda_1 x},\cdots,e^{\lambda_n x}$的形式，那么事实是怎样呢？我们可以直接进行运算。</p>
+<p>首先我们有</p>
+<script type="math/tex; mode=display">
+\varphi_1(x)=C_1e^{\lambda_1 x}</script><p>那么解</p>
+<script type="math/tex; mode=display">
+\varphi_2'-\lambda_2\varphi_2=\varphi_1=C_1e^{\lambda_1 x}</script><p>就能得到</p>
+<script type="math/tex; mode=display">
+(\varphi_2'-\lambda_2\varphi_2)e^{-\lambda_2 x}=(\varphi_2e^{-\lambda_2 x})'=C_1e^{(\lambda_1-\lambda_2)x}</script><p>整理之后就有</p>
+<script type="math/tex; mode=display">
+\varphi_2=C_1e^{\lambda_1 x} + C_2 e^{\lambda_2 x}</script><p>如果我们继续计算下去下去，就能得到</p>
+<script type="math/tex; mode=display">
+\varphi_n=C_1e^{\lambda_1x}+C_2e^{\lambda_2 x}+\cdots+C_ne^{\lambda_nx}</script><h4 id="3-一般情况：-P-D-D-lambda-1-r-1-D-lambda-2-r-2-cdots-D-lambda-k-r-k"><a href="#3-一般情况：-P-D-D-lambda-1-r-1-D-lambda-2-r-2-cdots-D-lambda-k-r-k" class="headerlink" title="3. 一般情况：$P(D)=(D-\lambda_1)^{r_1}(D-\lambda_2)^{r_2}\cdots(D-\lambda_k)^{r_k}$"></a>3. 一般情况：$P(D)=(D-\lambda_1)^{r_1}(D-\lambda_2)^{r_2}\cdots(D-\lambda_k)^{r_k}$</h4><p>这自然是情况1和情况2的整合。在情况1里我们意识到，如果相邻的$\lambda_i$相等，那么我们有$\varphi_{i+1}=x\varphi_i+C_{i+1}e^{\lambda_{i}x}$；如果相邻的$\varphi(x)$不相等，那么我们有$\varphi_{i+1}=\varphi_i+C_{i+1}e^{\lambda_{i+1}x}$。这两个结论整合起来，再经过简单的计算，就能总结出解的一般形式：</p>
+<script type="math/tex; mode=display">
+y=C_1e^{\lambda_1 x}+C_2xe^{\lambda_1 x}+\cdots+C_{r_1}x^{r_1-1}e^{\lambda_1 x}+C_{r_1+1}e^{\lambda_2x}+\cdots+C_nx^{r_k-1}e^{\lambda_k x}</script><hr>
+<p>这个时候我们解方程就可以轻松许多了。例如方程</p>
+<script type="math/tex; mode=display">
+y'''-3ay''+3a^2y'-a^3y=0</script><p>我们能得到</p>
+<script type="math/tex; mode=display">
+P(D)=D^3-3aD^2+3a^2D-a^3=(D-a)^3</script><p>所以解就是</p>
+<script type="math/tex; mode=display">
+y=C_1e^{ax}+C_2xe^{ax}+C_3x^2e^{ax}</script><p>再比如求解</p>
+<script type="math/tex; mode=display">
+y'''+3y''-4y=0</script><p>注意到</p>
+<script type="math/tex; mode=display">
+P(D)=D^3+3D^2-4=(D-1)(D^2+4D+4)=(D-1)(D+2)^2</script><p>所以解就是</p>
+<script type="math/tex; mode=display">
+y=C_1e^x+C_2e^{-2x}+C_3xe^{-2x}</script><hr>
+<h3 id="多项式方法的总结"><a href="#多项式方法的总结" class="headerlink" title="多项式方法的总结"></a>多项式方法的总结</h3><p>在这整篇博客里，我们只做了一件事情——对一个高阶微分方程进行化简，使求一个高阶方程变成求若干个一阶方程。但是，手动观察整理化简是很不现实的做法，我们就将求导运算看成一个抽象的“数”，然后处理一个对应的多项式，把解方程变成两步：化简多项式、递归求解。在处理这个多项式的过程中，我们间接对原方程进行了化简。</p>
+<p>但是多项式方法一定适用于非常系数方程吗？不一定。例如方程$y’’=xy$，这个方程并没有一个简单的解，我们也不能指望通过简单的解法得到所希望得到的函数。</p>
+<p>这种方法的优点是，朴实、机械化，只需要执行若干次一阶方程的求导即可。但是，这种办法并没有很好地体现“线性”这个概念，很难看到和线性代数的关系。在下一篇博客里，会给出基于矩阵的解决办法。</p>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../21/profinite-group/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            An elementary introduction to profinite groups
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../04/nowhere-differentiable-functions/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            A continuous function is &#39;mostly&#39; nowhere differentiable
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2020/07/16/linear-ode-chapter-4/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

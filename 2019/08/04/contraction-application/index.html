@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>压缩定理和其应用 | Desvl&#39;s blog</title>
+
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="什么是压缩压缩(contraction)的准确描述是这样的：  取完备度量空间$X$, 度量$d$, 函数$\varphi$是$X$到本身的映射, 且满足          d(\varphi(x),\varphi(y)) \leq cd(x,y). 其中$x,y\in{X}$, $c&lt;1$. 那么$\varphi$就是一个从$X$到本身的压缩.  一个最简单的例子是, $y&#x3D;\frac{x">
+<meta property="og:type" content="article">
+<meta property="og:title" content="压缩定理和其应用">
+<meta property="og:url" content="https://desvl.xyz/2019/08/04/contraction-application/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="什么是压缩压缩(contraction)的准确描述是这样的：  取完备度量空间$X$, 度量$d$, 函数$\varphi$是$X$到本身的映射, 且满足          d(\varphi(x),\varphi(y)) \leq cd(x,y). 其中$x,y\in{X}$, $c&lt;1$. 那么$\varphi$就是一个从$X$到本身的压缩.  一个最简单的例子是, $y&#x3D;\frac{x">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-08-03T22:00:00.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:09.788Z">
+<meta property="article:author" content="Desvl">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        压缩定理和其应用
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2019/08/" class="post-meta__date button">2019-08-04</a>
+        
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%8E%8B%E7%BC%A9"><span class="toc-number">1.</span> <span class="toc-text">什么是压缩</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%8B%E7%BC%A9%E7%9A%84%E8%AF%81%E6%98%8E"><span class="toc-number">2.</span> <span class="toc-text">压缩的证明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E5%BA%94%E7%94%A8"><span class="toc-number">3.</span> <span class="toc-text">简单应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E5%BA%A6%E9%87%8F"><span class="toc-number">5.</span> <span class="toc-text">关于度量</span></a></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%8E%8B%E7%BC%A9"><span class="toc-number">1.</span> <span class="toc-text">什么是压缩</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%8B%E7%BC%A9%E7%9A%84%E8%AF%81%E6%98%8E"><span class="toc-number">2.</span> <span class="toc-text">压缩的证明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E5%BA%94%E7%94%A8"><span class="toc-number">3.</span> <span class="toc-text">简单应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E5%BA%A6%E9%87%8F"><span class="toc-number">5.</span> <span class="toc-text">关于度量</span></a></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h2 id="什么是压缩"><a href="#什么是压缩" class="headerlink" title="什么是压缩"></a>什么是压缩</h2><p>压缩(contraction)的准确描述是这样的：</p>
+<blockquote>
+<p>取完备度量空间$X$, 度量$d$, 函数$\varphi$是$X$到本身的映射, 且满足</p>
+<script type="math/tex; mode=display">
+        d(\varphi(x),\varphi(y)) \leq cd(x,y).</script><p> 其中$x,y\in{X}$, $c&lt;1$. 那么$\varphi$就是一个从$X$到本身的压缩.</p>
+</blockquote>
+<p>一个最简单的例子是, $y=\frac{x}{2}$. 这是一个“平缓”的函数. 平缓的程度是怎样呢? 斜率小于1.</p>
+<p>而压缩定理指出, 对于这个函数, 有且仅有一个$x$使得$\varphi(x)=x$. 例如上面的例子, 只有$0=0$这一个点. 接下来要给出证明.</p>
+<h2 id="压缩的证明"><a href="#压缩的证明" class="headerlink" title="压缩的证明"></a>压缩的证明</h2><p>任取$x_0\in{X}$, 按照如下方法定义数列$x_n$:</p>
+<script type="math/tex; mode=display">
+    x_{n+1}=\varphi(x_n)</script><p>从而会有</p>
+<script type="math/tex; mode=display">d(x_2,x_1)=d(\varphi(x_1),\varphi(x_0))\leq cd(x_1,x_0)$$ (如果你不理解这里的$d(x,y)$,
+可以简单地看成$|x-y|$) 推广下去, 就有
+
+$$d(x_{n+1},x_n)\leq c^nd(x_1,x_0)</script><p>对于$n&lt;m$, 就有 \begin{equation} \begin{aligned} d(x_n,x_m)\leq\sum_{i=n+1}^m<br>d(x_i,x_{i+1})\leq(c^n+c^{n+1}+\cdots+c^{m-1})d(x_1,x_0)\leq\frac{c^n}{1-c}d(x_1,x_0)<br>\end{aligned} \end{equation} 这说明, $x_n$是一个Cauchy数列, 又考虑到$X$是完备空间, 因此$x_n$收敛.<br>设$x_n$的极限为$x$. 由压缩的定义可知, $\varphi$为一致连续的函数, 从而有 </p>
+<script type="math/tex; mode=display">
+\varphi(x)=\lim\limits_{n\to\infty}\varphi(x_n)=\lim\limits_{n\to\infty}x_{n+1}=x</script><p>至于唯一性的证明, 可设$\varphi(x)=x$, $\varphi(y)=y$.<br>从而有$d(\varphi(x),\varphi(y))=d(x,y)\leq cd(x,y)$ 这只有在$d(x,y)=0$时成立. 唯一性得到证明.</p>
+<h2 id="简单应用"><a href="#简单应用" class="headerlink" title="简单应用"></a>简单应用</h2><p>下面是一道数学专业研究生入学考试题. 在这个题中可以发现, 在指定的条件下, 利用“压缩”这个工具, 问题的解决变得非常简单.</p>
+<blockquote>
+<p>已知$0\leq a\leq 1, b \geq2$, 有数列${x_n}$ 满足$x_0=0$,<br>且有递推关系<script type="math/tex">x_{n+1}=x_n-\frac{1}{b}(x_n^2-a),</script>求证此数列收敛, 并求出极限.</p>
+</blockquote>
+<p>在这里设$\phi(x)=x-\frac{1}{b}(x^2-a)$, 那么有$x_{n+1}=\varphi(x_n)$.<br>如果能证出$\varphi$为一个压缩, 极限的问题就迎刃而解了.</p>
+<p><strong>证明</strong></p>
+<p>设$\varphi(x)=x-\frac{1}{b}(x^2-a)$. 则$x_{n+1}=\varphi(x_n)$.<br>在这里$x_1=\varphi(x_0)=\frac{a}{b}$. 现证明对所有$n&gt;0$ 有$\frac{a}{b}\leq x_n\leq 1$,<br>对$n$进行归纳.</p>
+<p>$n=1$时, 不等式已成立.</p>
+<p>假设$n=k$时成立, 则$n=k+1$时, 有 <script type="math/tex">x_{k+1}=\frac{a}{b}-\frac{bx_k-x_k^2}{b}</script><br>考虑到$y=bx-x^2$在$[\frac{a}{b},\frac{b}{2}]$单调递减, 而$\frac{b}{2}\geq1$, 故有 <script type="math/tex">x_{n+1}\leq\frac{a}{b} +\frac{b-1}{b}\leq 1</script> 而$y(\frac{a}{b})\geq y(0)=0$,<br>故$x_{n+1}\geq\frac{a}{b}$.</p>
+<p>因此不等式对所有$n&gt;0$成立.</p>
+<p>利用这个不等式, 得到 <script type="math/tex">|f(x)-f(y)|=|x-y||1-\frac{x+y}{b}|\leq|x-y||1-\frac{2a}{b^2}|,
+\quad \frac{a}{b}\leq x,y \leq 1</script></p>
+<p>$a=0$时, 得到$x_1=x_2=\cdots=0$, 故极限存在且为$0$.</p>
+<p>$a\neq 0$时, 令$c=|1-\frac{2a}{b^2}|$, 则始终有$c&lt;1$. 此时就是上文中所提到的压缩. 收敛的证明略去.</p>
+<p>设$\lim\limits_{n\to\infty}x_n=x$, 则$x=\varphi(x)$. 解得$x=\sqrt{a}$.<br>这在$a=0$时也成立.</p>
+<p>综上, $\lim\limits_{n\to\infty}x_n$存在, 且值为$\sqrt{a}$.</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>压缩映射在处理迭代生成的数列时很有效, 而且可以推广到多维甚至无穷维中. 但是要注意, 这个映射实质上是在处理局部性质, 大范围的非线性的问题则不能处理.<br>处理迭代数列是它在离散形式下的基本应用, 但压缩在连续形式下也有很多重要的应用, 例如在$\mathbb{R}^n$中证明隐函数定理</p>
+<h2 id="关于度量"><a href="#关于度量" class="headerlink" title="关于度量"></a>关于度量</h2><p>度量函数$d(x,y)$即表示两点之间的距离, 满足以下三个条件：</p>
+<ul>
+<li><p>$d(x,y)\geq 0$, 等号成立当且仅当$x=y$.</p>
+</li>
+<li><p>$d(x,y)=d(y,x)$.</p>
+</li>
+<li><p>$d(x,y) + d(y,z) \leq d(x,z)$ (三角形不等式)</p>
+</li>
+</ul>
+<p>而度量空间即一个有度量函数的集合. 度量空间的完备性指, 这个空间的任意Cauchy列都收敛. 一个简单的例子是, 全体实数$\mathbb{R}$, 度量函数$d(x,y)=|x-y|$. </p>
+<p>而$\mathbb{Q}$在这个相同的度量下是发散的. 例如Cauchy数列$\{\left(1+\frac{1}{n}\right)^n\}$这个数列收敛到$e$, 而$e\notin{\mathbb{Q}}$.</p>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../05/beautiful-fourier-001/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            优美的Fourier级数（一）: 绝对不只是求表达式的问题
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2019/08/04/contraction-application/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

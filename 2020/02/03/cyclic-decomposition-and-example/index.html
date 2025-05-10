@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>线性空间的循环分解 | Desvl&#39;s blog</title>
+
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="说在前面这篇博客中仅仅引入了循环子空间的概念，遗留了很多问题没得到解决。这些问题会在这篇博客中得到解决。一个矩阵的有理标准形虽然不能得到与特征值、特征向量有关的内容，但是在分解期间只涉及到了加法和乘法，不会出现扩充数域的现象。可以说，有理标准形能得到一类相似矩阵更朴素的信息.  循环分解 设$V$是$\mathbb{F}$上的$n$维线性空间，$\mathscr{A}$是$V$的线性变换，则 V&#x3D;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="线性空间的循环分解">
+<meta property="og:url" content="https://desvl.xyz/2020/02/03/cyclic-decomposition-and-example/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="说在前面这篇博客中仅仅引入了循环子空间的概念，遗留了很多问题没得到解决。这些问题会在这篇博客中得到解决。一个矩阵的有理标准形虽然不能得到与特征值、特征向量有关的内容，但是在分解期间只涉及到了加法和乘法，不会出现扩充数域的现象。可以说，有理标准形能得到一类相似矩阵更朴素的信息.  循环分解 设$V$是$\mathbb{F}$上的$n$维线性空间，$\mathscr{A}$是$V$的线性变换，则 V&#x3D;">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-02-02T23:00:00.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:09.815Z">
+<meta property="article:author" content="Desvl">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        线性空间的循环分解
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2020/02/" class="post-meta__date button">2020-02-03</a>
+        
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%B4%E5%9C%A8%E5%89%8D%E9%9D%A2"><span class="toc-number">1.</span> <span class="toc-text">说在前面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E5%88%86%E8%A7%A3"><span class="toc-number">2.</span> <span class="toc-text">循环分解</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E5%88%86%E8%A7%A3%E7%9A%84%E8%AF%81%E6%98%8E"><span class="toc-number">2.1.</span> <span class="toc-text">循环分解的证明</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8D%E5%8F%98%E5%9B%A0%E5%AD%90%E4%B8%8E%E6%9E%81%E5%B0%8F%E5%A4%9A%E9%A1%B9%E5%BC%8F"><span class="toc-number">3.</span> <span class="toc-text">不变因子与极小多项式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%89%E7%90%86%E6%A0%87%E5%87%86%E5%BD%A2%E4%B8%8E%E7%89%B9%E5%BE%81%E5%A4%9A%E9%A1%B9%E5%BC%8F"><span class="toc-number">4.</span> <span class="toc-text">有理标准形与特征多项式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E8%A1%A5%E5%85%85"><span class="toc-number">4.1.</span> <span class="toc-text">一些补充</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E5%88%86%E8%A7%A3%E7%9A%84%E5%AE%9E%E4%BE%8B"><span class="toc-number">5.</span> <span class="toc-text">循环分解的实例</span></a></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%B4%E5%9C%A8%E5%89%8D%E9%9D%A2"><span class="toc-number">1.</span> <span class="toc-text">说在前面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E5%88%86%E8%A7%A3"><span class="toc-number">2.</span> <span class="toc-text">循环分解</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E5%88%86%E8%A7%A3%E7%9A%84%E8%AF%81%E6%98%8E"><span class="toc-number">2.1.</span> <span class="toc-text">循环分解的证明</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8D%E5%8F%98%E5%9B%A0%E5%AD%90%E4%B8%8E%E6%9E%81%E5%B0%8F%E5%A4%9A%E9%A1%B9%E5%BC%8F"><span class="toc-number">3.</span> <span class="toc-text">不变因子与极小多项式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%89%E7%90%86%E6%A0%87%E5%87%86%E5%BD%A2%E4%B8%8E%E7%89%B9%E5%BE%81%E5%A4%9A%E9%A1%B9%E5%BC%8F"><span class="toc-number">4.</span> <span class="toc-text">有理标准形与特征多项式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E8%A1%A5%E5%85%85"><span class="toc-number">4.1.</span> <span class="toc-text">一些补充</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E5%88%86%E8%A7%A3%E7%9A%84%E5%AE%9E%E4%BE%8B"><span class="toc-number">5.</span> <span class="toc-text">循环分解的实例</span></a></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h3 id="说在前面"><a href="#说在前面" class="headerlink" title="说在前面"></a>说在前面</h3><p><a href="/2020/01/22/cyclic-decomposition/">这篇博客</a>中仅仅引入了循环子空间的概念，遗留了很多问题没得到解决。这些问题会在这篇博客中得到解决。一个矩阵的有理标准形虽然不能得到与特征值、特征向量有关的内容，但是在分解期间只涉及到了加法和乘法，不会出现扩充数域的现象。可以说，有理标准形能得到一类相似矩阵更朴素的信息. </p>
+<h3 id="循环分解"><a href="#循环分解" class="headerlink" title="循环分解"></a>循环分解</h3><blockquote>
+<p>设$V$是$\mathbb{F}$上的$n$维线性空间，$\mathscr{A}$是$V$的线性变换，则 <script type="math/tex">V=\bigoplus_{i=1}^r\mathbb{F}\big[\mathscr{A}\big]\alpha_i</script> 其中，$\mathbb{F} [\mathscr{A}] \alpha_i\neq\{0\}$为$\alpha_i\in{V}$生成的循环子空间.</p>
+</blockquote>
+<p>注意，这里的<strong>直和</strong>告诉我们，$\alpha_1,\alpha_2,\cdots,\alpha_r$线性无关。</p>
+<p>这里我们会用到<a href="/2020/01/28/conductor/">这篇博客</a>里提到的导子。其实，这一节也可以看成导子性质的补充。我们会用到下面一个基本事实：设$U \subset W \subset V$，则有</p>
+<script type="math/tex; mode=display">
+P_{\text{cond }W,\mathscr{A}}(\lambda)|P_{\text{cond }U,\mathscr{A}}(\lambda).</script><p>这是因为，对于任意的$\alpha \in V$，我们有$P_{\text{cond }U,\mathscr{A}}(\lambda)\alpha \in U \subset W$，因此$P_{\text{cond }U,\mathscr{A}}(\lambda) \in I(W,\mathscr{A})$.</p>
+<p>从此还能得到的一个结论是$I(U,\mathscr{A}) \subset I(W,\mathscr{A})$. 在学习了交换代数，特别是Krull维度相关的内容，就会对这里有不一样的理解。但是这已经远远超出这篇博客的范围。</p>
+<h4 id="循环分解的证明"><a href="#循环分解的证明" class="headerlink" title="循环分解的证明"></a><strong>循环分解的证明</strong></h4><p>如果$V$本身是一个相对于$\mathscr{A}$的循环空间，那么证明结束。现在讨论另一种情况.</p>
+<p>讨论导子时我们了解到，存在$\alpha_1\in{V}$使得 </p>
+<script type="math/tex; mode=display">
+P_{\text{min }\mathscr{A}}(\lambda)=P_{\text{min }\mathscr{A},\alpha_1}(\lambda)</script><p>设$W_1=\mathbb{F}[\mathscr{A}]\alpha_1$，并为方便起见设$W_0=0$. 又可以选取$\beta_2 \in V \setminus W_1$使得 </p>
+<script type="math/tex; mode=display">
+R_2(\lambda)=P_{\text{cond }W_1,\mathscr{A}}(\lambda)=P_{\text{cond }W_1,\mathscr{A},\beta_2}(\lambda)</script><p>我们自然希望，$R_2(\lambda)$的“地位”和$P_{\text{min }\mathscr{A},\alpha_1}(\lambda)$ 类似。对此，我们断言，可以调整$\beta_2$至某$\alpha_2$，使得$R_2(\lambda)=P_{\text{min }\mathscr{A},\alpha_2}(\lambda)$. 证明此断言后，我们可以用类似的办法继续寻找后面的多项式，最终得到结论。</p>
+<p>首先，$R_2(\mathscr{A})\beta_2=Q_1(\mathscr{A})\alpha_1$. 我们首先感兴趣的是$Q_1$和$R_2$的关系。对此，设</p>
+<script type="math/tex; mode=display">
+Q_1(\lambda)=R_2(\lambda)h_1(\lambda)+r_1(\lambda),\quad \deg r_1 < \deg R_2.</script><p>则立刻得到$R_2(\mathscr{A})\beta_2=R_2(\mathscr{A})h_1(\mathscr{A})\alpha_1+r_1(\mathscr{A})\alpha_1$. 令</p>
+<script type="math/tex; mode=display">
+\alpha_2=\beta_2-h_1(\mathscr{A})\alpha_1 \in \beta+W_1.</script><p>则</p>
+<script type="math/tex; mode=display">
+R_2(\mathscr{A})\alpha_2=R_2(\mathscr{A})h_1(\mathscr{A})\alpha_1+r_1(\mathscr{A})\alpha_1-R_2(\mathscr{A})h_1(\mathscr{A})\alpha_1=r_1(\mathscr{A})\alpha_1 \in W_1.</script><p>这也说明了$R_2(\lambda)=P_{\text{cond }W_1,\mathscr{A},\beta_2}(\lambda)=P_{\text{ cond }W_1,\mathscr{A},\alpha_2 }(\lambda)$. 这是由导子的定义决定的</p>
+<p>由于$W_0 \subset W_1$, 我们又有</p>
+<script type="math/tex; mode=display">
+P_{\text{cond }W_1,\mathscr{A},\alpha_2}(\lambda)|P_{\text{cond }W_0,\mathscr{A},\alpha_2}(\lambda).</script><p>注意到$P_{\text{cond }W_0,\mathscr{A},\alpha_2}(\lambda)=P_{\text{min }\mathscr{A},\alpha_2}(\lambda)$. 从而我们可以整理成</p>
+<script type="math/tex; mode=display">
+R_2(\lambda)|P_{\text{min }\mathscr{A},\alpha_2}(\lambda).</script><p>对于上式我们可以写成</p>
+<script type="math/tex; mode=display">
+P_{\text{min }\mathscr{A},\alpha_2}(\lambda)=g(\lambda)R_2(\lambda).</script><p>从此可以得到</p>
+<script type="math/tex; mode=display">
+g(\mathscr{A})P_{\text{cond }W_0,\mathscr{A},\alpha_2}(\mathscr{A})\alpha_2=g(\mathscr{A})r_1(\mathscr{A})\alpha_1=0.</script><p>若$r_1 \ne 0$, 则$P_{\text{min }\mathscr{A},\alpha_1}(\lambda)|[g(\lambda)r_1(\lambda)]$. 从而</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\deg g(\lambda)r_1(\lambda) &\ge \deg P_{\text{min }\mathscr{A},\alpha_1}(\lambda) \\
+          &= \deg P_{\text{min }\mathscr{A}}(\lambda) \\
+          &\ge \deg P_{\text{min }\mathscr{A},\alpha_2}(\lambda) \\
+          &= \deg g(\lambda) R_2(\lambda).
+\end{aligned}</script><p> 因此$\deg r_1(\lambda) \ge \deg R_2(\lambda)$，这与$r_1(\lambda)$的定义相矛盾，故我们一定有$r_1(\lambda)=0$. 因此$R_2(\mathscr{A})\alpha_2=0$，从而$P_{\text{min }\mathscr{A},\alpha_2}(\lambda)|R_2(\lambda)$，这说明$R_2(\lambda)=P_{\text{min }\mathscr{A},\alpha_2}(\lambda)$. 我们的断言得到了证明.</p>
+<p>令$W_2=\mathbb{F}[\mathscr{A}]\alpha_1+\mathbb{F}[\mathscr{A}]\alpha_2$。现在证明子空间的和为直和。</p>
+<p>对于$\alpha\in W_1\cap\mathbb{F}[\mathscr{A}]\alpha_2$，可以设 <script type="math/tex">\alpha=P(\mathscr{A})\alpha_2</script> 而 </p>
+<script type="math/tex; mode=display">
+    P_{\text{cond }W_1,\mathscr{A},\alpha_2}(\lambda)|P(\lambda)</script><p>故$P(\lambda)$是一个零化多项式，因此$\alpha=0$。这说明，子空间的和为直和。因此得到了子空间的直和 </p>
+<script type="math/tex; mode=display">
+    W_2=\mathbb{F}[\mathscr{A}]\alpha_1\oplus\mathbb{F}[\mathscr{A}]\alpha_2</script><p>如果$W_2\neq{V}$，那么又取$\beta_3$使得 </p>
+<script type="math/tex; mode=display">
+R_3(\lambda)=P_{\text{cond }W_2,\mathscr{A}}(\lambda)=P_{\text{cond }W_2,\mathscr{A},\beta_3}(\lambda)</script><p>按照上面的办法，我们可以将$\beta_3$调整为我们想要的$\alpha_3$，这里需要注意的是，我们需要写</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+R_3(\mathscr{A})\beta_3 &=Q_1(\mathscr{A})\alpha_1+Q_2(\mathscr{A})\alpha_2 \\
+                         &=(R_2(\mathscr{A})h_1(\mathscr{A})\alpha_1+R_3(\mathscr{A})h_2(\mathscr{A})\alpha_2)+r_1(\mathscr{A})\alpha_1+r_2(\mathscr{A})\alpha_2
+\end{aligned}</script><p>从而按照同样的办法证明$r_1=r_2=0$. </p>
+<p>调整至$\alpha_1$后，我们得到子空间</p>
+<script type="math/tex; mode=display">
+W_3=\mathbb{F}[\mathscr{A}]\alpha_1\oplus\mathbb{F}[\mathscr{A}]\alpha_2\oplus\mathbb{F}[\mathscr{A}]\alpha_3.</script><p>如此继续下去，如果$W_k\neq{V}$，则可继续选择$\alpha_{k+1}$等，直到得到 </p>
+<script type="math/tex; mode=display">
+    V=\mathbb{F}[\mathscr{A}]\alpha_1\oplus\mathbb{F}[\mathscr{A}]\alpha_2\oplus\cdots\oplus\mathbb{F}[\mathscr{A}]\alpha_r</script><p>此即循环分解。导子的性质保证这个向量的选择可以进行下去。$V$是有限维的，所以这个过程总会结束。</p>
+<h3 id="不变因子与极小多项式"><a href="#不变因子与极小多项式" class="headerlink" title="不变因子与极小多项式"></a>不变因子与极小多项式</h3><p>这一节我们来探讨一下上一节中得到的各个若干多项式。设$\alpha_k$对应的多项式为$m_k(\lambda)$。那么，根据导子的唯一性，这些多项式都是唯一的(被$\mathscr{A}$唯一决定)，而且已经得到了$m_k|m_{k-1}$这一关系。也就是说，对于指定的有限维度线性空间$V$和线性变换$\mathscr{A}$，(在顺序上)唯一决定了一组多项式$m_1,m_2,\cdots,m_r$。这组多项式称为$\mathscr{A}$的<strong>不变因子</strong>。</p>
+<p>上面的证明中已经解释，$m_k$是$\alpha_k$的最小零化子。那么对于整个循环子空间$\mathbb{F}[\mathscr{A}]\alpha_k$又是怎样? 对于$\alpha\in\mathbb{F}[\mathscr{A}]\alpha_k$，可以设 </p>
+<script type="math/tex; mode=display">
+\alpha = P(\mathscr{A})\alpha_k</script><p>那么</p>
+<script type="math/tex; mode=display">
+m_k(\mathscr{A})\alpha=m_k(\mathscr{A})P(\mathscr{A})\alpha_k=0</script><p>也就是说，$m_k$也是$\mathscr{A}$限制在$\mathbb{F}[\mathscr{A}]\alpha_k$的极小多项式(次数不能再低，否则就不再是$\alpha_k$的零化子).</p>
+<h3 id="有理标准形与特征多项式"><a href="#有理标准形与特征多项式" class="headerlink" title="有理标准形与特征多项式"></a>有理标准形与特征多项式</h3><blockquote>
+<p>对域$\mathbb{F}$上任一方阵$A$，存在域$\mathbb{F}$上的可逆方阵$P$使得 <script type="math/tex">B=P^{-1}AP=\text{diag}(C(m_1),\cdots,C(m_r))</script> 其中，$C(m_k)$是$m_k$的友阵，$m_k$是由$A$决定的线性变换$x\mapsto{Ax}$决定的线性变换的不变因子.</p>
+</blockquote>
+<p>方阵$B$即为方阵$A$的有理标准形.</p>
+<p>在<a href="/2020/01/22/cyclic-decomposition/">这篇博客</a>里我们指出，对于循环子空间$W=\mathbb{F}[\mathscr{A}]\alpha$，$\mathscr{A}$限制在$W$上的矩阵$A_W=C(m)$。这时我们选取了一组$W$上的循环基。现在，我们已经把一个线性空间分解成若干个循环子空间的直和，如果我们选择每个子空间的一组循环基，即得到有理标准形.</p>
+<p>设$k_i=\text{deg }m_i$，则在对于基 </p>
+<script type="math/tex; mode=display">
+\alpha_1,\mathscr{A}\alpha_1,\cdots,\mathscr{A}^{k_1-1}\alpha_1,\cdots,\alpha_r,\mathscr{A}\alpha_r,\cdots,\mathscr{A}^{k_r-1}\alpha_r</script><p>而言，$\mathscr{A}$的方阵表示即为</p>
+<script type="math/tex; mode=display">
+A=\text{diag}(C(m_1),\cdots,C(m_r))</script><p>这里的$P$即为由这组基构成的矩阵。计算特征多项式不难发现有 </p>
+<script type="math/tex; mode=display">
+    f=m_1m_2\cdots m_r</script><h4 id="一些补充"><a href="#一些补充" class="headerlink" title="一些补充"></a><strong>一些补充</strong></h4><p>根据$f$和不变因子的关系，不难得到三条结论:</p>
+<ol>
+<li><p>$V$是循环空间当且仅当$f=m$。也就是说，极小多项式和特征多项式相等。</p>
+</li>
+<li><p>$m|f$且$m$和$f$有相同的不可约因子(尽管次数可能不同)。也就是说，对于$f$可以唯一分解成不可约因子<script type="math/tex">f=p_1^{d_1}\cdots p_s^{d_s}</script> 那么一定有正整数$r_1,\cdots,r_s$使得 </p>
+<script type="math/tex; mode=display">
+m=p_1^{r_1}\cdots p_s^{r_s}</script><p>其中$0&lt;r_i\leq d_i$。</p>
+</li>
+<li><p>循环分解也成了Cayley-Hamilton的证明。因为$m|f$，所以特征多项式$f$一定是零化多项式。</p>
+</li>
+</ol>
+<h3 id="循环分解的实例"><a href="#循环分解的实例" class="headerlink" title="循环分解的实例"></a>循环分解的实例</h3><blockquote>
+<p>求矩阵 </p>
+<script type="math/tex; mode=display">
+    A=\begin{pmatrix} 
+    0&-1&2&0 \\  
+    -1&0&-2&0 \\  
+    0&0&-5&0 \\  
+    1&1&-2&1 
+    \end{pmatrix}</script><p> 的有理标准形，对$\mathbb{R}^4$进行循环分解</p>
+</blockquote>
+<p>这是线性变换 $\mathscr{A}:x\mapsto{Ax}$在$\varepsilon_1,\varepsilon_2,\varepsilon_3,\varepsilon_4$下的方阵表示.</p>
+<p>可以算出$f$的特征多项式和极小多项式为 </p>
+<script type="math/tex; mode=display">
+f(\lambda)=(\lambda-1)^2(\lambda+1)(\lambda+5) \\  
+m(\lambda)=(\lambda-1)(\lambda+1)(\lambda+5)</script><p>这时其实已经完成了分解。因为<strong>不变因子已经被确定</strong>，也就是说，</p>
+<script type="math/tex; mode=display">
+    m_1=\lambda^3+5\lambda^2-\lambda-5 \\  
+    m_2=\lambda-1</script><p>那么有理标准形就有 </p>
+<script type="math/tex; mode=display">
+    B=\left(\begin{array}{c c c|c} 
+    0&0&\textbf{5}&0 \\  
+    1&0&\textbf{1}&0 \\  
+    0&1&\textbf{-5}&0 \\  
+    \hline 
+    0&0&0&\textbf{1} 
+    \end{array}\right)</script><p>接下来我们要求可逆矩阵$P$。首先讨论子空间$\mathbb{R}[\mathscr{A}]\alpha_2$。对于$m_2=\lambda-1$，只需要取$A$属于特征值$1$的特征向量即可。不妨直接取$\alpha_2=(0,0,0,1)^T$.</p>
+<p>对于另一个循环空间的生成元$\alpha_1$，只需要保证$\alpha_1,\mathscr{A}\alpha_1,\mathscr{A}^2\alpha_1,\alpha_2$线性无关(秩为$4$)，从而构成循环基，不妨取$\alpha_1=(1,1,1,1)^T$。此时$A\alpha_1=(1,-3,-5,1)^T$，$A^2\alpha_1=(-7,9,25,9)^T$。此时就得到矩阵</p>
+<script type="math/tex; mode=display">
+    P=\begin{pmatrix} 
+    1&1&-7&0 \\  
+    1&-3&9&0 \\  
+    1&-5&25&0 \\  
+    1&1&9&1 
+    \end{pmatrix}</script><p>且</p>
+<script type="math/tex; mode=display">
+    \mathbb{R}^4=\mathbb{R}[\mathscr{A}]{}(1,1,1,1)^T\oplus\mathbb{R}[\mathscr{A}] {}(0,0,0,1)^T</script><p>最后解释一下选择$\alpha_1$和$\alpha_2$的合理性(虽然完全可以验证$P^{-1}AP=B$)。已经知道,$m_k$一定是$\alpha_k$的最小零化子。对于$\alpha_2$，考虑 $ (A-I)\alpha_2=0 $ 即可。这刚好要求$\alpha_2$是$\mathscr{A}$关于特征值$1$下的特征向量。对于$\alpha_1$，因为$m=\lambda^3+5\lambda^2-\lambda-5$是最小零化子，所以$\alpha_1$，$\mathscr{A}\alpha_1$，$\mathscr{A}^2\alpha_1$必须线性无关，否则就说明此时$m_1$不是$\alpha_1$的最小零化子，这与$\mathbb{R}[\mathscr{A}]\alpha_1$的性质矛盾.</p>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../08/primary-decomposition/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            准素分解与准素标准型
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../../01/28/conductor/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            线性变换不变子空间的导子及其性质
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2020/02/03/cyclic-decomposition-and-example/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

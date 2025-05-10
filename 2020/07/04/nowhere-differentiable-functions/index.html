@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>A continuous function is &#39;mostly&#39; nowhere differentiable | Desvl&#39;s blog</title>
+
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="About this postIt is taught in elementary calculus course that, if a function is differentiable at some point $x_0$, then it’s continuous at $x_0$, but not vice versa. It’s easy to construct an counte">
+<meta property="og:type" content="article">
+<meta property="og:title" content="A continuous function is &#39;mostly&#39; nowhere differentiable">
+<meta property="og:url" content="https://desvl.xyz/2020/07/04/nowhere-differentiable-functions/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="About this postIt is taught in elementary calculus course that, if a function is differentiable at some point $x_0$, then it’s continuous at $x_0$, but not vice versa. It’s easy to construct an counte">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-07-04T19:32:34.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:10.237Z">
+<meta property="article:author" content="Desvl">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        A continuous function is &#39;mostly&#39; nowhere differentiable
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2020/07/" class="post-meta__date button">2020-07-04</a>
+        
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#About-this-post"><span class="toc-number">1.</span> <span class="toc-text">About this post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Some-basic-facts"><span class="toc-number">2.</span> <span class="toc-text">Some basic facts</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Proof-in-detail"><span class="toc-number">3.</span> <span class="toc-text">Proof in detail</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Step-1-Each-B-n-m-is-closed"><span class="toc-number">3.1.</span> <span class="toc-text">Step 1 - Each $B_{n,m}$ is closed</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Proof"><span class="toc-number">3.1.1.</span> <span class="toc-text">Proof</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Remarks"><span class="toc-number">3.1.2.</span> <span class="toc-text">Remarks</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Step-2-Each-B-n-m-is-nowhere-dense"><span class="toc-number">3.2.</span> <span class="toc-text">Step 2 - Each $B_{n,m}$ is nowhere dense</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Proof-1"><span class="toc-number">3.2.1.</span> <span class="toc-text">Proof</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Remarks-1"><span class="toc-number">3.2.2.</span> <span class="toc-text">Remarks</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Step-3-S-bigcup-m-bigcup-n-B-n-m-therefore-of-the-first-category"><span class="toc-number">3.3.</span> <span class="toc-text">Step 3 - $S &#x3D; \bigcup_{m}\bigcup_{n} B_{n,m}$, therefore of the first category</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Proof-2"><span class="toc-number">3.3.1.</span> <span class="toc-text">Proof</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Remarks-2"><span class="toc-number">3.3.2.</span> <span class="toc-text">Remarks</span></a></li></ol></li></ol></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#About-this-post"><span class="toc-number">1.</span> <span class="toc-text">About this post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Some-basic-facts"><span class="toc-number">2.</span> <span class="toc-text">Some basic facts</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Proof-in-detail"><span class="toc-number">3.</span> <span class="toc-text">Proof in detail</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Step-1-Each-B-n-m-is-closed"><span class="toc-number">3.1.</span> <span class="toc-text">Step 1 - Each $B_{n,m}$ is closed</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Proof"><span class="toc-number">3.1.1.</span> <span class="toc-text">Proof</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Remarks"><span class="toc-number">3.1.2.</span> <span class="toc-text">Remarks</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Step-2-Each-B-n-m-is-nowhere-dense"><span class="toc-number">3.2.</span> <span class="toc-text">Step 2 - Each $B_{n,m}$ is nowhere dense</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Proof-1"><span class="toc-number">3.2.1.</span> <span class="toc-text">Proof</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Remarks-1"><span class="toc-number">3.2.2.</span> <span class="toc-text">Remarks</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Step-3-S-bigcup-m-bigcup-n-B-n-m-therefore-of-the-first-category"><span class="toc-number">3.3.</span> <span class="toc-text">Step 3 - $S &#x3D; \bigcup_{m}\bigcup_{n} B_{n,m}$, therefore of the first category</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Proof-2"><span class="toc-number">3.3.1.</span> <span class="toc-text">Proof</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Remarks-2"><span class="toc-number">3.3.2.</span> <span class="toc-text">Remarks</span></a></li></ol></li></ol></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h3 id="About-this-post"><a href="#About-this-post" class="headerlink" title="About this post"></a>About this post</h3><p>It is taught in elementary calculus course that, if a function is differentiable at some point $x_0$, then it’s continuous at $x_0$, but <strong>not</strong> vice versa. It’s easy to construct an counterexample which is continuous but not differentiable. An example is $y=|x|$ at $x=0$. In fact, we can even find a nowhere differentiable function by series:</p>
+<script type="math/tex; mode=display">
+f(x)=\sum_{k=0}^{\infty}\left(\frac{3}{4}\right)^ng(4^kx)</script><p>where $g(x)=|x|$ for $x \in [-1,1]$ and $g(x+2)=g(x)$ for all $x \in \mathbb{R}$.</p>
+<p>Though the existence has been proved already, we are looking for some feasible estimation on “quantity”. Also, this post is a good chance to review some elementary analysis techniques such as continuity and differentiability.</p>
+<h3 id="Some-basic-facts"><a href="#Some-basic-facts" class="headerlink" title="Some basic facts"></a>Some basic facts</h3><p>I’m assuming that you have finished <a href="/2020/06/06/big-3-pt-1/">this post</a> or some equivalences (basic facts about Baire Category Theorem).</p>
+<p>Let $K=[0,1]$ and let $C(K)$ be the set of all real-valued continuous functions defined on $K$. For $f \in C(K)$, we define the norm of $f$ by $\lVert f \rVert = \sup_{x \in K}|f(x)|$, and a metric $d$ on $C(K)$ by $d(f,g)=\lVert f-g \rVert$, then $C(K)$ becomes a <strong>complete metric space</strong>, where BCT applies, showing that $C(K)$ is of the second category.</p>
+<p>A function $f \in C(K)$ will be called somewhere differentiable if there exists some point $x \in K$ such that $f$ is differentiable at $x$ (A somewhere differentiable function need not to be everywhere continuous on $K$, but that’s out of our consideration.). If there are several collections of functions defined by</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+E&=\{f \in C(K):f(x) \text{ is everywhere differentiable on $K$}\}\\
+A&=\{f \in C(K):f(x) \text{ is almost everywhere differentiable on $K$}\}\\
+S&=\{f \in C(K):f(x) \text{ is somewhere differentiable on $K$}\}\\
+\end{aligned}</script><p>then trivially $E \subset A \subset S \subset C(K)$. We’ll show that, however, $S$ is of the first category (needless to talk about $E$ and $A$), which indicates that there are “very few” somewhere differentiable functions.</p>
+<h3 id="Proof-in-detail"><a href="#Proof-in-detail" class="headerlink" title="Proof in detail"></a>Proof in detail</h3><blockquote>
+<p><strong>(Theorem)</strong> $S$ is of the first category.</p>
+</blockquote>
+<p>By somewhere differentiable, we mean that there exists some $x \in K$ such that the limit</p>
+<script type="math/tex; mode=display">
+\lim_{h \to 0}\frac{f(x+h)-f(x)}{h}</script><p>exists and is bounded. If we omit the restriction of existence, we got a super set of $S$ defined by</p>
+<script type="math/tex; mode=display">
+B_{n,m}=\left\{f \in C(K):\text{there is $x \in K$ such that $\left\vert{\frac{f(x+h)-f(x)}{h}}\right\vert \leq n$ if $0 < |h| < \frac{1}{m}$}\right\}</script><p>We will show that $B_{n,m}$ is of the first category which forces $S$ to be the first category.</p>
+<h4 id="Step-1-Each-B-n-m-is-closed"><a href="#Step-1-Each-B-n-m-is-closed" class="headerlink" title="Step 1 - Each $B_{n,m}$ is closed"></a>Step 1 - Each $B_{n,m}$ is closed</h4><h5 id="Proof"><a href="#Proof" class="headerlink" title="Proof"></a>Proof</h5><p>It suffice to show that every Cauchy sequence in $B_{n,m}$, namely $(f_k)_{k=1}^{\infty}$, converges in $B_{n,m}$. Since $S$ is complete, we have $f_k \to f$ (uniformly) for some $f \in S$ when $n \to \infty$.  For each $k$, we can find $x_k \in [0,1]$ such that</p>
+<script type="math/tex; mode=display">
+|f_k(x_k+h)-f(x_k)| \leq n|h|</script><p>for all $0 &lt; h &lt; \frac{1}{m}$. Since $[0,1]$ is compact, by Bolzano-Weierstrass theorem, $(x_k)_{k=1}^{\infty}$ has a convergent subsequence, namely $(x_{k_i})_{i=1}^{\infty}$. Therefore, for each $i$, we have some $g_{i}=f_{k_i}$ and $y_i=x_{k_i}$ such that </p>
+<script type="math/tex; mode=display">
+|g_i(y_i+h)-g_i(y_i)| \leq n|h|</script><p>for all $0&lt;h&lt;\frac{1}{m}$. Suppose then $y_i \to x$ as $i \to\infty$, we therefore have</p>
+<script type="math/tex; mode=display">
+|f(x+h)-f(x)|=\lim_{i \to \infty}|f_i(x+h)-f_i(x)| \leq n|h|</script><p>for all $0&lt;h&lt;\frac{1}{m}$. Therefore $f \in B_{n,m}$, which implies that $B_{n,m}$ is closed.</p>
+<h5 id="Remarks"><a href="#Remarks" class="headerlink" title="Remarks"></a>Remarks</h5><p>There are two basic analysis facts used in this step.</p>
+<p>First, subspace of complete metric space is closed iff it’s complete. This can be easily shown by proving that subspace of complete metric space is not complete iff it’s not closed (a word of warning: not closed $\neq$ open!). For detailed proof, click <a target="_blank" rel="noopener" href="https://proofwiki.org/wiki/Subspace_of_Complete_Metric_Space_is_Closed_iff_Complete">here</a>.</p>
+<p>Second, the Bolzano-Weierstrass theorem. A subset $M$ of $\mathbb{R}$ is compact iff every sequence of elements of $M$ has a subsequence which converges to an element of $M$. We already know that $[0,1]$ is compact.</p>
+<h4 id="Step-2-Each-B-n-m-is-nowhere-dense"><a href="#Step-2-Each-B-n-m-is-nowhere-dense" class="headerlink" title="Step 2 - Each $B_{n,m}$ is nowhere dense"></a>Step 2 - Each $B_{n,m}$ is nowhere dense</h4><h5 id="Proof-1"><a href="#Proof-1" class="headerlink" title="Proof"></a>Proof</h5><p>To show that $B_{n,m}$ is nowhere dense, we have to show that $B_{n,m}$ contains no open ball. The open ball for $f \in B_{n,m}$ is defined by</p>
+<script type="math/tex; mode=display">
+B(f,r)=\{g\in C(K):\left\Vert f-g \right\Vert < r\}</script><p>We will show that $B(f,\varepsilon)-B_{n,m} \neq \varnothing$ for any $\varepsilon &gt;0$. This is done by constructing a function $g$ such that $g \in B(f,\varepsilon)$ but $g \notin B_{n,m}$.</p>
+<p>Since $PL(K)$ (the family of piecewise linear functions defined on $K$) is dense in $C(K)$, we may find a function $p \in PL(K)$ such that $\left\Vert f-p \right\Vert&lt;\frac{\varepsilon}{2}$.</p>
+<p>Since $p$ is piecewise differentiable as well, we may find some $M \in \mathbb{N}$ such that $|p’(x)| \leq M$ for all $x$ where $p$ is differentiable. Pick  an integer $k$ where $k&gt;\frac{2(M+n)}{\varepsilon}$.</p>
+<p>Define another periodic piecewise linear function $\varphi$ on $K$ as follows. For $x \in [0, \frac{2}{k}]$, $\varphi(x)=-k|x-\frac{1}{k}|+1$, for $\frac{k}{2} &lt; x  \leq 1$, $\varphi(x+\frac{k}{2})=\varphi(x)$. For this function, we have $|\varphi(x)| \leq 1$ and $|\varphi’(x)|=k$ for all $x$ where $\varphi$ is differentiable. With $g(x)$ defined by</p>
+<script type="math/tex; mode=display">
+g(x)=p(x)+\frac{\varepsilon}{2}\varphi(x),</script><p>we have</p>
+<script type="math/tex; mode=display">
+\left\Vert f-g \right\Vert \leq \left\Vert f-p \right\Vert + \left\Vert p-g \right\Vert<\frac{\varepsilon}{2}+\frac{\varepsilon}{2}=\varepsilon</script><p>Thus $g \in B(f,\varepsilon)$. However, as we’ll show, $g \notin B_{n,m}$.</p>
+<p>Pick $x \in K$ such that both $p$ and $\varphi$ are differentiable at $x$, then</p>
+<script type="math/tex; mode=display">
+|g'(x)|=|p'(x) \pm \frac{\varepsilon}{2}k| \geq \frac{\varepsilon}{2}k-|p'(x)|>n.</script><p>Still, $g \in PL(K)$. For $x$ where $g$ is differentiable, we have $|g’(x)|&gt;n$. For the turning points of $g$, we have $|g’_{-}(x)|&gt;n$ and $g’_{+}(x)&gt;n$, that is, the left and right derivatives of $g$. Therefore, for any $n,m \in \mathbb{N}$ and $\varepsilon \in \mathbb{R}^{+}$, we have $B(f,\varepsilon) - B_{n,m} \neq \varnothing$. That is, $B_{n,m}$ is nowhere dense.</p>
+<h5 id="Remarks-1"><a href="#Remarks-1" class="headerlink" title="Remarks"></a>Remarks</h5><p>There are some confusing parts worth talking about. </p>
+<ul>
+<li><p>Why do we have to prove that $B_{n,m}$ contains no open balls?</p>
+<p>​    Since $B_{n,m}$ is closed, the closure of $B_{n,m}$ is itself. Therefore it suffices to show that $B_{n,m}$ has empty interior, or equivalently, contains no open balls.</p>
+</li>
+<li><p>The detail of $g \notin A_{n,m}$?</p>
+<p>​    Notice that $g$ is a piecewise linear function. Suppose the turning points of $g$ are $x_1,x_2,\cdots,x_N$. Then $g(x)$ is differentiable (also linear) on $(x_i,x_{i+1})$ for $i=1,2,\cdots,N-1$, and $g’(x)$ is the <strong>slope</strong> of the segment, which is equal to $\frac{g(x+h)-g(x)}{h}$ for $x+h \in (x_i,x_{i+1})$. If $x=x_i$ for some $i$, then $\frac{g(x+h)-g(x)}{h}$ is equal to the <strong>slope</strong> of the segments on the left and right hand. Therefore, for all $x \in K$, we can find some  $0&lt;|h|&lt;\frac{1}{m}$ such that $|g(x+h)-g(x)|/|h|&gt;n$.</p>
+</li>
+<li><p>Piecewise linear functions?</p>
+<p>​    A function $p$ is called piecewise linear on $[0,1]$ if there is a partition $0=a_0&lt;a_1&lt;\cdots&lt;a_n=1$ such that $p$ is “linear” (can be expressed in the form $y=ax+b$ ) on $[a_n,a_{n+1}]$. Also we assume that $p$ is continuous, whose collection is denoted by $PL(K)$. The fact that $PL(K)$ is dense in $C(K)$ can be shown as follows (For an advanced proof, you may want to check <a target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/pii/0021904582900454">here</a>).</p>
+</li>
+</ul>
+<blockquote>
+<p>$PL(K)$ is dense in $C(K)$. Alternatively, for every $f \in C(K)$ and $\varepsilon &gt;0$, there exists some $p(x)$ such that $\left\Vert p-f \right\Vert &lt; \varepsilon$.</p>
+<p><strong>(Proof)</strong> Since $K$ is compact, $f$ is uniformly continuous on $K$. Therefore, there exists some $\delta&gt;0$ such that $|f(x)-f(y)|&lt;\frac{\varepsilon}{2}$ for all $|x-y|&lt;\delta$ where $x,y\in{K}$.</p>
+<p>Refine the partition associated with $p$ by forcing $|a_{i+1}-a_i|&lt; \delta$. Define $p \in PL(K)$ by $p(a_i)=f(a_i)$. If $x \in K$, there is an $i$ such that $a_i \leq x \leq a_{i+1}$. Then $|f(x)-f(a_i)|&lt;\frac{\varepsilon}{2}$. Also,</p>
+<script type="math/tex; mode=display">
+|p(x)-f(a_i)|=|p(x)-p(a_i)| \leq |p(a_{i+1})-p(a_i)| < \frac{\varepsilon}{2}.</script><p>Therefore</p>
+<script type="math/tex; mode=display">
+|f(x)-p(x)| \leq |f(x)-f(a_i)|+|f(a_i)-p(x)|<\varepsilon.</script><p>This holds for all $x \in K$. Therefore holds for $\sup|f(x)-p(x)|$. </p>
+</blockquote>
+<h4 id="Step-3-S-bigcup-m-bigcup-n-B-n-m-therefore-of-the-first-category"><a href="#Step-3-S-bigcup-m-bigcup-n-B-n-m-therefore-of-the-first-category" class="headerlink" title="Step 3 - $S = \bigcup_{m}\bigcup_{n} B_{n,m}$, therefore of the first category"></a>Step 3 - $S = \bigcup_{m}\bigcup_{n} B_{n,m}$, therefore of the first category</h4><h5 id="Proof-2"><a href="#Proof-2" class="headerlink" title="Proof"></a>Proof</h5><p>Since $f$ is differentiable at $x$, there exists a real number $A$ such that for any $\varepsilon&gt;0$, there exists some $\delta&gt;0$ such that</p>
+<script type="math/tex; mode=display">
+\left\vert \frac{f(x+h)-f(x)}{h} \right\vert-|A|<\left\vert \frac{f(x+h)-f(x)}{h}-A \right\vert<\varepsilon</script><p>for $|h| \in (0,\delta)$. In fact, $A=f’(x)$, all we have to do is pick $n,m$ such that $n &gt; A$ and $\frac{1}{m}&lt;\delta$. Alternatively speaking, all we need to show is that, if $f \in S$, then $f \in B_{n,m}$ for some $m$ and $n$. Therefore</p>
+<script type="math/tex; mode=display">
+S=\bigcup_n\bigcup_m B_{n,m}</script><h5 id="Remarks-2"><a href="#Remarks-2" class="headerlink" title="Remarks"></a>Remarks</h5><p>If we think of meagre sets as being “small”, this tells us that “mostly” $f \in C(K)$ is nowhere differentiable. At  the very least, nowhere differentiable functions topologically exists, since a space cannot be of the first and second category at the same time.</p>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../16/linear-ode-chapter-4/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            线性ODE（四）——常系数高阶线性微分方程的普遍解法
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../../06/30/big-3-pt-2/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            The Big Three Pt. 2 - The Banach-Steinhaus Theorem
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2020/07/04/nowhere-differentiable-functions/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

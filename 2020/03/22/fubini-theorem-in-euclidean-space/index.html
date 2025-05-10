@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>Fubini&#39;s theorem in Euclidean space (Understanding &#39;almost everywhere&#39;) | Desvl&#39;s blog</title>
+
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="General IdeaIn elementary calculus, integrals of continuous functions of several variables are often calculated by iterating one-dimensional integrals. But the properties of measurability give rise to">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Fubini&#39;s theorem in Euclidean space (Understanding &#39;almost everywhere&#39;)">
+<meta property="og:url" content="https://desvl.xyz/2020/03/22/fubini-theorem-in-euclidean-space/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="General IdeaIn elementary calculus, integrals of continuous functions of several variables are often calculated by iterating one-dimensional integrals. But the properties of measurability give rise to">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-03-22T13:08:47.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:09.931Z">
+<meta property="article:author" content="Desvl">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        Fubini&#39;s theorem in Euclidean space (Understanding &#39;almost everywhere&#39;)
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2020/03/" class="post-meta__date button">2020-03-22</a>
+        
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#General-Idea"><span class="toc-number">1.</span> <span class="toc-text">General Idea</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Notations"><span class="toc-number">1.1.</span> <span class="toc-text">Notations</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#But-why-%E2%80%98almost-everywhere%E2%80%99"><span class="toc-number">1.2.</span> <span class="toc-text">But why ‘almost everywhere’?</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Fubini%E2%80%99s-Theorem"><span class="toc-number">2.</span> <span class="toc-text">Fubini’s Theorem</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#General-and-more-rigorous-version"><span class="toc-number">2.1.</span> <span class="toc-text">General and more rigorous version</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Before-the-proof"><span class="toc-number">2.2.</span> <span class="toc-text">Before the proof</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Complete-proof-of-Fubini%E2%80%99s-Theorem-With-explanation"><span class="toc-number">3.</span> <span class="toc-text">Complete proof of Fubini’s Theorem (With explanation)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-1-mathcal-F-is-not-empty"><span class="toc-number">3.1.</span> <span class="toc-text">Step 1 - $\mathcal{F}$ is not empty</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-2-mathcal-F-is-closed-under-finite-linear-combination"><span class="toc-number">3.2.</span> <span class="toc-text">Step 2 - $\mathcal{F}$ is closed under finite linear combination</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-3-Monotone-convergence-in-mathcal-F"><span class="toc-number">3.3.</span> <span class="toc-text">Step 3 - Monotone convergence in $\mathcal{F}$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-4-Characteristic-functions-of-measurable-sets"><span class="toc-number">3.4.</span> <span class="toc-text">Step 4 - Characteristic functions of measurable sets</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-Final-destination"><span class="toc-number">3.4.1.</span> <span class="toc-text">4.1 - Final destination</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-Finite-measure-G-delta-sets"><span class="toc-number">3.4.2.</span> <span class="toc-text">4.2 - Finite measure $G_{\delta}$ sets</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#4-2-1-Characteristic-function-of-closed-cubes"><span class="toc-number">3.4.2.1.</span> <span class="toc-text">4.2.1 - Characteristic function of closed cubes</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-2-2-Finitely-many-almost-disjoint-closed-cubes"><span class="toc-number">3.4.2.2.</span> <span class="toc-text">4.2.2 - Finitely many almost disjoint closed cubes</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-2-3-Arbitrary-open-sets-with-finite-measure"><span class="toc-number">3.4.2.3.</span> <span class="toc-text">4.2.3 - Arbitrary open sets with finite measure</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-2-4-Arbitrary-G-delta-sets"><span class="toc-number">3.4.2.4.</span> <span class="toc-text">4.2.4 - Arbitrary $G_\delta$ sets</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-3-Sets-with-measure-0"><span class="toc-number">3.4.3.</span> <span class="toc-text">4.3 - Sets with measure $0$</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-5-All-integrable-functions"><span class="toc-number">3.5.</span> <span class="toc-text">Step 5 - All integrable functions</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Comments"><span class="toc-number">4.</span> <span class="toc-text">Comments</span></a></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#General-Idea"><span class="toc-number">1.</span> <span class="toc-text">General Idea</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Notations"><span class="toc-number">1.1.</span> <span class="toc-text">Notations</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#But-why-%E2%80%98almost-everywhere%E2%80%99"><span class="toc-number">1.2.</span> <span class="toc-text">But why ‘almost everywhere’?</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Fubini%E2%80%99s-Theorem"><span class="toc-number">2.</span> <span class="toc-text">Fubini’s Theorem</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#General-and-more-rigorous-version"><span class="toc-number">2.1.</span> <span class="toc-text">General and more rigorous version</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Before-the-proof"><span class="toc-number">2.2.</span> <span class="toc-text">Before the proof</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Complete-proof-of-Fubini%E2%80%99s-Theorem-With-explanation"><span class="toc-number">3.</span> <span class="toc-text">Complete proof of Fubini’s Theorem (With explanation)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-1-mathcal-F-is-not-empty"><span class="toc-number">3.1.</span> <span class="toc-text">Step 1 - $\mathcal{F}$ is not empty</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-2-mathcal-F-is-closed-under-finite-linear-combination"><span class="toc-number">3.2.</span> <span class="toc-text">Step 2 - $\mathcal{F}$ is closed under finite linear combination</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-3-Monotone-convergence-in-mathcal-F"><span class="toc-number">3.3.</span> <span class="toc-text">Step 3 - Monotone convergence in $\mathcal{F}$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-4-Characteristic-functions-of-measurable-sets"><span class="toc-number">3.4.</span> <span class="toc-text">Step 4 - Characteristic functions of measurable sets</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-Final-destination"><span class="toc-number">3.4.1.</span> <span class="toc-text">4.1 - Final destination</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-Finite-measure-G-delta-sets"><span class="toc-number">3.4.2.</span> <span class="toc-text">4.2 - Finite measure $G_{\delta}$ sets</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#4-2-1-Characteristic-function-of-closed-cubes"><span class="toc-number">3.4.2.1.</span> <span class="toc-text">4.2.1 - Characteristic function of closed cubes</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-2-2-Finitely-many-almost-disjoint-closed-cubes"><span class="toc-number">3.4.2.2.</span> <span class="toc-text">4.2.2 - Finitely many almost disjoint closed cubes</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-2-3-Arbitrary-open-sets-with-finite-measure"><span class="toc-number">3.4.2.3.</span> <span class="toc-text">4.2.3 - Arbitrary open sets with finite measure</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-2-4-Arbitrary-G-delta-sets"><span class="toc-number">3.4.2.4.</span> <span class="toc-text">4.2.4 - Arbitrary $G_\delta$ sets</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-3-Sets-with-measure-0"><span class="toc-number">3.4.3.</span> <span class="toc-text">4.3 - Sets with measure $0$</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-5-All-integrable-functions"><span class="toc-number">3.5.</span> <span class="toc-text">Step 5 - All integrable functions</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Comments"><span class="toc-number">4.</span> <span class="toc-text">Comments</span></a></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h2 id="General-Idea"><a href="#General-Idea" class="headerlink" title="General Idea"></a>General Idea</h2><p>In elementary calculus, integrals of continuous functions of several variables are often calculated by iterating one-dimensional integrals. But the properties of measurability give rise to a lot of issues for Lebesgue integration on $\mathbb{R}^d$. What we are looking for is the equation</p>
+<script type="math/tex; mode=display">
+\int_{\mathbb{R}^m}\left(\int_{\mathbb{R}^n}f(x,y)dy\right)dx=\int_{\mathbb{R}^n}\left(\int_{\mathbb{R}^m}f(x,y)dx\right)dy=\int_{\mathbb{R}^d}fdm</script><p>where $d=m+n$ and $m,n$ are positive integers. If this equation holds for $f$, the integration would be relatively easy, as the iteration can be taken in any order. In fact, this equation can be generalized to some other abstract measure space, but that’s beyond what this post could cover.</p>
+<h3 id="Notations"><a href="#Notations" class="headerlink" title="Notations"></a>Notations</h3><p>For $d=m+n$, we write</p>
+<script type="math/tex; mode=display">
+\mathbb{R}^d=\mathbb{R}^m\times\mathbb{R}^n</script><p>A point in $\mathbb{R}^d$ therefore takes the form $(x,y)$, where $x\in\mathbb{R}^m$ and $y\in\mathbb{R}^n$. If $f$ is defined on $\mathbb{R}^d$, the <strong>slice</strong> of $f$ is respectively </p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+    f^y(x)&=f(x,y)\quad y\in\mathbb{R}^n \\
+    f_x(y)&=f(x,y)\quad x\in\mathbb{R}^m
+\end{aligned}</script><p>For $E \subset \mathbb{R}^m\times\mathbb{R}^n$, we defines its slices by</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+    E^y&=\{x\in\mathbb{R}^m:(x,y)\in{E}\} \\
+    E_x&=\{y\in\mathbb{R}^n:(x,y)\in{E}\}
+\end{aligned}</script><h3 id="But-why-‘almost-everywhere’"><a href="#But-why-‘almost-everywhere’" class="headerlink" title="But why ‘almost everywhere’?"></a>But why ‘almost everywhere’?</h3><p>Unfortunately, even if we assume that $f$ is measurable on $\mathbb{R}^d$, it can be shown that $f^y$ is not necessarily measurable for each $y$. It’s easy to construct a non-measurable set on $\mathbb{R}$ (x-axis), namely $A$. Then $A$ has Lebesgue measure $0$ in $\mathbb{R} \times \mathbb{R}$. But $E^y$ is not measurable for $y=0$. Nevertheless, the consideration of ‘almost everywhere’ is able to save us from this.</p>
+<h2 id="Fubini’s-Theorem"><a href="#Fubini’s-Theorem" class="headerlink" title="Fubini’s Theorem"></a>Fubini’s Theorem</h2><blockquote>
+<p>Suppose $f(x,y)$ is integrable on $\mathbb{R}^m \times \mathbb{R}^n$. Then for almost every $y \in \mathbb{R}^n$, we have</p>
+<ol>
+<li><p>$f^y$ is integrable on $\mathbb{R}^m$.</p>
+</li>
+<li><p>The function defined by $\int_{\mathbb{R}^m}f^y(x)dx$ is integrable on $\mathbb{R}^n$.</p>
+</li>
+<li><p>This equation holds ($m$ denotes the Lebesgue measure on $\mathbb{R}^d$):</p>
+<script type="math/tex; mode=display">
+\int_{\mathbb{R}^m}\left(\int_{\mathbb{R}^n}f(x,y)dx\right)dy=\int_{\mathbb{R}^n}\left(\int_{\mathbb{R}^m}f(x,y)dy\right)dx=\int_{\mathbb{R}^d}fdm</script><p>The symmetric conclusion can be obtained for $x$.</p>
+</li>
+</ol>
+</blockquote>
+<h3 id="General-and-more-rigorous-version"><a href="#General-and-more-rigorous-version" class="headerlink" title="General and more rigorous version"></a>General and more rigorous version</h3><p>The general version of Fubini’s theorem is developed in abstract product space, which will not be proved here. But it’s worth a peek. Of course, feel free to jump to the next section if you are not interested.</p>
+<blockquote>
+<p>Let $(X,\mathscr{S},\mu)$ and $(Y,\mathscr{T},\lambda)$ be $\sigma$-finite measure spaces, and let $f$ be an $(\mathscr{S} \times \mathscr{T})$-measurable function defined on $X \times Y$.</p>
+<ol>
+<li><p>If $f$ is an nonnegative real function, and if </p>
+<script type="math/tex; mode=display">
+\varphi(x)=\int_Y f_xd\lambda \quad \psi(y) = \int_X f^yd\mu\qquad (x\in X, y \in Y)</script><p>then $\varphi$ is $\mathscr{S}$-measurable, and $\psi$ is $\mathscr{T}$-measurable, and</p>
+<script type="math/tex; mode=display">
+\int_Xd\mu(x)\int_Yf(x,y)d\lambda(y)=\int_{Y}d\lambda(y)\int_{X}f(x,y)d\mu(x)</script></li>
+<li><p>If $f$ is complex and if</p>
+<script type="math/tex; mode=display">
+\varphi^\ast(x)=\int_Y|f|_xd\lambda\quad\text{and}\quad\int_{X}\varphi^\ast d\mu<\infty</script><p>then $f \in L^1(\mu\times\lambda)$.</p>
+</li>
+<li><p>If $f \in L^1(\mu \times \lambda)$, then $f_x \in L^1(\lambda)$ for almost all $x \in X$, $f^y \in L^1(\mu)$ for almost all $y \in Y$. The function therefore defined in 1 a.e. are in $L^1(\mu)$ and $L^1(\lambda)$ respectively, and the equation holds.</p>
+</li>
+</ol>
+</blockquote>
+<p>Clearly, if we replace $X$, $Y$ with $\mathbb{R}^m$ and $\mathbb{R}^n$, $\mathscr{S}$ and $\mathscr{T}$ with the respective Lebesgue $\sigma$-algebra, $\lambda$ and $\mu$ with Lebesgue measure, then we obtained the Euclidean version. Notice that $f$ is integrable means that $\int_X|f|d\mu &lt; \infty$.</p>
+<h3 id="Before-the-proof"><a href="#Before-the-proof" class="headerlink" title="Before the proof"></a>Before the proof</h3><p>The proof is relatively long. Instead of proving that $f$ as an integrable function satisfies the three conclusions, we shall show that, however, the family of functions satisfy the three conclusions (say, $\mathcal{F}$) <strong>contains</strong> all integrable functions. If you check the general version of Fubini’s theorem, you see that integrability was explicitly discussed.</p>
+<p>First, we shall show that $\mathcal{F}$ is not empty. This is important because we might have been discussing something that never exists. Second. Considering the fact that any integrable function can be “approximated” by simple functions, where simple functions  can be generated linear combination, it encourage us to discuss limits and linear combinations in $\mathcal{F}$. Finally, we shall show that if $f$ is integrable, then $f \in \mathcal{F}$. The power of almost-everywhere will show up along the proof.</p>
+<h2 id="Complete-proof-of-Fubini’s-Theorem-With-explanation"><a href="#Complete-proof-of-Fubini’s-Theorem-With-explanation" class="headerlink" title="Complete proof of Fubini’s Theorem (With explanation)"></a>Complete proof of Fubini’s Theorem (With explanation)</h2><h3 id="Step-1-mathcal-F-is-not-empty"><a href="#Step-1-mathcal-F-is-not-empty" class="headerlink" title="Step 1 - $\mathcal{F}$ is not empty"></a>Step 1 - $\mathcal{F}$ is not empty</h3><p>It’s somewhat absurd to discuss the property of $\mathcal{F}$ without proving that it’s not empty. But that can be done easily.</p>
+<blockquote>
+<p>Suppose $E$ is a bounded open cube in $\mathbb{R}^d$ such that $E = Q_1 \times Q_2$, where $Q_1$ and $Q_2$ are open cubes in $\mathbb{R}^m$ and $\mathbb{R}^n$. Then $\chi_E \in \mathcal{F}$.</p>
+</blockquote>
+<p>For each $y$, $\chi_E(x,y)$ is measurable. And the integrability of $\chi_E(x,y)$ follows with</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+g(y)=\int_{\mathbb{R}^m}\chi_E(x,y)dx=\begin{cases}\text{vol}(Q_1)\quad &y \in Q_2 \\
+0 \quad &y\notin Q_2\end{cases}
+\end{aligned}</script><p>It shows that $g(y)=\text{vol}(Q_1)\chi_{Q_2}$, which is measurable and integrable as well. Further,</p>
+<script type="math/tex; mode=display">
+\int_{\mathbb{R}^{n}}g(y)dy=\text{vol}(Q_1)\text{vol}(Q_2)</script><p>Since we initially have $\int_{\mathbb{R}^d}\chi_Edm=\text{vol}(E)=\text{vol}(Q_1)\text{vol}(Q_2)$, we see that $\chi_E$ satisfies these three properties, hence $\chi_E \in \mathcal{F}$.</p>
+<h3 id="Step-2-mathcal-F-is-closed-under-finite-linear-combination"><a href="#Step-2-mathcal-F-is-closed-under-finite-linear-combination" class="headerlink" title="Step 2 - $\mathcal{F}$ is closed under finite linear combination"></a>Step 2 - $\mathcal{F}$ is closed under finite linear combination</h3><p>We have only judged open cubes in $\mathbb{R}^d$, which are far from Lebesgue $\sigma$-algebra. To get there, we may have to check some $G_\delta$ sets, but we can’t do that since we have no idea about limits in $\mathcal{F}$. We are also looking for some simple functions, which are linear combinations of character functions.</p>
+<blockquote>
+<p>Any finite linear combination of functions in $\mathcal{F}$ also belongs to $\mathcal{F}$.</p>
+</blockquote>
+<p>Since there are arbitrarily many bounded open cubes in $\mathbb{R}^d$, we are able to find arbitrarily many members in $\mathcal{F}$. Say,</p>
+<script type="math/tex; mode=display">
+f_1,f_2,\cdots,f_n\in\mathcal{F}</script><p>Following the definition of $\mathcal{F}$, for each $1 \leq k \leq n$, we are able to find a set $A_k \subset \mathbb{R}^n$ such that $A_k$ has measure $0$ and whenever $y \notin A_k$, $f_k^y$ is integrable on $\mathbb{R}^m$. If we collect these sets altogether, namely $A=\cup A_k$, we see that in $\mathbb{R}^n-A$, all $f_k$’s has the desired property, so does their arbitrary finite linear combination (due to the linear property of Lebesgue integral). Since $A$ has measure zero as well, it turns out that the finite linear combinations belong to $\mathcal{F}$.</p>
+<h3 id="Step-3-Monotone-convergence-in-mathcal-F"><a href="#Step-3-Monotone-convergence-in-mathcal-F" class="headerlink" title="Step 3 - Monotone convergence in $\mathcal{F}$"></a>Step 3 - Monotone convergence in $\mathcal{F}$</h3><p>Limits and convergence come into play. One may think about something like complete metric space, where Cauchy sequences converges. In this step we show that the monotone limit does exist in $\mathcal{F}$. </p>
+<blockquote>
+<p>Suppose $f_k$ is a sequence of measurable functions in $\mathcal{F}$ so that $f_{k} \leq f_{k+1}$ or $f_k \geq f_{k+1}$ holds for all $k$, and $f_k \to f$ where $f$ is integrable on $\mathbb{R}^d$, then $f \in \mathcal{F}$.</p>
+</blockquote>
+<p>Without loss of generality, it suffices to assume that</p>
+<script type="math/tex; mode=display">
+0 \leq f_1 \leq f_2 \leq \cdots \leq f_n</script><p>Since for other situations, we can take some $-f_k$ or $f_k-f_1$ or something like that. An application of monotone convergence theorem yields that</p>
+<script type="math/tex; mode=display">
+\lim\limits_{k \to \infty}\int_{\mathbb{R}^d}f_kdm = \int_{\mathbb{R}^d}fdm</script><p>Also, we can find some sets with measure $0$, namely $A_k$, carrying the same meaning as is in Step 2. For $A=\bigcup_{k=1}^{\infty}A_k$, we also have $m(A)=0$ in $\mathbb{R}^n$. Also, for $y \in \mathbb{R}^n - A$, $f_k^y$ is integrable on $\mathbb{R}^m$ for all $k$. Thus by monotone convergence theorem, we see that</p>
+<script type="math/tex; mode=display">
+g_k(y)=\int_{\mathbb{R}^m}f_k^ydx \to g(y)=\int_{\mathbb{R}^m}f^ydx\quad(k\to\infty)</script><p>Clearly we have $g_k \leq g_{k+1}$ for all $k$, and by assumption, $g_k$ is integrable. Use monotone convergence theorem again, we see that</p>
+<script type="math/tex; mode=display">
+\int_{\mathbb{R}^n}g_kdy\to\int_{\mathbb{R}^n}gdy \quad (k\to\infty)</script><p>Combining these two limits, we see</p>
+<script type="math/tex; mode=display">
+\int_{\mathbb{R}^n}gdy =\int_{\mathbb{R}^d}fdm</script><p>We’ll show that $f \in \mathcal{F}$ by checking its properties one by one.</p>
+<ol>
+<li><p>Since $f$ is integrable, we see that $\int_{\mathbb{R}^n}g = \int_{\mathbb{R}^d}f&lt;\infty$. Thus $g$ is integrable. </p>
+</li>
+<li><p>Since $g$ is integrable, we have $g(y)&lt;\infty$ a.e. for $y$, consequently $f^y$ is integrable a.e. for $y$.</p>
+</li>
+<li><p>By the definition of $g$, we have</p>
+<script type="math/tex; mode=display">
+\int_{\mathbb{R}^n}\left(\int_{\mathbb{R}^m}f(x,y)dx\right)dy=\int_{\mathbb{R}^d}fdm</script></li>
+</ol>
+<p>Thus $f \in \mathcal{F}$ as proved.</p>
+<h3 id="Step-4-Characteristic-functions-of-measurable-sets"><a href="#Step-4-Characteristic-functions-of-measurable-sets" class="headerlink" title="Step 4 - Characteristic functions of measurable sets"></a>Step 4 - Characteristic functions of measurable sets</h3><h4 id="4-1-Final-destination"><a href="#4-1-Final-destination" class="headerlink" title="4.1 - Final destination"></a>4.1 - Final destination</h4><p>We are pretty close to simple functions now. To get rid of infinity, we are going to prove this:</p>
+<blockquote>
+<p>If $E$ is any measurable subset in $\mathbb{R}^d$ with $m(E)&lt;\infty$, then $\chi_E\in\mathcal{F}$.</p>
+</blockquote>
+<p>Once it’s done, we can construct simple functions, which approximate to any integrable functions, with ease. Fortunately, with the help of the property of Lebesgue measurable sets, we are able to break “measurable subsets” into several pieces. Recall the fact that</p>
+<blockquote>
+<p>$E \subset \mathbb{R}^d$ is Lebesgue measurable if and only if there are sets $A$ and $B\subset\mathbb{R}^d$ such that $A \subset E \subset B$, $A$ is a $F_{\sigma}$ and $B$ is a $G_{\delta}$, and $m(B-A)=0$.</p>
+</blockquote>
+<p>Since $B-E \subset B-A$, we also have $m(B-E)=0$. Also, since $E \cup (B-E)=B$, $E \cap (B-E) = \varnothing$, we have</p>
+<script type="math/tex; mode=display">
+\chi_B=\chi_E+\chi_{B-E}</script><p>which is equivalent to$\chi_{E}=\chi_{B}-\chi_{B-E}$. Notice that the right hand of this equation is a finite combination of functions (Step 2 comes into play). If we prove that $\chi_{B},\chi_{B-E} \in \mathcal{F}$, then we are done. </p>
+<p>We are going to prove that if $E$ is a $G_{\delta}$ set, or $E$ has measure $0$, then $\chi_{E}\in\mathcal{F}$. That is, we are going to generalize all Lebesgue measurable sets by proving these two key situations.</p>
+<h4 id="4-2-Finite-measure-G-delta-sets"><a href="#4-2-Finite-measure-G-delta-sets" class="headerlink" title="4.2 - Finite measure $G_{\delta}$ sets"></a>4.2 - Finite measure $G_{\delta}$ sets</h4><p>In Step 1 we proved $\chi_{E} \in \mathcal{F}$ if $E$ is a bounded open cube. Now we are going to generalize this to $G_\delta$, which is a countable intersection of open sets. Also, since every open sets can be a countable union of closed cubes ($\mathbb{R}^d$ is a locally compact Hausdorff space in which every open set is $\sigma$-compact). You will see how Step 2 and Step 3 play a role in this section.</p>
+<h5 id="4-2-1-Characteristic-function-of-closed-cubes"><a href="#4-2-1-Characteristic-function-of-closed-cubes" class="headerlink" title="4.2.1 - Characteristic function of closed cubes"></a>4.2.1 - Characteristic function of closed cubes</h5><blockquote>
+<p>If $Q$ a closed cube in $\mathbb{R}^d$, then $\chi_{Q} \in \mathcal{F}$.</p>
+</blockquote>
+<p>Since $Q = \text{int}(Q) \cup \partial{Q}$, where $\text{int}(Q)$ denotes its interior and $\partial{Q}$ denotes its boundary, we have</p>
+<script type="math/tex; mode=display">
+\chi_{Q}=\chi_{\text{int}(Q)}+\chi_{\partial{Q}}</script><p>As proved in Step 1, $\text{int}(Q) \in \mathcal{F}$. So we have to prove that $\chi_{\partial{Q}}\in\mathcal{F}$, and the conclusion follows from Step 2.</p>
+<p>Since $m(\partial{Q})=0$, we have $\int_{\mathbb{R}^d}\chi_{\partial{Q}}dm=0$. Also, it can be seen that for almost every $y$, we have $\partial{Q}^y$ has measure $0$ in $\mathbb{R}^m$, and therefore $g(y)=\int_{\mathbb{R}^m}\chi_{\partial{Q}}dx=0$ a.e. for $y$. Consequently, $\int_{\mathbb{R}^n}gdy=0$, therefore $\chi_{\partial{Q}} \in \mathcal{F}$.</p>
+<h5 id="4-2-2-Finitely-many-almost-disjoint-closed-cubes"><a href="#4-2-2-Finitely-many-almost-disjoint-closed-cubes" class="headerlink" title="4.2.2 - Finitely many almost disjoint closed cubes"></a>4.2.2 - Finitely many almost disjoint closed cubes</h5><blockquote>
+<p>Suppose $E = \bigcup_{k=1}^{K}Q_k$, where $Q_k$ is closed cube, and $\text{int}(Q_i)\cap\text{int}(Q_j)=\varnothing$ for $i \neq j$, then $\chi_{E} \in \mathcal{F}$.</p>
+</blockquote>
+<p>This conclusion is obvious if one notice that</p>
+<script type="math/tex; mode=display">
+\chi_{E} = \sum_{k=1}^{K}\chi_{Q_k}.</script><p>In 4.2.1 we showed that $\chi_{Q_k} \in \mathcal{F}$. Hence $\chi_{E} \in \mathcal{F}$ according to Step 2.</p>
+<h5 id="4-2-3-Arbitrary-open-sets-with-finite-measure"><a href="#4-2-3-Arbitrary-open-sets-with-finite-measure" class="headerlink" title="4.2.3 - Arbitrary open sets with finite measure"></a>4.2.3 - Arbitrary open sets with finite measure</h5><p>Since every open sets in $\mathbb{R}^d$ can be a countable union of almost disjoint cubes, we have</p>
+<script type="math/tex; mode=display">
+E = \bigcup_{k=1}^\infty Q_k</script><p>If we take $E_{K}=\bigcup_{k=1}^{K}Q_k$, we have $f_K=\chi_{E_K}=\sum_{k=1}^{K}\chi_{Q_k}$. And we are going to follow Step 3 to show that $\chi_{E} \in \mathcal{F}$ if $m(E)&lt;\infty$.</p>
+<p>Since the Lebesgue $\sigma$-measure contains all Borel sets, and $E$ is open, we see that $E$ is measurable. If $m(E)&lt;\infty$, then we see that $\chi_{E}$ is integrable. Also we have $f_{K+1} \geq f_{K}$ for all $K$, and $f_{K} \to \chi_{E}$; hence $f_{K}$ is what we described in Step 3. Say, $\chi_{E} \in \mathcal{F}$.</p>
+<h5 id="4-2-4-Arbitrary-G-delta-sets"><a href="#4-2-4-Arbitrary-G-delta-sets" class="headerlink" title="4.2.4 - Arbitrary $G_\delta$ sets"></a>4.2.4 - Arbitrary $G_\delta$ sets</h5><blockquote>
+<p>If $E$ is a $G_\delta$ set of finite measure, then $\chi_{E} \in \mathcal{F}$.</p>
+</blockquote>
+<p>By the definition of $G_\delta$ sets, we have</p>
+<script type="math/tex; mode=display">
+E=\bigcap_{k=1}^{\infty}R_k</script><p>where $R_k$ are open sets. Since $m(E)&lt;\infty$, $m$ is regular, we have a open set $S_0 \supset E$ such that $m(S_0)&lt;\infty$. Let</p>
+<script type="math/tex; mode=display">
+S_k = S_0 \cap \left(\bigcap_{j=1}^{k}R_j\right)</script><p>Then we have</p>
+<script type="math/tex; mode=display">
+E= \bigcap_{k=1}^{\infty}S_k</script><p>For $S_k$’s, observe that $S_0 \supset S_1 \supset \cdots$, we have $f_k=\chi_{S_k}$ decreases to the limit $f=\chi_E$. Following Step 3, we see that $\chi_E \in \mathcal{F}$.</p>
+<h4 id="4-3-Sets-with-measure-0"><a href="#4-3-Sets-with-measure-0" class="headerlink" title="4.3 - Sets with measure $0$"></a>4.3 - Sets with measure $0$</h4><blockquote>
+<p>If $m(E)=0$, then $\chi_{E} \in \mathcal{F}$</p>
+</blockquote>
+<p>If $E$ is a $G_{\delta}$ set, then we are done by following 4.2. If not, it comes to the issue of $m$’s being a complete measure.</p>
+<p>Again, by the regularity of $m$, we may choose a set $G$ of $G_\delta$ such that $E \subset G$ and that $m(G)=0$. As proved, $\chi_{G} \in \mathcal{F}$. Therefore</p>
+<script type="math/tex; mode=display">
+\int_{\mathbb{R}^m}\chi_{G}dx=0\quad\text{for a.e. }y</script><p>Thus, the slice $G^y$ has measure $0$ a.e. for $y$, since $E^y \subset G^y$, we have $E^y$ has measure $0$ a.e. for $y$. Therefore the fact that $\chi_{E}\in\mathcal{F}$ can be verified by simple calculation.</p>
+<h3 id="Step-5-All-integrable-functions"><a href="#Step-5-All-integrable-functions" class="headerlink" title="Step 5 - All integrable functions"></a>Step 5 - All integrable functions</h3><blockquote>
+<p>If $f$ is integrable, then $f \in \mathcal{F}$.</p>
+</blockquote>
+<p>Like the construction of Lebesgue integral, $f$ has the decomposition that $f= f^+-f^-$. Thus it suffice to prove this for nonnegative $f$ (by Step 1).</p>
+<p>There exists a sequence of integrable and nonnegative simple functions $s_k$ that monotonically converges to $f$. Since each integrable $s_k$ is a finite combination of sets with finite measure, by Step 2 and 4, $s_k \in \mathcal{F}$. By Step 3, clearly we have $f \in \mathcal{F}$.</p>
+<h2 id="Comments"><a href="#Comments" class="headerlink" title="Comments"></a>Comments</h2><p>Fubini’s theorem shows us that we might be able to evaluate multidimensional integrals in the sense of measure theory with ease (at least ‘almost everywhere’). However there are some counterexamples showing that Fubini’s theorem will fall, which will be discussed later.</p>
+<p>This proof is a good example of how to play with the elements of Lebesgue integral. Let’s take a rewind. We want to obtain all integrable functions in $\mathcal{F}$, which however can’t be done directly. So we are looking for simple functions, which are generated by characteristic functions. And luckily we obtained a wide enough range of characteristic functions. With linear combinations and limits, we finally achieved the goal to describe all integrable functions. The properties of ‘almost everywhere’ played a critical role.</p>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../23/fubini-counterex-and-why/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            Counterexamples of Fubini&#39;s theorem
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../14/topological-property-of-the-zeros-of-a-holomorphic-function/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            Topological properties of the zeros of a holomorphic function
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2020/03/22/fubini-theorem-in-euclidean-space/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

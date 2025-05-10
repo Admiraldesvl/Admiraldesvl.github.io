@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>Equivalent Conditions of Regular Local Rings of Dimension 1 | Desvl&#39;s blog</title>
+
+
+    <meta name="keywords" content="Study new content, Quick reference">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="In this post we collect and prove (as detailed as possible) the equivalent conditions of being a Regular local ring of dimension 1.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Equivalent Conditions of Regular Local Rings of Dimension 1">
+<meta property="og:url" content="https://desvl.xyz/2025/05/11/regular-local-ring/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="In this post we collect and prove (as detailed as possible) the equivalent conditions of being a Regular local ring of dimension 1.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-05-10T23:33:19.000Z">
+<meta property="article:modified_time" content="2025-05-10T23:58:06.342Z">
+<meta property="article:author" content="Desvl">
+<meta property="article:tag" content="Study new content">
+<meta property="article:tag" content="Quick reference">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        Equivalent Conditions of Regular Local Rings of Dimension 1
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2025/05/" class="post-meta__date button">2025-05-11</a>
+        
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/" class="button">Algebra</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/Commutative-Algebra/" class="button">Commutative Algebra</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>Regular local rings are important objects in modern algebra, number theory and algebraic geometry. Therefore it would be way too ambitious to try to briefly justify the motivation of studying regular local rings. In this post, we try to collect equivalent conditions of being a regular local ring of dimension $1$ and prove them. There are plenty of equivalent conditions and it is difficult to find a book that collects as many as them as possible, let alone giving a detailed proof. The reader is also encouraged to prove the conditions himself, after knowing that the most important tool in the proof is Nakayama’s lemma.</p>
+<h1 id="Discrete-valuation-ring"><a href="#Discrete-valuation-ring" class="headerlink" title="Discrete valuation ring"></a>Discrete valuation ring</h1><p>The reader may have come up with the definition of discrete valuation rings, without knowing the motivation. Indeed, one way to interpret discrete valuation rings is to see them as “Taylor expansions”. The analogy after the definition may explain why. </p>
+<blockquote>
+<p><strong>Definition 1.</strong> Let $F$ be a field. A surjective function $F:\mathbb{Z} \to \{\infty\}$  is called a <strong>discrete valuation</strong> if</p>
+<ol>
+<li>$v(\alpha)=\infty \iff \alpha = 0$;</li>
+<li>$v(\alpha\beta)=v(\alpha)+v(\beta)$;</li>
+<li>$v(\alpha+\beta)\ge\min(v(\alpha),v(\beta))$.</li>
+</ol>
+<p>The ring $R_v=\{\alpha \in F:v(\alpha) \ge 0\}$ is called a <strong>discrete valuation ring</strong>. It is a local ring with maximal ideal $\mathfrak{m}_v=\{\alpha \in F:v(\alpha) &gt; 0\}$. </p>
+</blockquote>
+<p>We should <strong>not</strong> compare $R_v$ with a polynomial ring, as all polynomial rings are not local. Let $t \in \mathfrak{m}_v$ be an element such that $v(t)=1$. We will show that $\mathfrak{m}_v = (t)$. Indeed, for any $u \in \mathfrak{m}_v$, we see that</p>
+<script type="math/tex; mode=display">
+v(ut^{-1})=v(u)+v(t^{-1})=v(u)-1 \ge 0 \implies ut^{-1} \in R_v</script><p>and as a result we can write $u=(ut^{-1})t$. If we look further, suppose that $v(u)=m$. Then $\alpha = ut^{-m} \in R_v$ is a unit and thus we have $u=\alpha t^m$. In other words, every element can be expressed as a monomial of $t$. </p>
+<p>The analogy or even example to bring about here is the order of zero at origin of (rational) functions over $\mathbb{R}$. For a rational function $F(x)=f(x)/g(x)$, we see that if we define $v(F)=\deg{f}-\deg{g}$, then $\lim_{x\to 0}\frac{F(x)}{x^m}$ is non-zero and finite. The degree of zero polynomial depends on the context, and in our context we make it infinite as no matter how big $m$ is, we are never reaching a point that $\lim_{x \to 0}\frac{0}{x^m}$ is non-zero and finite. Therefore the discrete valuation ring in our story is the polynomials where the function is equivalent to a monomial of positive degree, and the generator of the maximal ideal is the “identity” map. In short, one way of imagining the discrete valuation ring is the space of “smooth” functions at a point that converge to $0$ with the evaluation being the degree of approximation.</p>
+<h1 id="Regular-local-ring-of-dimension-1"><a href="#Regular-local-ring-of-dimension-1" class="headerlink" title="Regular local ring of dimension 1"></a>Regular local ring of dimension 1</h1><p>For a ring $R$, we use $\dim(R)$ to denote the Krull dimension and for a vector space $V$ over a field $K$, $\dim_K(V)$ is used to denote the dimension of $V$ as a vector space over $K$.</p>
+<blockquote>
+<p><strong>Theorem 2.</strong> Let $R$ be a commutative noetherian local ring with unit and maximal ideal $\mathfrak{m}$ with the residue field $\kappa=R/\mathfrak{m}$. Then the following conditions are equivalent.</p>
+<ol>
+<li>$R$ is a discrete valuation ring in its field of fraction;</li>
+<li>$\dim_\kappa(\mathfrak{m}/\mathfrak{m}^2)=\dim(R)=1$, i.e., $R$ is a regular local ring of dimension $1$;</li>
+<li>$R$ is a unique factorization domain of Krull dimension $1$;</li>
+<li>$\mathfrak{m}$ is a principal ideal and $\dim(R)=1$.</li>
+<li>$R$ is a principal ideal domain which is not a field;</li>
+<li>$R$ is an integrally closed domain of Krull dimension $1$.</li>
+</ol>
+</blockquote>
+<p>（N. B. - We <strong>have to</strong> assume the axiom of choice by all means, otherwise none of these makes sense. In fact, without assuming the axiom of Choice, it is <strong>unprovable</strong> that a principal ideal domain has a maximal ideal or the ring has a prime element when it is not a field. See <a target="_blank" rel="noopener" href="https://doi.org/10.1017/S0305004100052282">this article</a> for more details.)</p>
+<p><em>Proof.</em> Suppose first that $R$ is a discrete valuation ring with a discrete valuation $v$. Then $\mathfrak{m}=\{a\in R:v(a)&gt;0\}$ is the maximal ideal of $R$ that can be generated by an element $t \in \mathfrak{m}$ such that $v(t)=1$. Let $\mathfrak{a}$ be another ideal of $R$ and let $k=\min v(\mathfrak{a})$. There is an element $x \in \mathfrak{a}$ such that $v(x)=k$ and we can write $x=ut^k$ where $u$ is a unit of $R$. For any other element $y \in \mathfrak{a}$, we have $\ell=v(y)\ge k$ and therefore $y=vt^{\ell}=vu^{-1}t^{\ell-k}ut^{k}=vu^{-1}t^{\ell-k}x$. In other words, we have $\mathfrak{a}=(x)=(t^k)$ for some $k \ge 1$. When $k&gt;1$, the ideal $(t^k)$ is not prime let alone maximal, so we have shown that when $R$ is a discrete valuation ring, the maximal ideal $\mathfrak{m}$ is principal, the Krull dimension of $R$ is $1$ and $R$ is principal but not a field because the maximal ideal is not zero. </p>
+<p>This is to say, we have $1 \implies  4,5$. Since a principal ideal domain is also a unique factorization domain, we also get $3$. Besides, we have shown that in all 6 scenarios, the ring $R$ is of Krull dimension $1$. <u>Therefore from now on we assume that $R$ is a commutative noetherian local ring of Krull dimension $1$ a priori.</u> This condition implies that the maximal ideal $\mathfrak{m}$ is <strong>not</strong> nilpotent because $\mathfrak{m}$ is nilpotent if and only if the dimension of $R$ would be $0$ (hint: Nakayama’s lemma; consider the possibility that $\mathfrak{m}^n=\mathfrak{m}^{n+1}$).</p>
+<p>Now assume that $\mathfrak{m}$ is principal and we write $\mathfrak{m}=(t)$ for some $t\in\mathfrak{m}$. For any $a \in R \setminus \{0\}$, if $a$ is invertible, then we can write $a=at^{0}$. Otherwise we have $a\in\mathfrak{m}$ and therefore $a=a_1t$ for some $a_1 \in R\setminus\{0\}$. We show that there exists a unique $n \ge 0$ such that $a = a_n t^n$ where $a_n$ is a unit in $R$. </p>
+<p>When $a$ is a unit, as shown above, there is nothing to prove. Therefore, to reach a contradiction, we suppose that such $n$ does not exist when $a$ is not a unit. Then by induction, for each $j&gt;0$, there exists $a_j \in R\setminus\{0\}$ such that $a=a_jt^j$, which means that $a \in (t^j)=\mathfrak{m}^j$ for all $j$.  By Krull’s intersection theorem, we have $\bigcap_{j=1}^{\infty}\mathfrak{m}^j=\{0\}$ (<a target="_blank" rel="noopener" href="https://public.websites.umich.edu/~mmustata/ReviewSheet3_2017.pdf">this is a consequence of Nakayama’s lemma and Artin-Rees lemma</a>), and therefore $a=0$, which is absurd. Therefore the desired $n$ always exists.</p>
+<p>Next we show that such $n$ is unique. Suppose that $a = a_m t^m=a_nt^n$ where $a_m,a_n \in R^\times$ and without loss of generality we assume that $m \ge n$. Then $a - a = (a_mt^{m-n}-a_n)t^n=0$. Since $t$ is not nilpotent, we must have $a_mt^{m-n}-a_n=0$. In this case we must have $m=n$ and $a_m=a_n$ because otherwise $a_mt^{m-n}$ would not be a unit in $R$. </p>
+<p>Therefore for all $a\in R \setminus\{0\}$, we can always uniquely write $a = ut^{v(a)}$ where $v(a) \ge 0$ is an integer. Since $t$ is not nilpotent, we see that $R$ is an integral domain and it is a discrete valuation ring in its field of fraction. Besides, $R$ is a principal ideal domain because for any ideal $\mathfrak{a} \subset \mathfrak{m}$, the ideal is generated by the element $a=v^{-1}(\min v(\mathfrak{a}))$. </p>
+<p>Next we study the dimension of $\mathfrak{m}/\mathfrak{m}^2$ over $\kappa$, where $\mathfrak{m}=(t)$. Notice that $\dim_\kappa \mathfrak{m}/\mathfrak{m}^2\ge 1$ because otherwise $t=1$ or $0$. We show that $\dim_\kappa\mathfrak{m}/\mathfrak{m}^2 &lt;2$ under the assumption of 4. Let $u,v\in \mathfrak{m}/\mathfrak{m}^2$ be two distinct non-zero vectors. We show that there exists $\alpha \in \kappa$ such that $\alpha u = -v$. Suppose that $u = rt \pmod{\mathfrak{m}^2}$ and $v = st \pmod{\mathfrak{m}^2}$. Then $r,s \not\in \mathfrak{m}$ because otherwise $u=v=0$. If we choose $\alpha = -\frac{s}{r}\pmod{\mathfrak{m}}$, we see that $\alpha u = -st\pmod{\mathfrak{m}^2}=-v$ as desired.</p>
+<p>To conclude, we have shown that $4 \implies 1,2,5$. </p>
+<p>Moving on, we assume 5 and see what we can get. First of all every principal ideal domain is a unique factorisation ring so we get $3$ (axiom of choice is indispensable here). Besides since every ideal is principal then in particular the maximal ideal is principal so we get $4$. To conclude, we get $5 \implies 3,4$.</p>
+<p>Finally we need to study the points 2,3 and 6. To begin with, we assume 3. Then by an elementary verification we see that $R$ is integrally closed (see <a target="_blank" rel="noopener" href="https://proofwiki.org/wiki/Unique_Factorization_Domain_is_Integrally_Closed">ProofWiki</a>). Next we show that $\mathfrak{m}$ is principal.  Let $\mathscr{P}$ be the family of proper principal ideals of $R$ (they are contained in $\mathfrak{m}$ since $R$ is local). Then the set $\mathscr{P}$ is ordered by inclusion and every chain has a maximal element given by the union. By Zorn’s lemma, in $\mathscr{P}$ there is a maximal element $\mathfrak{M} \in\mathscr{P}$ that contains all proper principal ideals. Next we show that $\mathfrak{M}$ is maximal hence it is equal to $\mathfrak{m}$. To see this, assume that $a \in R \setminus \mathfrak{M}$. Then $(a)$ is not a proper principal ideal of $R$ because otherwise $(a) \subset \mathfrak{M} \implies a \in \mathfrak{M}$. Therefore $a$ is a unit and $\mathfrak{M}$ is the maximal ideal of the local ring $R$, which means $\mathfrak{M}=\mathfrak{m}$. This shows that $3 \implies 4,6$.</p>
+<p>Next we assume 2. We use proposition 2 of this <a href="2022/12/05/regular-local-ring-cohen-macaulay/#The-Sequence-That-Forms-a-Basis">old post</a>, only need to notice that the dimension of $\mathfrak{m}/\mathfrak{m}^2$ is exactly the number of generators of $\mathfrak{m}$. Therefore we obtain $2 \implies 4$.</p>
+<p>For the last part we assume that $R$ is integrally closed. Choose an arbitrary non-unit $a \in R$. If $a=0$ then $a \in \mathfrak{m}$. Otherwise, consider the ring $\widetilde{R}=R_\mathfrak{m}/aR_\mathfrak{m}$ which is not a field. Then $\tilde{R}$ is of Krull dimension $0$ therefore the maximal ideal $\tilde{\mathfrak{m}}=\mathfrak{m}R_\mathfrak{m}/aR_\mathfrak{m}$, is nilpotent. There exists $n&gt;0$ such that $\tilde{\mathfrak{m}}^n\ne 0$ but $\tilde{\mathfrak{m}}^{n+1}=0$, which implies that $\mathfrak{m}^n \not \subset (a)$ but $\mathfrak{m}^{n+1} \subset (a)$. Choose $b\in (a) \setminus \mathfrak{m}^n$. Then we claim that $\mathfrak{m}=(x)$ where $x=a/b \in K(R)$, the field of fraction of $R$. To see this, notice that $x^{-1}\mathfrak{m} \subset R$ because $b\mathfrak{m} \subset \mathfrak{m}^{n+1} \subset (a)$ so every element of $b\mathfrak{m}$ is of the form $ua$ where $u \in R$ and consequently every element of $\frac{b}{a}\mathfrak{m}$ is of the form $u$ where $u \in R$. Therefore $x^{-1}\mathfrak{m}$ can be considered as an ideal of $R$. However, we also have $x^{-1}\mathfrak{m} \not\subset \mathfrak{m}$ which is because, otherwise, $\mathfrak{m}$, as a finitely generated $R$-module, would be a faithful $R[x^{-1}]$-module, and therefore $x^{-1}$ is integral over $R$, thus lies in $R$. Hence we must have $x^{-1}\mathfrak{m}=R$, which implies that $\mathfrak{m}=(x)$. Therefore we obtain $6 \implies 4$.</p>
+<p>We have established all necessary implications to obtain the equivalences. $\square$</p>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"><a href="../../../../tags/Study-new-content/" class="post-tags__link button"># Study new content</a><a href="../../../../tags/Quick-reference/" class="post-tags__link button"># Quick reference</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../../../2023/11/11/sl2-f3/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            The Structure of SL_2(F_3) as a Semidirect Product
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2025/05/11/regular-local-ring/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>Study Irreducible Representations of SU(2) Using Fourier Series | Desvl&#39;s blog</title>
+
+
+    <meta name="keywords" content="Study new content">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="$SU(2)$ has a lot of interesting mathematical and physical properties. In this post we study its irreducible representations in a mathematician&#39;s way.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Study Irreducible Representations of SU(2) Using Fourier Series">
+<meta property="og:url" content="https://desvl.xyz/2022/05/08/rep-SU2/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="$SU(2)$ has a lot of interesting mathematical and physical properties. In this post we study its irreducible representations in a mathematician&#39;s way.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-05-08T15:25:38.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:10.434Z">
+<meta property="article:author" content="Desvl">
+<meta property="article:tag" content="Study new content">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        Study Irreducible Representations of SU(2) Using Fourier Series
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2022/05/" class="post-meta__date button">2022-05-08</a>
+        
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/" class="button">Analysis</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/" class="button">Algebra</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/Representation-Theory/" class="button">Representation Theory</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Linear-Algebra/" class="button">Linear Algebra</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/Fourier-Series/" class="button">Fourier Series</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/Lie-Groups/" class="button">Lie Groups</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Spaces-of-Homogeneous-Polynomials"><span class="toc-number">1.</span> <span class="toc-text">Spaces of Homogeneous Polynomials</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Definition-of-the-representation"><span class="toc-number">1.1.</span> <span class="toc-text">Definition of the representation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Irreducibility"><span class="toc-number">1.2.</span> <span class="toc-text">Irreducibility</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Characters-and-Fourier-Transform"><span class="toc-number">2.</span> <span class="toc-text">Characters and Fourier Transform</span></a></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Spaces-of-Homogeneous-Polynomials"><span class="toc-number">1.</span> <span class="toc-text">Spaces of Homogeneous Polynomials</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Definition-of-the-representation"><span class="toc-number">1.1.</span> <span class="toc-text">Definition of the representation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Irreducibility"><span class="toc-number">1.2.</span> <span class="toc-text">Irreducibility</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Characters-and-Fourier-Transform"><span class="toc-number">2.</span> <span class="toc-text">Characters and Fourier Transform</span></a></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h1 id="Introduction-and-Prerequisites"><a href="#Introduction-and-Prerequisites" class="headerlink" title="Introduction and Prerequisites"></a>Introduction and Prerequisites</h1><p>Representation theory is important in various branches of mathematics and physics. When studying representation of finite groups, we have quite some algebra and combinatorics. When differentiation (more precisely, smoothness) joins the party, we have Lie group, involving calculus, linear algebra, geometry and much more. Especially, theories around $SU(2)$ and $SO(3)$ are of great importance. On one hand, they are those simplest non-elementary and high-dimensional Lie groups. On the other hand, they describes rotations in $\mathbb{C}^2$ and $\mathbb{R}^3$ respectively, which is “physically realistic”. I believe students in physics have more to say.</p>
+<p>In this post we develop a way to study irreducible representations of these two Lie groups, in a mathematician’s way. I try my best to make sure that everything is down-to-earth, and everything can be “reduced” to 19th (pre-modern) mathematics.</p>
+<p>Nevertheless, the reader has to be assumed to be familiar with elementary languages of representation theory (and you know that, there are a lot of abuse of language), which I think is not a problem because otherwise you wouldn’t be reading this post. You need to recall eigenvalue theories in linear algebra, as well as Fourier series. We need the fact that the trigonometric system is complete. In other words trigonometric polynomials are dense in the space of continuous functions.  $\def\sym{\operatorname{Sym}}$</p>
+<p>We will first study $SU(2)$ and a first classification of irreducible representations of $SO(3)$ follows at once. This is because we have an isomorphism</p>
+<script type="math/tex; mode=display">
+SU(2)/\{-I,I\} \cong SO(3).</script><p>This is to say, $SU(2)$ is a “double cover” of $SO(3)$. To see this, notice that $SU(2) \cong S^3$ and $SO(3) \cong \mathbb{R}P^3$ as Lie groups, meanwhile $\mathbb{R}P^3 \cong S^3/\{-1,1\}$ can be considered as the definition. </p>
+<p>Of course, by representation we mean finite dimensional and unitary representations. </p>
+<h1 id="Irreducible-Representations-of-the-Special-Unitary-Group"><a href="#Irreducible-Representations-of-the-Special-Unitary-Group" class="headerlink" title="Irreducible Representations of the Special Unitary Group"></a>Irreducible Representations of the Special Unitary Group</h1><p>Indeed it seems we have nowhere to start. Instead of trying to find all of them, we will try to work on seemingly immediate representations and it turns out that they are all we are looking for.</p>
+<p>Let $V_0$ be the trivial representation on $\mathbb{C}$ and $V_1$ be the standard representation on $\mathbb{C}^2$, which is given by ordinary matrix multiplication. These representations are irreducible. We want to extend this family to $V_n$ for $n \ge 2$. It is natural to think about generate representations of higher dimensions through $V_1$. Here are several ways available.</p>
+<ul>
+<li><p>Direct sum: $\bigoplus_{i=1}^{n}V_1$. The dimension is $2n$ and unfortunately, the representation is determined by each component so essentially there is no “new thing”.</p>
+</li>
+<li><p>Tensor product: $\bigotimes_{i=1}^{n}V_1$. The dimension is $2^n$ which is way too big.</p>
+</li>
+<li><p>Wedge product: $\bigwedge^{n}V_1$. It stops at $n=2$ and we have to deal with $u \wedge v = - v \wedge u$. This can be annoying.</p>
+</li>
+<li><p>Symmetric product: $\sym^{n}V_1$. The dimension is $n+1$ and it doesn’t stop. Besides, it can be understood as homogeneous polynomials of degree $n$ in two variables. This is a fantastic choice. Besides we have $\sym^0 V_1=V_0$ so nothing is abruptly excluded.</p>
+</li>
+</ul>
+<h2 id="Spaces-of-Homogeneous-Polynomials"><a href="#Spaces-of-Homogeneous-Polynomials" class="headerlink" title="Spaces of Homogeneous Polynomials"></a>Spaces of Homogeneous Polynomials</h2><p>Put $V_n=\sym^nV_1$, which can be understood as the space of homogeneous polynomials of degree $n$ in variables $z_1$ and $z_2$. $V_n$ therefore has a canonical basis</p>
+<script type="math/tex; mode=display">
+P_k=z_1^k z_2^{n-k}.</script><p>And we will make use of it later.</p>
+<h3 id="Definition-of-the-representation"><a href="#Definition-of-the-representation" class="headerlink" title="Definition of the representation"></a>Definition of the representation</h3><p>For each $g \in SU(2)$, we have a left action</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\rho:SU(2) &\to \operatorname{Aut}(V_n), \\
+      g &\mapsto (P(z) \mapsto P(zg)).
+\end{aligned}</script><p>In other words, $\rho(g)P(z)=P(zg)$ where $z=(z_1,z_2)$ and $zg$ is matrix multiplication. Each $g \in SU(2)$ has matrix representation</p>
+<script type="math/tex; mode=display">
+g=\begin{pmatrix}
+\alpha & \beta \\
+-\overline{\beta} & \overline{\alpha}
+\end{pmatrix}, \quad |\alpha|^2+|\beta|^2=1.</script><p>Then</p>
+<script type="math/tex; mode=display">
+zg=(\alpha z_1-\overline{\beta}z_2,\beta z_1+\overline{\alpha}z_2)</script><p>When there is no confusion, we will write $gP(z)=P(zg)$, viewing $g$ itself as an automorphism of $V_n$. One can also replace $SU(2)$ with $GL(2,\mathbb{C})$ but we are not studying that bigger one.</p>
+<p>Since $z \mapsto zg$ is a homogeneous map of degree $1$ as it is linear and is non-degenerate, we have $gP(z) \in V_n$. In other words, $V_n$ are $SU(2)$-invariant. <strong>We now have a well-defined representation.</strong> Note $V_0=\mathbb{C}$ so the representation is trivial, and $V_1=\mathbb{C}^2$ yields linear maps. Again, nothing is abruptly excluded. Even more satisfyingly, those $V_n$ are all irreducible.</p>
+<h3 id="Irreducibility"><a href="#Irreducibility" class="headerlink" title="Irreducibility"></a>Irreducibility</h3><blockquote>
+<p><strong>Proposition 1.</strong> The representations $V_n$ are irreducible.</p>
+</blockquote>
+<p><em>Proof.</em> By Schur’s lemma, we need to show that each $SU(2)$-equivariant automorphism $A$ of $V_n$ is a non-zero multiple of the identity, i.e. $A=\lambda I$ for some $\lambda \ne 0$. By definition, for each $g \in SU(2)$, we have $A\rho(g)P=\rho(g)AP$ for all $P \in V_n$. And for simplicity we write $Ag=gA$, realising $g$ as a linear transform of $V_n$, instead of an element of $SU(2)$.</p>
+<p>The group $SU(2)$ can be complicated, but $U(1) \cong S^1$ is simple and can be considered as a subgroup of $SU(2)$ in two ways. We show that these two ways are just enough to expose the irreducibility of $V_n$.</p>
+<p>First of all we embed $S^1$ into $SU(2)$ by</p>
+<script type="math/tex; mode=display">
+a \mapsto \begin{pmatrix}a & 0 \\ 0 & a^{-1} \end{pmatrix}.</script><p>Call the matrix right hand side $g_a$. Then</p>
+<script type="math/tex; mode=display">
+g_a P_k=(az_1)^{k}(a^{-1}z_2)^{n-k}=a^{2k-n}z_1^kz_2^{n-k}=a^{2k-n}P_k</script><p>for all $k$. This is to say, $P_k$ is the <strong>eigenvector</strong> corresponding to <strong>eigenvalue</strong> $a^{2k-n}$. As $g_aA=Ag_a$, information on eigenvalues and eigenvectors can help a lot so we dig into it first.</p>
+<p> Since $\{P_k\}$ are linearly independent, under this basis, we have a matrix representation</p>
+<script type="math/tex; mode=display">
+\rho(g_a) = \operatorname{diag}(a^{-n},a^{-n+2},\dots,a^{n-2},a^n).</script><p>but we don’t know how eigenspaces are spanned because we may have $a^j=a^k$ for $j \ne k$. However, the number $a$ can always be chosen that $a^{-n},a^{-n+2},\dots,a^n$ are pairwise distinct (for example, one can pick $a$ to be a primitive $m$-th root of $1$ and $m$ is big enough). As a result, $g_a$ has $n$ distinct eigenvalues. Therefore, the $a^{2k-n}$-eigenspace can only be generated by $P_k$.</p>
+<p>On the other hand, by definition of $A$, we have</p>
+<script type="math/tex; mode=display">
+Ag_a P_k = g_aAP_k = A a^{2k-n}P_k = a^{2k-n}AP_k.</script><p>Hence $AP_k$ lies in $a^{2k-n}$-eigenspace. Therefore we have $AP_k=c_kP_k$ for some $c_k \ne 0$. In other words, $P_k$ is the $c_k$-eigenvector of $A$. We obtain another matrix representation under the basis $\{P_k\}$</p>
+<script type="math/tex; mode=display">
+A = \begin{pmatrix}
+c_1 & & \\
+    & \ddots & \\
+    & & c_n
+\end{pmatrix}.</script><p>We want this matrix to be a scalar matrix. The result follows from another embedding of $U(1)$ into $SU(2)$. Note $a \in S^1$ can be determined by $t \in [0,2\pi)$, and we therefore have a matrix</p>
+<script type="math/tex; mode=display">
+g_t = \begin{pmatrix}
+\cos{t} & -\sin{t} \\
+\sin{t} & \cos{t}
+\end{pmatrix} \in SU(2).</script><p>Still we have $Ag_t=g_tA$. As we can see,</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+Ag_tP_n &= A(z_1\cos{t}+z_2\sin{t})^n \\
+        &= A\sum_{k=0}^{n}{n \choose k}(z_1\cos{t})^k (z_2\sin{t})^{n-k} \\
+        &= A\sum_{k=0}^{n}{n \choose k}(\cos{t})^k(\sin{t})^{n-k}z_1^k z_2^{n-k} \\
+        &= A\sum_{k=0}^{n}{n \choose k}(\cos{t})^k(\sin{t})^{n-k} P_k \\
+        &= \sum_{k=0}^{n}{n \choose k}(\cos{t})^k(\sin{t})^{n-k} AP_k \\
+        &= \sum_{k=0}^{n}{n \choose k}(\cos{t})^k(\sin{t})^{n-k} c_kP_k.
+\end{aligned}</script><p>This follows from our observation on eigenvalues. Next, we immediately use the eigenvalue $c_n$ to obtain</p>
+<script type="math/tex; mode=display">
+g_t AP_n = g_t c_nP_n = c_n \sum_{k=0}^{n}{n \choose k}(\cos{t})^k(\sin{t})^{n-k} P_k.</script><p>This is the definition of $g_tP_n$. Comparing coefficients of $P_k$, we must have $c_k=c_n$ for all $0 \le k \le n$. Recall that $\{P_k\}$ is a basis so coefficients must be unique for a given vector. But we have already obtained what we want: $A=c_n I$. $\square$</p>
+<h2 id="Characters-and-Fourier-Transform"><a href="#Characters-and-Fourier-Transform" class="headerlink" title="Characters and Fourier Transform"></a>Characters and Fourier Transform</h2><p>So far we have used diagonalisation of representations of $SU(2)$ but the diagonalisation of $SU(2)$ itself is not touched yet. Neither have we made use of character functions. So now we invite them to the party.</p>
+<p>Let’s recall diagonalisation in $SU(2)$. Pick $g \in SU(2)$. First of all it is diagonalisable. Let $\lambda_1$ and $\lambda_2$ be their two eigenvalues, then $|g|=\lambda_1\lambda_2=1$. Therefore we have </p>
+<script type="math/tex; mode=display">
+g \sim \begin{pmatrix}\lambda & 0 \\ 0 & \lambda^{-1} \end{pmatrix} \sim \begin{pmatrix}\lambda^{-1} & 0 \\ 0 & \lambda \end{pmatrix}</script><p>where $\lambda$ is one of the eigenvalues of $g$. Since the diagonalised matrix is still in $SU(2)$, we have $|\lambda|=1$, i.e., $\lambda \in S^1$. We therefore write $g \sim e(t) \sim e(-t)$ where</p>
+<script type="math/tex; mode=display">
+e(t) = \begin{pmatrix} \exp(it) & 0 \\ 0 & \exp(-it) \end{pmatrix}.</script><p>We see, $e(s) \sim e(t)$ if and only if $s = \pm t \mod 2\pi$. By periodicity of $\exp$ function, we also see $e(t)$ is in particular $2\pi$-periodic. If $f:SU(2) \to \mathbb{C}$ is a class function, then $f \circ e:\mathbb{R} \to \mathbb{C}$ is an even $2\pi$-periodic function. Conversely, given an even $2\pi$-periodic function $h:\mathbb{R} \to \mathbb{C}$, we can recover it as a class function, and the process is as follows.</p>
+<p>Define $\Lambda:SU(2) \to S^1$ sending $g \in SU(2)$ to the eigenvalue of $g$ with non-negative imaginary part (one can also pick non-positive one, because $h$ is even). Then $E:SU(2) \to [0,\pi]$ given by $g \mapsto \frac{1}{i}\log\Lambda(g)$ is a well defined function sending $g$ into $\mathbb{R}$ and $h \circ E:SU(2) \to \mathbb{C}$ is a class function. Besides we have $E \circ e(t)= \pm t \mod 2\pi$ and $e \circ E(g)$ is the diagonalisation of $g$. Therefore $h \circ E \circ e(t)=h(t)$ and $f \circ e \circ E(g)=f$ as is expected.</p>
+<p>With help of this $e(t)$ and $E(t)$, we have this correspondence</p>
+<script type="math/tex; mode=display">
+\{\text{Class functions }SU(2) \to \mathbb{C}\} \longleftrightarrow \{\text{even }2\pi-\text{periodic function }\mathbb{R} \to \mathbb{C}\}</script><p>Recall that the space on the right hand side has a countable uniform basis</p>
+<script type="math/tex; mode=display">
+1,\cos{t},\cos{2t},\dots.</script><p>In other words, $\{\cos{nt}\}_{n \ge 0}$ spans a dense subspace. This is about the completeness of trigonometric system. Since there are only even functions, $\sin{nt}$ are excluded. For a reference to the completeness, one can check 4.25 <em>Real and Complex Analysis</em> by W. Rudin.</p>
+<p>For class functions, we certainly want to know about characters. Let $\chi_n$ be the character of $V_n$, then</p>
+<script type="math/tex; mode=display">
+\chi_n(e(t))=\operatorname{tr}(\rho(e(t)))=\operatorname{tr}(\operatorname{diag}(\exp(it)^{-n},\dots,\exp(it)^n))=\sum_{k=0}^{n}e^{i(n-2k)t}.</script><p>When $t \in \pi\mathbb{Z}$, then $\chi_n(e(t)) \in \mathbb{Z}$. Otherwise, as a classic exercise in calculus, we have</p>
+<script type="math/tex; mode=display">
+\kappa_n(t)=\chi_n(e(t))=\frac{\sin(n+1)t}{\sin{t}}.</script><p>We have $\kappa_0(t)=1$. For $\kappa_n(t)$ when $n &gt;0$, we have</p>
+<script type="math/tex; mode=display">
+\kappa_n(t)=\frac{\cos{nt}\sin{t}+\sin{nt}\cos{t}}{\sin{t}}=\cos{nt}+\kappa_{n-1}(t)\cos{t}.</script><p>We see $\kappa_1(t)=2\cos{t}$. By induction, every $\kappa_n(t)$ is a polynomial in variables $1,\cos{t},\dots,\cos{nt}$. Therefore $\{\kappa_n(t)\}_{n \ge 0}$ spans the same space as $\{\cos{nt}\}_{n \ge 0}$, which is dense in the space of even $2\pi$-periodic functions. Note the $\kappa_n(t)$ are linearly independent, because the leading term is $\cos{nt}$.</p>
+<p>The argument above shows that $\chi_n$ spans a dense subspace in the space of class functions. In other word, $\chi_n$ is the Fourier basis of class functions. As we all know, Fourier series is powerful. Let’s see how powerful it is in the calculus of Lie group $SU(2)$ itself.</p>
+<blockquote>
+<p><strong>Proposition 2.</strong> For continuous class function $f:SU(2) \to \mathbb{C}$, we have</p>
+<script type="math/tex; mode=display">
+\int_{SU(2)}f(x)dx = \frac{1}{\pi}\int_0^\pi f \circ e(t)\sin^2{t}dt.</script></blockquote>
+<p><em>Proof.</em> On one hand, since the $V_n$ are irreducible, by fixed point theorem of representations,</p>
+<script type="math/tex; mode=display">
+\int_{SU(2)}\chi_n(x)dx = \dim V_n^{SU(2)} = \begin{cases} 1 & n=0, \\ 0 & n>0. \end{cases}</script><p>Here, for a group $G$ and a representation $V$, $V^G$ is the fixed point set, i.e. the space of elements that are fixed by the action of $G$ on $V$. Since $\chi_n$ is irreducible, fixed points can only be $0$ unless the representation itself is trivial. Now we move on and check the right hand side.</p>
+<p>On the right hand side we are looking for even $2\pi$-periodic continuous functions, reflecting the denseness of $\kappa_n(t)$. However we have $\int_{-\pi}^{\pi}\kappa_1(t)dt=\pi$ so it does not vanish on $n&gt;0$. However, if we multiply it by $\sin^2{t}$, then it is transformed into the form $\sin{mt}\sin{nt}$ and we are familiar with this orthonormality. More precisely,</p>
+<script type="math/tex; mode=display">
+\frac{1}{2\pi}\int_{-\pi}^{\pi}f\circ e(t)\sin^2{t}dt = \frac{1}{\pi}\int_{-\pi}^{\pi}\sin(n+1)t\sin{t}dt = \begin{cases} 1 & n=0, \\ 0 & n>0. \end{cases}</script><p>Since the functional $h \mapsto \frac{1}{2\pi}\int_{-\pi}^{\pi}h\sin^2{t}dt$ is continuous in the uniform topology and $\kappa_n$ spans a dense subspace, the result is now obtained. $\square$</p>
+<p>Finally, surprisingly and satisfyingly enough, the denseness have actually axed out all other possibilities of irreducible representation. In other words, our search in symmetric products is optimal. We can see this through Parseval’s identity. This is the heart of this blog post.</p>
+<blockquote>
+<p><strong>Proposition 3.</strong> Every irreducible representation of $SU(2)$ is isomorphic to one of the $V_n$.</p>
+</blockquote>
+<p><em>Proof.</em> Suppose we have a character that is different from all of the $\chi_n$. Then the orthonormality shows that $\langle \chi,\chi_n \rangle = 0$ for all $n \ge 0$ and $\langle \chi,\chi \rangle=1$. Now let’s see why this is absurd.</p>
+<p>Since $\{\chi_n\}_{n \ge 0}$ spans a dense subspace in the space of class functions, we actually have</p>
+<script type="math/tex; mode=display">
+\chi = \sum_{n = 0 }^{\infty} a_n \chi_n.</script><p>Therefore</p>
+<script type="math/tex; mode=display">
+\langle \chi,\chi_n \rangle = \int_{SU(2)}\overline\chi(x)\chi_n(x)dx = a_n=0,\quad n \ge 0</script><p>and</p>
+<script type="math/tex; mode=display">
+\langle \chi,\chi \rangle = \sum_{n=0}^{\infty}\langle a_n\chi_n,a_n\chi_n \rangle = \sum_{n=0}^{\infty}|a_n|^2=1.</script><p>It is impossible to have the sum of $0$ to be $1$. $\square$</p>
+<h1 id="Irreducible-Representations-of-the-Special-Orthonormal-Group-First-Classification"><a href="#Irreducible-Representations-of-the-Special-Orthonormal-Group-First-Classification" class="headerlink" title="Irreducible Representations of the Special Orthonormal Group (First Classification)"></a>Irreducible Representations of the Special Orthonormal Group (First Classification)</h1><p>Now we head to $SO(3)$. In fact the result follows immediately from the surjection</p>
+<script type="math/tex; mode=display">
+\pi:SU(2) \to SO(3).</script><p>We have $\ker\pi=\{-I,I\}$. Let $W$ be a representation of $SO(3)$, i.e., we have a map</p>
+<script type="math/tex; mode=display">
+\rho:SO(3) \to GL(W).</script><p>Then</p>
+<script type="math/tex; mode=display">
+\pi^\ast\rho:SU(2) \to GL(W)</script><p>by $g \mapsto \rho(\pi(g))$ is an induced representation, and we write $\pi^\ast W$. If $W$ is irreducible, then $\pi^\ast W$ is also irreducible. In particular, $\pi^\ast\rho(-I)=\operatorname{id}_W$.</p>
+<p>On the other hand, if $\vartheta:SU(2) \to GL(V)$ is an irreducible representation where $\vartheta(-I)=\operatorname{id}_V$, then we have an associated representation</p>
+<script type="math/tex; mode=display">
+\pi_\ast\vartheta:SO(3) \cong SU(2)/\{I,-I\} \to GL(V)</script><p>given by $g\ker\pi \mapsto \vartheta(g)$. Let’s denote it by $\pi_\ast V$. Again, if $V$ is irreducible, then $\pi_\ast V$ is irreducible. </p>
+<p>Therefore we have realised a correspondence</p>
+<script type="math/tex; mode=display">
+\{\text{Irreducible representations of $SO(3)$}\} \\
+\updownarrow \\
+\{\text{Irreducible representations of $SU(2)$ where $-I$ acts as identity.}\}</script><p>So it remains to determine those of $SU(2)$. Let $\rho_n:SU(2) \to GL(V_n)$ be an irreducible representation, then</p>
+<script type="math/tex; mode=display">
+\rho_n(-I)P(z)=P(z(-I))=P(-z)=(-1)^nP(z)</script><p>because $P \in \mathbb{C}[z_1,z_2]$ is homogeneous of degree $n$. Therefore $-I$ acts as an identity if and only if $n$ is even. We obtain</p>
+<blockquote>
+<p><strong>Proposition 4.</strong> Every irreducible representation of $SO(3)$ is of the form</p>
+<script type="math/tex; mode=display">
+W_n = \pi_\ast V_{2n}</script><p>where $V_{2n}$ is described in proposition 2.</p>
+</blockquote>
+<p>This is, of course, just a first classification. But to introduce a classification as explicit as what we have done for $SU(2)$, there has to be another post. As a quick overview, here is the result.</p>
+<p>Let $P_{\ell}$ be the complex vector space of homogeneous polynomials in three variables of degree $\ell$, which can be considered as functions on $\mathbb{R}^3$ immediately. This setting makes sense immediately, just as what we have done for $SU(2)$. Then, in fact,</p>
+<script type="math/tex; mode=display">
+W_\ell=\mathfrak{H}_\ell = \{f \in P_\ell:\Delta f=0\}.</script><p>This is to say, $W_\ell$ can be understood as harmonic homogeneous polynomials in $\mathbb{R}^3$, which can also be considered to be uniquely determined on the unit sphere $S^2$. </p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
+<li>Tendor Bröker and Tammo tom Dieck, <em>Representations of Compact Lie Groups</em>.</li>
+<li>Walter Rudin, <em>Real and Complex Analysis, 3rd Edition</em>.</li>
+</ul>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"><a href="../../../../tags/Study-new-content/" class="post-tags__link button"># Study new content</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../../06/16/so3-laplacian/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            Irreducible Representations of SO(3) and the Laplacian
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../06/exp-fourier/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            The Fourier Transform of exp(-cx^2) and Its Convolution
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2022/05/08/rep-SU2/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>Segre Embedding And Heights | Desvl&#39;s blog</title>
+
+
+    <meta name="keywords" content="Study new content, Height">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="We give a quick look at the Segre embedding and try to use that in a fundamental tool of Diophantine Geometry - heights.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Segre Embedding And Heights">
+<meta property="og:url" content="https://desvl.xyz/2022/07/26/segre-embedding-et-height/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="We give a quick look at the Segre embedding and try to use that in a fundamental tool of Diophantine Geometry - heights.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-07-26T15:54:57.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:10.487Z">
+<meta property="article:author" content="Desvl">
+<meta property="article:tag" content="Study new content">
+<meta property="article:tag" content="Height">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        Segre Embedding And Heights
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2022/07/" class="post-meta__date button">2022-07-26</a>
+        
+    <span class="separate-dot"></span><a href="../../../../categories/Number-Theory/" class="button">Number Theory</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Geometry/" class="button">Geometry</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Number-Theory/Algebraic-Number-Theory/" class="button">Algebraic Number Theory</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Geometry/Algebraic-Geometry/" class="button">Algebraic Geometry</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Geometry/Diophantine-Geometry/" class="button">Diophantine Geometry</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Image-of-the-Segre-Embedding-And-Rank-of-A-Matrix"><span class="toc-number">1.</span> <span class="toc-text">Image of the Segre Embedding And Rank of A Matrix</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Segre-Embedding-And-Height-of-Polynomials"><span class="toc-number">2.</span> <span class="toc-text">Segre Embedding And Height of Polynomials</span></a></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Image-of-the-Segre-Embedding-And-Rank-of-A-Matrix"><span class="toc-number">1.</span> <span class="toc-text">Image of the Segre Embedding And Rank of A Matrix</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Segre-Embedding-And-Height-of-Polynomials"><span class="toc-number">2.</span> <span class="toc-text">Segre Embedding And Height of Polynomials</span></a></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h1 id="Product"><a href="#Product" class="headerlink" title="Product"></a>Product</h1><p>The Segre embedding allows us to define the product of projective varieties reasonably, and we will discuss it right now. To begin with we consider the product of $\mathbb{P}^m$ an $\mathbb{P}^n$. In this section the ground field is an arbitrary algebraically closed field.</p>
+<blockquote>
+<p><strong>Definition 1.</strong> The <strong>Segre embedding</strong> is defined as follows:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\iota:\mathbb{P}^m \times \mathbb{P}^n &\to \mathbb{P}^N \\
+([X_0:\cdots:X_m],[Y_0:\cdots:Y_n]) &\mapsto [X_0Y_0:X_0Y_1:\cdots:X_mY_n]
+\end{aligned}</script><p>Clearly, $N=(m+1)(n+1)-1=mn+m+n$. The image on the right hand side has $X_iY_j$ ordered lexicographically. </p>
+</blockquote>
+<p>First of all we make sure that this function is well-defined, otherwise our work will be useless.</p>
+<blockquote>
+<p><strong>Proposition 1.</strong> The Segre embedding is a well-defined injective map.</p>
+</blockquote>
+<p><em>Proof.</em> Assume $X_i’=\lambda X_i$ and $Y_j’=\mu Y_j$ for some $\lambda,\mu \ne 0$, then</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\iota([X_0':\dots:X_m'],[Y_0':\dots:Y_n'])&=[X_0'Y_0':\dots:X_m'Y_n'] \\
+                  &=[\lambda\mu X_0Y_0:\dots:\lambda\mu X_mY_n] \\
+                  &=\lambda\mu[X_0Y_0:\dots:X_mY_n] \\
+                  &=[X_0Y_0:\dots:X_mY_n] \\
+\end{aligned}</script><p>Next suppose that $[X_iY_j]=[X_i’Y_j’]$. Without loss of generality we can assume that $X_0 \ne 0$ and $X_0’ \ne 0$ so that we can put them to $1$. Then by looking at first $n+1$ elements we can identify $[Y_0:\dots:Y_n]$ with $[Y_0’:\dots:Y_n’]$. Then using $X_1Y_i=\lambda X_1’Y_i’$ we can immediately identify $X_1$ and $X_1’$. Likewise, other components are identified. $\square$</p>
+<p>Next we study the image further using linear algebra</p>
+<h2 id="Image-of-the-Segre-Embedding-And-Rank-of-A-Matrix"><a href="#Image-of-the-Segre-Embedding-And-Rank-of-A-Matrix" class="headerlink" title="Image of the Segre Embedding And Rank of A Matrix"></a>Image of the Segre Embedding And Rank of A Matrix</h2><p>We can write elements in $\mathbb{P}^N$ as a $(m+1) \times (n+1)$ matrix, which can make things easier:</p>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+Z_{00} & \dots & Z_{0n} \\
+\vdots & \ddots & \vdots \\
+Z_{m0} & \cdots & Z_{mn}
+\end{bmatrix}.</script><p>Therefore the image of $\iota$ is given by $Z_{ij}=X_iY_j$. Through an elementary observation, we see the matrix</p>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+X_0Y_0 & \cdots & X_0Y_n \\
+\vdots & \ddots & \vdots \\
+X_mY_0 & \cdots & X_mY_n
+\end{bmatrix}</script><p>has rank $1$. The question is, is the converse true? For this reason we study the set</p>
+<script type="math/tex; mode=display">
+Z=Z(\{Z_{ij}Z_{kl}-Z_{kj}Z_{il}:1 \le i,k \le m,1 \le j,l \le n\}).</script><p>Note $Z_{ij}Z_{kl}-Z_{kj}Z_{il}$ is the determinant of all $2\times2$ submatrices  the matrix $[Z_{ij}]$. This $Z$ contains all $[Z_{ij}]$ with rank $1$. To show the converse, we consider the standard affine cover. Let $U_{kl}=Z(Z_{kl})$ and put $V_{kl}=\mathbb{P}^N \setminus U_{kl}$. Then $\{V_{kl}\}$ is the standard affine cover of $\mathbb{P}^N$ as we all know. Then likewise we use the affine open subset $U_k \subset \mathbb{P}^m$ and $U_l’ \subset \mathbb{P}^n$, to obtain</p>
+<script type="math/tex; mode=display">
+V_{kl} \cap Z\to U_k \times U_l', \quad [Z_{ij}] \mapsto ([Z_{0l}:\dots:Z_{ml}],[Z_{k0}:\dots:Z_{kn}])</script><p>This is indeed the inverse map of $\iota$ on $U_k \times U_l’$. Hence the converse is true.</p>
+<p>Therefore, the image of the Segre embedding is a projective variety. As a classic example, the image of $\mathbb{P}^1 \times \mathbb{P}^1 \to \mathbb{P}^3$ is determined by the polynomial $xy-zw=0$. </p>
+<h1 id="Height"><a href="#Height" class="headerlink" title="Height"></a>Height</h1><p>In this section we offer a way to understand the Segre embedding in number fields. To begin with, we need some definition.</p>
+<p>Height is computed by absolute values on a field so we first normalise all absolute values on $\mathbb{Q}$. Recall that two absolute values $|\cdot|_1$ and $|\cdot|_2$ are equivalent if there exists some $\lambda&gt;0$ such that $|\cdot|_1=|\cdot|_2^\lambda$. The question is, which $\lambda$ should we pick.</p>
+<p>The ordinary absolute value $|\cdot|_\infty$ has nothing to worry about. But for $p$-adic absolute values $|\cdot|_p$, instead of using other equivalent ones, we have a restriction that $|p|_p=\frac{1}{p}$. All these absolute values will be denoted by</p>
+<script type="math/tex; mode=display">
+M_\mathbb{Q}=\{|\cdot|_p:p\text{ is prime or}=\infty\}.</script><p>Likewise we define $M_K$, where throughout $K$ will always be a number field. $M_K$ consists of the ordinary absolute value and extensions of $p$-adic ones defined as follows:</p>
+<script type="math/tex; mode=display">
+|x|_v=|N_{K_v/\mathbb{Q}_p}(x)|_p^{1/[K:\mathbb{Q}]},\quad \forall x\in K,v|p.</script><p>In particular, $M_K$ satisfies the product formula:</p>
+<script type="math/tex; mode=display">
+\prod_{v \in M_K}|x|_v=1 \text{ or } \sum_{v \in M_K}\log|x|_v=0</script><p>for all $x \in K^\times$. This restriction allows us to work fine with projective spaces, as we will see later.</p>
+<blockquote>
+<p><strong>Definition 2.</strong> The (absolute logarithmic) <strong>height</strong> of $x\in \mathbb{P}^n_{\overline{\mathbb{Q}}}$, with coordinates $(x_1,\dots,x_m) \in K$, is defined by</p>
+<script type="math/tex; mode=display">
+h(x)=\sum_{v \in M_K}\max_j \log |x_j|_v.</script></blockquote>
+<p>Actually, the height function can show the “algebraic complication” of $x$, and is well-defined in many senses.</p>
+<blockquote>
+<p><strong>Proposition 2.</strong> The height $h(x)$ is independent of the choice of $K$.</p>
+</blockquote>
+<p><em>Sketch of the proof.</em> Let $L$ be another number field containing $x_0,\dots,x_m$, then we can assume that $K \subset L$, then $L/K$ is a finite separable extension. But in this case,</p>
+<script type="math/tex; mode=display">
+\sum_{w|v}[L_w:K_v]=[L:K],</script><p>which implies that</p>
+<script type="math/tex; mode=display">
+\sum_{w|v}\log |x|_w=\log |x|_v.</script><p>Therefore</p>
+<script type="math/tex; mode=display">
+\sum_{w \in M_L}\max_j\log|x_j|_w=\sum_{v \in M_K}\sum_{w|v}\max_j\log|x_j|_w</script><p>gives what we want. $\square$</p>
+<blockquote>
+<p><strong>Proposition 3.</strong> $h(x)$ is well-defined on $\mathbb{P}^n_{\overline{\mathbb{Q}}}$.</p>
+</blockquote>
+<p><em>Proof.</em> It remains to show that $h(x)$ is independent of the choice of coordinates. For $\lambda \ne 0$, we see</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+h(\lambda{x})&=\sum_{v \in M_K}\max_j\log|\lambda x_j|_v \\
+             &=\sum_{v \in M_K}\left(\log|\lambda|_v+\max_j\log|x_j|_v \right) \\
+             &=\sum_{v \in M_K}\log|\lambda|_v+\sum_{v \in M_K}\max_j\log|x_j|_v \\
+             &=\sum_{v \in M_K}\max_j\log|x_j|_v \\
+             &=h(x).
+\end{aligned}</script><p>Note $\sum_{v \in M_K}\log|\lambda|_v=0$ because o the product formula. $\square$</p>
+<p>To highlight the ability of height to measure algebraic complication, let’s mention the following theorem of Kronecker.</p>
+<blockquote>
+<p><strong>Theorem 1 (Kronecker).</strong> The height of $\zeta\in\overline{\mathbb{Q}}^\times$ is $0$ if and only if $\zeta$ is a root of unity.</p>
+</blockquote>
+<p>One direction is straightforward. To prove the converse, one may need some combinatorics, symmetric functions and Dirichlet’s pigeon-hole principle. See theorem 2.4 of this <a target="_blank" rel="noopener" href="https://www.math.u-bordeaux.fr/~abesheno/heights.pdf">note</a> for a proof.</p>
+<h2 id="Segre-Embedding-And-Height-of-Polynomials"><a href="#Segre-Embedding-And-Height-of-Polynomials" class="headerlink" title="Segre Embedding And Height of Polynomials"></a>Segre Embedding And Height of Polynomials</h2><p>Now let’s invite the Segre embedding into the party:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\iota:\mathbb{P}^n_{\overline{\mathbb{Q}}} \times \mathbb{P}^m_{\overline{\mathbb{Q}}} &\to \mathbb{P}^N_{\overline{\mathbb{Q}}} \\
+                (x,y) &\mapsto x \otimes y \\
+                                    &:=(x_iy_j).
+\end{aligned}</script><p>Using the fact that $\max_{i,j}|x_iy_j|_v=\max_i|x_i|_v \cdot \max_j|y_j|_v$, we see immediately that</p>
+<script type="math/tex; mode=display">
+h(x \otimes y) = h(x) + h(y).</script><p>The Segre embedding is immediately used after introducing the height of a polynomial.</p>
+<blockquote>
+<p><strong>Definition 3.</strong> For $f(t_1,\dots,t_n) \in K[t_1,\dots,t_n]$, we write</p>
+<script type="math/tex; mode=display">
+f(t_1,\dots,t_n)=\sum_{\mathbf{j}}a_{\mathbf{j}}\mathbf{t^j}.</script><p>Then the <strong>height</strong> of $f$ is defined to be</p>
+<script type="math/tex; mode=display">
+h(f)=\sum_{v \in M_K}\log |f|_v</script><p>where</p>
+<script type="math/tex; mode=display">
+|f|_v=\max_{\mathbf{j}}|a_{\mathbf{j}}|_v.</script></blockquote>
+<p>Likewise, it can show the complication of $f$ in some way, but we are not interested in it at this moment. Notice that products of multivariable polynomials in <strong>different variables</strong> can be understood as tensor products and therefore we have the following fact</p>
+<blockquote>
+<p><strong>Proposition 4.</strong> Let $f(t_1,\dots,t_n)$ and $g(s_1,\dots,s_m)$ be polynomials in different sets of variables, then</p>
+<script type="math/tex; mode=display">
+h(fg)=h(f)+h(g).</script></blockquote>
+<p>Note: if $f$ and $g$ share the same variable, the story is different. Say we have $f_1,\dots,f_m \in \overline{\mathbb{Q}}[X_1,\dots,X_n]$, and put $f=f_1  \dots f_n$, then</p>
+<script type="math/tex; mode=display">
+\left|h(f)-\sum_{j=1}^{m}h(f_j)\right| \le d\ln 2</script><p>where $d$ is the sum of the partial degrees of $f$. </p>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"><a href="../../../../tags/Study-new-content/" class="post-tags__link button"># Study new content</a><a href="../../../../tags/Height/" class="post-tags__link button"># Height</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../../08/12/rep-gl2-fq/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            Irreducible Representations of GL_2(F_q)
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../../06/30/calculus-field-01/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            The Calculus of Fields - Absolute Values
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2022/07/26/segre-embedding-et-height/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

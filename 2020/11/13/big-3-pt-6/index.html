@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>The Big Three Pt. 6 - Closed Graph Theorem with Applications | Desvl&#39;s blog</title>
+
+
+    <meta name="keywords" content="The big three">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="(Before everything: elementary background in topology and vector spaces, in particular Banach spaces, is assumed.) A surprising result of Banach spacesWe can define several relations between two norms">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Big Three Pt. 6 - Closed Graph Theorem with Applications">
+<meta property="og:url" content="https://desvl.xyz/2020/11/13/big-3-pt-6/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="(Before everything: elementary background in topology and vector spaces, in particular Banach spaces, is assumed.) A surprising result of Banach spacesWe can define several relations between two norms">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://desvl.xyz/img/closed-graph.png">
+<meta property="article:published_time" content="2020-11-13T21:45:17.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:09.688Z">
+<meta property="article:author" content="Desvl">
+<meta property="article:tag" content="The big three">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://desvl.xyz/img/closed-graph.png">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        The Big Three Pt. 6 - Closed Graph Theorem with Applications
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2020/11/" class="post-meta__date button">2020-11-13</a>
+        
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/" class="button">Analysis</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/Functional-Analysis/" class="button">Functional Analysis</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#A-surprising-result-of-Banach-spaces"><span class="toc-number">1.</span> <span class="toc-text">A surprising result of Banach spaces</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Preliminaries"><span class="toc-number">2.</span> <span class="toc-text">Preliminaries</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-closed-graph-theorem"><span class="toc-number">3.</span> <span class="toc-text">The closed graph theorem</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Applications"><span class="toc-number">4.</span> <span class="toc-text">Applications</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-series"><span class="toc-number">5.</span> <span class="toc-text">The series</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#References"><span class="toc-number">6.</span> <span class="toc-text">References</span></a></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#A-surprising-result-of-Banach-spaces"><span class="toc-number">1.</span> <span class="toc-text">A surprising result of Banach spaces</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Preliminaries"><span class="toc-number">2.</span> <span class="toc-text">Preliminaries</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-closed-graph-theorem"><span class="toc-number">3.</span> <span class="toc-text">The closed graph theorem</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Applications"><span class="toc-number">4.</span> <span class="toc-text">Applications</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-series"><span class="toc-number">5.</span> <span class="toc-text">The series</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#References"><span class="toc-number">6.</span> <span class="toc-text">References</span></a></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <p><em>(Before everything: elementary background in topology and vector spaces, in particular Banach spaces, is assumed.)</em></p>
+<h2 id="A-surprising-result-of-Banach-spaces"><a href="#A-surprising-result-of-Banach-spaces" class="headerlink" title="A surprising result of Banach spaces"></a>A surprising result of Banach spaces</h2><p>We can define several relations between two norms. Suppose we have a topological vector space  $X$ and two norms $\lVert \cdot \rVert_1$ and $\lVert \cdot \rVert_2$. One says $\lVert \cdot \rVert_1$ is <em>weaker</em> than $\lVert \cdot \rVert_2$ if there is $K&gt;0$ such that $\lVert x \rVert_1 \leq K \lVert x \rVert_2$ for all $x \in X$. Two norms are <em>equivalent</em> if each is weaker than the other (trivially this is a equivalence relation). The idea of stronger and weaker norms is related to the idea of the “finer” and “coarser” topologies in the setting of topological spaces. </p>
+<p>So what about their limit? Unsurprisingly this can be verified with elementary $\epsilon-N$ arguments. Suppose now $\lVert x_n - x \rVert_1 \to 0$ as $n \to 0$, we immediately have</p>
+<script type="math/tex; mode=display">
+\lVert x_n - x \rVert_2 \leq K \lVert x_n-x \rVert_1 < K\varepsilon</script><p>for some large enough $n$. Hence $\lVert x_n - x \rVert_2 \to 0$ as well. But what about the converse? We give a new definition of equivalence relation between norms.</p>
+<blockquote>
+<p><strong>(Definition)</strong> Two norms $\lVert \cdot \rVert_1$ and $\lVert \cdot \rVert_2$ of a topological vector space are <em>compatible</em> if given that $\lVert x_n - x \rVert_1 \to 0$ and $\lVert x_n - y \rVert_2 \to 0$ as $n \to \infty$, we have $x=y$.</p>
+</blockquote>
+<p>By the uniqueness of limit, we see if two norms are equivalent, then they are compatible. And surprisingly, with the help of the closed graph theorem we will discuss in this post, we have</p>
+<blockquote>
+<p><strong>(Theorem 1)</strong> If $\lVert \cdot \rVert_1$ and $\lVert \cdot \rVert_2$ are compatible, and both $(X,\lVert\cdot\rVert_1)$ and $(X,\lVert\cdot\rVert_2)$ are Banach, then $\lVert\cdot\rVert_1$ and $\lVert\cdot\rVert_2$ are equivalent.</p>
+</blockquote>
+<p>This result looks natural but not seemingly easy to prove, since one find no way to build a bridge between the limit and a general inequality. But before that, we need to elaborate some terminologies.</p>
+<h2 id="Preliminaries"><a href="#Preliminaries" class="headerlink" title="Preliminaries"></a>Preliminaries</h2><blockquote>
+<p><strong>(Definition)</strong> For $f:X \to Y$, the <em>graph</em> of $f$ is defined by</p>
+<script type="math/tex; mode=display">
+G(f)=\{(x,f(x)) \in X \times Y:x \in X\}.</script></blockquote>
+<p>If both $X$ and $Y$ are topological spaces, and the topology of $X \times Y$ is the usual one, that is, the smallest topology that contains all sets $U \times V$ where $U$ and $V$ are open in $X$ and $Y$ respectively, and if $f: X \to Y$ is continuous, it is natural to expect $G(f)$ to be closed. For example, by taking $f(x)=x$ and $X=Y=\mathbb{R}$, one would expect the diagonal line of the plane to be closed.</p>
+<blockquote>
+<p><strong>(Definition)</strong> The topological space $(X,\tau)$ is an $F$-space if $\tau$ is induced by a complete invariant metric $d$. Here invariant means that $d(x+z,y+z)=d(x,y)$ for all $x,y,z \in X$.</p>
+</blockquote>
+<p>A Banach space is easily to be verified to be a $F$-space by defining $d(x,y)=\lVert x-y \rVert$.</p>
+<blockquote>
+<p><strong>(Open mapping theorem)</strong> See <a href="/2020/09/12/big-3-pt-4/">this post</a></p>
+</blockquote>
+<p>By definition of closed set, we have a practical criterion on whether $G(f)$ is closed.</p>
+<blockquote>
+<p><strong>(Proposition 1)</strong> $G(f)$ is closed if and only if, for any sequence $(x_n)$ such that the limits</p>
+<script type="math/tex; mode=display">
+x=\lim_{n \to \infty}x_n \quad \text{ and }\quad y=\lim_{n \to \infty}f(x_n)</script><p>exist, we have $y=f(x)$.</p>
+</blockquote>
+<p>In this case, we say $f$ is closed. For continuous functions, things are trivial.</p>
+<blockquote>
+<p><strong>(Proposition 2)</strong> If $X$ and $Y$ are two topological spaces and $Y$ is Hausdorff, and $f:X \to Y$ is continuous, then $G(f)$ is closed.</p>
+</blockquote>
+<p><em>Proof.</em> Let $G^c$ be the complement of $G(f)$ with respect to $X \times Y$. Fix $(x_0,y_0) \in G^c$, we see $y_0 \neq f(x_0)$. By the Hausdorff property of $Y$, there exists some open subsets $U \subset Y$ and $V \subset Y$ such that $y_0 \in U$ and $f(x_0) \in V$ and $U \cap V = \varnothing$. Since $f$ is continuous, we see $W=f^{-1}(V)$ is open in $X$. We obtained a open neighborhood $W \times U$ containing $(x_0,y_0)$ which has empty intersection with $G(f)$. This is to say, every point of $G^c$ has a open neighborhood contained in $G^c$, hence a interior point. Therefore $G^c$ is open, which is to say that $G(f)$ is closed. $\square$</p>
+<p><img src="\img\closed-graph.png" alt="closed-graph"></p>
+<p><strong>REMARKS.</strong> For $X \times Y=\mathbb{R} \times \mathbb{R}$, we have a simple visualization. For $\varepsilon&gt;0$, there exists some $\delta$ such that $|f(x)-f(x_0)|&lt;\varepsilon$ whenever $|x-x_0|&lt;\delta$. For $y_0 \neq f(x_0)$, pick $\varepsilon$ such that $0&lt;\varepsilon&lt;\frac{1}{2}|f(x_0)-y_0|$, we have two boxes ($CDEF$ and $GHJI$ on the picture), namely</p>
+<script type="math/tex; mode=display">
+B_1=\{(x,y):x_0-\delta<x<x_0+\delta,f(x_0)-\varepsilon<y<f(x_0)+\varepsilon\}</script><p>and</p>
+<script type="math/tex; mode=display">
+B_2=\{(x,y):x_0-\delta<x<x_0+\delta,y_0-\varepsilon<y<y_0+\varepsilon\}.</script><p>In this case, $B_2$ will not intersect the graph of $f$, hence $(x_0,y_0)$ is an interior point of $G^c$.</p>
+<p>The Hausdorff property of $Y$ is not removable. To see this, since $X$ has no restriction, it suffices to take a look at $X \times X$. Let $f$ be the identity map (which is continuous), we see the graph</p>
+<script type="math/tex; mode=display">
+G(f)=\{(x,x):x \in X\}</script><p>is the diagonal. Suppose $X$ is not Hausdorff, we reach a contradiction. By definition, there exists some distinct $x$ and $y$ such that all neighborhoods of $x$ contain $y$. Pick $(x,y) \in G^c$, then <em>all</em> neighborhoods of $(x,y) \in X \times X$ contain $(x,x)$ so $(x,y) \in G^c$ is <em>not</em> a interior point of $G^c$, hence $G^c$ is not open.</p>
+<p>Also, as an immediate consequence, every affine algebraic variety in $\mathbb{C}^n$ and $\mathbb{R}^n$ is closed with respect to Euclidean topology. Further, we have the Zariski topology $\mathcal{Z}$ by claiming that, if $V$ is an affine algebraic variety, then $V^c \in \mathcal{Z}$. It’s worth noting that $\mathcal{Z}$ is <em>not</em> Hausdorff (example?) and in fact much coarser than the Euclidean topology although an affine algebraic variety is both closed in the Zariski topology and the Euclidean topology.</p>
+<h2 id="The-closed-graph-theorem"><a href="#The-closed-graph-theorem" class="headerlink" title="The closed graph theorem"></a>The closed graph theorem</h2><p>After we have proved this theorem, we are able to prove the theorem about compatible norms. We shall assume that both $X$ and $Y$ are $F$-spaces, since the norm plays no critical role here. This offers a greater variety but shall not be considered as an abuse of abstraction. </p>
+<blockquote>
+<p><strong>(The Closed Graph Theorem)</strong> Suppose</p>
+<p>(a) $X$ and $Y$ are $F$-spaces,</p>
+<p>(b) $f:X \to Y$ is linear,</p>
+<p>(c) $G(f)$ is closed in $X \times Y$.</p>
+<p>Then $f$ is continuous.</p>
+</blockquote>
+<p>In short, the closed graph theorem gives a sufficient condition to claim the continuity of $f$ (keep in mind, linearity does not imply continuity). If $f:X \to Y$ is continuous, then $G(f)$ is closed; if $G(f)$ is closed and $f$ is linear, then $f$ is continuous. </p>
+<p><em>Proof.</em> First of all we should make $X \times Y$ an $F$-space by assigning addition, scalar multiplication and metric. Addition and scalar multiplication are defined componentwise in the nature of things:</p>
+<script type="math/tex; mode=display">
+\alpha(x_1,y_1)+\beta(x_2,y_2)=(\alpha x_1+\beta x_2,\alpha y_1 + \beta y_2).</script><p>The metric can be defined without extra effort:</p>
+<script type="math/tex; mode=display">
+d((x_1,y_1),(x_2,y_2))=d_X(x_1,x_2)+d_Y(y_1,y_2).</script><p>Then it can be verified that $X \times Y$ is a topological space with translate invariant metric. (Potentially the verifications will be added in the future but it’s recommended to do it yourself.)</p>
+<hr>
+<p>Since $f$ is linear, the graph $G(f)$ is a subspace of $X \times Y$. Next we quote an elementary result in point-set topology, <a target="_blank" rel="noopener" href="https://proofwiki.org/wiki/Subspace_of_Complete_Metric_Space_is_Closed_iff_Complete">a subset of a complete metric space is closed if and only if it’s complete</a>, by the translate-invariance of $d$, we see $G(f)$ is an $F$-space as well. Let $p_1: X \times Y \to X$ and $p_2: X \times Y \to Y$ be the natural projections respectively (for example, $p_1(x,y)=x$). Our proof is done by verifying the properties of $p_1$ and $p_2$ on $G(f)$.</p>
+<p><em>For simplicity one can simply define $p_1$ on $G(f)$ instead of the whole space $X \times Y$, but we make it a global projection on purpose to emphasize the difference between global properties and local properties. One can also write $p_1|_{G(f)}$ to dodge confusion.</em></p>
+<hr>
+<p><strong>Claim 1.</strong> $p_1$ (with restriction on $G(f)$) defines an isomorphism between $G(f)$ and $X$. </p>
+<p>For $x \in X$, we see $p_1(x,f(x)) = x$ (surjectivity). If $p_1(x,f(x))=0$, we see $x=0$ and therefore $(x,f(x))=(0,0)$, hence the restriction of $p_1$ on $G$ has trivial kernel (injectivity). Further, it’s trivial that $p_1$ is linear.</p>
+<p><strong>Claim 2.</strong> $p_1$ is continuous on $G(f)$.</p>
+<p>For every sequence $(x_n)$ such that $\lim_{n \to \infty}x_n=x$, we have $\lim_{n \to \infty}f(x_n)=f(x)$ since $G(f)$ is closed,  and therefore $\lim_{n \to \infty}p_1(x_n,f(x_n)) =x$. Meanwhile $p_1(x,f(x))=x$. The continuity of $p_1$ is proved.</p>
+<p><strong>Claim 3.</strong> $p_1$ is a homeomorphism with restriction on $G(f)$.</p>
+<p>We already know that $G(f)$ is an $F$-space, so is $X$. For $p_1$ we have $p_1(G(f))=X$ is of the second category (since it’s an $F$-space and $p_1$ is one-to-one), and $p_1$ is continuous and linear on $G(f)$. By the open mapping theorem, $p_1$ is an open mapping on $G(f)$, hence is a homeomorphism thereafter.</p>
+<p><strong>Claim 4.</strong> $p_2$ is continuous.</p>
+<p>This follows the same way as the proof of claim 2 but much easier since there is no need to care about $f$.</p>
+<hr>
+<p>Now things are immediate once one realises that $f=p_2 \circ p_1|_{G(f)}^{-1}$, which implies that $f$ is continuous. $\square$</p>
+<h2 id="Applications"><a href="#Applications" class="headerlink" title="Applications"></a>Applications</h2><p>Before we go for theorem 1 at the beginning, we drop an application on Hilbert spaces.</p>
+<blockquote>
+<p>Let $T$ be a bounded operator on the Hilbert space $L_2([0,1])$ so that if $\phi \in L_2([0,1])$ is a continuous function so is $T\phi$. Then the restriction of $T$ to $C([0,1])$ is a bounded operator of $C([0,1])$.</p>
+</blockquote>
+<p>For details please check <a target="_blank" rel="noopener" href="https://www.ams.org/journals/proc/1964-015-03/S0002-9939-1964-0164239-3/S0002-9939-1964-0164239-3.pdf">this</a>.</p>
+<hr>
+<p>Now we go for the identification of norms. Define</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+f:(X,\lVert\cdot\rVert_1) &\to (X,\lVert\cdot\rVert_2) \\
+    x &\mapsto x
+\end{aligned}</script><p>i.e. the identity map between two Banach spaces (hence $F$-spaces). Then $f$ is linear. We need to prove that $G(f)$ is closed. For the convergent sequence $(x_n)$</p>
+<script type="math/tex; mode=display">
+\lim_{n \to \infty}\lVert x_n -x \rVert_1=0,</script><p>we have</p>
+<script type="math/tex; mode=display">
+\lim_{n \to \infty} \lVert f(x_n)-x \rVert_2=\lim_{n \to \infty}\lVert x_n -x\rVert_2=\lim_{n \to \infty}\lVert f(x_n)-f(x)\rVert_2=0.</script><p>Hence $G(f)$ is closed. Therefore $f$ is continuous, hence bounded, we have some $K$ such that</p>
+<script type="math/tex; mode=display">
+\lVert x \rVert_2 =\lVert f(x) \rVert_1 \leq K \lVert x \rVert_1.</script><p>By defining</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+g:(X,\lVert\cdot\rVert_2) &\to (X,\lVert\cdot\rVert_1) \\
+    x &\mapsto x
+\end{aligned}</script><p>we see $g$ is continuous as well, hence we have some $K’$ such that</p>
+<script type="math/tex; mode=display">
+\lVert x \rVert_1 =\lVert g(x) \rVert_2 \leq K'\lVert x \rVert_2</script><p>Hence two norms are weaker than each other.</p>
+<h2 id="The-series"><a href="#The-series" class="headerlink" title="The series"></a>The series</h2><p>Since there is no strong reason to write more posts on this topic, i.e. the three fundamental theorems of linear functional analysis, I think it’s time to make a list of the series. It’s been around half a year.</p>
+<ul>
+<li><a href="/2020/06/06/big-3-pt-1/">The Big Three Pt. 1 - Baire Category Theorem Explained</a></li>
+<li><a href="/2020/06/30/big-3-pt-2/">The Big Three Pt. 2 - The Banach-Steinhaus Theorem</a></li>
+<li><a href="/2020/08/12/big-3-pt-3/">The Big Three Pt. 3 - The Open Mapping Theorem (Banach Space)</a></li>
+<li><a href="/2020/09/12/big-3-pt-4/">The Big Three Pt. 4 - The Open Mapping Theorem (F-Space)</a></li>
+<li><a href="/2020/10/01/big-3-pt-5/">The Big Three Pt. 5 - The Hahn-Banach Theorem (Dominated Extension)</a></li>
+<li>The Big Three Pt. 6 - Closed Graph Theorem with Applications</li>
+</ul>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li>Walter Rudin, <em>Functional Analysis</em></li>
+<li>Peter Lax, <em>Functional Analysis</em></li>
+<li>Jesús Gil de Lamadrid, <em>Some Simple Applications of the Closed Graph Theorem</em></li>
+</ul>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"><a href="../../../../tags/The-big-three/" class="post-tags__link button"># The big three</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../27/vector-bundle-1/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            Study Vector Bundle in a Relatively Harder Way - Definition
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../08/Partition-of-Unity-on-Different-Manifolds/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            Partition of Unity on Different Manifolds (Part 1. Introduction)
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2020/11/13/big-3-pt-6/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

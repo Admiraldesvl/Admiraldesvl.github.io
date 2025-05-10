@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>Linear ODE but Quotient Spaces | Desvl&#39;s blog</title>
+
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="What does this blog doWe are treating linear ODE problems as an example of quotient space in this blog post. You are assumed to be able to solve linear ODEs without theoretical problems, and have some">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linear ODE but Quotient Spaces">
+<meta property="og:url" content="https://desvl.xyz/2020/05/17/linear-ode-but-quotient-space/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="What does this blog doWe are treating linear ODE problems as an example of quotient space in this blog post. You are assumed to be able to solve linear ODEs without theoretical problems, and have some">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-05-17T17:30:00.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:10.173Z">
+<meta property="article:author" content="Desvl">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        Linear ODE but Quotient Spaces
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2020/05/" class="post-meta__date button">2020-05-17</a>
+        
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#What-does-this-blog-do"><span class="toc-number">1.</span> <span class="toc-text">What does this blog do</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#General-theories"><span class="toc-number">2.</span> <span class="toc-text">General theories</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Quotient-Space"><span class="toc-number">2.1.</span> <span class="toc-text">Quotient Space</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linear-ODE"><span class="toc-number">2.2.</span> <span class="toc-text">Linear ODE</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Steps-to-quotient-space"><span class="toc-number">3.</span> <span class="toc-text">Steps to quotient space</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#The-solutions-of-frac-d-mathbf-y-dx-mathbf-Ay-form-a-vector-space"><span class="toc-number">3.1.</span> <span class="toc-text">The solutions of $\frac{d\mathbf{y}}{dx}&#x3D;\mathbf{Ay}$ form a vector space</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Quotient-space-and-coset-are-there"><span class="toc-number">3.2.</span> <span class="toc-text">Quotient space and coset are there</span></a></li></ol></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#What-does-this-blog-do"><span class="toc-number">1.</span> <span class="toc-text">What does this blog do</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#General-theories"><span class="toc-number">2.</span> <span class="toc-text">General theories</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Quotient-Space"><span class="toc-number">2.1.</span> <span class="toc-text">Quotient Space</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linear-ODE"><span class="toc-number">2.2.</span> <span class="toc-text">Linear ODE</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Steps-to-quotient-space"><span class="toc-number">3.</span> <span class="toc-text">Steps to quotient space</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#The-solutions-of-frac-d-mathbf-y-dx-mathbf-Ay-form-a-vector-space"><span class="toc-number">3.1.</span> <span class="toc-text">The solutions of $\frac{d\mathbf{y}}{dx}&#x3D;\mathbf{Ay}$ form a vector space</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Quotient-space-and-coset-are-there"><span class="toc-number">3.2.</span> <span class="toc-text">Quotient space and coset are there</span></a></li></ol></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h2 id="What-does-this-blog-do"><a href="#What-does-this-blog-do" class="headerlink" title="What does this blog do"></a>What does this blog do</h2><p>We are treating linear ODE problems as an example of quotient space in this blog post. You are assumed to be able to solve linear ODEs without theoretical problems, and have some basic understanding of normal subgroups. </p>
+<h2 id="General-theories"><a href="#General-theories" class="headerlink" title="General theories"></a>General theories</h2><h3 id="Quotient-Space"><a href="#Quotient-Space" class="headerlink" title="Quotient Space"></a>Quotient Space</h3><p>Let $X$ be a vector space, and $N$ a subspace of it. Naturally $N$ is normal in $X$ since $X$ is abelian. Define</p>
+<script type="math/tex; mode=display">
+\pi(x)=x+N</script><p>for $x \in X$, then the collection of sets $\{\pi(x):x \in X\}$ is the <em>quotient space</em> of $X$ <em>modulo</em> $N$, in which case we write $X/N$. Addition and scalar multiplication are defined by</p>
+<script type="math/tex; mode=display">
+\pi(x+y)=\pi(x)+\pi(y)\quad \pi(\alpha x)=\alpha\pi(x)</script><p>This is well-defined since $N$ is a vector space. The kernel of $\pi$ or the origin of $X/N$ has to be $N=0+N$. People call $\pi$ the <strong>canonical map</strong>.</p>
+<h3 id="Linear-ODE"><a href="#Linear-ODE" class="headerlink" title="Linear ODE"></a>Linear ODE</h3><p>If one solves a linear ODE problem of order $n$ on an interval $(a,b)$, namely</p>
+<script type="math/tex; mode=display">
+\frac{d\mathbf{y}}{dx}=\mathbf{Ay}+\mathbf{f} \quad a<x<b</script><p>where $\mathbf{A}$ is a constant matrix, they will find that the solution can be</p>
+<script type="math/tex; mode=display">
+\mathbf{y}=\mathbf{\Phi}(x)\mathbf{c}+\mathbf{\Phi}(x)\int_0^x\mathbf{\Phi^{-1}}(s)\mathbf{f}(s)ds</script><p>where $\mathbf{c}$ is a given constant vector and $\mathbf{\Phi}(x)=\begin{bmatrix}\mathbf{\varphi_1},\mathbf{\varphi_2},\cdots,\mathbf{\varphi_n}\end{bmatrix}$ and $\{\mathbf{\varphi_i}\}$ are the fundamental solutions of $\frac{d\mathbf{y}}{dx}=\mathbf{Ay}$. We’ll translate this into the language of quotient space. We have to show that <strong>the solutions of the equation forms an element of  $X/N$</strong>.</p>
+<h2 id="Steps-to-quotient-space"><a href="#Steps-to-quotient-space" class="headerlink" title="Steps to quotient space"></a>Steps to quotient space</h2><p>So where is the $X$? It suffices to pick $\mathcal{C}^n$, the space of all functions $\mathbf{y}=(y_1,y_2,\cdots,y_n)^T$ such that $y_k$ is $n$-time differentiable. The crux therefore becomes finding $N$. And we’ll show that it’s denoted by $\mathbf{\Phi}(x)\mathbf{c}$.</p>
+<h3 id="The-solutions-of-frac-d-mathbf-y-dx-mathbf-Ay-form-a-vector-space"><a href="#The-solutions-of-frac-d-mathbf-y-dx-mathbf-Ay-form-a-vector-space" class="headerlink" title="The solutions of $\frac{d\mathbf{y}}{dx}=\mathbf{Ay}$ form a vector space"></a>The solutions of $\frac{d\mathbf{y}}{dx}=\mathbf{Ay}$ form a vector space</h3><p>Indeed,  it’s trivially verified since $\frac{d}{dx}$ and matrix multiplication are linear. The question is, how does this vector space <em>look</em> like? Why the fundamental solutions to this equation has and only has $n$ elements? Does that mean this space (denoted by $N$), has dimension $n$? Fortunately, the following isomorphism answers this question in the affirmative.</p>
+<blockquote>
+<p><strong>Theorem</strong> The vector space $N$ is isomorphic to $\mathbb{R}^n$</p>
+</blockquote>
+<p>Pick and fix $x_0 \in (a,b)$. <a href="/2020/05/16/ivp-picard-differnt-level/">Picard’s existence and uniqueness theorem</a> ensures that, the initial value problem</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+\frac{d\mathbf{y}}{dx}=\mathbf{Ay}\\
+\mathbf{y}(x_0)=\mathbf{y}_0
+\end{cases}</script><p>has a unique solution. Therefore we have a bijection</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+H: N &\mapsto \mathbb{R}^n \\
+\mathbf{y}(x)&\to \mathbf{y}_0
+\end{aligned}</script><p>It suffices to prove that $H$ is linear. Namely, we need to show that</p>
+<script type="math/tex; mode=display">
+H(C_1\mathbf{y}_1+C_2\mathbf{y}_2)=C_1\mathbf{y}_1(x_0)+C_2\mathbf{y}_2(x_0)</script><p>which is trivial, since</p>
+<script type="math/tex; mode=display">
+(C_1\mathbf{y}_1+C_2\mathbf{y}_2)(x_0)=C_1\mathbf{y}_1(x_0)+C_2\mathbf{y}_2(x_0)</script><h3 id="Quotient-space-and-coset-are-there"><a href="#Quotient-space-and-coset-are-there" class="headerlink" title="Quotient space and coset are there"></a>Quotient space and coset are there</h3><p>Let’s see this solution again</p>
+<script type="math/tex; mode=display">
+\mathbf{y}=\mathbf{\Phi}(x)\mathbf{c}+\mathbf{\Phi}(x)\int_{x_0}^x\mathbf{\Phi^{-1}}(s)\mathbf{f}(s)ds</script><p>For $\mathbf{c}=(c_1,c_2,\cdots,c_n)^T$, we have</p>
+<script type="math/tex; mode=display">
+\mathbf{\Phi}(x)\mathbf{c}=\sum_{k=1}^{n}c_k\mathbf{\varphi}_k</script><p>Notice that $\{\mathbf{\varphi_k}\}$ is a <strong>basis</strong> of $N$ and there we have it. $\mathbf{c}$ can be any element of $\mathbb{R}^n$, hence $\mathbf{\Phi}(x)\mathbf{c}$ goes through all elements of $N$. Also we know, the function</p>
+<script type="math/tex; mode=display">
+\mathbf{z}=\mathbf{\Phi}(x)\int_{x_0}^x\mathbf{\Phi^{-1}}(s)\mathbf{f}(s)ds</script><p>is a special solution to $\frac{d\mathbf{y}}{dx}=\mathbf{Ay}+\mathbf{f}$. Thus we have the coset</p>
+<script type="math/tex; mode=display">
+\mathbf{z}+N=\pi(\mathbf{z})</script><p>to be the set of all solutions where $\pi(\mathbf{z}) \in X/N$.</p>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../20/zeros-of-entire-function/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            More properties of zeros of an entire function
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../16/ivp-picard-differnt-level/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            Prove Picard&#39;s Existence and Uniqueness Theorem on Different Levels
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2020/05/17/linear-ode-but-quotient-space/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>Study Vector Bundle in a Relatively Harder Way - Tangent Bundle | Desvl&#39;s blog</title>
+
+
+    <meta name="keywords" content="Serge Lang">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="Tangent line and tangent surface as vector spacesWe begin our study by some elementary Calculus. Now we have the function $f(x)&#x3D;x^2+\frac{e^x}{x^2+1}$ as our example. It should not be a problem to fin">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Study Vector Bundle in a Relatively Harder Way - Tangent Bundle">
+<meta property="og:url" content="https://desvl.xyz/2020/12/22/vector-bundle-2/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="Tangent line and tangent surface as vector spacesWe begin our study by some elementary Calculus. Now we have the function $f(x)&#x3D;x^2+\frac{e^x}{x^2+1}$ as our example. It should not be a problem to fin">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://desvl.xyz/img/tangent-line.png">
+<meta property="og:image" content="https://desvl.xyz/img/tangent-surface.png">
+<meta property="og:image" content="https://desvl.xyz/img/tangent-bundle">
+<meta property="og:image" content="https://desvl.xyz/img/tangent-diagram">
+<meta property="article:published_time" content="2020-12-22T11:34:14.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:10.726Z">
+<meta property="article:author" content="Desvl">
+<meta property="article:tag" content="Serge Lang">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://desvl.xyz/img/tangent-line.png">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        Study Vector Bundle in a Relatively Harder Way - Tangent Bundle
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2020/12/" class="post-meta__date button">2020-12-22</a>
+        
+    <span class="separate-dot"></span><a href="../../../../categories/Geometry/" class="button">Geometry</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Geometry/Differential-Geometry/" class="button">Differential Geometry</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Geometry/Differential-Geometry/Vector-Bundles/" class="button">Vector Bundles</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Tangent-line-and-tangent-surface-as-vector-spaces"><span class="toc-number">1.</span> <span class="toc-text">Tangent line and tangent surface as vector spaces</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Definition-of-tangent-vectors"><span class="toc-number">2.</span> <span class="toc-text">Definition of tangent vectors</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Definition-of-tangent-vectors-of-Euclidean-submanifolds"><span class="toc-number">2.1.</span> <span class="toc-text">Definition of tangent vectors of Euclidean submanifolds</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Coordinate-system-and-tangent-vector"><span class="toc-number">2.1.1.</span> <span class="toc-text">Coordinate system and tangent vector</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Why-we-use-%E2%80%98equivalence-relation%E2%80%99"><span class="toc-number">2.2.</span> <span class="toc-text">Why we use ‘equivalence relation’</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tangent-space"><span class="toc-number">3.</span> <span class="toc-text">Tangent space</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tangent-bundle"><span class="toc-number">4.</span> <span class="toc-text">Tangent bundle</span></a></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Tangent-line-and-tangent-surface-as-vector-spaces"><span class="toc-number">1.</span> <span class="toc-text">Tangent line and tangent surface as vector spaces</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Definition-of-tangent-vectors"><span class="toc-number">2.</span> <span class="toc-text">Definition of tangent vectors</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Definition-of-tangent-vectors-of-Euclidean-submanifolds"><span class="toc-number">2.1.</span> <span class="toc-text">Definition of tangent vectors of Euclidean submanifolds</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Coordinate-system-and-tangent-vector"><span class="toc-number">2.1.1.</span> <span class="toc-text">Coordinate system and tangent vector</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Why-we-use-%E2%80%98equivalence-relation%E2%80%99"><span class="toc-number">2.2.</span> <span class="toc-text">Why we use ‘equivalence relation’</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tangent-space"><span class="toc-number">3.</span> <span class="toc-text">Tangent space</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tangent-bundle"><span class="toc-number">4.</span> <span class="toc-text">Tangent bundle</span></a></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h2 id="Tangent-line-and-tangent-surface-as-vector-spaces"><a href="#Tangent-line-and-tangent-surface-as-vector-spaces" class="headerlink" title="Tangent line and tangent surface as vector spaces"></a>Tangent line and tangent surface as vector spaces</h2><p>We begin our study by some elementary Calculus. Now we have the function $f(x)=x^2+\frac{e^x}{x^2+1}$ as our example. It should not be a problem to find its tangent line at point $(0,1)$, by calculating its derivative, we have $l:x-y+1=0$ as the tangent line.</p>
+<p>$l$ is not a vector space since it does not get cross the origin, in general. But $l-\overrightarrow{OA}$ is a vector space. In general, suppose $P(x,y)$ is a point on the curve determined by $f$, i.e. $y=f(x)$, then we obtain a vector space $l_p-\overrightarrow{OP} \simeq \mathbb{R}$. But the action of moving the tangent line to the origin is superfluous so naturally we consider the tangent line at $P$ as a vector space <strong>determined</strong> by $P$. In this case, the induced vector space (tangent line) is always of dimension $1$.</p>
+<p><img src="\img\tangent-line.png" alt="image-20201211153752166"></p>
+<p>Now we move to two-variable functions. We have a function $a(x,y)=x^2+y^2-x-y+xy$ as our example. Some elementary Calculus work gives us the tangent surface of $z=a(x,y)$ at $A(1,1,1)$, which can be identified by $S:2x+2y-z=3\simeq\mathbb{R}^2$. Again, this can be considered as a vector space <strong>determined</strong> by $A$, or roughly speaking it is one if we take $A$ as the origin. Further we have a base $(\overrightarrow{AB},\overrightarrow{AC})$. Other vectors on $S$, for example $\overrightarrow{AD}$, can be written as a linear combination of $\overrightarrow{AB}$ and $\overrightarrow{AC}$. In other words, $S$ is “spanned” by $(\overrightarrow{AB},\overrightarrow{AC})$.</p>
+<p><img src="\img\tangent-surface.png" alt="image-20201211153513707"></p>
+<p>Tangent line and tangent surface play an important role in differentiation. But sometimes we do not have a chance to use it with ease, for example $S^1:x^2+y^2=1$ cannot be represented by a single-variable function. However the implicit function theorem, which you have already learned in Calculus, gives us a chance to find a satisfying function locally. Here in this post we will try to generalize this concept, trying to find the tangent <strong>space</strong> at some point of a manifold. (The two examples above have already determined two manifolds and two tangent spaces.)</p>
+<h2 id="Definition-of-tangent-vectors"><a href="#Definition-of-tangent-vectors" class="headerlink" title="Definition of tangent vectors"></a>Definition of tangent vectors</h2><p>We will introduce the abstract definition of a tangent vector at beginning. You may think it is way too abstract but actually it is not. Surprisingly, the following definition can simplify our work in the future. But before we go, make sure that you have learned about <a href="/2020/07/31/frechet-derivative/">Fréchet derivative</a> (along with some functional analysis knowledge). </p>
+<p>Let $M$ be a manifold of class $C^p$ with $p \geq 1$ and let $x$ be a point of $M$. Let $(U,\varphi)$ be a chart at $x$ and $v$ be a element of the vector space $\mathbf{E}$ where $\varphi(U)$ lies (for example, if $M$ is a $d$-dimensional manifold, then $v \in \mathbb{R}^d$). Next we consider the triple $(U,\varphi,v)$. Suppose $(U,\varphi,v)$ and $(V,\psi,w)$ are two such triples. We say these two triples are <strong>equivalent</strong> if the following identity holds:</p>
+<script type="math/tex; mode=display">
+{\color\green{[}}{\color\red{(}}{\color\red{\psi\circ\varphi^{-1}}}{\color\red{)'}}{\color\red{(}}{\color\purple{\varphi(x)}}{\color\red)}{\color\green{]}}(v)=w.</script><p>This identity looks messy so we need to explain how to read it. First we consider the function in red: the derivative of $\psi\circ\varphi^{-1}$. The derivative of $\psi\circ\varphi^{-1}$ at point $\varphi(x)$ (in purple) is a linear transform, and the transform is embraced with green brackets. Finally, this linear transform maps $v$ to $w$. In short we read, the derivative of $\psi\circ\varphi^{-1}$ at $\varphi(x)$ maps $v$ on $w$. You may recall that you have meet something like $\psi\circ\varphi^{-1}$ in the definition of manifold. It is not likely that these ‘triples’ should be associated to tangent vectors. But before we explain it, we need to make sure that we indeed defined an equivalent relation. </p>
+<blockquote>
+<p><strong>(Theorem 1)</strong> The relation</p>
+<script type="math/tex; mode=display">
+(U,\varphi,v) \sim (V,\psi,w)\\
+[(\psi\circ\varphi^{-1})'(\varphi(x))](v)=w</script><p>is an equivalence relation.</p>
+</blockquote>
+<p><em>Proof.</em> This will not go further than elementary Calculus, in fact, chain rule:</p>
+<blockquote>
+<p><strong>(Chain rule)</strong> If $f:U \to V$ is differentiable at $x_0 \in U$, if $g: V \to W$ is differentiable at $f(x_0)$, then $g \circ f$ is differentiable at $x_0$, and</p>
+<script type="math/tex; mode=display">
+(g\circ f)'(x_0)=g'(f(x_0))\circ f'(x_0)</script></blockquote>
+<ol>
+<li>$(U,\varphi,v)\sim(U,\varphi,v)$.</li>
+</ol>
+<p>Since $\varphi\circ\varphi^{-1}=\operatorname{id}$, whose derivative is still the identity everywhere, we have</p>
+<script type="math/tex; mode=display">
+[(\varphi\circ\varphi^{-1})'(\varphi(x))](v)=\operatorname{id}(v)=v</script><ol>
+<li>If $(U,\varphi,v) \sim (V,\psi,w)$, then $(V,\psi,w)\sim(U,\varphi,v)$.</li>
+</ol>
+<p>So now we have</p>
+<script type="math/tex; mode=display">
+[(\psi\circ\varphi^{-1})'(\varphi(x))](v)=w.</script><p>To prove that $[(\varphi\circ\psi^{-1})’(\psi(x))]{}(w)=v$, we need some implementation of chain rule.</p>
+<p>Note first</p>
+<script type="math/tex; mode=display">
+(\psi\circ\varphi^{-1})'(\varphi(x))=\psi'(\varphi^{-1}(\varphi(x)))\circ\varphi^{-1}{'}(\varphi(x))=\psi'(x)\circ(\varphi^{-1})'(\varphi(x))</script><p>while</p>
+<script type="math/tex; mode=display">
+(\varphi\circ\psi^{-1})'(\psi(x))=\varphi'(x)\circ(\psi^{-1})'(\psi(x)).</script><p>But also by the chain rule, if $f$ is a diffeomorphism, we have</p>
+<script type="math/tex; mode=display">
+(f\circ f^{-1})'(x)=(f^{-1})'(f(x))\circ f'(x)=\operatorname{id}</script><p>or equivalently</p>
+<script type="math/tex; mode=display">
+f'(x)=[(f^{-1})'(f(x))]^{-1} \quad (f^{-1})'(f(x))=[f'(x)]^{-1}</script><p>Therefore</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\{(\psi\circ\varphi^{-1})'(\varphi(x))\}^{-1} &=\{\psi'(x)\circ(\varphi^{-1})'(\varphi(x))\}^{-1} \\
+&=\{(\varphi^{-1})'(\varphi(x))\}^{-1}\circ\{\psi'(x)\}^{-1} \\
+&=\varphi'(x)\circ(\psi^{-1})'(\psi(x)) \\
+&=(\varphi\circ\psi^{-1})'(\psi(x))
+\end{aligned}</script><p>which implies</p>
+<script type="math/tex; mode=display">
+(\varphi\circ\psi^{-1})'(\psi(x))(w)=\{(\psi\circ\varphi^{-1})'(\varphi(x))\}^{-1}(w)=v.</script><ol>
+<li>If $(U,\varphi,v)\sim(V,\psi,w)$ and $(V,\psi,w)\sim(W,\lambda,z)$, then $(U,\varphi,v)\sim(W,\lambda,z)$.</li>
+</ol>
+<p>We are given identities</p>
+<script type="math/tex; mode=display">
+[(\psi\circ\varphi^{-1})'(\varphi(x))](v)=w</script><p>and</p>
+<script type="math/tex; mode=display">
+[(\lambda\circ\psi^{-1})'(\psi(x))](w)=z.</script><p>By canceling $w$, we get</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+z = [(\lambda\circ\psi^{-1})'(\psi(x))] \circ [(\psi\circ\varphi^{-1})'(\varphi(x))] (v)
+\end{aligned}.</script><p>On the other hand,</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+(\lambda\circ\varphi^{-1})'(\varphi(x))&=(\lambda\circ\psi^{-1}\circ\psi\circ\varphi^{-1})'(\varphi(x)) \\
+&=(\lambda\circ\psi^{-1})'(\psi\circ\varphi^{-1}\circ\varphi(x))\circ(\psi\circ\varphi^{-1})'(\varphi(x)) \\
+&=(\lambda\circ\psi^{-1})'(\psi(x))\circ(\psi\circ\varphi^{-1})'(\varphi(x))
+\end{aligned}</script><p>which is what we needed. $\square$</p>
+<p>An <strong>equivalence class</strong> of such triples $(U,\varphi,v)$ is called a <strong>tangent vector</strong> of $X$ at $x$. The set of such tangent vectors is called the <strong>tangent space</strong> to $X$ at $x$, which is denoted by $T_x(X)$. But it seems that we have gone too far. Is the triple even a ‘vector’? To get a clear view let’s see Euclidean submanifolds first.</p>
+<h3 id="Definition-of-tangent-vectors-of-Euclidean-submanifolds"><a href="#Definition-of-tangent-vectors-of-Euclidean-submanifolds" class="headerlink" title="Definition of tangent vectors of Euclidean submanifolds"></a>Definition of tangent vectors of Euclidean submanifolds</h3><blockquote>
+<p>Suppose $M$ is a submanifold of $\mathbb{R}^n$. We say $z$ is the <strong>tangent vector</strong> of $M$ at point $x$ if there exists a curve $\alpha$ of class $C^1$, which is defined on $\mathbb{R}$ and where there exists an interval $I$ such that $\alpha(I) \subset M$, such that $\alpha(t_0)=x$ and $\alpha’(t_0)=z$. (For convenience we often take $t_0=0$.)</p>
+</blockquote>
+<p>This definition is immediate if we check some examples. For the curve $M: x^2+1+\frac{e^x}{x^2+1}-y=0$, we can show that $(1,1)^T$ is a tangent vector of $M$ at $(0,1)$, which is identical to our first example. Taking</p>
+<script type="math/tex; mode=display">
+\alpha(t)=(t,t^2+1+\frac{e^t}{t^2+1})</script><p>we get $\alpha(0)=(0,1)$ and </p>
+<script type="math/tex; mode=display">
+\alpha'(t)=(1,2t+\frac{e^t(t-1)^2}{(t^2+1)^2})^T.</script><p>Therefore $\alpha’(0)=(1,1)^T$. $\square$</p>
+<h4 id="Coordinate-system-and-tangent-vector"><a href="#Coordinate-system-and-tangent-vector" class="headerlink" title="Coordinate system and tangent vector"></a>Coordinate system and tangent vector</h4><blockquote>
+<p>Let $\mathbf{E}$ and $\mathbf{F}$ be two Banach spaces and $U$ an open subset of $\mathbf{E}$. A $C^p$ map $f: U \to \mathbf{F}$ is called an <strong>immersion</strong> at $x$ if $f’(x)$ is injective.</p>
+</blockquote>
+<p>For example, if we take $\mathbf{E}=\mathbf{F}=\mathbb{R}=U$ and $f(x)=x^2$, then $f$ is an immersion at almost all point on $\mathbb{R}$ except $0$ since $f’(0)=0$ is not injective. This may lead you to <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Sard%27s_theorem">Sard’s theorem</a>.</p>
+<blockquote>
+<p><strong>(Theorem 2)</strong> Let $M$ be a subset of $\mathbb{R}^n$, then $M$ is a $d$-dimensional $C^p$ submanifold of $\mathbb{R}^n$ if and only if for every $x \in M$ there exists an open neighborhood $U \subset \mathbb{R}^n$ of $x$, an open neighborhood $\Omega \subset \mathbb{R}^d$ of $0$ and a $C^p$ map $g: \Omega \to \mathbb{R}^n$ such that $g$ is immersion at $0$ such that $g(0)=x$, and $g$ is a homeomorphism between $\Omega$ and $M \cap U$ with the topology induced from $\mathbb{R}^n$.</p>
+</blockquote>
+<p>This follows from the definition of manifold and should not be difficult to prove. But it is not what this blog post should cover. For a proof you can check <em>Differential Geometry: Manifolds, Curves, and Surfaces</em> by Marcel Berger and Bernard Gostiaux. The proof is located in section 2.1. </p>
+<blockquote>
+<p>A coordinate system on a $d$-dimensional $C^p$ submanifold $M$ of $\mathbb{R}^n$ is a pair $(\Omega,g)$ consisting of an open set $\Omega \subset \mathbb{R}^d$ and a $C^p$ function $g:\Omega \to \mathbb{R}^n$ such that $g(\Omega)$ is open in $V$ and $g$ induces a homeomorphism between $\Omega$ and $g(\Omega)$.</p>
+</blockquote>
+<p>For convenience, we say $(\Omega,g)$ is centered at $x$ if $g(0)=x$ and $g$ is an immersion at $x$. By theorem 2 it is always possible to find such a coordinate system centered at a given point $x \in M$. The following theorem will show that we can get a easier approach to tangent vector.</p>
+<blockquote>
+<p><strong>(Theorem 3)</strong> Let $\mathbf{E}$ and $\mathbf{F}$ be two finite-dimensional vector spaces, $U \subset \mathbf{E}$ an open set, $f:U \to \mathbf{F}$ a $C^1$ map, $M$ a submanifold of $\mathbf{E}$ contained in $U$ and $W$ a submanifold of $\mathbf{F}$ such that $f(M) \subset W$. Take $x \in M$ and set $y=f(x)$, If $z$ is a tangent vector to $M$ at $x$, the image $f’(x)(z)$ is a tangent vector to $W$ at $y=f(x)$.</p>
+</blockquote>
+<p><em>Proof.</em> Since $z$ is a tangent vector, we see there exists a curve $\alpha: J \to M$ such that $\alpha(0)=x$ and $\alpha’(0)=z$ where $J$ is an open interval containing $0$. The function $\beta = f \circ \alpha: J \to W$ is also a curve satisfying $\beta(0)=f(\alpha(0))=f(x)$ and</p>
+<script type="math/tex; mode=display">
+\beta'(0)=f'(\alpha(0))\alpha'(0)=f'(x)(z),</script><p>which is our desired curve. $\square$</p>
+<h3 id="Why-we-use-‘equivalence-relation’"><a href="#Why-we-use-‘equivalence-relation’" class="headerlink" title="Why we use ‘equivalence relation’"></a>Why we use ‘equivalence relation’</h3><p>We shall show that equivalence relation makes sense. Suppose $M$ is a $d$-submanifold of $\mathbb{R}^n$, $x \in M$ and $z$ is a tangent vector to $M$ at $x$. Let $(\Omega,g)$ be a coordinate system centered at $x$. Since $g \in C^p(\mathbb{R}^d;\mathbb{R}^n)$, we see $g’(0)$ is a $n \times d$ matrix, and injectivity ensures that $\operatorname{rank}(g’(0))=d$. </p>
+<p>Every open set $\Omega \subset \mathbb{R}^d$ is a $d$-dimensional submanifold of $\mathbb{R}^d$ (of $C^p$). Suppose now $v \in \mathbb{R}^d$ is a tangent vector to $\Omega$ at $0$ (determined by a curve $\alpha$), then by Theorem 3, $g \circ \alpha$ determines a tangent vector to $M$ at $x$, which is $z_x=g’(0)(v)$. Suppose $(\Lambda,h)$ is another coordinate system centered at $x$. If we want to obtain $z_x$ as well, we must have</p>
+<script type="math/tex; mode=display">
+h'(0)(w)=g'(0)(v),</script><p>which is equivalent to</p>
+<script type="math/tex; mode=display">
+w = (h'(0)^{-1} \circ g'(0))(v)=(h^{-1}\circ g)'(0)(v),</script><p>for some $w \in \mathbb{R}^d$ which is the tangent vector to $\Lambda$ at $0 \in \Lambda$. <em>(The inverse makes sense since we implicitly restricted ourself to $\mathbb{R}^d$)</em></p>
+<p>However, we also have two charts by $(U,\varphi)=(g(\Omega),g^{-1})$ and $(V,\psi) = (h(\Lambda),h^{-1})$, which gives</p>
+<script type="math/tex; mode=display">
+(h^{-1} \circ g)'(0)(v)=[(\psi \circ \varphi^{-1})'(\varphi(x))](v)=w</script><p>and this is just our equivalence relation (don’t forget that $g(0)=x$ hence $g^{-1}(x)=\varphi(x)=0$!). There we have our reason for equivalence relation: If $(U,\varphi,v) \sim (V,\psi,w)$, then $(U,\varphi,u)$ and $(V,\psi,v)$ determines the same tangent vector but we do not have to evaluate it manually. In general, all elements in an equivalence class represent a single vector, so the vector is (algebraically) a equivalence class. This still holds when talking about Banach manifold since topological properties of Euclidean spaces do not play a role. The generalized proof can be implemented with little difficulty.</p>
+<h2 id="Tangent-space"><a href="#Tangent-space" class="headerlink" title="Tangent space"></a>Tangent space</h2><p>The tangent vectors at $x \in M$ span a vector space (which is based at $x$). We do hope that because if not our definition of  tangent vector would be incomplete and cannot even hold for an trivial example (such as what we mentioned at the beginning). We shall show, satisfyingly, the set of tangent vectors to $M$ at $x$ (which we write $T_xM$) forms a vector space that is toplinearly isomorphic to $\mathbf{E}$, on which $M$ is modeled. </p>
+<blockquote>
+<p><strong>(Theorem 4)</strong> $T_xM \simeq \mathbf{E}$. In other words, $T_xM$ can be given the structure of topological vector space given by the chart.</p>
+</blockquote>
+<p><em>Proof.</em> Let $(U,\varphi)$ be a chart at $x$. For $v \in \mathbf{E}$, we see $(\varphi^{-1})’(x)(v)$ is a tangent vector at $x$. On the other hand, pick $\mathbf{w} \in T_xM$, which can be represented by $(V,\psi,w)$. Then</p>
+<script type="math/tex; mode=display">
+v=(\varphi\circ\psi^{-1})'(\psi(x))(w)</script><p>makes $(U,\varphi,v) \sim (V,\psi,w)$ uniquely, and therefore we get some $v \in \mathbf{E}$. To conclude,</p>
+<script type="math/tex; mode=display">
+T_xM \xrightarrow[(\varphi^{-1})'(x)]{\simeq}\mathbf{E}</script><p>which proves our theorem. Note that this does not depend on the choice of charts. $\square$</p>
+<p>For many reasons it is not a good idea to identify $T_xM$ as $\mathbf{E}$ without mentioning the point $x$. For example we shouldn’t identify the tangent line of a curve as $x$-axis. Instead, it would be better to identify or visualize $T_xM$ as $(x,\mathbf{E})$, that is, a linear space with origin at $x$.</p>
+<h2 id="Tangent-bundle"><a href="#Tangent-bundle" class="headerlink" title="Tangent bundle"></a>Tangent bundle</h2><p>Now we treat <em>all</em> tangent spaces as a vector bundle. Let $M$ be a manifold of class $C^p$ with $p \geq 1$, define the tangent bundle by the disjoint union</p>
+<script type="math/tex; mode=display">
+T(M)=\bigsqcup_{x \in M}T_xM.</script><p>This is a vector bundle if we define the projection by</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\pi: T(M) &\to M \\
+    y \in T_xM &\mapsto x
+\end{aligned}</script><p>and we will verify it soon. First let’s see an example. Below is a visualization of the tangent bundle of $\frac{x^2}{4}+\frac{y^2}{3}=1$, denoted by red lines:</p>
+<p><img src="\img\tangent-bundle" alt="image-20201219160517699"></p>
+<p>Also we can see $\pi$ maps points on the blue line to a point on the curve, which is $B$. </p>
+<p>To show that a tangent bundle of a manifold is a vector bundle, we need to verify that it satisfies three conditions we mentioned in previous post. Let $(U,\varphi)$ be a chart of $M$ such that $\varphi(U)$ is open in $\mathbf{E}$, then tangent vectors can be represented by $(U,\varphi,v)$. We get a bijection</p>
+<script type="math/tex; mode=display">
+\tau_U:\pi^{-1}(U) = T(U) \to U \times \mathbf{E}</script><p>by definition of tangent vectors as equivalence classes. Let $z_x$ be a tangent vector to $U$ at $x$, then there exists some $v \in \mathbf{E}$ such that $(U,\varphi,v)$ represents $z$. On the other hand, for some $v \in \mathbf{E}$ and $x \in U$, $(U,\varphi,v)$ represents some tangent vector at $x$. Explicitly,</p>
+<script type="math/tex; mode=display">
+\tau_{U}(z_x)=(x,v)=(\pi(z_x),[(\varphi^{-1})'(\pi(z_x))]^{-1}(z_x))</script><p>Further we get the following diagram commutative (which establishes <strong>VB 1</strong>):</p>
+<p><img src="\img\tangent-diagram" alt="diagram-000001"></p>
+<p>For <strong>VB 2</strong> and <strong>VB 3</strong> we need to check different charts. Let $(U_i,\varphi_i)$, $(U_j,\varphi_j)$ be two charts. Define $\varphi_{ji}=\varphi_j \circ \varphi_i^{-1}$ on $\varphi_i(U_i \cap U_j)$, and respectively we write $\tau_{U_i}=\tau_i$ and $\tau_{U_j}=\tau_j$. Then we get a transition mapping</p>
+<script type="math/tex; mode=display">
+\tau_{ji}:(\tau_j \circ \tau_i^{-1}):(U_i \cap U_j) \times \mathbf{E} \to (U_i \cap U_j) \times \mathbf{E}.</script><p>One can verify that</p>
+<script type="math/tex; mode=display">
+\tau_{ji}(x,v)=(\varphi_{ji}(x),D\varphi_{ji}(x) \cdot v)</script><p>for $x \in U_i \cap U_j$ and $v \in \mathbf{E}$. Since $D\varphi_{ji} \in C^{p-1}$ and $D\varphi_{ji}(x)$ is a toplinear isomorphism, we see</p>
+<script type="math/tex; mode=display">
+x \mapsto (\tau_j \circ \tau_i^{-1})_x=(\varphi_{ji}(x),D\varphi_{ji}(x)\cdot(\cdot))</script><p>is a morphism, which goes for <strong>VB 3</strong>. It remains to verify <strong>VB 2</strong>. To do this we need a fact from Banach space theory:</p>
+<blockquote>
+<p>If $f:U \to L(\mathbf{E},\mathbf{F})$ is a $C^k$-morphism, then the map of $U \times \mathbf{E}$ into $\mathbf{F}$ given by</p>
+<script type="math/tex; mode=display">
+(x,v) \mapsto [f(x)](v)</script><p>is a $C^k$-morphism.</p>
+</blockquote>
+<p>Here, we have $f(x)=\tau_{ji}(x,\cdot)$ and to conclude, $\tau_{ji}$ is a $C^{p-1}$-morphism. It is also an isomorphism since it has an inverse $\tau_{ij}$. Following the definition of manifold, we can conclude that $T(U)$ has a unique <strong>manifold structure</strong> such that $\tau_i$ are morphisms (there will be a formal proof in next post about any total space of a vector bundle). By <strong>VB 1</strong>, we also have $\pi=\tau_i\circ pr$, which makes it a morphism as well. On each fiber $\pi^{-1}(x)$, we can freely transport the topological vector space structure of any $\mathbf{E}$ such that $x$ lies in $U_i$, by means of $\tau_{ix}$. Since $f(x)$ is a toplinear isomorphism, the result is independent of the choice of $U_i$. <strong>VB 2</strong> is therefore established. </p>
+<hr>
+<p>Using some fancier word, we can also say that $T:M \to T(M)$ is a <strong>functor</strong> from the category of $C^p$-manifolds to the category of vector bundles of class $C^{p-1}$.</p>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"><a href="../../../../tags/Serge-Lang/" class="post-tags__link button"># Serge Lang</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../../../2021/01/10/the-grothendieck-group/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            The Grothendienck Group
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../../11/28/A-continuous-function-sending-Lp-functions-to-L1/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            A Continuous Function Sending L^p Functions to L^1
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2020/12/22/vector-bundle-2/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

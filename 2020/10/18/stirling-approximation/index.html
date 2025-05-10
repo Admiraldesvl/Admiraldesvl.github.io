@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>Stirling公式的几种经典估计 | Desvl&#39;s blog</title>
+
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="Stirling公式对于$\Gamma$函数，我们有一个经典的极限式（证明请见ProofWiki）。  \lim_{n\to\infty}\frac{\Gamma(x+1)}{(x&#x2F;e)^x\sqrt{2\pi{x}}}&#x3D;1.利用这个式子，我们能立刻计算出一些比较难算的极限。注意到这个公式如果写成自然数的形式，有  \lim_{n \to\infty}\frac{n!}{(n&#x2F;e)^n\sqrt{">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Stirling公式的几种经典估计">
+<meta property="og:url" content="https://desvl.xyz/2020/10/18/stirling-approximation/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="Stirling公式对于$\Gamma$函数，我们有一个经典的极限式（证明请见ProofWiki）。  \lim_{n\to\infty}\frac{\Gamma(x+1)}{(x&#x2F;e)^x\sqrt{2\pi{x}}}&#x3D;1.利用这个式子，我们能立刻计算出一些比较难算的极限。注意到这个公式如果写成自然数的形式，有  \lim_{n \to\infty}\frac{n!}{(n&#x2F;e)^n\sqrt{">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-10-18T13:06:33.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:10.548Z">
+<meta property="article:author" content="Desvl">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        Stirling公式的几种经典估计
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2020/10/" class="post-meta__date button">2020-10-18</a>
+        
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Stirling%E5%85%AC%E5%BC%8F"><span class="toc-number">1.</span> <span class="toc-text">Stirling公式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E6%95%B0%E5%88%97%E7%9A%84%E5%8F%96%E5%80%BC%E5%8C%BA%E9%97%B4"><span class="toc-number">2.</span> <span class="toc-text">原数列的取值区间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%B3%E7%A7%BB-Gamma-%E5%87%BD%E6%95%B0"><span class="toc-number">3.</span> <span class="toc-text">平移$\Gamma$函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%B0%E8%AE%A1%E5%AE%9A%E7%A7%AF%E5%88%86"><span class="toc-number">4.</span> <span class="toc-text">估计定积分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%9D%E5%A4%96%E5%86%85%E5%AE%B9"><span class="toc-number">5.</span> <span class="toc-text">额外内容</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2020-11-9%E6%9B%B4%E6%96%B0"><span class="toc-number">5.1.</span> <span class="toc-text">2020.11.9更新</span></a></li></ol></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Stirling%E5%85%AC%E5%BC%8F"><span class="toc-number">1.</span> <span class="toc-text">Stirling公式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E6%95%B0%E5%88%97%E7%9A%84%E5%8F%96%E5%80%BC%E5%8C%BA%E9%97%B4"><span class="toc-number">2.</span> <span class="toc-text">原数列的取值区间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%B3%E7%A7%BB-Gamma-%E5%87%BD%E6%95%B0"><span class="toc-number">3.</span> <span class="toc-text">平移$\Gamma$函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%B0%E8%AE%A1%E5%AE%9A%E7%A7%AF%E5%88%86"><span class="toc-number">4.</span> <span class="toc-text">估计定积分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%9D%E5%A4%96%E5%86%85%E5%AE%B9"><span class="toc-number">5.</span> <span class="toc-text">额外内容</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2020-11-9%E6%9B%B4%E6%96%B0"><span class="toc-number">5.1.</span> <span class="toc-text">2020.11.9更新</span></a></li></ol></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h2 id="Stirling公式"><a href="#Stirling公式" class="headerlink" title="Stirling公式"></a>Stirling公式</h2><p>对于$\Gamma$函数，我们有一个经典的极限式（证明请见<a target="_blank" rel="noopener" href="https://proofwiki.org/wiki/Stirling%27s_Formula">ProofWiki</a>）。</p>
+<script type="math/tex; mode=display">
+\lim_{n\to\infty}\frac{\Gamma(x+1)}{(x/e)^x\sqrt{2\pi{x}}}=1.</script><p>利用这个式子，我们能立刻计算出一些比较难算的极限。注意到这个公式如果写成自然数的形式，有</p>
+<script type="math/tex; mode=display">
+\lim_{n \to\infty}\frac{n!}{(n/e)^n\sqrt{2\pi{n}}}=1</script><p>所以我们能立刻计算出这个极限：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\lim_{n \to\infty}\sqrt\frac{n!}{n^n} &= \lim_{n \to\infty}\sqrt\frac{n!\cdot (n/e)^n\sqrt{2\pi{n}}}{n^n \cdot (n/e)^n\sqrt{2\pi n}} \\
+&= \lim_{n \to\infty} \sqrt\frac{(n/e)^n\sqrt{2\pi n}}{n^n} \\
+&=\frac{1}{e}
+\end{aligned}</script><p>但是Stirling公式不仅仅如此。这篇博客里我们会见到几个比较经典的估计。</p>
+<h2 id="原数列的取值区间"><a href="#原数列的取值区间" class="headerlink" title="原数列的取值区间"></a>原数列的取值区间</h2><p>这一节我们会看到的结论是</p>
+<script type="math/tex; mode=display">
+1 < \frac{n!}{(n/e)^n\sqrt{2\pi n}}\leq\frac{e}{\sqrt{2\pi}}</script><p>如果在计算器里算一下右边的数，会发现，$\phi_n=\frac{n!}{(n/e)^n\sqrt{2\pi n}}$一直在$1$附近。</p>
+<p>对于$m=1,2,3,\dots$，在$y=\ln(x)$下方定义“折线函数”：</p>
+<script type="math/tex; mode=display">
+f(x)=(m+1-x)\ln{m}+(x-m)\ln(m+1)</script><p>其中$m \leq x \leq m+1$。在上方定义另一个“折线函数”：</p>
+<script type="math/tex; mode=display">
+g(x)=\frac{x}{m}-1+\ln{m}</script><p>其中$m-1/2 \leq x &lt; m+1/2$。如果画出$f$，$\ln{x}$，$g$的图像，会发现，$f$和$g$是对$\ln{x}$的拟合。且在$x \geq 1$时，我们有</p>
+<script type="math/tex; mode=display">
+f \leq \ln{x} \leq g.</script><p>所以计算定积分的时候就有</p>
+<script type="math/tex; mode=display">
+\int_1^n f(x)dx \leq \int_1^n \ln{x}dx=n\ln{n}-n+1 \leq \int_1^n g(x)dx</script><p>但是$f$和$g$的关系并不是那么简单。计算$f$的积分，我们发现</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\int_1^n f(x)dx &=\sum_{k=1}^{n-1}\int_{k}^{k+1}f(x)dx \\
+                &=\sum_{k=1}^{n-1}\left((k+\frac{1}{2})(\ln(k+1)-\ln{k})+(k+1)\ln{k}-k\ln(k+1)\right) \\
+                &=\ln(n!)-\frac{1}{2}\ln{n}
+\end{aligned}</script><p>而对于$g$，我们又有</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\int_1^n g(x)dx &= \left(\int_{1}^{\frac{2}{3}}+\sum_{k=2}^{n-1}\int_{k-\frac{1}{2}}^{k+\frac{1}{2}}+\int_{n-\frac{1}{2}}^n\right)g(x)dx \\
+                &= \frac{1}{8}+\sum_{k=2}^{n-1}\ln{k}+\frac{1}{2}\ln{n}-\frac{1}{8n} \\
+                &=\frac{1}{8}-\frac{1}{8n}+\ln(n!)-\frac{1}{2}\ln{n}
+\end{aligned}</script><p>这就说明</p>
+<script type="math/tex; mode=display">
+\int_1^n f(x)dx > \int_1^n g(x)dx -  \frac{1}{8}</script><p>总结上面几个不等式，我们得到，对$n&gt;1$：</p>
+<script type="math/tex; mode=display">
+\int_1^n g(x)dx -\frac{1}{8}<\int_1^n f(x)dx < \int_1^n g(x)dx</script><p>不等式各项都减去$\int_1^n \ln x dx$，我们又有</p>
+<script type="math/tex; mode=display">
+-\frac{1}{8n}+\ln(n!)-(\frac{1}{2}+n)\ln{n}+n < \ln(n!)-(n+\frac{1}{2})\ln{n}+n<\frac{1}{8}-\frac{1}{8n}+\ln(n!)-(n+\frac{1}{2})\ln{n}+n</script><p>由Stirling公式我们知道，</p>
+<script type="math/tex; mode=display">
+\ln(n!)-(n+\frac{1}{2})\ln{n} + n \to \ln\sqrt{2\pi}</script><p>而数列$x_n=-\frac{1}{8n}+\ln(n!)-(\frac{1}{2}+n)\ln{n}+n$是单调递增的，由上式可知收敛到$\ln\sqrt{2\pi}$。在不等式左边，我们取上确界$\ln\sqrt{2\pi}$。在不等式右边，我们取下确界$x_1+\frac{1}{8}=1$。这就让我们得到了</p>
+<script type="math/tex; mode=display">
+\ln\sqrt{2\pi}<\ln\frac{n!}{(n/e)^n\sqrt{n}}<1</script><p>这也就导致</p>
+<script type="math/tex; mode=display">
+1<\frac{n!}{(n/e)^n\sqrt{2\pi n}}\leq\frac{e}{\sqrt{2\pi}}</script><p>这对所有$n =1,2,3,\dots$都成立。</p>
+<h2 id="平移-Gamma-函数"><a href="#平移-Gamma-函数" class="headerlink" title="平移$\Gamma$函数"></a>平移$\Gamma$函数</h2><p>对于任意$c \in \mathbb{R}$，我们有</p>
+<script type="math/tex; mode=display">
+\lim_{x \to \infty}\frac{\Gamma(x+c)}{x^c\Gamma(x)}=1</script><p>这可以看成，把$\Gamma(x)$向左平移$c$后，在$x$足够大时，其值和$x^c\Gamma(x)$接近。这个等式的证明也是比较简单的，虽然计算比较繁琐，只需要利用Stirling公式。</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\lim_{x \to \infty}\frac{\Gamma(x+c)}{x^c\Gamma(x)} &=  \lim_{x \to \infty}\frac{\left(\frac{x+c-1}{e}\right)^{x+c-1}\sqrt{2\pi(x+c-1)}}{x^c\left(\frac{x-1}{e}\right)^{x-1}\sqrt{2\pi(x-1)}} \\
+&=\lim_{x \to \infty}\sqrt{\frac{x+c-1}{x-1}} \left(\frac{x+c-1}{ex}\right)^c\left(\frac{x+c-1}{x-1}\right)^{x-1}
+\end{aligned}</script><p>现在这三个因式的极限就很好计算了。显然我们有</p>
+<script type="math/tex; mode=display">
+\lim_{x \to \infty}\sqrt\frac{x+c-1}{x-1}=1</script><p>以及</p>
+<script type="math/tex; mode=display">
+\lim_{x \to \infty}\left(\frac{x+c-1}{ex}\right)^c=\frac{1}{e^c}.</script><p>最后，</p>
+<script type="math/tex; mode=display">
+\lim_{x \to \infty}\left(\frac{x+c-1}{x-1}\right)^{x-1}=\lim_{x \to \infty} \left(1+\frac{c}{x-1}\right)^{x-1}=e^c</script><p>故原极限为$1$。计算过程也非常精彩。注意到如果把$x$和$c$换成正整数$n$和整数$k$，我们又有</p>
+<script type="math/tex; mode=display">
+\lim_{n \to \infty}\frac{(n+k-1)!}{n^k(n-1)!}=1.</script><h2 id="估计定积分"><a href="#估计定积分" class="headerlink" title="估计定积分"></a>估计定积分</h2><p>结合Bernoulli不等式我们有</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\int_{-1}^1 (1-x^2)^ndx &\geq \int_{-1/\sqrt{n}}^{1/\sqrt{n}}(1-x^2)^ndx \\
+&\geq \int_{-1/\sqrt{n}}^{1/\sqrt{n}} (1-nx^2)dx \\
+&=\frac{4}{3\sqrt{n}}.
+\end{aligned}</script><p>接下来我们会给出一个比较精细的估计。实际上，</p>
+<script type="math/tex; mode=display">
+\lim_{n \to \infty}\sqrt{n}\int_{-1}^1 (1-x^2)^ndx=\sqrt{\pi}.</script><p>根据$B(x,y)$函数的定义，</p>
+<script type="math/tex; mode=display">
+B(x,y)=\int_0^1  t^{x-1}(1-t)^{y-1}dt=\frac{\Gamma(x)\Gamma(y)}{\Gamma(x+y)}</script><p>令$t=u^2，我们得到</p>
+<script type="math/tex; mode=display">
+B(x,y)=2\int_0^1 u^{2x-1}(1-u^2)^{y-1}du</script><p>代入$x=\frac{1}{2}$和$y=n+1$，我们就和所想要的结果很近了：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+B(\frac{1}{2},n+1)&=2\int_0^1(1-u^2)^ndu \\
+                  &=\int_{-1}^{1}(1-u^2)^ndu \\
+                  &=B(\frac{1}{2},n+1) \\
+                  &=\frac{\Gamma(\frac{1}{2})\Gamma(n+1)}{\Gamma(n+\frac{3}{2})}
+\end{aligned}</script><p>注意到，利用$B$函数的第二个表达式，我们是可以计算出$\Gamma(\frac{1}{2})$的。实际上，</p>
+<script type="math/tex; mode=display">
+B(\frac{1}{2},\frac{1}{2})=2\int_0^1\frac{1}{\sqrt{1-u^2}}du=\pi</script><p>从而$\Gamma(\frac{1}{2})=\sqrt{\pi}$。对于$B(\frac{1}{2},n+1)$，我们可以用到上面的平移公式了：</p>
+<script type="math/tex; mode=display">
+\lim_{n \to \infty}\frac{\Gamma(n+\frac{3}{2})}{\sqrt{n}\Gamma(n+1)}=1.</script><p>从而</p>
+<script type="math/tex; mode=display">
+\lim_{n \to \infty}\sqrt{n}\int_{-1}^{1}(1-x^2)^ndx=\lim_{n \to \infty} \frac{\sqrt{n}\Gamma(\frac{1}{2})\Gamma(n+1)}{\Gamma(n+\frac{1}{2})}=\sqrt{\pi}</script><h2 id="额外内容"><a href="#额外内容" class="headerlink" title="额外内容"></a>额外内容</h2><p>最后我们证明一个和Stirling公式没有关系的等式</p>
+<script type="math/tex; mode=display">
+\Gamma\left(\frac{1}{n}\right)\Gamma\left(\frac{2}{n}\right)\cdots\Gamma\left(\frac{n-1}{n}\right)=\frac{(2\pi)^{\frac{n-1}{2}}}{\sqrt{n}}</script><p>根据古典代数学基本定理，我们立刻有</p>
+<script type="math/tex; mode=display">
+1+x+x^2+\cdots+x^{n-1}=\prod_{k=1}^{n-1}\left(x-e^{\frac{2k\pi i}{n}}\right).</script><p>注意到另一方面</p>
+<script type="math/tex; mode=display">
+1+x+x^2+\cdots+x^{n-1}=\frac{x^{n}-1}{x-1}</script><p>$x=1$时，我们有</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+n=\prod_{k=1}^{n-1}\left(1-e^{\frac{2k\pi i}{n}}\right)&=\prod_{k=1}^{n-1}\left( e^{-\frac{k\pi i}{n}}-e^{\frac{k \pi i}{n}} \right)e^{\frac{k \pi i}{n}} \\
+&=\prod_{k=1}^{n-1}-2i\sin\frac{k\pi}{n}e^{\frac{k\pi i}{n}} \\
+&=\left\vert \prod_{k=1}^{n}-2i\sin\frac{k\pi}{n}e^{\frac{k\pi i}{n}}\right\vert \\
+&=2^{n-1}\prod_{k=1}^{n-1}\sin\frac{k\pi}{n}
+\end{aligned}</script><p>此即</p>
+<script type="math/tex; mode=display">
+\prod_{k=1}^{n-1}\sin\frac{k\pi}{n}=\frac{n}{2^{n-1}}.</script><p>考虑到<a href="/2019/10/31/euler-reflection/">欧拉反射公式</a>，对于$1 \leq k \leq n-1$，我们有</p>
+<script type="math/tex; mode=display">
+\Gamma\left(\frac{k}{n}\right)\Gamma\left(\frac{n-k}{n}\right)=\frac{\pi}{\sin\frac{k\pi}{n}}=\frac{\pi}{\sin\frac{(n-k)\pi}{n}}</script><p>如果$n$为奇数，那么根据上面的结果，我们能得到</p>
+<script type="math/tex; mode=display">
+\Gamma\left(\frac{1}{n}\right)\Gamma\left(\frac{2}{n}\right)\cdots\Gamma\left(\frac{n-1}{n}\right)=\prod_{k=1}^{\frac{n-1}{2}}\Gamma\left(\frac{n-k}{n}\right)\Gamma\left(\frac{k}{n}\right)=\frac{\pi^{(n-1)/2}}{\prod_{k=1}^{(n-1)/2}\sin(k\pi/n)}</script><p>这时我们只用到了一半数量的$k$。要用上另一半的$k$，我们只需要把$k$和$n-k$交换顺序，从而得到了</p>
+<script type="math/tex; mode=display">
+\left[\Gamma\left(\frac{1}{n}\right)\Gamma\left(\frac{2}{n}\right)\cdots\Gamma\left(\frac{n-1}{n}\right)\right]^2=\frac{\pi^{n-1}}{n/2^{n-1}}</script><p>即为所得。如果$n$为偶数，只需要把$1/2$这一项单独拿出来分两段计算即可。</p>
+<hr>
+<h3 id="2020-11-9更新"><a href="#2020-11-9更新" class="headerlink" title="2020.11.9更新"></a>2020.11.9更新</h3><p>我们给出两个看上去很难计算的极限式。</p>
+<blockquote>
+<script type="math/tex; mode=display">
+\lim_{n \to \infty}\left(1+\frac{1}{n}\right)^{n^2}\frac{n!}{n^n\sqrt{n}}</script></blockquote>
+<p>如果用Stirling公式直接替换$n!$，这个极限的结果是显然的。</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\lim_{n \to \infty}\left(1+\frac{1}{n}\right)^{n^2}\frac{n!}{n^n\sqrt{n}} &=\lim_{n \to \infty}\left(1+\frac{1}{n}\right)^{n^2}\frac{n!}{n^n\sqrt{n}}\frac{(n/e)^n\sqrt{2\pi n}}{n!} \\
+&=\lim_{n \to \infty}\left(1+\frac{1}{n}\right)^{n^2}\frac{\sqrt{2\pi}}{e^n}
+\end{aligned}</script><p>所以只需要求$(1+\frac{1}{n})^{n^2}e^{-n}$的极限即可。但是可千万别想当然地认为这个极限是$1$。如果我们利用Taylor展开，能得到</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\lim_{n \to \infty}\left(1+\frac{1}{n}\right)^{n^2}e^{-n}&=\lim_{n \to \infty}\exp\left(n^2\ln\left(1+\frac{1}{n}\right)-n\right) \\
+&=\lim_{n \to \infty} \exp\left(n^2\left(\frac{1}{n}-\frac{1}{2n^2}+o\left(\frac{1}{n^2}\right)\right)-n\right) \\
+&=\frac{1}{\sqrt{e}}
+\end{aligned}</script><p>所以原极限为$\sqrt\frac{2\pi}{e}$</p>
+<blockquote>
+<script type="math/tex; mode=display">
+\lim_{n\to\infty} \sqrt{n}\prod_{k=1}^{n}\frac{e^{1-\frac{1}{k}}}{\left(1+\frac{1}{k}\right)^k}</script></blockquote>
+<p>注意$n$项的分子相乘，有$\exp(n-1-\frac{1}{2}-\cdots-\frac{1}{n})$，而调和级数是发散的，我们想得到收敛，自然就要想到Euler常数$\gamma=\lim_{n\to\infty}\left(1+\frac{1}{2}+\cdots+\frac{1}{n}-\ln{n}\right)$。我们似乎也没有办法直接化简分母，我们知道$(1+1/k)^k$的极限是$e$，但是这里似乎用不上。所以不如先把分母展开化简一下。</p>
+<script type="math/tex; mode=display">
+\prod_{k=1}^{n}\left(1+\frac{1}{k}\right)^k=\frac{2^1\cdot3^2\cdot4^3\cdot4^5\cdots{(n+1)^n}}{1^1\cdot2^2\cdot3^3\cdot4^4\cdots{n^n}}=\frac{(n+1)^n}{n!}</script><p>所以原极限可以写成</p>
+<script type="math/tex; mode=display">
+\lim_{n \to \infty}\sqrt{n}\frac{n!e^{n-1-\frac{1}{2}-\cdots-\frac{1}{n}}}{(n+1)^n}</script><p>这时候就可以直接使用Stirling公式了。</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\lim_{n \to \infty}\sqrt{n}\frac{n!e^{n-1-\frac{1}{2}-\cdots-\frac{1}{n}}}{(n+1)^n} &=\lim_{n\to\infty}\sqrt{n}\frac{n!e^{n-1-\frac{1}{2}-\cdots-\frac{1}{n}}}{(n+1)^n}\cdot\frac{(n/e)^n\sqrt{2\pi n}}{n!} \\
+&=\sqrt{2\pi}\lim_{n\to\infty}\frac{n^{n+1}}{(n+1)^n}e^{-1-\frac{1}{2}-\cdots-\frac{1}{n}} \\
+&=\sqrt{2\pi}\lim_{n\to\infty}\left(1+\frac{1}{n}\right)^{-n}\cdot e^{\ln{n}}\cdot e^{-1-\frac{1}{2}-\frac{1}{3}-\cdots-\frac{1}{n}}
+\end{aligned}</script><p>而$\lim_{n\to\infty}\left(1+\frac{1}{n}\right)^{-n}=e^{-1}$，$\lim_{n\to\infty}e^{\ln{n}-1-\frac{1}{2}-\frac{1}{3}-\cdots-\frac{1}{n}}=e^{-\gamma}$，我们得到原极限为$\frac{\sqrt{2\pi}}{e^{1+\gamma}}$</p>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../../11/08/Partition-of-Unity-on-Different-Manifolds/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            Partition of Unity on Different Manifolds (Part 1. Introduction)
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../15/G-K-Z-theorem/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            A proof of the ordinary Gleason-Kahane-Żelazko theorem for complex functionals
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2020/10/18/stirling-approximation/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

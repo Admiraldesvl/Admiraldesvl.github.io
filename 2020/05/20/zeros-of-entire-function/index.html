@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>More properties of zeros of an entire function | Desvl&#39;s blog</title>
+
+
+    <meta name="keywords" content="Real and Complex Analysis, Walter Rudin">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="What’s going on againIn this post we discussed the topological properties of the zero points of an entire nonzero function, or roughly, how those points look like. The set of zero points contains no l">
+<meta property="og:type" content="article">
+<meta property="og:title" content="More properties of zeros of an entire function">
+<meta property="og:url" content="https://desvl.xyz/2020/05/20/zeros-of-entire-function/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="What’s going on againIn this post we discussed the topological properties of the zero points of an entire nonzero function, or roughly, how those points look like. The set of zero points contains no l">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-05-20T18:11:12.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:10.751Z">
+<meta property="article:author" content="Desvl">
+<meta property="article:tag" content="Real and Complex Analysis">
+<meta property="article:tag" content="Walter Rudin">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        More properties of zeros of an entire function
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2020/05/" class="post-meta__date button">2020-05-20</a>
+        
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/" class="button">Analysis</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/Complex-Analysis/" class="button">Complex Analysis</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#What%E2%80%99s-going-on-again"><span class="toc-number">1.</span> <span class="toc-text">What’s going on again</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Jensen%E2%80%99s-formula"><span class="toc-number">2.</span> <span class="toc-text">Jensen’s formula</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Several-applications"><span class="toc-number">3.</span> <span class="toc-text">Several applications</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#The-number-of-zeros-of-f-in-overline-D-0-r"><span class="toc-number">3.1.</span> <span class="toc-text">The number of zeros of $f$ in $\overline{D}(0;r)$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Examples-based-on-different-M-r"><span class="toc-number">3.2.</span> <span class="toc-text">Examples based on different $M(r)$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Lower-bound-of-z-n-r"><span class="toc-number">3.3.</span> <span class="toc-text">Lower bound of $|z_{n(r)}|$</span></a></li></ol></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#What%E2%80%99s-going-on-again"><span class="toc-number">1.</span> <span class="toc-text">What’s going on again</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Jensen%E2%80%99s-formula"><span class="toc-number">2.</span> <span class="toc-text">Jensen’s formula</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Several-applications"><span class="toc-number">3.</span> <span class="toc-text">Several applications</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#The-number-of-zeros-of-f-in-overline-D-0-r"><span class="toc-number">3.1.</span> <span class="toc-text">The number of zeros of $f$ in $\overline{D}(0;r)$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Examples-based-on-different-M-r"><span class="toc-number">3.2.</span> <span class="toc-text">Examples based on different $M(r)$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Lower-bound-of-z-n-r"><span class="toc-number">3.3.</span> <span class="toc-text">Lower bound of $|z_{n(r)}|$</span></a></li></ol></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h2 id="What’s-going-on-again"><a href="#What’s-going-on-again" class="headerlink" title="What’s going on again"></a>What’s going on again</h2><p>In <a href="/2020/03/14/topological-property-of-the-zeros-of-a-holomorphic-function/">this post</a> we discussed the topological properties of the zero points of an entire nonzero function, or roughly, how those points look like. The set of zero points contains no limit point, and at most countable (countable or finite). So if it’s finite, then we can find them out one by one. For example, the function $f(z)=z$ has simply one zero point. But what if it’s just countable? How fast the number grows?</p>
+<p>Another question. Suppose we have an entire function $f$, and the zeros of $f$, namely $z_1,z_2,\cdots,z_n$, are ordered increasingly by moduli:</p>
+<script type="math/tex; mode=display">
+|z_1| \leq |z_2| \leq \cdots \leq |z_n| \leq \cdots</script><p>Is it possible to get a fine enough estimation of $|z_n|$? Interesting enough, we can get there with the help of Jensen’s formula.</p>
+<h2 id="Jensen’s-formula"><a href="#Jensen’s-formula" class="headerlink" title="Jensen’s formula"></a>Jensen’s formula</h2><blockquote>
+<p>Suppose $\Omega=D(0;R)$, $f \in H(\Omega)$, $f(0) \neq 0$, $0&lt;r&lt;R$, and $z_1,z_2,\cdots,z_{n(r)}$ are the zeros of $f$ in $\overline{D}(0;R)$, then</p>
+<script type="math/tex; mode=display">
+|f(0)|\prod_{n=1}^{n(r)}\frac{r}{|z_n|}=\exp\left[\frac{1}{2\pi}\int_{-\pi}^{\pi}\log|f(re^{i\theta})|d\theta\right]</script></blockquote>
+<p>There is no need to worry about the assumption $f(0) \neq 0$. Take another look at  <a href="/2020/03/14/topological-property-of-the-zeros-of-a-holomorphic-function/#Proof">this proof</a>. Every zero point $a$ has a unique positive number $m$ such that $f(z)=(z-a)^mg(z)$ and $g \in H(\Omega)$ but $g(a) \neq 0$. The number $m$ is called the order of the zero at $a$. Therefore if we have $f(0)=0$ we can simply consider another function, namely $\frac{f}{z^m}$ where $m$ is the order of zero at $0$.</p>
+<p>We are not proving this identity at this point. But it can be done by considering the following function</p>
+<script type="math/tex; mode=display">
+g(z)=f(z)\prod_{n=1}^{m}\frac{r^2-\overline{z}_nz}{r(z_n-z)}\prod_{n=m+1}^{n(r)}\frac{z_n}{z_n-z}</script><p>where $m$ is found by ordering $z_j$ in such a way that $z_1,\cdots,z_m \in D(0;r)$ and $|z_{m+1}|=\cdots=|z_{n}|$. One can prove this identity by considering $|g(0)|$ as well as $\log|g(re^{i\theta})|$.</p>
+<h2 id="Several-applications"><a href="#Several-applications" class="headerlink" title="Several applications"></a>Several applications</h2><h3 id="The-number-of-zeros-of-f-in-overline-D-0-r"><a href="#The-number-of-zeros-of-f-in-overline-D-0-r" class="headerlink" title="The number of zeros of $f$ in $\overline{D}(0;r)$"></a>The number of zeros of $f$ in $\overline{D}(0;r)$</h3><p>For simplicity we shall assume $f(0)=1$ which has no loss of generality. Let</p>
+<script type="math/tex; mode=display">
+M(r)=\sup_{\theta}|f(re^{i\theta})|\quad 0<r<\infty</script><p>and $n(r)$ be the number of zeros of $f$ in $\overline{D}(0;r)$. By the maximum modulus theorem, we have</p>
+<script type="math/tex; mode=display">
+\log|f(2re^{i\theta})| \leq |f(2re^{i\theta})| \leq M(2r)</script><p>If we insert Jensen’s formula into this inequality and order $|z_n|$ by increasing moduli, we get</p>
+<script type="math/tex; mode=display">
+\log M(2r) \geq \frac{1}{2\pi}\int_{-\pi}^{\pi}\log|f(2re^{i\theta})|d\theta=\sum_{n=1}^{n(2r)}\log\frac{2r}{|z_n|}\geq\sum_{n=1}^{n(r)}\log\frac{2r}{|z_n|}\geq n(r)\log2</script><p>Which implies</p>
+<script type="math/tex; mode=display">
+n(r)\leq\log_2M(2r)</script><p>So $n(r)$ is controlled by $M(2r)$.  The second and third inequalities look tricky, which require more explanation.</p>
+<p>First we should notice the fact that $z_n \in \overline{D}(0;R)$ for all $R \in \mathbb{R}$. Hence we have $\log\frac{2r}{|z_n|} \geq \log1=0$ for all $z_n \in \overline{D}(0;R)$.   Hence the second inequality follows. For the third one, we simply have</p>
+<script type="math/tex; mode=display">
+\sum_{n=1}^{n(r)}\log\frac{2r}{|z_n|}=\sum_{n=1}^{n(r)}(\log2+\log\frac{r}{|z_n|}) \geq n(r)\log2.</script><p>So this is it, the rapidity with which $n(r)$ can grow is dominated by $M(r)$.  Namely, the number of zeros of $f$ in the closed disc with radius $r$ is controlled by the maximum modulus of $f$ on a circle with bigger radius. </p>
+<h3 id="Examples-based-on-different-M-r"><a href="#Examples-based-on-different-M-r" class="headerlink" title="Examples based on different $M(r)$"></a>Examples based on different $M(r)$</h3><p>Let’s begin with a simple example. Let $f(z)=1$, we have $M(r)=1$ for all $r$, but also we have $n(r)=0$, in which sense this estimation does nothing. Indeed, as long as $M(r)$ is bounded by a constant, which implies $f(z)$ is bounded, then by Liouville’s theorem, $f(z)$ is constant and this estimation is not available.</p>
+<p>But if $M(r)$ grows properly, things become interesting. For example, if we have</p>
+<script type="math/tex; mode=display">
+M(r) \leq \exp(Ar^k)</script><p>where $A$ and $k$ are given positive numbers, we have a good enough estimation by</p>
+<script type="math/tex; mode=display">
+n(r) \leq \frac{A+(2r)^k}{\log2}</script><p>This estimation becomes interesting if we consider the logarithm of $n(r)$ and $r$, that is</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\limsup_{r\to\infty}\frac{\log{n(r)}}{\log{r}} &\leq \lim_{r\to\infty} \frac{\log(A+(2r)^k)-\log{2}}{\log{r}} \\
+                                               & =k
+\end{aligned}</script><p>If we have $f(z)=1-\exp(z^k)$ where $k$ is a positive integer, we have $n(r) \sim \frac{kr^k}{\pi}$, also</p>
+<script type="math/tex; mode=display">
+\lim_{r\to\infty}\frac{\log{n(r)}}{\log r}=k</script><h3 id="Lower-bound-of-z-n-r"><a href="#Lower-bound-of-z-n-r" class="headerlink" title="Lower bound of $|z_{n(r)}|$"></a>Lower bound of $|z_{n(r)}|$</h3><p>We’ll see here, how to evaluate the lower bound of $|z_{n(r)}|$ using Jensen’s formula, provided that $M(r)$, or simply the upper bound of $f(z)$ is properly described. Without loss of generality we shall assume that $f(0)=1$. Also, we assume that the zero points of $f(z)$ are ordered by increasing moduli.</p>
+<p>First we still consider</p>
+<script type="math/tex; mode=display">
+M(r) \leq \exp(Ar^k)</script><p>and see what will happen.</p>
+<p>By Jensen’s, we have</p>
+<script type="math/tex; mode=display">
+\prod_{n=1}^{n(r)}\frac{r}{|z_n|}=\exp\left[\frac{1}{2\pi}\int_{-\pi}^{\pi}\log|f(re^{i\theta})|d\theta\right] \leq \exp{Ar^k}</script><p>This gives</p>
+<script type="math/tex; mode=display">
+\prod_{n=1}^{n(r)}|z_n| \geq r^{n(r)}\exp(-Ar^k)</script><p>By the arrangement of $\{z_n\}$, we have</p>
+<script type="math/tex; mode=display">
+|z_{n(r)}| \geq \sqrt[n(r)]{\prod_{n=1}^{n(r)}|z_n|}\geq r\exp(-Ar^{k-n(r)})</script><hr>
+<p>Another example is when we have</p>
+<script type="math/tex; mode=display">
+|f(z)| \leq \exp(A|\Im{z}|)</script><p>where $\Im{z}$ means the imagine part of $z$.</p>
+<p>We shall notice that in this case,</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\frac{1}{2\pi}\int_{-\pi}^{\pi}\log|f(re^{i\theta})|d\theta &\leq \frac{1}{2\pi}\int_{-\pi}^{\pi}A|r\sin\theta|d\theta=\frac{2Ar}{\pi}
+\end{aligned}</script><p>Following Jensen’s formula, we therefore have</p>
+<script type="math/tex; mode=display">
+|z_{n(r)}| \geq \exp(\frac{2A}{\pi}r^{1-n(r)})</script>
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"><a href="../../../../tags/Real-and-Complex-Analysis/" class="post-tags__link button"># Real and Complex Analysis</a><a href="../../../../tags/Walter-Rudin/" class="post-tags__link button"># Walter Rudin</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../21/jordan-decomposition/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            矩阵Jordan标准形的原理
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../17/linear-ode-but-quotient-space/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            Linear ODE but Quotient Spaces
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2020/05/20/zeros-of-entire-function/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

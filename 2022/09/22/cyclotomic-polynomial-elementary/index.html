@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>Properties of Cyclotomic Polynomials | Desvl&#39;s blog</title>
+
+
+    <meta name="keywords" content="Exercise solution, Serge Lang">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="In this post we study cyclotomic polynomials in field theory and deduce some baisc properties of it. We will also use it to solve some problems in field theory.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Properties of Cyclotomic Polynomials">
+<meta property="og:url" content="https://desvl.xyz/2022/09/22/cyclotomic-polynomial-elementary/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="In this post we study cyclotomic polynomials in field theory and deduce some baisc properties of it. We will also use it to solve some problems in field theory.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-09-22T14:21:25.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:09.841Z">
+<meta property="article:author" content="Desvl">
+<meta property="article:tag" content="Exercise solution">
+<meta property="article:tag" content="Serge Lang">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        Properties of Cyclotomic Polynomials
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2022/09/" class="post-meta__date button">2022-09-22</a>
+        
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/" class="button">Algebra</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/Field-Theory/" class="button">Field Theory</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/Galois-Theory/" class="button">Galois Theory</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h1 id="Background-in-Basic-Field-Theory"><a href="#Background-in-Basic-Field-Theory" class="headerlink" title="Background in Basic Field Theory"></a>Background in Basic Field Theory</h1><p>Let $K$ be a field (in this post we mostly assume that $K \supset \mathbb{Q}$) and $n$ an integer $&gt;1$ which is not divisible by the characteristic of $K$. Then the polynomial</p>
+<script type="math/tex; mode=display">
+X^n-1</script><p>is separable because its derivative is $nX^{n-1} \ne 0$. Hence in the algebraic closure $\overline{K}$, the polynomial has $n$ distinct roots, which forms a group $U$, and is cyclic. In fact, as an exercise, one can show that, for a field $k$, any subgroup $U$ of the multiplicative group $k^\ast$ is a cyclic group.</p>
+<p>The generator $\zeta_n$ of $U$ is called the primitive $n$-th root of unity. Let $K=\mathbb{Q}$ and $L$ be the smallest extension that contains all elements of $U$, then we have $L=\mathbb{Q}(\zeta_n)$. As a matter of fact, $L/K$ is a Galois extension (to be shown later), and the cyclotomic polynomial $\Phi_n(X)$ is the irreducible polynomial of $\zeta_n$ over $\mathbb{Q}$. We first need to find the degree $[L:K]$.</p>
+<blockquote>
+<p><strong>Proposition 1.</strong> Notation being above, $L/K$ is Galois, the Galois group $\operatorname{Gal}(L/K) \cong (\mathbb{Z}/n\mathbb{Z})^\ast$ (the group of units in $\mathbb{Z}/n\mathbb{Z}$) and $[L:K]=\varphi(n)$.</p>
+</blockquote>
+<p>Let’s first elaborate the fact that $|(\mathbb{Z}/n\mathbb{Z})^\ast|=\varphi(n)$. Let $[0],[1],\dots,[n-1]$ be representatives of $\mathbb{Z}/n\mathbb{Z}$. An element $[x]$ in $\mathbb{Z}/n\mathbb{Z}$ is a unit if and only if there exists $[y]$ such that $[xy]=[1]$, which is to say, $xy \equiv 1 \mod n$. Notice that $xy \equiv 1 \mod n$ if and only if $xy+mn=1$ for some $y,n \in \mathbb{Z}$, if and only if $\gcd(x,n)=1$. Therefore $|(\mathbb{Z}/n\mathbb{Z})^\ast|=\varphi(n)$ is proved.</p>
+<p>The proof can be produced by two lemmas, the first of which is independent to the characteristic of the field.</p>
+<blockquote>
+<p><strong>Lemma 1.</strong> Let $k$ be a field and $n$ be not divisible by the characteristic $p$. Let $\zeta=\zeta_n$ be a primitive $n$-th root of unity in $\overline{k}$, then $(\mathbb{Z}/n\mathbb{Z})^\ast \supset \operatorname{Gal}(k(\zeta)/k)$ and therefore $[k(\zeta):k] \le \varphi(n)$. Besides, $k(\zeta)/k$ is a normal abelian extension.</p>
+</blockquote>
+<p><em>Proof.</em> Let $\sigma$ be an embedding of $k(\zeta)$ in $\overline{k}$ over $k$, then</p>
+<script type="math/tex; mode=display">
+(\sigma\zeta)^n=\sigma(\zeta^n)=\sigma(1)=1</script><p>so that $\sigma\zeta$ is also an $n$-th root of unity also. Hence $\sigma\zeta=\zeta^i$ for some $i=i(\sigma)$, uniquely determined modulo $n$. It follows that $\sigma$ maps $k(\zeta)$ into itself. This is to say, $k(\zeta)$ is normal over $k$. Let $\tau$ be another automorphism of $k(\zeta)$ over $k$ then</p>
+<script type="math/tex; mode=display">
+\sigma\tau\zeta=\zeta^{i(\sigma)i(\tau)}.</script><p>It follows that $i(\sigma)$ and $i(\tau)$ are prime to $n$ (otherwise, $\sigma\zeta$ would have a period smaller than $n$, implying that the period of $\zeta$ is smaller than $n$, which is absurd). Therefore for each $\sigma \in \operatorname{Gal}(k(\zeta)/k)$, $i(\sigma)$ can be embedded into $(\mathbb{Z}/n\mathbb{Z})^\ast$, thus proving our theorem. $\square$</p>
+<p>It is easy to find an example with strict inclusion. One only needs to look at $k=\mathbb{R}$ or $\mathbb{C}$.</p>
+<blockquote>
+<p><strong>Lemma 2.</strong> Let $\zeta=\zeta_n$ be a primitive $n$-th root of polynomial over $\mathbb{Q}$, then for any $p \nmid n$, $\zeta^p$ is also a primitive $n$-th root of unity.</p>
+</blockquote>
+<p><em>Proof.</em> Let $f(X)$ be the irreducible polynomial of $\zeta$ over $\mathbb{Q}$, then $f(X)|(X^n-1)$ by definition. As a result we can write $X^n-1=f(X)h(X)$ where $h(X)$ has leading coefficient $1$. By Gauss’s lemma, both $f$ and $h$ have integral coefficients.</p>
+<p>Suppose $\zeta^p$ is not a root of $f$. Since $(\zeta^p)^n-1=(\zeta^n)^p-1=0$, it follows that $\zeta^p$ is a root of $h$, and $\zeta$ is a root of $h(X^p)$. As a result, $f(X)$ divides $h(X^p)$ and we write</p>
+<script type="math/tex; mode=display">
+h(X^p)=f(X)g(X).</script><p>Again by Gauss’s lemma, $g(X)$ has integral coefficients. </p>
+<p>Next we reduce these equations in $\mathbf{F}_p=\mathbb{Z}/p\mathbb{Z}$. We firstly have</p>
+<script type="math/tex; mode=display">
+\overline{f}(X)\overline{g}(X)=\overline{h}(X^p).</script><p>By Fermat’s little theorem $a^p=a$ for all $a \in \mathbf{F}_q$, we also have</p>
+<script type="math/tex; mode=display">
+\overline{h}(X^p)=\overline{h}(X)^p.</script><p>Therefore</p>
+<script type="math/tex; mode=display">
+\overline{f}(X)\overline{g}(X)=\overline{h}(X)^p,</script><p>which implies that $\overline{f}(X)|\overline{h}(X)^p$. Hence $\overline{f}$ and $\overline{h}$ must have a common factor. As a result, $X^n-\overline{1}=\overline{f}(X)\overline{h}(X)$ has multiple roots in $\mathbf{F}_p$, which is impossible because of our choice of $p$. $\square$</p>
+<p>Now we are ready for Proposition 1.</p>
+<p><em>Proof of Proposition 1.</em> Since $\mathbb{Q}$ is a perfect field, $\mathbb{Q}(\zeta)/\mathbb{Q}$ is automatically separable. This extension is Galois because of lemma 1. By lemma 1, it suffices to show that $[\mathbb{Q}(\zeta):\mathbb{Q}] \ge \varphi(n)$.</p>
+<p>Recall in elementary group theory, if $G$ is a finite cyclic group of order $m$ and $x$ is a generator of $G$, then the set of generators consists elements of the form $x^\nu$ where $\nu \nmid m$. In this occasion, if $\zeta$ generates $U$, then $\zeta^p$ also generates $U$ because $p \nmid n$. It follows that every primitive $n$-th root of unity can be obtained by raising $\zeta$ to a succession of prime numbers that do not divide $n$ (as a result we obtain exactly $\varphi(n)$ such primitive  roots). By lemma 2, all these numbers are roots of $f$ in the proof of lemma 2. Therefore $\deg f = [L:K] \ge \varphi(n)$. Hence the proposition is proved. $\square$</p>
+<p>We will show that $f$ in the proof lemma 2 is actually the cyclotomic polynomial $\Phi_n(x)$ you are looking for. The following procedure works for all fields where the characteristic does not divide $n$, but we assume characteristic to be $0$ for simplicity.</p>
+<p>We have</p>
+<script type="math/tex; mode=display">
+X^n-1=\prod_{\zeta}(X-\zeta),</script><p>where the product is taken over all $n$-th roots of unity. Collecting all roots with the same period $d$ (i.e., those $\zeta$ such that $\zeta^d=1$), we put</p>
+<script type="math/tex; mode=display">
+\Phi_d(X)=\prod_{\operatorname{period} \zeta=d}(X-\zeta).</script><p>Then</p>
+<script type="math/tex; mode=display">
+X^n-1=\prod_{d|n}\Phi_d(X).</script><p>It follows that $\Phi_1(X)=X-1$ and</p>
+<script type="math/tex; mode=display">
+\Phi_n(X)=\frac{X^n-1}{\prod_{d\mid n}^{d<n}\Phi_d(X)}.</script><p>This presentation makes our computation much easier. But to understand $\Phi_n$, we still should keep in mind that the $n$-th cyclotomic polynomial is defined to be</p>
+<script type="math/tex; mode=display">
+\Phi_n(X)=\prod_{\operatorname{period}\zeta=n}(X-\zeta),</script><p>whose roots are all primitive $n$-th roots of unity. As stated in the proof of proposition 1, there are $\varphi(n)$ primitive $n$-th roots of unity, and therefore $\deg\Phi_n(X)=\varphi(n)$. Besides, $f|\Phi_n$. Since both have the same degree, these two polynomials equal. It also follows that $\sum_{d|n}\varphi(n)=n$.</p>
+<blockquote>
+<p><strong>Proposition 2.</strong> The cyclotomic polynomial is irreducible and is the irreducible polynomial of $\zeta$ over $\mathbb{Q}$, where $\zeta$ is a primitive $n$-th root of unity.</p>
+</blockquote>
+<p>We end this section by a problem in number fields, making use of what we have studied above.</p>
+<blockquote>
+<p><strong>Problem 0.</strong> A number field $F$ only contains finitely many roots of unity.</p>
+</blockquote>
+<p><em>Solution.</em> Let $\zeta \in F$ be a root of unity with period $n$. Then $\Phi_n(\zeta)=0$ and therefore $[\mathbb{Q}(\zeta):\mathbb{Q}]$ has degree $\varphi(n)$. Since $\mathbb{Q}(\zeta)$ is also a subfield of $F$, we also have $\varphi(n) \le [F:\mathbb{Q}]$. Since $\{n:\varphi(n) \le [F:\mathbb{Q}]\}$ is certainly a finite set, the number of roots of unity lie in $F$ is finite. $\square$</p>
+<h1 id="Technical-Computations"><a href="#Technical-Computations" class="headerlink" title="Technical Computations"></a>Technical Computations</h1><p>We will do some dirty computation in this section.</p>
+<blockquote>
+<p><strong>Problem 1.</strong> If $p$ is prime, then $\Phi_p(X)=X^{p-1}+X^{p-2}+\dots+1$, and for an integer $\nu \ge 1$, $\Phi_{p^\nu}(X)=\Phi_p(X^{p^{\nu-1}})$.</p>
+</blockquote>
+<p><em>Solution.</em> The only integer $d$ that divides $p$ is $1$ and we can only have</p>
+<script type="math/tex; mode=display">
+\Phi_p(X)=\frac{X^p-1}{\Phi_1(X)}=X^{p-1}+\dots+1.</script><p>For the second statement, we use induction on $\nu$. When $\nu=1$ we have nothing to prove. Suppose now</p>
+<script type="math/tex; mode=display">
+\Phi_{p^\nu}(X)=\Phi_p(X^{p^{\nu-1}})
+=\frac{X^{p^{\nu}}-1}{X^{p^{\nu-1}}-1}
+=\frac{X^{p^{\nu}}-1}{\prod_{r=0}^{\nu-1}\Phi_{p^{r}}(X)}</script><p>is proved, then $X^{p^\nu}-1=\prod_{r=0}^{\nu}\Phi_{p^r}(X)$ and therefore</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\Phi_{p^{\nu+1}}(X)&=\frac{X^{p^{\nu+1}}-1}{\prod_{r=0}^{\nu}\Phi_{p^r}(X)} \\
+                   &=\frac{X^{p^{\nu+1}}-1}{X^{p^{\nu}}-1} \\
+                   &=\Phi_p(X^{p^\nu}).
+\end{aligned}</script><blockquote>
+<p><strong>Problem 2.</strong> Let $p$ be a prime number. If $p \nmid n$, then</p>
+<script type="math/tex; mode=display">
+\Phi_{pn}(X)=\frac{\Phi_n(X^p)}{\Phi_n(X)}.</script></blockquote>
+<p><em>Solution.</em> Assume $p \nmid n$ first. It holds clearly for $n=1$. Suppose now the statement holds for all integers $&lt;n$ that are prime to $p$. We see</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\frac{\Phi_n(X^p)}{\Phi_n(X)} &= \frac{X^{pn}-1}
+{\prod_{d|n}^{d<n}\Phi_d(X^p)}\frac{\prod_{d|n}^{d<n}\Phi_d(X)}{X^n-1} \\
+&= \frac{X^{pn}-1}{(X^n-1)\prod_{d|n}^{d<n}\Phi_{dp}(X)} \\
+&= \frac{X^{pn}-1}{\prod_{d|n}\Phi_d(X)\prod_{d|n}^{d<n}\Phi_{dp}(X)} \\
+&=\Phi_{np}(X).
+\end{aligned}</script><blockquote>
+<p><strong>Problem 3.</strong> If $n$ is an odd number $&gt;1$, then $\Phi_{2n}(X)=\Phi_n(-X)$.</p>
+</blockquote>
+<p><em>Solution.</em> By problem 2, $\Phi_{2n}(X)=\Phi_n(X^2)/\Phi_n(X)$. To show the identity it suffices to show that</p>
+<script type="math/tex; mode=display">
+\Phi_n(X)\Phi_n(-X)=\Phi_n(X^2).</script><p>For $n=3$ we see</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\Phi_3(X)\Phi_3(-X) &= (X^2+X+1)(X^2-X+1) \\
+&=(X^2+1)^2-X^2 \\
+&=X^4+X^2+1 \\
+&=\Phi_3(X^2).
+\end{aligned}</script><p>Now suppose it holds for all odd numbers $3 \le d &lt; n$, then</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\Phi_n(X)\Phi_n(-X) &= \frac{(X^n-1)(-X^n-1)}{
+    (X-1)(-X-1)\prod_{3\le d < n}^{d|n}\Phi_d(X)\Phi_d(-X)
+} \\
+&=  \frac{-(X^{2n}-1)}{-(X^2-1)\prod_{3 \le d < n}^{d|n}
+    \Phi_d(X^2)} \\
+&= \Phi_n(X^2).
+\end{aligned}</script><p>The following problem would not be very easy without the Möbius inversion formula so we will use it anyway. Problems above can also be deduced from this formula. Let $f:\mathbb{Z}_{\ge 0} \to \mathbb{Z}_{\ge 0}$ be a function and $F(n)=\prod_{d|n}f(d)$, then the Möbius inversion formula states that</p>
+<script type="math/tex; mode=display">
+f(n)=\prod_{d|n}F(n/d)^{\mu(d)}</script><p>with</p>
+<script type="math/tex; mode=display">
+\mu(n)=\begin{cases}
+0 & \text{if $n$ is divisible by $p^2$ for some prime $p$}, \\
+(-1)^r & \text{if $n$ is a product of $r$ distinct primes,} \\
+1 & \text{if $n=1$.}
+\end{cases}</script><p>Putting $f(d)=\Phi_d(X)$, we see</p>
+<script type="math/tex; mode=display">
+\Phi_n(X)=\prod_{d|n}(X^{n/d}-1)^{\mu(d)}.</script><p>Now we proceed.</p>
+<blockquote>
+<p><strong>Problem 4.</strong> If $p|n$, then $\Phi_{pn}(X)=\Phi_n(X^p)$.</p>
+</blockquote>
+<p><em>Solution.</em> By the Möbius inversion formula, we see</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\Phi_{pn}(X) &= \prod_{d|pn}(X^{pn/d}-1)^{\mu(d)} \\
+             &= \left(\prod_{d|n}(X^{pn/d}-1)^{\mu(d)} \right) 
+                \left(\prod_{d|np}^{d\nmid n}(X^{pn/d}-1)^{\mu(d)}\right) \\
+             &= \Phi_n(X^p)
+\end{aligned}</script><p>because all $d$ that divides $np$ but not $n$ must be divisible by $p^2$. Problem 2 can also follow from here.</p>
+<blockquote>
+<p><strong>Problem 5.</strong> Let $n=p_1^{r_1}\dots p_s^{r_s}$, then</p>
+<script type="math/tex; mode=display">
+\Phi_n(X)=\Phi_{p_1 \dots p_s}(X^{p_1^{r_1-1}\dots 
+p_s^{r_s-1}}).</script></blockquote>
+<p><em>Solution.</em> This problem can be solved by induction on the number of primes. For $s=1$ it is problem 1. Suppose it has been proved for $s-1$ primes, then for</p>
+<script type="math/tex; mode=display">
+n_{s-1}=p_1^{r_1}\dots p_{s-1}^{r_{s-1}}</script><p>and a prime $p_s$, we have</p>
+<script type="math/tex; mode=display">
+\Phi_{n_{s-1}p_s}(X)=\frac{\Phi_{n_{s-1}}(X^{p_s})}{\Phi_{n_{s-1}}(X)}</script><p>On the other hand,</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\frac{\Phi_{n_{s-1}}(X^{p_s})}{\Phi_{n_{s-1}}(X)}&=\frac{\Phi_{p_1\dots p_{s-1}}(X^{
+    p_1^{r_1-1}\dots p_{s-1}^{r_{s-1}-1}p_s
+})}{\Phi_{p_1\dots p_{s-1}}(X^{
+    p_1^{r_1-1}\dots p_{s-1}^{r_{s-1}-1}
+})} \\
+&=\Phi_{p_1 \dots p_{s-1}p_s}(X^{p_1^{r_1-1}\dots p_{s-1}^{r_{s-1}-1}p_s^{1-1}})
+\end{aligned}</script><p>if we put $Y=X^{p_1^{r_1-1}\dots p_{s-1}^{r_{s-1}-1}}$. When it comes to higher degree of $p_s$, it’s merely problem 2. Therefore we have shown what we want.</p>
+<h1 id="Computing-the-Norm"><a href="#Computing-the-Norm" class="headerlink" title="Computing the Norm"></a>Computing the Norm</h1><p>Let $\zeta$ be a primitive $n$-th root of unity, put $K=\mathbb{Q}(\zeta)$ and $G$ the Galois group.. We will compute the norm of $1-\zeta$ with respect to the extension $K/\mathbb{Q}$. Since this extension is separable, we have</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+N_\mathbb{Q}^K(1-\zeta)&=\prod_{\sigma \in G}\sigma(1-\zeta) \\
+&=\prod_{\sigma \in G}(1-\sigma\zeta) \\
+\end{aligned}</script><p>Since $G$ acts on the set of primitive roots transitively, $\{\sigma\zeta\}_{\sigma \in G}$ is exactly the set of primitive roots of unity, which are roots of $\Phi_n(X)$. It follows that</p>
+<script type="math/tex; mode=display">
+N_\mathbb{Q}^K(1-\zeta)=\Phi_n(1).</script><p>If $n=p^r$, then $N_\mathbb{Q}^K(1-\zeta)=\Phi_p(1^{p^{r-1}})=\Phi_p(1)=p$. On the other hand, if</p>
+<script type="math/tex; mode=display">
+n=p_1^{r_1}\dots p_s^{r_s},</script><p>then</p>
+<script type="math/tex; mode=display">
+\Phi_n(1)=\Phi_{p_1\dots p_s}(1)=1.</script>
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"><a href="../../../../tags/Exercise-solution/" class="post-tags__link button"># Exercise solution</a><a href="../../../../tags/Serge-Lang/" class="post-tags__link button"># Serge Lang</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../../11/24/riemann-zeta-continuation/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            A Step-by-step of the Analytic Continuation of the Riemann Zeta Function
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../04/height-polynomial/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            Calculus on Fields - Heights of Polynomials, Mahler&#39;s Measure and Northcott&#39;s Theorem
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2022/09/22/cyclotomic-polynomial-elementary/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

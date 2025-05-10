@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>The Fourier Transform of exp(-cx^2) and Its Convolution | Desvl&#39;s blog</title>
+
+
+    <meta name="keywords" content="Exercise solution, Walter Rudin, Fourier transform">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="We develop two almost straightforward way to compute the Fourier transform of $\exp(-cx^2)$, in the sense that any contour integration and the calculus of residues are not required at all. The first c">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Fourier Transform of exp(-cx^2) and Its Convolution">
+<meta property="og:url" content="https://desvl.xyz/2022/05/06/exp-fourier/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="We develop two almost straightforward way to compute the Fourier transform of $\exp(-cx^2)$, in the sense that any contour integration and the calculus of residues are not required at all. The first c">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-05-06T16:02:26.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:09.891Z">
+<meta property="article:author" content="Desvl">
+<meta property="article:tag" content="Exercise solution">
+<meta property="article:tag" content="Walter Rudin">
+<meta property="article:tag" content="Fourier transform">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        The Fourier Transform of exp(-cx^2) and Its Convolution
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2022/05/" class="post-meta__date button">2022-05-06</a>
+        
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/" class="button">Analysis</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/Elementary/" class="button">Elementary</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Integration-by-Parts-and-Differential-Equation"><span class="toc-number">1.</span> <span class="toc-text">Integration by Parts and Differential Equation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Direct-Application-of-the-Gaussian-Integral"><span class="toc-number">2.</span> <span class="toc-text">Direct Application of the Gaussian Integral</span></a></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Integration-by-Parts-and-Differential-Equation"><span class="toc-number">1.</span> <span class="toc-text">Integration by Parts and Differential Equation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Direct-Application-of-the-Gaussian-Integral"><span class="toc-number">2.</span> <span class="toc-text">Direct Application of the Gaussian Integral</span></a></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <p>For $0&lt;c&lt;\infty$, define</p>
+<script type="math/tex; mode=display">
+f_c(x)=\exp(-cx^2).</script><p>We want to compute the Fourier transform</p>
+<script type="math/tex; mode=display">
+\hat{f}_c(t)=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{+\infty}f_c(x)e^{-ixt}dx.</script><p>As one can expect, the computation can be quite interesting, as $f_c(x)$ is related to the Gaussian integral in the following way:</p>
+<script type="math/tex; mode=display">
+\int_{-\infty}^{+\infty}f_c(x)dx=\frac{1}{\sqrt{c}}\int_{-\infty}^{+\infty}\exp(-(\sqrt{c}x)^2)d\sqrt{c}x=\sqrt\frac{\pi}{c}.</script><p>Now we dive into this integral and see what we can get.</p>
+<h1 id="Computing-the-Fourier-Transform"><a href="#Computing-the-Fourier-Transform" class="headerlink" title="Computing the Fourier Transform"></a>Computing the Fourier Transform</h1><p>Let’s admit, trying to compute the integral straightforward is somewhat unrealistic. So we need to go through an alternative way. For convenience (of writing MathJax codes) we may write $\varphi(t)=\hat{f}_c(t)$.</p>
+<p>First of all, $\hat{f}_c(t)$ is always well-defined, this is because</p>
+<script type="math/tex; mode=display">
+\int_{-\infty}^{+\infty}|f_c(x)e^{-ixt}|dx=\int_{-\infty}^{+\infty}|f_c(x)|dx<\infty</script><p>so we can compute it without worrying about anything.</p>
+<h2 id="Integration-by-Parts-and-Differential-Equation"><a href="#Integration-by-Parts-and-Differential-Equation" class="headerlink" title="Integration by Parts and Differential Equation"></a>Integration by Parts and Differential Equation</h2><p>It’s hard to think about but we do have it. An integration by parts gives </p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\varphi(t)=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{+\infty}\exp(-cx^2)e^{-itx}dx &= \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{+\infty}\exp(-cx^2)\frac{1}{-it}de^{-itx} \\
+&=\frac{i}{t\sqrt{2\pi}}[\exp(-cx^2)e^{-itx}]|_{-\infty}^{+\infty} \\
+&\quad -\frac{i}{t\sqrt{2\pi}}\int_{-\infty}^{+\infty}e^{-itx}d\exp(-cx^2) \\
+&=\frac{-2c}{t\sqrt{2\pi}}\int_{-\infty}^{+\infty}-xi\exp(-cx^2)e^{-itx}dx
+\end{aligned}</script><p>On the other hand, we have</p>
+<script type="math/tex; mode=display">
+\varphi'(t)=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{+\infty}-ixf_c(x)e^{-itx}dx.</script><p>(The well-definedness of the integral can be verified easily.) Combining both, we obtain a differential equation</p>
+<script type="math/tex; mode=display">
+t\varphi(t)+2c\varphi'(t)=0</script><p>This differential equation corresponds to an integral equation</p>
+<script type="math/tex; mode=display">
+\int2c\frac{d\varphi}{\varphi}=-\int tdt.</script><p>And we solve it to obtain</p>
+<script type="math/tex; mode=display">
+2c\log\varphi=-\frac{1}{2}t^2+C</script><p>or alternatively,</p>
+<script type="math/tex; mode=display">
+\varphi(t)=C\exp\left(-\frac{1}{4c}t^2\right).</script><p>Now put the initial value back in. As we have shown above, this subjects to the Gaussian integral</p>
+<script type="math/tex; mode=display">
+\varphi(0)=\frac{1}{\sqrt{2\pi}}\sqrt{\frac{\pi}{c}}=\frac{1}{\sqrt{2c}}.</script><p>Therefore</p>
+<script type="math/tex; mode=display">
+\hat{f}_c(t)=\varphi(t)=\frac{1}{\sqrt{2c}}\exp\left(-\frac{1}{4c}t^2\right)</script><p>is exactly what we want.</p>
+<p>Before showing another method, we first have an question: can we have $\hat{f}_c=f_c$? Solving an equation with variable in $c$ answers this question affirmatively:</p>
+<script type="math/tex; mode=display">
+\hat{f}_c=f_c \iff \begin{cases}\frac{1}{\sqrt{2c}}=1 \\ -\frac{1}{4c}=-c \end{cases} \iff c = \frac{1}{2}.</script><p>In other words, $f_\frac{1}{2}$ is a fixed point of the Fourier transform. For this class of functions, the fixed point is this and only this one.</p>
+<h2 id="Direct-Application-of-the-Gaussian-Integral"><a href="#Direct-Application-of-the-Gaussian-Integral" class="headerlink" title="Direct Application of the Gaussian Integral"></a>Direct Application of the Gaussian Integral</h2><p>We can also make use of the Gaussian integral to get what we want. </p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+    \varphi(t) &= \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{+\infty}\exp(-cx^2)e^{-itx}dx \\
+               &= \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}
+                    \exp\left[-c\left(
+                        x+\frac{it}{2c}
+                    \right)^2-\frac{t^2}{4c}\right]dx \\
+               &= \frac{1}{\sqrt{2\pi}}\exp\left(-\frac{1}{4c}t^2
+                    \right)\int_{-\infty}^{\infty}\exp
+                     \left[-c\left(
+                        x+\frac{it}{2c}
+                    \right)^2\right]dx \\
+               &= \frac{1}{\sqrt{2\pi}}\exp\left(-\frac{1}{4c}t^2
+                    \right)\sqrt{\frac{\pi}{c}} \\
+               &= \frac{1}{\sqrt{2c}}\exp\left(-\frac{1}{4c}t^2\right)
+\end{aligned}</script><h1 id="Convolution"><a href="#Convolution" class="headerlink" title="Convolution"></a>Convolution</h1><p>As a classic property of the Fourier transform, for $f,g \in L^1$, we have</p>
+<script type="math/tex; mode=display">
+\widehat{f \ast g}(t)=\hat{f}(t)\hat{g}(t)</script><p>where</p>
+<script type="math/tex; mode=display">
+f \ast g(x) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{+\infty}f(x-y)g(y)dy.</script><p>By the way, $f \in L^1$ means $\int_{-\infty}^{\infty}|f(x)|dx&lt;\infty$. One can verify that $f \ast g \in L^1$ here as well.</p>
+<p>With this result, we can compute $f_a \ast f_b$ easily. Note</p>
+<script type="math/tex; mode=display">
+\widehat{f_a \ast f_b}(t)=\hat{f_a}(t)\hat{f_b}(t)=\frac{1}{2\sqrt{ab}}\exp\left[-\left(\frac{1}{4a}+\frac{1}{4b}\right)x^2\right]</script><p>We expect that there exist some $\gamma$ and $c$ such that $f_a \ast f_b = \gamma f_c$. In other words, we are looking for $\gamma,c \in \mathbb{R}$ such that</p>
+<script type="math/tex; mode=display">
+\gamma\hat{f}_c(t)=\gamma \frac{1}{\sqrt{2c}}\exp\left(-\frac{1}{4c}t^2\right)=\frac{1}{2\sqrt{ab}}\exp\left[-\left(\frac{1}{4a}+\frac{1}{4b}\right)x^2\right].</script><p> We should have</p>
+<script type="math/tex; mode=display">
+\frac{1}{4c}=\frac{1}{4a}+\frac{1}{4c} \implies c=\frac{1}{\frac{1}{a}+\frac{1}{b}}=\frac{ab}{a+b}.</script><p>We also have</p>
+<script type="math/tex; mode=display">
+\gamma \frac{1}{\sqrt{2c}}=\frac{1}{2\sqrt{ab}} \implies \gamma = \sqrt\frac{c}{2ab}=\sqrt{\frac{1}{2(a+b)}}</script><p>Therefore</p>
+<script type="math/tex; mode=display">
+f_a \ast f_b = \sqrt{\frac{1}{2(a+b)}}f_c</script><p>where $c$ is given above. We do not even have to compute the integral of convolution explicitly.</p>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"><a href="../../../../tags/Exercise-solution/" class="post-tags__link button"># Exercise solution</a><a href="../../../../tags/Walter-Rudin/" class="post-tags__link button"># Walter Rudin</a><a href="../../../../tags/Fourier-transform/" class="post-tags__link button"># Fourier transform</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../08/rep-SU2/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            Study Irreducible Representations of SU(2) Using Fourier Series
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../../04/15/riemann-mapping-theorem-proof/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            A Detailed Proof of the Riemann Mapping Theorem
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2022/05/06/exp-fourier/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

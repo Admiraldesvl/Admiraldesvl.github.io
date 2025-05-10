@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>A Separable Extension Is Solvable by Radicals Iff It Is Solvable | Desvl&#39;s blog</title>
+
+
+    <meta name="keywords" content="Galois">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="We show that a separable extension is solvable by radical iff it is solvable, i.e. it has a Galois closure with solvable Galois group. The proof is done in a general setting.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="A Separable Extension Is Solvable by Radicals Iff It Is Solvable">
+<meta property="og:url" content="https://desvl.xyz/2023/10/21/solvable-by-radical/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="We show that a separable extension is solvable by radical iff it is solvable, i.e. it has a Galois closure with solvable Galois group. The proof is done in a general setting.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-10-21T08:39:01.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:10.536Z">
+<meta property="article:author" content="Desvl">
+<meta property="article:tag" content="Galois">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        A Separable Extension Is Solvable by Radicals Iff It Is Solvable
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2023/10/" class="post-meta__date button">2023-10-21</a>
+        
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/" class="button">Algebra</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/Field-Theory/" class="button">Field Theory</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/Galois-Theory/" class="button">Galois Theory</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>Polynomial is of great interest in various fields, such as analysis, geometry and algebra. Given a polynomial, we try to extract as many information as possible. For example, given a polynomial, we certainly want to find its roots. However this is not very realistic. Abel-Ruffini theorem states that it is impossible to solve polynomials of degree $\ge 5$ in general. For example, one can always solve the polynomial $x^n-1=0$ for arbitrary $n$, but trying to solve $x^5-x-1=0$ over $\mathbb{Q}$ is not possible. Galois showed that the flux of solvability lies in the structure of the Galois group, depending on whether it is solvable group-theoretically.</p>
+<p>In this post, we will explore the theory of solvability in the modern sense, considering extensions of arbitrary characteristic rather than solely number fields over $\mathbb{Q}$.</p>
+<h1 id="Solvable-Extensions"><a href="#Solvable-Extensions" class="headerlink" title="Solvable Extensions"></a>Solvable Extensions</h1><blockquote>
+<p><strong>Definition 1.</strong> Let $E/k$ be a separable and finite field extension, and $K$ the smallest Galois extension of $k$ containing $E$. We say $E/k$ is <strong>solvable</strong> if $G(K/k)$ (the Galois group of $K$ over $k$) is solvable.</p>
+</blockquote>
+<p>Throughout we will deal with separable extensions because without this assumption one will be dealing with normal extensions instead of Galois extensions. Although we will arrive at a similar result.</p>
+<blockquote>
+<p><strong>Proposition 1.</strong> Let $E/k$ be a separable extension. Then $E/k$ is solvable if and only if there exists a solvable Galois extension $L/k$ such that $k \subset E \subset L$.</p>
+</blockquote>
+<p><em>Proof.</em> If $E/k$ is solvable, it suffices to take $L$ to be the smallest Galois extension of $k$ containing $E$. Conversely, Suppose $L/k$ is a solvable and Galois such that $k \subset E \subset L$. Let $K$ be the smallest Galois extension of $k$ containing $E$, i.e. we have $k \subset E \subset K \subset L$. We see $G(K/k) \cong G(L/k)/G(L/K)$ is a homomorphism image of $G(L/k)$ and it has to be solvable. $\square$</p>
+<p>Next we introduce an important concept concerning field extensions.</p>
+<blockquote>
+<p><strong>Definition 2.</strong> Let $\mathcal{C}$ be a certain class of extension fields $F \subset E$. We say that $\mathcal{C}$ is <strong>distinguished</strong> if it satisfies the following conditions:</p>
+<ol>
+<li>Let $k \subset F \subset E$ be a tower of fields. The extension $k \subset E$ is in $\mathcal{C}$ if and only if $k \subset F$ is in $\mathcal{C}$ and $F \subset E$ is in $\mathcal{C}$.</li>
+<li>If $k \subset E$ is in $\mathcal{C}$ and if $F$ is any given extension of $k$, and $E,F$ are both contained in some field, then $F \subset EF$ is in $\mathcal{C}$ too. Here $EF$ is the compositum of $E$ and $F$, i.e. the smallest field that contains both $E$ and $F$.</li>
+<li>If $k \subset F$ and $k \subset E$ are in $\mathcal{C}$ and $F,E$ are subfields of a common field, then $k \subset FE$ is in $\mathcal{C}$.</li>
+</ol>
+</blockquote>
+<p>When dealing with several extensions at the same time, it can be a great idea to consider the class of extensions they are in. For example, Galois extension is <em>not</em> distinguished because normal extension does not satisfy 1. That’s why we need to have the fundamental theorem of Galois theory, a.k.a. Galois correspondence, because not all intermediate subfields are Galois. Separable extension is distinguished however. We introduce this concept because:</p>
+<blockquote>
+<p><strong>Proposition 2.</strong> Solvable extensions form a distinguished class of extensions. (N.B. these extensions are finite and separable by default.)</p>
+</blockquote>
+<p><em>Proof.</em> We verify all three conditions mentioned in definition 2. To make our proof easier however, we first verify 2.</p>
+<p><code>Step 1.</code> Let $E/k$ be solvable. Let $F$ be a field containing $k$ and assume $E, F$ are subfields of some algebraically closed field. We need to show that $EF/F$ is solvable. By proposition 1, there is a Galois solvable extension $K/k$ such that $K \supset E \supset k$. Then $KF$ is Galois over $F$ and $G(KF/F)$ is a subgroup of $G(K/k)$. Therefore $KF/F$ is a Galois solvable extension and we have $KF \supset  EF \supset F$, which implies that $EF/F$ is solvable.</p>
+<p><code>Step 2.</code> Consider a tower of extensions $E \supset F \supset k$. Assume now $E/k$ is solvable. Then there exists a Galois solvable extension $K$ containing $E$, which implies that $F/k$ is solvable because $K \supset F$. We see $E/F$ is also solvable because $EF=E$ and we are back to step 1. </p>
+<p>Conversely, assume that $E/F$ is solvable and $F/k$ is solvable. We will find a solvable extension $M/k$ containing $E$.  Let $K/k$ be a Galois solvable extension such that $K \supset F$, then $EK/K$ is solvable by step 1. Let $L$ be a Galois solvable extension of $K$ containing $EK$. If $\sigma$ is any embedding of $L$ over $k$ in a given algebraic closure, then $\sigma K = K$ and hence $\sigma L$ is a solvable extension of $K$. [This sentence deserves some explanation. Notice that $L/k$ is not necessarily Galois, therefore $\sigma$ is not necessarily an automorphism of $L$ and $\sigma L \ne L$ in general . However, since $K/k$ is Galois, the restriction of $\sigma$ on $K$ is an automorphism so therefore $\sigma K = K$. The extension $\sigma L / \sigma K$ is solvable because $\sigma L$ is isomorphic to $L$ and $\sigma K = K$.]</p>
+<p>We let $M$ be the compositum of all extensions $\sigma L$ for all embeddings $\sigma$ of $L$ over $k$. Then $M/k$ is Galois and so is $M/K$ [note: this is the property of normal extension; besides, $M/k$ is finite]. We have $G(M/K) \subset \prod_{\sigma}G(\sigma L/K)$ which is a product of solvable groups. Therefore $G(M/K)$ is solvable, meaning $M/K$ is a solvable extension. We have a surjective homomorphism $G(M/k) \to G(K/k)$ (given by $\sigma \mapsto \sigma|_K$) and therefore $G(M/k)$ has a normal subgroup whose factor group is solvable, meaning $G(M/k)$ is solvable. Since $E \subset M$, we are done.</p>
+<p><code>Step 3.</code> If $F/k$ and $E/k$ are solvable and $E,F$ are subfields of a common field, we need to show that $EF$ is solvable over $k$. By step 1, $EF/F$ is solvable. By step 2, $EF/k$ is solvable. $\square$</p>
+<h1 id="Solvable-By-Radicals"><a href="#Solvable-By-Radicals" class="headerlink" title="Solvable By Radicals"></a>Solvable By Radicals</h1><blockquote>
+<p><strong>Definition 2.</strong> Let $F/k$ be a finite and separable extension. We say $F/k$ is solvable by radicals if there exists a finite extension $E$ of $k$ containing $F$, and admitting a tower decomposition</p>
+<script type="math/tex; mode=display">
+k=E_0 \subset E_1 \subset E_2 \subset \dots \subset E_m=E</script><p>such that each step $E_{i+1}/E_i$ is one of the following types:</p>
+<ol>
+<li>It is obtained by adjoining a root of unity.</li>
+<li>It is obtained by adjoining a root of a polynomial $X^n-a$ with $a_i \in E_i$ and $n$ prime to the characteristic.</li>
+<li>It is obtained by adjoining a root of an equation $X^p-X-a$ with $a \in E_i$ if $p$ is the characteristic $&gt;0$.</li>
+</ol>
+</blockquote>
+<p>For example, $\mathbb{Q}(\sqrt{-2})/\mathbb{Q}$ is solvable by radicals. We consider the polynomial $f(x)=x^2-2x+3$. We know its roots are $x_1=-1-\sqrt{-2}$ and $x_2=-1+\sqrt{-2}$. However let’s see the question in the sense of field theory. Notice that</p>
+<script type="math/tex; mode=display">
+f(x)=(x-1)^2+2.</script><p>Therefore $f(x)=0$ is equivalent to $(x-1)^2=-2$. Then $x-1=\sqrt{-2}$ and $x-1=-\sqrt{-2}$ in $\mathbb{Q}(\sqrt{-2})$ are two equations that make perfect sense. Thus we obtain our desired roots. The field gives us the liberty of basic arithmetic, and the radical extension gives us the method to look for a radical root.</p>
+<p>It is immediate that the class of extensions solvable by radicals is a distinguished class.</p>
+<p>In general, we are adding “$n$-th root of something”. However, when the characteristic of the field is not zero, there are some complications. For example, talking about the $p$-th root of an element in a field of characteristic $p&gt;0$ will not work. Therefore we need to take good care of that. The second and third types are nods to Kummer theory and Artin-Schreier theory respectively, which are deduced from Hilbert’s theorem 90’s additive and multiplicative form. We interrupt the post by introducing the respective theorems.</p>
+<hr>
+<p>Let $K/k$ be a cyclic extension of degree $n$, that is, $K/k$ is Galois and $G(K/k)$ is cyclic. Suppose $G(K/k)$ is generated by $\sigma$. Then we have the celebrated “Theorem 90”:</p>
+<blockquote>
+<p><strong>Theorem 1 (Hilbert’s theorem 90, multiplicative form).</strong> Notation being above, let $\beta \in K$. The norm $N_{k}^{K}(\beta)=1$ if and only if there exists an element $\alpha \ne 0$ in $K$ such that $\beta = \alpha/\sigma\alpha$.</p>
+</blockquote>
+<p>To prove this, we need Artin’s theorem of independent characters. With this, we see the second type of extension in definition 2 is cyclic.</p>
+<blockquote>
+<p><strong>Theorem 2.</strong> Let $k$ be a field, $n$ an integer $&gt;0$ prime to the characteristic of $k$, and assume that there is a primitive $n$-th root of unity in $k$.</p>
+<ol>
+<li>Let $K$ be a cyclic extension of degree $n$. Then there exists $\alpha \in K$ such that $K = k(\alpha)$ and $\alpha$ satisfies an equation $X^n-a=0$ for some $a \in k$.</li>
+<li>Conversely, let $a \in k$. Let $\alpha$ be a root of $X^n-a$. Then $k(\alpha)$ is cyclic over $k$ of degree $d|n$, and $\alpha^d$ is an element of $k$.</li>
+</ol>
+</blockquote>
+<p>All in all, theorem 2 states that a $n$-th root of $a$ yields a cyclic extension. However we don’t drop the assumption that $n$ is prime to the characteristic of $k$. When this is not the case, we will use Artin-Schreier theorem.</p>
+<blockquote>
+<p><strong>Theorem 3 (Hilbert’s theorem 90, additive form).</strong> Let $K/k$ be a cyclic extension of degree $n$. Let $\sigma$ be the generator of $G(K/k)$. Let $\beta \in K$. The trace $\mathrm{Tr}_k^K(\beta)=0$ if and only if there exists an element $\alpha \in K$ such that $\beta = \alpha-\sigma\alpha$.</p>
+</blockquote>
+<p>This theorem requires another application of the independence of characters. </p>
+<blockquote>
+<p><strong>Theorem 4 (Artin-Schreier).</strong> Let $k$ be a field of characteristic $p$.</p>
+<ol>
+<li>Let $K$ be a cyclic extension of $k$ of degree $p$. Then there exists $\alpha \in K$ such that $K=k(\alpha)$ and $\alpha$ satisfies an equation $X^p-X-a=0$ with some $a \in k$. </li>
+<li>Conversely, given $a \in k$, the polynomial $f(X)=X^p-X-a$ either has one root in $k$, in which case all its roots are in $k$, or it is irreducible. In the latter case, if $\alpha$ is a root then $k(\alpha)$ is cyclic of degree $p$ over $k$.</li>
+</ol>
+</blockquote>
+<p>In other words, instead of looking at the $p$-th root of unity in a field of characteristic $p$, we look at the root of $X^p-X-a$, which still yields a cyclic extension.</p>
+<hr>
+<p>Now we are ready for the core theorem of this post.</p>
+<blockquote>
+<p><strong>Theorem 5.</strong> Let $E$ be a finite separable extension of $k$. Then $E$ is solvable by radicals if and only if $E/k$ is solvable.</p>
+</blockquote>
+<p> <em>Proof.</em> First of all we assume that $E/k$ is solvable. Then there exists a finite Galois solvable extension of $k$ containing $E$ and we call it $K$. Let $m$ be the product of all primes $l$ such that $l \ne \mathrm{char}k$ but $l|[K:k]$. Let $F=k(\zeta)$ where $\zeta$ is a primitive $m$-th root of unity. Then $F/k$ is abelian and is solvable by radical by definition. </p>
+<p>Since solvable extensions form a distinguished class, we see $KF/F$ is solvable. There is a tower of subfields between $F$ and $KF$ such that each step is cyclic of prime order, because every solvable group admits a tower of cyclic groups, and we can use Galois correspondence. By theorem 2 and 4, we see $KF/F$ is solvable by radical because extensions of prime order have been determined by these two theorems. It follows that $E/k$ is solvable by radicals: $KF/F$ is solvable by radicals, $F/k$ is solvable by radicals $\implies$ $KF/k$ is solvable by radicals $\implies$ $E/k$ is solvable by radicals because $KF \supset E \supset k$.</p>
+<hr>
+<p>The elaboration of the “if” part is as follows. In order to prove $E/k$ is solvable by radicals, we show that there is a much bigger field $KF$ containing $E$ such that $KF/k$ is solvable by radical. First of all there exists a finite Galois solvable extension $K/k$ containing $E$. Next we define a cyclotomic extension $F/k$ with the following intentions</p>
+<ol>
+<li>$F/k$ should be solvable by radicals.</li>
+<li>$F$ contains enough primitive roots of unity, so that we can use theorem 2 freely. </li>
+</ol>
+<p>To reach these two goals, we decide to put $F=k(\zeta)$ where $\zeta$ is a $m$-th root of unity and $m$ is the radical of $[K:k]$ divided by the characteristic of $k$ when necessary. This field $F$ certainly ensures that $F/k$ is solvable by radical. For the second goal, we need to take a look of the subfield between $F$ and $KF$. Let $k = K_0 \subset K_1 \subset \dots \subset K_n = K$ be a tower of field extensions such that every step $K_{i+1}/K_i$ is of prime degree [this is possible due to the solvability of $K/k$]. These prime numbers can only be factors of $[K:k]$ Then in the lifted field extension $F=K_0F \subset K_1F \subset \dots \subset K_nF=KF$ we do not introduce new prime numbers. Why do we consider prime factors of $[K:k]$? Let’s say $[K_{i+1}F:K_iF] = \ell$ is a prime number. If $\ell=\mathrm{char}k$ then we can use theorem 4. Otherwise we still have $\ell|[K:k]$ so we use theorem 2. However this theorem requires a primitive $\ell$-th root to be in $K_{i}F$. Our choice of $m$ and $\zeta$ guaranteed this to happen because $\ell|m$ and therefore a primitive $\ell$-th root of unity exists in $F$. We can make $m$ bigger but there is no necessity. The “only if” part does nearly the same thing, with an alternation of logic chain.</p>
+<hr>
+<p>Conversely, assume that $E/k$ is solvable by radicals. For any embedding $\sigma$ of $E$ in $E^{\mathrm{a}}$ over $k$, the extension $\sigma E/k$ is also solvable by radicals. Hence the smallest Galois extension $K$ of $E$ containing $k$, which is a composite of $E$ and its conjugates is solvable by radicals. Let $m$ be the product of all primes unequal to the characteristic dividing the degree $[K:k]$ and again let $F=k(\zeta)$ where $\zeta$ is a primitive $m$-th root of unity. It will suffice to prove that $KF$ is solvable over $F$, because it follows that $KF$ is solvable by $k$ and hence $G(K/k)$ is solvable because it is a homomorphic image of $G(KF/k)$. But $KF/F$ can be decomposed into a tower of extensions such that each step is prime degree and of the type described in theorem 2 and theorem 4. The corresponding root of unity is in the field $F$. Hence $KF/F$ is solvable, proving the theorem. $\square$</p>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"><a href="../../../../tags/Galois/" class="post-tags__link button"># Galois</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../../11/11/sl2-f3/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            The Structure of SL_2(F_3) as a Semidirect Product
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../../09/18/picard-little/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            Picard&#39;s Little Theorem and Twice-Punctured Plane
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2023/10/21/solvable-by-radical/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

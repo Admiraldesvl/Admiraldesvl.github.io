@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>A long exact sequence of cohomology groups (zig-zag and diagram-chasing) | Desvl&#39;s blog</title>
+
+
+    <meta name="keywords" content="Diagram-chasing, Differential complex">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="Exterior differentiation(This section is intended to introduce the background. Feel free to skip if you already know exterior differentiation.) There are several useful tools for vector calculus on $\">
+<meta property="og:type" content="article">
+<meta property="og:title" content="A long exact sequence of cohomology groups (zig-zag and diagram-chasing)">
+<meta property="og:url" content="https://desvl.xyz/2020/09/27/diagram-chasing/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="Exterior differentiation(This section is intended to introduce the background. Feel free to skip if you already know exterior differentiation.) There are several useful tools for vector calculus on $\">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://desvl.xyz/img/layer-000001.png">
+<meta property="article:published_time" content="2020-09-27T09:35:28.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:09.865Z">
+<meta property="article:author" content="Desvl">
+<meta property="article:tag" content="Diagram-chasing">
+<meta property="article:tag" content="Differential complex">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://desvl.xyz/img/layer-000001.png">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        A long exact sequence of cohomology groups (zig-zag and diagram-chasing)
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2020/09/" class="post-meta__date button">2020-09-27</a>
+        
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/" class="button">Algebra</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/Homological-Algebra/" class="button">Homological Algebra</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Exterior-differentiation"><span class="toc-number">1.</span> <span class="toc-text">Exterior differentiation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#The-operator-d"><span class="toc-number">1.1.</span> <span class="toc-text">The operator $d$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Conservative-field-on-the-kernel-and-image-of-d"><span class="toc-number">1.2.</span> <span class="toc-text">Conservative field - on the kernel and image of $d$</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#de-Rham-complex-and-de-Rham-cohomology-group"><span class="toc-number">2.</span> <span class="toc-text">de Rham complex and de Rham cohomology group</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-long-exact-sequence-of-cohomology-groups"><span class="toc-number">3.</span> <span class="toc-text">The long exact sequence of cohomology groups</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Exact-sequence"><span class="toc-number">3.1.</span> <span class="toc-text">Exact sequence</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Differential-complex"><span class="toc-number">3.2.</span> <span class="toc-text">Differential complex</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#The-sequence"><span class="toc-number">3.3.</span> <span class="toc-text">The sequence</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Proof"><span class="toc-number">3.3.1.</span> <span class="toc-text">Proof</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Remarks"><span class="toc-number">3.4.</span> <span class="toc-text">Remarks</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Application-Mayer-Vietoris-Sequence"><span class="toc-number">4.</span> <span class="toc-text">Application: Mayer-Vietoris Sequence</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#An-example"><span class="toc-number">4.1.</span> <span class="toc-text">An example</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#References-Further-reading"><span class="toc-number">5.</span> <span class="toc-text">References &#x2F; Further reading</span></a></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Exterior-differentiation"><span class="toc-number">1.</span> <span class="toc-text">Exterior differentiation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#The-operator-d"><span class="toc-number">1.1.</span> <span class="toc-text">The operator $d$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Conservative-field-on-the-kernel-and-image-of-d"><span class="toc-number">1.2.</span> <span class="toc-text">Conservative field - on the kernel and image of $d$</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#de-Rham-complex-and-de-Rham-cohomology-group"><span class="toc-number">2.</span> <span class="toc-text">de Rham complex and de Rham cohomology group</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-long-exact-sequence-of-cohomology-groups"><span class="toc-number">3.</span> <span class="toc-text">The long exact sequence of cohomology groups</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Exact-sequence"><span class="toc-number">3.1.</span> <span class="toc-text">Exact sequence</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Differential-complex"><span class="toc-number">3.2.</span> <span class="toc-text">Differential complex</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#The-sequence"><span class="toc-number">3.3.</span> <span class="toc-text">The sequence</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Proof"><span class="toc-number">3.3.1.</span> <span class="toc-text">Proof</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Remarks"><span class="toc-number">3.4.</span> <span class="toc-text">Remarks</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Application-Mayer-Vietoris-Sequence"><span class="toc-number">4.</span> <span class="toc-text">Application: Mayer-Vietoris Sequence</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#An-example"><span class="toc-number">4.1.</span> <span class="toc-text">An example</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#References-Further-reading"><span class="toc-number">5.</span> <span class="toc-text">References &#x2F; Further reading</span></a></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h2 id="Exterior-differentiation"><a href="#Exterior-differentiation" class="headerlink" title="Exterior differentiation"></a>Exterior differentiation</h2><p><em>(This section is intended to introduce the background. Feel free to skip if you already know exterior differentiation.)</em></p>
+<p>There are several useful tools for vector calculus on $\mathbb{R}^3,$ namely gradient, curl, and divergence. It is possible to treat the gradient of a differentiable function $f$ on $\mathbb{R}^3$ at a point $x_0$ as the <a href="/2020/07/31/frechet-derivative/">Fréchet derivative</a> at $x_0$. But it does not work for curl and divergence at all. Fortunately there is another abstraction that works for all of them. It comes from differential forms.</p>
+<p>Let $x_1,\cdots,x_n$ be the linear coordinates on $\mathbb{R}^n$ as usual. We define an <em><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Algebra_over_a_field">algebra</a></em> $\Omega^{\ast}$ over $\mathbb{R}$ generated by $dx_1,\cdots,dx_n$ with the following relations:</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+dx_idx_i=0 \\
+dx_idx_j = -dx_jdx_i \quad i \neq j
+\end{cases}</script><p>This is a vector space as well, and it’s easy to derive that it has a basis by</p>
+<script type="math/tex; mode=display">
+1,dx_i,dx_idx_j,dx_idx_jdx_k,\cdots,dx_1\dots dx_n</script><p>where $i&lt;j&lt;k$. The $C^{\infty}$ differential <em>forms</em> on $\mathbb{R}^n$ are defined to be the tensor product</p>
+<script type="math/tex; mode=display">
+\Omega^*(\mathbb{R}^n)=\{C^{\infty}\text{ functions on }\mathbb{R}^n\} \otimes_\mathbb{R}\Omega^*.</script><p>As is can be shown, for $\omega \in \Omega^{\ast}(\mathbb{R}^n)$, we have a unique representation by</p>
+<script type="math/tex; mode=display">
+\omega=\sum f_{i_1\cdots i_k}dx_{i_1}\dots dx_{i_k},</script><p>and in this case we also say $\omega$ is a $C^{\infty}$ $k$-form on $\mathbb{R}^n$ (for simplicity we also write $\omega=\sum f_Idx_I$). The algebra of all $k$-forms will be denoted by $\Omega^k(\mathbb{R}^n)$. And naturally we have $\Omega^{\ast}(\mathbb{R}^n)$ to be graded since</p>
+<script type="math/tex; mode=display">
+\Omega^{*}(\mathbb{R}^n)=\bigoplus_{k=0}^{n}\Omega^k(\mathbb{R}^n).</script><h3 id="The-operator-d"><a href="#The-operator-d" class="headerlink" title="The operator $d$"></a>The operator $d$</h3><p>But if we have $\omega \in \Omega^0(\mathbb{R}^n)$, we see $\omega$ is merely a $C^{\infty}$ function. As taught in multivariable calculus course, for the differential of $\omega$ we have</p>
+<script type="math/tex; mode=display">
+d\omega=\sum_{i}\partial\omega/\partial x_idx_i</script><p>and it turns out that $d\omega\in\Omega^{1}(\mathbb{R}^n)$. This inspires us to obtain a generalization onto the differential operator $d$:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+d:\Omega^{k}(\mathbb{R}^n) &\to \Omega^{k+1}(\mathbb{R}^n) \\
+\omega &\mapsto d\omega
+\end{aligned}</script><p>and $d\omega$ is defined as follows. The case when $k=0$ is defined as usual (just the one above). For $k&gt;0$ and $\omega=\sum f_I dx_I,$ $d\omega$ is defined ‘inductively’ by</p>
+<script type="math/tex; mode=display">
+d\omega=\sum df_I dx_I.</script><p>This $d$ is the so-called <em>exterior differentiation</em>, which serves as the ultimate abstract extension of gradient, curl, divergence, etc. If we restrict ourself to $\mathbb{R}^3$, we see these vector calculus tools comes up in the nature of things.</p>
+<p><strong>Functions</strong></p>
+<script type="math/tex; mode=display">
+df=\frac{\partial f}{\partial x}dx+\frac{\partial f}{\partial y}dy+\frac{\partial f}{\partial z}dz.</script><p><strong>$1$-forms</strong></p>
+<script type="math/tex; mode=display">
+d(f_1dx+f_2dy+f_3dz)=\left(\frac{\partial f_3}{\partial y}-\frac{\partial f_2}{\partial z}\right)dydz-\left(\frac{\partial f_1}{\partial z}-\frac{\partial f_3}{\partial x}\right)dxdz+\left(\frac{\partial f_2}{\partial x}-\frac{\partial f_1}{\partial y}\right)dxdy.</script><p><strong>$2$-forms</strong></p>
+<script type="math/tex; mode=display">
+d(f_1dydz-f_2dxdz+f_3dxdy)=\left(\frac{\partial f_1}{\partial x}+\frac{\partial f_2}{\partial y}+ \frac{\partial f_3}{\partial z}\right)dxdydz.</script><p>The calculation is tedious but a nice exercise to understand the definition of $d$ and $\Omega^{\ast}$.</p>
+<h3 id="Conservative-field-on-the-kernel-and-image-of-d"><a href="#Conservative-field-on-the-kernel-and-image-of-d" class="headerlink" title="Conservative field - on the kernel and image of $d$"></a>Conservative field - on the kernel and image of $d$</h3><p>By elementary computation we are also able to show that $d^2\omega=0$ for all $\omega \in \Omega^{\ast}(\mathbb{R}^n)$ (<em>Hint: $\frac{\partial^2 f}{\partial x_i \partial x_j}=\frac{\partial^2 f}{\partial x_j \partial x_i}$ but $dx_idx_j=-dx_idx_j$)</em>. Now we consider a vector field $\overrightarrow{v}=(v_1,v_2)$ of dimension $2$. If $C$ is an arbitrary simply closed smooth curve in $\mathbb{R}^2$, then we expect</p>
+<script type="math/tex; mode=display">
+\oint_C\overrightarrow{v}d\overrightarrow{r}=\oint_C v_1dx+v_2dy</script><p>to be $0$. If this happens (note the arbitrary of $C$), we say $\overrightarrow{v}$ to be a conservative field (path independent).</p>
+<p>So when conservative? It happens when there is a function $f$ such that</p>
+<script type="math/tex; mode=display">
+\nabla f=\overrightarrow{v}=(v_1,v_2)=(\partial{f}/\partial{x},\partial{f}/\partial{y}).</script><p>This is equivalent to say that</p>
+<script type="math/tex; mode=display">
+df=v_1dx+v_2dy.</script><p>If we use $C^{\ast}$ to denote the area enclosed by $C$, by Green’s theorem, we have</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\oint_C v_1dx+v_2dy&=\iint_{C^*}\left(\frac{\partial{v_2}}{\partial{x}}-\frac{\partial{v_1}}{\partial{y}}\right)dxdy \\
+                   &=\iint_{C^*}d(v_1dx+v_2dy) \\
+                   &=\iint_{C^*}d^2f \\
+                   &=0
+\end{aligned}</script><p>If you translate what you’ve learned in multivariable calculus course (path independence) into the language of differential form, you will see that the set of all conservative fields is precisely the <em>image</em> of $d_0:\Omega^0(\mathbb{R}^2) \to \Omega^1(\mathbb{R}^2)$. Also, they are in the <em>kernel</em> of the next $d_1:\Omega^1(\mathbb{R}^2) \to \Omega^2(\mathbb{R}^2)$. These $d$’s are naturally homomorphism, so it’s natural to discuss the <em>factor group</em>. But before that, we need some terminologies. </p>
+<h2 id="de-Rham-complex-and-de-Rham-cohomology-group"><a href="#de-Rham-complex-and-de-Rham-cohomology-group" class="headerlink" title="de Rham complex and de Rham cohomology group"></a>de Rham complex and de Rham cohomology group</h2><p>The complex $\Omega^{\ast}(\mathbb{R}^n)$ together with $d$ is called the <em>de Rham complex</em> on $\mathbb{R}^n$. Now consider the sequence</p>
+<script type="math/tex; mode=display">
+\Omega^0(\mathbb{R}^n)\xrightarrow{d_0}\Omega^1(\mathbb{R}^n)\xrightarrow{d_1}\cdots\xrightarrow{d_{n-2}}\Omega^{n-1}(\mathbb{R}^n)\xrightarrow{d_{n-1}}\Omega^{n}(\mathbb{R^n}).</script><p>We say $\omega \in \Omega^k(\mathbb{R}^n)$ is <em>closed</em> if $d_k\omega=0$, or equivalently, $\omega \in \ker d_k$. Dually, we say $\omega$ is <em>exact</em> if there exists some $\mu \in \Omega^{k-1}(\mathbb{R}^n)$ such that $d\mu=\omega$, that is, $\omega \in \operatorname{im}d_{k-1}$. Of course all $d_k$’s can be written as $d$ but the index makes it easier to understand. Instead of doing integration or differentiation, which is ‘uninteresting’, we are going to discuss the abstract structure of it.</p>
+<p>The $k$-th <em>de Rham cohomology</em> in $\mathbb{R}^n$ is defined to be the factor space</p>
+<script type="math/tex; mode=display">
+H_{DR}^{k}(\mathbb{R}^n)=\frac{\ker d_k}{\operatorname{im} d_{k-1}}.</script><p>As an example, note that by the fundamental theorem of calculus, every $1$-form is exact, therefore $H_{DR}^1(\mathbb{R})=0$.</p>
+<p>Since de Rham complex is a special case of <em>differential complex</em>, and other restrictions of de Rham complex plays no critical role thereafter, we are going discuss the algebraic structure of differential complex directly. </p>
+<h2 id="The-long-exact-sequence-of-cohomology-groups"><a href="#The-long-exact-sequence-of-cohomology-groups" class="headerlink" title="The long exact sequence of cohomology groups"></a>The long exact sequence of cohomology groups</h2><p>We are going to show that, there exists a long exact sequence of cohomology groups after a short exact sequence is defined. For the convenience let’s recall here some basic definitions</p>
+<h3 id="Exact-sequence"><a href="#Exact-sequence" class="headerlink" title="Exact sequence"></a>Exact sequence</h3><p>A sequence of vector spaces (or groups)</p>
+<script type="math/tex; mode=display">
+\cdots \rightarrow G_{k-1} \xrightarrow{f_{k-1}} G_k \xrightarrow{f_k} G_{k+1} \xrightarrow{f_{k+1}}\cdots</script><p>is said to be <em>exact</em> if the image of $f_{k-1}$ is the kernel of $f_k$ for all $k$. Sometimes we need to discuss a extremely short one by</p>
+<script type="math/tex; mode=display">
+0 \rightarrow A \xrightarrow{f} B \xrightarrow{g} C \rightarrow 0.</script><p>As one can see, $f$ is injective and $g$ is surjective.</p>
+<h3 id="Differential-complex"><a href="#Differential-complex" class="headerlink" title="Differential complex"></a>Differential complex</h3><p>A direct sum of vector spaces $C=\oplus_{k \in \mathbb{Z}}C^k$ is called a <em>differential complex</em> if there are homomorphisms by</p>
+<script type="math/tex; mode=display">
+\cdots \rightarrow C^{k-1} \xrightarrow{d_{k-1}} C^k \xrightarrow{d_k} C^{k+1} \xrightarrow{d_{k+1}}\cdots</script><p>such that $d_{k-1}d_k=0$. Sometimes we write $d$ instead of $d_{k}$ since this <em>differential operator</em> of $C$ is universal. Therefore we may also say that $d^2=0$. The cohomology of $C$ is the direct sum of vector spaces $H(C)=\oplus_{k \in \mathbb{Z}}H^k(C) $ where</p>
+<script type="math/tex; mode=display">
+H^k(C)=\frac{\ker d_{k}}{\operatorname{im}d_{k-1}}.</script><p>A map $f: A \to B$ where $A$ and $B$ are differential complexes, is called a <em>chain map</em> if we have $fd_A=d_Bf$.</p>
+<h3 id="The-sequence"><a href="#The-sequence" class="headerlink" title="The sequence"></a>The sequence</h3><p>Now consider a short exact sequence of differential complexes</p>
+<script type="math/tex; mode=display">
+0 \rightarrow A \xrightarrow{f} B \xrightarrow{g} C \rightarrow 0</script><p>where both $f$ and $g$ are chain maps (this is important). Then there exists a long exact sequence by</p>
+<script type="math/tex; mode=display">
+\cdots\rightarrow H^q(A) \xrightarrow{f^*} H^{q}(B) \xrightarrow{g^*} H^q(C)\xrightarrow{d^{*}}H^{q+1}(A) \xrightarrow{f^*}\cdots.</script><p>Here, $f^{\ast}$ and $g^{\ast}$ are the naturally induced maps. For $c \in C^q$, $d^{\ast}[c]$ is defined to be the cohomology class $[a]$ where $a \in A^{q+1}$, and that $f(a)=db$, and that $g(b)=c$. The sequence can be described using the two-layer commutative diagram below.</p>
+<p><img src="\img\layer-000001.png" alt="layer-000001"></p>
+<p>The long exact sequence is actually the purple one (you see why people may call this zig-zag lemma). This sequence is ‘based on’ the blue diagram, which can be considered naturally as an expansion of the short exact sequence. The method that will be used in the following proof is called diagram-chasing, whose importance has already been described by Professor James Munkres: <em>master</em> this. We will be <em>abusing</em> the properties of almost every homomorphism and group appeared in this commutative diagram to trace the elements.</p>
+<h4 id="Proof"><a href="#Proof" class="headerlink" title="Proof"></a>Proof</h4><p>First, we give a precise definition of $d^{\ast}$. For a closed $c \in C^q$, by the surjectivity of $g$ (note this sequence is exact), there exists some $b \in B^q$ such that $g(b)=c$. But $g(db)=d(g(b))=dc=0$, we see for $db \in B^{q+1}$ we have $db \in \ker g$. By the exactness of the sequence, we see $db \in \operatorname{im}{f}$, that is, there exists some $a \in A^{q+1}$ such that $f(a)=db$.  Further, $a$ is closed since</p>
+<script type="math/tex; mode=display">
+f(da)=d(f(a))=d^2b=0</script><p>and we already know that $f$ has trivial kernel (which contains $da$).</p>
+<p>$d^{\ast}$ is therefore defined by</p>
+<script type="math/tex; mode=display">
+d^*[c]=[a],</script><p>where $[\cdot]$ means “the homology class of”.</p>
+<p>But it is expected that $d^{\ast}$ is a well-defined homomorphism. Let $c_q$ and $c_q’$ be two closed forms in $C^q$. To show $d^{\ast}$ is well-defined, we suppose $[c_q]=[c_q’]$ (i.e. they are homologous). Choose $b_q$ and $b_q’$ so that $g(b_q)=c_q$ and $g(b_q’)=c_q’$. Accordingly, we also pick $a_{q+1}$ and $a_{q+1}’$ such that $f(a_{q+1})=db_q$ and $f(a_{q+1}’)=db_q’$. By definition of $d^{\ast}$, we need to show that $[a_{q+1}]=[a_{q+1}’]$.</p>
+<p>Recall the properties of factor group. $[c_q]=[c_q’]$ if and only if $c_q-c_q’ \in \operatorname{im}d$. Therefore we can pick some $c_{q-1} \in C^{q-1}$ such that $c_q-c_q’=dc_{q-1}$. Again, by the surjectivity of $g$, there is some $b_{q-1}$ such that $g(b_{q-1})=c_{q-1}$.</p>
+<p>Note that</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+g(b_q-b_q'-db_{q-1})&=c_q-c_{q}'-g(db_{q-1}) \\
+                    &=dc_{q-1}-d(g(b_{q-1})) \\
+                    &=dc_{q-1}-dc_{q-1} \\
+                    &= 0.
+\end{aligned}</script><p>Therefore $b_q-b_q’-db_{q-1} \in \operatorname{im} f$. We are able to pick some $a_q \in A^{q}$ such that $f(a_q)=b_q-b_q’-db_{q-1}$. But now we have</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+f(da_q)=df(a_q)&=d(b_q-b_q'-db_{q-1}) \\
+               &=db_q-db_q'-d^2b_{q-1} \\
+               &=db_q-db_q' \\
+               &=f(a_{q+1}-a_{q+1}').
+\end{aligned}</script><p>Since $f$ is injective, we have $da_q=a_{q+1}-a_{q+1}’$, which implies that $a_{q+1}-a_{q+1}’ \in \operatorname{im}d$. Hence $[a_{q+1}]=[a_{q+1}’]$. </p>
+<p>To show that $d^{\ast}$ is a homomorphism, note that $g(b_q+b_q’)=c_q+c_q’$ and $f(a_{q+1}+a_{q+1}’)=d(b_q+b_q’)$. Thus we have</p>
+<script type="math/tex; mode=display">
+d^*[c_q+c_q']=[a_{q+1}+a_{q+1}'].</script><p>The latter equals $[a_{q+1}]+[a_{q+1}’]$ since the canonical map is a homomorphism. Therefore we have</p>
+<script type="math/tex; mode=display">
+d^*[c_q+c_q']=d^*[c_q]+d^*[c_q'].</script><p>Therefore the long sequence exists. It remains to prove exactness. Firstly we need to prove exactness at $H^q(B)$. Pick $[b] \in H^q(B)$. If there is some $a \in A^q$ such that $f(a)=b$, then $g(f(a))=0$. Therefore $g^{\ast}[b]=g^{\ast}[f(a)]=[g(f(a))]=[0]$; hence $\operatorname{im}f \subset \ker g$. </p>
+<p>Conversely, suppose now $g^{\ast}[b]=[0]$, we shall show that there exists some $[a] \in H^q(A)$ such that $f^{\ast}[a]=[b]$. Note $g^{\ast}[b]=\operatorname{im}d$ where $d$ is the differential operator of $C$ (why?). Therefore there exists some $c_{q-1} \in C^{q-1}$ such that $g(b)=dc_{q-1}$. Pick some $b_{q-1}$ such that $g(b_{q-1})=c_{q-1}$. Then we have</p>
+<script type="math/tex; mode=display">
+g(b-db_{q-1})=g(b)-d(g(b_{q-1}))=g(b)-dc_{q-1}=0.</script><p>Therefore $f(a)=b-db_{q-1}$ for some $a \in A^q$. Note $a$ is closed since</p>
+<script type="math/tex; mode=display">
+f(da)=df(a)=d(b-db_{q-1})=db-d^2b_{q-1}=db=0</script><p>and $f$ is injective. $db=0$ since we have</p>
+<script type="math/tex; mode=display">
+g(db)=d(g(b))=d(dc_{q-1})=0.</script><p>Furthermore,</p>
+<script type="math/tex; mode=display">
+f^*[a]=[f(a)]=[b-dc_{q-1}]=[b]-[0]=[b].</script><p>Therefore $\ker g^{\ast} \subset \operatorname{im} f$ as desired.</p>
+<p>Now we prove exactness at $H^q(C)$. (Notation:) pick $[c_q] \in H^q(C)$, there exists some $b_q$ such that $g(b_q)=c_q$; choose $a_{q+1}$ such that $f(a_{q+1})=db_q$. Then $d^{\ast}[c_q]=[a_{q+1}]$ by definition.</p>
+<p>If $[c_q] \in \operatorname{im}g^{\ast}$, we see $[c_q]=[g(b_q)]=g^{\ast}[b_q]$. But $b_q$ is closed since $[b_q] \in H^q(B)$, we see $f(a_{q+1})=db_q=0$, therefore $d^{\ast}[c_q]=[a_{q+1}]=[0]$ since $f$ is injective. Therefore $\operatorname{im}g^{\ast} \subset \ker d^{\ast}$.</p>
+<p>Conversely, suppose $d^{\ast}[c^q]=[0]$. By definition of $H^{q+1}(A)$, there is some $a_q \in A$ such that $da_q = a_{q+1}$ (can you see why?). We claim that $b_q-f(a_q)$ is closed and we have $[c_q]=g^{\ast}[b_q-f(a_q)]$.</p>
+<p>By direct computation,</p>
+<script type="math/tex; mode=display">
+d(b_q-f(a_q))=db_q-d(f(a_q))=db_q-f(d(a_q))=db_q-f(a_{q+1})=0.</script><p>Meanwhile</p>
+<script type="math/tex; mode=display">
+g^*[b_q-f(a_q)]=[g(b_q)]-[g(f(a_q))]=[c_q].</script><p>Therefore $\ker d^{\ast} \subset \operatorname{im}g^{\ast}$. Note that $g(f(a_q))=0$ by exactness.</p>
+<p>Finally, we prove exactness at $H^{q+1}(A)$. Pick $\alpha \in H^{q+1}(A)$. If $\alpha \in \operatorname{im}d^{\ast}$, then $\alpha=[a_{q+1}]$ where $f(a_{q+1})=db_q$ by definition. Then</p>
+<script type="math/tex; mode=display">
+f^*(\alpha)=[f(a_{q+1})]=[db_q]=[0].</script><p>Therefore $\alpha \in \ker f^{\ast}$. Conversely, if we have $f^{\ast}(\alpha)=[0]$, pick the representative element of $\alpha$, namely we write $\alpha=[a]$; then $[f(a)]=[0]$. But this implies that $f(a) \in \operatorname{im}d$ where $d$ denotes the differential operator of $B$. There exists some $b_{q+1} \in B^{q+1}$ and $b_q \in B^q$ such that $db_{q}=b_{q+1}$. Suppose now $c_q=g(b_q)$. $c_q$ is closed since $dc_q=g(db_q)=g(b_{q+1})=g(f(a))=0$. By definition, $\alpha=d^{\ast}[c_q]$. Therefore $\ker f^{\ast} \subset \operatorname{im}d^{\ast}$.</p>
+<h3 id="Remarks"><a href="#Remarks" class="headerlink" title="Remarks"></a>Remarks</h3><p>As you may see, almost every property of the diagram has been used. The exactness at $B^q$ ensures that $g(f(a))=0$. The definition of $H^q(A)$ ensures that we can simplify the meaning of $[0]$. We even use the injectivity of $f$ and the surjectivity of $g$. </p>
+<p>This proof is also a demonstration of diagram-chasing technique. As you have seen, we keep running through the diagram to ensure that there is “someone waiting” at the destination. </p>
+<p>This long exact group is useful. Here is an example.</p>
+<h2 id="Application-Mayer-Vietoris-Sequence"><a href="#Application-Mayer-Vietoris-Sequence" class="headerlink" title="Application: Mayer-Vietoris Sequence"></a>Application: Mayer-Vietoris Sequence</h2><p>By differential forms on a open set $U \subset \mathbb{R}^n$, we mean</p>
+<script type="math/tex; mode=display">
+\Omega^*(U)=\{C^{\infty}\text{ functions on }U\}\otimes_\mathbb{R}\Omega^*.</script><p>And the de Rham cohomology of $U$ comes up in the nature of things.</p>
+<p>We are able to compute the cohomology of the union of two open sets. Suppose $M=U \cup V$ is a manifold with $U$ and $V$ open, and $U \amalg V$ is the disjoint union of $U$ and $V$ (the coproduct in the category of sets). $\partial_0$ and $\partial_1$ are inclusions of $U \cap V$ in $U$ and $V$ respectively. We have a natural sequence of inclusions</p>
+<script type="math/tex; mode=display">
+M \leftarrow U\amalg V \leftleftarrows^{\partial_0}_{\partial_1}\leftleftarrows U \cap V.</script><p>Since $\Omega^{*}$ can also be treated as a contravariant functor from the category of Euclidean spaces with smooth maps to the category of commutative differential graded algebras and their homomorphisms, we have</p>
+<script type="math/tex; mode=display">
+\Omega^*(M) \rightarrow \Omega^*(U) \oplus \Omega^*(V) \rightrightarrows^{\partial^*_0}_{\partial^*_1}\rightrightarrows\Omega^*({U \cap V}).</script><p>By taking the difference of the last two maps, we have</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+0 \rightarrow \Omega^*(M) \rightarrow \Omega^*(U) \oplus \Omega^*(V) &\rightarrow \Omega^*(U \cap V) \rightarrow 0 \\
+(\omega,\tau) &\mapsto \tau-\omega
+\end{aligned}</script><p>The sequence above is a short exact sequence. Therefore we may use the zig-zag lemma to find a long exact sequence (which is also called the Mayer-Vietoris sequence) by</p>
+<script type="math/tex; mode=display">
+\cdots\to H^q(M) \to H^q(U) \oplus H^q(V) \to H^q(U \cap V)  \xrightarrow{d^*} H^{q+1}(M) \to \cdots</script><h3 id="An-example"><a href="#An-example" class="headerlink" title="An example"></a>An example</h3><p>This sequence allows one to compute the cohomology of two union of two open sets. For example, for $H^{*}_{DR}(\mathbb{R}^2-P-Q)$, where $P(x_p,y_p)$ and $Q(x_q,y_q)$ are two distinct points in $\mathbb{R}^2$, we may write</p>
+<script type="math/tex; mode=display">
+(\mathbb{R}^2-P)\cap(\mathbb{R}^2-Q)=\mathbb{R}^2-P-Q</script><p>and</p>
+<script type="math/tex; mode=display">
+(\mathbb{R}^2-P)\cup(\mathbb{R}^2-Q)=\mathbb{R}^2.</script><p>Therefore we may write $M=\mathbb{R}^2$, $U=\mathbb{R}^2-P$ and $V=\mathbb{R}^2-Q$. For $U$ and $V$, we have another decomposition by</p>
+<script type="math/tex; mode=display">
+\mathbb{R}^2-P=(\mathbb{R}^2-P_x)\cup(\mathbb{R}^2-P_y)</script><p>where</p>
+<script type="math/tex; mode=display">
+P_x=\{(x,y_p):x \in \mathbb{R}\}.</script><p>But</p>
+<script type="math/tex; mode=display">
+(\mathbb{R}^2-P_x)\cap(\mathbb{R}^2-P_y)</script><p>is a four-time (homeomorphic) copy of $\mathbb{R}^2$. So things become clear after we compute $H^{\ast}_{DR}(\mathbb{R}^2)$.</p>
+<h2 id="References-Further-reading"><a href="#References-Further-reading" class="headerlink" title="References / Further reading"></a>References / Further reading</h2><ul>
+<li>Raoul Bott, Loring W. Tu, <em>Differential Forms in Algebraic Topology</em></li>
+<li>Munkres J. R., <em>Elements of Algebraic Topology</em></li>
+<li>Micheal Spivak, <em>Calculus on Manifolds</em></li>
+<li>Serge Lang, <em>Algebra</em></li>
+</ul>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"><a href="../../../../tags/Diagram-chasing/" class="post-tags__link button"># Diagram-chasing</a><a href="../../../../tags/Differential-complex/" class="post-tags__link button"># Differential complex</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../../10/01/big-3-pt-5/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            The Big Three Pt. 5 - The Hahn-Banach Theorem (Dominated Extension)
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../24/two-fourier-transforms/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            The Fourier transform of sinx/x and (sinx/x)^2 and more
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2020/09/27/diagram-chasing/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>Every Regular Local Ring is Cohen-Macaulay | Desvl&#39;s blog</title>
+
+
+    <meta name="keywords" content="Study new content, Cohen-Macaulay">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="In this post we show that the class of regular local rings (the abstract version of power series rings) is a subclass of Cohen-Macaulay ring.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Every Regular Local Ring is Cohen-Macaulay">
+<meta property="og:url" content="https://desvl.xyz/2022/12/05/regular-local-ring-cohen-macaulay/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="In this post we show that the class of regular local rings (the abstract version of power series rings) is a subclass of Cohen-Macaulay ring.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-12-04T23:00:00.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:10.407Z">
+<meta property="article:author" content="Desvl">
+<meta property="article:tag" content="Study new content">
+<meta property="article:tag" content="Cohen-Macaulay">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        Every Regular Local Ring is Cohen-Macaulay
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2022/12/" class="post-meta__date button">2022-12-05</a>
+        
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/" class="button">Algebra</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/Commutative-Algebra/" class="button">Commutative Algebra</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <p>Throughout, let $R$ be a commutative Noetherian local ring with maximal ideal $\mathfrak{m}$ and residue field $k=R/\mathfrak{m}$.</p>
+<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>The notion of Cohen-Macaulay ring is sufficiently general to a wealth of examples in algebraic geometry, invariance theory and combinatorics; meanwhile it is sufficiently strict to allow a rich theory. The notion of Cohen-Macaulay is a workhorse of commutative algebra. In this post, we discover an important subclass of Cohen-Macaulay ring - regular local rings (one would be thinking about $k[[x_1,\dots,x_n]]$). See also <a target="_blank" rel="noopener" href="https://mathoverflow.net/q/138218/">“Why Cohen-Macaulay rings have become important in commutative algebra?”</a> on MathOverflow. </p>
+<p>It is recommended to be familiar with basic commutative algebra tools such as Nakayama’s lemma and minimal prime ideals.</p>
+<p>The content can be generalised to modules to a good extent, but we are not doing it for sake of quick accessibility.</p>
+<h1 id="Embedding-Dimension-Krull-Dimension-and-Grade"><a href="#Embedding-Dimension-Krull-Dimension-and-Grade" class="headerlink" title="Embedding Dimension, Krull Dimension and Grade"></a>Embedding Dimension, Krull Dimension and Grade</h1><blockquote>
+<p> <strong>Definition 1.</strong> The <em>Krull dimension</em> of $R$, written as $\dim{R}$, is the supremum taking over the length of prime ideal chains</p>
+<script type="math/tex; mode=display">
+\mathfrak{p}_0 \subsetneq \mathfrak{p}_1 \subsetneq \dots \subsetneq  \mathfrak{p}_d.</script></blockquote>
+<p>This definition was introduced to define dimension of affine varieties, in a global sense. Locally, we have the following definition.</p>
+<blockquote>
+<p><strong>Definition 2.</strong> The <em>embedding dimension</em> of $R$ is the dimension of a vector space</p>
+<script type="math/tex; mode=display">
+emb.\dim{R} = \dim_k(\mathfrak{m}/\mathfrak{m}^2).</script><p>The right hand side is the dimension of a $k$-vector space $\mathfrak{m}/\mathfrak{m}^2$.</p>
+</blockquote>
+<p>Let $R$ be the local ring of a complex variety $X$ at a point $P$, in other words we write $R=\mathcal{O}_{P,X}$. Then $(\mathfrak{m}/\mathfrak{m}^2)^\ast$ is the Zariski tangent space of $X$ at $P$, whose dimension equals $\dim_k(\mathfrak{m}/\mathfrak{m}^2)=emb.\dim{R}$. The embedding dimension of $R$ is the smallest integer $n$ such that some analytic neighbourhood of $P$ in $X$ embeds into $\mathbb{C}^n$. If this dimension equals the dimension of $X$, then $X$ is “smooth” at $P$. For this reason we define regular local ring.</p>
+<blockquote>
+<p><strong>Definition 3.</strong> The ring $R$ is called <em>regular</em> if $\dim{R}=emb.\dim{R}$.</p>
+</blockquote>
+<p>The most immediate intuitive example of regular local ring has to be rings of the form</p>
+<script type="math/tex; mode=display">
+K[[x_1,\dots,x_n]],</script><p>where $K$ is a field. These kind of rings are regular local rings of Krull dimension $n$. As one would imagine, this ring contains much more information than $K[x_1,\dots,x_n]$. Power series in complex analysis is much more powerful than polynomials.</p>
+<p>But by working on regular local rings, we are not essentially restricting ourselves into the ring of power series over a field. For example, the ring $\mathbb{Z}[X]_{(2,X)}$ is also a regular local ring, but it does not even contain a field. </p>
+<p>Nevertheless, our primary model of regular local rings is still a ring of the form $A=K[[x_1,\dots,x_n]]$, which has a maximal ideal $\mathfrak{m}=(x_1,\dots,x_n)$. To study local rings in the flavour of $A$, we develop an analogy of elements $\{x_1,\dots,x_n\}$.</p>
+<blockquote>
+<p><strong>Definition 4.</strong> A <em>regular sequence</em> of $R$, also written as $R$-sequence, is a sequence $[x_1,\dots,x_n]$ of elements in $\mathfrak{m}$ such that $x_1$ is a non-zero-divisor in $R$, and such that given $i&gt;1$, each $x_i$ is a non-zero-divisor in  $R/(x_1,\dots,x_i)$. </p>
+<p>The <em>grade</em> of $R$, $G(R)$, is the longest length of regular sequences. If $G(R)=\dim{R}$, then $R$ is called <em>Cohen-Macaulay</em>.</p>
+</blockquote>
+<p>It is quite intuitive that, for $A=K[[x_1,\dots,x_n]]$, the longest $R$-sequence has to be $[x_1,\dots,x_n]$, and therefore $A$ is Cohen-Macaulay. But such an argument does not bring us to the conclusion that quick. We will show later, anyway, every regular local ring is a Cohen-Macaulay ring.</p>
+<h1 id="The-Sequence-That-Forms-a-Basis"><a href="#The-Sequence-That-Forms-a-Basis" class="headerlink" title="The Sequence That Forms a Basis"></a>The Sequence That Forms a Basis</h1><p>Amongst many sequences, we are in particular interested in the sequence that are mapped onto a basis of the $k$-vector space $\mathfrak{m}/\mathfrak{m}^2$. We will show later that this “regular” sequence is indeed the <em>regular</em> sequence.</p>
+<blockquote>
+<p><strong>Proposition 1.</strong> Let $x_1,\dots,x_n$ be elements in $\mathfrak{m} \subset R$ whose images form a basis of $\mathfrak{m}/\mathfrak{m}^2$, then $x_1,\dots,x_n$ generate the maximal ideal $\mathfrak{m}$.</p>
+</blockquote>
+<p><em>Proof.</em> <a target="_blank" rel="noopener" href="https://stacks.math.columbia.edu/tag/07RC">Nakayama’s lemma (8)</a>. Notice that as $R$ is local, the Jacobson radical is $\mathfrak{m}$. Besides, we take $I=M=\mathfrak{m}$. $\square$</p>
+<blockquote>
+<p><strong>Proposition 2.</strong> If $R$ is a regular local ring of dimension $n$ and $x_1, \dots,x_n \in \mathfrak{m}$ map to a basis of $\mathfrak{m}/\mathfrak{m}^2$, then $R/(x_1,\dots,x_i)$ is a  regular local ring of dimension $n-i$.</p>
+</blockquote>
+<p><em>Proof.</em> By proposition 1, we have $\mathfrak{m}=(x_1,\dots,x_i,x_{i+1},\dots,x_n)$. The dimension of $R/(x_1,\dots,x_i)$ is determined by the chain in $R$:</p>
+<script type="math/tex; mode=display">
+(x_1,\dots,x_i,x_{i+1}) \subset \dots \subset (x_1,\dots,x_i,x_{i+1},\dots,x_n)</script><p>which has length $n-i$. That is, $\dim R/(x_1,\dots,x_i)=n-i$. On the other hand, the maximal ideal $\mathfrak{M}$ in $R/(x_1,\dots,x_i)$ is isomorphic to $(x_{i+1},\dots,x_n)$, and $x_{i+1},\dots,x_n$ map to a basis of $\mathfrak{M}/\mathfrak{M}^2$, which consequently has dimension $n-i$. $\square$</p>
+<p>It looks quite promising now that the sequence of basis can get everything down to earth, and we will show that in the following section.</p>
+<h1 id="Regular-Local-Rings-Are-Integral-Domains-and-Cohen-Macaulay"><a href="#Regular-Local-Rings-Are-Integral-Domains-and-Cohen-Macaulay" class="headerlink" title="Regular Local Rings Are Integral Domains and Cohen-Macaulay"></a>Regular Local Rings Are Integral Domains and Cohen-Macaulay</h1><blockquote>
+<p><strong>Proposition 3.</strong> If $R$ is regular, then $R$ is an integral domain.</p>
+</blockquote>
+<p><em>Proof.</em> We use induction on $\dim R$. When $\dim{R}=0$ and $R$ is regular, $R$ has to be a field, hence an integral domain by definition. Next we assume that $\dim{R}&gt;0$ and the argument has been proved for $\dim{R}-1$.</p>
+<p>Pick $x \in \mathfrak{m} \setminus \mathfrak{m}^2$. Then this element map to a nonzero element in $\mathfrak{m}/\mathfrak{m}^2$. There exists a basis of $\mathfrak{m}/\mathfrak{m}^2$ that contains $\overline{x}$. Therefore by proposition 2, $R/(x)$ is a regular local ring of dimension $\dim{R}-1$, which is an integral domain by assumption. It follows that $(x)$ is prime. </p>
+<p>We claim that there exists $x \in \mathfrak{m}/\mathfrak{m}^2$ such that $(x)$ has height $1$. If not, then for all $x \in \mathfrak{m}/\mathfrak{m}^2$, $(x)$ is a minimal. It follows that there exists finitely many minimal prime ideals $\mathfrak{p}_1,\dots,\mathfrak{p}_r$ such that</p>
+<script type="math/tex; mode=display">
+\mathfrak{m}=\mathfrak{m}^2 \cup \mathfrak{p}_1 \cup \dots \cup \mathfrak{p}_r</script><p> and consequently $\mathfrak{m} \subset \mathfrak{p}_j$ for some $1 \le j \le r$. It follows that $\dim{R}=0$, contradicting our assumption that $\dim{R}&gt;0$. [Note: the prime avoidance allows at most two ideals to be non-prime. See P. 90 of Eisenbud’s Commutative Algebra, with a View Toward Algebraic Geometry.]</p>
+<p>Thus, as our claim is true, we can write $\mathfrak{p} \subsetneq (x)$ with $\mathfrak{p}$ prime and $x \in \mathfrak{m} \setminus \mathfrak{m}^2$. We see $\mathfrak{p} \in (x^n)$ for all $n$ because if $p=rx^n \in \mathfrak{p}$, then $r \in \mathfrak{q} \subset (x)$ and therefore we write $r=sx$ or equivalently $p = sx^{n+1} \in (x^{n+1})$. When this is the case, we have $\mathfrak{p} \subset \bigcap_{n=1}^{\infty}(x^n)=0$. Therefore $R/\mathfrak{p}=R/0=R$ is an integral domain.</p>
+<p>We now reach our conclusion of this post.</p>
+<blockquote>
+<p><strong>Proposition 4.</strong> If $R$ is regular and of Krull dimension $n$, any $x_1,\dots,x_n \in \mathfrak{m}$ mapping to a basis of $\mathfrak{m}/\mathfrak{m}^2$ gives rise to a regular sequence ($R$-sequence). Hence $G(R)=\dim{R}$ and therefore $R$ is Cohen-Macaulay.</p>
+</blockquote>
+<p><em>Proof.</em> As $G(R) \le \dim{R}$, once we have shown that $[x_1,\dots,x_n]$ is a regular sequence, we have $G(R) \ge \dim{R}$. To show it being a regular sequence, first of all notice that $x_1$ is non-zero-divisor (because $R$ is an integral domain). For any $i&gt;1$, we see $R/(x_1,\dots,x_i)$ is a regular local ring of dimension $d-i$, hence again an integral domain. Therefore $x_{i+1},\dots,x_i$ are non-zero-divisors. $\square$</p>
+<h1 id="Reference-Further-Readings"><a href="#Reference-Further-Readings" class="headerlink" title="Reference / Further Readings"></a>Reference / Further Readings</h1><ul>
+<li>Charles A. Weibel, <em>An Introduction to Homological Algebra</em>.</li>
+<li>M. F. Atiyah,  I. G. MacDonald, <em>Introduction to Commutative Algebra</em>.</li>
+<li>David Eisenbud, <em>Commutative Algebra: with a View Toward Algebraic Geometry</em>.</li>
+<li>Winfred Bruns, Jürgen Herzog, <em>Cohen-Macaulay Rings</em></li>
+</ul>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"><a href="../../../../tags/Study-new-content/" class="post-tags__link button"># Study new content</a><a href="../../../../tags/Cohen-Macaulay/" class="post-tags__link button"># Cohen-Macaulay</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../20/haar-measure-p-adic/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            The Haar Measure on the Field of p-Adic Numbers
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../02/The-abc-Theorem-of-Polynomials/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            The abc Theorem of Polynomials
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2022/12/05/regular-local-ring-cohen-macaulay/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

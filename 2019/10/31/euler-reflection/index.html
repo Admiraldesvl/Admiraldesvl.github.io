@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>欧拉反射公式和利用Fourier级数的证明 | Desvl&#39;s blog</title>
+
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="$\Gamma$函数将自然数和连续函数很自然地结合起来，在各个领域有着各种意想不到的作用。 它的细节绝对不是只言片语能解释完的。 在这里我会介绍一个很有意思的公式: 欧拉反射公式。 当然，如果视野仅仅停留在一个公式上，那肯定不行。 欧拉反射公式 \Gamma(x)\Gamma(1-x)&#x3D;\frac{\pi}{\sin\pi{x}}\quad 0">
+<meta property="og:type" content="article">
+<meta property="og:title" content="欧拉反射公式和利用Fourier级数的证明">
+<meta property="og:url" content="https://desvl.xyz/2019/10/31/euler-reflection/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="$\Gamma$函数将自然数和连续函数很自然地结合起来，在各个领域有着各种意想不到的作用。 它的细节绝对不是只言片语能解释完的。 在这里我会介绍一个很有意思的公式: 欧拉反射公式。 当然，如果视野仅仅停留在一个公式上，那肯定不行。 欧拉反射公式 \Gamma(x)\Gamma(1-x)&#x3D;\frac{\pi}{\sin\pi{x}}\quad 0">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-10-30T23:00:00.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:09.878Z">
+<meta property="article:author" content="Desvl">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        欧拉反射公式和利用Fourier级数的证明
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2019/10/" class="post-meta__date button">2019-10-31</a>
+        
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AC%A7%E6%8B%89%E5%8F%8D%E5%B0%84%E5%85%AC%E5%BC%8F"><span class="toc-number">1.</span> <span class="toc-text">欧拉反射公式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E7%AE%80%E5%8D%95%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text">一些简单的应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AC%E5%BC%8F%E7%9A%84%E8%AF%81%E6%98%8E"><span class="toc-number">3.</span> <span class="toc-text">公式的证明</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%95%E7%90%861-Arzela%E6%8E%A7%E5%88%B6%E6%94%B6%E6%95%9B%E5%AE%9A%E7%90%86-Arzela-dominated-convergence-theorem%EF%BC%8C1885"><span class="toc-number">3.0.1.</span> <span class="toc-text">引理1: Arzela控制收敛定理(Arzela dominated convergence theorem，1885)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%95%E7%90%862-%E4%BD%99%E5%89%B2%E5%87%BD%E6%95%B0%E7%9A%84%E9%83%A8%E5%88%86%E5%88%86%E5%BC%8F%E5%B1%95%E5%BC%80"><span class="toc-number">3.0.2.</span> <span class="toc-text">引理2: 余割函数的部分分式展开</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%81%E6%98%8E%E7%9A%84%E7%AC%AC%E4%B8%80%E6%AD%A5-%E7%94%A8%E5%AE%9A%E7%A7%AF%E5%88%86%E8%A1%A8%E7%A4%BA%E5%8F%8D%E5%B0%84%E5%85%AC%E5%BC%8F"><span class="toc-number">3.1.</span> <span class="toc-text">证明的第一步: 用定积分表示反射公式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%81%E6%98%8E%E7%9A%84%E7%AC%AC%E4%BA%8C%E6%AD%A5-%E5%8F%8D%E5%B8%B8%E7%A7%AF%E5%88%86%E7%9A%84%E8%AE%A1%E7%AE%97"><span class="toc-number">3.2.</span> <span class="toc-text">证明的第二步: 反常积分的计算</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E5%90%8E%E8%A6%81%E8%AF%B4%E7%9A%84"><span class="toc-number">4.</span> <span class="toc-text">最后要说的</span></a></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AC%A7%E6%8B%89%E5%8F%8D%E5%B0%84%E5%85%AC%E5%BC%8F"><span class="toc-number">1.</span> <span class="toc-text">欧拉反射公式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E7%AE%80%E5%8D%95%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text">一些简单的应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AC%E5%BC%8F%E7%9A%84%E8%AF%81%E6%98%8E"><span class="toc-number">3.</span> <span class="toc-text">公式的证明</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%95%E7%90%861-Arzela%E6%8E%A7%E5%88%B6%E6%94%B6%E6%95%9B%E5%AE%9A%E7%90%86-Arzela-dominated-convergence-theorem%EF%BC%8C1885"><span class="toc-number">3.0.1.</span> <span class="toc-text">引理1: Arzela控制收敛定理(Arzela dominated convergence theorem，1885)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%95%E7%90%862-%E4%BD%99%E5%89%B2%E5%87%BD%E6%95%B0%E7%9A%84%E9%83%A8%E5%88%86%E5%88%86%E5%BC%8F%E5%B1%95%E5%BC%80"><span class="toc-number">3.0.2.</span> <span class="toc-text">引理2: 余割函数的部分分式展开</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%81%E6%98%8E%E7%9A%84%E7%AC%AC%E4%B8%80%E6%AD%A5-%E7%94%A8%E5%AE%9A%E7%A7%AF%E5%88%86%E8%A1%A8%E7%A4%BA%E5%8F%8D%E5%B0%84%E5%85%AC%E5%BC%8F"><span class="toc-number">3.1.</span> <span class="toc-text">证明的第一步: 用定积分表示反射公式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%81%E6%98%8E%E7%9A%84%E7%AC%AC%E4%BA%8C%E6%AD%A5-%E5%8F%8D%E5%B8%B8%E7%A7%AF%E5%88%86%E7%9A%84%E8%AE%A1%E7%AE%97"><span class="toc-number">3.2.</span> <span class="toc-text">证明的第二步: 反常积分的计算</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E5%90%8E%E8%A6%81%E8%AF%B4%E7%9A%84"><span class="toc-number">4.</span> <span class="toc-text">最后要说的</span></a></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <p>$\Gamma$函数将自然数和连续函数很自然地结合起来，在各个领域有着各种意想不到的作用。 它的细节绝对不是只言片语能解释完的。 在这里我会介绍一个很有意思的公式: 欧拉反射公式。 当然，如果视野仅仅停留在一个公式上，那肯定不行。</p>
+<h2 id="欧拉反射公式"><a href="#欧拉反射公式" class="headerlink" title="欧拉反射公式"></a>欧拉反射公式</h2><script type="math/tex; mode=display">
+\Gamma(x)\Gamma(1-x)=\frac{\pi}{\sin\pi{x}}\quad 0<x<1</script><h2 id="一些简单的应用"><a href="#一些简单的应用" class="headerlink" title="一些简单的应用"></a>一些简单的应用</h2><p>不如先看一下能直接利用它得到什么结论。 两个$\Gamma$函数的乘积，自然就和$B$函数能建立起联系。 显然我们有， </p>
+<script type="math/tex; mode=display">
+\Gamma(x)\Gamma(1-x)=\frac{\Gamma(x)\Gamma(1-x)}{\Gamma(x+1-x)}=B(x,1-x)</script><p>同时，再利用$B$函数的三角函数变形式，就有 </p>
+<script type="math/tex; mode=display">
+B(x,1-x)=2\int_{0}^{\pi/2}\cos^{2x-1}\theta\sin^{2(1-x)-1}\theta d\theta=2\int_{0}^{\pi/2}\cot^{2x-1}\theta d\theta</script><p>这时，一个很奇妙的结论就出现了: \</p>
+<script type="math/tex; mode=display">
+\int_{0}^{\pi/2}\cot^{2x-1}\theta d\theta=\frac{\pi}{2\sin\pi{x}}\quad 0<x<1</script><p>如果直接计算这个积分是很困难的。 但是，这两个欧拉积分却为我们提供了一个捷径。 那么正切函数的怎么计算?其实计算方式是一样的。 这是因为，$B(p,q)=B(q,p)$(为什么?)，如果计算$B(1-x,x)$，就能得到$\int_{0}^{\pi/2}\tan^{2x-1}\theta d\theta$的值了。</p>
+<p>接下来，我们试着算一下一个很“基本”的定积分 </p>
+<script type="math/tex; mode=display">
+I_p=\int_{0}^{\infty}\frac{1}{1+x^p}dx\quad p>1</script><p>这个时候因式分解已经不可行了。 实际上有理式因式分解本来就不一定是最靠谱的办法。 如果要分解$(1+x^{2019})$，那就太折磨人了（有2019个复根！）。 而如果利用余元公式，根本不需要这些工作。</p>
+<p>那么怎么才能通过欧拉反射公式解决呢? 首先将它转换成一个$B$函数。</p>
+<p>令$x^p=u\in[0,+\infty)$。 此时 </p>
+<script type="math/tex; mode=display">
+\begin{aligned} I_p &= \int_{0}^{+\infty}\frac{1}{1+u}du^{\frac{1}{p}} \\  
+&= \frac{1}{p}\int_{0}^{+\infty}\frac{u^{\frac{1}{p}-1}}{1+u}du \end{aligned}</script><p>再令$\frac{u}{1+u}=v\in[0,1)$，又能得到 </p>
+<script type="math/tex; mode=display">
+\begin{aligned} I_p &= \frac{1}{p}\int_{0}^{+\infty}\left(\frac{u}{1+u}\right)^{\frac{1}{p}-1}\left(\frac{1}{1+u}\right)^{2-\frac{1}{p}}du \\  
+&= \frac{1}{p}\int_{0}^{1}v^{\frac{1}{p}-1}(1-v)^{-\frac{1}{p}}dv \\  
+&= \frac{1}{p}B(\frac{1}{p},1-\frac{1}{p}) \\  
+&= \frac{\pi}{p\sin\frac{\pi}{p}} \end{aligned}</script><p>也就是说，对于这类积分，有一个普适性的结果: </p>
+<script type="math/tex; mode=display">
+\int_{0}^{\infty}\frac{1}{1+x^p}dx=\frac{\pi}{p\sin\frac{\pi}{p}} \quad p>1</script><p>繁杂的因式分解突然消失了（更何况如果$p$不是整数，根本没有多项式因式分解的说法）。</p>
+<p>这时还可以计算一个极限:</p>
+<script type="math/tex; mode=display">
+\lim_{p\to\infty}I_p=\lim_{p\to\infty}\frac{\frac{\pi}{p}}{\sin\frac{\pi}{p}}=1</script><p>最后我们利用这一个公式计算一个很“不基本”的反常积分。</p>
+<script type="math/tex; mode=display">
+\int_{0}^{1}\ln\Gamma(x)dx.</script><p>利用微积分换元公式，我们有</p>
+<script type="math/tex; mode=display">
+\int_0^1\ln\Gamma(x)dx=\int_1^0 \ln\Gamma(1-x)d(1-x)=\int_0^1\ln\Gamma(1-x)dx.</script><p>从而原积分可以写成自己和自己的和，也就是说，</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\int_0^1\ln\Gamma(x)dx&=\frac{1}{2}\int_0^1\ln\Gamma(x)\Gamma(1-x)dx \\
+                      &=\frac{1}{2}\int_0^1\ln\frac{\pi}{\sin\pi{x}}dx \\
+                      &=\frac{1}{2}\ln\pi-\frac{1}{2}\int_0^1\ln\sin{\pi{x}}dx \\
+                      &=\frac{1}{2}\ln(2\pi)
+\end{aligned}</script><h2 id="公式的证明"><a href="#公式的证明" class="headerlink" title="公式的证明"></a>公式的证明</h2><p>不得不说这是一件比较困难的事情。 我会在这里先介绍一种利用Arzela控制收敛定理进行证明的办法。</p>
+<h4 id="引理1-Arzela控制收敛定理-Arzela-dominated-convergence-theorem，1885"><a href="#引理1-Arzela控制收敛定理-Arzela-dominated-convergence-theorem，1885" class="headerlink" title="引理1: Arzela控制收敛定理(Arzela dominated convergence theorem，1885)"></a>引理1: Arzela控制收敛定理(Arzela dominated convergence theorem，1885)</h4><blockquote>
+<p>设${f_n}$是在$[a,b]$上收敛于$f$的可积函数列(并不要求一致收敛)，若$f$也可积，且${f_n}$在$[a,b]$上一致有界，即存在$M&gt;0$，使得对每个$n$和所有$x\in[a,b]$同时满足$|f_n(x)|\leq{M}$，则有 </p>
+<script type="math/tex; mode=display">
+\lim_{n\to\infty}\int_{a}^{b}f_n(x)dx=\int_{a}^{b}\lim_{n \to\infty} f_n(x)dx=\int_{a}^{b}f(x)dx</script></blockquote>
+<p>上面这个式子本来需要一致收敛(这是非常严苛的)，但是Arzela发现只需要收敛和一致有界。 但是这个定理登场一百多年来，一直没有一个让人满意的初等证明。 原因一个字:难。 如果感兴趣可以参考<a target="_blank" rel="noopener" href="https://sites.math.washington.edu/~morrow/335_15/dominated.pdf">这里</a>。</p>
+<h4 id="引理2-余割函数的部分分式展开"><a href="#引理2-余割函数的部分分式展开" class="headerlink" title="引理2: 余割函数的部分分式展开"></a>引理2: 余割函数的部分分式展开</h4><blockquote>
+<script type="math/tex; mode=display">
+\csc{x}=\frac{1}{x}+\sum_{n=1}^{\infty}(-1)^{n}\frac{2x}{x^2-n^2\pi^2}</script></blockquote>
+<p>怎么得到的这个公式? 利用傅里叶展开。</p>
+<p>注意到 </p>
+<script type="math/tex; mode=display">
+\cos\alpha{t} = \frac{\sin\pi\alpha}{\pi\alpha}+\sum_{n=1}^{\infty}(-1)^{n}\frac{2\alpha}{\pi(\alpha^2-n^2)}\sin\alpha\pi\cos{nt}</script><p>$\alpha$为整数时，$\csc\alpha\pi$不存在。 $\alpha$不是整数时，令$t=0$，$\alpha\pi=x$。 此时有 </p>
+<script type="math/tex; mode=display">
+1=\frac{\sin{x}}{x}+\sum_{n=1}^{\infty}(-1)^{n}\frac{2x}{x^2-n^2\pi^2}\sin{x}</script><p>移项之后即得结论。</p>
+<h3 id="证明的第一步-用定积分表示反射公式"><a href="#证明的第一步-用定积分表示反射公式" class="headerlink" title="证明的第一步: 用定积分表示反射公式"></a>证明的第一步: 用定积分表示反射公式</h3><p>我们已经知道$\Gamma(x)\Gamma(1-x)=B(x,1-x)$，但这是远远不够的。 两个幂还有一个减号不是很好处理。</p>
+<p>令$t=\frac{1}{1+y}$，那么就有</p>
+<script type="math/tex; mode=display">
+B(x,1-x)=\int_{0}^{\infty}t^{1-x}(1-t)^{-x}dt=\int_{0}^{\infty}\frac{1}{y^x(1+y)}dy</script><h3 id="证明的第二步-反常积分的计算"><a href="#证明的第二步-反常积分的计算" class="headerlink" title="证明的第二步: 反常积分的计算"></a>证明的第二步: 反常积分的计算</h3><p>实际上要做的就是证明第一步得到的结果等于$\pi\csc{\pi{x}}$。 这个时候上文给出的两个引理就能用上了。</p>
+<p>将这个积分分割成$(0,1)$和$[1,+\infty)$两个部分。 在$(0,1)$上，利用幂级数的知识，很容易得到 </p>
+<script type="math/tex; mode=display">
+\frac{1}{y^x(1+y)}=\sum_{n=0}^{\infty}(-1)^{n}y^{n-x}</script><p>等式右侧的函数虽然不是一致收敛，但是$n\geq{1}$时，这个级数的部分和一致有界，这时就可以用Arzela控制收敛定理了。 也就是说，可以直接交换极限符号: </p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\int_{0}^{1}\frac{dy}{y^x(1+y)}&=\int_{0}^{1}\left(\frac{1}{y^x}+\sum(-1)^{n}y^{n-x}\right)dy \\  
+&=\frac{1}{1-x}+\sum(-1)^n\int_{0}^{1}y^{n-x}dy \\  
+&=\sum\frac{(-1)^{n-1}}{n-x} 
+\end{aligned}</script><p>而$[1,+\infty)$的部分，只需令$u=\frac{1}{y}$，就回到了$(0,1)$上的情况了: </p>
+<script type="math/tex; mode=display">
+\begin{aligned} \int_{1}^{+\infty}\frac{dy}{y^x(1+y)}&=\int_{0}^{1}\frac{du}{u^{1-x}(1+u)} \\  
+&=\sum_{n=1}^{\infty}\frac{(-1)^{n-1}}{n-(1-x)}=\frac{1}{x}+\sum\frac{(-1)^{n}}{n+x} \end{aligned}</script><p>最后，将两部分接起来，就能得到 </p>
+<script type="math/tex; mode=display">
+\begin{aligned} \int_{0}^{+\infty}\frac{dy}{y^x(1+y)}&=\frac{1}{x}+\sum(-1)^{n}\left(\frac{1}{x-n}+\frac{1}{x+n}\right) \\  
+&=\frac{1}{x}+\sum(-1)^{n}\frac{2x}{x^2-n^2} \end{aligned}</script><p>而 </p>
+<script type="math/tex; mode=display">
+\begin{aligned} \pi\csc\pi{x}&=\pi\left(\frac{1}{\pi{x}}+\sum_{n=1}^{\infty}(-1)^{n}\frac{2\pi x}{\pi^2x^2-n^2\pi^2}\right) \\  
+&=\frac{1}{x}+\sum(-1)^{n}\frac{2x}{x^2-n^2} \end{aligned}</script><p>此即 </p>
+<script type="math/tex; mode=display">
+B(x,1-x)=\pi\csc\pi{x}</script><p>即为所求的结论。</p>
+<h2 id="最后要说的"><a href="#最后要说的" class="headerlink" title="最后要说的"></a>最后要说的</h2><p>在实数范围证明这个问题确实是要花好大的功夫——甚至都用到了傅里叶级数。 但是这一路上也可以看到很多重要的技巧，回顾了很多基础知识。 还是那句话，如果视野只局限在这个公式，是很不划算的。</p>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../../../2020/01/17/abstract-lebesgue-integral/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            抽象Lebesgue积分的构建
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../02/productivity-overrated/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            并不新颖的观点：不要追求生产力、效率了
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2019/10/31/euler-reflection/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

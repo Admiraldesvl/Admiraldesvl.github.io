@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>The Big Three Pt. 2 - The Banach-Steinhaus Theorem | Desvl&#39;s blog</title>
+
+
+    <meta name="keywords" content="The big three">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="About this blog postPeople call the Banach-Steinhaus theorem the first of the big three, which sits at the foundation of linear functional analysis. None of them can go without the Baire’s category th">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Big Three Pt. 2 - The Banach-Steinhaus Theorem">
+<meta property="og:url" content="https://desvl.xyz/2020/06/30/big-3-pt-2/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="About this blog postPeople call the Banach-Steinhaus theorem the first of the big three, which sits at the foundation of linear functional analysis. None of them can go without the Baire’s category th">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-06-30T08:55:50.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:09.638Z">
+<meta property="article:author" content="Desvl">
+<meta property="article:tag" content="The big three">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        The Big Three Pt. 2 - The Banach-Steinhaus Theorem
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2020/06/" class="post-meta__date button">2020-06-30</a>
+        
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/" class="button">Analysis</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/Functional-Analysis/" class="button">Functional Analysis</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#About-this-blog-post"><span class="toc-number">1.</span> <span class="toc-text">About this blog post</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Equicontinuity"><span class="toc-number">2.</span> <span class="toc-text">Equicontinuity</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Banach-Steinhaus-theorem-a-sufficient-condition-for-being-equicontinuous"><span class="toc-number">3.</span> <span class="toc-text">The Banach-Steinhaus theorem, a sufficient condition for being equicontinuous</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Banach-space-version"><span class="toc-number">3.1.</span> <span class="toc-text">Banach space version</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Proof"><span class="toc-number">3.1.1.</span> <span class="toc-text">Proof</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#An-elementary-proof-of-the-Resonance-theorem"><span class="toc-number">3.1.1.1.</span> <span class="toc-text">An elementary proof of the Resonance theorem</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#A-topology-based-proof"><span class="toc-number">3.1.1.2.</span> <span class="toc-text">A topology-based proof</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Topological-vector-space-version"><span class="toc-number">3.2.</span> <span class="toc-text">Topological vector space version</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#A-proof-using-properties-of-TVS"><span class="toc-number">3.2.0.1.</span> <span class="toc-text">A proof using properties of TVS</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Equicontinuity-and-uniform-boundedness"><span class="toc-number">3.2.0.2.</span> <span class="toc-text">Equicontinuity and uniform boundedness</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#A-special-case-when-X-is-a-F-space-or-Banach-space"><span class="toc-number">3.2.1.</span> <span class="toc-text">A special case when $X$ is a $F$-space or Banach space</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Application"><span class="toc-number">4.</span> <span class="toc-text">Application</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-series"><span class="toc-number">5.</span> <span class="toc-text">The series</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#References-Further-readings"><span class="toc-number">6.</span> <span class="toc-text">References &#x2F; Further readings</span></a></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#About-this-blog-post"><span class="toc-number">1.</span> <span class="toc-text">About this blog post</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Equicontinuity"><span class="toc-number">2.</span> <span class="toc-text">Equicontinuity</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Banach-Steinhaus-theorem-a-sufficient-condition-for-being-equicontinuous"><span class="toc-number">3.</span> <span class="toc-text">The Banach-Steinhaus theorem, a sufficient condition for being equicontinuous</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Banach-space-version"><span class="toc-number">3.1.</span> <span class="toc-text">Banach space version</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Proof"><span class="toc-number">3.1.1.</span> <span class="toc-text">Proof</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#An-elementary-proof-of-the-Resonance-theorem"><span class="toc-number">3.1.1.1.</span> <span class="toc-text">An elementary proof of the Resonance theorem</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#A-topology-based-proof"><span class="toc-number">3.1.1.2.</span> <span class="toc-text">A topology-based proof</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Topological-vector-space-version"><span class="toc-number">3.2.</span> <span class="toc-text">Topological vector space version</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#A-proof-using-properties-of-TVS"><span class="toc-number">3.2.0.1.</span> <span class="toc-text">A proof using properties of TVS</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Equicontinuity-and-uniform-boundedness"><span class="toc-number">3.2.0.2.</span> <span class="toc-text">Equicontinuity and uniform boundedness</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#A-special-case-when-X-is-a-F-space-or-Banach-space"><span class="toc-number">3.2.1.</span> <span class="toc-text">A special case when $X$ is a $F$-space or Banach space</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Application"><span class="toc-number">4.</span> <span class="toc-text">Application</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-series"><span class="toc-number">5.</span> <span class="toc-text">The series</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#References-Further-readings"><span class="toc-number">6.</span> <span class="toc-text">References &#x2F; Further readings</span></a></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h2 id="About-this-blog-post"><a href="#About-this-blog-post" class="headerlink" title="About this blog post"></a>About this blog post</h2><p>People call the Banach-Steinhaus theorem the first of the big three, which sits at the foundation of linear functional analysis. None of them can go without the Baire’s category theorem. </p>
+<p>This blog post offers the Banach-Steinhaus theorem on different abstract levels. Recall that we have</p>
+<script type="math/tex; mode=display">
+\text{TVS} \supset \text{Metrizable TVS} \supset \text{F-space} \supset \text{Fréchet space}\supset\text{Banach space} \supset \text{Hilbert space}</script><p>First, there will be a simple version for Banach spaces, which may be more frequently used, and you will realize why it’s referred to as the <em>uniform boundedness principle</em>. After that, there will be a much more generalized version for TVS. Typically, the metrization of the space will not be considered.</p>
+<p>Also, it will be a good chance to get a better view of the first and second space by Baire.</p>
+<h2 id="Equicontinuity"><a href="#Equicontinuity" class="headerlink" title="Equicontinuity"></a>Equicontinuity</h2><p>For metric spaces, equicontinuity is defined as follows. Let $(X,d_X)$ and $(Y,d_Y)$ be two metric spaces.</p>
+<blockquote>
+<p>Let $\Lambda$ be a collection of functions from $X$ to $Y$. We have three different levels of equicontinuity.</p>
+<ol>
+<li><strong>Equicontinuous at a point</strong>. For $x_0 \in X$, if for every $\varepsilon&gt;0$, there exists a $\delta&gt;0$ such that $d_Y(Lx_0,Lx)&lt;\varepsilon$ for <strong>all</strong> $L \in \Lambda$ and $d_X(x_0,x)&lt;\delta$ (that is, the continuity holds for all $L$ in a ball centered at $x_0$ with radius $r$).</li>
+<li><strong>Pointwise equicontinuous</strong>. $\Lambda$ is equicontinuous at each point of $X$.</li>
+<li><strong>Uniformly equicontinuous</strong>. For every $\varepsilon&gt;0$, there exists a $\delta&gt;0$ such that $d_Y(Lx,Ly)&lt;\varepsilon$ for all $x \in \Lambda$ and $x,y \in X$ such that $d_X(x,y) &lt; \delta$.</li>
+</ol>
+</blockquote>
+<p>Indeed, if $\Lambda$ contains only one element, namely $L$, then everything goes with the continuity and uniform continuity. </p>
+<p>But for Banach-Steinhaus theorem, we need a little more restrictions. In fact, $X$ and $Y$ should be considered Banach spaces, and $\Lambda$ contains linear functions only. In this sense, for $L \in \Lambda$, we have the following three conditions equivalent.</p>
+<blockquote>
+<ol>
+<li>$L$ is bounded.</li>
+<li>$L$ is continuous.</li>
+<li>$L$ is continuous at one point of $X$.</li>
+</ol>
+</blockquote>
+<hr>
+<p>For topological vector spaces, where only topology and linear structure are taken into consideration, things get different. Since no metrization is considered, we have to state it in the language of topology.</p>
+<blockquote>
+<p>Suppose $X$ and $Y$ are TVS and $\Lambda$ is a collection of linear functions from $X$ to $Y$. $\Lambda$ is equicontinuous if for every neighborhood $N$ of $0$ in $Y$, there corresponds a neighborhood $V$ of $0$ in $X$ such that $L(V) \subset N$ for all $L \in \Lambda$.</p>
+</blockquote>
+<p>Indeed, for TVS, $L \in \Lambda$ has the three conditions equivalent as well. With that being said, equicontinuous collection has the boundedness property in a uniform manner. That’s why the Banach-Steinhaus theorem is always referred to as the <em>uniform boundedness principle</em>.</p>
+<h2 id="The-Banach-Steinhaus-theorem-a-sufficient-condition-for-being-equicontinuous"><a href="#The-Banach-Steinhaus-theorem-a-sufficient-condition-for-being-equicontinuous" class="headerlink" title="The Banach-Steinhaus theorem, a sufficient condition for being equicontinuous"></a>The Banach-Steinhaus theorem, a sufficient condition for being equicontinuous</h2><h3 id="Banach-space-version"><a href="#Banach-space-version" class="headerlink" title="Banach space version"></a>Banach space version</h3><blockquote>
+<p>Suppose $X$ is a Banach space, $Y$ is a normed linear space, and ${F}$ is a collection of bounded linear transformation of $X$ into $Y$, we have two equivalent statements:</p>
+<ol>
+<li><p><strong>(The Resonance Theorem)</strong> If $\sup\limits_{L \in \Lambda}\left\Vert{L}\right\Vert=\infty$, then there exists some $x \in X$ such that $\sup\limits_{L \in {L}}\left\Vert{Lx}\right\Vert=\infty$. (In fact, these $x$ form a dense $G_\delta$.)</p>
+</li>
+<li><p><strong>(The Uniform Boundedness Principle)</strong> If $\sup\limits_{L \in {\Lambda}}\left\Vert{Lx}\right\Vert&lt;\infty$ for all $x \in X$, then we have $ \left\Vert L \right\Vert \leq M$ for all $L \in {\Lambda}$ and some $M&lt;\infty$.</p>
+</li>
+<li><strong>(A summary of 1 and 2)</strong> Either there exists an $M&lt;\infty$ such that $\lVert L \rVert \leq M$ for all $L \in {L}$, or $\sup\lVert Lx \rVert = \infty$ for all $x$ belonging to some dense $G_\delta$ in $X$.</li>
+</ol>
+</blockquote>
+<h4 id="Proof"><a href="#Proof" class="headerlink" title="Proof"></a>Proof</h4><p><em>Though it would be easier if we finish the TVS version proof, it’s still a good idea to leave the formal proof without the help of TVS here. The equicontinuity of $\Lambda$ will be shown in the next section.</em> </p>
+<h5 id="An-elementary-proof-of-the-Resonance-theorem"><a href="#An-elementary-proof-of-the-Resonance-theorem" class="headerlink" title="An elementary proof of the Resonance theorem"></a>An elementary proof of the Resonance theorem</h5><p>First, we offer an elementary proof in which the hardest part is the Cauchy sequence.</p>
+<blockquote>
+<p><strong>(Lemma)</strong> For any $x \in X$ and $r &gt;0$, we have</p>
+<script type="math/tex; mode=display">
+\sup_{y\in B(x,r)}\lVert Lx \rVert \geq \lVert L \rVert r</script><p>where $B(x,r)=\{y \in X:\lVert x-y \rVert &lt; r\}$.</p>
+<p><strong>(Proof of the lemma)</strong></p>
+<p>For $t \in X$ we have a simple relation</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\max(\lVert{L(x+t)}\rVert,\lVert{L(x-t)}\rVert)&=\frac{1}{2}(\lVert{L(x+t)}\rVert+\lVert{L(x-t)}\rVert)+\frac{1}{2}\left\vert\lVert{L(x+t)}\rVert-\lVert{L(x-t)}\rVert\right\vert \\
+&\geq \frac{1}{2}(\lVert{L(x+t)}\rVert+\lVert{L(x-t)}\rVert) \\
+&\geq \frac{1}{2}\lVert{L(2t)}\rVert=\lVert Lt \rVert
+\end{aligned}</script><p>If we have $t \in B(0,r)$, then $x+t,x-t\in{B(x,r)}$. And the desired inequality follows by taking the supremum over $t \in B(0,r)$. (If you find trouble understanding this, take a look at the definition of $\lVert L \rVert$.)</p>
+</blockquote>
+<p>Suppose now $\sup\limits_{L \in \Lambda}\left\Vert{L}\right\Vert=\infty$. Pick a sequence of linear transformation in $\Lambda$, say $(L_n)_{n=1}^{\infty}$, such that $\lVert L_n \rVert \geq 4^n$. Pick $x_0 \in X$, and for $n \geq 1$, we pick $x_n$ inductively. </p>
+<p>Set $r_n=3^{-n}$. With $x_{n-1}$ being picked, $x_n \in B(x_{n-1},r_n)$ is picked in such a way that </p>
+<script type="math/tex; mode=display">
+\lVert L_n x_n \rVert \geq \frac{2}{3}\lVert L_n \rVert r_n</script><p>(It’s easy to validate this inequality by reaching a contradiction.) Also, it’s easy to check that $(x_n)_{n=1}^{\infty}$ is Cauchy. Since $X$ is <strong>complete</strong>, $(x_n)$ converges to some $x \in X$. Further we have</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\lVert x-x_n \rVert &\leq \sum_{k=n}^{\infty}\lVert x_k - x_{k+1}\rVert \\
+&=\frac{1}{2\cdot 3^n}
+\end{aligned}</script><p>Therefore we have</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\lVert L_n x \rVert &=\lVert L_n[x_n-(x_n-x)] \rVert \\
+&\geq \lVert L_nx_n \rVert - \lVert L_n(x_n-x) \rVert \\
+&\geq \frac{2}{3}\lVert{L_n}\rVert{3}^{-n}-\lVert{L_n}\rVert\lVert{x_n-x}\rVert\\
+&\geq \frac{1}{6}\lVert{L_n}\rVert{3}^{-n} \\
+& \geq \frac{1}{6}\left(\frac{4}{3}\right)^n \to\infty
+\end{aligned}</script><h5 id="A-topology-based-proof"><a href="#A-topology-based-proof" class="headerlink" title="A topology-based proof"></a>A topology-based proof</h5><p>The previous proof is easy to understand but it’s not easy to see the topological properties of the set formed by such $x$. Thus we are offering a topology-based proof which enables us to get a topology view.</p>
+<p>Put </p>
+<script type="math/tex; mode=display">
+\varphi(x)=\sup_{L \in \Lambda}\lVert Lx \rVert</script><p>and let</p>
+<script type="math/tex; mode=display">
+V_n=\{x:\varphi(x)>n\}</script><p>we claim that each $V_n$ is open. Indeed, we have to show that $x \mapsto \lVert Lx \rVert$ is continuous. It suffice to show that $\lVert\cdot\rVert$ defined in $Y$ is continuous. This follows immediately from triangle inequality since for $x,y \in Y$ we have</p>
+<script type="math/tex; mode=display">
+\lVert x \rVert \leq \lVert x-y \rVert + \lVert y \rVert</script><p>which implies</p>
+<script type="math/tex; mode=display">
+\lVert x \rVert - \lVert y \rVert \leq \lVert x-y \rVert</script><p>by interchanging $x$ and $y$, we get</p>
+<script type="math/tex; mode=display">
+|\lVert x \rVert - \lVert y \rVert | \leq \lVert x-y \rVert</script><p>Thus $x \mapsto \lVert Lx \rVert$ is continuous since it’s a composition of $\lVert\cdot\rVert$ and $L$. Hence $\varphi$, by the definition, is lower semicontinuous, which forces $V_n$ to be open. </p>
+<p>If <strong>every</strong> $V_n$ is dense in $X$ (consider $\sup\lVert L \rVert=\infty$), then by BCT, $B=\bigcap_{n=1}^{\infty} V_n$ is dense in $X$. Since each $V_n$ is open, $B$ is a dense $G_\delta$. Again by the definition of $B$, we have $\varphi(x)=\infty$ for all $x \in B$.</p>
+<p>If one of these sets, namely $V_N$, fails to be dense in $X$, then there exist an $x_0 \in X - V_N$ and an $r&gt;0$ such that for $x \in B(0,r)$ we have $x_0+x \notin V_N$, which is equivalent to</p>
+<script type="math/tex; mode=display">
+\varphi(x+x_0) \leq N</script><p>considering the definition of $\varphi$, we also have</p>
+<script type="math/tex; mode=display">
+\lVert L(x+x_0) \rVert \leq N</script><p>for all $L \in \Lambda$. Since $x=(x+x_0)-x_0$, we also have</p>
+<script type="math/tex; mode=display">
+\lVert Lx \rVert \leq \lVert L(x+x_0) \rVert+\lVert Lx_0 \rVert \leq 2N</script><p>Dividing $r$ on two sides, we got</p>
+<script type="math/tex; mode=display">
+\lVert L\frac{x}{r}\rVert \leq \frac{2N}{r}</script><p>therefore $\lVert L \rVert \leq M=\frac{2N}{r}$ as is to be shown. Again, this follows from the definition of $\lVert L \rVert$. </p>
+<h3 id="Topological-vector-space-version"><a href="#Topological-vector-space-version" class="headerlink" title="Topological vector space version"></a>Topological vector space version</h3><blockquote>
+<p>Suppose $X$ and $Y$ are topological vector spaces, $\Lambda$ is a collection of continuous linear mapping from $X$ into $Y$, and $B$ is the set of all $x \in X$ whose orbits</p>
+<script type="math/tex; mode=display">
+\Lambda(x)=\{Lx:L\in\Lambda\}</script><p>are bounded in $Y$. For this $B$, we have:</p>
+<ul>
+<li>If $B$ is of the second category, then $\Lambda$ is equicontinuous.</li>
+</ul>
+</blockquote>
+<h5 id="A-proof-using-properties-of-TVS"><a href="#A-proof-using-properties-of-TVS" class="headerlink" title="A proof using properties of TVS"></a>A proof using properties of TVS</h5><p>Pick balanced neighborhoods $W$ and $U$ of the origin in $Y$ such that $\overline{U} + \overline{U} \subset W$. The balanced neighborhood exists since every neighborhood of $0$ contains a balanced one.</p>
+<p>Put</p>
+<script type="math/tex; mode=display">
+E=\bigcap_{L \in \Lambda}L^{-1}(\overline{U}).</script><p>If $x \in B$, then $\Lambda(x)$ is bounded, which means that to $U$, there exists some $n$ such that $\Lambda(x) \subset nU$ (Be aware, no metric is introduced, this is the definition of boundedness in topological space). Therefore we have $x \in nE$. Consequently,</p>
+<script type="math/tex; mode=display">
+B\subset \bigcup_{n=1}^{\infty}nE.</script><p>If no $nE$ is of the second category, then $B$ is of the first category. Therefore, there exists at least one $n$ such that $nE$ is of the second category. Since $x \mapsto nx$ is a homeomorphism of $X$ onto $X$, $E$ is of the second category as well. But $E$ is closed since each $L$ is continuous. Therefore $E$ has an interior point $x$. In this case, $x-E$ contains a neighborhood $V$ of $0$ in $X$, and</p>
+<script type="math/tex; mode=display">
+L(V) \subset Lx-L(E) \subset \overline{U} - \overline{U} \subset W</script><p>This proves that $\Lambda$ is equicontinuous.</p>
+<h5 id="Equicontinuity-and-uniform-boundedness"><a href="#Equicontinuity-and-uniform-boundedness" class="headerlink" title="Equicontinuity and uniform boundedness"></a>Equicontinuity and uniform boundedness</h5><p>We’ll show that $B=X$. But before that, we need another lemma, which states the connection between equicontinuity and uniform boundedness</p>
+<blockquote>
+<p><strong>(Lemma)</strong> Suppose $X$ and $Y$ are TVS, $\Gamma$ is an equicontinuous collection of linear mappings from $X$ to $Y$, and $E$ is a bounded subset of $X$. Then $Y$ has a bounded subset $F$ such that $T(E) \subset F$ for every $T \in \Gamma$.</p>
+<p><strong>(Proof of the lemma)</strong> We’ll show that, the set</p>
+<script type="math/tex; mode=display">
+F=\bigcup_{T \in \Gamma}T(E)</script><p>is bounded. By the definition of equicontinuity, there is an neighborhood $V$ of the origin in $X$ such that $T(V) \subset W$ for all $T \in \Gamma$. Since $E$ is bounded,  there exists some $t$ such that $E \subset tV$. For these $t$, by the definition of linear functions, we have</p>
+<script type="math/tex; mode=display">
+T(E) \subset T(tV)=tT(V) \subset tW</script><p>Therefore $F \subset tW$. $F$ is bounded.</p>
+</blockquote>
+<p>Thus $\Lambda$ is uniformly bounded.  Picking $E=\{x\}$ in the lemma, we also see $\Lambda(x)$ is bounded in $Y$ for every $x$. Thus $B=X$.</p>
+<h4 id="A-special-case-when-X-is-a-F-space-or-Banach-space"><a href="#A-special-case-when-X-is-a-F-space-or-Banach-space" class="headerlink" title="A special case when $X$ is a $F$-space or Banach space"></a>A special case when $X$ is a $F$-space or Banach space</h4><p>$X$ is a $F$-space if its topology $\tau$ is induced by a <strong>complete</strong> invariant metric $d$. By BCT, $X$ is of the second category. If we already have $B=X$, in which case $B$ is of the second category, then by Banach-Steinhaus theorem, $\Lambda$ is equicontinuous. Formally speaking, we have:</p>
+<blockquote>
+<p>If $\Lambda$ is a collection of continuous linear mappings from an $F$-space $X$ into a topological vector space $Y$, and if the sets</p>
+<script type="math/tex; mode=display">
+\Lambda(x)=\{Lx:L\in\Lambda\}</script><p>are bounded in $Y$ for <strong>every</strong> $x \in X$, then $\Lambda$ is equicontinuous.</p>
+</blockquote>
+<p>Notice that all Banach spaces are $F$-spaces. Therefore we can restate the Uniform Boundedness Principle in Banach space with equicontinuity.</p>
+<blockquote>
+<p>Suppose $X$ is a Banach space, $Y$ is a normed linear space, and ${F}$ is a collection of bounded linear transformation of $X$ into $Y$, we have:</p>
+<ul>
+<li><strong>(The Uniform Boundedness Principle)</strong> If $\sup\limits_{L \in {\Lambda}}\left\Vert{Lx}\right\Vert&lt;\infty$ for all $x \in X$, then we have $|L| \le M$ for all $L \in {\Lambda}$ and some $M&lt;\infty$. Further, $\Lambda$ is equicontinuous. </li>
+</ul>
+</blockquote>
+<h2 id="Application"><a href="#Application" class="headerlink" title="Application"></a>Application</h2><p>Surprisingly enough, the Banach-Steinhaus theorem can be used to do Fourier analysis. An important example follows.</p>
+<blockquote>
+<p>There is a periodic continuous function $f$ on $[0,1]$ such that the Fourier series</p>
+<script type="math/tex; mode=display">
+\sum_{n\in\mathbb{Z}}\hat{f}(n)e^{2\pi inx}</script><p>of $f$ diverges at $0$. $\hat{f}(n)$ is defined by</p>
+<script type="math/tex; mode=display">
+\hat{f}(n)=\int_{0}^{1}e^{-2\pi inx}f(x)dx</script></blockquote>
+<p>Notice that $f \mapsto \hat{f}$ is linear, and the divergence of the series at $0$ can be considered by</p>
+<script type="math/tex; mode=display">
+\sum_{n\in\mathbb{Z}}\hat{f}(n)e^{2\pi in\cdot0}=\sum_{n\in\mathbb{Z}}\hat{f}(n)</script><p>To invoke Banach-Steinhaus theorem, the family of linear functionals are defined by</p>
+<script type="math/tex; mode=display">
+\lambda_N(f)=\sum_{|n| \leq N}\hat{f}(n)</script><p>It can be proved that</p>
+<script type="math/tex; mode=display">
+\lVert \lambda_N \rVert=\int_0^1\left\vert\sum_{|n| \leq N}e^{-2\pi inx}\right\vert dx</script><p>which goes to infinity as $N \to \infty$. The existence of such $f$ that</p>
+<script type="math/tex; mode=display">
+\sup_{N}|\lambda_N(f)|=+\infty</script><p>follows from the resonance theorem. Further, we also know that these $f$ are in a dense $G_\delta$ subset of the vector space generated by all periodic continuous functions on $[0,1]$.</p>
+<h2 id="The-series"><a href="#The-series" class="headerlink" title="The series"></a>The series</h2><p>Since there is no strong reason to write more posts on this topic, i.e. the three fundamental theorems of linear functional analysis, I think it’s time to make a list of the series. It’s been around half a year.</p>
+<ul>
+<li><a href="/2020/06/06/big-3-pt-1/">The Big Three Pt. 1 - Baire Category Theorem Explained</a></li>
+<li>The Big Three Pt. 2 - The Banach-Steinhaus Theorem</li>
+<li><a href="/2020/08/12/big-3-pt-3/">The Big Three Pt. 3 - The Open Mapping Theorem (Banach Space)</a></li>
+<li><a href="/2020/09/12/big-3-pt-4/">The Big Three Pt. 4 - The Open Mapping Theorem (F-Space)</a></li>
+<li><a href="/2020/10/01/big-3-pt-5/">The Big Three Pt. 5 - The Hahn-Banach Theorem (Dominated Extension)</a></li>
+<li><a href="/2020/11/13/big-3-pt-6/">The Big Three Pt. 6 - Closed Graph Theorem with Applications</a></li>
+</ul>
+<h2 id="References-Further-readings"><a href="#References-Further-readings" class="headerlink" title="References / Further readings"></a>References / Further readings</h2><ol>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1005.1585.pdf">arXiv:1005.1585v2</a></li>
+<li>W. Rudin, <em>Real and Complex Analysis</em></li>
+<li>W. Rudin, <em>Functional Analysiss</em></li>
+<li><a target="_blank" rel="noopener" href="http://www-users.math.umn.edu/~garrett/m/fun/Notes/03b_fourier.pdf">Applications to Fourier series</a></li>
+</ol>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"><a href="../../../../tags/The-big-three/" class="post-tags__link button"># The big three</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../../07/04/nowhere-differentiable-functions/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            A continuous function is &#39;mostly&#39; nowhere differentiable
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../06/big-3-pt-1/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            The Big Three Pt. 1 - Baire Category Theorem Explained
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2020/06/30/big-3-pt-2/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

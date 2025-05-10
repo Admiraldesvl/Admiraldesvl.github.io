@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>高等数学入门——理解无穷小的阶（微积分的“科学计数法”） | Desvl&#39;s blog</title>
+
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="从科学记数法讲起当处理非常大或者非常小的数的时候科学记数法肯定是很方便的，不用记写很多$0$，也不用数有几个$0$。像是木星的质量大约是$1.9\times 10^{27}$千克，而电子的质量大约是$9.1 \times 10^{-31}$ 千克，能很轻松地进行表达。如果这两个数进行加法或者乘法，那也不是很困难（至少相比于非得把两个数列出来好算）。 对于一个用科学记数法表示的数  x&#x3D;a \tim">
+<meta property="og:type" content="article">
+<meta property="og:title" content="高等数学入门——理解无穷小的阶（微积分的“科学计数法”）">
+<meta property="og:url" content="https://desvl.xyz/2020/04/18/order-of-limit/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="从科学记数法讲起当处理非常大或者非常小的数的时候科学记数法肯定是很方便的，不用记写很多$0$，也不用数有几个$0$。像是木星的质量大约是$1.9\times 10^{27}$千克，而电子的质量大约是$9.1 \times 10^{-31}$ 千克，能很轻松地进行表达。如果这两个数进行加法或者乘法，那也不是很困难（至少相比于非得把两个数列出来好算）。 对于一个用科学记数法表示的数  x&#x3D;a \tim">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-04-17T22:00:00.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:10.250Z">
+<meta property="article:author" content="Desvl">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        高等数学入门——理解无穷小的阶（微积分的“科学计数法”）
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2020/04/" class="post-meta__date button">2020-04-18</a>
+        
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8E%E7%A7%91%E5%AD%A6%E8%AE%B0%E6%95%B0%E6%B3%95%E8%AE%B2%E8%B5%B7"><span class="toc-number">1.</span> <span class="toc-text">从科学记数法讲起</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%AE%E7%A7%AF%E5%88%86%E7%9A%84%E2%80%9C%E7%A7%91%E5%AD%A6%E8%AE%B0%E6%95%B0%E6%B3%95%E2%80%9D"><span class="toc-number">2.</span> <span class="toc-text">微积分的“科学记数法”</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%93%E4%BD%8F%E6%9E%81%E9%99%90%E5%AE%9A%E4%B9%89%E7%9A%84%E9%87%8D%E7%82%B9"><span class="toc-number">2.1.</span> <span class="toc-text">抓住极限定义的重点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%B0%E5%8F%B7-o-O-sim"><span class="toc-number">2.2.</span> <span class="toc-text">记号$o,O,\sim$</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#sim-%EF%BC%8C%E5%90%8C%E9%98%B6%E5%92%8C%E7%AD%89%E4%BB%B7%E6%97%A0%E7%A9%B7%E5%B0%8F%EF%BC%88%E5%A4%A7%EF%BC%89%E9%87%8F"><span class="toc-number">2.2.1.</span> <span class="toc-text">$\sim$，同阶和等价无穷小（大）量</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E5%BC%95%E5%85%A5%E8%BF%99%E4%B8%AA%E6%A6%82%E5%BF%B5%EF%BC%9F"><span class="toc-number">2.2.1.1.</span> <span class="toc-text">为什么引入这个概念？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%97%A0%E7%A9%B7%E5%B0%8F%E9%87%8F%E7%9A%84%E9%98%B6"><span class="toc-number">2.2.1.2.</span> <span class="toc-text">无穷小量的阶</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%B0%E5%8F%B7-o-%E5%92%8C-O-%E5%8F%88%E5%9C%A8%E8%A1%A8%E8%BE%BE%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">2.2.2.</span> <span class="toc-text">记号$o$和$O$又在表达什么？</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%80%9C%E7%A7%91%E5%AD%A6%E8%AE%B0%E6%95%B0%E6%B3%95%E2%80%9D%E7%9A%84%E6%80%BB%E7%BB%93"><span class="toc-number">2.3.</span> <span class="toc-text">“科学记数法”的总结</span></a></li></ol></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8E%E7%A7%91%E5%AD%A6%E8%AE%B0%E6%95%B0%E6%B3%95%E8%AE%B2%E8%B5%B7"><span class="toc-number">1.</span> <span class="toc-text">从科学记数法讲起</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%AE%E7%A7%AF%E5%88%86%E7%9A%84%E2%80%9C%E7%A7%91%E5%AD%A6%E8%AE%B0%E6%95%B0%E6%B3%95%E2%80%9D"><span class="toc-number">2.</span> <span class="toc-text">微积分的“科学记数法”</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%93%E4%BD%8F%E6%9E%81%E9%99%90%E5%AE%9A%E4%B9%89%E7%9A%84%E9%87%8D%E7%82%B9"><span class="toc-number">2.1.</span> <span class="toc-text">抓住极限定义的重点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%B0%E5%8F%B7-o-O-sim"><span class="toc-number">2.2.</span> <span class="toc-text">记号$o,O,\sim$</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#sim-%EF%BC%8C%E5%90%8C%E9%98%B6%E5%92%8C%E7%AD%89%E4%BB%B7%E6%97%A0%E7%A9%B7%E5%B0%8F%EF%BC%88%E5%A4%A7%EF%BC%89%E9%87%8F"><span class="toc-number">2.2.1.</span> <span class="toc-text">$\sim$，同阶和等价无穷小（大）量</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E5%BC%95%E5%85%A5%E8%BF%99%E4%B8%AA%E6%A6%82%E5%BF%B5%EF%BC%9F"><span class="toc-number">2.2.1.1.</span> <span class="toc-text">为什么引入这个概念？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%97%A0%E7%A9%B7%E5%B0%8F%E9%87%8F%E7%9A%84%E9%98%B6"><span class="toc-number">2.2.1.2.</span> <span class="toc-text">无穷小量的阶</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%B0%E5%8F%B7-o-%E5%92%8C-O-%E5%8F%88%E5%9C%A8%E8%A1%A8%E8%BE%BE%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">2.2.2.</span> <span class="toc-text">记号$o$和$O$又在表达什么？</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%80%9C%E7%A7%91%E5%AD%A6%E8%AE%B0%E6%95%B0%E6%B3%95%E2%80%9D%E7%9A%84%E6%80%BB%E7%BB%93"><span class="toc-number">2.3.</span> <span class="toc-text">“科学记数法”的总结</span></a></li></ol></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h2 id="从科学记数法讲起"><a href="#从科学记数法讲起" class="headerlink" title="从科学记数法讲起"></a>从科学记数法讲起</h2><p>当处理非常大或者非常小的数的时候科学记数法肯定是很方便的，不用记写很多$0$，也不用数有几个$0$。像是木星的质量大约是$1.9\times 10^{27}$千克，而电子的质量大约是$9.1 \times 10^{-31}$ 千克，能很轻松地进行表达。如果这两个数进行加法或者乘法，那也不是很困难（至少相比于非得把两个数列出来好算）。</p>
+<p>对于一个用科学记数法表示的数</p>
+<script type="math/tex; mode=display">
+x=a \times 10^b</script><p>很多信息自然地暴露了出来。$a$帮助我们认识这个数的具体值（可能是估计值，但是估计起来也很方便！），$b$帮助我们认识这个数的数量级。在计算pH值时对浓度取$\lg$对数，正好是利用了这一点。虽然在数学上$e$的应用更广泛，但是实际计算并不方便；而$\lg$对数如果用来计算像是$10^b$这种数，就非常简单了。</p>
+<p>有人就会问，这些虽然好用，但是这是2000多年前阿基米德时代的数学，和17世纪以后的微积分有什么关系？我在这篇博客中会尝试建立一个观点，<strong>无穷小量、无穷大量、阶的估计是微积分的科学记数法</strong>。另外，无限趋近、逼近这些词看上去很不严格，其实是一种对严格表达的形象化表述，而原先的严格表达并没有问题。</p>
+<h2 id="微积分的“科学记数法”"><a href="#微积分的“科学记数法”" class="headerlink" title="微积分的“科学记数法”"></a>微积分的“科学记数法”</h2><h3 id="抓住极限定义的重点"><a href="#抓住极限定义的重点" class="headerlink" title="抓住极限定义的重点"></a>抓住极限定义的重点</h3><p>虽然无限趋近、逼近这些词很形象，但是如果看到严格的表述仍然觉得不知所云，那样的话理解还是有问题。</p>
+<blockquote>
+<p>$\lim_{x \to a}f(x) = A$的定义是: 对<strong>任意</strong>的$\varepsilon&gt;0$，<strong>存在</strong>$\delta&gt;0$，使得当$0&lt;|x-a|&lt;\delta$时，<strong>成立</strong>$|f(x)-A|&lt;\varepsilon$. </p>
+</blockquote>
+<p>教授微积分的老师尝试用很多办法形象化地表述这个观点。像是作出函数的图像，然后对图像缩放，让人能看到这个结论的成立。但是这可能只是一个结果。重点在于这几个逻辑词上。极限的定义其实是一个朴素的逻辑命题，这里面最复杂的内容，仅仅是不等式。对于任意的$\varepsilon&gt;0$，至少存在一个$\delta&gt;0$，使得当<em>一个关于$\delta$的不等式</em>成立时，<em>一个关于$\varepsilon$的不等式</em>一定成立。如果满足这样的条件，就说明这个函数有极限。不管问题再怎么复杂，我们最终关心的还是不等式会不会成立。你可以设想，写了一个bool函数，然后给它传入任意正值，总是返回true（这样一个$\delta$存在）。其实到了后面探讨什么函数可导、Riemann可积、Lebesgue可积、可测，都是试图化归到一个平凡的判断问题上。</p>
+<h3 id="记号-o-O-sim"><a href="#记号-o-O-sim" class="headerlink" title="记号$o,O,\sim$"></a>记号$o,O,\sim$</h3><h4 id="sim-，同阶和等价无穷小（大）量"><a href="#sim-，同阶和等价无穷小（大）量" class="headerlink" title="$\sim$，同阶和等价无穷小（大）量"></a>$\sim$，同阶和等价无穷小（大）量</h4><p>可能这个极限不少人中学就知道了</p>
+<script type="math/tex; mode=display">
+\lim_{x\to 0}\frac{\sin{x}}{x}=1</script><p>这个时候就可以记成$\sin{x}\sim x(x\to 0)$。可以说，$\sin{x}$在$x=0$处和$y=x$非常接近，几乎重合。但是我们也可以说，对任意$\varepsilon&gt;0$，存在$\delta&gt;0$，使得$0&lt;|x|&lt;\delta$时，一定有$|\frac{\sin{x}}{x}-1|&lt;\varepsilon$。这个的论证可能涉及到一些计算技巧，但是逻辑问题的表达还是很朴素的。</p>
+<blockquote>
+<p> 严格来说，如果任意两个函数$f(x)$和$g(x)$，如果有</p>
+<script type="math/tex; mode=display">
+\lim_{x \to a}\frac{f(x)}{g(x)}=1</script><p>就记$f(x)\sim g(x) (x \to a)$. 这里有$-\infty\leq a \leq +\infty$。如果有$|f(x)|\to\infty$或者$f(x) \to 0$，这个时候就是在计算无穷大量或者无穷小量，这个时候就称$f$是$g$的等价无穷小（大）量。</p>
+</blockquote>
+<p>这里的”等价“其实也很有意思。经过简单的计算，不难验证，对于关系$\sim$，满足以下三个性质：</p>
+<ol>
+<li>自反性：$f \sim f$</li>
+<li>对称性：$f \sim g$当且仅当$g \sim f$</li>
+<li>传递性：如果$f \sim g$且$g \sim h$，那么一定有$f \sim h$</li>
+</ol>
+<p>如果一个关系满足这三条性质，就称为“等价关系”。$\mathbb{R}$上两个数的相等自然也满足这个关系。</p>
+<p>当然可能比值等于$1$有点严苛，但是可能有同阶无穷小：</p>
+<script type="math/tex; mode=display">
+\lim_{x\to a}\frac{f(x)}{g(x)}=A\neq 0</script><p>那么其实也罢，只需要两边除以$A$就行了，也就是说$f(x)\sim Ag(x)(x \to A)$。比如说$1-\cos{x}\sim\frac{1}{2}x^2$.</p>
+<h5 id="为什么引入这个概念？"><a href="#为什么引入这个概念？" class="headerlink" title="为什么引入这个概念？"></a>为什么引入这个概念？</h5><p>这就体现出文章开头讲的“科学计数法”了。可能实际的函数计算很繁琐（比如，涉及到三角函数、反三角函数等等），然而有一种函数的计算一直是很平凡的：多项式。或者稍微退一步，幂函数。这种函数甚至可以直接计算出数值来。如果我们能把复杂的函数简化成幂函数，那么事情就简单了很多。这就好比计算$9800000000000.00001 \times 82012$可以简化成$9.8 \times 8.2 \times 10^{12+4}$。误差是可以接受的。或者说，我们尝试用幂函数表示一个函数的“数量级”，这个“数量”指的是在某点的逼近速度。当然也不一定必须要化归成幂函数，也可以逆向操作，变成一个不同的但是更好计算的极限。下面解释一个经典的例子。</p>
+<blockquote>
+<p>设$\alpha \neq 0$, 求极限</p>
+<script type="math/tex; mode=display">
+\lim_{x \to 0}\frac{(1+x)^\alpha-1}{x}</script></blockquote>
+<p>令$y=(1+x)^\alpha-1$，那么简单计算就能得到$\ln(1+y)=\alpha\ln(1+x)$。又知道$\ln(1+x)\sim x$，综合一下我们就有</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\lim_{x \to 0}\frac{y(x)}{x}&=\lim_{x \to 0}\frac{y(x)}{x}\frac{\ln(1+y)}{\ln(1+y)} \\
+                            &=\lim_{x \to 0}\frac{\ln(1+y)}{x}\frac{y}{\ln(1+y)}\\
+                            &=\lim_{x \to 0}\frac{\alpha\ln(1+x)}{x}\lim_{x \to 0}\frac{y}{\ln(1+y)} \\
+                            &=\alpha \cdot 1\cdot 1
+\end{aligned}</script><p>这里利用了极限的一个基本性质：</p>
+<blockquote>
+<p>如果$\lim_{x \to a}f(x)=A$，$\lim_{x \to a}g(x)=B$，那么$\lim_{x \to a}f(x)g(x)=AB$。</p>
+</blockquote>
+<p>要注意这个结论是完全可以用$\varepsilon-\delta$语言进行证明的。</p>
+<p>这个问题的解决我们依赖了一个很简单的结论：$\ln(1+x)$和$x$在$x=0$附近是相同的“数量级”。然后我们把原来的极限化归成这样的一个比值，反复组合利用。其实通过$\ln(1+x)\sim x$可以直接得到$y \sim \ln(1+y) \sim \alpha\ln(1+x)\sim\alpha x$（这里的每一个$\sim$都是有理论基础的，再注意最开始已经指出，这个$\sim$是具有传递性的），从而得到</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\lim_{x \to 0}\frac{y(x)}{x} &= \lim_{x \to 0}\frac{y(x)}{x}\frac{\alpha x}{\alpha x} \\
+                             &=\alpha\lim_{x \to 0}\frac{y(x)}{\alpha x}\\ 
+                             &= \alpha \cdot 1
+\end{aligned}</script><h5 id="无穷小量的阶"><a href="#无穷小量的阶" class="headerlink" title="无穷小量的阶"></a>无穷小量的阶</h5><p>既然我们试图将一个连续函数的极限”简化“成一个幂函数，那么我们就可以用幂函数的阶定义极限的阶。也就是说</p>
+<blockquote>
+<p>若已知$\lim_{x \to a}f(x)=0$，且存在常数$\alpha&gt;0$使得</p>
+<script type="math/tex; mode=display">
+\lim_{x \to a}\left\vert\frac{f(x)}{(x-a)^\alpha}\right\vert=A \neq 0</script><p>即$f(x)\sim A(x-a)^\alpha$，那么就称$f(x)$在$x \to a$时有$\alpha$阶无穷小量</p>
+</blockquote>
+<p>这里的$\alpha$就好比是科学计数法里的数量级，<strong>虽然不能给我们准确信息，但是给我们的信息在一些环境下已经足够了，这些信息恰好就是我们想要的</strong>。</p>
+<p>但是有的函数不一定有阶。例如函数$x\sin\frac{1}{x}$在$x=0$附近并没有阶。只需要观察</p>
+<script type="math/tex; mode=display">
+\frac{x\sin\frac{1}{x}}{x^\alpha}</script><p>在$0&lt;\alpha&lt;1$时，此函数极限为$0$。在$\alpha \geq 1$时，函数极限不存在，这时就并不存在阶这一说了 。</p>
+<p>现实中估计错一个数的数量级可能会产生不少麻烦，比如$10^{26}$和$10^{27}$差别还是很大的。在计算极限的时候估算错阶，可能就直接得到了错误的结果。等价关系$\sim$只在比值这一方面告诉了我们一些信息，但是并没有告诉我们加减法上的信息（就好比科学计数法也没告诉我们加减法的信息一样）。如果不注意到这一点，下面这个极限就会算错：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\lim_{x \to 0}\frac{\sin{x}-\tan{x}}{x^3}&=\lim_{x \to 0}\left\{\left(\frac{\sin{x}}{x}\right)\left(\frac{1}{\cos{x}}\right)\left(\frac{\cos{x}-1}{x^2}\right)\right\}\\
+                                         &= -\frac{1}{2}
+\end{aligned}</script><p>这个地方自然没有问题。但是如果没认识到这一点，能得到好几个不同的结果。可能会有人认为$\sin{x}\sim x \sim \tan{x}$，所以直接利用$\sin{x} \sim \tan{x}$，直接得到这个错误结果：</p>
+<script type="math/tex; mode=display">
+\lim_{x \to 0}\frac{\sin{x}-\tan{x}}{x^3} = \lim_{x \to 0}\frac{\sin{x}-\sin{x}}{x^3}=0</script><p>所以$\sin{x}-\tan{x}$的阶应该$&lt;3$。但实际上阶就是$3$。还可能得到另外一些古怪的结果。例如</p>
+<script type="math/tex; mode=display">
+\lim_{x \to 0}\frac{x - \tan{x}}{x^3}= -\frac{1}{3} \\
+\lim_{x \to 0}\frac{\sin{x} - x}{x^3} = -\frac{1}{6}</script><p>（上面两个极限都是正确的，但是肯定不是最初求的极限！）$\sin{x}$是$1$阶无穷小，$\tan{x}$是$1$阶无穷小，而二者的和是$1$阶的，差是$3$阶的。在计算极限时，就需要考虑两个无穷小的和差的阶是否发生改变。这就好比，我们不能说两个质量的数量级为$10^{20}$千克的行星的和或者差的数量级也是$10^{20}$这个数量级。</p>
+<h4 id="记号-o-和-O-又在表达什么？"><a href="#记号-o-和-O-又在表达什么？" class="headerlink" title="记号$o$和$O$又在表达什么？"></a>记号$o$和$O$又在表达什么？</h4><p>先举个例子。我们在谈论飞机、火箭这些航天飞行器的时候，往往会引入音速甚至是光速等等概念，因为慢速下的速度单位已经不够用了。比如马赫（Mach number）这个概念。它指的是速度和音速的比值。有的时候我们就会关注飞机的飞行速度有没有超过音速，甚至要讨论是音速的几倍。但是骑自行车的速度就和音速没有可比性了。</p>
+<p>这里的$o$和$O$也是一个”参考“的作用。在上一节我们探讨了$\frac{f(x)}{g(x)}$收敛到非零常数的情况，但是不一定能得到这样的结果。</p>
+<blockquote>
+<p>如果满足$\lim_{x \to a}\frac{f(x)}{g(x)}=0$，就记$f(x)=o(g(x))(x \to a)$。如果$x \to a$时有$f(x) \to 0$ 且$g(x) \to 0$，那么就称$f$是比$g$更高阶无穷小。</p>
+</blockquote>
+<p>比如对于$\alpha &gt; 1$, 就有$x^\alpha = o(x)(x \to 0)$。因为这个函数满足这个极限关系。以$g$做<strong>参考</strong>，那么$f$的收敛速度是<strong>更</strong>快的。这里的$=o(\cdot)$也可以看成一种“关系”，但是这种关系只满足传递性，并不是一个等价关系。等价关系的剩下两个条件都不满足。如果$f(x)=o(g(x))$且$g(x)=o(h(x))$，那么一定有$f(x)=o(h(x))$，但是并没有$f(x)=o(f(x))$，更不会有$g(x)=o(f(x))$，这通过很简单的极限计算就能得到。</p>
+<p>如果有$f(x)=o(1)(x \to a)$，那么就有$\lim_{x \to a}f(x)=0$。当然这个时候用$o$表示会显得很别扭，但是把$1$当分母，也确实没有问题！这个时候我们看成和常数函数比较收敛速度，那么函数收敛就是收敛，不收敛就是不收敛。</p>
+<blockquote>
+<p>$f(x)=O(g(x))(x \to a)$的定义是，存在$a$的某个去心邻域和非负常数$M$，使$\left\vert\frac{f(x)}{g(x)}\right\vert \leq M$在这个邻域上恒成立。</p>
+</blockquote>
+<p>这里的“去心邻域”并不是什么复杂的概念。在处理极限的时候，$f(x)$和$g(x)$在$a$处可能都没有极限，所以就讨论某个小区间，把$a$抠去，也就是说$(a-\delta,a) \cup (a,a+\delta)$。这个是最粗略的估计，但是也很方便。可能计算比值的极限比较麻烦，但是我们知道比值是有界的，就能减少不少麻烦。</p>
+<p>在研究傅里叶级数时，常常会研究一类“适度下降”的函数，需要函数$f$满足$f(x)=O\left(\frac{1}{1+|x|^\alpha}\right)$，其中$\alpha &gt; 1$。我们还可以探讨前面那个无阶函数，就能发现</p>
+<script type="math/tex; mode=display">
+x\sin\frac{1}{x}=O(x),\quad x\sin{\frac{1}{x}}=o(x^\alpha)(\alpha<1)</script><h3 id="“科学记数法”的总结"><a href="#“科学记数法”的总结" class="headerlink" title="“科学记数法”的总结"></a>“科学记数法”的总结</h3><p>像是现实中的科学计数法，为了方便计算和理解，把很长的数的信息抽象出来然后使用另一种办法总结。$o, O,\sim$这种符号将指定函数满足的比值和极限的结论抽象出来，然后利用这些结论表示一个函数，从而间接计算出原来的极限。这就像是精确到小数点后几位，和音速、光速做对比，将问题进行简化。而这些简化的基础都在于极限的定义，在于那些逻辑命题能不能成立。</p>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../../05/01/linear-ode-chapter-1/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            线性ODE（一）——线性方程的思想与一阶方程
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../../03/29/lebesgue-radon-nikodym/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            The Lebesgue-Radon-Nikodym theorem and how von Neumann proved it
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2020/04/18/order-of-limit/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

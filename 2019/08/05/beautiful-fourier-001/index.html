@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>优美的Fourier级数（一）: 绝对不只是求表达式的问题 | Desvl&#39;s blog</title>
+
+
+    <meta name="keywords" content="Deprecated">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="前言Fourier级数是相当优美的一类级数，但它涉及到的问题绝对不仅仅是通过各种运算技巧求表达式。 相反，它是一个很复杂、很困难的大话题。我在这里会把一些基本内容和一系列严格的证明整理下来。 从Fourier级数出发，我们能看到很多重要的基本技巧的应用，也会遇见和实际应用息息相关的问题。当然这些内容里不会包括如何求表达式，我觉得计算机做得比我好多了。 Fourier级数在读这篇文章时， 你可能已经">
+<meta property="og:type" content="article">
+<meta property="og:title" content="优美的Fourier级数（一）: 绝对不只是求表达式的问题">
+<meta property="og:url" content="https://desvl.xyz/2019/08/05/beautiful-fourier-001/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="前言Fourier级数是相当优美的一类级数，但它涉及到的问题绝对不仅仅是通过各种运算技巧求表达式。 相反，它是一个很复杂、很困难的大话题。我在这里会把一些基本内容和一系列严格的证明整理下来。 从Fourier级数出发，我们能看到很多重要的基本技巧的应用，也会遇见和实际应用息息相关的问题。当然这些内容里不会包括如何求表达式，我觉得计算机做得比我好多了。 Fourier级数在读这篇文章时， 你可能已经">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-08-04T22:00:00.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:09.601Z">
+<meta property="article:author" content="Desvl">
+<meta property="article:tag" content="Deprecated">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        优美的Fourier级数（一）: 绝对不只是求表达式的问题
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2019/08/" class="post-meta__date button">2019-08-05</a>
+        
+    <span class="separate-dot"></span><a href="../../../../categories/Legacy-content/" class="button">Legacy content</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Fourier%E7%BA%A7%E6%95%B0"><span class="toc-number">2.</span> <span class="toc-text">Fourier级数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%A7%E6%95%B0%E7%9A%84%E8%A1%A8%E8%BE%BE"><span class="toc-number">2.1.</span> <span class="toc-text">级数的表达</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E7%BA%A7%E6%95%B0%E7%9A%84%E7%B3%BB%E6%95%B0%EF%BC%8C%E5%8D%B3%E5%87%BD%E6%95%B0%E7%9A%84%E2%80%9C%E5%9D%90%E6%A0%87%E2%80%9D"><span class="toc-number">2.2.</span> <span class="toc-text">关于级数的系数，即函数的“坐标”</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%95%E4%BD%8D%E6%AD%A3%E4%BA%A4%E7%B3%BB"><span class="toc-number">2.2.1.</span> <span class="toc-text">单位正交系</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%8D%E7%9C%8BFourier%E7%BA%A7%E6%95%B0"><span class="toc-number">2.2.2.</span> <span class="toc-text">再看Fourier级数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E7%A7%AF%E8%BF%90%E7%AE%97%E7%9A%84%E8%A7%84%E5%88%99"><span class="toc-number">2.3.</span> <span class="toc-text">内积运算的规则</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Dirichlet%E6%A0%B8"><span class="toc-number">3.</span> <span class="toc-text">Dirichlet核</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E5%BC%8F"><span class="toc-number">3.1.</span> <span class="toc-text">定义式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%90%AD%E5%BB%BA%E8%B5%B7Dirichlet%E6%A0%B8%E5%92%8C%E5%8E%9F%E5%87%BD%E6%95%B0%E7%9A%84%E6%A1%A5%E6%A2%81"><span class="toc-number">3.2.</span> <span class="toc-text">搭建起Dirichlet核和原函数的桥梁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Bessel%E4%B8%8D%E7%AD%89%E5%BC%8F%E4%BB%A5%E5%8F%8A%E5%85%B6%E9%87%8D%E8%A6%81%E6%8E%A8%E8%AE%BA"><span class="toc-number">3.3.</span> <span class="toc-text">Bessel不等式以及其重要推论</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%94%B6%E6%95%9B%E8%AF%81%E6%98%8E"><span class="toc-number">3.4.</span> <span class="toc-text">收敛证明</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93-amp-%E6%88%91%E6%8E%A5%E4%B8%8B%E6%9D%A5%E6%83%B3%E5%86%99%E7%9A%84"><span class="toc-number">4.</span> <span class="toc-text">总结&amp;我接下来想写的</span></a></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Fourier%E7%BA%A7%E6%95%B0"><span class="toc-number">2.</span> <span class="toc-text">Fourier级数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%A7%E6%95%B0%E7%9A%84%E8%A1%A8%E8%BE%BE"><span class="toc-number">2.1.</span> <span class="toc-text">级数的表达</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E7%BA%A7%E6%95%B0%E7%9A%84%E7%B3%BB%E6%95%B0%EF%BC%8C%E5%8D%B3%E5%87%BD%E6%95%B0%E7%9A%84%E2%80%9C%E5%9D%90%E6%A0%87%E2%80%9D"><span class="toc-number">2.2.</span> <span class="toc-text">关于级数的系数，即函数的“坐标”</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%95%E4%BD%8D%E6%AD%A3%E4%BA%A4%E7%B3%BB"><span class="toc-number">2.2.1.</span> <span class="toc-text">单位正交系</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%8D%E7%9C%8BFourier%E7%BA%A7%E6%95%B0"><span class="toc-number">2.2.2.</span> <span class="toc-text">再看Fourier级数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E7%A7%AF%E8%BF%90%E7%AE%97%E7%9A%84%E8%A7%84%E5%88%99"><span class="toc-number">2.3.</span> <span class="toc-text">内积运算的规则</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Dirichlet%E6%A0%B8"><span class="toc-number">3.</span> <span class="toc-text">Dirichlet核</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E5%BC%8F"><span class="toc-number">3.1.</span> <span class="toc-text">定义式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%90%AD%E5%BB%BA%E8%B5%B7Dirichlet%E6%A0%B8%E5%92%8C%E5%8E%9F%E5%87%BD%E6%95%B0%E7%9A%84%E6%A1%A5%E6%A2%81"><span class="toc-number">3.2.</span> <span class="toc-text">搭建起Dirichlet核和原函数的桥梁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Bessel%E4%B8%8D%E7%AD%89%E5%BC%8F%E4%BB%A5%E5%8F%8A%E5%85%B6%E9%87%8D%E8%A6%81%E6%8E%A8%E8%AE%BA"><span class="toc-number">3.3.</span> <span class="toc-text">Bessel不等式以及其重要推论</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%94%B6%E6%95%9B%E8%AF%81%E6%98%8E"><span class="toc-number">3.4.</span> <span class="toc-text">收敛证明</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93-amp-%E6%88%91%E6%8E%A5%E4%B8%8B%E6%9D%A5%E6%83%B3%E5%86%99%E7%9A%84"><span class="toc-number">4.</span> <span class="toc-text">总结&amp;我接下来想写的</span></a></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Fourier级数是相当优美的一类级数，但它涉及到的问题绝对不仅仅是通过各种运算技巧求表达式。 相反，它是一个很复杂、很困难的大话题。<br>我在这里会把一些基本内容和一系列严格的证明整理下来。 从Fourier级数出发，我们能看到很多重要的基本技巧的应用，也会遇见和实际应用息息相关的问题。<br>当然这些内容里不会包括如何求表达式，我觉得计算机做得比我好多了。</p>
+<h2 id="Fourier级数"><a href="#Fourier级数" class="headerlink" title="Fourier级数"></a>Fourier级数</h2><p>在读这篇文章时， 你可能已经学到了一些求Fourier级数系数的技巧， 这可以看成一元微积分的角度的理解。 接下来，<br>我们希望从向量几何的角度看待Fourier级数。 当然， 这里不是要求画出几何图像， 而是要求理解运算规则。</p>
+<h3 id="级数的表达"><a href="#级数的表达" class="headerlink" title="级数的表达"></a>级数的表达</h3><p>最常见的Fourier级数是这种形式：</p>
+<script type="math/tex; mode=display">
+    f(x)=a_0+\sum_{n=1}^{\infty}(a_n\cos nx+b_n\sin nx)\quad
+x\in\mathbb{R}</script><p>这里的$a_n$和$b_n$既可以是实数又可以是复数(但我们接下来主要讨论实数函数$f$)。 有的地方把第一项写成$\frac{a_0}{2}$，<br>这是考虑到积分时会多出来的一个$\frac{1}{2}$。 两种写法单纯是关于如何统一表达，在后面会解释。 考虑到$e^{ix}=\cos x+i\sin<br>x$， 上面的式子可以写成</p>
+<script type="math/tex; mode=display">
+    f(x)= \sum_{-\infty}^{\infty}c_ne^{inx}\quad x\in\mathbb{R}</script><p>用这种表达方式时不用考虑$c_n$的细节。 注意到$a_0$可以写成$a_0\cos 0x + b_0\sin 0x$。</p>
+<h3 id="关于级数的系数，即函数的“坐标”"><a href="#关于级数的系数，即函数的“坐标”" class="headerlink" title="关于级数的系数，即函数的“坐标”"></a>关于级数的系数，即函数的“坐标”</h3><h4 id="单位正交系"><a href="#单位正交系" class="headerlink" title="单位正交系"></a>单位正交系</h4><p>我们先回忆线性代数里的知识。 一个行向量和一个列向量的乘积是这样的：</p>
+<p>\begin{equation}<br>    \begin{bmatrix}a&amp;b\end{bmatrix}\begin{bmatrix}c\\d\end{bmatrix}=ac+bd<br>\end{equation}<br>进一步，第一个行向量可以看成列向量的转置。 那么这个$ac+bd$就是两个2维平面内列向量的内积。这就是高中数学中所讲的“向量乘法”。 这涉及到经典欧基里德空间的内积定义。 而谈到向量，单位正交向量肯定是非常有探讨价值的。因为一般情况下其他向量可以用单位正交向量比较简介地表示出来。<br>但是向量内积不仅仅存在于经典的欧氏空间。我们可以定义一系列定义域相同的函数，例如$[a，b]$上的函数$f$和$g$的内积可以定义成</p>
+<script type="math/tex; mode=display">
+(f，g):=\int_a^b f(x)\overline{g}(x)dx</script><p>其中$\overline{g}$表示$g$的共轭复数。 </p>
+<p>在内积空间里， 两个向量的内积为$0$， 说明两个向量正交(这和欧几里得空间是一致的)。 或者更形象地说， 夹角为$\frac{\pi}{2}$。<br>而向量的模的平方即自身和自身的内积。 我们可以定义函数的“单位正交系”</p>
+<blockquote>
+<p>若定义在$[a，b]$上的一系列函数$\{\varphi_n(x)\}$若满足$(\varphi_n，\varphi_n)=1$而$(\varphi_n，\varphi_m)=0(m\neq n)$， 则被称为单位正交系。</p>
+</blockquote>
+<h4 id="再看Fourier级数"><a href="#再看Fourier级数" class="headerlink" title="再看Fourier级数"></a>再看Fourier级数</h4><p>可以验证，在$[-\pi，\pi]$上，下列两组函数是满足单位正交的条件的：</p>
+<script type="math/tex; mode=display">
+    \frac{e^{ix}}{\sqrt{2\pi}}，\frac{e^{2ix}}{\sqrt{2\pi}}，\frac{e^{3ix}}{\sqrt{2\pi}}，\cdots</script><script type="math/tex; mode=display">
+    \frac{1}{\sqrt{2\pi}}，\frac{\cos x}{\sqrt{\pi}}，\frac{\sin x}{\sqrt{\pi}}， \frac{\cos 2x}{\sqrt{\pi}}，\cdots</script><p>读到这里可以发现，$a_0$和$\frac{a_0}{2}$的表示应该和$\frac{1}{\sqrt{2\pi}}$或者$\frac{1}{\sqrt{\pi}}$有关。</p>
+<p>在$\mathbb{R}^n$里，如果知道单位正交向量$\mathbf{e_1}，\cdots，\mathbf{e_n}$，<br>那么任意向量都可以唯一表示成$x_1\mathbf{e_1}+\cdots+x_n\mathbf{e_n}$。 向量$\mathbf{\alpha}$在的第$k$坐标分量为$(\mathbf{\alpha}，\mathbf{e_k})$。<br>通过这个角度看Fourier级数，就会发现，各项的系数就是函数的坐标：</p>
+<script type="math/tex; mode=display">
+    c_m=\int_a^bf(x)\overline{\varphi_m}(x)dx</script><p>如果我们再看第二个复函数形式的表达式，就有 </p>
+<script type="math/tex; mode=display">
+    c_m=\frac{1}{2\pi}\int_{-\pi}^{\pi} f(x)e^{-imx}dx</script><p>为了得到这个形式($c_m$不受影响)，<br>我们先用$\frac{e^{imx}}{\sqrt{2\pi}}$表示$f$， 应该有 </p>
+<script type="math/tex; mode=display">
+    \frac{f(x)}{\sqrt{2\pi}}=\sum_{-\infty}^{\infty}c_n\frac{e^{inx}}{\sqrt{2\pi}}</script><p>这里到底发生了什么? 我们把傅里叶级数的问题放到了一个以<strong>函数</strong>为元素的空间中， 然后选择了一组空间的<strong>基</strong>， 然后求出的系数就是这组基下的<strong>坐标</strong>。  于是， 我们找到了傅里叶级数的几何意义(抽象上的)， 这使我们能像高中平面几何、空间几何一样利用向量的性质解决一些问题， 尽管傅里叶级数涉及到的空间的维度是无穷大。</p>
+<h3 id="内积运算的规则"><a href="#内积运算的规则" class="headerlink" title="内积运算的规则"></a>内积运算的规则</h3><p>下列内积运算的规则会在接下来用到。 涉及到复数， 因此和经典欧基里德空间有不同之处(但是考虑到实数的共轭复数是本身， 最后一个性质其实是一样的)。 但是可以一个一个进行验证。</p>
+<ul>
+<li><p>$(a+c，b)=(a，b)+(c，b)$</p>
+</li>
+<li><p>$(a，b+c)=(a，b)+(a，c)$</p>
+</li>
+<li><p>$(ka，b)=k(a，b)$</p>
+</li>
+<li><p>$(a，kb)=k(a，b)$</p>
+</li>
+<li><p>$(a，b)=\overline{(b，a)}$</p>
+</li>
+</ul>
+<h2 id="Dirichlet核"><a href="#Dirichlet核" class="headerlink" title="Dirichlet核"></a>Dirichlet核</h2><h3 id="定义式"><a href="#定义式" class="headerlink" title="定义式"></a>定义式</h3><p>Dirichlet核的定义是这样的：</p>
+<script type="math/tex; mode=display">
+    D_N(x)=\sum_{-N}^N e^{inx} = \frac{\sin(N+\frac{1}{2})x}{\sin\frac{x}{2}}</script><p>第二个等号既可以直接合并$e^{inx}$和$e^{-inx}$得到$\cos nx$的式子从而进行积化和差，又可以利用等比数列的性质得到。</p>
+<h3 id="搭建起Dirichlet核和原函数的桥梁"><a href="#搭建起Dirichlet核和原函数的桥梁" class="headerlink" title="搭建起Dirichlet核和原函数的桥梁"></a>搭建起Dirichlet核和原函数的桥梁</h3><p>针对文章开头提到的第二种定义，可以定义函数数列 </p>
+<script type="math/tex; mode=display">
+    s_N(x)=\sum_{-N}^N c_ne^{inx}</script><p>将$c_n$展开，有<br>\begin{equation}<br>    \begin{aligned}<br>        s_N(x)&amp;=\sum_{-N}^N\left(\frac{1}{2\pi}\int_{-\pi}^{\pi}f(t)e^{-int}dt\right)e^{inx}\\<br>              &amp;=\int_{-\pi}^{\pi} \frac{1}{2\pi}f(t)\sum_{-N}^Ne^{in(x-t)}dt\\<br>              &amp;=\frac{1}{2\pi}\int_{-\pi}^{\pi} f(t)D_N(x-t)dt\\<br>              &amp;=\frac{1}{2\pi}\int_{-\pi}^{\pi} f(x-t)D_N(t)dt<br>    \end{aligned}<br>\end{equation}<br>最后一个等号通过函数的周期性和简单的换元运算得到。 至此，Dirichlet核和原函数的桥梁就被搭建起来了。<br>接下来，需要证明，以这个函数核构建的函数收敛于$f$。</p>
+<h3 id="Bessel不等式以及其重要推论"><a href="#Bessel不等式以及其重要推论" class="headerlink" title="Bessel不等式以及其重要推论"></a>Bessel不等式以及其重要推论</h3><blockquote>
+<p>设$f(x)$在正交函数系${\varphi_n(x)}$下的系数为${c_n}$，<br>则有$\sum_{n=1}^{\infty}|c_n|^2\leq(f，f)$。</p>
+</blockquote>
+<p>设$s_n(x)=\sum_{m=1}^n c_m\varphi_m(x)$， 其中$c_m=\int_a^b<br>f(x)\overline{\varphi_m}(x)dx$。 下面通过讨论$s_n(x)$到$f(x)$的误差得到这个不等式和一个重要的推论。</p>
+<p>注意到$(f，s_n)=\int_a^b<br>f(x)\sum\overline{c_m}\overline{\varphi_m(x)}dx=\sum\overline{c_m}\int_a^b<br>f(x)\overline{\varphi_m(x)}dx=\sum|c_m^2|=\overline{(f，s_n)}=(s_n，f)$，<br>以及$(s_n，s_n)=\sum|c_m^2|$， \begin{equation} \begin{aligned}<br>(f-s_n，f-s_n)&amp;=(f，f-s_n)-(s_n，f-s_n)\\\<br>&amp;=(f，f)-(f，s_n)-(s_n，f)+(s_n，s_n)\\\<br>&amp;=(f，f)-(s_n，s_n)\\\<br>&amp;\geq 0 \end{aligned} \end{equation} 也就是说， </p>
+<script type="math/tex; mode=display">
+    (s_n，s_n)=\sum_1^n|c_m|^2\leq(f，f)</script><p>$n\to\infty$时，就是所谓的Bessel不等式。<br>也可以发现，函数的Fourier系数$c_m$满足$\lim\limits_{n\to\infty}c_m=0$。<br>这个推论会在下面Dirichlet核收敛的证明中用到。</p>
+<h3 id="收敛证明"><a href="#收敛证明" class="headerlink" title="收敛证明"></a>收敛证明</h3><blockquote>
+<p>(<strong>Dini’s Test</strong>)若对一些$x$有常数$\delta&gt;0$和$M&lt;\infty$使得</p>
+<script type="math/tex; mode=display">
+    |f(x+t)-f(x)|\leq M|t|</script><p>对所有$t\in(-\delta，\delta)$成立，那么有</p>
+<script type="math/tex; mode=display">
+    \lim\limits_{n\to\infty}s_N(x)=f(x)</script></blockquote>
+<p>要注意的是，我们在这里只讨论逐点收敛。 其他形式的收敛会在接下来的文章中讨论</p>
+<p>定义函数 </p>
+<script type="math/tex; mode=display">
+    g(t)=
+        \begin{cases} 
+            \frac{f(x-t)-f(t)}{\sin(t/2)}，0<|t|<\pi\\
+            0，t=0 
+    \end{cases}</script><p>考虑到</p>
+<script type="math/tex; mode=display">
+    \frac{1}{2\pi}\int_{-\pi}^{\pi}D_N(x)dx=1</script><p>因此有 </p>
+<script type="math/tex; mode=display">
+    \frac{1}{2\pi}\int_{-\pi}^{\pi}D_N(t)f(x)dt=f(x)</script><p>所求函数和原函数做差，就有<br>\begin{equation}<br>    \begin{aligned}<br>    s_N(x)-f(x)&amp;=\frac{1}{2\pi}\int_{-\pi}^{\pi}g(t)\sin\left(N+\frac{1}{2}\right)tdt\\<br>               &amp;=\frac{1}{2\pi}\int_{-\pi}^{\pi}\left[g(t)\cos\frac{t}{2}\right]\sin Ntdt+\frac{1}{2\pi}\int_{-\pi}^{\pi}\left[g(t)\sin\frac{t}{2}\right]\cos Ntdt<br>    \end{aligned}<br>\end{equation}<br>根据$f(x)$的条件和$g(x)$的定义，$g(x)\cos(t/2)$和$g(x)\sin(t/2)$是有界的。<br>利用Bessel不等式的推论可以发现，这两个积分趋近于$0$。 这就证明了结论。</p>
+<h2 id="总结-amp-我接下来想写的"><a href="#总结-amp-我接下来想写的" class="headerlink" title="总结&amp;我接下来想写的"></a>总结&amp;我接下来想写的</h2><p>写到这里，已经涉及到了很多数学中的基本技巧：三角函数、向量内积、复变函数、等比数列、函数项数列收敛等等。 Fourier级数可以说是相当“优美”的一类级数。 在一些领域中，展开式中每一项均具有物理意义这是其他级数难以企及的。 我们又可以看到，Fourier级数还可以跳出三角函数的限制，  放在普遍的无穷维空间的规范正交基。 此外，它的收敛定理相比幂级数而言也是很宽松的。</p>
+<p>接下来还有很多内容，我暂时的打算是这样的(已基本放弃；以后可能会有比较专门的调和分析内容)：</p>
+<ul>
+<li><p>Jordan’s criterion(关于$s_N(x)$收敛什么时候收敛到什么值)，涉及到“有界差分”的概念</p>
+</li>
+<li><p>Parseval等式和应用(Fourier分析理论的核心内容之一)，如三角函数系的完备性</p>
+</li>
+<li><p>Fejer核、Poisson核(一致收敛问题)</p>
+</li>
+<li><p>…</p>
+</li>
+</ul>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"><a href="../../../../tags/Deprecated/" class="post-tags__link button"># Deprecated</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../06/beautiful-fourier-002/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            优美的Fourier级数（二）: 有界差分下的收敛(Jordan判别法)
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../04/contraction-application/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            压缩定理和其应用
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2019/08/05/beautiful-fourier-001/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

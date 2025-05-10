@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>The Structure of SL_2(F_3) as a Semidirect Product | Desvl&#39;s blog</title>
+
+
+    <meta name="keywords" content="Exercise solution, Serge Lang, Sylow">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="In this post we determine $SL_2(\mathbb{F}_3)$ using Sylow theory and linear algebra.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Structure of SL_2(F_3) as a Semidirect Product">
+<meta property="og:url" content="https://desvl.xyz/2023/11/11/sl2-f3/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="In this post we determine $SL_2(\mathbb{F}_3)$ using Sylow theory and linear algebra.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-11-11T22:12:19.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:10.512Z">
+<meta property="article:author" content="Desvl">
+<meta property="article:tag" content="Exercise solution">
+<meta property="article:tag" content="Serge Lang">
+<meta property="article:tag" content="Sylow">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        The Structure of SL_2(F_3) as a Semidirect Product
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2023/11/" class="post-meta__date button">2023-11-11</a>
+        
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/" class="button">Algebra</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/Group-Theory/" class="button">Group Theory</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-element-of-order-2"><span class="toc-number">1.</span> <span class="toc-text">The element of order 2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Determine-the-group-using-Sylow-theory"><span class="toc-number">2.</span> <span class="toc-text">Determine the group using Sylow theory</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Elements-of-order-4"><span class="toc-number">2.1.</span> <span class="toc-text">Elements of order 4</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#An-element-of-order-3"><span class="toc-number">2.2.</span> <span class="toc-text">An element of order 3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Conclusion"><span class="toc-number">2.3.</span> <span class="toc-text">Conclusion</span></a></li></ol></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-element-of-order-2"><span class="toc-number">1.</span> <span class="toc-text">The element of order 2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Determine-the-group-using-Sylow-theory"><span class="toc-number">2.</span> <span class="toc-text">Determine the group using Sylow theory</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Elements-of-order-4"><span class="toc-number">2.1.</span> <span class="toc-text">Elements of order 4</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#An-element-of-order-3"><span class="toc-number">2.2.</span> <span class="toc-text">An element of order 3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Conclusion"><span class="toc-number">2.3.</span> <span class="toc-text">Conclusion</span></a></li></ol></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>Let $\mathbb{F}_3$ be the field of three elements and $SL_2(\mathbb{F}_3)$ be the group of $2 \times 2$ matrices with determinant $1$. In this post we show that $SL_2(\mathbb{F}_3)$ is the semi-direct product of $H_8$ and $\mathbb{Z}/3\mathbb{Z}$.</p>
+<p>First of all we determine the cardinality of $SL_2(\mathbb{F}_3)$. To do this, we consider $GL_2(\mathbb{F}_3)$ and notice that $SL_2(\mathbb{F}_3)$ is the kernel of $\det$ function.</p>
+<p>To determine $GL_2(\mathbb{F}_3)$, fix a basis of $\mathbb{F}_3 \oplus \mathbb{F}_3$ and let $A$ be a matrix representation of an element in $GL_2(\mathbb{F}_3)$. The first column of $A$ has $3^2-1$ number of choices: we only exclude the case of $(0,0)^T$. The second column has $3^2-3$ choices. We exclude $3$ possibilities given by the scalar multiplication of the first column to prevent linear dependence. Therefore $|GL_2(\mathbb{F}_3)|=(3^2-1)(3^2-3)=48$. Next we consider the exact sequence</p>
+<script type="math/tex; mode=display">
+0 \to SL_2(\mathbb{F}_3) \to GL_2(\mathbb{F}_3)  \to (\mathbb{F}_3)^\ast \to 0.</script><p>We get $|SL_2(\mathbb{F}_3)|=|GL_2(\mathbb{F}_3)|/(\mathbb{F}_3)^\ast|=48/2=24$.</p>
+<p>We immediately think about the possibility that $SL_2(\mathbb{F}_3)\cong \mathfrak{S}_4$. Is that the case?</p>
+<h1 id="24-3-8"><a href="#24-3-8" class="headerlink" title="24=3*8"></a>24=3*8</h1><p>As a group of order 24, we immediately consider the elements of order $2$, $3$ and $4$ in order to know the structure of the group we are looking at.</p>
+<h2 id="The-element-of-order-2"><a href="#The-element-of-order-2" class="headerlink" title="The element of order 2"></a>The element of order 2</h2><p>There are ${4 \choose 2}/2!=3$ elements of order $2$ in $\mathfrak{A}_4$, i.e. those being products of two $2$-cycles. However, how many elements of order $2$ are there in $SL_2(\mathbb{F}_3)$? Let $A$ be such an element, then $A^2 = I$. Therefore all elements of order $2$ is nullified by the polynomial</p>
+<script type="math/tex; mode=display">
+f(X)=X^2-1=(X-1)(X+1).</script><p>If $A \in SL_2(\mathbb{F}_3)$ is of order $2$, then the minimal polynomial of $A$ divides $f(X)$, hence is either $X+1$ or $X^2-1$. The second case is impossible because then $f(X)$ will be the characteristic polynomial of $A$ and therefore $A$ has eigenvalue $1$ and $-1$ thus determinant $-1$. We get</p>
+<blockquote>
+<p><strong>Proposition 1.</strong> The element in $SL_2(\mathbb{F}_3)$ of order $2$ is only $A=-I$. In particular, $SL_2(\mathbb{F}_3)$ is not isomorphic to $\mathfrak{S}_4$.</p>
+</blockquote>
+<h2 id="Determine-the-group-using-Sylow-theory"><a href="#Determine-the-group-using-Sylow-theory" class="headerlink" title="Determine the group using Sylow theory"></a>Determine the group using Sylow theory</h2><p>Checking elements of order $2$ is not out of nowhere. Since $24=2^3 \cdot 3$, it makes sense to look at $2$-Sylow and $3$-Sylow subgroups of $SL_2(\mathbb{F}_3)$. Sylow’s theorem ensures that there is a subgroup of order $3$, which can only be $\mathbb{Z}/3\mathbb{Z}$. We have also determined that the subgroup of order $2$ is $\{-I,I\}$. Next we determine the group of order $8$.</p>
+<h3 id="Elements-of-order-4"><a href="#Elements-of-order-4" class="headerlink" title="Elements of order 4"></a>Elements of order 4</h3><p>To study elements of order $4$, we immediately consider the polynomial</p>
+<script type="math/tex; mode=display">
+g(X)=X^4-1=(X+1)(X-1)(X^2+1).</script><p>Let $A \in SL_2(\mathbb{F}_3)$ be an element of order $4$. Then $g(A)=0$. But since $A+I \ne 0$ and $A-I \ne 0$, we will be considering $h(X)=X^2+1$ instead. Notice that $h(X)$ is irreducible in $\mathbb{F}_3[X]$ and therefore it is minimal polynomial of $A$. Since the degree of $h$ is $2$, we also see $h(X)$ is the characteristic polynomial of $A$.</p>
+<p>From this polynomial we see that $\mathrm{tr}(A)=0$. Combining with the fact that $|A|=1$, we can easily deduce that elements of order $4$ consists of</p>
+<script type="math/tex; mode=display">
+i=\begin{pmatrix}
+0 & 1 \\
+-1 & 0
+\end{pmatrix},\;
+j = \begin{pmatrix}
+-1 & -1 \\
+-1 & 1
+\end{pmatrix},\;
+k = \begin{pmatrix}
+1 & -1 \\
+-1 & -1
+\end{pmatrix},\;-i,\;-j,\;-k.</script><p>We in particular have $i^3=i^{-1}=-i$, $j^3=j^{-1}=-j$ and $k^3=k^{-1}=-k$. Furthermore, $k=ij=-ji$. These identities rings a bell of quaternion number. We therefore have the quaternion group lying in $SL_2(\mathbb{F}_3)$ as a $2$-Sylow subgroup:</p>
+<script type="math/tex; mode=display">
+H_8=\{1,i,j,k,-i,-j,-k\}.</script><p>Is there any other $2$-Sylow subgroup? The answer is no. To see this, let $H’$ be another $2$-Sylow group. Then there exists some $g \in SL_2(\mathbb{F}_3)$ such that $H’=gH_8 g^{-1}$, which is equal to $H_8$ because all elements in $K$ will have order $4$.</p>
+<blockquote>
+<p><strong>Proposition 2.</strong> The quaternion group $H_8$ can be embedded into $SL_2(\mathbb{F}_3)$ as the unique $2$-Sylow group. In particular, $SL_2(\mathbb{F}_3)$ has no element of order $8$.</p>
+</blockquote>
+<h3 id="An-element-of-order-3"><a href="#An-element-of-order-3" class="headerlink" title="An element of order 3"></a>An element of order 3</h3><p>Let $A \in SL_2(\mathbb{F}_3)$ be an element of order $3$. Then its minimal polynomial $m(X)$ divides $X^3-1=(X-1)^3=(X-1)^2(X-1)$. Since $A-I \ne 0$, we must have $m(X)=(X-1)^2=X^2+X+1$. We can also see that the characteristic polynomial of $A$ is also $X^2+X+1$. In particular, we see the trace of $A$ is $-1=2$. We can then choose</p>
+<script type="math/tex; mode=display">
+A=\begin{pmatrix}
+1 & 0 \\
+1 & 1
+\end{pmatrix}</script><p>Therefore $K=\{I,A,A^2\}$ is a $3$-Sylow subgroup of $SL_2(\mathbb{F}_3)$, which is not unique, because for example one can also consider the group generated by the transpose of $A$.</p>
+<h3 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h3><p>Notice that $H \cap K = \{1\}$ because $\gcd(3,4)=1$. Therefore the map $H \times K \to HK$ given by $(x,y) \mapsto xy$ is bijective. Since $H$ is also normal, we are safe to write $G=H\ltimes K$ because $|HK|=|H||K|=24=|G|$. </p>
+<h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><ul>
+<li>Serge Lang, <em>Algebra Revised Third Edition</em></li>
+<li>Olivier SERMAN, <a target="_blank" rel="noopener" href="https://math.univ-lille1.fr/~serman/agreg/SL2F3.pdf">$SL_2(\mathbb{F}_3)$</a>. </li>
+</ul>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"><a href="../../../../tags/Exercise-solution/" class="post-tags__link button"># Exercise solution</a><a href="../../../../tags/Serge-Lang/" class="post-tags__link button"># Serge Lang</a><a href="../../../../tags/Sylow/" class="post-tags__link button"># Sylow</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../../../2025/05/11/regular-local-ring/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            Equivalent Conditions of Regular Local Rings of Dimension 1
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../../10/21/solvable-by-radical/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            A Separable Extension Is Solvable by Radicals Iff It Is Solvable
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2023/11/11/sl2-f3/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

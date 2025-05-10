@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>抽象Lebesgue积分的构建 | Desvl&#39;s blog</title>
+
+
+    <meta name="keywords" content="Deprecated">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="从一个”难题”入手 设$\{f_n\}$是一个定义在$[0，1]$上的连续函数列，且$0\leq f_n\leq 1$.  $n\to\infty$时，对任意$x\in[0，1]$有$f_n(x)\to{0}$. 求证 \lim_{n\to\infty}\int_{0}^{1}f_n(x)dx&#x3D;0  在Riemann积分下这个命题的证明确实很头疼。虽然说有$\lim\limits_{n\to\in">
+<meta property="og:type" content="article">
+<meta property="og:title" content="抽象Lebesgue积分的构建">
+<meta property="og:url" content="https://desvl.xyz/2020/01/17/abstract-lebesgue-integral/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="从一个”难题”入手 设$\{f_n\}$是一个定义在$[0，1]$上的连续函数列，且$0\leq f_n\leq 1$.  $n\to\infty$时，对任意$x\in[0，1]$有$f_n(x)\to{0}$. 求证 \lim_{n\to\infty}\int_{0}^{1}f_n(x)dx&#x3D;0  在Riemann积分下这个命题的证明确实很头疼。虽然说有$\lim\limits_{n\to\in">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-01-16T23:00:00.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:09.516Z">
+<meta property="article:author" content="Desvl">
+<meta property="article:tag" content="Deprecated">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        抽象Lebesgue积分的构建
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2020/01/" class="post-meta__date button">2020-01-17</a>
+        
+    <span class="separate-dot"></span><a href="../../../../categories/Legacy-content/" class="button">Legacy content</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8E%E4%B8%80%E4%B8%AA%E2%80%9D%E9%9A%BE%E9%A2%98%E2%80%9D%E5%85%A5%E6%89%8B"><span class="toc-number">1.</span> <span class="toc-text">从一个”难题”入手</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pi-%E7%B3%BB%E7%BB%9F%E3%80%81-lambda-%E7%B3%BB%E7%BB%9F%E3%80%81-sigma-%E4%BB%A3%E6%95%B0"><span class="toc-number">2.</span> <span class="toc-text">$\pi$-系统、$\lambda$-系统、$\sigma$-代数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E7%9A%84%E5%80%BC%E5%9F%9F"><span class="toc-number">2.1.</span> <span class="toc-text">函数的值域</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sigma-%E4%BB%A3%E6%95%B0%EF%BC%8C%E4%B8%A4%E4%B8%AA%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%BB%93%E5%90%88"><span class="toc-number">2.2.</span> <span class="toc-text">$\sigma$-代数，两个系统的结合</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E8%AF%84%E6%B3%A8%E5%92%8C%E8%A1%A5%E5%85%85"><span class="toc-number">2.3.</span> <span class="toc-text">一些评注和补充</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E6%B5%8B%E5%87%BD%E6%95%B0"><span class="toc-number">3.</span> <span class="toc-text">可测函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E5%BE%81%E5%87%BD%E6%95%B0%E3%80%81%E7%AE%80%E5%8D%95%E5%87%BD%E6%95%B0"><span class="toc-number">4.</span> <span class="toc-text">特征函数、简单函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E5%BA%A6%E3%80%81%E6%B5%8B%E5%BA%A6%E7%A9%BA%E9%97%B4"><span class="toc-number">5.</span> <span class="toc-text">测度、测度空间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Lebesgue%E7%A7%AF%E5%88%86%E7%9A%84%E6%9E%84%E9%80%A0"><span class="toc-number">6.</span> <span class="toc-text">Lebesgue积分的构造</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E5%87%BD%E6%95%B0"><span class="toc-number">6.1.</span> <span class="toc-text">简单函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%A8%E4%BD%93%E9%9D%9E%E8%B4%9F%E5%8F%AF%E6%B5%8B%E5%AE%9E%E5%87%BD%E6%95%B0"><span class="toc-number">6.2.</span> <span class="toc-text">全体非负可测实函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%A8%E4%BD%93%E5%A4%8D%E5%87%BD%E6%95%B0"><span class="toc-number">6.3.</span> <span class="toc-text">全体复函数</span></a></li></ol></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8E%E4%B8%80%E4%B8%AA%E2%80%9D%E9%9A%BE%E9%A2%98%E2%80%9D%E5%85%A5%E6%89%8B"><span class="toc-number">1.</span> <span class="toc-text">从一个”难题”入手</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pi-%E7%B3%BB%E7%BB%9F%E3%80%81-lambda-%E7%B3%BB%E7%BB%9F%E3%80%81-sigma-%E4%BB%A3%E6%95%B0"><span class="toc-number">2.</span> <span class="toc-text">$\pi$-系统、$\lambda$-系统、$\sigma$-代数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E7%9A%84%E5%80%BC%E5%9F%9F"><span class="toc-number">2.1.</span> <span class="toc-text">函数的值域</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sigma-%E4%BB%A3%E6%95%B0%EF%BC%8C%E4%B8%A4%E4%B8%AA%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%BB%93%E5%90%88"><span class="toc-number">2.2.</span> <span class="toc-text">$\sigma$-代数，两个系统的结合</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E8%AF%84%E6%B3%A8%E5%92%8C%E8%A1%A5%E5%85%85"><span class="toc-number">2.3.</span> <span class="toc-text">一些评注和补充</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E6%B5%8B%E5%87%BD%E6%95%B0"><span class="toc-number">3.</span> <span class="toc-text">可测函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E5%BE%81%E5%87%BD%E6%95%B0%E3%80%81%E7%AE%80%E5%8D%95%E5%87%BD%E6%95%B0"><span class="toc-number">4.</span> <span class="toc-text">特征函数、简单函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E5%BA%A6%E3%80%81%E6%B5%8B%E5%BA%A6%E7%A9%BA%E9%97%B4"><span class="toc-number">5.</span> <span class="toc-text">测度、测度空间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Lebesgue%E7%A7%AF%E5%88%86%E7%9A%84%E6%9E%84%E9%80%A0"><span class="toc-number">6.</span> <span class="toc-text">Lebesgue积分的构造</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E5%87%BD%E6%95%B0"><span class="toc-number">6.1.</span> <span class="toc-text">简单函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%A8%E4%BD%93%E9%9D%9E%E8%B4%9F%E5%8F%AF%E6%B5%8B%E5%AE%9E%E5%87%BD%E6%95%B0"><span class="toc-number">6.2.</span> <span class="toc-text">全体非负可测实函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%A8%E4%BD%93%E5%A4%8D%E5%87%BD%E6%95%B0"><span class="toc-number">6.3.</span> <span class="toc-text">全体复函数</span></a></li></ol></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h3 id="从一个”难题”入手"><a href="#从一个”难题”入手" class="headerlink" title="从一个”难题”入手"></a>从一个”难题”入手</h3><blockquote>
+<p>设$\{f_n\}$是一个定义在$[0，1]$上的连续函数列，且$0\leq f_n\leq 1$.  $n\to\infty$时，对任意$x\in[0，1]$有$f_n(x)\to{0}$. 求证 <script type="math/tex">\lim_{n\to\infty}\int_{0}^{1}f_n(x)dx=0</script></p>
+</blockquote>
+<p>在Riemann积分下这个命题的证明确实很头疼。虽然说有$\lim\limits_{n\to\infty}f_n(x)=0$，但是这里并不是一致收敛，所以不能直接将极限号和积分号交换。但是也没有别的信息，只能从连续性入手。</p>
+<p>Riemann积分在讨论函数列的时候往往需要考虑是否一致收敛，这往往很麻烦。19世纪末，很多数学家都主张，高等数学课中的Riemann积分(这也是每个人都要学的)应该被新的一种更普遍、更灵活、更方便解决极限问题的积分替代。那个时期很多的数学家都进行了尝试，Lebesgue的办法可以说是集大成者。粗略地说，Riemann积分是由下面这个和式逼近的: <script type="math/tex">\sum_{i=1}^{n}f(t_i)\Delta{x_i}</script></p>
+<p>也就是所谓面积的极限。$f(t_i)$是矩形的高，$\Delta{x_i}$是矩形的宽。当然还有Darboux上和、Darboux下和等等概念，然后讨论两者的差，在$\varepsilon-N$语言下严谨地逼近，这就是所谓可积性。讨论一个指定函数的积分，函数已经确定了，但这里的$\Delta{x_i}$还可以做文章。对于$\Delta{x_i}=x_i-x_{i-1}$，它代表了区间$[x_{i-1}，x_i]$的长度，而区间是一个集合。能不能通过讨论集合的”大小”来解决积分问题呢?</p>
+<p>这篇博客里讨论的集合是<strong>任意</strong>的(这也是博客标题里”抽象”所指)。既可以考虑经典的Euclidean空间，又可以考虑概率论中的事件空间，或者是其他。它们都可以统一到Lebesgue积分中，而Riemann积分在很多时候也可以通过Lebesgue测度”$m$“进行计算(粗略地说，$m(E)$就是$E$的“体积”)。另外，最开始的这个题在Lebesgue积分下也是很简单的。</p>
+<h3 id="pi-系统、-lambda-系统、-sigma-代数"><a href="#pi-系统、-lambda-系统、-sigma-代数" class="headerlink" title="$\pi$-系统、$\lambda$-系统、$\sigma$-代数"></a>$\pi$-系统、$\lambda$-系统、$\sigma$-代数</h3><h4 id="函数的值域"><a href="#函数的值域" class="headerlink" title="函数的值域"></a><strong>函数的值域</strong></h4><p>如果要给一个集合定义一个”大小”，也就是对应一个值，那么需要定义一个函数，这个函数建立起集合到实数或者复数的映射。例如定义$m([a，b])=b-a$，这就是集合$[a，b]$的长度，$b-a$就是一个实数。这个函数的值域可以是$\mathbb{R}$或者$\mathbb{R}^2$的一个子集，而定义域是怎样的呢? 首先，它应该是一个由集合构成的集合。比如一个集合$A$的幂集$\mathcal{P}(A)$。但是一定是幂集吗? 可不可以小一点或者大一点? 它又能不能保证一些运算的合理性? 这就是这里需要解决的问题。接下来，我们会一步步把这个”定义域”所需要满足的条件逐步勾勒出来。这也是Lebesgue积分的”主战场”。</p>
+<hr>
+<blockquote>
+<p>一个由集合$X$的<strong>子集</strong>构成的集合$\mathcal{P}$在满足如下条件时被称为$\pi$-系统: 如果$A\in{P}$且$B\in\mathcal{P}$，那么$A\cap{B}\in\mathcal{P}$.</p>
+</blockquote>
+<p>$\pi$-系统保证了这个集合族在有限次交运算的封闭性。一个最简单的$\pi$-系统是$\mathbb{R}$中所有闭区间(注意把$\varnothing$也算上)构成的集合。两个闭区间的并集必定是闭区间或$\varnothing$，而$\varnothing$和闭区间的并集是$\varnothing$。这就是一个$\pi$-系统。但是不一定保证无穷次运算的封闭，也不保证并集的封闭。</p>
+<p>概率论中的样本空间也是一个$\pi$-系统。两个事件的交也在一个样本空间中。这自然是合理的。但是只是$\pi$-系统肯定不够。就比如说，一个事件的否定该怎么办? 无穷个事件(这可能涉及到概率论中的收敛问题)又该怎么办? 如果积分是定义在$\pi$-系统上也不行，不能只考虑全体闭区间。接下来会引入另一个系统。</p>
+<blockquote>
+<p>一个由集合$X$的<strong>子集</strong>构成的集合$\mathcal{L}$在满足如下条件时被称为$\lambda$-系统:</p>
+<ol>
+<li>$X\in\mathcal{L}$.</li>
+<li>若$A, B\in\mathcal{L}$，且$B\subset{A}$，那么$A-B\in\mathcal{L}$.</li>
+<li>若$A_n\in\mathcal{L}$，且$A_n\subset{A_{n+1}}$，那么有$\bigcup_{n=1}^{\infty}A_n\in\mathcal{L}$.</li>
+</ol>
+</blockquote>
+<p>样本空间也是一个$\lambda$-系统，有了一些$\pi$-系统中没有的合理性质。比如全事件，两个事件的差，单调事件列的极限的封闭性。</p>
+<hr>
+<h4 id="sigma-代数，两个系统的结合"><a href="#sigma-代数，两个系统的结合" class="headerlink" title="$\sigma$-代数，两个系统的结合"></a><strong>$\sigma$-代数，两个系统的结合</strong></h4><p>已经看到，两种系统各有优劣，都只能锁定一部分性质。实际上，两种系统结合起来，就是一个合理定义的最精炼的”定义域”，也就是$\sigma$-代数。如果一个集合$X$的子集族$\mathfrak{M}$既是$\pi$-系统又是$\lambda$-系统，那么$\mathfrak{M}$被称为定义在$X$上的$\sigma$-代数。</p>
+<p>继续从样本空间出发考虑概率论中的例子。首先空集和全事件是肯定要有的。$\lambda$-系统就保证了这一点。根据1和2，$X-X=\varnothing\in\mathcal{L}$。如果将2中的$A$固定为$X$，那么又可以发现，任意子集的补集也在$\mathcal{L}$中。</p>
+<p>最后需要考虑可数个并集的情况(这涉及到加法)。考虑到De Morgan定律，这也就解决了交集的问题。$\pi$-系统只交代了有限个的交运算，$\lambda$-系统只解决了单调集合列的运算，这两个单独看局限性肯定是很大的。但是结合起来就能得到任意可数个并集的情况了。这一点的论证是一个非常有意思的集合运算技巧，在这里演示一下。</p>
+<p>设对于$n=1，2，\cdots$有$A_n\in\mathfrak{M}$，已经有$A_n^c\in\mathfrak{M}$。不难验证$B_n=\bigcup_{i=1}^{n}A_i=\left(\bigcap_{i=1}^{n}A_i^c\right)^c\in\mathfrak{M}$。又有$B_{n}\subset B_{n+1}$，所以$\bigcup_{n=1}^{\infty}B_n=\bigcup_{n=1}^{A_n}\in\mathfrak{M}$。</p>
+<p>综上，定义在$X$上的$\sigma$-代数$\mathfrak{M}$满足三个性质:</p>
+<blockquote>
+<ol>
+<li>$X\in\mathfrak{M}$.</li>
+<li>若$A\in\mathfrak{M}$，那么$A^c\in\mathfrak{M}$(这里$A^c=X-A$).</li>
+<li>若对$n=1, 2, \cdots$有$A_n\in\mathfrak{M}$，那么$\bigcup A_n\in\mathfrak{M}$.</li>
+</ol>
+</blockquote>
+<p>这时，$X$称为可测空间，$\mathfrak{M}$中的元素称为可测集合。</p>
+<h4 id="一些评注和补充"><a href="#一些评注和补充" class="headerlink" title="一些评注和补充"></a><strong>一些评注和补充</strong></h4><ol>
+<li>不难证明，$\sigma$-代数既是$\pi$-系统又是$\lambda$-系统。也就是说，它满足这两个系统本身的性质，所以集合的差，有限个集合的交、并自然不在话下。</li>
+<li>$\sigma$-代数中的元素可以有很多个，比如$\mathcal{P}(X)$，也可以有两个，比如$\{\varnothing，X\}$。实际上，$X$的任何子集族都可以生成一个最小的$\sigma$-代数。特别地，由$X$的全体开子集生成的$\sigma$-代数$\mathcal{B}$是一个有特殊地位的代数，它能和谐地处理连续函数(广义的)。$\mathcal{B}$的元素称为Borel集。</li>
+<li>$\pi-\lambda$定理(两种系统的关系)：设$\mathcal{P}$和$\mathcal{L}$分别是一个$\pi$-系统和一个$\lambda$-系统，而且$\mathcal{P}\subset\mathcal{L}$，设包含$\mathcal{P}$的最小$\sigma$-代数为$\sigma(\mathcal{P})$，那么有$\sigma(\mathcal{P})\subset\mathcal{L}$。</li>
+</ol>
+<h3 id="可测函数"><a href="#可测函数" class="headerlink" title="可测函数"></a>可测函数</h3><p>对于一个有界函数，如果这个函数Riemann可积，那么这个函数几乎处处连续。例如单调函数、有可数个甚至有限个间断点的函数。但是在这里讨论Lebesgue函数时并不考虑函数是否连续(尽管连续函数和可测函数有很多联系，这不是这篇博客的重点)。</p>
+<blockquote>
+<p>设函数$f:X\to{Y}$，定义在$X$上的$\sigma$代数为$\mathfrak{M}$，若对任意的开集$V\subset{Y}$都有$f^{-1}(V)\in\mathfrak{M}$。其中$f^{-1}(V)=\{x\in{X}:f(x)\in{V}\}$</p>
+</blockquote>
+<p>如果不了解什么是”<a target="_blank" rel="noopener" href="http://mathworld.wolfram.com/OpenSet.html">开集</a>”，可以先看作开区间的推广，即不包括边界点的集合。比如开区间、平面中不包含边界的集合，而开集的补集为闭集。开集是一个拓扑的基本元素，可测函数的定义保证这样的函数是”不病态”的。其实很好理解: 我们花好大功夫规定了$\sigma$-代数，是为了方便我们积分，结果值域里一个开区间就找不到$\sigma$-代数里对应的一个$X$的合理的子集，那肯定是不合理的。至于闭集。闭集是开集的补集，严格地说，一个集合是开集当且仅当其补集为闭集。又考虑到$\sigma$-代数对补集和并集的封闭性，可测函数的合理性就更清楚了。</p>
+<p>对于实函数，有一种很有用的判别方法:</p>
+<blockquote>
+<p>如果$f(x)$的值域为$\mathbb{R}$，对于任意的$\alpha\in\mathbb{R}$都有$\{x\in{X}:f(x)&gt;\alpha\}\in\mathfrak{M}$，那么$f$为可测函数。</p>
+</blockquote>
+<p>这也是一个最基本的限制条件。考虑到$\sigma$-代数的几条性质，不难对全体开区间进行分析。对于复函数，考虑$f=u+iv$。如果$u，v$都是可测函数，那么$f$是可测函数。</p>
+<p>对于连续函数，如果$\mathfrak{M}$包含全体Borel集，那么连续函数可测。因为对于连续函数$f$，$f^{-1}(V)$一定为开集(可以从$\varepsilon-\delta$语言的角度考虑一下)。</p>
+<h3 id="特征函数、简单函数"><a href="#特征函数、简单函数" class="headerlink" title="特征函数、简单函数"></a>特征函数、简单函数</h3><p>如果$E$为可测集，定义函数 </p>
+<script type="math/tex; mode=display">
+    \chi_E(x)=\begin{cases}1\quad{x\in{E}}\\
+    0\quad{x\notin{E}}\end{cases}</script><p>那么$\chi_E(x)$是一个可测函数。对于<a target="_blank" rel="noopener" href="http://mathworld.wolfram.com/DiscreteTopology.html">离散集合</a>，每个点都应该看成开集。$\chi$被称为特征函数。</p>
+<hr>
+<p>简单函数是指值域只有有限个点的函数，也就是所谓”阶梯函数”，但是要注意这里的阶梯并不一定是单调的。Lebesgue积分就是用阶梯函数的积分逼近的。如果找出每个取值点的原象，那么一个简单函数可以写成特征函数的形式。也就是说，设简单函数$s$的取值为$\alpha_1，\cdots，\alpha_n$，又令$A_i=\{x:s(x)=\alpha_i\}$，那么不难得到 </p>
+<script type="math/tex; mode=display">
+    s=\sum_{i=1}^{n}\alpha_i\chi_{A_i}</script><p>也不难发现，如果每个集合$A_i$都是可测集，那么$s$为可测函数。</p>
+<p>任意可测函数都可以用简单函数逼近。也就是说，</p>
+<blockquote>
+<p>设函数$f:X\to[0，+\infty]$为可测函数，存在定义在$X$上的可测简单函数$s_n(x)$使得</p>
+<ol>
+<li>$0\leq s_1\leq s_2\leq\cdots\leq f$.</li>
+<li>对任意$x\in{X}$有$s_n(x)\to f(x)(n\to\infty)$.</li>
+</ol>
+</blockquote>
+<p>如果$f$既有正值又有负值，那么可以讨论$f^{+}=\text{max}(f，0)$和$f^{-}=-\text{min}(f，0)$即可，这两部分分别逼近之后又可以通过$f=f^{+}-f^{-}$结合起来。</p>
+<h3 id="测度、测度空间"><a href="#测度、测度空间" class="headerlink" title="测度、测度空间"></a>测度、测度空间</h3><p>做完了被积函数的工作之后再回到集合的”大小”这个概念上。实际上概率论中某一事件的概率就 <strong>是</strong>一种测度。只不过这一测度的值域是$[0，1]$，而一般的测度的值域是$[0，+\infty]$。概率是一个从集合到$[0，1]$的映射，另外还有一点我想大家都很熟悉。如果$A\cap{B}=\varnothing$，那么$P(A\cup{B})=P(A)+P(B)$。这其实是基于测度定义的一个推广，严格地说，</p>
+<blockquote>
+<p>一个正测度是定义在一个$\sigma$-代数$\mathfrak{M}$上的<strong>函数</strong>$\mu$，其值域为$[0，+\infty]$，而且满足可列可加性。也就是说，对互不相交的集合列$\{A_k\}$，有 <script type="math/tex">\mu(\bigcup_{k=1}^{\infty}A_i)=\sum_{i=1}^{\infty}\mu(A_i)</script></p>
+</blockquote>
+<p>对于$\mu$，假设至少有一个$A\in\mathfrak{M}$使得$\mu(A)&lt;+\infty$。</p>
+<p>和Riemann积分最接近的测度就是Lebesgue积分$m$。粗略地说，$m([a，b])=b-a$。这代表了Euclidean空间中点集的”体积”。如果是离散集合，设$\mu(E)$表示$E$中元素的个数，那么$\mu$也构成一个测度。但是一个集合是不是Lebesgue可测是一个比较复杂的问题。这在以后会解释。</p>
+<p>一个测度空间指的是一个可测空间和一个定义在可测空间的$\sigma$-代数上的正测度。复测度是一个复值函数，定义域和正测度相同，而且满足可列可加性。</p>
+<p>不难发现，$\mu(\varnothing)=0$，对于有限个互不相交的集合，可列可加性也是成立的(对于$n$个集合，将$n+1$个以后的集合看成空集即可)。</p>
+<h3 id="Lebesgue积分的构造"><a href="#Lebesgue积分的构造" class="headerlink" title="Lebesgue积分的构造"></a>Lebesgue积分的构造</h3><p>终于到了Lebesgue积分了。在进行之前先回顾一下我们做了什么工作。首先，考虑到积分是在集合的子集上(可以考虑$\mathbb{R}$的一些子集)下文章，我们找到了这个子集族需要满足的条件，也就是说，是一个$\sigma$-代数。为了测量一个集合的”大小”，我们定义了测度这个概念。这是”区间长度”的非常和谐的抽象推广。从一般的函数到所有可测的实函数、复函数，主要会通过下面三步进行。</p>
+<h4 id="简单函数"><a href="#简单函数" class="headerlink" title="简单函数"></a><strong>简单函数</strong></h4><p>考虑非负可测简单函数(其他情况会另外考虑)$s=\sum_{i=1}^{n}\alpha_{i}\chi_{A_i}$。$s$为可测函数也就是说，对任意的$A_i$都有$A_i\in\mathfrak{M}$，这样的话$\mu(A_i)$就是存在的，否则运算没法进行，这也是函数可测性的意义体现。</p>
+<p>回到博客开头，考虑面积，就需要考虑函数值($\alpha_i$)和区间长度。这里的抽象的”区间长度”变成了$\mu(A_i)$。如果积分的集合是$E\in\mathfrak{M}$，那么就有$A_i\cap{E}\in\mathfrak{M}$(因为$\mathfrak{M}$是$\pi$-系统!)。那么直接求和就行了: </p>
+<script type="math/tex; mode=display">
+    \int_{E}sd\mu = \sum_{i=1}^{n}\alpha_{i}\mu(A_i\cap{E})</script><p>如果$\mu$表示的是实际的区间长度，那么这就是简单的面积求和; 如果$\mu$是一个概率测度，那么这就是计算了数学期望(随机变量是一个可测函数)。这里还有一个很有意思的例子:</p>
+<p>如果$X$表示了你全部的课程，每门课用$A_i$表示，$\mu(A_i)$表示了这门课的学分，$\alpha_i$表示了这门课的绩点，那么这个Lebesgue积分再除以总学分就是你的GPA。</p>
+<p>这里还需要定义$0*\infty=0$。可能有点别扭，但是这种情况还是要考虑的。比如有的时候$\alpha_i=0$(别考虑GPA了!)而$\mu(A_i\cap{E})=\infty$。这个定义也是有必要的。比如$f(x)=0$在$\mathbb{R}$上的积分应该是$0$而不是别的。</p>
+<h4 id="全体非负可测实函数"><a href="#全体非负可测实函数" class="headerlink" title="全体非负可测实函数"></a><strong>全体非负可测实函数</strong></h4><p>如果$f:X\to[0，+\infty]$为可测函数，那么对于$E\in\mathfrak{M}$定义 </p>
+<script type="math/tex; mode=display">
+    \int_{E}fd\mu=\sup\int_{E}sd\mu</script><p>其中上确界取遍所有$0\leq{s}\leq{f}$的可测简单函数。而我们已经知道，可测函数可以被简单函数逼近。所以这可以看成一个被简单函数逼近的过程。</p>
+<h4 id="全体复函数"><a href="#全体复函数" class="headerlink" title="全体复函数"></a><strong>全体复函数</strong></h4><p>最开始我们只讨论了非负实函数。其余两种情况，如果涉及到负数，可能计算上确界有点不合适; 对复数更不合适，因为复数没有大小。但是好在我们可以将这两种情况统一起来。设$f=u+iv$($v$可能恒等于$0$)，那么就设 </p>
+<script type="math/tex; mode=display">
+    \int_{E}fd\mu=\int_{E}u^+d\mu-\int_{E}u^-d\mu+i\left(\int_{E}v^+d\mu-\int_{E}v^-d\mu\right)</script><p>总而言之，从计算矩形面积，变成计算抽象的集合测度和函数值的乘积，推广之后就得到了Lebesgue积分。以后会详细论证Riemann积分和Lebesgue积分的具体关系。Lebesgue积分虽然在计算上并不一定有很好的优势，但是在抽象论证过程中有了更多的可能性。以后也会讲到，Lebesgue积分在处理收敛问题时的便利之处，最开始的一个题也就很简单了。</p>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"><a href="../../../../tags/Deprecated/" class="post-tags__link button"># Deprecated</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../22/cyclic-decomposition/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            线性空间的循环子空间与简单应用
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../../../2019/10/31/euler-reflection/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            欧拉反射公式和利用Fourier级数的证明
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2020/01/17/abstract-lebesgue-integral/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

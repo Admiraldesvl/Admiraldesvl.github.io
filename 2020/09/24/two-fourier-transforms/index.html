@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>The Fourier transform of sinx/x and (sinx/x)^2 and more | Desvl&#39;s blog</title>
+
+
+    <meta name="keywords" content="Exercise solution, Fourier transform, Hot post">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="In this post we compute the Fourier transform of $\sin{x}&#x2F;x$ and $(\sin{x}&#x2F;x)^2$ through contour integration.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Fourier transform of sinx&#x2F;x and (sinx&#x2F;x)^2 and more">
+<meta property="og:url" content="https://desvl.xyz/2020/09/24/two-fourier-transforms/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="In this post we compute the Fourier transform of $\sin{x}&#x2F;x$ and $(\sin{x}&#x2F;x)^2$ through contour integration.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-09-24T19:46:57.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:10.688Z">
+<meta property="article:author" content="Desvl">
+<meta property="article:tag" content="Exercise solution">
+<meta property="article:tag" content="Fourier transform">
+<meta property="article:tag" content="Hot post">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        The Fourier transform of sinx/x and (sinx/x)^2 and more
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2020/09/" class="post-meta__date button">2020-09-24</a>
+        
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/" class="button">Analysis</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/Complex-Analysis/" class="button">Complex Analysis</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#In-this-post"><span class="toc-number">1.</span> <span class="toc-text">In this post</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Problem-1"><span class="toc-number">2.</span> <span class="toc-text">Problem 1</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#What-we-can-learn-from-this-integral"><span class="toc-number">2.1.</span> <span class="toc-text">What we can learn from this integral</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Problem-2"><span class="toc-number">3.</span> <span class="toc-text">Problem 2</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#What-we-can-learn-from-this-integral-1"><span class="toc-number">3.1.</span> <span class="toc-text">What we can learn from this integral</span></a></li></ol></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#In-this-post"><span class="toc-number">1.</span> <span class="toc-text">In this post</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Problem-1"><span class="toc-number">2.</span> <span class="toc-text">Problem 1</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#What-we-can-learn-from-this-integral"><span class="toc-number">2.1.</span> <span class="toc-text">What we can learn from this integral</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Problem-2"><span class="toc-number">3.</span> <span class="toc-text">Problem 2</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#What-we-can-learn-from-this-integral-1"><span class="toc-number">3.1.</span> <span class="toc-text">What we can learn from this integral</span></a></li></ol></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h2 id="In-this-post"><a href="#In-this-post" class="headerlink" title="In this post"></a>In this post</h2><p>We are going to evaluate the Fourier transform of $\frac{\sin{x}}{x}$ and $\left(\frac{\sin{x}}{x}\right)^2$. And it turns out to be a comprehensive application of many elementary theorems in real and complex analysis. It is advised to make sure that you can compute and understand all the identities in this post by yourself in the end. Also, you are expected to be able to recall what all words in <em>italics</em> mean.</p>
+<p>To be clear, by the Fourier transform of $f$ we actually mean</p>
+<script type="math/tex; mode=display">
+\hat{f}(t) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}f(x)e^{-itx}dx.</script><p>There is a matter of convenience. Indeed, the coefficient $\frac{1}{\sqrt{2\pi}}$ is superfluous, but without this coefficient, when computing the Fourier inverse, one has to write $\frac{1}{2\pi}$ on the other side. Instead of making the transform-inverse unbalanced, we write $\frac{1}{\sqrt{2\pi}}$ all the time and pretend it is not here.</p>
+<p>We say a function $f$ is in $L^1$ if $\int_{-\infty}^{+\infty}|f(x)|dx&lt;+\infty$. As a classic exercise in elementary calculus, one can show that $\frac{\sin{x}}{x} \not\in L^1$ but $\left(\frac{\sin{x}}{x}\right)^2 \in L^1$. </p>
+<h2 id="Problem-1"><a href="#Problem-1" class="headerlink" title="Problem 1"></a>Problem 1</h2><blockquote>
+<p>For real $t$, find the following limit:</p>
+<script type="math/tex; mode=display">
+\lim_{A \to \infty}\int_{-A}^{A}\frac{\sin{x}}{x}e^{itx}dx.</script></blockquote>
+<p>Since $\frac{\sin{x}}{x}e^{itx}\not\in L^1$, we cannot evaluate the integral over $\mathbb{R}$ in the ordinary sense (the reader can safely ignore this if he or she has no background in Lebesgue integration at this moment, but do keep in mind that being in $L^1$ is a big deal). However, for given $A&gt;0$, the integral over $[-A,A]$ is defined, and we evaluate this limit as $A \to \infty$ to get what we want (by abuse of language). The reader is highly encouraged to write down calculation and supply images that should’ve been here. </p>
+<p>We will do this using contour integration. Since the complex function $f(z)=\frac{\sin{z}}{z}e^{itz}$ is <em>entire</em>, by <em>Cauchy’s theorem</em>, its integral over $[-A,A]$ is equal to the integration over the path $\Gamma_A$  which consists of three parts: $[-A,-1]$, lower half of the unit circle at the origin and $[1,A]$. </p>
+<p>Since the path $\Gamma_A$ avoids the origin, we are safe to use the identity</p>
+<script type="math/tex; mode=display">
+2i\sin{z}=e^{iz}-e^{-iz}.</script><p>Replacing $\sin{z}$ with $\frac{1}{2i}(e^{itz}-e^{-itz})$, we get</p>
+<script type="math/tex; mode=display">
+I_A(t)=\int_{\Gamma_A}f(z)dz=\int_{\Gamma_A}\frac{1}{2iz}(e^{i(t+1)z}-e^{i(t-1)z})dz.</script><p>If we put $\varphi_A(t)=\int_{\Gamma_A}\frac{1}{2iz}e^{itz}dz$, we see $I_A(t)=\varphi_A(t+1)-\varphi_A(t-1)$. It is convenient to divide $\varphi_A$ by $\pi$ since we therefore get</p>
+<script type="math/tex; mode=display">
+\frac{1}{\pi}\varphi_A(t)=\frac{1}{2\pi i}\int_{\Gamma_A}\frac{e^{itz}}{z}dz</script><p>and we are cool with the denominator $2\pi i$. </p>
+<p>Now, close the path $\Gamma_A$ in two ways. First, by the semicircle from $A$ to $-Ai$ to $-A$ (that is, lower semicircle at the origin with radius $A$; clockwise); second, by the semicircle from $A$ to $Ai$ to $-A$ (lower semicircle and anticlockwise). For simplicity we denote the two closed paths by $\Gamma_L$ and $\Gamma_U$. Again by the Cauchy theorem, the first path $\Gamma_L$ gives us an integral with value $0$, thus by Cauchy’s theorem,</p>
+<script type="math/tex; mode=display">
+\frac{1}{\pi}\varphi_A(t)=\frac{1}{2\pi i}\int_{-\pi}^{0}\frac{\exp{(itAe^{i\theta})}}{Ae^{i\theta}}dAe^{i\theta}=\frac{1}{2\pi}\int_{-\pi}^{0}\exp{(itAe^{i\theta})}d\theta.</script><p>Notice that</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+|\exp(itAe^{i\theta})|&=|\exp(itA(\cos\theta+i\sin\theta))| \\
+                      &=|\exp(itA\cos\theta)|\cdot|\exp(-At\sin\theta)| \\
+                      &=\exp(-At\sin\theta)
+\end{aligned}</script><p>hence if $t\sin\theta&gt;0$, we have $|\exp(iAte^{i\theta})| \to 0$ as $A \to \infty$. When $-\pi &lt; \theta  &lt;0$ we have $\sin\theta&lt;0$. This allows us to compute the case when $t&lt;0$:</p>
+<script type="math/tex; mode=display">
+\frac{1}{\pi}\varphi_{A}(t)=\frac{1}{2\pi}\int_{-\pi}^{0}\exp(itAe^{i\theta})d\theta \to 0\quad (A \to \infty,t<0).</script><p>(The reader should be able to prove the convergence above.) Also trivially</p>
+<script type="math/tex; mode=display">
+\varphi_A(0)=\frac{1}{2}\int_{-\pi}^{0}1d\theta=\frac{\pi}{2}.</script><p>But what if $t&gt;0$? Indeed, it would be difficult to obtain the limit using the integral over $[-\pi,0]$. Thus we will seek help from another contour $\Gamma_U$. </p>
+<p>Note that $\frac{e^{itz}}{z}$ is a <em>meromorphic function</em> in $\mathbb{C}$ with a <em>simple pole</em> at $0$ with residue $1$ since</p>
+<script type="math/tex; mode=display">
+\frac{e^{itz}}{z}=\frac{1}{z}\left(1+itz+\frac{(itz)^2}{2!}+\cdots\right)=\frac{1}{z}+it+\frac{(it)^2z}{2!}+\cdots.</script><p>By the <em>residue theorem</em>,</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\frac{1}{2\pi{i}}\int_{\Gamma_U}\frac{e^{itz}}{z}dz&=\frac{1}{2\pi{i}}\int_{\Gamma_A}\frac{e^{itz}}{z}dz+\frac{1}{2\pi}\int_{0}^{\pi}\exp(itAe^{i\theta})d\theta \\
+    &=1\cdot\operatorname{Ind}_{\Gamma_U}(0)=1.
+\end{aligned}</script><p>Note that we have used the <em>change-of-variable</em> formula as we did for the upper one. $\operatorname{Ind}_{\Gamma_L}(0)$ denotes the <em>winding number</em> of $\Gamma_U$ around $0$, which is $1$ of course. The identity above implies</p>
+<script type="math/tex; mode=display">
+\frac{1}{\pi}\varphi_A(t)=1-\frac{1}{2\pi}\int_{0}^{\pi}\exp{(itAe^{i\theta})}d\theta.</script><p>Now we are ready to find the limit of $\frac{1}{\pi}\varphi_A(t)$ as $A \to \infty$ and when $t&gt;0$. Notice that</p>
+<script type="math/tex; mode=display">
+\left|\frac{1}{2\pi}\int_{0}^{\pi}\exp{(itAe^{i\theta})}d\theta\right| \le \frac{1}{2\pi}\int_0^{2\pi}|\exp(itAe^{i\theta})|d\theta=\frac{1}{2\pi}\int_0^{2\pi}\exp(-At\sin\theta)d\theta.</script><p>Therefore, when $t&gt;0$, since $\sin\theta&gt;0$ when $0&lt;\theta&lt;\pi$, we get</p>
+<script type="math/tex; mode=display">
+\frac{1}{\pi}\varphi_A(t)\to 1 \quad(A \to \infty,t>0).</script><p>But as is already shown, $I_A(t)=\varphi_A(t+1)-\varphi_A(t-1)$. To conclude,</p>
+<script type="math/tex; mode=display">
+\lim_{A\to\infty}I_A(t)=
+\begin{cases}
+\pi\quad &|t|<1, \\
+0    \quad &|t|>1 ,\\
+\frac{1}{2\pi} \quad &|t|=1.
+\end{cases}</script><h3 id="What-we-can-learn-from-this-integral"><a href="#What-we-can-learn-from-this-integral" class="headerlink" title="What we can learn from this integral"></a>What we can learn from this integral</h3><p>Since $\psi(x)=\left(\frac{\sin{x}}{x}\right)$ is even, dividing $I_A$ by $\sqrt{\frac{1}{2\pi}}$, we actually obtain the <em>Fourier transform</em> of $\psi$ by abuse of language. We also get</p>
+<script type="math/tex; mode=display">
+\hat\psi(t)=
+\begin{cases}
+\sqrt{\frac{\pi}{2}}\quad & |t|<1, \\
+0 \quad                       & |t|>1, \\
+\frac{1}{2\pi\sqrt{2\pi}}  & |t|=1.
+\end{cases}</script><p>Note that $\hat\psi(t)$ is not continuous, let alone being uniformly continuous. <em>Therefore</em>, $\psi(x) \notin L^1$. The reason is, if $f \in L^1$, then $\hat{f}$ is <em>uniformly continuous</em> (<a target="_blank" rel="noopener" href="https://gotohaggstrom.com/Tutorial%20on%20the%20uniform%20continuity%20of%20the%20Fourier%20Transform%20-%20Parts%201%20and%202.pdf">proof</a>). Another interesting fact is, this also gives us the value of the Dirichlet integral since</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\int_{-\infty}^{\infty}\left(\frac{\sin{x}}{x}\right)dx&=\int_{-\infty}^{\infty}\left(\frac{\sin{x}}{x}\right)e^{0\cdot ix}dx \\
+        &=\sqrt{2\pi}\hat\psi(0) \\
+        &=\pi.
+\end{aligned}</script><p> We end this section by evaluating the inverse of $\hat\psi(t)$. The calculation is not that difficult. Now you can see why we put $\sqrt\frac{1}{2\pi}$.</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\sqrt{\frac{1}{2\pi}}\int_{-\infty}^{\infty}\hat\psi(t)e^{itx}dt &= \sqrt{\frac{1}{2\pi}}\int_{-1}^{1}\sqrt{\frac{\pi}{2}}e^{itx}dt \\
+&=\frac{1}{2}\cdot\frac{1}{ix}(e^{ix}-e^{-ix}) \\
+&=\frac{\sin{x}}{x}.
+\end{aligned}</script><h2 id="Problem-2"><a href="#Problem-2" class="headerlink" title="Problem 2"></a>Problem 2</h2><blockquote>
+<p>For real $t$, compute</p>
+<script type="math/tex; mode=display">
+J=\int_{-\infty}^{\infty}\left(\frac{\sin{x}}{x}\right)^2e^{itx}dx.</script></blockquote>
+<p>Now since $h(x)=\frac{\sin^2{x}}{x^2} \in L^1$, we are able to say with ease that the integral above is the Fourier transform of $h(x)$ (multiplied by $\sqrt{2\pi}$). But still we use the limit form</p>
+<script type="math/tex; mode=display">
+J(t)=\lim_{A \to \infty}J_A(t)</script><p>where</p>
+<script type="math/tex; mode=display">
+J_A(t)=\int_{-A}^{A}\left(\frac{\sin{x}}{x}\right)^2e^{itx}dx.</script><p>And we are still using the contour integration as in problem 1(keep $\Gamma_A$, $\Gamma_U$ and $\Gamma_L$ in mind!). For this we get</p>
+<script type="math/tex; mode=display">
+\left(\frac{\sin z}{z}\right)^2e^{itz}=\frac{e^{i(t+2)z}+e^{i(t-2)z}-2e^{itz}}{-4z^2}.</script><p>Therefore it suffices to discuss the function</p>
+<script type="math/tex; mode=display">
+\mu_A(t)=\int_{\Gamma_A}\frac{e^{itz}}{2z^2}dz</script><p>since we have</p>
+<script type="math/tex; mode=display">
+J_A(t)=\mu_A(t)-\frac{1}{2}(\mu_A(t+2)-\mu_A(t-2)).</script><p>Dividing $\mu_A(t)$ by $\frac{1}{\pi i}$, we see</p>
+<script type="math/tex; mode=display">
+\frac{1}{\pi i}\mu_A(t)=\frac{1}{2\pi i}\int_{\Gamma_A}\frac{e^{itz}}{z^2}dz.</script><p>An integration of $\frac{e^{itz}}{z^2}$ over $\Gamma_L$ yields</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\frac{1}{\pi i}\mu_A(t)&=\frac{1}{2\pi i}\int_{-\pi}^{0}\frac{\exp(itAe^{i\theta})}{A^2e^{2i\theta}}dAe^{i\theta} \\
+                       &=\frac{1}{2\pi}\int_{-\pi}^{0}\frac{\exp(itAe^{i\theta})}{Ae^{i\theta}}d\theta.
+\end{aligned}</script><p>Since we still have</p>
+<script type="math/tex; mode=display">
+\left|\frac{\exp(itAe^{i\theta})}{Ae^{i\theta}}\right|=\frac{1}{A}\exp(-At\sin\theta),</script><p>if $t<0$ in this case, $\frac{1}{\pi i}\mu_A(z) \to 0$ as $A \to \infty$. For $t>0$, integrating along $\Gamma_U$, we have</p>
+<script type="math/tex; mode=display">
+\frac{1}{\pi i}\mu_A(t)=it-\frac{1}{2\pi}\int_{0}^{\pi}\frac{\exp(itAe^{i\theta})}{Ae^{i\theta}}d\theta \to it \quad (A \to \infty)</script><p>We can also evaluate $\mu_A(0)$ by computing the integral but we are not doing that. To conclude,</p>
+<script type="math/tex; mode=display">
+\lim_{A \to\infty}\mu_A(t)=\begin{cases}
+0 \quad &t>0, \\
+-\pi t \quad &t<0.
+\end{cases}</script><p>Therefore for $J_A$ we have</p>
+<script type="math/tex; mode=display">
+J(t)=\lim_{A \to\infty}J_A(t)=\begin{cases}
+0 \quad &|t| \geq 2, \\
+\pi(1+\frac{t}{2})    \quad &-2<t \leq 0, \\
+\pi(1-\frac{t}{2})  \quad & 0<t <2.
+\end{cases}</script><p>Now you may ask, how to find the value of $J(t)$ at $0$, $2$ or $-2$? $\mu_A(0)$ is not even evaluated. But $h(t) \in L^1$, $\hat{h}(t)=\sqrt{\frac{1}{2\pi}}J(t)$ is uniformly continuous (!), thus continuous, and the values at these points follows from continuity.</p>
+<h3 id="What-we-can-learn-from-this-integral-1"><a href="#What-we-can-learn-from-this-integral-1" class="headerlink" title="What we can learn from this integral"></a>What we can learn from this integral</h3><p>Again, we get the value of a classic improper integral by</p>
+<script type="math/tex; mode=display">
+\int_{-\infty}^{\infty}\left(\frac{\sin{x}}{x}\right)^2dx = J(0)=\pi.</script><p>And this time it’s not hard to find the Fourier inverse:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\sqrt{\frac{1}{2\pi}}\int_{-\infty}^{\infty}\hat{h}(t)e^{itx}dt&=\frac{1}{2\pi}\int_{-\infty}^{\infty}J(t)e^{itx}dt \\
+&=\frac{1}{2\pi}\int_{-2}^{2}\pi(1-\frac{1}{2}|t|)e^{itx}dt \\
+&=\frac{e^{2ix}+e^{-2ix}-2}{-4x^2} \\
+&=\frac{(e^{ix}-e^{-ix})^2}{-4x^2} \\
+&=\left(\frac{\sin{x}}{x}\right)^2.
+\end{aligned}</script>
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"><a href="../../../../tags/Exercise-solution/" class="post-tags__link button"># Exercise solution</a><a href="../../../../tags/Fourier-transform/" class="post-tags__link button"># Fourier transform</a><a href="../../../../tags/Hot-post/" class="post-tags__link button"># Hot post</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../27/diagram-chasing/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            A long exact sequence of cohomology groups (zig-zag and diagram-chasing)
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../19/The-Riesz-Markov-Kakutani-Representation-Theorem/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            The Riesz-Markov-Kakutani Representation Theorem
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2020/09/24/two-fourier-transforms/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>A Continuous Function Sending L^p Functions to L^1 | Desvl&#39;s blog</title>
+
+
+    <meta name="keywords" content="Exercise solution, Real and Complex Analysis, Walter Rudin">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="Throughout, let $(X,\mathfrak{M},\mu)$ be a measure space where $\mu$ is positive. The questionIf $f$ is of $L^p(\mu)$, which means $\lVert f \rVert_p&#x3D;\left(\int_X |f|^p d\mu\right)^{1&#x2F;p}&lt;\infty$,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="A Continuous Function Sending L^p Functions to L^1">
+<meta property="og:url" content="https://desvl.xyz/2020/11/28/A-continuous-function-sending-Lp-functions-to-L1/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="Throughout, let $(X,\mathfrak{M},\mu)$ be a measure space where $\mu$ is positive. The questionIf $f$ is of $L^p(\mu)$, which means $\lVert f \rVert_p&#x3D;\left(\int_X |f|^p d\mu\right)^{1&#x2F;p}&lt;\infty$,">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-11-28T18:42:55.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:09.503Z">
+<meta property="article:author" content="Desvl">
+<meta property="article:tag" content="Exercise solution">
+<meta property="article:tag" content="Real and Complex Analysis">
+<meta property="article:tag" content="Walter Rudin">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        A Continuous Function Sending L^p Functions to L^1
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2020/11/" class="post-meta__date button">2020-11-28</a>
+        
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/" class="button">Analysis</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/Functional-Analysis/" class="button">Functional Analysis</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/Functional-Analysis/L-p-space/" class="button">$L^p$-space</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Analysis/Integration-Theory/" class="button">Integration Theory</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-question"><span class="toc-number">1.</span> <span class="toc-text">The question</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Continuity"><span class="toc-number">2.</span> <span class="toc-text">Continuity</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Metrics"><span class="toc-number">3.</span> <span class="toc-text">Metrics</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Metric-of-L-p-when-0-lt-p-lt-1"><span class="toc-number">3.1.</span> <span class="toc-text">Metric of $L^p$ when $0&lt;p&lt;1$</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-continuity-of-lambda"><span class="toc-number">4.</span> <span class="toc-text">The continuity of $\lambda$</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#0-lt-p-lt-1"><span class="toc-number">4.1.</span> <span class="toc-text">$0&lt;p&lt;1$</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-leq-p-lt-infty"><span class="toc-number">5.</span> <span class="toc-text">$1 \leq p &lt; \infty$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Conclusion-and-further"><span class="toc-number">6.</span> <span class="toc-text">Conclusion and further</span></a></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-question"><span class="toc-number">1.</span> <span class="toc-text">The question</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Continuity"><span class="toc-number">2.</span> <span class="toc-text">Continuity</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Metrics"><span class="toc-number">3.</span> <span class="toc-text">Metrics</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Metric-of-L-p-when-0-lt-p-lt-1"><span class="toc-number">3.1.</span> <span class="toc-text">Metric of $L^p$ when $0&lt;p&lt;1$</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-continuity-of-lambda"><span class="toc-number">4.</span> <span class="toc-text">The continuity of $\lambda$</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#0-lt-p-lt-1"><span class="toc-number">4.1.</span> <span class="toc-text">$0&lt;p&lt;1$</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-leq-p-lt-infty"><span class="toc-number">5.</span> <span class="toc-text">$1 \leq p &lt; \infty$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Conclusion-and-further"><span class="toc-number">6.</span> <span class="toc-text">Conclusion and further</span></a></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <p>Throughout, let $(X,\mathfrak{M},\mu)$ be a measure space where $\mu$ is positive.</p>
+<h2 id="The-question"><a href="#The-question" class="headerlink" title="The question"></a>The question</h2><p>If $f$ is of $L^p(\mu)$, which means $\lVert f \rVert_p=\left(\int_X |f|^p d\mu\right)^{1/p}&lt;\infty$, or equivalently $\int_X |f|^p d\mu&lt;\infty$, then we may say $|f|^p$ is of $L^1(\mu)$. In other words, we have a function</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\lambda: L^p(\mu) &\to L^1(\mu) \\
+        f &\mapsto |f|^p.
+\end{aligned}</script><p>This function does not have to be one to one due to absolute value. But we hope this function to be <em>fine</em> enough, at the very least, we hope it is continuous. </p>
+<p>Here, $f \sim g$ means that $f-g$ equals $0$ almost everywhere with respect to $\mu$. It can be easily verified that this is an equivalence relation.</p>
+<h2 id="Continuity"><a href="#Continuity" class="headerlink" title="Continuity"></a>Continuity</h2><p>We still use the $\varepsilon-\delta$ argument but it’s in a metric space. Suppose $(X,d_1)$ and $(Y,d_2)$ are two metric spaces and $f:X \to Y$ is a function. We say $f$ is continuous at $x_0 \in X$ if, for any $\varepsilon&gt;0$, there exists some $\delta&gt;0$ such that $d_2(f(x_0),f(x))&lt;\varepsilon$ whenever $d_1(x_0,x)&lt;\delta$. Further, we say $f$ is continuous on $X$ if $f$ is continuous at every point $x \in X$.</p>
+<h2 id="Metrics"><a href="#Metrics" class="headerlink" title="Metrics"></a>Metrics</h2><p>For $1\leq p&lt;\infty$, we already have a metric by</p>
+<script type="math/tex; mode=display">
+d(f,g)=\lVert f-g \rVert_p</script><p>given that $d(f,g)=0$ if and only if $f \sim g$. This is complete and makes $L^p$ a Banach space. But for $0&lt;p&lt;1$ (yes we are going to cover that), things are much more different, and there is one reason: Minkowski inequality holds reversely! In fact, we have</p>
+<script type="math/tex; mode=display">
+\lVert f+g \rVert_p \geq \lVert f \rVert_p + \lVert g \rVert_p</script><p>for $0&lt;p&lt;1$. $L^p$ space has too many weird things when $0&lt;p&lt;1$. Precisely,</p>
+<blockquote>
+<p>For $0&lt;p&lt;1$, $L^p(\mu)$ is locally convex if and only if $\mu$ assumes finitely many values. (<a target="_blank" rel="noopener" href="https://kconrad.math.uconn.edu/blurbs/analysis/lpspace.pdf">Proof.</a>)</p>
+</blockquote>
+<p>On the other hand, for example, $X=[0,1]$ and $\mu=m$ be the Lebesgue measure, then $L^p(\mu)$ has <em>no</em> open convex subset other than $\varnothing$ and $L^p(\mu)$ itself. However,</p>
+<blockquote>
+<p>A topological vector space $X$ is normable if and only if its origin has a convex bounded neighbourhood. (See Kolmogorov’s normability criterion.)</p>
+</blockquote>
+<p>Therefore $L^p(m)$ is not normable, hence not Banach.</p>
+<p>We have gone too far. We need a metric that is fine enough.</p>
+<h3 id="Metric-of-L-p-when-0-lt-p-lt-1"><a href="#Metric-of-L-p-when-0-lt-p-lt-1" class="headerlink" title="Metric of $L^p$ when $0&lt;p&lt;1$"></a>Metric of $L^p$ when $0&lt;p&lt;1$</h3><p>Define</p>
+<script type="math/tex; mode=display">
+\Delta(f)=\int_X |f|^p d\mu</script><p>for $f \in L^p(\mu)$. We will show that we have a metric by</p>
+<script type="math/tex; mode=display">
+d(f,g)=\Delta(f-g).</script><p>Fix $y\geq 0$, consider the function</p>
+<script type="math/tex; mode=display">
+f(x)=(x+y)^p-x^p.</script><p>We have $f(0)=y^p$ and</p>
+<script type="math/tex; mode=display">
+f'(x)=p(x+y)^{p-1}-px^{p-1} \leq px^{p-1}-px^{p-1}=0</script><p>when $x &gt; 0$ and hence $f(x)$ is nonincreasing on $[0,\infty)$, which implies that</p>
+<script type="math/tex; mode=display">
+(x+y)^p \leq x^p+y^p.</script><p>Hence for any $f$, $g \in L^p$, we have</p>
+<script type="math/tex; mode=display">
+\Delta(f+g)=\int_X |f+g|^p d\mu \leq \int_X |f|^p d\mu + \int_X |g|^p d\mu=\Delta(f)+\Delta(g).</script><p>This inequality ensures that</p>
+<script type="math/tex; mode=display">
+d(f,g)=\Delta(f-g)</script><p>is a metric. It’s immediate that $d(f,g)=d(g,f) \geq 0$ for all $f$, $g \in L^p(\mu)$. For the triangle inequality, note that</p>
+<script type="math/tex; mode=display">
+d(f,h)+d(g,h)=\Delta(f-h)+\Delta(h-g) \geq \Delta((f-h)+(h-g))=\Delta(f-g)=d(f,g).</script><p>This is translate-invariant as well since </p>
+<script type="math/tex; mode=display">
+d(f+h,g+h)=\Delta(f+h-g-h)=\Delta(f-g)=d(f,g)</script><p>The completeness can be verified in the same way as the case when $p&gt;1$. In fact, this metric makes $L^p$ a locally bounded F-space.</p>
+<h2 id="The-continuity-of-lambda"><a href="#The-continuity-of-lambda" class="headerlink" title="The continuity of $\lambda$"></a>The continuity of $\lambda$</h2><p>The metric of $L^1$ is defined by</p>
+<script type="math/tex; mode=display">
+d_1(f,g)=\lVert f-g \rVert_1=\int_X |f-g|d\mu.</script><p>We need to find a relation between $d_p(f,g)$ and $d_1(\lambda(f),\lambda(g))$, where $d_p$ is the metric of the corresponding $L^p$ space.</p>
+<h3 id="0-lt-p-lt-1"><a href="#0-lt-p-lt-1" class="headerlink" title="$0&lt;p&lt;1$"></a>$0&lt;p&lt;1$</h3><p>As we have proved,</p>
+<script type="math/tex; mode=display">
+(x+y)^p \leq x^p+y^p.</script><p>Without loss of generality we assume $x \geq y$ and therefore</p>
+<script type="math/tex; mode=display">
+x^p=(x-y+y)^p \leq (x-y)^p+y^p.</script><p>Hence</p>
+<script type="math/tex; mode=display">
+x^p-y^p \leq (x-y)^p.</script><p>By interchanging $x$ and $y$, we get</p>
+<script type="math/tex; mode=display">
+|x^p-y^p| \leq |x-y|^p.</script><p>Replacing $x$ and $y$ with $|f|$ and $|g|$ where $f$, $g \in L^p$, we get</p>
+<script type="math/tex; mode=display">
+\int_{X}\lvert |f|^p-|g|^p \rvert d\mu \leq \int_X |f-g|^p d\mu.</script><p>But </p>
+<script type="math/tex; mode=display">
+d_1(\lambda(f),\lambda(g))=\int_{X}\lvert |f|^p-|g|^p \rvert d\mu \\
+d_p(f,g)=\Delta(f-g)= d\mu \leq \int_X |f-g|^p d\mu</script><p>and we therefore have</p>
+<script type="math/tex; mode=display">
+d_1(\lambda(f),\lambda(g)) \leq d_p(f,g).</script><p>Hence $\lambda$ is continuous (and in fact, Lipschitz continuous and uniformly continuous) when $0&lt;p&lt;1$.</p>
+<h2 id="1-leq-p-lt-infty"><a href="#1-leq-p-lt-infty" class="headerlink" title="$1 \leq p &lt; \infty$"></a>$1 \leq p &lt; \infty$</h2><p>It’s natural to think about Minkowski’s inequality and Hölder’s inequality in this case since they are critical inequality enablers. You need to think about some examples of how to create the condition to use them and get a fine result. In this section we need to prove that</p>
+<script type="math/tex; mode=display">
+|x^p-y^p| \leq p|x-y|(x^{p-1}+y^{p-1}).</script><p>This inequality is surprisingly easy to prove however. We will use nothing but the mean value theorem. Without loss of generality we assume that $x &gt; y \geq 0$ and define $f(t)=t^p$. Then</p>
+<script type="math/tex; mode=display">
+\frac{f(x)-f(y)}{x-y}=f'(\zeta)=p\zeta^{p-1}</script><p>where $y &lt; \zeta &lt; x$. But since $p-1 \geq 0$, we see $\zeta^{p-1} &lt; x^{p-1} &lt;x^{p-1}+y^{p-1}$. Therefore</p>
+<script type="math/tex; mode=display">
+f(x)-f(y)=x^p-y^p=p(x-y)\zeta^{p-1}<p(x-y)(x^{p-1}-y^{p-1}).</script><p>For $x=y$ the equality holds.</p>
+<hr>
+<p>Therefore</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+d_1(\lambda(f),\lambda(g)) &= \int_X \left||f|^p-|g|^p\right|d\mu \\
+                          &\leq \int_Xp\left||f|-|g|\right|(|f|^{p-1}+|g|^{p-1})d\mu
+\end{aligned}</script><p>By <em>Hölder’s inequality</em>, we have</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\int_X ||f|-|g||(|f|^{p-1}+|g|^{p-1})d\mu & \leq \left[\int_X \left||f|-|g|\right|^pd\mu\right]^{1/p}\left[\int_X\left(|f|^{p-1}+|g|^{p-1}\right)^q\right]^{1/q} \\
+&\leq \left[\int_X \left|f-g\right|^pd\mu\right]^{1/p}\left[\int_X\left(|f|^{p-1}+|g|^{p-1}\right)^q\right]^{1/q} \\
+&=\lVert f-g \rVert_p \left[\int_X\left(|f|^{p-1}+|g|^{p-1}\right)^q\right]^{1/q}.
+\end{aligned}</script><p>By <em>Minkowski’s inequality</em>, we have</p>
+<script type="math/tex; mode=display">
+\left[\int_X\left(|f|^{p-1}+|g|^{p-1}\right)^q\right]^{1/q} \leq \left[\int_X|f|^{(p-1)q}d\mu\right]^{1/q}+\left[\int_X |g|^{(p-1)q}d\mu\right]^{1/q}</script><p>Now things are clear. Since $1/p+1/q=1$, or equivalently $1/q=(p-1)/p$, suppose $\lVert f \rVert_p$, $\lVert g \rVert_p \leq R$, then $(p-1)q=p$ and therefore</p>
+<script type="math/tex; mode=display">
+\left[\int_X|f|^{(p-1)q}d\mu\right]^{1/q}+\left[\int_X |g|^{(p-1)q}d\mu\right]^{1/q} = \lVert f \rVert_p^{p-1}+\lVert g \rVert_p^{p-1} \leq 2R^{p-1}.</script><p>Summing the inequalities above, we get</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+d_1(\lambda(f),\lambda(g)) \leq 2pR^{p-1}\lVert f-g \rVert_p =2pR^{p-1}d_p(f,g)
+\end{aligned}</script><p>hence $\lambda$ is continuous.</p>
+<h2 id="Conclusion-and-further"><a href="#Conclusion-and-further" class="headerlink" title="Conclusion and further"></a>Conclusion and further</h2><p>We have proved that $\lambda$ is continuous, and when $0&lt;p&lt;1$, we have seen that $\lambda$ is Lipschitz continuous. It’s natural to think about its differentiability afterwards, but the absolute value function is not even differentiable so we may have no chance. But this is still a fine enough result. For example we have no restriction to $(X,\mathfrak{M},\mu)$ other than the positivity of $\mu$. Therefore we may take $\mathbb{R}^n$ as the Lebesgue measure space here, or we can take something else.</p>
+<p>It’s also interesting how we use elementary Calculus to solve some much more abstract problems.</p>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"><a href="../../../../tags/Exercise-solution/" class="post-tags__link button"># Exercise solution</a><a href="../../../../tags/Real-and-Complex-Analysis/" class="post-tags__link button"># Real and Complex Analysis</a><a href="../../../../tags/Walter-Rudin/" class="post-tags__link button"># Walter Rudin</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../../12/22/vector-bundle-2/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            Study Vector Bundle in a Relatively Harder Way - Tangent Bundle
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../27/vector-bundle-1/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            Study Vector Bundle in a Relatively Harder Way - Definition
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2020/11/28/A-continuous-function-sending-Lp-functions-to-L1/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

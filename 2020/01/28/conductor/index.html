@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>线性变换不变子空间的导子及其性质 | Desvl&#39;s blog</title>
+
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="问题的引入在研究循环子空间的时候，我们是从线性变换出发，对一个指定的向量进行反复作用，这恰好和多项式吻合。这是从线性变换和唯一指定向量的角度出发的。但是有的时候不能从向量出发，因为选取一个合适的向量不总是可行的，我们也不一定需要研究全体多项式。可能更需要研究一个特定的多项式。这就要求我们在另一个角度刻画不变子空间。 循环空间是某个线性变换的最小不变子空间。那么可不可以研究某个子空间、某个指定线性变">
+<meta property="og:type" content="article">
+<meta property="og:title" content="线性变换不变子空间的导子及其性质">
+<meta property="og:url" content="https://desvl.xyz/2020/01/28/conductor/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="问题的引入在研究循环子空间的时候，我们是从线性变换出发，对一个指定的向量进行反复作用，这恰好和多项式吻合。这是从线性变换和唯一指定向量的角度出发的。但是有的时候不能从向量出发，因为选取一个合适的向量不总是可行的，我们也不一定需要研究全体多项式。可能更需要研究一个特定的多项式。这就要求我们在另一个角度刻画不变子空间。 循环空间是某个线性变换的最小不变子空间。那么可不可以研究某个子空间、某个指定线性变">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-01-27T23:00:00.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:09.776Z">
+<meta property="article:author" content="Desvl">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        线性变换不变子空间的导子及其性质
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2020/01/" class="post-meta__date button">2020-01-28</a>
+        
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E7%9A%84%E5%BC%95%E5%85%A5"><span class="toc-number">1.</span> <span class="toc-text">问题的引入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%BC%E5%AD%90%E5%A4%9A%E9%A1%B9%E5%BC%8F-Conductor"><span class="toc-number">2.</span> <span class="toc-text">导子多项式(Conductor)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%A4%E7%A7%8D%E5%AF%BC%E5%AD%90%E5%A4%9A%E9%A1%B9%E5%BC%8F%E7%9A%84%E5%AD%98%E5%9C%A8%E6%80%A7%E3%80%81%E5%94%AF%E4%B8%80%E6%80%A7"><span class="toc-number">2.1.</span> <span class="toc-text">两种导子多项式的存在性、唯一性</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%BC%E5%AD%90%E7%9A%84%E6%80%A7%E8%B4%A8"><span class="toc-number">3.</span> <span class="toc-text">导子的性质</span></a></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E7%9A%84%E5%BC%95%E5%85%A5"><span class="toc-number">1.</span> <span class="toc-text">问题的引入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%BC%E5%AD%90%E5%A4%9A%E9%A1%B9%E5%BC%8F-Conductor"><span class="toc-number">2.</span> <span class="toc-text">导子多项式(Conductor)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%A4%E7%A7%8D%E5%AF%BC%E5%AD%90%E5%A4%9A%E9%A1%B9%E5%BC%8F%E7%9A%84%E5%AD%98%E5%9C%A8%E6%80%A7%E3%80%81%E5%94%AF%E4%B8%80%E6%80%A7"><span class="toc-number">2.1.</span> <span class="toc-text">两种导子多项式的存在性、唯一性</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%BC%E5%AD%90%E7%9A%84%E6%80%A7%E8%B4%A8"><span class="toc-number">3.</span> <span class="toc-text">导子的性质</span></a></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h3 id="问题的引入"><a href="#问题的引入" class="headerlink" title="问题的引入"></a>问题的引入</h3><p>在研究循环子空间的时候，我们是从线性变换出发，对一个指定的向量进行反复作用，这恰好和多项式吻合。这是从线性变换和唯一指定向量的角度出发的。但是有的时候不能从向量出发，因为选取一个合适的向量不总是可行的，我们也不一定需要研究全体多项式。可能更需要研究一个特定的多项式。这就要求我们在另一个角度刻画不变子空间。</p>
+<p>循环空间是某个线性变换的最小不变子空间。那么可不可以研究某个子空间、某个指定线性变换的保证线性空间不变性的多项式？</p>
+<p>设$W\subset{V}$为$V$的子空间，如果对任意$\alpha\in{W}$都有$\mathscr{A}\alpha\in{W}$，那么$W$就是$\mathscr{A}$的<strong>不变子空间</strong>。设多项式$g(\lambda)=\lambda$，那么就有$g(\mathscr{A})\alpha\in{W}$。如果$g(\lambda)$更<strong>复杂</strong>一些会怎样？有没有什么特殊的例子和性质？对于所有$\alpha\in{V}$又是怎样？这就是这篇博客要关注的问题。线性空间的循环分解也要用到这一个工具。</p>
+<h3 id="导子多项式-Conductor"><a href="#导子多项式-Conductor" class="headerlink" title="导子多项式(Conductor)"></a>导子多项式(Conductor)</h3><blockquote>
+<p>设$V$是定义在数域$\mathbb{F}$上的有限维线性空间，定义线性变换$\mathscr{A}:V\to{V}$，设$W$为$\mathscr{A}$的线性子空间。取$\textbf{v}\in{V}$。那么将$\textbf{v}$映入$W$的导子多项式$P_{\text{cond }W,\mathscr{A},\textbf{v}}(\lambda)$是指满足$P(\mathscr{A})\textbf{v}\in{W}$的次数最小的首项系数为$1$的多项式(首一多项式，monic polynomial); 多项式$P_{\text{cond }W,\mathscr{A}}(\lambda)$是指将全体$\textbf{v}\in{V}$都有$P(\mathscr{A})\in{W}$的次数最小的首项系数为$1$的多项式。</p>
+</blockquote>
+<p>分别记所有满足$P(\mathscr{A})\textbf{v}\in{W}$的全体多项式为$I(W,\mathscr{A},\textbf{v})$（对于指定的$\mathbf{v}$）和$I(W,\mathscr{A})$（对于所有向量），称为引导多项式。这里$I$的意思是Ideal。因为这是$\mathbb{F}[\lambda]$的一个理想。</p>
+<p>这可以看作最小多项式的推广。实际上，对于指定向量和全体向量空间的多项式，只需要将定义中的$W$换成$\{\textbf{0}\}$即可，记为$P_{\text{min }\mathscr{A},\textbf{v}}$和$P_{\text{min }\mathscr{A}}$。</p>
+<p>另外可以考虑$V=\mathbb{R}^3$中的一个例子。设$W=\mathbb{R}^2$，定义矩阵 </p>
+<script type="math/tex; mode=display">A=\begin{pmatrix} 1&0&0 \\  
+0&1&0 \\  
+0&0&0 \end{pmatrix}</script><p> 和线性变换$\mathscr{A}:x\mapsto{Ax}$。那么显然$W$是$\mathscr{A}$的不变子空间，且$P(\lambda)=\lambda=P_{\text{cond }W,\mathscr{A}}(\lambda)$。它将$V$中全体向量都映入$W$。自然它也是$(0,0,1)^T$的引导多项式。</p>
+<p>如果$W\neq{V}$，对于$\textbf{v}\in{V-W}$，到底需要怎样的”代价”才能利用$\mathscr{A}$将$\textbf{v}$“导入”$W$？这”代价”就是导子。</p>
+<h4 id="两种导子多项式的存在性、唯一性"><a href="#两种导子多项式的存在性、唯一性" class="headerlink" title="两种导子多项式的存在性、唯一性"></a><strong>两种导子多项式的存在性、唯一性</strong></h4><p>好在这两种多项式是稳定存在的，这也为我们探讨后面的性质做了保证。</p>
+<p>首先是$P_{\text{cond }W,\mathscr{A},\textbf{v}}(\lambda)$的存在性。和循环子空间的零化子类似，通过讨论维数和线性无关性解决。假设导子不存在，设$\textbf{v}\in{V-W}$。则有$I(W,\mathscr{A},\textbf{v})=\varnothing$。设$V$的维度为$n$，那么向量$\textbf{v},\mathscr{A}\textbf{v},\cdots,\mathscr{A}^n\textbf{v}$必定线性相关。也就是说有 <script type="math/tex">\sum_{k=0}^{n}c_k\mathscr{A}^k\textbf{v}=\textbf{0}\in{W}</script> 其中$c_k\in\mathbb{F}$不全为$0$。那么$P(\lambda)=\sum_{k=0}^{n}c_k\lambda^k$就是一个非$0$多项式使得$P(\mathscr{A})\textbf{v}\in{W}$的多项式。这和假设矛盾。存在性得到证明。</p>
+<p>对线性空间的导子而言，考虑$V$的一组基$\{\textbf{e}_i\}(i=1,\cdots,n)$。那么只需要考虑 </p>
+<script type="math/tex; mode=display">P(\lambda)=\prod_{i=1}^{n}P_{\text{cond }W,\mathscr{A},\textbf{e}_i}(\lambda)</script><p>不妨验证一下，对任意$\textbf{v}\in{V}$，都有$P(\mathscr{A})\textbf{v}\in{W}$。因此$I(W,\mathscr{A})\neq\varnothing$。</p>
+<hr>
+<p>两种导子的唯一性讨论是类似的。设有最高次数相同的首一多项式$P(\lambda),Q(\lambda)\in{I(W,\mathscr{A})}$，那么$(P-Q)(\mathscr{A})\textbf{v}\in{W}$。而$P-Q$的次数更低，除以第一项次数又变成了首一多项式。因此唯一性得到了保证。$I(W,\mathscr{A},\textbf{v})$也可以类似进行讨论。</p>
+<h3 id="导子的性质"><a href="#导子的性质" class="headerlink" title="导子的性质"></a>导子的性质</h3><p>这一节中$V,W,\mathscr{A},\textbf{v}$和上一节相同。</p>
+<blockquote>
+<p><strong>定理0</strong>: 对任意$Q(\lambda)\in{I(W,\mathscr{A})}$，都有 <script type="math/tex">P_{\text{cond }W,\mathscr{A}}(\lambda)| Q(\lambda)。</script> 类似结果在$I(W,\mathscr{A},\textbf{v})$中也成立。</p>
+</blockquote>
+<p>这说明，导子是对应引导多项式的最小公因式。也可以用环论的语言理解。注意$\mathbb{F}[\lambda]$为PID，所有理想都存在唯一生成元。这个定理就是在说，$P_{\text{cond }W,\mathscr{A}}$为生成元</p>
+<p>这个结论看上去是显然的，证明也是很简单的。假设 <script type="math/tex">P_{\text{cond }W,\mathscr{A}}(\lambda) \nmid Q(\lambda)。</script></p>
+<p>那么有非零多项式$R(\lambda)$使得</p>
+<script type="math/tex; mode=display">Q(\lambda)=S(\lambda)P_{\text{cond }W,\mathscr{A}}(\lambda)+R(\lambda)</script><p>其中$R(\lambda)\in{I(W,\mathscr{A})}$，且最高次数小于$P_{\text{cond }W,\mathscr{A}}(\lambda)$。然而$P_{\text{cond }W,\mathscr{A}}(\lambda)$的次数是最低的。这得到了一个矛盾。$I(W,\mathscr{A},\textbf{v})$和$P_{\text{cond }W,\mathscr{A},\textbf{v}}(\lambda)$也用相同的办法进行证明。</p>
+<hr>
+<blockquote>
+<p><strong>定理1</strong>: 存在向量$\textbf{v}\in{V}$使得 <script type="math/tex">P_{\text{cond }W,\mathscr{A}}(\lambda)=P_{\text{cond }W,\mathscr{A},\textbf{v}}(\lambda)</script></p>
+</blockquote>
+<p>这个结论将两种导子充分地联系起来。显然有$P_{\text{cond }W,\mathscr{A}}(\lambda)\in{I(W,\mathscr{A},\textbf{v})}$，但是反过来又是怎样？这就需要证明这个结论。这个结论看似复杂，但是从多项式的性质出发，就不复杂了。这个定理的证明可以划分成证明这两个引理:</p>
+<blockquote>
+<p>（引理1）设两多项式满足$\text{gcd}(P(\lambda),Q(\lambda))=1$，对于向量$\textbf{u},\textbf{v}\in{V}$，有$P_{\text{cond }W,\mathscr{A},\textbf{u}}(\lambda)=P(\lambda)$和 $P_{\text{cond }W,\mathscr{A},\textbf{v}}(\lambda)=Q(\lambda)$，那么</p>
+<script type="math/tex; mode=display">P_{\text{cond }W,\mathscr{A},\textbf{u+v}}(\lambda)=P(\lambda)Q(\lambda)</script></blockquote>
+<p>这可以看成导子多项式关于生成向量的加法和多项式乘法的统一。还可以注意到，$P$和$Q$的互素也对应了$\textbf{u}$和$\textbf{v}$的线性无关性。</p>
+<p>首先有 </p>
+<script type="math/tex; mode=display">P(\mathscr{A})Q(\mathscr{A})(\textbf{u+v})=Q(\mathscr{A})P(\mathscr{A})\textbf{u}+P(\mathscr{A})Q(\mathscr{A})\textbf{v}\in{W}</script><p>根据定理0，一定有 <script type="math/tex">P_{\text{cond }W,\mathscr{A},\textbf{u+v}}(\lambda)|P(\lambda)Q(\lambda)</script> 此时就有$P_{\text{cond }W,\mathscr{A},\textbf{u+v}}(\lambda)R(\lambda)=P(\lambda)Q(\lambda)$。现在需要证明，$R(\lambda)=1$。</p>
+<p>不失一般性，不妨设$S(\lambda)=\frac{P(\lambda)}{R(\lambda)}$。那么经过简单的运算就有$P_{\text{cond }W,\mathscr{A},\textbf{u+v}}(\lambda)=S(\lambda)Q(\lambda)$。现在假设$\text{deg}R&gt;0$，那么$\text{deg}S&lt;\text{deg}P$。那么不难得到$Q(\mathscr{A})S(\mathscr{A})\textbf{u}\notin{W}$和$S(\mathscr{A})Q(\mathscr{A})\textbf{u}\in{W}$同时成立。但是</p>
+<script type="math/tex; mode=display">P_{\text{cond }W,\mathscr{A},\textbf{u+v}}(\mathscr{A})(\textbf{u}+\textbf{v})=S(\mathscr{A})Q(\mathscr{A})\textbf{v}+Q(\mathscr{A})S(\mathscr{A})\textbf{u}\in{W}</script><p>这得到了矛盾。因此$R=1$。引理1得证。</p>
+<hr>
+<blockquote>
+<p>（引理2）设$P(\lambda)$是一个在$\mathbb{F}$上不可约的多项式，设有正整数$m$使得$(P(\lambda))^m|P_{\text{cond }W,\mathscr{A}(\lambda)}$，那么存在$\textbf{v}\in{V}$使得$P_{\text{cond },W,\mathscr{A},\textbf{v}}(\lambda)=(P(\lambda))^m$</p>
+</blockquote>
+<p>由条件可以设</p>
+<script type="math/tex; mode=display">P_{\text{cond }W,\mathscr{A}}(\lambda)=(P(\lambda))^mQ(\lambda)</script><p>注意到一定存在$\textbf{v}_0$使得</p>
+<script type="math/tex; mode=display">(P(\mathscr{A}))^{m-1}Q(\mathscr{A})\textbf{v}_0\notin{W}</script><p>否则，有$(P(\lambda))^{m-1}Q(\lambda)\in{I(W,\mathscr{A})}$，而次数低于$P_{\text{cond }W,\mathscr{A}}(\lambda)$。已知$P_{\text{cond }W,\mathscr{A}}(\lambda)$是$I(W,\mathscr{A})$里次数最低的，所以这得到了矛盾.</p>
+<p>另一方面，$(P(\mathscr{A}))^mQ(\mathscr{A})\textbf{v}_0=P_{\text{cond }W,\mathscr{A}}(\mathscr{A})\in{W}$。令$\textbf{u}=Q(\mathscr{A})\textbf{v}_0$，那么就有 <script type="math/tex">(P(\mathscr{A}))^m\textbf{u}\in{W}</script></p>
+<p>已经验证，这里的$m$不能再低，同时也不难验证$P^m$为首一多项式。所以有 </p>
+<script type="math/tex; mode=display">P_{\text{cond },W,\mathscr{A},\textbf{u}}(\lambda)=(P(\lambda))^m</script><p>引理2得证</p>
+<hr>
+<p>最后来考虑定理1。首先，域$\mathbb{F}$上任意非常数多项式$f$都可以唯一分解为不可约因子，即 </p>
+<script type="math/tex; mode=display">f=\prod_{i=1}^{m}p_i</script><p>其中$p_i$是不可约的，且这种乘积是唯一的(不考虑常数项和次序).</p>
+<p>那么$P_{\text{cond },W,\mathscr{A}}(\lambda)$就可以进行分解(如果导子是常数，结论是显然的)，合并相同因子之后有 </p>
+<script type="math/tex; mode=display">P_{\text{cond },W,\mathscr{A}}(\lambda)=(P_1(\lambda))^{r_1}(P_2(\lambda))^{r_2}\cdots(P_n(\lambda))^{r_n}</script><p>那么根据引理2就有$\textbf{v}_1,\textbf{v}_2,\cdots,\textbf{v}_n\in{V}$使得 </p>
+<script type="math/tex; mode=display">P_{\text{cond }W,\mathscr{A}}(\lambda)=\prod_{i=1}^{n}P_{\text{cond }W,\mathscr{A},\textbf{v}_i}(\lambda)</script><p>又根据引理1，令$\textbf{v}_1+\textbf{v}_2+\cdots+\textbf{v}_n=\textbf{v}$，就能得到</p>
+<script type="math/tex; mode=display">P_{\text{cond }W,\mathscr{A}}(\lambda)=P_{\text{cond }W,\mathscr{A},\textbf{v}}(\lambda)</script><p>得证。</p>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../../02/03/cyclic-decomposition-and-example/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            线性空间的循环分解
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../22/cyclic-decomposition/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            线性空间的循环子空间与简单应用
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2020/01/28/conductor/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

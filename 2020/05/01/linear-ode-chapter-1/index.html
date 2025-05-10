@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>线性ODE（一）——线性方程的思想与一阶方程 | Desvl&#39;s blog</title>
+
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="前言说到常微分方程，很多人可能认为，这是通过各种充满技巧性、构造性的手段直接或者间接求导求积分，而且根本想不出来这些技巧从那里冒出来的。因为这样对，所以这样对，所以我以后就这样套公式，就算出结果来了，一验算确实如此。事情并非如此。的确，常微分方程中有一些问题，现在都没有被研究清楚，但是那些基本的、常见的常微分方程问题，并没有什么看不见摸不着的玄学。在这些理论背后，是微积分、线性代数等等基本工具之间">
+<meta property="og:type" content="article">
+<meta property="og:title" content="线性ODE（一）——线性方程的思想与一阶方程">
+<meta property="og:url" content="https://desvl.xyz/2020/05/01/linear-ode-chapter-1/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="前言说到常微分方程，很多人可能认为，这是通过各种充满技巧性、构造性的手段直接或者间接求导求积分，而且根本想不出来这些技巧从那里冒出来的。因为这样对，所以这样对，所以我以后就这样套公式，就算出结果来了，一验算确实如此。事情并非如此。的确，常微分方程中有一些问题，现在都没有被研究清楚，但是那些基本的、常见的常微分方程问题，并没有什么看不见摸不着的玄学。在这些理论背后，是微积分、线性代数等等基本工具之间">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://desvl.xyz/img/image-20200501132151024.png">
+<meta property="article:published_time" content="2020-04-30T22:00:00.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:10.186Z">
+<meta property="article:author" content="Desvl">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://desvl.xyz/img/image-20200501132151024.png">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        线性ODE（一）——线性方程的思想与一阶方程
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2020/05/" class="post-meta__date button">2020-05-01</a>
+        
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E9%98%B6%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B"><span class="toc-number">2.</span> <span class="toc-text">一阶线性方程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E9%98%B6%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E7%9A%84%E5%AE%9A%E4%B9%89%E4%B8%8E%E4%B8%80%E4%B8%AA%E7%89%A9%E7%90%86%E5%AD%A6%E5%AE%9E%E4%BE%8B"><span class="toc-number">2.1.</span> <span class="toc-text">一阶线性方程的定义与一个物理学实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8E%E7%94%B5%E6%B5%81%E9%97%AE%E9%A2%98%E4%B8%AD%E5%BE%97%E5%88%B0%E7%9A%84%E5%90%AF%E5%8F%91"><span class="toc-number">2.2.</span> <span class="toc-text">从电流问题中得到的启发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8E%E9%AB%98%E6%96%AF%E6%B6%88%E5%85%83%E6%B3%95%E5%88%B0%E7%BA%BF%E6%80%A7%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E8%A7%A3%E7%9A%84%E7%BB%93%E6%9E%84"><span class="toc-number">2.3.</span> <span class="toc-text">从高斯消元法到线性微分方程解的结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E9%98%B6%E7%BA%BF%E6%80%A7%E5%B8%B8%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95"><span class="toc-number">2.4.</span> <span class="toc-text">一阶线性常微分方程的解决办法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BD%A2%E5%A6%82-y%E2%80%99-p-x-y-0-%E7%9A%84%E6%96%B9%E7%A8%8B%E7%9A%84%E8%A7%A3"><span class="toc-number">2.4.1.</span> <span class="toc-text">形如$y’+p(x)y&#x3D;0$的方程的解</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BD%A2%E5%A6%82-y%E2%80%99-p-x-y-q-x-%E7%9A%84%E6%96%B9%E7%A8%8B%E7%9A%84%E8%A7%A3"><span class="toc-number">2.4.2.</span> <span class="toc-text">形如$y’+p(x)y&#x3D;q(x)$的方程的解</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%85%A8%E4%BD%93%E8%A7%A3%E9%83%BD%E8%A2%AB%E5%8C%85%E5%90%AB%E4%BA%86%E5%90%97%EF%BC%9F"><span class="toc-number">2.4.2.1.</span> <span class="toc-text">全体解都被包含了吗？</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%A0%E5%B7%B2%E7%BB%8F%E6%84%8F%E8%AF%86%E5%88%B0%E4%BA%86%EF%BC%8C%E6%B1%82%E4%B8%8D%E5%AE%9A%E7%A7%AF%E5%88%86%E4%B9%9F%E6%98%AF%E6%B1%82%E4%B8%80%E9%98%B6%E7%BA%BF%E6%80%A7%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B"><span class="toc-number">2.4.3.</span> <span class="toc-text">你已经意识到了，求不定积分也是求一阶线性微分方程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%AF%E5%8A%AA%E5%88%A9%E6%96%B9%E7%A8%8B%E2%80%94%E2%80%94%E5%B0%86%E6%96%B9%E7%A8%8B%E5%8C%96%E4%B8%BA%E4%B8%80%E9%98%B6%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B"><span class="toc-number">2.5.</span> <span class="toc-text">伯努利方程——将方程化为一阶线性方程</span></a></li></ol></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E9%98%B6%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B"><span class="toc-number">2.</span> <span class="toc-text">一阶线性方程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E9%98%B6%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E7%9A%84%E5%AE%9A%E4%B9%89%E4%B8%8E%E4%B8%80%E4%B8%AA%E7%89%A9%E7%90%86%E5%AD%A6%E5%AE%9E%E4%BE%8B"><span class="toc-number">2.1.</span> <span class="toc-text">一阶线性方程的定义与一个物理学实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8E%E7%94%B5%E6%B5%81%E9%97%AE%E9%A2%98%E4%B8%AD%E5%BE%97%E5%88%B0%E7%9A%84%E5%90%AF%E5%8F%91"><span class="toc-number">2.2.</span> <span class="toc-text">从电流问题中得到的启发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8E%E9%AB%98%E6%96%AF%E6%B6%88%E5%85%83%E6%B3%95%E5%88%B0%E7%BA%BF%E6%80%A7%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E8%A7%A3%E7%9A%84%E7%BB%93%E6%9E%84"><span class="toc-number">2.3.</span> <span class="toc-text">从高斯消元法到线性微分方程解的结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E9%98%B6%E7%BA%BF%E6%80%A7%E5%B8%B8%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95"><span class="toc-number">2.4.</span> <span class="toc-text">一阶线性常微分方程的解决办法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BD%A2%E5%A6%82-y%E2%80%99-p-x-y-0-%E7%9A%84%E6%96%B9%E7%A8%8B%E7%9A%84%E8%A7%A3"><span class="toc-number">2.4.1.</span> <span class="toc-text">形如$y’+p(x)y&#x3D;0$的方程的解</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BD%A2%E5%A6%82-y%E2%80%99-p-x-y-q-x-%E7%9A%84%E6%96%B9%E7%A8%8B%E7%9A%84%E8%A7%A3"><span class="toc-number">2.4.2.</span> <span class="toc-text">形如$y’+p(x)y&#x3D;q(x)$的方程的解</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%85%A8%E4%BD%93%E8%A7%A3%E9%83%BD%E8%A2%AB%E5%8C%85%E5%90%AB%E4%BA%86%E5%90%97%EF%BC%9F"><span class="toc-number">2.4.2.1.</span> <span class="toc-text">全体解都被包含了吗？</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%A0%E5%B7%B2%E7%BB%8F%E6%84%8F%E8%AF%86%E5%88%B0%E4%BA%86%EF%BC%8C%E6%B1%82%E4%B8%8D%E5%AE%9A%E7%A7%AF%E5%88%86%E4%B9%9F%E6%98%AF%E6%B1%82%E4%B8%80%E9%98%B6%E7%BA%BF%E6%80%A7%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B"><span class="toc-number">2.4.3.</span> <span class="toc-text">你已经意识到了，求不定积分也是求一阶线性微分方程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%AF%E5%8A%AA%E5%88%A9%E6%96%B9%E7%A8%8B%E2%80%94%E2%80%94%E5%B0%86%E6%96%B9%E7%A8%8B%E5%8C%96%E4%B8%BA%E4%B8%80%E9%98%B6%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B"><span class="toc-number">2.5.</span> <span class="toc-text">伯努利方程——将方程化为一阶线性方程</span></a></li></ol></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>说到常微分方程，很多人可能认为，这是通过各种充满技巧性、构造性的手段直接或者间接求导求积分，而且根本想不出来这些技巧从那里冒出来的。因为这样对，所以这样对，所以我以后就这样套公式，就算出结果来了，一验算确实如此。事情并非如此。的确，常微分方程中有一些问题，现在都没有被研究清楚，但是那些基本的、常见的常微分方程问题，并没有什么看不见摸不着的玄学。<strong>在这些理论背后，是微积分、线性代数等等基本工具之间朴素而又美妙的联系。</strong>这一系列的博客，正想给读者呈现这一点。我们会遵循这样一个原则：先通过代数，将微分方程的结构厘清，再通过微积分，得到所希望得到的结果。可以看下面这个例子：</p>
+<p><img src="\img\image-20200501132151024.png" alt="image-20200501132151024"></p>
+<p>假如你需要讨论椭圆$\frac{x^2}{4}+y^2-\frac{xy}{2}=1$的性质，那你肯定不愿意。这个椭圆在坐标系中是斜着的，如果要计算各种性质的话，那可能是巨大的计算量，得到一个个令人绝望的二次方程，甚至还有分式等等。但是，如果我们把原来的基<strong>旋转</strong>一个合适的角度，也就是从$\{E_1,E_2\}$旋转到了$\{E_1’,E_2’\}$，那么在这组新基下，它就是一个很平凡的椭圆了，也就是说，我们只需要讨论在这组新基下表示的椭圆方程就行了。看上去很美好，但是实际可行吗？当然可行。这个变换没有改变椭圆的任何性质。椭圆没有平移，没有变形；周长没有变，面积没有变。我们在这组新基下得到的结果，只需要再反转回去，就是原来所求的结果。</p>
+<p>还有一个问题：这个旋转是所谓构造性极强、充满技巧的手段吗？是空穴来风吗？不是。这是利用了线性变换，利用了特征值，利用了矩阵的基本性质。此后，再在新基下运用各种直线方程、微积分方法等等，变得非常简单。这就是我们接下来要运用的思想。</p>
+<h2 id="一阶线性方程"><a href="#一阶线性方程" class="headerlink" title="一阶线性方程"></a>一阶线性方程</h2><h3 id="一阶线性方程的定义与一个物理学实例"><a href="#一阶线性方程的定义与一个物理学实例" class="headerlink" title="一阶线性方程的定义与一个物理学实例"></a>一阶线性方程的定义与一个物理学实例</h3><p>我们接下来要解决的是这种类型的方程</p>
+<blockquote>
+<script type="math/tex; mode=display">
+\frac{dy}{dx}+p(x)y=q(x)</script></blockquote>
+<p>只需要$y’$和$y$的次数都是$1$，而且没有$y^a(y’)^{b}$这种形式出现，就是一个一阶（因为$y’$只求导了一次）线性（只有一次项）方程。</p>
+<p>这样的方程自然也有自己的实际价值。例如通过电学中的<strong>Kirchhoff’s Circuit Laws</strong>，对于一个简单的R-L串联电路（串联有一个电阻、一个电感的直流电电路），我们能得到电流强度方程</p>
+<blockquote>
+<script type="math/tex; mode=display">
+L\frac{di}{dt}+Ri=E</script></blockquote>
+<p>其中，$i(t)$表示电流强度，$R$表示串联的电阻，$L$表示电感，$E$表示电压。显然，$i=\frac{E}{R}$就是一个特解。如果我们有$L \neq 0$，那么两边除以$L$，就能得到</p>
+<script type="math/tex; mode=display">
+\frac{di}{dt}+\frac{R}{L}i=\frac{E}{L}</script><p>这里的$\frac{R}{L}$就可以看成$p(t)$，$\frac{E}{L}$可以看成$q(t)$，尽管都是常数。如果解这个方程（解法会在后面介绍，这个解也可以加以验证），能得到</p>
+<script type="math/tex; mode=display">
+i = \frac{E}{R}+C\exp(-\frac{R}{L}t)</script><p>但是考虑到实际情况，开关闭合之前，电流强度是$0$；直到在闭合的一瞬间$t=0$时，有$i=0$。考虑到这一点，就能直接将常数$C$解出来，也就得到了</p>
+<script type="math/tex; mode=display">
+i=\frac{E}{R}(1-\exp({-\frac{R}{L}t}))</script><h3 id="从电流问题中得到的启发"><a href="#从电流问题中得到的启发" class="headerlink" title="从电流问题中得到的启发"></a>从电流问题中得到的启发</h3><p>上一节我们试图探讨R-L串联电路中电流强度的变化，给出了一个有物理意义的方程，并且解了出来。问题是，为什么会出现常数$e$？</p>
+<p>我们在高中就学过，$(e^{x})’=e^x$，或者更普遍一点，$(Ce^x)’=Ce^x$。如果在$x$的系数上做文章，有$(Ce^{-ax})’=-aCe^{-ax}$。注意，如果我们令$y=Ce^{-ax}$，那么我们已经得到了</p>
+<script type="math/tex; mode=display">
+y'+ay=0</script><p>这是最简单的一阶线性方程了。$Ce^{-ax}$的性质和线性方程吻合得很好。但是上面的方程明显比这个复杂，却还是有一个$e$在这里。可不可以认为，形如$y’+ay=b$的方程是由$y’+ay=0$进行“调整”得到的？更进一步，方程$y’+p(x)y=q(x)$是不是由$y’+p(x)y=0$衍生出来的？是怎么衍生出来的？这个解的结构是怎样的？</p>
+<p>实际情况是，在讨论多元常微分方程组、高阶常微分方程的时候，我们都还是从指数函数出发，从等式右边等于$0$出发。当然我们现在不应该深入太多。</p>
+<h3 id="从高斯消元法到线性微分方程解的结构"><a href="#从高斯消元法到线性微分方程解的结构" class="headerlink" title="从高斯消元法到线性微分方程解的结构"></a>从高斯消元法到线性微分方程解的结构</h3><p>高斯消元法，或者是更单纯的求解$n$元一次方程组的办法，我想读者肯定知道计算原理。我们举一个简单的例子</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+\begin{aligned}
+x_1+2x_2+x_3&=0 \\
+2x_1+5x_2+x_3&=1 \\
+0x_1-3x_2+3x_3&=-3
+\end{aligned}
+\end{cases}</script><p>通过高斯消元法，或者单纯说是反复给其中两个方程做加减法和代入，能得到</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+\begin{aligned}
+x_1+0x_2+3x_3&=-2 \\
+x_2-x_3&=1
+\end{aligned}
+\end{cases}</script><p>令$x_3=t$，就能得到$x_1=-2-3t,x_2=1+t$。其中$t \in \mathbb{R}$。这时我们就得到了这个线性方程组的解。为了表示方便，结合矩阵运算的性质，原来的式子可以写成矩阵的形式：</p>
+<script type="math/tex; mode=display">
+\begin{pmatrix}
+1 & 2 & 1 \\
+2 & 5 & 1 \\
+0 &-3&3 \\
+\end{pmatrix}
+\begin{pmatrix}
+-2-3t \\
+1+t \\
+t
+\end{pmatrix}=\begin{pmatrix}
+1 & 2 & 1 \\
+2 & 5 & 1 \\
+0 &-3&3 \\
+\end{pmatrix}
+\left\{
+\begin{pmatrix}
+-2 \\
+1 \\
+0
+\end{pmatrix}+
+t\begin{pmatrix}
+-3 \\
+1 \\
+1
+\end{pmatrix}
+\right\}=0</script><p>不妨用$A$表示这个矩阵，$v_1=(-2,1,0)^T$，$v_2=(-3,1,1)^T$，$v_0=(0,1,-3)^T$（$T$表示转置，这里为了书写简便）。那么可以验证，$Av_1=v_0$，而$Av_2=0$。那么这个式子又可以写成</p>
+<script type="math/tex; mode=display">
+A(v_1+tv_2)=Av_1+tAv_2=v_0+t\cdot0=v_0</script><p>所以我们想求的未知向量$x=v_1+tv_2$由两部分组成：一部分是符合$Ax=b$的一个特殊解，一部分符合$Ax’=0$，两部分的和代表了所有的解。也就是说，一个线性方程组的解，可能有无穷多个。<strong>但是，有一部分保证了解是准确的（也就是上面的$v_1$），有一部分保证解是普遍的（也就是上面的$tv_2$。$v_2$指出了解延伸的骨架，$t$取遍所有实数进行遍历）。</strong></p>
+<p>为什么要举高斯消元法这样一个例子呢？这里矩阵乘法是一个线性运算（$A(\alpha v+\beta w)=\alpha Av+\beta Aw$），而求导也是一个线性运算（$(af+bg)’=af’+bg’$），也就是说，它们都是“平直”的，是没有让问题变复杂的乘积的。电流方程的通解</p>
+<script type="math/tex; mode=display">
+i = \frac{E}{R}+C\exp(-\frac{R}{L}t)</script><p>很好验证，但是是不是也是这样的结构？对于$i_1=\exp(-\frac{R}{L}t)$，通过简单的求导运算可以得到$\frac{di_1}{dt}+\frac{R}{L}i_1=0$。对于$i_2=\frac{E}{R}$，我们已经知道它满足原来的方程。所以$i=Ci_1+i_2$，代入原来的方程，就有</p>
+<script type="math/tex; mode=display">
+\frac{d(Ci_1+i_2)}{dt}+\frac{R}{L}(Ci_1+i_2)=\frac{E}{L}+C\cdot 0</script><p>这和上面求三元一次方程组得到的结果是类似的。只是形式不同，但是结构相同。$i_2$保证了解的准确性，$i_1$保证解的普遍性，遍历所有结果。<strong>求解一阶线性微分方程，我们已经看清了结构（通过高斯消元法的类比），接下来，需要通过微积分的手段，得到一个合适结论。</strong></p>
+<h3 id="一阶线性常微分方程的解决办法"><a href="#一阶线性常微分方程的解决办法" class="headerlink" title="一阶线性常微分方程的解决办法"></a>一阶线性常微分方程的解决办法</h3><h4 id="形如-y’-p-x-y-0-的方程的解"><a href="#形如-y’-p-x-y-0-的方程的解" class="headerlink" title="形如$y’+p(x)y=0$的方程的解"></a>形如$y’+p(x)y=0$的方程的解</h4><p>显然，$y=0$是这个方程的一个解。如果$y \neq 0$，我们可以将这个方程改写成这个形式</p>
+<script type="math/tex; mode=display">
+\frac{dy}{y}+p(x)dx=0</script><p>分别对$x$和$y$积分，就能得到</p>
+<script type="math/tex; mode=display">
+\ln\left\vert y \right\vert = -\int p(x)dx + C</script><p>又可以写成</p>
+<script type="math/tex; mode=display">
+y = Ce^{-\int p(x)dx}</script><p>其中$C$为常数。$C=0$时，恰好对应了$y=0$这个解。的确，如果我们解</p>
+<script type="math/tex; mode=display">
+\frac{di}{dt}+\frac{R}{L}i=0</script><p>就能得到$i=C\exp({-\frac{R}{L}t})$。</p>
+<h4 id="形如-y’-p-x-y-q-x-的方程的解"><a href="#形如-y’-p-x-y-q-x-的方程的解" class="headerlink" title="形如$y’+p(x)y=q(x)$的方程的解"></a>形如$y’+p(x)y=q(x)$的方程的解</h4><p>事情似乎变得有点蹊跷。难不成要强行凑出一个满足这个方程的解，然后再加上满足$y’+p(x)y=0$的全体解？并非如此。求出一个满足条件的$y$有很多办法，我会在这里介绍一种比较直观的办法。</p>
+<p>实际上，我们知道了$q(x)$就已经足够了。设有$f(x)=e^{-\int p(x)dx}$，设全体解是</p>
+<script type="math/tex; mode=display">
+y(x)=Cf(x)+\mu(x)</script><p>其中$\mu(x)$满足$\mu’+p(x)\mu=q(x)$。我们通过已知的$f$和$q$直接求出$\mu$来，从而求出所有解来。</p>
+<p>不妨设$\mu(x)=f(x)c(x)$，我们通过几个函数的性质求出$c(x)$来。对$\mu$求导有</p>
+<script type="math/tex; mode=display">
+\mu'(x)=f'(x)c(x)+f(x)c'(x)=-p(x)f(x)c(x)+f(x)c'(x)=-p(x)f(x)c(x)+q(x)</script><p>这里利用了$f’(x)+p(x)f(x)=0$。而$f(x)与$$p(x)$都是已知的，经过化简就得到了</p>
+<script type="math/tex; mode=display">
+c'(x)=\frac{q(x)}{f(x)}</script><p>对$c’$求积分，就得到（其实这是直接写出来）</p>
+<script type="math/tex; mode=display">
+c(x)=\int q(x)e^{\int p(t)dt}dx</script><p>所以全体解就是</p>
+<script type="math/tex; mode=display">
+y=e^{-\int p(x)dx}\left(C+\int q(x)e^{\int p(t)dt}dx\right)</script><p>这个时候，$c(x)e^{-\int p(x)dx}$决定了解的准确性，$C \cdot e^{-\int p(x)dx}$决定了解的普遍性。如果我们已经知道了一个特殊值，也就是说$y(x_0)=y_0$，那么方程$y’+p(x)=q(x)$的解就可以准确写成</p>
+<script type="math/tex; mode=display">
+y=y_0e^{-\int_{x_0}^xp(t)dt}+\int_{x_0}^{x}q(s)e^{\int_s^xp(t)dt}ds</script><p>这并不是什么生拉硬拽的拼凑和巧合，并不需要所谓灵光一现，需要的是对线性运算的基本理解。</p>
+<p>不妨再去验证一下刚开始的那个电路方程是不是符合这一结果。</p>
+<h5 id="全体解都被包含了吗？"><a href="#全体解都被包含了吗？" class="headerlink" title="全体解都被包含了吗？"></a>全体解都被包含了吗？</h5><p>可能这个结论不具有信服力。是不是漏掉了哪些解？</p>
+<p>我们已经知道$\mu(x)$是一个解，不妨再设有一个解$y(x)$，那么$y(x)-\mu(x)$是什么样子？如果是$Cf(x)$，那么刚刚好，因为这里的$y$是任意选取的，这就体现了$Cf(x)$的普遍性。实际上</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+(y-\mu)'+p(x)(y-\mu)&=(y'+p(x)y')-(\mu'-p(x)\mu) \\
+                    &=q(x)-q(x) \\
+                    &=0
+\end{aligned}</script><p>而解$y-\mu$，就得到了$y-\mu=Cf(x)$，所以说，全体解的确是$Cf(x)+\mu$。</p>
+<h4 id="你已经意识到了，求不定积分也是求一阶线性微分方程"><a href="#你已经意识到了，求不定积分也是求一阶线性微分方程" class="headerlink" title="你已经意识到了，求不定积分也是求一阶线性微分方程"></a>你已经意识到了，求不定积分也是求一阶线性微分方程</h4><p>在初学微积分的时候，求不定积分常常要有一个$+C$。在现在这个框架下这个结果就很明显了。我们求</p>
+<script type="math/tex; mode=display">
+y'=f(x)</script><p>其实可以看成求</p>
+<script type="math/tex; mode=display">
+y'+0 \cdot y = f(x)</script><p>而$y’=0$解得$y=C$，又假设我们已经解得一个函数$F$使得$F’=f$，那么就有</p>
+<script type="math/tex; mode=display">
+y=F(x)+C</script><p>了。$F$保证解的准确，$C$保证解的普遍性。</p>
+<h3 id="伯努利方程——将方程化为一阶线性方程"><a href="#伯努利方程——将方程化为一阶线性方程" class="headerlink" title="伯努利方程——将方程化为一阶线性方程"></a>伯努利方程——将方程化为一阶线性方程</h3><p>有些方程虽然不是一阶线性方程，但是好在我们能将它经过简单的变换，变成一个一阶线性方程。例如这个方程</p>
+<script type="math/tex; mode=display">
+y'=\frac{2xy^2+\arctan{x}}{2y}</script><p>虽然甚至都不是线性方程（因为$y$有一个次数是$-1$），但是如果令$z=y^2$，就有</p>
+<script type="math/tex; mode=display">
+2yy'=z'=2xz+\arctan{x}</script><p>这就得到了一个一阶线性方程了（尽管可能很难算）。一般地讲，对于伯努利方程</p>
+<script type="math/tex; mode=display">
+y'+p(x)y=q(x)y^n</script><p>两边乘以$(1-n)y^{-n}$，就能得到</p>
+<script type="math/tex; mode=display">
+(1-n)y^{-n}y'+(1-n)y^{1-n}p(x)=(1-n)q(x)</script><p>在令$z=y^{1-n}$，就能得到</p>
+<script type="math/tex; mode=display">
+z'+(1-n)p(x)z=(1-n)q(x)</script><p>这就是一个一阶线性方程了，计算就变得很简单。</p>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../04/linear-ode-chapter-2/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            线性ODE（二）——用矩阵表示方程组
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../../04/18/order-of-limit/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            高等数学入门——理解无穷小的阶（微积分的“科学计数法”）
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2020/05/01/linear-ode-chapter-1/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

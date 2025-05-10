@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>Projective Representations of SO(3) | Desvl&#39;s blog</title>
+
+
+    <meta name="keywords" content="representation">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="In this post we study projective representations of $SO(3)$, although we will make more use of $SU(2)$. At the end of this post we reach the conclusion that one will think about polynomials with odd o">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Projective Representations of SO(3)">
+<meta property="og:url" content="https://desvl.xyz/2023/04/06/projective-rep-so3/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="In this post we study projective representations of $SO(3)$, although we will make more use of $SU(2)$. At the end of this post we reach the conclusion that one will think about polynomials with odd o">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://desvl.xyz/img/so3-fibre-product.png">
+<meta property="og:image" content="https://desvl.xyz/img/so3-covering.png">
+<meta property="article:published_time" content="2023-04-06T18:27:23.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:10.342Z">
+<meta property="article:author" content="Desvl">
+<meta property="article:tag" content="representation">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://desvl.xyz/img/so3-fibre-product.png">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        Projective Representations of SO(3)
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2023/04/" class="post-meta__date button">2023-04-06</a>
+        
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/" class="button">Algebra</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/Representation-Theory/" class="button">Representation Theory</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Linear-Algebra/" class="button">Linear Algebra</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Topology/" class="button">Topology</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/Lie-Groups/" class="button">Lie Groups</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Topology/Algebraic-Topology/" class="button">Algebraic Topology</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>In <a href="/2022/06/16/so3-laplacian/">another post</a> we gave an exposition of irreducible representations of $SO(3)$, where we find ourselves studying harmonic polynomials on a sphere. In this post, we study another category of representations of $SO(3)$ that have its own significance in physics: projective representation. The result will be written as direct sums of irreducible representations of $SU(2)$ so the reader is advised to review the <a href="2022/05/08/rep-SU2/">corresponding post</a>. We recall that</p>
+<blockquote>
+<p>Every irreducible unitary irreducible representation of $SU(2)$ is of the form $V_n$, where</p>
+<script type="math/tex; mode=display">
+V_n=\operatorname{Sym}^n \mathbb{C}^2=\{\text{The space of homogeneous polynomials of degree $n$ in two variables}\}</script></blockquote>
+<p>Representation theory has a billion applications in physics. The group $SO(3)$ acts as the group of orientation-preserving orthogonal symmetries in $\mathbb{R}^3$ in an obvious way. The invariance under this action justifies the principle that physical reactions such as those between elementary particles should not depend on the observer’s vantage point. </p>
+<p>Nevertheless, applications of representation theory in physics do not end at finite dimensional vector spaces. Put infinite dimensional vector spaces aside, we sometimes also need a class of vectors, in lieu of a single vector. For example, given a wavefunction $\psi$, we know $|\psi|^2$ has an interpretation of probability density. But then for any $\lambda \in S^1$, we see $|\lambda\psi|^2=|\psi|^2$, therefore $\lambda\psi$ and $\psi$ should be equivalent in a sense. By considering these equivalent classes, we find ourselves considering the projective space. Hence it makes sense to consider projective representations</p>
+<script type="math/tex; mode=display">
+G \to PGL(n,\mathbb{C})=GL(n,\mathbb{C})/\mathbb{C}^\ast</script><p>where $G$ is compact. In this post we will assume $G=SO(3)$ and see how far we can go.</p>
+<h1 id="Simplification-of-Arguments"><a href="#Simplification-of-Arguments" class="headerlink" title="Simplification of Arguments"></a>Simplification of Arguments</h1><p>We begin with a simple group-theoretic lemma:</p>
+<blockquote>
+<p><strong>Lemma 1.</strong> One has</p>
+<script type="math/tex; mode=display">
+PGL(n,\mathbb{C})=GL(n,\mathbb{C})/\mathbb{C}^\ast \cong SL(n,\mathbb{C})/C_n</script><p>where $C_n$ is the group of $n$th roots of unity, embedded  into $SL(n,\mathbb{C})$ via the map $\xi \to \xi I$. </p>
+</blockquote>
+<p><em>Proof.</em> Consider the canonical map</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+p:SL(n,\mathbb{C}) &\to GL(n,\mathbb{C})/\mathbb{C}^\ast, \\
+A &\mapsto A\mathbb{C}^\ast.
+\end{aligned}</script><p>This map is surjective. For any $B\mathbb{C}^\ast \in GL(n,\mathbb{C})/\mathbb{C}$, we have $B\mathbb{C}^\ast=\frac{1}{|B|}B\mathbb{C}^\ast$, and $\frac{1}{|B|}B \in SL(n,\mathbb{C})$ is the preimage of $B\mathbb{C}^\ast$. </p>
+<p>On the other hand, we see $\ker p$ consists of scalar matrices in $SL(n,\mathbb{C})$. If $\lambda I \in SL(n,\mathbb{C})$, then $|\lambda I|=\lambda^n=1$, thereby $\ker p$ can be identified as $C_n$, proving the isomorphism. $\square$</p>
+<p>Therefore, when studying a projective representation $G \to PGL(n,\mathbb{C})$, we are quickly reduced to special linear group, which is much simpler. Besides the group of $n$th roots of unity is much simpler than the group of nonzero complex numbers. </p>
+<p>However, our simplification has not reach the end. We will see next that special linear group can be then reduced to special unitary group. Recall that a linear matrix representation of a compact Lie group is similar to a unitary one. The following lemma is a projective analogy.</p>
+<blockquote>
+<p><strong>Lemma 2.</strong> Let $G$ be a compact Lie group. Every homomorphism $\varphi:G \to PGL(n,\mathbb{C})=SL(n,\mathbb{C})/C_n$ is conjugate to a homomorphism whose image lies in $SU(n)/C_n$.</p>
+</blockquote>
+<p><em>Proof.</em> Consider the <a target="_blank" rel="noopener" href="https://encyclopediaofmath.org/wiki/Fibre_product_of_objects_in_a_category">fibre product</a> $H$ of $G$ and $SL(n,\mathbb{C})$ over $PGL(n,\mathbb{C})$:</p>
+<p align="center"><img src="/img/so3-fibre-product.png"></p>
+
+<p>Here, $p$ is the canonical projection of $SL(n,\mathbb{C}) \to SL(n,\mathbb{C})/C_n$. It suffices to show that $\tilde\varphi$ is similar to a unitary representation. Explicitly, one has</p>
+<script type="math/tex; mode=display">
+H=\{(g,A) \in G \times SL(n,\mathbb{C}):p(A)=\varphi(g)\},</script><p>with $\tilde\varphi:(g,A) \mapsto A$ and $\tilde{p}:(g,A) \to g$.  Since $G$ is compact and $\tilde{p}$ has finite kernel $C_n$, one sees that $H$ is a compact Lie group. Therefore the matrix representation $\tilde\varphi:H \to SL(n,\mathbb{C})$ is similar to a homomorphism $H \to SU(n)$, from which the lemma follows. $\square$</p>
+<p>Therefore we are reduced to considering homomorphisms</p>
+<script type="math/tex; mode=display">
+\varphi:SO(3) \to SU(n)/C_n</script><p>for sake of this post. But we are not done yet. Having to deal with a quotient group is not satisfactory anyway. </p>
+<p>Since $SU(n)$ is simply connected (see <a target="_blank" rel="noopener" href="http://jde27.uk/lgla/16_topology_accessible.html">this video</a>), the projections $SU(n) \to SU(n)/C_n$ are universal coverings. In particular, when $n=2$, we see $SU(2) \to SU(2)/C_2 = SO(3)$ is our well-known universal covering. If we lift $\varphi$ to universal coverings, we see ourselves dealing with $SU(2) \to SU(n)$. To be precise, we have the following commutative diagram (universal cover is a functor):</p>
+<p align="center"><img src="/img/so3-covering.png"></p>
+
+
+<p>Dealing with $\tilde\varphi$ is much simpler. Physicists are more interested in unitary representations of the quaternion group $SU(2) = \operatorname{Spin}(3)$ rather than $SO(3)$, even though it looks more natural. </p>
+<h1 id="Discovering-Projective-Representations"><a href="#Discovering-Projective-Representations" class="headerlink" title="Discovering Projective Representations"></a>Discovering Projective Representations</h1><p>Now we are interested in finding all unitary representations that can be pushed down to a projective representation of $SO(3)$. We have two questions:</p>
+<blockquote>
+<p><strong>Question 1.</strong> Does it suffice to consider maps of the form $\tilde\varphi:SU(2)\to SU(n)$?</p>
+</blockquote>
+<p>The answer is yes. Notice that every homomorphism $f:SU(2) \to U(1)$ has to be trivial. If not, then $\ker f$ should be a nontrivial proper normal subgroup of $SU(2)$, i.e. it has to be $C_2$. But $SU(2)/C_2 \cong SO(3)$. A contradiction.</p>
+<p>Also recall the exact sequence</p>
+<script type="math/tex; mode=display">
+1 \to SU(n) \xrightarrow{i} U(n) \xrightarrow{\det}U(1) \to 1.</script><p>Let $g:SU(2) \to U(n)$ be any homomorphism, and consider the canonical projection $\pi:U(n) \to \frac{U(n)}{SU(n)}=U(1)$. We see $\pi \circ g$ sends any elements in $SU(2)$ to $1$, meaning the image of $SU(2)$ in $U(n)$ must bee in $SU(n)$. Therefore, by considering maps of the form $SU(2) \to SU(n)$, we are not missing anything. $\square$</p>
+<blockquote>
+<p><strong>Question 2.</strong> What should be considered in order to determine whether $\tilde\varphi:SU(2) \to SU(n)$ can be pushed down into a morphism $\varphi:SO(3) \to SU(n)/C_n$? </p>
+</blockquote>
+<p>The answer is, one should consider the element $-I$. Let $p:SU(2) \to SO(3)$ be the universal covering, and let $p_n:SU(n) \to SU(n)/C_n$ be the corresponding universal covering. For $\tilde\varphi:SU(2) \to SU(n)$, we want to know when there will be a homomorphism $\varphi:SO(3) \to SU(n)/C_n$ such that $p_n \circ \tilde\varphi = \varphi \circ p$.</p>
+<p>Notice that $p(-I)=I$, therefore, should $\varphi$ exist, one has $p_n \circ \tilde\varphi(-I)=e$, the identity in the group $SU(n)/C_n$, because one should have $\varphi(I)=e$. Hence $\tilde\varphi(-I) \in \ker p_n$. Therefore $\varphi(-I)$ can be identified as a $n$th root of unity. Since $\tilde\varphi(-I)\tilde\varphi(-I)=\tilde\varphi(I)$, we see $\tilde\varphi(-I)$ should also be identified as a square root of $1$. That is, $\tilde\varphi(-I)$ is either $\operatorname{id}$ or $-\operatorname{id}$. We discuss these two cases in the following question.</p>
+<p>On the other hand, if $\tilde\varphi(-I)=\pm\operatorname{id}$, then one can verify that $p_n \circ \tilde\varphi \circ p^{-1}$ can be well-defined. Therefore $\tilde\varphi$ can be pushed down into a morphism of $SO(3)$ if and only if $\tilde\varphi(-I)=\pm\operatorname{id}$. $\square$</p>
+<blockquote>
+<p><strong>Question 3.</strong> Let $W=\bigoplus_n k_n V_n$ be a representation of $SU(2)$. What will happen if it can be pushed down to a projective representation of $SO(3)$?</p>
+</blockquote>
+<p>Let $\tilde\varphi:SU(2) \to SU(n)$ be the homomorphism corresponding to $W$. We have known for certain that when $\tilde\varphi$ can be pushed down to $SO(3)$ if and only if $\tilde\varphi(-I)=\pm\operatorname{id}$.</p>
+<p> If $\tilde\varphi(-I)=\operatorname{id}$, then all the $n$ have to be even because the action on the polynomials cannot be the identity when $n$ is odd. If $\tilde\varphi(-I)=-\operatorname{id}$, then all the $n$ have to be odd because when $n$ is even the action of $-I$ on the polynomials must be the identity.</p>
+<p>To be more explicit, $W=\bigoplus_n k_{2n}V_{2n}$ or $W=\bigoplus_{n}k_{2n+1}V_{2n+1}$.</p>
+<blockquote>
+<p><strong>Theorem 1.</strong> The projective representations of $SO(3)$ are given up to conjugations of $SU(2)$ of the form</p>
+<script type="math/tex; mode=display">
+\bigoplus_n k_n V_{2n}\;\text{(even) or }\; \bigoplus_n k_{2n+1}V_{2n+1}\;\text{(odd)},</script><p>depending on whether $(-I)$ acts by $\operatorname{id}$ or $-\operatorname{id}$.</p>
+</blockquote>
+<p>In brief, when thinking about projective representations of $SO(3)$, one thinks about polynomials in two variables whose terms are either all even or all odd.</p>
+<p>When studying $\tilde\varphi:SU(2) \to SU(n)$, we see $\tilde\varphi(-I)$ can be identified both as a $n$th root of unity and a square root of unity. When $n$ is odd however, we see $\tilde\varphi(-I)$ cannot be identified as $-1$, i.e. $-I$ cannot act as $-\operatorname{id}$. Unexpectedly, number theory plays a small role here.</p>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"><a href="../../../../tags/representation/" class="post-tags__link button"># representation</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../../05/27/chinese-remainder-theorem-ring-theory/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            Chinese Remainder Theorem in Several Scenarios of Ring Theory
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../../03/20/quadratic-reciprocity-law-1/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            The Quadratic Reciprocity Law
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2023/04/06/projective-rep-so3/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>SL(2,R) As a Topological Space and Topological Group | Desvl&#39;s blog</title>
+
+
+    <meta name="keywords" content="Study new content, Lie theory">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="In this post we show that $SL(2,\mathbb{R})$ can be identified as the inside of a solid torus and see what we can learn from it.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SL(2,R) As a Topological Space and Topological Group">
+<meta property="og:url" content="https://desvl.xyz/2023/08/12/sl2-decomposition/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="In this post we show that $SL(2,\mathbb{R})$ can be identified as the inside of a solid torus and see what we can learn from it.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-08-12T17:28:22.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:10.500Z">
+<meta property="article:author" content="Desvl">
+<meta property="article:tag" content="Study new content">
+<meta property="article:tag" content="Lie theory">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        SL(2,R) As a Topological Space and Topological Group
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2023/08/" class="post-meta__date button">2023-08-12</a>
+        
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/" class="button">Algebra</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/Group-Theory/" class="button">Group Theory</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Topology/" class="button">Topology</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/Lie-Groups/" class="button">Lie Groups</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>There are a lot of important linear algebraic groups that are widely used in mathematics, physics and industry. Some of them have nice visualisations. For example, it is widely known that $SU(2) \cong S^3$ and $SO(3) \cong \mathbb{RP}^3$. The group $SL(2,\mathbb{R})$ is not less important than them but the visualisation concerning this group is not very easy to be found. In this post we show that </p>
+<script type="math/tex; mode=display">
+SL(2,\mathbb{R}) \cong S^1 \times \mathbb{R} \times \mathbb{R} \cong  S^1 \times D,</script><p>where $D$ is the open unit disk. In other words, $SL(2,\mathbb{R})$ can be considered as a donut, not the shell of it ($S^1 \times S^1$) but the “content” or “flesh” of it. More formally, the inside of a solid torus.</p>
+<p>The related core theory can be found in Iwasawa decomposition, but to access it we need Lie group and Lie algebra theories, which involves differential geometry and certainly goes beyond the scope of this post. Interested readers can refer to <a href="doi.org/10.1007/978-1-4757-2453-0">Lie Groups Beyond an Introduction</a> chapter 6 for Iwasawa decomposition theory.</p>
+<h1 id="Immediate-topological-consequences"><a href="#Immediate-topological-consequences" class="headerlink" title="Immediate topological consequences"></a>Immediate topological consequences</h1><p>Before we establish the homeomorphism</p>
+<script type="math/tex; mode=display">
+SL(2,\mathbb{R}) \cong S^1 \times \mathbb{R} \times \mathbb{R} \cong S^1 \times D</script><p>we first see what we can derive from it. </p>
+<ul>
+<li>Is $SL(2,\mathbb{R})$ compact?</li>
+</ul>
+<p>No. Since $D$ is not compact, $S^1 \times D$ cannot be compact.</p>
+<ul>
+<li>What is the fundamental group of $SL(2,\mathbb{R})$?</li>
+</ul>
+<p>Notice there is a (strong) deformation retract between $S^1 \times D$ and $S^1$. Therefore $\pi_1(SL(2,\mathbb{R})) = \pi_1(S^1)=\mathbb{Z}$.</p>
+<ul>
+<li>Connectedness of $SL(2,\mathbb{R})$?</li>
+</ul>
+<p>It is connected because $S^1$ and $D$ are connected. It is not simply connected because the fundamental group is not trivial.</p>
+<ul>
+<li>What is the dimension of $SL(2,\mathbb{R})$ as a manifold?</li>
+</ul>
+<p>The dimension is $3$.</p>
+<h1 id="The-Iwasawa-decomposition"><a href="#The-Iwasawa-decomposition" class="headerlink" title="The Iwasawa decomposition"></a>The Iwasawa decomposition</h1><p>If we directly jump to the conclusion without mentioning Lie theory, one will see the decomposition comes from nowhere. Instead of defining $K$, $A$ and $N$ that will appear later and show that there is no discrepancy, we deduce the decomposition without the usage of Lie theory. Instead, we consider the action of $SL(2,\mathbb{R})$ on the upper half plane, because group action is likely to expose more information of the group.</p>
+<p>Consider the group action of $SL(2,\mathbb{R})$ on the upper half plane</p>
+<script type="math/tex; mode=display">
+\mathfrak{H}=\{z \in \mathbb{C}:\Im(z)>0\}</script><p>given by</p>
+<script type="math/tex; mode=display">
+\begin{pmatrix}
+a & b \\
+c& d
+\end{pmatrix}(z)=\frac{az+b}{cz+d}.</script><p>Up to an explosion of calculation, one can indeed verify that this is a group action and in particular</p>
+<script type="math/tex; mode=display">
+\Im\left(\frac{az+b}{cz+d}\right)=\frac{\Im(z)}{|cz+d|^2}.</script><p>As one may guess, it is not wise to continue without investigating the action first, or we will be lost in calculation. We first show that this action is transitive by showing that for any $z=x+yi \in \mathfrak{H}$, there is some $\sigma \in SL(2,\mathbb{R})$ such that $\sigma(z)=i$:</p>
+<script type="math/tex; mode=display">
+\frac{az+b}{cz+d}=\frac{ax+b+ayi}{cx+d+cyi}=i \implies 
+\begin{cases}
+ax+b=-cy \\
+cx+d=ay
+\end{cases}</script><p>Let’s play around the last linear equation system:</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+ax+b=-cy \\
+cx+d=ay
+\end{cases} \implies
+\begin{cases}
+acx+bc=-c^2y \\
+acx+ad=a^2y
+\end{cases} \implies
+a^2+c^2=\frac{1}{y}.</script><p>We can put $c=0$ and $a=\frac{1}{\sqrt{y}}$ so that $b=-\frac{x}{\sqrt{y}}$ and $d=\sqrt{y}$. That is,</p>
+<script type="math/tex; mode=display">
+\begin{pmatrix}
+\frac{1}{\sqrt{y}} & -\frac{x}{\sqrt{y}} \\
+0 & \sqrt{y}
+\end{pmatrix}(x+iy)=i.</script><p>We have therefore proved:</p>
+<blockquote>
+<p>The action of $SL(2,\mathbb{R})$ on $\mathfrak{H}$ is transitive.</p>
+</blockquote>
+<p><em>Proof.</em> For any $z,z’ \in \mathfrak{H}$, there exists $\sigma$ and $\sigma’$ such that $\sigma(z)=i$ and $\sigma’(z’)=i$. Then $\sigma’^{-1}(\sigma(z))=z’$, i.e. $\sigma’^{-1}\sigma$ sends $z$ to $z’$. $\square$</p>
+<p>By working around $i$ on $\mathfrak{H}$ we can save ourselves from a lot of troubles. It is then desirable to find the stabiliser of $i$.</p>
+<blockquote>
+<p>The stabiliser of $i \in \mathfrak{H}$ is $SO(2) \cong S^1$.</p>
+</blockquote>
+<p><em>Proof.</em> Suppose $\sigma=\begin{pmatrix} a &amp; b \\c &amp; d \end{pmatrix}$ stabilises $i$. Then first of all we have</p>
+<script type="math/tex; mode=display">
+\Im\left(\frac{ai+b}{ci+d}\right)=\frac{1}{|ci+d|^2}=1 \implies c^2+d^2=1.</script><p>Then</p>
+<script type="math/tex; mode=display">
+\frac{ai+b}{ci+d}=i \implies ai+b=-c+di \implies \begin{cases}a=d \\ b=-c\end{cases}</script><p>It follows that</p>
+<script type="math/tex; mode=display">
+\begin{pmatrix}
+a & b \\
+c & d
+\end{pmatrix}
+\begin{pmatrix}
+a & c \\
+b & d
+\end{pmatrix}=
+\begin{pmatrix}
+a^2+b^2 & ac+bd \\
+ac+bd & c^2+d^2
+\end{pmatrix}=
+\begin{pmatrix}
+1 & 0 \\
+0 & 1
+\end{pmatrix}.</script><p>Therefore $\sigma \in O(2) \cap SL(2) = SO(2)$ as expected. $\square$</p>
+<p>With these being said, the action of $SL(2,\mathbb{R})$ on $i$ consists of $SO(2)$ that moves nothing and the rest that actually move things. In other words, $SL(2,\mathbb{R})/SO(2) \cong \mathfrak{H}$ as a $2$-manifold. In particular, the action is a isometry. We will find the effective part of the group action out. For $\sigma \in SL(2,\mathbb{R})$, we assume that $\sigma(i)=x+iy$. Then</p>
+<script type="math/tex; mode=display">
+\sigma(i)=\begin{pmatrix}\frac{1}{\sqrt{y}} & -\frac{x}{\sqrt{y}} \\
+0 & \sqrt{y}
+\end{pmatrix}^{-1}(i)=\begin{pmatrix}\sqrt{y} & \frac{x}{\sqrt{y}} \\ 0 & \frac{1}{\sqrt{y}}\end{pmatrix}(i).</script><p>Let $B$ be the upper triangular matrices in $SL(2,\mathbb{R})$ with positive diagonal elements. Then it is elements in $B$ that actually move things. According to this classification, we have obtained a decomposition</p>
+<blockquote>
+<p> The matrix multiplication map $B \times SO(2) \to SL(2,\mathbb{R})$ is surjective. </p>
+</blockquote>
+<p><em>Proof.</em> Notice that every element of $B$ can be written in the form </p>
+<script type="math/tex; mode=display">
+\lambda_{x,y}=\begin{pmatrix}\sqrt{y} & \frac{x}{\sqrt{y}} \\ 0 & \frac{1}{\sqrt{y}}\end{pmatrix}.</script><p>For any $\sigma \in SL(2,\mathbb{R})$, suppose $\sigma(i)=x+iy$, then $\sigma(i)=\lambda_{x,y}(i)$, therefore $\lambda_{x,y}^{-1}\sigma(i)=i$, i.e. $\lambda_{x,y}^{-1}\sigma \in SO(2)$, i.e. $\lambda_{x,y}^{-1}\sigma$ is a stabiliser of $i$. The product $\sigma = \lambda_{x,y}(\lambda_{x,y}^{-1}\sigma)$ always lies in the image of $B \times SO(2)$. $\square$</p>
+<p>We can decompose $B$ further:</p>
+<script type="math/tex; mode=display">
+\begin{pmatrix}\sqrt{y} & \frac{x}{\sqrt{y}} \\ 0 & \frac{1}{\sqrt{y}}\end{pmatrix}=\begin{pmatrix}1 & x \\ 0 & 1\end{pmatrix}\begin{pmatrix}\sqrt{y} & 0 \\ 0 & \frac{1}{\sqrt{y}} \end{pmatrix}.</script><p>Let $N$ be the group of upper triangular matrices in $SL(2,\mathbb{R})$ with $1$ on the diagonal line and let $A$ be the group of diagonal matrices with non-negative entries. Then $B=NA$. Let $K=SO(2) \subset SL(2,\mathbb{R})$, then we have obtained the so-called Iwasawa decomposition:</p>
+<blockquote>
+<p>There is a diffeomorphism onto</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+N \times A \times K &\to SL(2,\mathbb{R}) \\
+(n,a,k) &\mapsto nak
+\end{aligned}</script></blockquote>
+<p><em>Proof.</em> It only remains to show injectivity. Suppose $n_1a_1k_1=n_2a_2k_2$. Applying both sides onto $i$ we obtain $n_1a_1(i)=n_2a_2(i)$. Suppose</p>
+<script type="math/tex; mode=display">
+n_i=\begin{pmatrix}
+1 & x_i \\
+0 & 1
+\end{pmatrix},\;
+a_i=\begin{pmatrix}
+\sqrt{y_i} & 0 \\
+0 & \frac{1}{\sqrt{y_i}}
+\end{pmatrix},\; i=1,2.</script><p>Then we have $n_1a_1(i)=x_1+y_1i=n_2a_2(i)=x_2+y_2i$. It follows that $x_1=x_2$ and $y_1=y_2$, i.e. $n_1=n_2$ and $a_1=a_2$ and therefore $k_1=k_2$. $\square$</p>
+<p>By investigating $N$ and $A$ further we obtain</p>
+<blockquote>
+<p>The group $SL(2,\mathbb{R})$ is homeomorphic to $S^1 \times D$.</p>
+</blockquote>
+<p><em>Proof.</em> Notice that $N$ is homeomorphic to $\mathbb{R}$ and $A$ is homeomorphic to $\mathbb{R}_{&gt;0}\cong \mathbb{R}$. $\square$</p>
+<p>Notice the order of $N,A,K$ does not matter very much: $NAK,KAN,ANK,KNA$ are the same thing. This is because $AN=NA$ and for $nak \in SL(2,\mathbb{R})$, we have $(nak)^{-1}=k^{-1}a^{-1}n^{-1}$ which lies in the preimage of $K \times A \times N$ under matrix multiplication.</p>
+<h1 id="Immediate-group-theoretical-consequences"><a href="#Immediate-group-theoretical-consequences" class="headerlink" title="Immediate group-theoretical consequences"></a>Immediate group-theoretical consequences</h1><p>With the full Iwasawa decomposition in mind, we can scratch the surface of the rather complicated $SL(2,\mathbb{R})$.</p>
+<blockquote>
+<p>The only continuous homomorphism of $SL(2,\mathbb{R})$ to $\mathbb{R}$ is trivial.</p>
+</blockquote>
+<p><em>Proof.</em> Let $f:SL(2,\mathbb{R}) \to \mathbb{R}$ be such a map. We have $f(kan)=f(k)+f(a)+f(n)$. We need to show that $f(k)=f(a)=f(n)=0$.</p>
+<p>First of all, since $K$ is a compact subgroup of $SL(2,\mathbb{R})$, its image on $\mathbb{R}$ has to be a compact subgroup. On the other hand, $f$ on $A$ and $N$ can be constructed more explicitly. For $A$, we see $\begin{pmatrix}r &amp; 0 \\ 0 &amp; \frac{1}{r} \end{pmatrix} \mapsto r \mapsto \log{r}$ yields an isomorphism of $A$ and $\mathbb{R}$, in both algebraical and topological sense. For $N$ on the other hand, we immediately have an isomorphism $\begin{pmatrix}1 &amp; x \\ 0 &amp; 1\end{pmatrix} \mapsto x$. Therefore the image of $f$ on $A$ and $N$ can be realised as as $u\log{r}$ and $vx$ for some $u,v \in \mathbb{R}$. We use the fact that $AN=NA$ to determine $u$ and $v$. Notice that</p>
+<script type="math/tex; mode=display">
+\begin{pmatrix}r & 0 \\ 0 & \frac{1}{r} \end{pmatrix}\begin{pmatrix}1 & x \\ 0 & 1\end{pmatrix}=\begin{pmatrix}1 & r^2x \\ 0 & 1\end{pmatrix}\begin{pmatrix}r & 0 \\ 0 & \frac{1}{r}\end{pmatrix},</script><p>applying $f$ on both sides, we have</p>
+<script type="math/tex; mode=display">
+u\log{r}+vx=vr^2x+u\log{r}\;\forall x\in \mathbb{R},\;r>0 \implies v=0</script><p>For $u$, we consider the conjugate relation</p>
+<script type="math/tex; mode=display">
+\begin{pmatrix}
+0 & -1 \\
+1 & 0
+\end{pmatrix}\begin{pmatrix}r & 0 \\ 0 & \frac{1}{r} \end{pmatrix}\begin{pmatrix}
+0 & -1 \\
+1 & 0
+\end{pmatrix}^{-1}=\begin{pmatrix}\frac{1}{r} & 0 \\ 0 & r \end{pmatrix}=\begin{pmatrix}r & 0 \\ 0 & \frac{1}{r} \end{pmatrix}^{-1}.</script><p>Applying $f$ on both sides we obtain</p>
+<script type="math/tex; mode=display">
+u\log{r}=-u\log{r},\;\forall r>0 \implies u=0.</script><p>This proves the triviality of $f$. $\square$</p>
+<blockquote>
+<p>Let $f:SL(2,\mathbb{R}) \to GL(n,\mathbb{R})$ be a continuous homomorphism, then $f(SL(2,\mathbb{R})) \subset SL(n,\mathbb{R})$.</p>
+</blockquote>
+<p><em>Proof.</em> Consider the sequence of group homomorphisms</p>
+<script type="math/tex; mode=display">
+SL(2,\mathbb{R}) \xrightarrow{f}GL(n,\mathbb{R}) \xrightarrow{\det}\mathbb{R}^\ast</script><p>Since $SL(2,\mathbb{R})$ is connected, we see $\det\circ f(SL(2,\mathbb{R}))$ is connected, thus lying in $\mathbb{R}_{&gt;0}$. We can then modify the sequence a little bit:</p>
+<script type="math/tex; mode=display">
+SL(2,\mathbb{R}) \xrightarrow{f}GL(n,\mathbb{R}) \xrightarrow{\det}\mathbb{R}_{>0} \xrightarrow{\log}\mathbb{R}\xrightarrow{\exp}\mathbb{R}_{>0}</script><p>The map $\log \circ \det \circ f$ is a continuous homomorphism sending $SL(2,\mathbb{R})$ to $\mathbb{R}$, which is trivial, and therefore</p>
+<script type="math/tex; mode=display">
+\exp \circ \log \circ \det \circ f(SL(2,\mathbb{R}))=\det\circ f(SL(2,\mathbb{R}))=\{1\}.</script><p>This proves our assertion. $\square$</p>
+<p>There are still a lot we can do without much Lie theory but Haar measure theory. The reader is advised to try this <a target="_blank" rel="noopener" href="https://metaphor.ethz.ch/x/2018/fs/401-3226-00L/ex/ex1.pdf">exercise set</a> to see, for example, that the “volume” of $SL(2,\mathbb{R})/SL(2,\mathbb{Z})$ is $\zeta(2)$. In the references / further reading section the reader will also find a way to show that $SL(2,\mathbb{Z})\backslash SL(2,\mathbb{R})/SO(2,\mathbb{R})$ has volume $\frac{\pi}{3}$.</p>
+<h1 id="References-Further-Reading"><a href="#References-Further-Reading" class="headerlink" title="References / Further Reading"></a>References / Further Reading</h1><ul>
+<li>Keith Conrad, <em>Decomposing $SL(2,\mathbb{R})$</em>. <a target="_blank" rel="noopener" href="https://kconrad.math.uconn.edu/blurbs/grouptheory/SL(2,R).pdf">https://kconrad.math.uconn.edu/blurbs/grouptheory/SL(2,R).pdf</a></li>
+<li>Serge Lang, $SL(2,\mathbb{R})$. (He wrote this book for self-study because he didn’t know much about Lie theory. In chapter 3 one can see how to do calculus with $SL(2,\mathbb{R})$.)</li>
+<li>Anthony W. Knapp, <em>Lie Groups Beyond an Introduction</em>.</li>
+<li>Merrick Cai, <em>The Volume of $SL(2,\mathbb{Z})\backslash SL(2,\mathbb{R})/SO(2,\mathbb{R})$</em>. <a target="_blank" rel="noopener" href="https://math.mit.edu/~mqt/math/teaching/mit/18-704/final-papers/cai-m_final.pdf">https://math.mit.edu/~mqt/math/teaching/mit/18-704/final-papers/cai-m_final.pdf</a> (A more concrete example of doing calculus on this group.)</li>
+</ul>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"><a href="../../../../tags/Study-new-content/" class="post-tags__link button"># Study new content</a><a href="../../../../tags/Lie-theory/" class="post-tags__link button"># Lie theory</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../../09/18/picard-little/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            Picard&#39;s Little Theorem and Twice-Punctured Plane
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../../07/17/artin-theorem/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            Artin&#39;s Theorem of Induced Characters
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2023/08/12/sl2-decomposition/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

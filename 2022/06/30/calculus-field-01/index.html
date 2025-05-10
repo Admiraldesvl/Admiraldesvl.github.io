@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>The Calculus of Fields - Absolute Values | Desvl&#39;s blog</title>
+
+
+    <meta name="keywords" content="Study new content">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="In this post, we develop a fundamental device: absolute value on an arbitrary field with various points of view.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Calculus of Fields - Absolute Values">
+<meta property="og:url" content="https://desvl.xyz/2022/06/30/calculus-field-01/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="In this post, we develop a fundamental device: absolute value on an arbitrary field with various points of view.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-06-30T08:55:01.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:09.713Z">
+<meta property="article:author" content="Desvl">
+<meta property="article:tag" content="Study new content">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        The Calculus of Fields - Absolute Values
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2022/06/" class="post-meta__date button">2022-06-30</a>
+        
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/" class="button">Algebra</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/Field-Theory/" class="button">Field Theory</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Number-Theory/" class="button">Number Theory</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Number-Theory/Algebraic-Number-Theory/" class="button">Algebraic Number Theory</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#A-First-Classification"><span class="toc-number">1.</span> <span class="toc-text">A First Classification</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Triangle-Inequality"><span class="toc-number">1.1.</span> <span class="toc-text">Triangle Inequality</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Equivalent-Absolute-Values-And-Places"><span class="toc-number">1.2.</span> <span class="toc-text">Equivalent Absolute Values And Places</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ultrametric-Inequality"><span class="toc-number">1.3.</span> <span class="toc-text">Ultrametric Inequality</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Absolute-Values-and-Vector-Spaces"><span class="toc-number">2.</span> <span class="toc-text">Absolute Values and Vector Spaces</span></a></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#A-First-Classification"><span class="toc-number">1.</span> <span class="toc-text">A First Classification</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Triangle-Inequality"><span class="toc-number">1.1.</span> <span class="toc-text">Triangle Inequality</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Equivalent-Absolute-Values-And-Places"><span class="toc-number">1.2.</span> <span class="toc-text">Equivalent Absolute Values And Places</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ultrametric-Inequality"><span class="toc-number">1.3.</span> <span class="toc-text">Ultrametric Inequality</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Absolute-Values-and-Vector-Spaces"><span class="toc-number">2.</span> <span class="toc-text">Absolute Values and Vector Spaces</span></a></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h1 id="Absolute-Values-and-Places"><a href="#Absolute-Values-and-Places" class="headerlink" title="Absolute Values and Places"></a>Absolute Values and Places</h1><p>We want to apply calculus to fields, but tools are needed. For the ordinary calculus, on $\mathbb{R}$ or $\mathbb{C}$, the most important role is played by limit:</p>
+<script type="math/tex; mode=display">
+\lim_{x \to a}f(x)=A.</script><p>However we cannot immigrate absolute value into other fields directly. Indeed, if the field $k$ is an extension of $\mathbb{Q}$, then we may define an absolute value on $k$ to be the restriction of the absolute value of $\mathbb{C}$. But this is not always the case: this method does now work on fields with positive characteristic. For example, $\mathbf{F}_8$ is not a subfield of $\mathbb{Q}$ because $\mathbf{F}_2$ is not. Besides, we should not restrict ourselves to the case faithful to ordinary calculus and ignore other potentials. The most important trait of the ordinary absolute value is triangle inequality, but perhaps we can omit that and replace it with something different. Maybe there are much more different absolute values to be studied. For these reasons, we define absolute values on fields out of nowhere first.</p>
+<blockquote>
+<p><strong>Definition 1.</strong> An <strong>absolute value</strong> on a field $K$ is a real valued function $|\cdot|:K \to \mathbb{R}_+$ such that</p>
+<ol>
+<li><p>For all $x \in K$, we have $|x| \ge 0$ and $|x|=0$ if and only if $x=0$.</p>
+</li>
+<li><p>$|xy|=|x||y|$.</p>
+</li>
+<li><p>There exists $c&gt;0$ such that $|x+y| \le c \max\{|x|,|y|\}$.</p>
+</li>
+</ol>
+</blockquote>
+<p>Before we dive into some technical details of the inequality, let’s see some trivial and non-trivial examples.</p>
+<ol>
+<li><p>On any field $K$, we can define $|x|=1$ for all $x \ne 0$. This is the most trivial absolute value and it carries little to none information. But whether the absolute value is trivial, we always have $|1|=1$ because $|1x|=|1||x|=|x|$.</p>
+</li>
+<li><p>If $K=\mathbb{Q}$, we can define $|m/n|$ to be the ordinary absolute value $\sqrt{\left(\frac{m}{n}\right)^2}$. We are familiar with it for sure. It is customary to write $|\cdot|_\infty$.</p>
+</li>
+<li><p>However, for $K=\mathbb{Q}$, and $m/n \in K$, we can also write</p>
+<script type="math/tex; mode=display">
+\frac{m}{n}=p^a\frac{m'}{n'}.</script><p>where $m’$ and $n’$ are integers coprime to $p$. Under this presentation we can put</p>
+</li>
+</ol>
+<script type="math/tex; mode=display">
+\left|\frac{m}{n}\right|_p=p^{-a}.</script><p>In this way we obtain an absolute value $|\cdot|_p$ that is totally different from $|\cdot|_\infty$. The “difference” will be discussed later. One can verify that $|\cdot|_p$ is indeed an absolute value and the constant $c$ in definition should be $1$. This is called the $p$-adic absolute value.</p>
+<ol>
+<li>Let $K=\mathbf{F}_q$ be a finite field, then the only absolute value on $K$ is trivial. To see this, notice that $K^\times$ is a cyclic group. Pick any $x \in K^\times$, we have $|x|^{q-1}=|x^{q-1}|=|1|=1$.</li>
+</ol>
+<h2 id="A-First-Classification"><a href="#A-First-Classification" class="headerlink" title="A First Classification"></a>A First Classification</h2><h3 id="Triangle-Inequality"><a href="#Triangle-Inequality" class="headerlink" title="Triangle Inequality"></a>Triangle Inequality</h3><p>It seems we have ignored the triangle inequality for no reason, but actually we didn’t. To see this, we give a refinement of the triangle inequality first.</p>
+<blockquote>
+<p><strong>Proposition 1.</strong> Let $|\cdot|:K \to \mathbb{R}$ be an absolute value with $|x+y|\le c\max\{|x|,|y|\}$, then the following two statements are equivalent:</p>
+<ol>
+<li><p>$c \le 2$.</p>
+</li>
+<li><p>For all $a,b \in K$, we have $|a+b|\le |a|+|b|$. This is the <strong>triangle inequality</strong>.</p>
+</li>
+</ol>
+</blockquote>
+<p><em>Proof.</em> It is obvious that $|a|+|b| \le 2\max\{|a|,|b|\}$ so we only need to show that 1 implies 2. To do this, we will use a forward-backward induction.<br>Assume first that $n=2^m$ for some positive integer $m$ and let $a_1,\dots,a_n$ be a sequence of elements of $K$. Then by induction we immediately have</p>
+<script type="math/tex; mode=display">
+\left|\sum_{k=1}^{n}a_k \right| \le 2^m \max |a_k|=n\max|a_k| \le 2n\max |a_k|.</script><p>For all positive integers satisfying $2^{m-1} &lt; n \le 2^m$, and $a_1,\dots,a_{n} \in K$, we can always put $a_{n+1}=\cdots=a_{2^m}=0$ to obtain</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\left|\sum_{k=1}^{n}a_k\right| &\le c \max\left\{\left|\sum_{k=1}^{2^{m-1}}a_k\right|,\left|\sum_{k=2^m+1}^{2^{m}}a_k\right|\right\} \\
+                               &\le 2\max\left\{\left|\sum_{k=1}^{2^{m-1}}a_k\right|,\left|\sum_{k=2^m+1}^{2^{m}}a_k\right|\right\} \\
+                               &\le 2\max\left\{2^{m-1}\cdot\max_{1\le k \le 2^{m-1}}|a_k|,2^{m-1}\cdot\max_{2^{m-1}<k\le 2^m}|a_k|\right\} \\
+                               &\le 2 \cdot 2^{m-1}\max_{1 \le k \le 2^m}|a_k| \\
+                               &\le 2n \max_{1 \le k \le 2^m}|a_k|
+\end{aligned}</script><p>Let $\tilde{n}$ be the image of $n$ in $K$, i.e. $\tilde{n}=\underbrace{1+\dots+1}_{n\text{ times} }$. If we put $a_k=1$ for all $1 \le k \le n$, we in particular have $|\tilde{n}| \le 2n$. Moreover, we also have</p>
+<script type="math/tex; mode=display">
+\left|\sum_{k=1}^{n}a_k\right| \le 2n \sum_{k=1}^{n}|a_k|.</script><p>We therefore can write</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+|a+b|^n &= |(a+b)^n| \\
+        &=\left|\sum_{k=0}^{n}{n \choose k}a^k b^{n-k} \right| \\
+        &\le 2(n+1)\sum_{k=0}^{n}\left|\widetilde{n\choose k}\right||a|^k|b|^{n-k} \\
+        &\le 4(n+1)\sum_{k=0}^{n}{n \choose k}|a|^k|b|^{n-k} \\
+        &=4(n+1) (|a|+|b|)^n.
+\end{aligned}</script><p>It follows that</p>
+<script type="math/tex; mode=display">
+|a+b| \le \sqrt[n]{4(n+1)}(|a|+|b|), \quad \forall n \in \mathbb{N}.</script><p>Since $\lim_{n \to \infty}\sqrt[n]{4(n+1)}=1$, we are done. $\square$<br>Triangle inequality is always desirable but it is not always the case. To see this, consider $\mathbb{C}((X))$, the field of formal Laurent series, where each element is of the form</p>
+<script type="math/tex; mode=display">
+f(X)=\sum_{k=n}^{\infty}a_kX^k</script><p>where $a_n \ne 0$. We can define an absolute value on $\mathbb{C}((X))$ by $|f|=|a_n|$. Three conditions are easily verified but triangle inequality is not the case. For example, if $f(X)=1+2X$ and $g(X)=-1+3X$, then $|f+g|=5$ while $|f|=|g|=1$.<br>For this reason, we are seeking ‘replacements’ of an absolute value.</p>
+<h3 id="Equivalent-Absolute-Values-And-Places"><a href="#Equivalent-Absolute-Values-And-Places" class="headerlink" title="Equivalent Absolute Values And Places"></a>Equivalent Absolute Values And Places</h3><p>Notice that an absolute value induces a translate-invariant metric in an obvious way:</p>
+<script type="math/tex; mode=display">
+d(x,y)=|x-y|.</script><p>A topology comes up in the nature of things. We cannot apply theorems in functional analysis directly because we do not have a real or complex vector space. But we can try to import those important concepts. When studying open mapping theorem, we care about equivalent norms or metrics, on whether they induce the same topology. Here we will also do that.</p>
+<blockquote>
+<p><strong>Definition 2.</strong> Two absolute values $|\cdot|_1$ and $|\cdot|_2$ are <strong>equivalent</strong> if they induces the same topology (this is clearly an equivalence relation). An equivalence class of absolute values is called a <strong>place</strong>.</p>
+</blockquote>
+<p>Clearly, the topology is discrete if and only if the absolute value is trivial. Therefore a trivial absolute value is not equivalent to any non-trivial ones. But let’s see two non-trivial absolute values that are not equivalent.<br>On $\mathbb{Q}$, consider $|\cdot|_\infty$ and $|\cdot|_2$. The sequence $\left\{\frac{1}{n}\right\}$ converges to $0$ under the first absolute value. However</p>
+<script type="math/tex; mode=display">
+    \limsup_{n \to \infty}\left|\frac{1}{n}\right|_2=1</script><p>if we take odd numbers into account. On the other hand, $\{2^n\}$ does not converge under $\left|\cdot\right|_\infty$ but $\left|2^n\right|_2=2^{-n} \to 0$ as $n \to \infty$. The topology induced by $|\cdot|_\infty$ is totally different from the one induced by $|\cdot|_p$ for prime $p$.</p>
+<p>We have an important characterisation of equivalent absolute values.</p>
+<blockquote>
+<p><strong>Proposition 2.</strong> Let $|\cdot|_1$ and $|\cdot|_2$ be two non-trivial absolute values, then the following statements are equivalent.</p>
+<ol>
+<li><p>$|\cdot|_1$ and $|\cdot|_2$ are equivalent.</p>
+</li>
+<li><p>$|x|_1&lt;1$ implies that $|x|_2&lt;1$.</p>
+</li>
+<li><p>There exists $\lambda&gt;0$ such that $|\cdot|_1=|\cdot|_2^\lambda$.</p>
+</li>
+</ol>
+</blockquote>
+<p><em>Proof.</em> Assume that $|\cdot|_1$ and $|\cdot|_2$ are equivalent. If $|x|_1&lt;1$, then $\lim_{n \to \infty}x^n=0$. Therefore $|x|_2&lt;1$ or otherwise $|x|_2^n$ would not convergent to $0$. Likewise $|x|_2&lt;1 \implies |x|_1&lt;1$.</p>
+<p>Assume that $|x|_1<1$ always implies that $|x|_2<1$. It follows that $|x|_1>1$ implies that $|x|_2&gt;1$ because $|x^{-1}|_1<1$. Since $|\cdot|_1$ is not trivial, there exists $x_0 \in K$ such that $|x_0|_1>1$. Put $a=|x_0|_1$ and $b=|x_0|_2$ and let $\lambda=\log(b)/\log(a)=\log_a{b}$. Pick $x \in K$ such that $|x|_1 \ge 1$. Then $|x|_1=|x_0|_1^\alpha$ for some $\alpha \ge 0$. We show that $|x|_2=|x_0|_2^\alpha$ by approximating $\alpha$ with rational numbers. If $m,n$ are positive integers such that $m/n&gt;\alpha$, then $|x|_1&lt;|x_0|_1^{m/n}$ and therefore $|x^n/x_0^m|_1<1$. It follows that $|x^n/x_0^m|_2<1$, i.e. $|x|_2<|x_0|^{m/n}_2$. If $m/n<\alpha$, we can similarly get $|x|_2>|x_0|_2^{m/n}$. Therefore $|x|_2=|x_0|_2^\alpha$. Therefore</p>
+<script type="math/tex; mode=display">
+|x|_2=\left(|x_0|_1^{\log_a b}\right)^\alpha=|x_0|_1^{\alpha\lambda}=|x|_1^\lambda.</script><p>3 implying 1 is immediate because $f(x)=x^\lambda$ do not change the limit. $\square$</p>
+<p>If $|\cdot|_1=|\cdot|_2^\lambda$, $|x+y|_1\le c_1\max\{|x|_1,|y|_1\}$ and $|x+y|_2 \le c_2\max\{|x|_2,|y|_2\}$, then $c_1$ can be replaced by $c_2^\lambda$. If $c_2 &gt;2$, then we can pick $\lambda$ small enough such that $c_2^\lambda \le 2$. Therefore</p>
+<blockquote>
+<p><strong>Proposition 3.</strong> Each absolute value is equivalent to one that satisfies the triangle inequality.</p>
+</blockquote>
+<p>Bearing this in mind, we can study the case when $c=1$ in the definition of absolute values.</p>
+<h3 id="Ultrametric-Inequality"><a href="#Ultrametric-Inequality" class="headerlink" title="Ultrametric Inequality"></a>Ultrametric Inequality</h3><blockquote>
+<p><strong>Proposition 4.</strong> Let $|\cdot|$ be an absolute value on $K$. Then the following statements are equivalent:</p>
+<ol>
+<li><p>$|\cdot|$ satisfies the ultrametric inequality: $|x+y|\le\max\{|x|,|y|\}$.</p>
+</li>
+<li><p>$|\tilde{n}|\le 1$ for all $n \in \mathbb{N}$.</p>
+</li>
+</ol>
+</blockquote>
+<p><em>Proof.</em> Suppose that $|x+y| \le \max\{|x|,|y|\}$. Then $|\tilde{1}|=|1|=1$ and $|\tilde{2}|=|1+1|=\max\{|1|,|1|\}=1$. Assume that $|\tilde{n}|\le 1$, then</p>
+<script type="math/tex; mode=display">
+|\widetilde{n+1}|=|\tilde{n}+1|\le\max\{|\tilde{n}|,|1|\}\le 1.</script><p>Conversely, suppose that $|\tilde{n}| \le 1$ for all $n$. Replace the absolute value with one satisfying triangle inequality if necessary. It follows that</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+|a+b|^n &\le \sum_{k=0}^{n}\left|{n \choose k}a^k b^{n-k}\right| \\
+ &\le \sum_{k=0}^{n}\left|\widetilde{n \choose k}\right||a|^k|b|^{n-k} \\
+ &\le (n+1)\max\{|a|^n,|b|^n\} \\
+ &=(n+1)\max\{|a|,|b|\}^n.
+\end{aligned}</script><p>Therefore $|a+b| \le \sqrt[n]{n+1}\max\{|a|,|b|\}$. The result follows from the fact that $\sqrt[n]{n+1} \to 1$ as $n \to \infty$. $\square$</p>
+<blockquote>
+<p><strong>Definition 3.</strong> An absolute value is called <strong>non-Archimedean</strong>, or <strong>ultrametric</strong>, if the condition in proposition 4 is satisfied. Otherwise it is called <strong>Archimedean</strong> or <strong>ordinary</strong>.</p>
+</blockquote>
+<p>For example, trivial absolute values are ultrametric but we are not interested in that. What is interesting is that $p$-adic absolute values are non-Archimedean.</p>
+<p>There is a second classification - Ostrowski’s theorem, which states that all nontrivial places on $\mathbb{Q}$ can be represented by $|\cdot|_\infty$ or $|\cdot|_p$ for some prime $p$. For other fields, we have quite some interesting analogues. But we do not have enough space to include these proofs. The reader can check</p>
+<ul>
+<li><p>Theorem 4.2 of <a target="_blank" rel="noopener" href="https://math.mit.edu/~poonen/782/782notes.pdf">this note</a> for the ordinary theorem of Ostrowski on $\mathbb{Q}$.</p>
+</li>
+<li><p>This <a target="_blank" rel="noopener" href="https://kconrad.math.uconn.edu/blurbs/gradnumthy/ostrowskinumbfield.pdf">expository paper</a> for the theorem of Ostrowski on number fields.</p>
+</li>
+<li><p>This <a target="_blank" rel="noopener" href="https://kconrad.math.uconn.edu/blurbs/gradnumthy/ostrowskiF(T">expository paper</a>.pdf) for the theorem of Ostrowski on function fields.</p>
+</li>
+</ul>
+<h1 id="Extension-of-Fields-And-Absolute-Values"><a href="#Extension-of-Fields-And-Absolute-Values" class="headerlink" title="Extension of Fields And Absolute Values"></a>Extension of Fields And Absolute Values</h1><p>When we have a field extension $L/K$, we certainly want to know how an absolute value on $L$ will be restricted to $K$, or conversely, how an absolute value can be extended to $L$. For an absolute value itself, we can also perform an action of completion just like we did to elementary calculus: $\overline{\mathbb{Q}}=\mathbb{R}$.</p>
+<blockquote>
+<p><strong>Definition 4.</strong> A field $K$ is <strong>complete</strong> with respect to $|\cdot|$ if $K$ is a complete metric space with respect to the metric $d(x,y)=|x-y|$.</p>
+</blockquote>
+<p>To employ the similar device, we will define completion in a similar style. Let $\mathscr{P}_F$ be the set of all places of a field $F$. Each place $v$ on $L$ induces place $u=v|_F$ on $K$. We therefore have a map induced by restriction:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+    r:\mathscr{P}_L &\to \mathscr{P}_K \\
+                v &\mapsto u
+\end{aligned}</script><p>from the places of $L$ to places of $K$.</p>
+<blockquote>
+<p><strong>Definition 5.</strong> Let $L/K$ be a field extension and $u \in \mathscr{P}_K$. If $v \in r^{-1}(u)$, we write $v|w$ and say $v$ <em>divides</em> $w$ or $v$ <em>lies over</em> $u$.</p>
+<p><strong>Definition 6.</strong> A completion of $K$ with respect to a place $v$ is an extension field $K_v$ with a place $w$ such that</p>
+<ol>
+<li><p>$w|v$.</p>
+</li>
+<li><p>The topology of $K_v$ induced by $w$ is complete.</p>
+</li>
+<li><p>$K$ is a dense subset of $K_v$.</p>
+</li>
+</ol>
+</blockquote>
+<p>The extension exists and is unique up to isomorphism (to see this, modify the proof on the completion of $\mathbb{Q}$). The classic example is of course $K=\mathbb{Q}$ and $v$ being represented by $|\cdot|_\infty$, and $K_v$ would therefore be $\mathbb{R}$ with the ordinary absolute value. With the help of Gelfand-Marzur, one can show that the only Archimedean complete fields are $\mathbb{Q}$ and $\mathbb{C}$, which are completions of $\mathbb{Q}$ and $\mathbb{Q}(i)$.</p>
+<p>For $|\cdot|_p$ on $\mathbb{Q}$, we have the completion $\mathbb{Q}_p$ ($p$-adic numbers). The compact subset $\mathbb{Z}_p$ ($p$-adic integers) is the closure of $\mathbb{Z}$ in $\mathbb{Q}_p$. If $p,q$ are two distinct primes, then $\mathbb{Q}_p$ is not isomorphic to $\mathbb{Q}_q$ because they are completed using two different places.</p>
+<p>As an striking example, in $\mathbb{Q}_2$, we have</p>
+<script type="math/tex; mode=display">
+\sum_{k=0}^{\infty}2^k=-1</script><p>because</p>
+<script type="math/tex; mode=display">
+\lim_{n \to \infty}\left|\sum_{k=0}^{n}2^k+1\right|_2=\lim_{n \to \infty}|2^n-1+1|_2=\lim_{n \to \infty} 2^{-n}=0.</script><p>There is nothing skippy or misunderstanding as that Numberphile video on the “identity” $1+2+\dots=-\frac{1}{12}$. </p>
+<h2 id="Absolute-Values-and-Vector-Spaces"><a href="#Absolute-Values-and-Vector-Spaces" class="headerlink" title="Absolute Values and Vector Spaces"></a>Absolute Values and Vector Spaces</h2><p>To conclude this post and prepare for future posts, we show that absolute values works fine with norms over a vector space (do not confuse with norms in Galois theory).</p>
+<blockquote>
+<p><strong>Definition 7.</strong> Let $K$ be a field with absolute value $|\cdot|$ and $E$ be a vector space over $K$. A norm $E \to \mathbb{R}$ compatible with $|\cdot|$ is a function $|\cdot|$ that satisfies</p>
+<ol>
+<li><p>$|\xi|\ge 0$ for all $\xi \in E$, and $|\xi|=0$ if and only if $\xi=0$.</p>
+</li>
+<li><p>For all $x \in K$ and $\xi \in E$, $|x\xi|=|x||\xi|$.</p>
+</li>
+<li><p>$|\xi_1+\xi_2| \le |\xi_1|+|\xi_2|$ for all $\xi_1,\xi_2 \in E$.</p>
+</li>
+</ol>
+</blockquote>
+<p>Two norms $|\cdot|_1$ and $|\cdot|_2$ are <strong>equivalent</strong> if there exist numbers $C_1,C_2&gt;0$ such that for all $\xi \in E$ we have</p>
+<script type="math/tex; mode=display">
+C_1\|\xi\|_1 \le \|\xi\|_2 \le C_2 \|\xi\|_1.</script><p>This is an equivalence relation and we have already seen this in elementary linear algebra and functional analysis. This is equivalent to the fact that $|\cdot|_1$ and $|\cdot|_2$ induce the same topology. When the dimension of $E$ is infinite, things are troublesome, as we may need things like open mapping theorem. For finite dimensional spaces, we can pick a basis $\xi_1,\xi_2,\dots,\xi_n \in E$ so that every $\xi \in E$ can be written in the form</p>
+<script type="math/tex; mode=display">
+\xi=x_1\xi_1+\cdots+x_n\xi_n,\quad x_1,\dots,x_n \in K.</script><p>We can define norms like $|\xi|_1=|x_1|+\dots+|x_n|$, $|\xi|_2=\sqrt{|x_1|^2+\dots+|x_n|^2}$ and $|\xi|_\infty=\max\{|x_1|,\dots,|x_n|\}$. In elementary linear algebra, we know that they are equivalent. Now things are the same over a field.</p>
+<blockquote>
+<p><strong>Proposition 5.</strong> Let $K$ be a complete field under a non-trivial absolute value $|\cdot|$, and let $E$ be a finite-dimensional space over $K$. Then any two norms on $E$ that are compatible with $|\cdot|$ are equivalent.</p>
+</blockquote>
+<p><em>Proof.</em> It suffices to show that $E \cong K \times \cdots \times K$ in topology under a norm that is compatible with the absolute value. Put $n=\dim E$. If $n=1$ things are trivial. Therefore we assume that $n \ge 2$. We need to show that given a basis $\xi_1,\xi_2,\dots,\xi_n$,</p>
+<script type="math/tex; mode=display">
+\xi^{(\nu)} = x_1^{(\nu)}\xi_1+\cdots+x_n^{(\nu)}\xi_n</script><p>is a Cauchy sequence (with respect to a norm) in $E$ only if each one of the $n$ sequences $x_i^{(\nu)}$ is a Cauchy sequence in $K$. It suffices to assume that $\xi^{(\nu)}$ converges to $0$ as $\nu \to \infty$ (as we can replace $\xi^{(\nu)}$ with $\xi^{(\nu)}-\xi^{(\mu)}$ for $\nu,\mu \to \infty$ if necessary). Then we must show that each $x_i^{(\nu)}$ converges to $0$ as well.</p>
+<p>Suppose this is false for $x_1^{(\nu)}$. Then there exists a number $a&gt;0$ such that $|x_1^{(\nu)}|&gt;a$ when $\nu$ is sufficiently large. Therefore for a subsequence of $(\nu)$, $\xi^{(\nu)}/x_1^{(\nu)}$ converges to $0$, and we can write</p>
+<script type="math/tex; mode=display">
+\frac{\xi^{(\nu)}}{x_1^{(\nu)}}-\xi_1=\frac{x_2^{(\nu)}}{x_1^{(\nu)}}\xi_2+\dots+\frac{x_n^{(\nu)}}{x_1^{(\nu)}}\xi_n.</script><p>Taking the limit, we see $\xi_1$ is a linear combination of $\xi_2,\dots,\xi_n$ and this is absurd. $\square$</p>
+<p>We will need this proposition to work with finite field extensions.</p>
+<h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><ol>
+<li><p>Erico Bombieri and Walter Gubler, <em>Heights in Diophantine Geometry</em>.</p>
+</li>
+<li><p>Serge Lang, <em>Algebra Revisited Third Edition</em>.</p>
+</li>
+<li><p>Dinakar Ramakrishman and Robert J. Valenza, <em>Fourier Analysis on Number Fields</em>.</p>
+</li>
+</ol>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"><a href="../../../../tags/Study-new-content/" class="post-tags__link button"># Study new content</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../../07/26/segre-embedding-et-height/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            Segre Embedding And Heights
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../16/so3-laplacian/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            Irreducible Representations of SO(3) and the Laplacian
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2022/06/30/calculus-field-01/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

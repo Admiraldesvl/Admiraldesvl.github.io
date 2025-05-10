@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>高等数学入门：上下确界及其极限形式 | Desvl&#39;s blog</title>
+
+
+    <meta name="keywords" content="Hot post">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="问题的引入: 最大值、最小值的局限性我们先考虑一个简单的函数:       f(x)&#x3D;x\quad x\in(0,1)那么问题来了: 这个函数有没有最小值或者最大值? 答案是没有. 定义域中的严格不等式给我们制造了无法得到严格解的麻烦. 可能读者会想到, 这是个单调函数, 可以使用极限解决这个问题. 但是这样做局限性太大了. 如果我们连函数的表达式都不知道, 又要到哪个极限找“最值”呢? 我们要做">
+<meta property="og:type" content="article">
+<meta property="og:title" content="高等数学入门：上下确界及其极限形式">
+<meta property="og:url" content="https://desvl.xyz/2019/09/07/sup-inf/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="问题的引入: 最大值、最小值的局限性我们先考虑一个简单的函数:       f(x)&#x3D;x\quad x\in(0,1)那么问题来了: 这个函数有没有最小值或者最大值? 答案是没有. 定义域中的严格不等式给我们制造了无法得到严格解的麻烦. 可能读者会想到, 这是个单调函数, 可以使用极限解决这个问题. 但是这样做局限性太大了. 如果我们连函数的表达式都不知道, 又要到哪个极限找“最值”呢? 我们要做">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-09-06T22:00:00.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:10.560Z">
+<meta property="article:author" content="Desvl">
+<meta property="article:tag" content="Hot post">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        高等数学入门：上下确界及其极限形式
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2019/09/" class="post-meta__date button">2019-09-07</a>
+        
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E7%9A%84%E5%BC%95%E5%85%A5-%E6%9C%80%E5%A4%A7%E5%80%BC%E3%80%81%E6%9C%80%E5%B0%8F%E5%80%BC%E7%9A%84%E5%B1%80%E9%99%90%E6%80%A7"><span class="toc-number">1.</span> <span class="toc-text">问题的引入: 最大值、最小值的局限性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80-%E5%AE%9E%E6%95%B0%E6%98%AF%E6%9C%89%E5%BA%8F%E7%9A%84"><span class="toc-number">2.</span> <span class="toc-text">理论基础: 实数是有序的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A1%AE%E7%95%8C%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-number">3.</span> <span class="toc-text">确界的定义</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E5%8F%AB%E6%9C%89%E4%B8%8A%E7%95%8C"><span class="toc-number">3.1.</span> <span class="toc-text">什么叫有上界</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8A%E7%A1%AE%E7%95%8C-%E6%9C%80%E5%B0%8F%E7%9A%84%E4%B8%8A%E7%95%8C"><span class="toc-number">3.2.</span> <span class="toc-text">上确界: 最小的上界</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A1%AE%E7%95%8C%E7%9A%84%E6%9E%81%E9%99%90%E5%BD%A2%E5%BC%8F-%E4%B8%8A%E6%9E%81%E9%99%90%E3%80%81%E4%B8%8B%E6%9E%81%E9%99%90"><span class="toc-number">4.</span> <span class="toc-text">确界的极限形式(上极限、下极限)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E5%88%97%E5%BD%A2%E5%BC%8F"><span class="toc-number">4.1.</span> <span class="toc-text">数列形式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E5%BD%A2%E5%BC%8F"><span class="toc-number">4.2.</span> <span class="toc-text">函数形式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">5.</span> <span class="toc-text">总结</span></a></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E7%9A%84%E5%BC%95%E5%85%A5-%E6%9C%80%E5%A4%A7%E5%80%BC%E3%80%81%E6%9C%80%E5%B0%8F%E5%80%BC%E7%9A%84%E5%B1%80%E9%99%90%E6%80%A7"><span class="toc-number">1.</span> <span class="toc-text">问题的引入: 最大值、最小值的局限性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80-%E5%AE%9E%E6%95%B0%E6%98%AF%E6%9C%89%E5%BA%8F%E7%9A%84"><span class="toc-number">2.</span> <span class="toc-text">理论基础: 实数是有序的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A1%AE%E7%95%8C%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-number">3.</span> <span class="toc-text">确界的定义</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E5%8F%AB%E6%9C%89%E4%B8%8A%E7%95%8C"><span class="toc-number">3.1.</span> <span class="toc-text">什么叫有上界</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8A%E7%A1%AE%E7%95%8C-%E6%9C%80%E5%B0%8F%E7%9A%84%E4%B8%8A%E7%95%8C"><span class="toc-number">3.2.</span> <span class="toc-text">上确界: 最小的上界</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A1%AE%E7%95%8C%E7%9A%84%E6%9E%81%E9%99%90%E5%BD%A2%E5%BC%8F-%E4%B8%8A%E6%9E%81%E9%99%90%E3%80%81%E4%B8%8B%E6%9E%81%E9%99%90"><span class="toc-number">4.</span> <span class="toc-text">确界的极限形式(上极限、下极限)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E5%88%97%E5%BD%A2%E5%BC%8F"><span class="toc-number">4.1.</span> <span class="toc-text">数列形式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E5%BD%A2%E5%BC%8F"><span class="toc-number">4.2.</span> <span class="toc-text">函数形式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">5.</span> <span class="toc-text">总结</span></a></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h3 id="问题的引入-最大值、最小值的局限性"><a href="#问题的引入-最大值、最小值的局限性" class="headerlink" title="问题的引入: 最大值、最小值的局限性"></a>问题的引入: 最大值、最小值的局限性</h3><p>我们先考虑一个简单的函数: </p>
+<script type="math/tex; mode=display">
+    f(x)=x\quad x\in(0,1)</script><p>那么问题来了: 这个函数有没有最小值或者最大值? 答案是没有. 定义域中的严格不等式给我们制造了无法得到严格解的麻烦. 可能读者会想到, 这是个单调函数, 可以使用极限解决这个问题. 但是这样做局限性太大了. 如果我们连函数的表达式都不知道, 又要到哪个极限找“最值”呢? 我们要做的是, 找到一个数, 它描述集合的范围时, 不依赖于最大值最小值的存在, 而且它不依赖于极限.</p>
+<h3 id="理论基础-实数是有序的"><a href="#理论基础-实数是有序的" class="headerlink" title="理论基础: 实数是有序的"></a>理论基础: 实数是有序的</h3><p>我们一直以来接触各种不等式, 最基本的理论依据就是, 实数的顺序. 这个顺序的意思就是大小关系. 没有顺序关系的数也是有的, 例如复数. 实数的顺序其实可以叙述成以下两点:</p>
+<blockquote>
+<ol>
+<li>如果$x\in\mathbb{R}$而且$y\in\mathbb{R}$, 那么下面三个关系有且仅有一个成立<script type="math/tex; mode=display">
+x<y\quad x=y\quad y<x</script></li>
+<li>如果$x,y,z\in\mathbb{R}$, 而且有$x&lt;y$和$y&lt;z$, 那么$x&lt;z$</li>
+</ol>
+</blockquote>
+<p>至于“$\leq$”，应该理解成小于或等于, “或”的意思在这里是并没有强调哪个一定成立.</p>
+<h3 id="确界的定义"><a href="#确界的定义" class="headerlink" title="确界的定义"></a>确界的定义</h3><p>我们接下来只讨论上界. 也就是说, 我们只讨论小于的情况. 至于另一侧, 将小于号换成大于号即可.</p>
+<h4 id="什么叫有上界"><a href="#什么叫有上界" class="headerlink" title="什么叫有上界"></a>什么叫有上界</h4><blockquote>
+<p>取集合$E\subset\mathbb{R}$, 如果<strong>存在</strong>$\beta\in\mathbb{R}$使得对<strong>任意</strong>$x\in{E}$都<strong>满足</strong>不等式$x\leq\beta$, 那么就称$E$有上界, $\beta$就是$E$的一个上界.</p>
+</blockquote>
+<p>这其实就是一个存在命题. 只要满足就够了. 满足之后呢? 没有然后了. 剩下的细节在这里不重要. 这和极限很类似. 一个很简单的例子: $(-\infty,1]$就是有上界的. 而且任意的上界$\beta$都满足$\beta\in[1,+\infty)$.</p>
+<h4 id="上确界-最小的上界"><a href="#上确界-最小的上界" class="headerlink" title="上确界: 最小的上界"></a>上确界: 最小的上界</h4><p>有的时候, 我们需要知道一个严格最小的上界, 这就是上确界. 首先, 我们给出上确界的定义.</p>
+<blockquote>
+<p>对于有上界的集合$E$, 假设存在一个$\alpha\in\mathbb{R}$满足以下条件, 那么就称它为$E$的上确界, 记作$\alpha=\sup{E}$:</p>
+<ul>
+<li><p>$\alpha$是$E$的一个上界</p>
+</li>
+<li><p>如果$\gamma&lt;\alpha$, 那么$\gamma$不是$E$的上界</p>
+</li>
+</ul>
+</blockquote>
+<p>下确界可以通过相反的不等式进行确定, 记作$\alpha=\inf{E}$. 当然$\sup$和$\inf$后面也不一定要跟一个集合, 也可以跟一个函数或者数列. 回到开头的那个函数, 我们能很容易得到 </p>
+<script type="math/tex; mode=display">
+    \sup{f(x)}=1\quad\inf{f(x)}=0</script><p>这时我们不再依赖于极限, 也可以发现, <strong>如果函数的最大值或最小值存在, 那么它一定等于上确界或下确界, 但是上下确界存在时, 最值不一定存在.</strong> 在函数最值不存在时, 我们仍然能利用确界对函数的范围进行严格的分析, 而且不一定需要求极限, 这体现了上下确界的价值所在. 在这里建议读者写几个函数, 再试着求以下上下确界.</p>
+<h3 id="确界的极限形式-上极限、下极限"><a href="#确界的极限形式-上极限、下极限" class="headerlink" title="确界的极限形式(上极限、下极限)"></a>确界的极限形式(上极限、下极限)</h3><h4 id="数列形式"><a href="#数列形式" class="headerlink" title="数列形式"></a>数列形式</h4><p>设$\{a_n\}$是$\mathbb{R}$里的一个数列, 并且定义 </p>
+<script type="math/tex; mode=display">
+b_k=\sup\{a_k,a_{k+1},a_{k+2},\cdots\}</script><p>再定义 </p>
+<script type="math/tex; mode=display">
+\beta=\inf\{b_1,b_2,b_3,\cdots\}</script><p>那么就有 </p>
+<script type="math/tex; mode=display">
+    \beta=\limsup_{n\to\infty}a_n</script><p>这就完成了上极限的定义. 而下极限的求法就是将上面的上确界、下确界交换顺序即可. 可是这里为什么出现了极限符号? 这是因为 </p>
+<script type="math/tex; mode=display">
+    b_1\geq b_2\geq b_3\geq\cdots\geq\beta</script><p>所以有 </p>
+<script type="math/tex; mode=display">
+    \lim\limits_{k\to\infty}b_k=\beta</script><p>此外,$\{a_n\}$中有一个子列$\{a_{n_i}\}$收敛于$\beta$, 而且$\beta$是具有这个性质<strong>最大</strong>的数.</p>
+<p>这其实还是解决了一件事情, 如果一个数列发散, 我们还是有可能利用上下确界的极限形式来研究极限的一些性质. 一个很简单的例子比如 </p>
+<script type="math/tex; mode=display">
+    \limsup_{n\to\infty}{(-1)^n}=1\quad\liminf_{n\to\infty}{(-1)^n}=-1</script><h4 id="函数形式"><a href="#函数形式" class="headerlink" title="函数形式"></a>函数形式</h4><p>函数中上下极限的求法其实和数列形式是非常类似的. 我们先举一个上极限的例子, 理解构建过程时也可以利用这个例子: </p>
+<script type="math/tex; mode=display">
+    \limsup_{x\to{0}}\sin\frac{1}{x}=1</script><p>对于函数, 值域可能是连续集合. 求$x\to{a}$时的上极限, 我们先求出$x\to{a}$时, $f(x)$的上确界构成的集合 </p>
+<script type="math/tex; mode=display">
+U=\{y|y=\sup\{f(x)|x\in(a-\varepsilon,a+\varepsilon)\}\}</script><p>那么上极限就是 </p>
+<script type="math/tex; mode=display">
+    \limsup_{x\to{a}}f(x)=\inf{U}</script><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>我们单纯利用不等式, 建立起一个非常严格，也非常有应用价值的概念: 确界. 这个概念源于最值, 又高于最值. 当然确界和最值什么时候相等又是一个拓扑学问题. 这又是另外一个话题了.</p>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"><a href="../../../../tags/Hot-post/" class="post-tags__link button"># Hot post</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../../10/02/productivity-overrated/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            并不新颖的观点：不要追求生产力、效率了
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../../08/24/harmonic-series-divergence/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            调和级数发散的若干证明
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2019/09/07/sup-inf/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>Hensel&#39;s Lemma - A Fair Application of Newton&#39;s Method and &#39;Double Induction&#39; | Desvl&#39;s blog</title>
+
+
+    <meta name="keywords" content="Exercise solution, Study new content, Hensel">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="We prove the celebrated Hensel&#39;s lemma using the so-called Newton&#39;s method and &quot;double induction&quot;, and try to find solutions of polynomials in $\mathbb{Q}_p$.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hensel&#39;s Lemma - A Fair Application of Newton&#39;s Method and &#39;Double Induction&#39;">
+<meta property="og:url" content="https://desvl.xyz/2022/08/21/hensel-lemma-newton/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="We prove the celebrated Hensel&#39;s lemma using the so-called Newton&#39;s method and &quot;double induction&quot;, and try to find solutions of polynomials in $\mathbb{Q}_p$.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-08-21T10:46:33.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:10.059Z">
+<meta property="article:author" content="Desvl">
+<meta property="article:tag" content="Exercise solution">
+<meta property="article:tag" content="Study new content">
+<meta property="article:tag" content="Hensel">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        Hensel&#39;s Lemma - A Fair Application of Newton&#39;s Method and &#39;Double Induction&#39;
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2022/08/" class="post-meta__date button">2022-08-21</a>
+        
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/" class="button">Algebra</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/Commutative-Algebra/" class="button">Commutative Algebra</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Number-Theory/" class="button">Number Theory</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Number-Theory/Algebraic-Number-Theory/" class="button">Algebraic Number Theory</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Number-Theory/p-adic-Analysis/" class="button">p-adic Analysis</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Number-Theory/Local-Fields/" class="button">Local Fields</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Examples-and-Applications"><span class="toc-number">1.</span> <span class="toc-text">Examples and Applications</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Square-Root-of-2-in-7-adic-Numbers"><span class="toc-number">1.1.</span> <span class="toc-text">Square Root of 2 in 7-adic Numbers</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Roots-of-Unity"><span class="toc-number">1.2.</span> <span class="toc-text">Roots of Unity</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Proof-of-Hensel%E2%80%99s-Lemma-with-Explanation"><span class="toc-number">2.</span> <span class="toc-text">Proof of Hensel’s Lemma (with Explanation)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-1-Establishing-A-Sequence-by-Newton%E2%80%99s-Method"><span class="toc-number">2.1.</span> <span class="toc-text">Step 1 - Establishing A Sequence by Newton’s Method</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-2-Validating-the-Convergence"><span class="toc-number">2.2.</span> <span class="toc-text">Step 2 - Validating the Convergence</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-3-Validating-the-Congruence"><span class="toc-number">2.3.</span> <span class="toc-text">Step 3 - Validating the Congruence</span></a></li></ol></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Examples-and-Applications"><span class="toc-number">1.</span> <span class="toc-text">Examples and Applications</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Square-Root-of-2-in-7-adic-Numbers"><span class="toc-number">1.1.</span> <span class="toc-text">Square Root of 2 in 7-adic Numbers</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Roots-of-Unity"><span class="toc-number">1.2.</span> <span class="toc-text">Roots of Unity</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Proof-of-Hensel%E2%80%99s-Lemma-with-Explanation"><span class="toc-number">2.</span> <span class="toc-text">Proof of Hensel’s Lemma (with Explanation)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-1-Establishing-A-Sequence-by-Newton%E2%80%99s-Method"><span class="toc-number">2.1.</span> <span class="toc-text">Step 1 - Establishing A Sequence by Newton’s Method</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-2-Validating-the-Convergence"><span class="toc-number">2.2.</span> <span class="toc-text">Step 2 - Validating the Convergence</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-3-Validating-the-Congruence"><span class="toc-number">2.3.</span> <span class="toc-text">Step 3 - Validating the Congruence</span></a></li></ol></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>Let $F$ be a non-Archimedean local field, meaning that $F$ is complete under the metric induced by a <a target="_blank" rel="noopener" href="https://www2.math.ethz.ch/education/bachelor/seminars/fs2008/algebra/Crivelli.pdf">non-Archimedean absolute value</a> $|\cdot|$. Consider the ring of integers</p>
+<script type="math/tex; mode=display">
+\mathfrak{o}_F=\{\alpha \in F:|\alpha| \le 1\}</script><p>and its unique prime (hence maximal) ideal</p>
+<script type="math/tex; mode=display">
+\mathfrak{p}=\{\alpha \in F:|\alpha| <1\}.</script><p>The residue field $k=\mathfrak{o}_F/\mathfrak{p}$ is finite because it is compact and discrete. For compactness notice that $\mathfrak{o}_F$ is compact, and the canonical projection $\mathfrak{o}_F \to k$ is open. For discreteness, notice that $\mathfrak{p}$ is open, connected and contains the unit.</p>
+<p>Let $f \in \mathfrak{o}_F[x]$ be a polynomial. Hensel’s lemma states that, if $\overline{f} \in k[x]$, the reduction of $f$, has a simple root $a$ in $k$, then the root can be lifted to a root of $f$ in $\mathfrak{o}_F$ and hence $F$. This blog post is intended to offer a well-organised proof of this lemma.</p>
+<p>To do this, we need to use Newton’s method of approximating roots of $f(x)=0$, something like</p>
+<script type="math/tex; mode=display">
+a_{n+1}=a_n-\frac{f(a_n)}{f'(a_n)}.</script><p>We know that $a_n \to \zeta$ where $f(\zeta)=0$ at a $A^{2^n}$ speed for some constant $A$, in  calculus (do Walter Rudin’s exercise 5.25 of <em>Principles of Mathematical Analysis</em> if you are not familiar with it, I heartily recommend.). Now we will steal Newton’s method into number theory to find roots in a non-Archimedean field, which is violently different from $\mathbb{R}$, the playground of elementary calculus. </p>
+<p>We will also use induction, in the form of which I would like to call “double induction”. Instead of claiming that $P(n)$ is true for all $n$, we claim that $P(n)$ and $Q(n)$ are true for all $n$. When proving $P(n+1)$, we may use $Q(n)$, and vice versa. </p>
+<p>This method is inspired by this <a target="_blank" rel="noopener" href="https://math.mit.edu/classes/18.785/2017fa/LectureNotes9.pdf">lecture note</a>, where actually a “quadra induction” is used, and everything is proved altogether. Nevertheless, I would like to argue that, the quadra induction is too dense to expose the motivation and intuition of this proof. Therefore, we reduce the induction into two arguments and derive the rest with more reasonings. </p>
+<h1 id="Hensel’s-Lemma"><a href="#Hensel’s-Lemma" class="headerlink" title="Hensel’s Lemma"></a>Hensel’s Lemma</h1><blockquote>
+<p><strong>Hensel’s Lemma.</strong> Let $F$ be a non-Archimedean local field with ring of integers $\mathfrak{o}_F=\{\alpha \in F:|\alpha| \le 1\}$ and prime ideal $\mathfrak{p}=\{\alpha \in F:|\alpha|&lt;1\}$. Let $f \in \mathfrak{o}_F[x]$ be a polynomial whose reduction $\overline{f} \in k[x]$ has a simple root $a \in k$, then $a$ can be lifted to $\alpha \equiv a \mod \mathfrak{p}$, such that $f(\alpha)=0$.</p>
+</blockquote>
+<p>By simple root we mean $\overline{f}(a)=0$ but $\overline{f}’(a) \ne 0$. Before we prove this lemma, we see some examples.</p>
+<h2 id="Examples-and-Applications"><a href="#Examples-and-Applications" class="headerlink" title="Examples and Applications"></a>Examples and Applications</h2><h3 id="Square-Root-of-2-in-7-adic-Numbers"><a href="#Square-Root-of-2-in-7-adic-Numbers" class="headerlink" title="Square Root of 2 in 7-adic Numbers"></a>Square Root of 2 in 7-adic Numbers</h3><p>Put $F=\mathbb{Q}_7$. Then $\mathfrak{o}_F=\mathbb{Z}_7$, $\mathfrak{p}=7\mathbb{Z}_7$ and $k=\mathbb{F}_7$. We show that square roots of $2$ are in $F$. Note $\overline{f}(x)=x^2-2=(x-3)(x+3) \in k[x]$, we therefore two simple roots of $\overline{f}$, namely $3$ and $-3$. Lifting to $\mathfrak{o}_F$, we have two roots $\alpha_1 \equiv 3 \mod 7\mathbb{Z}_7$ and $\alpha_2 \equiv -3 \mod 7\mathbb{Z}_7$, of $f$. For $\alpha_1$, we have</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+2 &\equiv 3^2 \mod 7 \\
+2 &\equiv (3+7)^2 \mod 7^2 \\
+&\cdots\cdots
+\end{aligned}</script><p>Hence we can put $\alpha=\sqrt{2}=3+7+2\cdot 7^2+6\cdot 7^3\cdots\in\mathbb{Z}_7 \subset \mathbb{Q}_7$. Likewise $\alpha_2$ can be understood as $-\sqrt{2}$. This expansion is totally different from our understanding in $\mathbb{Q}$ or $\mathbb{R}$.</p>
+<h3 id="Roots-of-Unity"><a href="#Roots-of-Unity" class="headerlink" title="Roots of Unity"></a>Roots of Unity</h3><p>Since $k$ is a finite field, we see $k^\times$ is a cyclic group of order $q-1$ where $q=p^n=|k|$ for some prime $p$. It follows that $x^{q-1}=1$ for all $x \in k^\times$. Therefore $f(x)=x^{q-1}-1$ has $q-1$ distinct roots in $k$. By Hensel’s lemma, $F$ contains all $(q-1)$st roots of unity. It does not matter whether $F$ is isomorphic to $\mathbb{Q}_p$ or $\mathbb{F}_q((t))$.</p>
+<h2 id="Proof-of-Hensel’s-Lemma-with-Explanation"><a href="#Proof-of-Hensel’s-Lemma-with-Explanation" class="headerlink" title="Proof of Hensel’s Lemma (with Explanation)"></a>Proof of Hensel’s Lemma (with Explanation)</h2><p>Pick any $a_0 \in \mathfrak{o}_F$ that is a lift of $a\mod\mathfrak{p}$. Define</p>
+<script type="math/tex; mode=display">
+a_n=a_{n-1}-\frac{f(a_{n-1})}{f'(a_{n-1})},\quad n \ge 1,</script><p>then we claim that $a_n$ converges to the root we are looking for. </p>
+<h3 id="Step-1-Establishing-A-Sequence-by-Newton’s-Method"><a href="#Step-1-Establishing-A-Sequence-by-Newton’s-Method" class="headerlink" title="Step 1 - Establishing A Sequence by Newton’s Method"></a>Step 1 - Establishing A Sequence by Newton’s Method</h3><p>First of all, we need to show that $a_n \in \mathfrak{o}_F$, i.e., $|a_n| \le 1$ for all $n$. It suffices to show that $|f(a_{n-1})/f’(a_{n-1})| \le 1$. We firstly observe the case when $n=1$.</p>
+<p>Since $\overline{f}(a)=0$ but $\overline{f}’(a) \ne 0$, we have $f(a_0) \in \mathfrak{p}$ but $f’(a_0)\not\in\mathfrak{p}$. As a result, $|f(a_0)|&lt;1$ but $|f’(a_0)|=1$. As a result, $|f(a_0)/f’(a_0)|&lt;1$, which implies that $f(a_0)/f’(a_0) \in \mathfrak{o}_F$ and therefore $a_1 \in \mathfrak{o}_F$. </p>
+<p>By Taylor’s theorem.</p>
+<script type="math/tex; mode=display">
+f'(a_n)=f'(a_{n-1})+f''(a_{n-1})(a_n-a_{n-1})+g_n(a_n)(a_n-a_{n-1})^2</script><p>for some $g_n \in \mathfrak{o}_F[x]$. When $n=1$, we see $g_1(a_1) \in \mathfrak{o}_F$ and as a result $|g_1(a_1)| \le 1$. Therefore</p>
+<script type="math/tex; mode=display">
+|f'(a_1)|=\max\{|f'(a_0)|,|f''(a_{0})(a_1-a_0)|,|g_1(a_1)(a_1-a_0)^2|\}=|f'(a_0)|=1.</script><p>Since $a_1 \in \mathfrak{o}_F$, we also see that $f(a_1) \in \mathfrak{o}_F$ hence its absolute value is not greater than $1$. As a result $|f(a_1)/f’(a_1)| \le 1$, which implies that $a_2 \in \mathfrak{o}_F$.</p>
+<p>This inspires us to claim the following <em>two</em> statements:</p>
+<p>(a) $|f(a_n)| &lt; 1$ for all $n \ge 0$. </p>
+<p>(b) $|f’(a_n)|=|f’(a_0)|=1$ for all $n \ge 0$.</p>
+<p>We have verified (a) and (b) for $n=0$ and $n=1$. Now assume that (a) and (b) are true for $n-1$, then, for $n$, we will verify as follows.</p>
+<p>First of all, by (a) and (b) for $n-1$, we see $a_n \in \mathfrak{o}_F$. </p>
+<p>Consider the Taylor’s expansion</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+f(a_n)&=f(a_{n-1})+f'(a_{n-1})(a_n-a_{n-1})+h_n(a_n)(a_n-a_{n-1})^2 \\
+      &=f(a_{n-1})-f'(a_{n-1})\frac{f(a_{n-1})}{f'(a_{n-1})}+h_n(a_n)
+        \left(\frac{f(a_{n-1})}{f'(a_{n-1})}\right)^2 \\
+      &= h_n(a_n)\left(\frac{f(a_{n-1})}{f'(a_{n-1})}\right)^2
+\end{aligned}</script><p>where $h_n \in \mathfrak{o}_F[x]$. It follows that $|h_n(a_n)| \le 1$. Since $|f’(a_{n-1})|=1$, by (b) we actually have</p>
+<script type="math/tex; mode=display">
+|f(a_n)| \le |f(a_{n-1})|^2<1.</script><p>To prove (b) for $n$, we consider the Taylor’s expansion</p>
+<script type="math/tex; mode=display">
+f'(a_n)=f'(a_{n-1})+f''(a_{n-1})(a_n-a_{n-1})+g_n(a_n)(a_n-a_{n-1})^2</script><p>Notice that since $a_n \in \mathfrak{o}_F$, we have $f’’(a_{n-1}),g_n(a_n) \in \mathfrak{o}_F$. By (a) and (b) for $n-1$, we see</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+|f''(a_{n-1})(a_n-a_{n-1})|&=|f''(a_{n-1})||f(a_{n-1})|<1,\\
+|g_n(a_n)(a_{n}-a_{n-1})^2|&=|g_n(a_n)||f(a_{n-1})|^2<1.
+\end{aligned}</script><p>Hence</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+|f'(a_n)|&=\max\{|f'(a_{n-1}),|f''(a_{n-1})(a_n-a_{n-1})|,|g_n(a_n)(a_{n}-a_{n-1})^2|\}\\
+        &=|f'(a_{n-1})|,
+\end{aligned}</script><p>bearing in mind that for a non-Archimedean absolute value, $|x+y|=\max\{|x|,|y|\}$ iff $|x| \ne |y|$. Through this process we have also proved (b).</p>
+<h3 id="Step-2-Validating-the-Convergence"><a href="#Step-2-Validating-the-Convergence" class="headerlink" title="Step 2 - Validating the Convergence"></a>Step 2 - Validating the Convergence</h3><p>We need to show that $\{a_n\}$ is a Cauchy sequence. To do this, it suffices to show that $|f(a_n)| \to 0$ sufficiently quick. Recall in the proof of (a) we have shown that $|f(a_n)| \le |f(a_{n-1})|^2$ for all $n$. By applying this relation inductively, we see $|f(a_n)| \le |f(a_0)|^{2^n}$. Since $|f(a_0)|&lt;1$, it follows that $|f(a_n)| \to 0$ as $n \to \infty$. </p>
+<p>For any $\varepsilon&gt;0$, there exists $N&gt;0$ such that $|f(a_n)| &lt;\varepsilon$ for all $n \ge N$. As a result, for all $m&gt;n&gt;N$, we have</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+|a_m-a_n|&=|(a_m-a_{m-1})+(a_{m-1}-a_{m-2})+\dots+(a_{n+1}-a_{n})| \\
+         &\le\max\{|a_m-a_{m-1}|,\dots,|a_{n+1}-a_n|\} \\
+         &\le |f(a_n)| \\
+         &< \varepsilon.
+\end{aligned}</script><p>Therefore $\{a_n\}$ is Cauchy. Since $F$ is complete, $a_n$ converges to some $\alpha \in \mathfrak{o}_F \subset F$ such that $f(\alpha)=\lim_{n \to \infty}f(a_n)=0$.</p>
+<h3 id="Step-3-Validating-the-Congruence"><a href="#Step-3-Validating-the-Congruence" class="headerlink" title="Step 3 - Validating the Congruence"></a>Step 3 - Validating the Congruence</h3><p>In local fields, congruence is determined by inequality. In fact, we only need to show that $|\alpha-a_0|&lt;1$, which means that $\alpha-a_0 \in \mathfrak{p}$, and therefore $\alpha \equiv a \mod \mathfrak{p}$ as expected. To do this, we show by induction that $|a_n-a_0|&lt;1$. For $n=1$ we see $|a_1-a_0|=|f_0|&lt;1$. </p>
+<p>Suppose $|a_{n-1}-a_0|&lt;1$ then</p>
+<script type="math/tex; mode=display">
+|a_n-a_0| \le \max\{|a_n-a_{n-1}|,|a_{n-1}-a_0|\}<1.</script><p>Therefore $|\alpha-a_0|=\lim_{n \to \infty}|a_n-a_0|&lt;1$, from which the result follows. $\square$</p>
+<h1 id="Stronger-Version"><a href="#Stronger-Version" class="headerlink" title="Stronger Version"></a>Stronger Version</h1><p>In fact we have not explicitly used the fact that $a$ is a simple root. We only used the fact that $|f(a_0)|&lt;1$ but $|f’(a_0)|=1$. Moreover, what really matters here is that $|f(a_n)|$ converges to $0$ quick enough. Therefore $1$ may be replaced by a smaller constant. For this reason we introduce a stronger version of Hensel’s lemma.</p>
+<blockquote>
+<p><strong>Hensel’s lemma, stronger version.</strong> Let $F$ be a non-Archimedean local field with ring of integers $\mathfrak{o}_F$. Suppose there exists $a \in \mathfrak{o}_F$ such that $|f(a)|&lt;|f’(a)|^2$, then there exists some $b \in \mathfrak{o}_F$ such that $f(b)=0$ and $|b-a|&lt;|f’(a)|$.</p>
+</blockquote>
+<p>Instead of asserting $|f’(a_n)|=1$ for all $n$, we claim that $|f’(a_n)|=|f’(a_0)|$ (as it should be!). Instead of asserting $|f(a_n)|&lt;1$, we claim that $|f(a_n)| \le \lambda^{2^n}|f’(a_0)|$ where $\lambda=|f(a_0)|/|f’(a_0)|^2$. The proof will be nearly the same.</p>
+<p>For example, we can find a square root of $257$ in $\mathbb{Z}_2 \subset \mathbb{Q}_2$. The polynomial $f(x)=x^2-257$ is reduced to $\overline{f}(x)=x^2-1=(x-1)^2$ in $\mathbb{F}_2[x]$, where $1$ is not a simple root. Therefore we cannot apply the original version of Hensel’s lemma to this polynomial. Nevertheless, we see $f(1)=-256$ and $f’(1)=2$. Therefore $|f(1)|=\frac{1}{2^8}$ while $|f’(1)|=\frac{1}{2}$. We can apply Newton’s method here to find a square root of $257$ without worrying about repeated roots.</p>
+<h1 id="Ending-Remarks"><a href="#Ending-Remarks" class="headerlink" title="Ending Remarks"></a>Ending Remarks</h1><p>There are a lot of variants of Hensel’s lemma, for example you can do exercise 10.9 of Atiyah-MacDonald. In fact, we later even have <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Henselian_ring">Henselian ring</a> and Henselisation of a ring.</p>
+<p>There are some other proofs of Hensel’s lemma in this post, for example, since Newton’s method can also be understood as a contraction mapping, we can also prove it using properties of contraction mapping (see <a target="_blank" rel="noopener" href="https://kconrad.math.uconn.edu/blurbs/gradnumthy/hensel.pdf">K. Conrad’s note</a>).</p>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"><a href="../../../../tags/Exercise-solution/" class="post-tags__link button"># Exercise solution</a><a href="../../../../tags/Study-new-content/" class="post-tags__link button"># Study new content</a><a href="../../../../tags/Hensel/" class="post-tags__link button"># Hensel</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../../09/04/height-polynomial/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            Calculus on Fields - Heights of Polynomials, Mahler&#39;s Measure and Northcott&#39;s Theorem
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../12/rep-gl2-fq/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            Irreducible Representations of GL_2(F_q)
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2022/08/21/hensel-lemma-newton/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

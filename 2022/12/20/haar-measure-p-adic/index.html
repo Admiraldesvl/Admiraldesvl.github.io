@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>The Haar Measure on the Field of p-Adic Numbers | Desvl&#39;s blog</title>
+
+
+    <meta name="keywords" content="p-adic, Haar">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="In this post we study the canonical Haar measure on $Q_p$, and give a explicit definition just as the Lebesgue measure.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Haar Measure on the Field of p-Adic Numbers">
+<meta property="og:url" content="https://desvl.xyz/2022/12/20/haar-measure-p-adic/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="In this post we study the canonical Haar measure on $Q_p$, and give a explicit definition just as the Lebesgue measure.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-12-20T13:28:41.000Z">
+<meta property="article:modified_time" content="2025-05-10T22:19:10.006Z">
+<meta property="article:author" content="Desvl">
+<meta property="article:tag" content="p-adic">
+<meta property="article:tag" content="Haar">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../friends/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        The Haar Measure on the Field of p-Adic Numbers
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2022/12/" class="post-meta__date button">2022-12-20</a>
+        
+    <span class="separate-dot"></span><a href="../../../../categories/Number-Theory/" class="button">Number Theory</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Number-Theory/p-Adic-Analysis/" class="button">p-Adic Analysis</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Some-p-adic-topology"><span class="toc-number">1.</span> <span class="toc-text">Some p-adic topology</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Measure-of-a-ball"><span class="toc-number">2.</span> <span class="toc-text">Measure of a ball</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Back-to-the-remaining-problem"><span class="toc-number">3.</span> <span class="toc-text">Back to the remaining problem</span></a></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Some-p-adic-topology"><span class="toc-number">1.</span> <span class="toc-text">Some p-adic topology</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Measure-of-a-ball"><span class="toc-number">2.</span> <span class="toc-text">Measure of a ball</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Back-to-the-remaining-problem"><span class="toc-number">3.</span> <span class="toc-text">Back to the remaining problem</span></a></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>Let $p$ be a prime number. Then the space of $p$-adic numbers $\mathbb{Q}_p$ is a locally compact abelian group. This can be observed through the local basis</p>
+<script type="math/tex; mode=display">
+\overline{B}(x,r)=\{y \in \mathbb{Q}_p:|x-y|_p \le r\},</script><p>where $|\cdot|_p$ is the $p$-adic norm such that, whenever we write $r=p^mq$ such that $q$ is prime to $p$,  we have $|r|_p=p^{-m}$.</p>
+<p>We remind the reader that every locally compact abelian group $G$ admits a Haar measure, which is unique up to a scalar multiplication (<a target="_blank" rel="noopener" href="https://math.uchicago.edu/~may/VIGRE/VIGRE2010/REUPapers/Gleason.pdf">proof</a>). In this post, we try to find the Haar measure on $\mathbb{Q}_p$, which makes it possible to do harmonic analysis on it. For this reason, in future posts, we also find the dual group of $\mathbb{Q}_p$ as well as the dual measure. </p>
+<h1 id="Haar-Measure"><a href="#Haar-Measure" class="headerlink" title="Haar Measure"></a>Haar Measure</h1><p>Let us first recall the basic structure of $\mathbb{Q}_p$. Every element is in the form of Laurent series</p>
+<script type="math/tex; mode=display">
+x=\sum_{j=m}^{\infty}c_jp^j</script><p>where $m \in \mathbb{Z}$ and $c_j \in \{0,\dots,p-1\}$. The ring of integers $\mathbb{Z}_p$ is exactly the closed disc of radius $1$ at the origin. That is, $\mathbb{Z}_p=\overline{B}(0,1)$ is a compact set. Let $\mu$ be an arbitrary Haar measure on $\mathbb{Q}_p$. Then $\mu(\mathbb{Z}_p)$ is non-zero and finite. We can therefore put</p>
+<script type="math/tex; mode=display">
+m_p(E)=\frac{1}{\mu(\mathbb{Z}_p)}\mu(E).</script><p>Then in particular $m_p(\mathbb{Z}_p)=1$. This is the canonical Haar measure we are looking for. But it would be hilarious to end the post here. We will give a closer look at it, at least on a $p$-adic level.</p>
+<p>Recall that when studying the Lebesgue measure on $\mathbb{R}$ we have encountered some definition in the form of</p>
+<script type="math/tex; mode=display">
+m(E)=\inf\left\{\sum_j\ell(I_j)\right\}</script><p>where the infimum is taken over all countable collections of open intervals $\{I_j\}$ such that $\bigcup_j I_j \supset E$, and $\ell(I_j)$ is the length of $I_j$. In fact, we can actually write</p>
+<script type="math/tex; mode=display">
+m(E)=\inf\{m(V):V \supset E \text{ is open.}\}</script><p>On $\mathbb{Q}_p$, we write</p>
+<script type="math/tex; mode=display">
+m_p(E)=\inf\{m_p(V): V \supset E \text{ is open.}\}</script><p>The point here is how to express $V$. For this reason we need to recall some topology of $\mathbb{Q}_p$.</p>
+<h2 id="Some-p-adic-topology"><a href="#Some-p-adic-topology" class="headerlink" title="Some p-adic topology"></a>Some p-adic topology</h2><blockquote>
+<p>$\mathbb{Q}_p$ is a separable metric space. Therefore every open set $V$ is a union of open balls.</p>
+</blockquote>
+<p>There is nothing special about this statement. The space has already been equipped with a norm. Besides, as $\mathbb{Q}$ is dense in $\mathbb{Q}_p$, we have nothing to worry about second countability.</p>
+<blockquote>
+<p>Every closed ball of $\mathbb{Q}_p$ is open (hence we call them “balls” thereafter). Every point in the ball is a “centre”. If two balls intersect then one is contained in the other. </p>
+</blockquote>
+<p>This is dramatically different from our understanding of $\mathbb{R}$ or $\mathbb{C}$. Notice that the $p$-adic norm $|\cdot|_p$ only takes the values from $p^k$ with $k \in \mathbb{Z}$ or $0$. For any $r&gt;0$, there exists some $\varepsilon&gt;0$ such that</p>
+<script type="math/tex; mode=display">
+\overline{B}(x,r)=\{y \in \mathbb{Q}_p:\|x-y\|_p \le r\}=\{y \in \mathbb{Q}_p:|x-y|_p<r+\varepsilon\}.</script><p> The clopenness of balls in $\mathbb{Q}_p$ follows. </p>
+<p>Next, recall that $|\cdot|_p$ is non-Archimedean. Consider $y \in \overline{B}(x,r)$. It follows that $|x-y|_p=|y-x|_p \le r$. On the other hand, for any $z \in \overline{B}(x,r)$, we have $|x-z|_p \le r$. Therefore $|y-z|_p \le r$. Hence $\overline{B}(x,r)\subset \overline{B}(y,r)$. Symmetrically we see $\overline{B}(y,r) \subset \overline{B}(x,r)$. Hence they are equal.</p>
+<p>Let $\overline{B}(x,r)$ and $\overline{B}(x’,r’)$ be two balls that intersect, and without loss of generality we assume that $r \le r’$. Let $y$ be a point in the intersection, then we see</p>
+<script type="math/tex; mode=display">
+\overline{B}(x',r')=\overline{B}(y,r') \supset \overline{B}(y,r)=\overline{B}(x,r).</script><p>So far so good. We next try to compute the Haar measure of every ball.</p>
+<h2 id="Measure-of-a-ball"><a href="#Measure-of-a-ball" class="headerlink" title="Measure of a ball"></a>Measure of a ball</h2><blockquote>
+<p>Every ball of radius $p^k$ has measure $p^k$ ($k \in \mathbb{Z}$).</p>
+</blockquote>
+<p>First of all notice that $\overline{B}(0,1)=\mathbb{Z}_p$, and we defined $m_p$ so that $m_p(\mathbb{Z}_p)=1$. Therefore every ball of the form $\overline{B}(x,1)$ has measure $1$. Next, notice that $\overline{B}(0,p^k)=p^{-k}\mathbb{Z}_p$ for all $k \in \mathbb{Z}$, it is necessary to unwind $\mathbb{Z}_p$ a little bit more.</p>
+<p>We have</p>
+<script type="math/tex; mode=display">
+\mathbb{Z}_p=\coprod_{i=0}^{p-1}(i+p\mathbb{Z}_p)= \coprod_{i=0}^{p-1}\coprod_{j=0}^{p-1}(i+jp+p^2\mathbb{Z}_p)=\cdots</script><p>Therefore $\mathbb{Z}_p$ is a disjoint union of $p^k$ balls of radius $p^{-k}$ when $k&gt;0$. Hence in this case,</p>
+<script type="math/tex; mode=display">
+m_p(\overline{B}(0,p^{-k}))=p^{-k}m_p(\overline{B}(0,1))=p^{-k}</script><p>as expected. In other words, for $k&lt;0$, the ball $\overline{B}(0,p^k)$ has measure $p^k$.</p>
+<p> For the counterpart, we notice that </p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+p^{-k}\mathbb{Z}_p &= p^{-k}\coprod_{a_0=0}^{p-1}\dots\coprod_{a_{k-1}=0}^{p-1}(a_0+\dots+a_{k-1}p^{k-1}+p^k\mathbb{Z}_p) \\
+                   &= \coprod_{a_0=0}^{p-1}\dots\coprod_{a_{k-1}=0}^{p-1}(a_0p^{-k}+\dots+a_{k-1}p^{-1}+\mathbb{Z}_p)
+\end{aligned}</script><p>which is to say $\overline{B}(0,p^k)=p^{-k}\mathbb{Z}_p$ is a disjoint union of $p^k$ balls of radius $1$. Hence its measure is $p^k$. This concludes our computation of balls in $\mathbb{Q}_p$.</p>
+<h2 id="Back-to-the-remaining-problem"><a href="#Back-to-the-remaining-problem" class="headerlink" title="Back to the remaining problem"></a>Back to the remaining problem</h2><p>Now we come back to the definition of $m_p$. Now every open set $V$ can be written in the form</p>
+<script type="math/tex; mode=display">
+V=\bigcup_{i=1}^{\infty}\overline{B}(x_i,p^{m_i}).</script><p>The union is countable because $\mathbb{Q}_p$ is second countable. By combining intersecting balls, we can assume that the union is also disjoint. It follows that</p>
+<script type="math/tex; mode=display">
+m_p(V)=\sum_{i=1}^{\infty}p^{m_i}.</script><p>Note: this should be understood in the sense of real series, instead of $p$-adic number, because $m_p$ takes the values in $\mathbb{R}$. So for an arbitrary measurable set, we have</p>
+<script type="math/tex; mode=display">
+m_p(E)=\inf\left\{\sum_{i=1}^{\infty}p^{m_i}:E \subset\bigcup_{i=1}^{\infty}\overline{B}(x_i,p^{m_i})\right\}.</script>
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-entry__tags"><a href="../../../../tags/p-adic/" class="post-tags__link button"># p-adic</a><a href="../../../../tags/Haar/" class="post-tags__link button"># Haar</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="../../23/pontryagin-dual-q-p/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            The Pontryagin Dual group of Q_p
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../05/regular-local-ring-cohen-macaulay/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            Every Regular Local Ring is Cohen-Macaulay
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2022/12/20/haar-measure-p-adic/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>
