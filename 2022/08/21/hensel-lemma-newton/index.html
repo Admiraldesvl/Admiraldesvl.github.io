@@ -43,7 +43,7 @@
 <meta property="og:description" content="We prove the celebrated Hensel&#39;s lemma using the so-called Newton&#39;s method and &quot;double induction&quot;, and try to find solutions of polynomials in $\mathbb{Q}_p$.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-08-21T10:46:33.000Z">
-<meta property="article:modified_time" content="2025-05-10T22:19:10.059Z">
+<meta property="article:modified_time" content="2025-05-11T12:09:03.708Z">
 <meta property="article:author" content="Desvl">
 <meta property="article:tag" content="Exercise solution">
 <meta property="article:tag" content="Study new content">
@@ -160,7 +160,7 @@
 
     <aside class="post-side">
         <div class="post-side__toc">
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Examples-and-Applications"><span class="toc-number">1.</span> <span class="toc-text">Examples and Applications</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Square-Root-of-2-in-7-adic-Numbers"><span class="toc-number">1.1.</span> <span class="toc-text">Square Root of 2 in 7-adic Numbers</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Roots-of-Unity"><span class="toc-number">1.2.</span> <span class="toc-text">Roots of Unity</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Proof-of-Hensel%E2%80%99s-Lemma-with-Explanation"><span class="toc-number">2.</span> <span class="toc-text">Proof of Hensel’s Lemma (with Explanation)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-1-Establishing-A-Sequence-by-Newton%E2%80%99s-Method"><span class="toc-number">2.1.</span> <span class="toc-text">Step 1 - Establishing A Sequence by Newton’s Method</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-2-Validating-the-Convergence"><span class="toc-number">2.2.</span> <span class="toc-text">Step 2 - Validating the Convergence</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-3-Validating-the-Congruence"><span class="toc-number">2.3.</span> <span class="toc-text">Step 3 - Validating the Congruence</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hensel%E2%80%99s-Lemma"><span class="toc-number">2.</span> <span class="toc-text">Hensel’s Lemma</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Examples-and-Applications"><span class="toc-number">2.1.</span> <span class="toc-text">Examples and Applications</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Square-Root-of-2-in-7-adic-Numbers"><span class="toc-number">2.1.1.</span> <span class="toc-text">Square Root of 2 in 7-adic Numbers</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Roots-of-Unity"><span class="toc-number">2.1.2.</span> <span class="toc-text">Roots of Unity</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Proof-of-Hensel%E2%80%99s-Lemma-with-Explanation"><span class="toc-number">3.</span> <span class="toc-text">Proof of Hensel’s Lemma (with Explanation)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-1-Establishing-A-Sequence-by-Newton%E2%80%99s-Method"><span class="toc-number">3.1.</span> <span class="toc-text">Step 1 - Establishing A Sequence by Newton’s Method</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-2-Validating-the-Convergence"><span class="toc-number">3.2.</span> <span class="toc-text">Step 2 - Validating the Convergence</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-3-Validating-the-Congruence"><span class="toc-number">3.3.</span> <span class="toc-text">Step 3 - Validating the Congruence</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Stronger-Version"><span class="toc-number">4.</span> <span class="toc-text">Stronger Version</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ending-Remarks"><span class="toc-number">5.</span> <span class="toc-text">Ending Remarks</span></a></li></ol>
         </div>
     </aside>
     <a class="btn-toc button" id="btn-toc" tabindex="0">
@@ -170,14 +170,14 @@
     </a>
     <div class="toc-menus" id="toc-menus">
         <div class="toc-title">Article Directory</div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Examples-and-Applications"><span class="toc-number">1.</span> <span class="toc-text">Examples and Applications</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Square-Root-of-2-in-7-adic-Numbers"><span class="toc-number">1.1.</span> <span class="toc-text">Square Root of 2 in 7-adic Numbers</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Roots-of-Unity"><span class="toc-number">1.2.</span> <span class="toc-text">Roots of Unity</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Proof-of-Hensel%E2%80%99s-Lemma-with-Explanation"><span class="toc-number">2.</span> <span class="toc-text">Proof of Hensel’s Lemma (with Explanation)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-1-Establishing-A-Sequence-by-Newton%E2%80%99s-Method"><span class="toc-number">2.1.</span> <span class="toc-text">Step 1 - Establishing A Sequence by Newton’s Method</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-2-Validating-the-Convergence"><span class="toc-number">2.2.</span> <span class="toc-text">Step 2 - Validating the Convergence</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-3-Validating-the-Congruence"><span class="toc-number">2.3.</span> <span class="toc-text">Step 3 - Validating the Congruence</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hensel%E2%80%99s-Lemma"><span class="toc-number">2.</span> <span class="toc-text">Hensel’s Lemma</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Examples-and-Applications"><span class="toc-number">2.1.</span> <span class="toc-text">Examples and Applications</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Square-Root-of-2-in-7-adic-Numbers"><span class="toc-number">2.1.1.</span> <span class="toc-text">Square Root of 2 in 7-adic Numbers</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Roots-of-Unity"><span class="toc-number">2.1.2.</span> <span class="toc-text">Roots of Unity</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Proof-of-Hensel%E2%80%99s-Lemma-with-Explanation"><span class="toc-number">3.</span> <span class="toc-text">Proof of Hensel’s Lemma (with Explanation)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-1-Establishing-A-Sequence-by-Newton%E2%80%99s-Method"><span class="toc-number">3.1.</span> <span class="toc-text">Step 1 - Establishing A Sequence by Newton’s Method</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-2-Validating-the-Convergence"><span class="toc-number">3.2.</span> <span class="toc-text">Step 2 - Validating the Convergence</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-3-Validating-the-Congruence"><span class="toc-number">3.3.</span> <span class="toc-text">Step 3 - Validating the Congruence</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Stronger-Version"><span class="toc-number">4.</span> <span class="toc-text">Stronger Version</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ending-Remarks"><span class="toc-number">5.</span> <span class="toc-text">Ending Remarks</span></a></li></ol>
     </div>
 
 
 <article class="post post__with-toc content-card">
     <div class="post__header"></div>
     <div class="post__content">
-        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>Let $F$ be a non-Archimedean local field, meaning that $F$ is complete under the metric induced by a <a target="_blank" rel="noopener" href="https://www2.math.ethz.ch/education/bachelor/seminars/fs2008/algebra/Crivelli.pdf">non-Archimedean absolute value</a> $|\cdot|$. Consider the ring of integers</p>
+        <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Let $F$ be a non-Archimedean local field, meaning that $F$ is complete under the metric induced by a <a target="_blank" rel="noopener" href="https://www2.math.ethz.ch/education/bachelor/seminars/fs2008/algebra/Crivelli.pdf">non-Archimedean absolute value</a> $|\cdot|$. Consider the ring of integers</p>
 <script type="math/tex; mode=display">
 \mathfrak{o}_F=\{\alpha \in F:|\alpha| \le 1\}</script><p>and its unique prime (hence maximal) ideal</p>
 <script type="math/tex; mode=display">
@@ -188,18 +188,18 @@
 a_{n+1}=a_n-\frac{f(a_n)}{f'(a_n)}.</script><p>We know that $a_n \to \zeta$ where $f(\zeta)=0$ at a $A^{2^n}$ speed for some constant $A$, in  calculus (do Walter Rudin’s exercise 5.25 of <em>Principles of Mathematical Analysis</em> if you are not familiar with it, I heartily recommend.). Now we will steal Newton’s method into number theory to find roots in a non-Archimedean field, which is violently different from $\mathbb{R}$, the playground of elementary calculus. </p>
 <p>We will also use induction, in the form of which I would like to call “double induction”. Instead of claiming that $P(n)$ is true for all $n$, we claim that $P(n)$ and $Q(n)$ are true for all $n$. When proving $P(n+1)$, we may use $Q(n)$, and vice versa. </p>
 <p>This method is inspired by this <a target="_blank" rel="noopener" href="https://math.mit.edu/classes/18.785/2017fa/LectureNotes9.pdf">lecture note</a>, where actually a “quadra induction” is used, and everything is proved altogether. Nevertheless, I would like to argue that, the quadra induction is too dense to expose the motivation and intuition of this proof. Therefore, we reduce the induction into two arguments and derive the rest with more reasonings. </p>
-<h1 id="Hensel’s-Lemma"><a href="#Hensel’s-Lemma" class="headerlink" title="Hensel’s Lemma"></a>Hensel’s Lemma</h1><blockquote>
+<h2 id="Hensel’s-Lemma"><a href="#Hensel’s-Lemma" class="headerlink" title="Hensel’s Lemma"></a>Hensel’s Lemma</h2><blockquote>
 <p><strong>Hensel’s Lemma.</strong> Let $F$ be a non-Archimedean local field with ring of integers $\mathfrak{o}_F=\{\alpha \in F:|\alpha| \le 1\}$ and prime ideal $\mathfrak{p}=\{\alpha \in F:|\alpha|&lt;1\}$. Let $f \in \mathfrak{o}_F[x]$ be a polynomial whose reduction $\overline{f} \in k[x]$ has a simple root $a \in k$, then $a$ can be lifted to $\alpha \equiv a \mod \mathfrak{p}$, such that $f(\alpha)=0$.</p>
 </blockquote>
 <p>By simple root we mean $\overline{f}(a)=0$ but $\overline{f}’(a) \ne 0$. Before we prove this lemma, we see some examples.</p>
-<h2 id="Examples-and-Applications"><a href="#Examples-and-Applications" class="headerlink" title="Examples and Applications"></a>Examples and Applications</h2><h3 id="Square-Root-of-2-in-7-adic-Numbers"><a href="#Square-Root-of-2-in-7-adic-Numbers" class="headerlink" title="Square Root of 2 in 7-adic Numbers"></a>Square Root of 2 in 7-adic Numbers</h3><p>Put $F=\mathbb{Q}_7$. Then $\mathfrak{o}_F=\mathbb{Z}_7$, $\mathfrak{p}=7\mathbb{Z}_7$ and $k=\mathbb{F}_7$. We show that square roots of $2$ are in $F$. Note $\overline{f}(x)=x^2-2=(x-3)(x+3) \in k[x]$, we therefore two simple roots of $\overline{f}$, namely $3$ and $-3$. Lifting to $\mathfrak{o}_F$, we have two roots $\alpha_1 \equiv 3 \mod 7\mathbb{Z}_7$ and $\alpha_2 \equiv -3 \mod 7\mathbb{Z}_7$, of $f$. For $\alpha_1$, we have</p>
+<h3 id="Examples-and-Applications"><a href="#Examples-and-Applications" class="headerlink" title="Examples and Applications"></a>Examples and Applications</h3><h4 id="Square-Root-of-2-in-7-adic-Numbers"><a href="#Square-Root-of-2-in-7-adic-Numbers" class="headerlink" title="Square Root of 2 in 7-adic Numbers"></a>Square Root of 2 in 7-adic Numbers</h4><p>Put $F=\mathbb{Q}_7$. Then $\mathfrak{o}_F=\mathbb{Z}_7$, $\mathfrak{p}=7\mathbb{Z}_7$ and $k=\mathbb{F}_7$. We show that square roots of $2$ are in $F$. Note $\overline{f}(x)=x^2-2=(x-3)(x+3) \in k[x]$, we therefore two simple roots of $\overline{f}$, namely $3$ and $-3$. Lifting to $\mathfrak{o}_F$, we have two roots $\alpha_1 \equiv 3 \mod 7\mathbb{Z}_7$ and $\alpha_2 \equiv -3 \mod 7\mathbb{Z}_7$, of $f$. For $\alpha_1$, we have</p>
 <script type="math/tex; mode=display">
 \begin{aligned}
 2 &\equiv 3^2 \mod 7 \\
 2 &\equiv (3+7)^2 \mod 7^2 \\
 &\cdots\cdots
 \end{aligned}</script><p>Hence we can put $\alpha=\sqrt{2}=3+7+2\cdot 7^2+6\cdot 7^3\cdots\in\mathbb{Z}_7 \subset \mathbb{Q}_7$. Likewise $\alpha_2$ can be understood as $-\sqrt{2}$. This expansion is totally different from our understanding in $\mathbb{Q}$ or $\mathbb{R}$.</p>
-<h3 id="Roots-of-Unity"><a href="#Roots-of-Unity" class="headerlink" title="Roots of Unity"></a>Roots of Unity</h3><p>Since $k$ is a finite field, we see $k^\times$ is a cyclic group of order $q-1$ where $q=p^n=|k|$ for some prime $p$. It follows that $x^{q-1}=1$ for all $x \in k^\times$. Therefore $f(x)=x^{q-1}-1$ has $q-1$ distinct roots in $k$. By Hensel’s lemma, $F$ contains all $(q-1)$st roots of unity. It does not matter whether $F$ is isomorphic to $\mathbb{Q}_p$ or $\mathbb{F}_q((t))$.</p>
+<h4 id="Roots-of-Unity"><a href="#Roots-of-Unity" class="headerlink" title="Roots of Unity"></a>Roots of Unity</h4><p>Since $k$ is a finite field, we see $k^\times$ is a cyclic group of order $q-1$ where $q=p^n=|k|$ for some prime $p$. It follows that $x^{q-1}=1$ for all $x \in k^\times$. Therefore $f(x)=x^{q-1}-1$ has $q-1$ distinct roots in $k$. By Hensel’s lemma, $F$ contains all $(q-1)$st roots of unity. It does not matter whether $F$ is isomorphic to $\mathbb{Q}_p$ or $\mathbb{F}_q((t))$.</p>
 <h2 id="Proof-of-Hensel’s-Lemma-with-Explanation"><a href="#Proof-of-Hensel’s-Lemma-with-Explanation" class="headerlink" title="Proof of Hensel’s Lemma (with Explanation)"></a>Proof of Hensel’s Lemma (with Explanation)</h2><p>Pick any $a_0 \in \mathfrak{o}_F$ that is a lift of $a\mod\mathfrak{p}$. Define</p>
 <script type="math/tex; mode=display">
 a_n=a_{n-1}-\frac{f(a_{n-1})}{f'(a_{n-1})},\quad n \ge 1,</script><p>then we claim that $a_n$ converges to the root we are looking for. </p>
@@ -250,13 +250,13 @@ f'(a_n)=f'(a_{n-1})+f''(a_{n-1})(a_n-a_{n-1})+g_n(a_n)(a_n-a_{n-1})^2</script><p
 <p>Suppose $|a_{n-1}-a_0|&lt;1$ then</p>
 <script type="math/tex; mode=display">
 |a_n-a_0| \le \max\{|a_n-a_{n-1}|,|a_{n-1}-a_0|\}<1.</script><p>Therefore $|\alpha-a_0|=\lim_{n \to \infty}|a_n-a_0|&lt;1$, from which the result follows. $\square$</p>
-<h1 id="Stronger-Version"><a href="#Stronger-Version" class="headerlink" title="Stronger Version"></a>Stronger Version</h1><p>In fact we have not explicitly used the fact that $a$ is a simple root. We only used the fact that $|f(a_0)|&lt;1$ but $|f’(a_0)|=1$. Moreover, what really matters here is that $|f(a_n)|$ converges to $0$ quick enough. Therefore $1$ may be replaced by a smaller constant. For this reason we introduce a stronger version of Hensel’s lemma.</p>
+<h2 id="Stronger-Version"><a href="#Stronger-Version" class="headerlink" title="Stronger Version"></a>Stronger Version</h2><p>In fact we have not explicitly used the fact that $a$ is a simple root. We only used the fact that $|f(a_0)|&lt;1$ but $|f’(a_0)|=1$. Moreover, what really matters here is that $|f(a_n)|$ converges to $0$ quick enough. Therefore $1$ may be replaced by a smaller constant. For this reason we introduce a stronger version of Hensel’s lemma.</p>
 <blockquote>
 <p><strong>Hensel’s lemma, stronger version.</strong> Let $F$ be a non-Archimedean local field with ring of integers $\mathfrak{o}_F$. Suppose there exists $a \in \mathfrak{o}_F$ such that $|f(a)|&lt;|f’(a)|^2$, then there exists some $b \in \mathfrak{o}_F$ such that $f(b)=0$ and $|b-a|&lt;|f’(a)|$.</p>
 </blockquote>
 <p>Instead of asserting $|f’(a_n)|=1$ for all $n$, we claim that $|f’(a_n)|=|f’(a_0)|$ (as it should be!). Instead of asserting $|f(a_n)|&lt;1$, we claim that $|f(a_n)| \le \lambda^{2^n}|f’(a_0)|$ where $\lambda=|f(a_0)|/|f’(a_0)|^2$. The proof will be nearly the same.</p>
 <p>For example, we can find a square root of $257$ in $\mathbb{Z}_2 \subset \mathbb{Q}_2$. The polynomial $f(x)=x^2-257$ is reduced to $\overline{f}(x)=x^2-1=(x-1)^2$ in $\mathbb{F}_2[x]$, where $1$ is not a simple root. Therefore we cannot apply the original version of Hensel’s lemma to this polynomial. Nevertheless, we see $f(1)=-256$ and $f’(1)=2$. Therefore $|f(1)|=\frac{1}{2^8}$ while $|f’(1)|=\frac{1}{2}$. We can apply Newton’s method here to find a square root of $257$ without worrying about repeated roots.</p>
-<h1 id="Ending-Remarks"><a href="#Ending-Remarks" class="headerlink" title="Ending Remarks"></a>Ending Remarks</h1><p>There are a lot of variants of Hensel’s lemma, for example you can do exercise 10.9 of Atiyah-MacDonald. In fact, we later even have <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Henselian_ring">Henselian ring</a> and Henselisation of a ring.</p>
+<h2 id="Ending-Remarks"><a href="#Ending-Remarks" class="headerlink" title="Ending Remarks"></a>Ending Remarks</h2><p>There are a lot of variants of Hensel’s lemma, for example you can do exercise 10.9 of Atiyah-MacDonald. In fact, we later even have <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Henselian_ring">Henselian ring</a> and Henselisation of a ring.</p>
 <p>There are some other proofs of Hensel’s lemma in this post, for example, since Newton’s method can also be understood as a contraction mapping, we can also prove it using properties of contraction mapping (see <a target="_blank" rel="noopener" href="https://kconrad.math.uconn.edu/blurbs/gradnumthy/hensel.pdf">K. Conrad’s note</a>).</p>
 
     </div>
@@ -313,31 +313,35 @@ f'(a_n)=f'(a_{n-1})+f''(a_{n-1})(a_n-a_{n-1})+g_n(a_n)(a_n-a_{n-1})^2</script><p
     
     
     
-    <div id="giscus_container">
-        <script src="https://giscus.app/client.js"
-                data-repo="Admiraldesvl/Admiraldesvl.github.io"
-                data-repo-id="MDEwOlJlcG9zaXRvcnkxNzIwNjk2NDA="
-                data-category="General"
-                data-category-id="DIC_kwDOCkGTCM4CqBS6"
-                data-mapping="title"
-                data-strict="0"
-                data-reactions-enabled="1"
-                data-emit-metadata="0"
-                data-input-position="bottom"
-                data-theme="noborder_light"
-                data-lang="anonymous"
-                data-loading="lazy"
-                crossorigin="anonymous" async></script>
-    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2022/08/21/hensel-lemma-newton/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "Blog Comments";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
 
-    
-    
-    
-    
-    
-    
-    
-    
+    container.appendChild(script);
+  })();
+</script>
+
 
 
 

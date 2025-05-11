@@ -43,7 +43,7 @@
 <meta property="og:description" content="In this post we study the canonical Haar measure on $Q_p$, and give a explicit definition just as the Lebesgue measure.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-12-20T13:28:41.000Z">
-<meta property="article:modified_time" content="2025-05-10T22:19:10.006Z">
+<meta property="article:modified_time" content="2025-05-11T12:07:41.127Z">
 <meta property="article:author" content="Desvl">
 <meta property="article:tag" content="p-adic">
 <meta property="article:tag" content="Haar">
@@ -151,7 +151,7 @@
 
     <aside class="post-side">
         <div class="post-side__toc">
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Some-p-adic-topology"><span class="toc-number">1.</span> <span class="toc-text">Some p-adic topology</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Measure-of-a-ball"><span class="toc-number">2.</span> <span class="toc-text">Measure of a ball</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Back-to-the-remaining-problem"><span class="toc-number">3.</span> <span class="toc-text">Back to the remaining problem</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Haar-Measure"><span class="toc-number">2.</span> <span class="toc-text">Haar Measure</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Some-p-adic-topology"><span class="toc-number">3.</span> <span class="toc-text">Some p-adic topology</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Measure-of-a-ball"><span class="toc-number">4.</span> <span class="toc-text">Measure of a ball</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Back-to-the-remaining-problem"><span class="toc-number">5.</span> <span class="toc-text">Back to the remaining problem</span></a></li></ol>
         </div>
     </aside>
     <a class="btn-toc button" id="btn-toc" tabindex="0">
@@ -161,18 +161,18 @@
     </a>
     <div class="toc-menus" id="toc-menus">
         <div class="toc-title">Article Directory</div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Some-p-adic-topology"><span class="toc-number">1.</span> <span class="toc-text">Some p-adic topology</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Measure-of-a-ball"><span class="toc-number">2.</span> <span class="toc-text">Measure of a ball</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Back-to-the-remaining-problem"><span class="toc-number">3.</span> <span class="toc-text">Back to the remaining problem</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Haar-Measure"><span class="toc-number">2.</span> <span class="toc-text">Haar Measure</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Some-p-adic-topology"><span class="toc-number">3.</span> <span class="toc-text">Some p-adic topology</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Measure-of-a-ball"><span class="toc-number">4.</span> <span class="toc-text">Measure of a ball</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Back-to-the-remaining-problem"><span class="toc-number">5.</span> <span class="toc-text">Back to the remaining problem</span></a></li></ol>
     </div>
 
 
 <article class="post post__with-toc content-card">
     <div class="post__header"></div>
     <div class="post__content">
-        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>Let $p$ be a prime number. Then the space of $p$-adic numbers $\mathbb{Q}_p$ is a locally compact abelian group. This can be observed through the local basis</p>
+        <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Let $p$ be a prime number. Then the space of $p$-adic numbers $\mathbb{Q}_p$ is a locally compact abelian group. This can be observed through the local basis</p>
 <script type="math/tex; mode=display">
 \overline{B}(x,r)=\{y \in \mathbb{Q}_p:|x-y|_p \le r\},</script><p>where $|\cdot|_p$ is the $p$-adic norm such that, whenever we write $r=p^mq$ such that $q$ is prime to $p$,  we have $|r|_p=p^{-m}$.</p>
 <p>We remind the reader that every locally compact abelian group $G$ admits a Haar measure, which is unique up to a scalar multiplication (<a target="_blank" rel="noopener" href="https://math.uchicago.edu/~may/VIGRE/VIGRE2010/REUPapers/Gleason.pdf">proof</a>). In this post, we try to find the Haar measure on $\mathbb{Q}_p$, which makes it possible to do harmonic analysis on it. For this reason, in future posts, we also find the dual group of $\mathbb{Q}_p$ as well as the dual measure. </p>
-<h1 id="Haar-Measure"><a href="#Haar-Measure" class="headerlink" title="Haar Measure"></a>Haar Measure</h1><p>Let us first recall the basic structure of $\mathbb{Q}_p$. Every element is in the form of Laurent series</p>
+<h2 id="Haar-Measure"><a href="#Haar-Measure" class="headerlink" title="Haar Measure"></a>Haar Measure</h2><p>Let us first recall the basic structure of $\mathbb{Q}_p$. Every element is in the form of Laurent series</p>
 <script type="math/tex; mode=display">
 x=\sum_{j=m}^{\infty}c_jp^j</script><p>where $m \in \mathbb{Z}$ and $c_j \in \{0,\dots,p-1\}$. The ring of integers $\mathbb{Z}_p$ is exactly the closed disc of radius $1$ at the origin. That is, $\mathbb{Z}_p=\overline{B}(0,1)$ is a compact set. Let $\mu$ be an arbitrary Haar measure on $\mathbb{Q}_p$. Then $\mu(\mathbb{Z}_p)$ is non-zero and finite. We can therefore put</p>
 <script type="math/tex; mode=display">
@@ -274,31 +274,35 @@ m_p(E)=\inf\left\{\sum_{i=1}^{\infty}p^{m_i}:E \subset\bigcup_{i=1}^{\infty}\ove
     
     
     
-    <div id="giscus_container">
-        <script src="https://giscus.app/client.js"
-                data-repo="Admiraldesvl/Admiraldesvl.github.io"
-                data-repo-id="MDEwOlJlcG9zaXRvcnkxNzIwNjk2NDA="
-                data-category="General"
-                data-category-id="DIC_kwDOCkGTCM4CqBS6"
-                data-mapping="title"
-                data-strict="0"
-                data-reactions-enabled="1"
-                data-emit-metadata="0"
-                data-input-position="bottom"
-                data-theme="noborder_light"
-                data-lang="anonymous"
-                data-loading="lazy"
-                crossorigin="anonymous" async></script>
-    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2022/12/20/haar-measure-p-adic/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "Blog Comments";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
 
-    
-    
-    
-    
-    
-    
-    
-    
+    container.appendChild(script);
+  })();
+</script>
+
 
 
 

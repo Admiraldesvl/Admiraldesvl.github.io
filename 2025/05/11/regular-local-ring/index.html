@@ -43,7 +43,7 @@
 <meta property="og:description" content="In this post we collect and prove (as detailed as possible) the equivalent conditions of being a Regular local ring of dimension 1.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-05-10T23:33:19.000Z">
-<meta property="article:modified_time" content="2025-05-10T23:58:06.342Z">
+<meta property="article:modified_time" content="2025-05-11T12:06:56.090Z">
 <meta property="article:author" content="Desvl">
 <meta property="article:tag" content="Study new content">
 <meta property="article:tag" content="Quick reference">
@@ -151,7 +151,7 @@
 
     <aside class="post-side">
         <div class="post-side__toc">
-            
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Discrete-valuation-ring"><span class="toc-number">1.1.</span> <span class="toc-text">Discrete valuation ring</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Regular-local-ring-of-dimension-1"><span class="toc-number">2.</span> <span class="toc-text">Regular local ring of dimension 1</span></a></li></ol>
         </div>
     </aside>
     <a class="btn-toc button" id="btn-toc" tabindex="0">
@@ -161,15 +161,15 @@
     </a>
     <div class="toc-menus" id="toc-menus">
         <div class="toc-title">Article Directory</div>
-        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Discrete-valuation-ring"><span class="toc-number">1.1.</span> <span class="toc-text">Discrete valuation ring</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Regular-local-ring-of-dimension-1"><span class="toc-number">2.</span> <span class="toc-text">Regular local ring of dimension 1</span></a></li></ol>
     </div>
 
 
 <article class="post post__with-toc content-card">
     <div class="post__header"></div>
     <div class="post__content">
-        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>Regular local rings are important objects in modern algebra, number theory and algebraic geometry. Therefore it would be way too ambitious to try to briefly justify the motivation of studying regular local rings. In this post, we try to collect equivalent conditions of being a regular local ring of dimension $1$ and prove them. There are plenty of equivalent conditions and it is difficult to find a book that collects as many as them as possible, let alone giving a detailed proof. The reader is also encouraged to prove the conditions himself, after knowing that the most important tool in the proof is Nakayama’s lemma.</p>
-<h1 id="Discrete-valuation-ring"><a href="#Discrete-valuation-ring" class="headerlink" title="Discrete valuation ring"></a>Discrete valuation ring</h1><p>The reader may have come up with the definition of discrete valuation rings, without knowing the motivation. Indeed, one way to interpret discrete valuation rings is to see them as “Taylor expansions”. The analogy after the definition may explain why. </p>
+        <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Regular local rings are important objects in modern algebra, number theory and algebraic geometry. Therefore it would be way too ambitious to try to briefly justify the motivation of studying regular local rings. In this post, we try to collect equivalent conditions of being a regular local ring of dimension $1$ and prove them. There are plenty of equivalent conditions and it is difficult to find a book that collects as many as them as possible, let alone giving a detailed proof. The reader is also encouraged to prove the conditions himself, after knowing that the most important tool in the proof is Nakayama’s lemma.</p>
+<h3 id="Discrete-valuation-ring"><a href="#Discrete-valuation-ring" class="headerlink" title="Discrete valuation ring"></a>Discrete valuation ring</h3><p>The reader may have come up with the definition of discrete valuation rings, without knowing the motivation. Indeed, one way to interpret discrete valuation rings is to see them as “Taylor expansions”. The analogy after the definition may explain why. </p>
 <blockquote>
 <p><strong>Definition 1.</strong> Let $F$ be a field. A surjective function $F:\mathbb{Z} \to \{\infty\}$  is called a <strong>discrete valuation</strong> if</p>
 <ol>
@@ -183,7 +183,7 @@
 <script type="math/tex; mode=display">
 v(ut^{-1})=v(u)+v(t^{-1})=v(u)-1 \ge 0 \implies ut^{-1} \in R_v</script><p>and as a result we can write $u=(ut^{-1})t$. If we look further, suppose that $v(u)=m$. Then $\alpha = ut^{-m} \in R_v$ is a unit and thus we have $u=\alpha t^m$. In other words, every element can be expressed as a monomial of $t$. </p>
 <p>The analogy or even example to bring about here is the order of zero at origin of (rational) functions over $\mathbb{R}$. For a rational function $F(x)=f(x)/g(x)$, we see that if we define $v(F)=\deg{f}-\deg{g}$, then $\lim_{x\to 0}\frac{F(x)}{x^m}$ is non-zero and finite. The degree of zero polynomial depends on the context, and in our context we make it infinite as no matter how big $m$ is, we are never reaching a point that $\lim_{x \to 0}\frac{0}{x^m}$ is non-zero and finite. Therefore the discrete valuation ring in our story is the polynomials where the function is equivalent to a monomial of positive degree, and the generator of the maximal ideal is the “identity” map. In short, one way of imagining the discrete valuation ring is the space of “smooth” functions at a point that converge to $0$ with the evaluation being the degree of approximation.</p>
-<h1 id="Regular-local-ring-of-dimension-1"><a href="#Regular-local-ring-of-dimension-1" class="headerlink" title="Regular local ring of dimension 1"></a>Regular local ring of dimension 1</h1><p>For a ring $R$, we use $\dim(R)$ to denote the Krull dimension and for a vector space $V$ over a field $K$, $\dim_K(V)$ is used to denote the dimension of $V$ as a vector space over $K$.</p>
+<h2 id="Regular-local-ring-of-dimension-1"><a href="#Regular-local-ring-of-dimension-1" class="headerlink" title="Regular local ring of dimension 1"></a>Regular local ring of dimension 1</h2><p>For a ring $R$, we use $\dim(R)$ to denote the Krull dimension and for a vector space $V$ over a field $K$, $\dim_K(V)$ is used to denote the dimension of $V$ as a vector space over $K$.</p>
 <blockquote>
 <p><strong>Theorem 2.</strong> Let $R$ be a commutative noetherian local ring with unit and maximal ideal $\mathfrak{m}$ with the residue field $\kappa=R/\mathfrak{m}$. Then the following conditions are equivalent.</p>
 <ol>
@@ -250,31 +250,35 @@ v(ut^{-1})=v(u)+v(t^{-1})=v(u)-1 \ge 0 \implies ut^{-1} \in R_v</script><p>and a
     
     
     
-    <div id="giscus_container">
-        <script src="https://giscus.app/client.js"
-                data-repo="Admiraldesvl/Admiraldesvl.github.io"
-                data-repo-id="MDEwOlJlcG9zaXRvcnkxNzIwNjk2NDA="
-                data-category="General"
-                data-category-id="DIC_kwDOCkGTCM4CqBS6"
-                data-mapping="title"
-                data-strict="0"
-                data-reactions-enabled="1"
-                data-emit-metadata="0"
-                data-input-position="bottom"
-                data-theme="noborder_light"
-                data-lang="anonymous"
-                data-loading="lazy"
-                crossorigin="anonymous" async></script>
-    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2025/05/11/regular-local-ring/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "Blog Comments";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
 
-    
-    
-    
-    
-    
-    
-    
-    
+    container.appendChild(script);
+  })();
+</script>
+
 
 
 

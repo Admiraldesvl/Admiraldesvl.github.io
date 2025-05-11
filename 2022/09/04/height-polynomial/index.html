@@ -43,7 +43,7 @@
 <meta property="og:description" content="We study the height of polynomials and derive some important tools.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-09-04T14:39:20.000Z">
-<meta property="article:modified_time" content="2025-05-10T22:19:10.045Z">
+<meta property="article:modified_time" content="2025-05-11T12:08:36.541Z">
 <meta property="article:author" content="Desvl">
 <meta property="article:tag" content="Heights">
 <meta property="article:tag" content="Diophantus">
@@ -155,7 +155,7 @@
 
     <aside class="post-side">
         <div class="post-side__toc">
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Computing-Heights"><span class="toc-number">1.</span> <span class="toc-text">Computing Heights</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Height-and-Products"><span class="toc-number">2.</span> <span class="toc-text">Height and Products</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Original-Version-and-Lehmer%E2%80%99s-Conjecture"><span class="toc-number">3.</span> <span class="toc-text">Original Version and Lehmer’s Conjecture</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-General-Version-and-Jensen%E2%80%99s-Formula"><span class="toc-number">4.</span> <span class="toc-text">The General Version and Jensen’s Formula</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Heights"><span class="toc-number">1.</span> <span class="toc-text">Heights</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Computing-Heights"><span class="toc-number">1.1.</span> <span class="toc-text">Computing Heights</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Height-and-Products"><span class="toc-number">1.2.</span> <span class="toc-text">Height and Products</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Mahler-Measure"><span class="toc-number">2.</span> <span class="toc-text">Mahler Measure</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Original-Version-and-Lehmer%E2%80%99s-Conjecture"><span class="toc-number">2.1.</span> <span class="toc-text">Original Version and Lehmer’s Conjecture</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#The-General-Version-and-Jensen%E2%80%99s-Formula"><span class="toc-number">2.2.</span> <span class="toc-text">The General Version and Jensen’s Formula</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Northcott%E2%80%99s-Theorem"><span class="toc-number">3.</span> <span class="toc-text">Northcott’s Theorem</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#References-Further-Reading"><span class="toc-number">4.</span> <span class="toc-text">References &#x2F; Further Reading</span></a></li></ol>
         </div>
     </aside>
     <a class="btn-toc button" id="btn-toc" tabindex="0">
@@ -165,14 +165,14 @@
     </a>
     <div class="toc-menus" id="toc-menus">
         <div class="toc-title">Article Directory</div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Computing-Heights"><span class="toc-number">1.</span> <span class="toc-text">Computing Heights</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Height-and-Products"><span class="toc-number">2.</span> <span class="toc-text">Height and Products</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Original-Version-and-Lehmer%E2%80%99s-Conjecture"><span class="toc-number">3.</span> <span class="toc-text">Original Version and Lehmer’s Conjecture</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-General-Version-and-Jensen%E2%80%99s-Formula"><span class="toc-number">4.</span> <span class="toc-text">The General Version and Jensen’s Formula</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Heights"><span class="toc-number">1.</span> <span class="toc-text">Heights</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Computing-Heights"><span class="toc-number">1.1.</span> <span class="toc-text">Computing Heights</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Height-and-Products"><span class="toc-number">1.2.</span> <span class="toc-text">Height and Products</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Mahler-Measure"><span class="toc-number">2.</span> <span class="toc-text">Mahler Measure</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Original-Version-and-Lehmer%E2%80%99s-Conjecture"><span class="toc-number">2.1.</span> <span class="toc-text">Original Version and Lehmer’s Conjecture</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#The-General-Version-and-Jensen%E2%80%99s-Formula"><span class="toc-number">2.2.</span> <span class="toc-text">The General Version and Jensen’s Formula</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Northcott%E2%80%99s-Theorem"><span class="toc-number">3.</span> <span class="toc-text">Northcott’s Theorem</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#References-Further-Reading"><span class="toc-number">4.</span> <span class="toc-text">References &#x2F; Further Reading</span></a></li></ol>
     </div>
 
 
 <article class="post post__with-toc content-card">
     <div class="post__header"></div>
     <div class="post__content">
-        <h1 id="Heights"><a href="#Heights" class="headerlink" title="Heights"></a>Heights</h1><blockquote>
+        <h2 id="Heights"><a href="#Heights" class="headerlink" title="Heights"></a>Heights</h2><blockquote>
 <p><strong>Definition.</strong> For a polynomial with coefficients in a number field $K$</p>
 <script type="math/tex; mode=display">
 f(t_1,\dots,t_n)=\sum_{j_1,\dots,j_n}a_{j_1\dots j_n}t_1^{j_1}\dots t_n^{j_n}
@@ -184,7 +184,7 @@ h(f)=\sum_{v \in M_K}\log|f|_v</script><p>where</p>
 </blockquote>
 <p>Here, $M_K$ refers to the canonical set of non-equivalent places on $K$. See first four pages of <a target="_blank" rel="noopener" href="https://www.math.uh.edu/~minru/fields/dictionary.pdf">this document</a> for a reference.</p>
 <p>As one can expect, this can tell us about some complexity of a polynomial, just like how the height of an algebraic number tells us its complexity. Let us compute some examples.</p>
-<h2 id="Computing-Heights"><a href="#Computing-Heights" class="headerlink" title="Computing Heights"></a>Computing Heights</h2><p>Let us consider the simplest one </p>
+<h3 id="Computing-Heights"><a href="#Computing-Heights" class="headerlink" title="Computing Heights"></a>Computing Heights</h3><p>Let us consider the simplest one </p>
 <script type="math/tex; mode=display">
 f(x)=x^2-1 \in \mathbb{Q}[x]</script><p>first. Since $|x^2-1|_v=1$ for all places $v$, the height of $f$ is a sum of $0$, which is still $0$.</p>
 <p>Next, we take care of a polynomial that involves prime numbers</p>
@@ -197,7 +197,7 @@ h(g)=\log{2}+\log{4}+\log{3}=3\log{2}+\log{3}.</script><p>Put $u(x,y)=\sqrt{2}x^
 h(u) &= \log|u|_\infty + \log|u|_2 + \log|u|_3 + \log|u|_5+\log|u|_7 \\
      &= \log 7 + \log \sqrt\frac{1}{2}+\log\frac{1}{3}+\log\frac{1}{5}+\log\frac{1}{7} \\
      &= -\frac{1}{2}\log{2}-\log{3}-\log{5}.
-\end{aligned}</script><h2 id="Height-and-Products"><a href="#Height-and-Products" class="headerlink" title="Height and Products"></a>Height and Products</h2><p>If $f \in K[s_1,\dots,s_n]$ and $g \in K[t_1,\dots,t_m]$ are two polynomials in different variables, then as a polynomial in $K[s_1,\dots,s_n;t_1,\dots,t_m]$, $fg$ has height $h(f)+h(g)$. This is immediately realised once we notice that the height of a polynomial is equal to the height of the vector of coefficients in appropriate projective space. The identity $h(fg)=h(f)+h(g)$ follows from the Segre embedding.</p>
+\end{aligned}</script><h3 id="Height-and-Products"><a href="#Height-and-Products" class="headerlink" title="Height and Products"></a>Height and Products</h3><p>If $f \in K[s_1,\dots,s_n]$ and $g \in K[t_1,\dots,t_m]$ are two polynomials in different variables, then as a polynomial in $K[s_1,\dots,s_n;t_1,\dots,t_m]$, $fg$ has height $h(f)+h(g)$. This is immediately realised once we notice that the height of a polynomial is equal to the height of the vector of coefficients in appropriate projective space. The identity $h(fg)=h(f)+h(g)$ follows from the Segre embedding.</p>
 <p>But if variables coincide, things get different. For example, $h(x+1)=0$ but $h((x+1)^2)=2$. This is because we do not have $|fg|_\infty=|f|_\infty|g|_\infty$. Nevertheless, for non-Archimedean places, things are easier.</p>
 <blockquote>
 <p><strong>Gauss’s lemma.</strong> If $v$ is not Archimedean, then $|fg|_v=|f|_v|g|_v$.</p>
@@ -218,8 +218,8 @@ x_j=t^{d^{j-1}}</script><p>reduces our study into $K[t]$. This is because, with 
 </blockquote>
 <p>Combining Gelfond’s lemma and Gauss’s lemma, we obtain</p>
 <script type="math/tex; mode=display">
-\left|h(f)-\sum_{j=1}^{m}h(f_j) \right| \le d\log{2}.</script><h1 id="Mahler-Measure"><a href="#Mahler-Measure" class="headerlink" title="Mahler Measure"></a>Mahler Measure</h1><p>Is not actually given by Mahler initially. It was named after Mahler because he successfully extended it to multivariable cases in an elegant way. We will cover the original motivation anyway.</p>
-<h2 id="Original-Version-and-Lehmer’s-Conjecture"><a href="#Original-Version-and-Lehmer’s-Conjecture" class="headerlink" title="Original Version and Lehmer’s Conjecture"></a>Original Version and Lehmer’s Conjecture</h2><p>Say we want to find prime numbers large enough. Pierce came up with an idea. Consider $p(x) \in \mathbb{Z}[x]$, which is factored into</p>
+\left|h(f)-\sum_{j=1}^{m}h(f_j) \right| \le d\log{2}.</script><h2 id="Mahler-Measure"><a href="#Mahler-Measure" class="headerlink" title="Mahler Measure"></a>Mahler Measure</h2><p>Is not actually given by Mahler initially. It was named after Mahler because he successfully extended it to multivariable cases in an elegant way. We will cover the original motivation anyway.</p>
+<h3 id="Original-Version-and-Lehmer’s-Conjecture"><a href="#Original-Version-and-Lehmer’s-Conjecture" class="headerlink" title="Original Version and Lehmer’s Conjecture"></a>Original Version and Lehmer’s Conjecture</h3><p>Say we want to find prime numbers large enough. Pierce came up with an idea. Consider $p(x) \in \mathbb{Z}[x]$, which is factored into</p>
 <script type="math/tex; mode=display">
 p(x)=a\prod_i(x-\alpha_i).</script><p>Consider $\Delta_n=\prod_i(\alpha^n_i-1)$. Then by some Galois theory, this is indeed an integer. So perhaps we may find some interesting integers in the factors of $\Delta_n$. Also, we expect it to grow slowly. Lehmer studied $\frac{\Delta_{n+1}}{\Delta_n}$ and observed that</p>
 <script type="math/tex; mode=display">
@@ -250,7 +250,7 @@ M(p)=1.3247179\cdots=\text{ real root of $x^3-x-1$.}</script><ul>
 </ul>
 <script type="math/tex; mode=display">
 M(p)>1+c\left( \frac{\log\log d}{\log d} \right)^3</script><p>for some $c&gt;0$.</p>
-<h2 id="The-General-Version-and-Jensen’s-Formula"><a href="#The-General-Version-and-Jensen’s-Formula" class="headerlink" title="The General Version and Jensen’s Formula"></a>The General Version and Jensen’s Formula</h2><blockquote>
+<h3 id="The-General-Version-and-Jensen’s-Formula"><a href="#The-General-Version-and-Jensen’s-Formula" class="headerlink" title="The General Version and Jensen’s Formula"></a>The General Version and Jensen’s Formula</h3><blockquote>
 <p><strong>Definition.</strong> For $f \in \mathbb{C}[x_1,\dots,x_n]$, the <strong>Mahler measure</strong> is defined to be</p>
 <script type="math/tex; mode=display">
 M(f)=\exp\left(\int_{\mathbb{T}^n}\log|f(
@@ -354,7 +354,7 @@ h(\alpha)&=\frac{1}{[K:\mathbb{Q}]}\frac{[K:\mathbb{Q}]}{d}
 \end{aligned}</script><p>The second assertion follows immediately because</p>
 <script type="math/tex; mode=display">
 \log|N_{\mathbb{Q}(\alpha)/\mathbb{Q}}(\alpha)|=
-\sum_{v\mid \infty}\sum_{j=1}^{d}\log^+|\alpha|_j.</script><h1 id="Northcott’s-Theorem"><a href="#Northcott’s-Theorem" class="headerlink" title="Northcott’s Theorem"></a>Northcott’s Theorem</h1><p>The set of non-zero algebraic integers of height $0$ lies on the unit circle, and they are actually roots of unit, by Kronecker’s theorem. However keep in mind that algebraic integers on the unit circle are not necessarily roots of units. See this short <a target="_blank" rel="noopener" href="http://ramanujan.math.trinity.edu/rdaileda/research/papers/p1.pdf">paper</a>.</p>
+\sum_{v\mid \infty}\sum_{j=1}^{d}\log^+|\alpha|_j.</script><h2 id="Northcott’s-Theorem"><a href="#Northcott’s-Theorem" class="headerlink" title="Northcott’s Theorem"></a>Northcott’s Theorem</h2><p>The set of non-zero algebraic integers of height $0$ lies on the unit circle, and they are actually roots of unit, by Kronecker’s theorem. However keep in mind that algebraic integers on the unit circle are not necessarily roots of units. See this short <a target="_blank" rel="noopener" href="http://ramanujan.math.trinity.edu/rdaileda/research/papers/p1.pdf">paper</a>.</p>
 <p>When it comes to algebraic integers of small heights, things may get complicated, but Northcott’s theorem assures that we will be studying a finite set.</p>
 <blockquote>
 <p><strong>Northcott’s Theorem.</strong> Given an integer $N&gt;0$ and a real number $H \ge1$, there are only a finite number of algebraic integers $\alpha$ satisfying $\deg(\alpha) \le N$ and $h(\alpha) \le \log H$.</p>
@@ -372,7 +372,7 @@ h(\alpha)&=\frac{1}{[K:\mathbb{Q}]}\frac{[K:\mathbb{Q}]}{d}
 \{\alpha \in L:h(\alpha)<T\}</script><p>is finite. Such a set $L$ is said to satisfy <strong>Bogomolov property</strong> if, there exists $T&gt;0$ such that the set</p>
 <script type="math/tex; mode=display">
 \{\alpha \in L:0<h(\alpha)<T\}</script><p>is empty. As a matter of elementary topology, Northcott property implies Bogomolov property. It would be quite interesting if $L$ is a field. This <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2005.10609">paper</a> can be quite interesting.</p>
-<h1 id="References-Further-Reading"><a href="#References-Further-Reading" class="headerlink" title="References / Further Reading"></a>References / Further Reading</h1><ul>
+<h2 id="References-Further-Reading"><a href="#References-Further-Reading" class="headerlink" title="References / Further Reading"></a>References / Further Reading</h2><ul>
 <li><p>Erico Bombieri, Walter Gubler, <em>Heights in Diophantine Geometry</em>.</p>
 </li>
 <li><p>Michel Waldschmidt, <em>Diophantine Approximation on Linear Algebraic Groups, Transcendence Properties of the Exponential Function in Several Variables</em>.</p>
@@ -435,31 +435,35 @@ h(\alpha)&=\frac{1}{[K:\mathbb{Q}]}\frac{[K:\mathbb{Q}]}{d}
     
     
     
-    <div id="giscus_container">
-        <script src="https://giscus.app/client.js"
-                data-repo="Admiraldesvl/Admiraldesvl.github.io"
-                data-repo-id="MDEwOlJlcG9zaXRvcnkxNzIwNjk2NDA="
-                data-category="General"
-                data-category-id="DIC_kwDOCkGTCM4CqBS6"
-                data-mapping="title"
-                data-strict="0"
-                data-reactions-enabled="1"
-                data-emit-metadata="0"
-                data-input-position="bottom"
-                data-theme="noborder_light"
-                data-lang="anonymous"
-                data-loading="lazy"
-                crossorigin="anonymous" async></script>
-    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2022/09/04/height-polynomial/"></div>
+<script type="text/javascript">
+  var repo = "https://github.com/Admiraldesvl/Admiraldesvl.github.io/";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "Blog Comments";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
 
-    
-    
-    
-    
-    
-    
-    
-    
+    container.appendChild(script);
+  })();
+</script>
+
 
 
 
