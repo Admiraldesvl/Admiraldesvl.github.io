@@ -454,9 +454,9 @@
     
     <category term="Algebra" scheme="https://desvl.xyz/categories/Algebra/"/>
     
-    <category term="Galois Theory" scheme="https://desvl.xyz/categories/Algebra/Galois-Theory/"/>
-    
     <category term="Number Theory" scheme="https://desvl.xyz/categories/Number-Theory/"/>
+    
+    <category term="Galois Theory" scheme="https://desvl.xyz/categories/Algebra/Galois-Theory/"/>
     
     <category term="Algebraic Number Theory" scheme="https://desvl.xyz/categories/Number-Theory/Algebraic-Number-Theory/"/>
     

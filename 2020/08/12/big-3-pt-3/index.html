@@ -35,15 +35,15 @@
 
     <!-- OpenGraph -->
  
-    <meta name="description" content="What is open mappingAn open map is a function between two topological spaces that maps open sets to open sets. Precisely speaking, a function $f: X \to Y$ is open if for any open set $U \subset X$, $f">
+    <meta name="description" content="What is an open mappingAn open map is a function between two topological spaces that maps open sets to open sets. Precisely speaking, a function $f: X \to Y$ is open if for any open set $U \subset X$,">
 <meta property="og:type" content="article">
 <meta property="og:title" content="The Big Three Pt. 3 - The Open Mapping Theorem (Banach Space)">
 <meta property="og:url" content="https://desvl.xyz/2020/08/12/big-3-pt-3/index.html">
 <meta property="og:site_name" content="Desvl&#39;s blog">
-<meta property="og:description" content="What is open mappingAn open map is a function between two topological spaces that maps open sets to open sets. Precisely speaking, a function $f: X \to Y$ is open if for any open set $U \subset X$, $f">
+<meta property="og:description" content="What is an open mappingAn open map is a function between two topological spaces that maps open sets to open sets. Precisely speaking, a function $f: X \to Y$ is open if for any open set $U \subset X$,">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-08-12T20:01:50.000Z">
-<meta property="article:modified_time" content="2025-05-10T22:19:09.651Z">
+<meta property="article:modified_time" content="2025-05-11T19:59:31.165Z">
 <meta property="article:author" content="Desvl">
 <meta property="article:tag" content="The big three">
 <meta name="twitter:card" content="summary_large_image">
@@ -150,7 +150,7 @@
 
     <aside class="post-side">
         <div class="post-side__toc">
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#What-is-open-mapping"><span class="toc-number">1.</span> <span class="toc-text">What is open mapping</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Open-Mapping-Theorem"><span class="toc-number">2.</span> <span class="toc-text">Open Mapping Theorem</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Remarks"><span class="toc-number">2.1.</span> <span class="toc-text">Remarks</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-series"><span class="toc-number">3.</span> <span class="toc-text">The series</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#What-is-an-open-mapping"><span class="toc-number">1.</span> <span class="toc-text">What is an open mapping</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Open-Mapping-Theorem"><span class="toc-number">2.</span> <span class="toc-text">Open Mapping Theorem</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Remarks"><span class="toc-number">2.1.</span> <span class="toc-text">Remarks</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-series"><span class="toc-number">3.</span> <span class="toc-text">The series</span></a></li></ol>
         </div>
     </aside>
     <a class="btn-toc button" id="btn-toc" tabindex="0">
@@ -160,14 +160,14 @@
     </a>
     <div class="toc-menus" id="toc-menus">
         <div class="toc-title">Article Directory</div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#What-is-open-mapping"><span class="toc-number">1.</span> <span class="toc-text">What is open mapping</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Open-Mapping-Theorem"><span class="toc-number">2.</span> <span class="toc-text">Open Mapping Theorem</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Remarks"><span class="toc-number">2.1.</span> <span class="toc-text">Remarks</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-series"><span class="toc-number">3.</span> <span class="toc-text">The series</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#What-is-an-open-mapping"><span class="toc-number">1.</span> <span class="toc-text">What is an open mapping</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Open-Mapping-Theorem"><span class="toc-number">2.</span> <span class="toc-text">Open Mapping Theorem</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Remarks"><span class="toc-number">2.1.</span> <span class="toc-text">Remarks</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-series"><span class="toc-number">3.</span> <span class="toc-text">The series</span></a></li></ol>
     </div>
 
 
 <article class="post post__with-toc content-card">
     <div class="post__header"></div>
     <div class="post__content">
-        <h2 id="What-is-open-mapping"><a href="#What-is-open-mapping" class="headerlink" title="What is open mapping"></a>What is open mapping</h2><p>An open map is a function between two topological spaces that maps open sets to open sets. Precisely speaking, a function $f: X \to Y$ is open if for any open set $U \subset X$, $f(U)$ is open in $Y$. Likewise, a closed map is a function mapping closed sets to closed sets.</p>
+        <h2 id="What-is-an-open-mapping"><a href="#What-is-an-open-mapping" class="headerlink" title="What is an open mapping"></a>What is an open mapping</h2><p>An open map is a function between two topological spaces that maps open sets to open sets. Precisely speaking, a function $f: X \to Y$ is open if for any open set $U \subset X$, $f(U)$ is open in $Y$. Likewise, a closed map is a function mapping closed sets to closed sets.</p>
 <p>You may think open/closed map is an alternative name of continuous function. But it’s not. The definition of open/closed mapping is totally different from continuity. Here are some simple examples.</p>
 <ol>
 <li>$f(x)=\sin{x}$ defined on $\mathbb{R}$ is not open, though it’s continuous. It can be verified by considering $(0,2\pi)$, since we have $f((0,2\pi))=[-1,1]$.</li>
