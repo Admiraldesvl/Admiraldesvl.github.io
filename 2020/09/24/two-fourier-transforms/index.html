@@ -43,7 +43,7 @@
 <meta property="og:description" content="In this post we compute the Fourier transform of $\sin{x}&#x2F;x$ and $(\sin{x}&#x2F;x)^2$ through contour integration.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-09-24T19:46:57.000Z">
-<meta property="article:modified_time" content="2025-05-10T22:19:10.688Z">
+<meta property="article:modified_time" content="2025-05-16T23:48:36.950Z">
 <meta property="article:author" content="Desvl">
 <meta property="article:tag" content="Exercise solution">
 <meta property="article:tag" content="Fourier transform">
@@ -178,7 +178,7 @@
 <p>For real $t$, find the following limit:</p>
 <script type="math/tex; mode=display">
 \lim_{A \to \infty}\int_{-A}^{A}\frac{\sin{x}}{x}e^{itx}dx.</script></blockquote>
-<p>Since $\frac{\sin{x}}{x}e^{itx}\not\in L^1$, we cannot evaluate the integral over $\mathbb{R}$ in the ordinary sense (the reader can safely ignore this if he or she has no background in Lebesgue integration at this moment, but do keep in mind that being in $L^1$ is a big deal). However, for given $A&gt;0$, the integral over $[-A,A]$ is defined, and we evaluate this limit as $A \to \infty$ to get what we want (by abuse of language). The reader is highly encouraged to write down calculation and supply images that should’ve been here. </p>
+<p>Since $\frac{\sin{x}}{x}e^{itx}\not\in L^1$, we cannot evaluate the integral over $\mathbb{R}$ in the ordinary sense (the reader can safely ignore this if he or she has no background in Lebesgue integration at this moment, but do keep in mind that being in $L^1$ is a big deal). However, for given $A&gt;0$, the integral over $I_A(t)=\int_{-A}^{A}\frac{\sin x}{x}e^{itx}dx$ is defined, and we evaluate this limit as $A \to \infty$ to get the Fourier transform (by abuse of language). The reader is highly encouraged to write down calculation and supply images that should have been here. </p>
 <p>We will do this using contour integration. Since the complex function $f(z)=\frac{\sin{z}}{z}e^{itz}$ is <em>entire</em>, by <em>Cauchy’s theorem</em>, its integral over $[-A,A]$ is equal to the integration over the path $\Gamma_A$  which consists of three parts: $[-A,-1]$, lower half of the unit circle at the origin and $[1,A]$. </p>
 <p>Since the path $\Gamma_A$ avoids the origin, we are safe to use the identity</p>
 <script type="math/tex; mode=display">
@@ -289,7 +289,7 @@ J(t)=\lim_{A \to\infty}J_A(t)=\begin{cases}
 \end{aligned}</script>
     </div>
      
-    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-footer__meta"><p>updated at 2025-05-17</p></div> 
     <div class="post-entry__tags"><a href="../../../../tags/Exercise-solution/" class="post-tags__link button"># Exercise solution</a><a href="../../../../tags/Fourier-transform/" class="post-tags__link button"># Fourier transform</a><a href="../../../../tags/Hot-post/" class="post-tags__link button"># Hot post</a></div> 
 </article>
 

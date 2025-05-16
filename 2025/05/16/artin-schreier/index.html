@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>Artin-Schreier Extensions | Desvl&#39;s blog</title><meta name="robots" content="noindex">
+
+
+    <meta name="keywords" content="Exercise solution, Serge Lang">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="We are interested in a special category of field extensions. Let $K$ be a field of characteristic $p \ne 0$, we want to know the structure of an extension of $K$ of degree $p$. It turns out that there">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Artin-Schreier Extensions">
+<meta property="og:url" content="https://desvl.xyz/2025/05/16/artin-schreier/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="We are interested in a special category of field extensions. Let $K$ be a field of characteristic $p \ne 0$, we want to know the structure of an extension of $K$ of degree $p$. It turns out that there">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-05-16T14:55:17.000Z">
+<meta property="article:modified_time" content="2025-05-16T23:37:10.937Z">
+<meta property="article:author" content="Desvl">
+<meta property="article:tag" content="Exercise solution">
+<meta property="article:tag" content="Serge Lang">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="atom.xml" title="Desvl's blog" type="application/atom+xml">
+</head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../link-exchange/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="navbar-menu button">Useful Links</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../link-exchange/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a href="../../../../page/" class="dropdown-menu button">Useful Links</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        Artin-Schreier Extensions
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2025/05/" class="post-meta__date button">2025-05-16</a>
+        
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/" class="button">Algebra</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/Field-Theory/" class="button">Field Theory</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/Galois-Theory/" class="button">Galois Theory</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Recall"><span class="toc-number">1.</span> <span class="toc-text">Recall</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Artin-Schreier-extensions"><span class="toc-number">2.</span> <span class="toc-text">Artin-Schreier extensions</span></a></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Recall"><span class="toc-number">1.</span> <span class="toc-text">Recall</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Artin-Schreier-extensions"><span class="toc-number">2.</span> <span class="toc-text">Artin-Schreier extensions</span></a></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h2 id="Recall"><a href="#Recall" class="headerlink" title="Recall"></a>Recall</h2><p>Throughout, let $K$ be a field of characteristic $p$ and $E/K$ a field extension of order $p^{m-1}$ with $m &gt;1$. The algebraic closure $\overline K^\mathrm{a}$, the separable algebraic closure $\overline K^{\mathrm{s}}$ are always fixed.</p>
+<p>In <a href="/2021/10/10/Characters-in-Analysis-and-Algebra/">this post</a> (the reader is urged to make sure that he or she has understood the concept of characters and more importantly Hilbert’s theorem 90), we have shown that if $[E:K]=p$, then $E=K(x)$ where $x$ is the zero of a polynomial of the form $X^p-X-\alpha$ where $\alpha \in K$. In this belated post, we want to show that, <u>whenever it comes to an extension of order $p^{m-1}$, we are running into the a polynomial of the form $X^p-X-\alpha$.</u> The theory behind is called Artin-Schreier theory, which has its own (highly non-trivial) nature. </p>
+<h2 id="Artin-Schreier-extensions"><a href="#Artin-Schreier-extensions" class="headerlink" title="Artin-Schreier extensions"></a>Artin-Schreier extensions</h2><blockquote>
+<p><strong>Definition 1.</strong> An Artin-Schreier polynomial $A_\alpha(X) \in K[X]$ is of the form</p>
+<script type="math/tex; mode=display">
+A_\alpha(X)=X^p-X-\alpha,\;\alpha\in K.</script></blockquote>
+<p>An immediate property of Artin-Schreier polynomials that one should notice is the equation</p>
+<script type="math/tex; mode=display">
+A_\alpha(X+Y)=A_\alpha(X)+A_\alpha(Y)-A_\alpha(0).</script><p>To see this, one should notice that for $x,y \in K$ we have $(x+y)^p=x^p+y^p$.</p>
+<p>With this equation we can easily show that</p>
+<blockquote>
+<p><strong>Proposition 1.</strong> If $A_\alpha(X)$ has a root in $K$, then all roots of $A_\alpha(X)$ is in $K$. Otherwise, $A_\alpha(X)$ is irreducible over $K$. In this case, let $x$ be a root of $A_\alpha(X)$, then $K(x)/K$ is a cyclic extension of degree $p$.</p>
+</blockquote>
+<p><em>Proof.</em> We suppose that $x \in K$ is a root of $A_\alpha(X)$. Then </p>
+<script type="math/tex; mode=display">
+A_\alpha(x+1)=A_\alpha(x)+A_\alpha(1)-A_\alpha(0)=0-\alpha+\alpha=0.</script><p>Therefore, by induction, we see easily that $x, x+1, \cdots, x+p-1$ are roots of $A_\alpha(X)$, all of which are in $K$.</p>
+<p>Now we suppose that $A_\alpha(X)$ has no root in $K$. Let $x \in \overline K$ be a root of $A_\alpha(X)$. Then in $\overline K[X]$, the polynomial will be written in the form</p>
+<script type="math/tex; mode=display">
+A_\alpha(X)=\prod_{j=1}^{p}(X-x+j)</script><p>because, again due to the equation $A_\alpha(X+Y)=A_\alpha(X)+A_\alpha(Y)-A_\alpha(0)$, we can see that $x,x+1,\dots,x+p-1$ are roots of $A_\alpha$.</p>
+<p>By contradiction we suppose that $A_\alpha$ is reducible, say $A_\alpha(X)=f(X)g(X)$ where $1 \le d=\deg f &lt; p$ and $f,g \in K[X]$. It follows that </p>
+<script type="math/tex; mode=display">
+f(X)=\prod_{j=1}^{d}(X-x+n_j)</script><p>where $\{n_1,\dots,n_d\} \subset \{1,2,\cdots,p\}$. If we expand the polynomial above, we see</p>
+<script type="math/tex; mode=display">
+f(X)=X^d+\left(\sum_{j=1}^{d}n_j-dx\right)X^{d-1}+\text{lower terms} \in K[X]</script><p>Therefore $\left(\sum_{j=1}^{d}n_j-dx\right) \in K$ which is absurd because we then have $x \in K$. Therefore we see that $A_\alpha$ is irreducible.</p>
+<p>To see that $K(x)/K$ is Galois, we first notice that this extension is normal : $K(x)$ contains all roots of $A_\alpha(X)$. This extension is separable because all roots of $A_\alpha(X)$, namely $x,x+1,\dots,x+p-1$, are pairwise distinct, i.e. $A_\alpha(X)$ has no multiple roots.</p>
+<p>Finally, to see why the Galois group of $K(x)/K$ is cyclic, we notice the action of the Galois group $G$ over the roots of $A_\alpha(X)$. Since $A_\alpha(X)$ is irreducible, there exists $\sigma \in G$ such that $\sigma(x)=x+1$. We see easily that $\sigma^j(x)=x+j$ so $\sigma$ generates $G$ which has period $p$. $\square$</p>
+<p>The correspondence between extensions of degree $p$ and polynomials of the form $X^p-X-\alpha$ inspires us to consider them in a distinguished manner.</p>
+<blockquote>
+<p><strong>Definition 2.</strong> The field extension $E/K$ is called an Artin-Schreier extension if $E=K(x)$ for some $\alpha \in L \setminus K$ such that $x^p-x\in K$.</p>
+</blockquote>
+<p>Consider the map $\wp:\overline K^\mathrm{s} \to \overline K^\mathrm{s}$ defined by $u \mapsto u^p-u$. We certainly want to find the deep relation between Artin-Schreier extensions of a given field $K$ and the map $\wp$. One of the key information can be found through the following correspondence.</p>
+<blockquote>
+<p><strong>Proposition 2.</strong> There is a bijection between the Artin-Schreier extensions of $K$ and the orbits under the action of $\mathbf{F}_p^\times$ on $K/\wp(K)$.</p>
+</blockquote>
+<p><em>Proof.</em> Let $G$ be the Galois group of the extension of $\overline K^\mathrm{s}/K$ (which is, the projective limit of $\mathrm{Gal}(K’/K))$, with $K’$ running over all finite and separable extension of  $K$; see <a href="/2020/07/21/profinite-group/">this post</a> for the definition of projective limit). </p>
+<!-- flag of hidden posts -->
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-05-17</p></div> 
+    <div class="post-entry__tags"><a href="../../../../tags/Exercise-solution/" class="post-tags__link button"># Exercise solution</a><a href="../../../../tags/Serge-Lang/" class="post-tags__link button"># Serge Lang</a></div> 
+</article>
+
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2025/05/16/artin-schreier/"></div>
+<script type="text/javascript">
+  var repo = "Admiraldesvl/Admiraldesvl.github.io";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "Blog Comments";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>

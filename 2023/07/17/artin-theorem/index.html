@@ -43,7 +43,7 @@
 <meta property="og:description" content="We give a relatively more detailed proof of Artin&#39;s theorem in representation theory of finite groups as well as an example of dihedral group.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-07-17T19:39:59.000Z">
-<meta property="article:modified_time" content="2025-05-10T22:19:09.562Z">
+<meta property="article:modified_time" content="2025-05-16T23:53:35.204Z">
 <meta property="article:author" content="Desvl">
 <meta property="article:tag" content="Study new content">
 <meta property="article:tag" content="Jean-Pierre Serre">
@@ -174,11 +174,11 @@
     <div class="post__content">
         <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>When studying a linear space, when some subspaces are known, we are interested in the contribution of these subspaces, by studying their sum or (inner) direct sum if possible. This philosophy can be applied to many other fields.</p>
 <p>In the context of representation theory, say, we are given a finite group $G$, with a subgroup $H$, we want to know how a character of $H$ is related to a character of $G$, through induction if anything. Next we state the content of this post more formally.</p>
-<p>Let $G$ be a finite group with distinct irreducible characters $\chi_1,\dots,\chi_h$. A class function $f$ on $G$ is a character if and only if it is a linear combination of the $\chi_i$’s with non-negative integer coefficients. We denote the space of characters by $R^+(G)$. However, $R^+(G)$ lacks a satisfying algebraic structure, as one is not even allowed to freely do subtraction. For this reason, we extend the coefficients to all of integers, by defining</p>
+<p>Let $G$ be a finite group with distinct irreducible characters $\chi_1,\dots,\chi_h$. A class function $f$ on $G$ is a character if and only if it is a linear combination of the $\chi_i$’s with non-negative integer coefficients. We denote the space of characters by $R^+(G)$. However, $R^+(G)$ lacks a satisfying algebraic structure, for example, one is not even allowed to freely do subtraction. For this reason, we extend the coefficients to all of integers, by defining</p>
 <script type="math/tex; mode=display">
 R(G)=\mathbb{Z}\chi_1 \oplus \cdots \oplus \mathbb{Z}\chi_h.</script><p>An element of $R(G)$ is called a <em>virtual character</em> because when one coefficient of some $\chi_i$ is negative, it cannot be a character in the usual sense. Note that $R(G)$ is a finitely generated free abelian group, hence we are free to do subtraction in the normal sense.</p>
 <p>Besides, since the product of two characters are still a character, we see $R(G)$ is a ring (not necessarily commutative). To be precise, it is a subring of the ring $F_\mathbb{C}(G)$, the ring of class functions of $G$ over $\mathbb{C}$. Furthermore, we actually have $F_\mathbb{C}(G) \cong \mathbb{C} \otimes R(G)$.</p>
-<p>Let $H$ be a subgroup of $G$. Then the operation of restriction and induction defines homomorphisms $\mathrm{Res}:R(G) \to R(H)$ and $\mathrm{Ind}:R(H) \to R(G)$. By extending Frobenius reciprocity linearly, still we find that $\mathrm{Res}$ and $\mathrm{Ind}$ are adjoints of each other. We also notice that the image of $\mathrm{Ind}:R(H) \to R(G)$ is a right ideal of $R(G)$. This is because, for any $\varphi \in R(H)$ and $\psi \in R(G)$, one has</p>
+<p>Let $H$ be a subgroup of $G$. Then the operation of restriction and induction defines homomorphisms $\mathrm{Res}:R(G) \to R(H)$ and $\mathrm{Ind}:R(H) \to R(G)$. By extending the Frobenius reciprocity linearly, still we find that $\mathrm{Res}$ and $\mathrm{Ind}$ are adjoints of each other. We also notice that the image of $\mathrm{Ind}:R(H) \to R(G)$ is a right ideal of $R(G)$. This is because, for any $\varphi \in R(H)$ and $\psi \in R(G)$, one has</p>
 <script type="math/tex; mode=display">
 \mathrm{Ind}(\varphi)\cdot \psi = \mathrm{Ind}(\psi \cdot \mathrm{Res}(\psi)) \in \operatorname{Im}(\mathrm{Ind}).</script><p>But being an ideal should not be the end of our story. We want to know what happens if we consider more than one subgroups. For example, since every group is the union of all of its cyclic groups, what if we consider all cyclic subgroups of $G$? We are also interested in how all these ideals work together. This is where Artin’s theorem comes in.</p>
 <h1 id="Artin’s-Theorem-Statement-and-a-Concrete-Example"><a href="#Artin’s-Theorem-Statement-and-a-Concrete-Example" class="headerlink" title="Artin’s Theorem - Statement and a Concrete Example"></a>Artin’s Theorem - Statement and a Concrete Example</h1><blockquote>
@@ -273,7 +273,7 @@ U=\begin{pmatrix}
 
     </div>
      
-    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-footer__meta"><p>updated at 2025-05-17</p></div> 
     <div class="post-entry__tags"><a href="../../../../tags/Study-new-content/" class="post-tags__link button"># Study new content</a><a href="../../../../tags/Jean-Pierre-Serre/" class="post-tags__link button"># Jean-Pierre Serre</a></div> 
 </article>
 
