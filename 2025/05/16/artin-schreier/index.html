@@ -25,7 +25,7 @@
     <!-- meta -->
 
 
-<title>Artin-Schreier Extensions | Desvl&#39;s blog</title><meta name="robots" content="noindex">
+<title>Artin-Schreier Extensions | Desvl&#39;s blog</title>
 
 
     <meta name="keywords" content="Exercise solution, Serge Lang">
@@ -43,7 +43,7 @@
 <meta property="og:description" content="We are interested in a special category of field extensions. Let $K$ be a field of characteristic $p \ne 0$, we want to know the structure of an extension of $K$ of degree $p$. It turns out that there">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-05-16T14:55:17.000Z">
-<meta property="article:modified_time" content="2025-05-16T23:37:10.937Z">
+<meta property="article:modified_time" content="2025-05-18T13:22:24.996Z">
 <meta property="article:author" content="Desvl">
 <meta property="article:tag" content="Exercise solution">
 <meta property="article:tag" content="Serge Lang">
@@ -153,7 +153,7 @@
 
     <aside class="post-side">
         <div class="post-side__toc">
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Recall"><span class="toc-number">1.</span> <span class="toc-text">Recall</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Artin-Schreier-extensions"><span class="toc-number">2.</span> <span class="toc-text">Artin-Schreier extensions</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Recall"><span class="toc-number">1.</span> <span class="toc-text">Recall</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Artin-Schreier-extensions"><span class="toc-number">2.</span> <span class="toc-text">Artin-Schreier extensions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%9CArtin-Schreier-of-higher-order%E2%80%9D"><span class="toc-number">3.</span> <span class="toc-text">“Artin-Schreier of higher order”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#References"><span class="toc-number">4.</span> <span class="toc-text">References</span></a></li></ol>
         </div>
     </aside>
     <a class="btn-toc button" id="btn-toc" tabindex="0">
@@ -163,14 +163,15 @@
     </a>
     <div class="toc-menus" id="toc-menus">
         <div class="toc-title">Article Directory</div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Recall"><span class="toc-number">1.</span> <span class="toc-text">Recall</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Artin-Schreier-extensions"><span class="toc-number">2.</span> <span class="toc-text">Artin-Schreier extensions</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Recall"><span class="toc-number">1.</span> <span class="toc-text">Recall</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Artin-Schreier-extensions"><span class="toc-number">2.</span> <span class="toc-text">Artin-Schreier extensions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%9CArtin-Schreier-of-higher-order%E2%80%9D"><span class="toc-number">3.</span> <span class="toc-text">“Artin-Schreier of higher order”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#References"><span class="toc-number">4.</span> <span class="toc-text">References</span></a></li></ol>
     </div>
 
 
 <article class="post post__with-toc content-card">
     <div class="post__header"></div>
     <div class="post__content">
-        <h2 id="Recall"><a href="#Recall" class="headerlink" title="Recall"></a>Recall</h2><p>Throughout, let $K$ be a field of characteristic $p$ and $E/K$ a field extension of order $p^{m-1}$ with $m &gt;1$. The algebraic closure $\overline K^\mathrm{a}$, the separable algebraic closure $\overline K^{\mathrm{s}}$ are always fixed.</p>
+        <h2 id="Recall"><a href="#Recall" class="headerlink" title="Recall"></a>Recall</h2><p>Throughout, let $K$ be a field of characteristic $p\ne 0$ and $E/K$ a cyclic extension of order $p^{m-1}$ with $m &gt;1$. The algebraic closure $\overline K^\mathrm{a}$, the separable algebraic closure $\overline K^{\mathrm{s}}$ are always fixed. We use $\mathbf{F}_p$ to denote the finite field of $p$ elements. </p>
+<p>For proposition 2 in the post, let $G$ be the Galois group of the extension of $\overline K^\mathrm{s}/K$ (which is, the projective limit of $\mathrm{Gal}(K’/K))$, with $K’$ running over all finite and separable extension of  $K$; see <a href="/2020/07/21/profinite-group/">this post</a> for the definition of projective limit). The reader is expected to know how to induce a long exact sequence from a short exact sequence, for example from <a href="/2020/09/27/diagram-chasing/">this post</a>.</p>
 <p>In <a href="/2021/10/10/Characters-in-Analysis-and-Algebra/">this post</a> (the reader is urged to make sure that he or she has understood the concept of characters and more importantly Hilbert’s theorem 90), we have shown that if $[E:K]=p$, then $E=K(x)$ where $x$ is the zero of a polynomial of the form $X^p-X-\alpha$ where $\alpha \in K$. In this belated post, we want to show that, <u>whenever it comes to an extension of order $p^{m-1}$, we are running into the a polynomial of the form $X^p-X-\alpha$.</u> The theory behind is called Artin-Schreier theory, which has its own (highly non-trivial) nature. </p>
 <h2 id="Artin-Schreier-extensions"><a href="#Artin-Schreier-extensions" class="headerlink" title="Artin-Schreier extensions"></a>Artin-Schreier extensions</h2><blockquote>
 <p><strong>Definition 1.</strong> An Artin-Schreier polynomial $A_\alpha(X) \in K[X]$ is of the form</p>
@@ -202,16 +203,88 @@ f(X)=X^d+\left(\sum_{j=1}^{d}n_j-dx\right)X^{d-1}+\text{lower terms} \in K[X]</s
 </blockquote>
 <p>Consider the map $\wp:\overline K^\mathrm{s} \to \overline K^\mathrm{s}$ defined by $u \mapsto u^p-u$. We certainly want to find the deep relation between Artin-Schreier extensions of a given field $K$ and the map $\wp$. One of the key information can be found through the following correspondence.</p>
 <blockquote>
-<p><strong>Proposition 2.</strong> There is a bijection between the Artin-Schreier extensions of $K$ and the orbits under the action of $\mathbf{F}_p^\times$ on $K/\wp(K)$.</p>
+<p><strong>Proposition 2.</strong> There is an isomorphism $\operatorname{Hom}(G,\mathbf{F}_p) \cong K/\wp(K)$.</p>
 </blockquote>
-<p><em>Proof.</em> Let $G$ be the Galois group of the extension of $\overline K^\mathrm{s}/K$ (which is, the projective limit of $\mathrm{Gal}(K’/K))$, with $K’$ running over all finite and separable extension of  $K$; see <a href="/2020/07/21/profinite-group/">this post</a> for the definition of projective limit). </p>
-<!-- flag of hidden posts -->
+<p><em>Proof.</em> We first notice that $\wp$ is a $G$-homomorphism, that is, it commutes with the action of $G$ on $\overline K^\mathrm{s}$. Indeed, for any $x \in \overline K^\mathrm{s}$ and $g \in G$, we have</p>
+<script type="math/tex; mode=display">
+\wp(gx)=(gx)^p-gx=g(x^p)-gx=g(x^p-x)=g\wp(x).</script><p>On the other hand, $\wp$ is surjective. Indeed, for any $a \in \overline{K}^\mathrm{s}$, the equation $X^p-X=a$ always has a solution in $\overline K^\mathrm{s}$ because the polynomial $X^p-X-a$ is separable.</p>
+<p>We can also see that the kernel of $\wp$ is $\mathbf{F}_p$. This is because the splitting field of $X^p-X$ is the field of $p^1$ elements, which has to be $\mathbf{F}_p$ itself. Therefore we have obtained a short exact sequence</p>
+<script type="math/tex; mode=display">
+0 \to \mathbf{F}_p\xrightarrow{\iota}\overline K^\mathrm{s} \xrightarrow{\wp}\overline K^\mathrm{s} \to 0</script><p>where $\iota$ is the embedding. Taking the long exact sequence of cohomology, noticing that, by Hilbert’s Theorem 90, $H^1(G,\overline{K}^\mathrm{s})=0$, we have another exact sequence</p>
+<script type="math/tex; mode=display">
+K \to K \to \operatorname{Hom}(G,\mathbf{F}_q)\to 0</script><p>where the first arrow is induced by $\wp$ and the second by $\iota$. Therefore we have $\operatorname{Hom}(G,\mathbf{F}_p) \cong K/\wp(K)$. One can explicitly show that there is a surjective map $K \to \operatorname{Hom}(G,\mathbf{F}_q)$ with kernel $\wp(K)$ that defines the isomorphism. For $c \in K$, one solves $x^p-x=c$, then $\varphi_c:g\mapsto g(x)-x$ is the desired map. The key ingredient of the verification involves the (infinite) Galois correspondence, but otherwise the verification is very tedious. We remark that for any $\varphi \in \operatorname{Hom}(G,\mathbf{F}_p)\setminus\{0\}$ and put $H=\ker\varphi$. Then $K^H/K$ is an Artin-Schreier extension with Galois group $G/H$ and on the other hand $H=\mathrm{Gal}(\overline K^\mathrm{s}/K^H)$. $\square$</p>
+<h2 id="“Artin-Schreier-of-higher-order”"><a href="#“Artin-Schreier-of-higher-order”" class="headerlink" title="“Artin-Schreier of higher order”"></a>“Artin-Schreier of higher order”</h2><p>We conclude this post by showing that, under a certain condition, one can find an Artin-Schreier extension $L/E$ such that $L/K$ is cyclic of order $p^m$.</p>
+<blockquote>
+<p><strong>Lemma 1.</strong> Let $\beta \in E$ be an element such that $\operatorname{Tr}_K^E(\beta)=1$, then there exists $\alpha \in K$ such that $\sigma(\alpha)-\alpha = \beta^p-\beta$, where $\sigma$ is the generator of $\operatorname{Gal}(E/K)$.</p>
+</blockquote>
+<p><em>Proof.</em> Notice that $\operatorname{Tr}_K^E(\beta^p)=\operatorname{Tr}_K^E(\beta)^p=1$, which implies that $\operatorname{Tr}_K^E(\beta^p-\beta)=0$. By Hilbert’s theorem 90, such $\alpha$ exists. $\square$</p>
+<blockquote>
+<p><strong>Lemma 2.</strong> The polynomial $f(X)=X^p-X-\alpha$ is irreducible over $E$; that is, let $\theta$ be a root of $f$, then $E(\theta)$ is an Artin-Schreier extension of $E$.</p>
+</blockquote>
+<p><em>Proof.</em> By contradiction, we suppose that $\theta \in E$. By Artin-Schreier, all roots of $f$ lie in $E$. In particular, $\sigma(\theta)$ is a root of $f$. Therefore</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\sigma\alpha-\alpha&=\sigma(\theta^p-\theta)-(\theta^p-\theta) \\
+                   &=(\sigma\theta-\theta)^p-(\sigma\theta-\theta) \\
+                   &=\beta^p-\beta
+\end{aligned}</script><p>which implies that</p>
+<script type="math/tex; mode=display">
+(\sigma\theta-\theta-\beta)^p=\sigma\theta-\theta-\beta.</script><p>It follows that $\sigma\theta-\theta-\beta$ is a root of $g(X)=X^p-X$. This implies that $\sigma\theta-\theta-\beta\in\mathbf{F}_p \subset K$ and therefore</p>
+<script type="math/tex; mode=display">
+\operatorname{Tr}_K^E(\sigma\theta-\theta-\beta)=0.</script><p>However, by assumption and Artin-Schreier, $\sigma\theta-\theta \in \mathbf{F}_p \subset K$ we therefore have $\operatorname{Tr}_K^E(\sigma\theta-\theta)=0$ and finally</p>
+<script type="math/tex; mode=display">
+0=\operatorname{Tr}_K^E(\sigma\theta-\theta-\beta)=\operatorname{Tr}_K^E(\sigma\theta-\theta)-\operatorname{Tr}_K^E(\beta)=-1</script><p>which is absurd. $\square$</p>
+<blockquote>
+<p><strong>Proposition 3.</strong> The field extension $K(\theta)/K$ is Galois, cyclic of degree $p^m$ of $f$, whose Galois group is generated by an extension $\sigma^\ast$ of $\sigma$ such that</p>
+<script type="math/tex; mode=display">
+\sigma^\ast(\theta)=\theta+\beta</script></blockquote>
+<p><em>Proof.</em> First of all we show that $K(\theta)=E(\theta)$. Indeed, since $K \subset E$, we have $K(\theta) \subset E(\theta)$. However, since $\theta \not \in E$, we must have $K \subset E \subsetneq K(\theta)$. Therefore $p=[E(\theta):K(\theta)][K(\theta):E]$, which forces $E(\theta)$ to be exactly $K(\theta)$. </p>
+<p>Let $h(X)$ be the minimal polynomial of $\theta$ over $K$ of degree $p^m$. Then we give an explicit expression of $h$. Notice that since $f(X)$ is the polynomial of $\theta$ over $E$ of degree $p$, we must have $f(X)|h(X)$. For any $k$, we see that $f^{\sigma^k}(X)|g^{\sigma^k}(X)$ too. However, since $\sigma$ fixes $K$, we must have $g^{\sigma^k}(X)=g(X)$, from which it follows that $f^{\sigma^k}(X)|g(X)$ for all $0 \le k \le p^{m-1}-1$. Since the degree of each $f^{\sigma^k}(X)$ is $p$, we obtain</p>
+<script type="math/tex; mode=display">
+h(X)=\prod_{k=0}^{p^{m-1}-1}f^{\sigma^k}(X)=\prod_{k=0}^{p^{m-1}-1}(X^p-X-\sigma^k\alpha).</script><p>Knowing that $\theta$ is a root of $g$, we see that $\theta+\beta$ is a root of $g(X)$ too because</p>
+<script type="math/tex; mode=display">
+f^\sigma(\theta+\beta)=(\theta+\beta)^p-(\theta+\beta)-\sigma\alpha=(\theta^p-\theta)+(\beta^p-\beta)-\sigma\alpha=\alpha+\underbrace{\sigma\alpha-\alpha}_{\text {Lemma 1}}-\sigma\alpha=0</script><p>and by induction we see that for $0 \le k \le p^{m-1}-1$, $f^{\sigma^k}(X)$ has a root in the form</p>
+<script type="math/tex; mode=display">
+\sigma+\beta+\cdots+\sigma^{k-1}\beta.</script><p>By Artin-Schreier, all roots of $f^{\sigma^k}(X)$ lie in $E(\theta)$ and therefore $h(X)$ splits in $E(\theta)$. Since $E(\theta)/E$ is separable, $E/K$ is separable, we see also $E(\theta)/K$ is separable, which means that $E(\theta)=K(\theta)$ is Galois over $K$. </p>
+<p>To see why $K(\theta)/K$ is cyclic, we consider an homomorphism $\sigma^\ast$ of $K(\theta)$ such that $\sigma^{\ast}|_E=\sigma$ and that $\sigma^\ast(\theta)=\theta+\beta$. It follows that $\sigma^\ast \in \operatorname{Gal}(K(\theta)/K)$ because its restriction on $K$, which is the restriction of $\sigma$ on $K$, is the identity. We see then for all $0 \le n \le p^{m}$, one has </p>
+<script type="math/tex; mode=display">
+(\sigma^\ast)^n(\theta)=\theta+\beta+\cdots+\sigma^{n-1}\beta.</script><p>In particular,</p>
+<script type="math/tex; mode=display">
+(\sigma^\ast)^{p^{m-1}}=\theta+\operatorname{Tr}_K^E(\beta)=\theta+1,</script><p>from which it follows that $(\sigma^\ast)^{p^{m-1}}$ has order $p$, which implies that $\sigma^\ast$ has order $p^m$, thus the Galois group is generated by $\sigma^\ast$. $\square$</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li>Jean-Pierre Serre, Local Fields (chapter X) (<a target="_blank" rel="noopener" href="https://link.springer.com/book/10.1007/978-1-4757-5673-9">link</a>).</li>
+<li>Serge Lang, Algebra, chapter VI (<a target="_blank" rel="noopener" href="https://link.springer.com/book/10.1007/978-1-4613-0041-0">link</a>)</li>
+</ul>
+
     </div>
      
-    <div class="post-footer__meta"><p>updated at 2025-05-17</p></div> 
+    <div class="post-footer__meta"><p>updated at 2025-05-18</p></div> 
     <div class="post-entry__tags"><a href="../../../../tags/Exercise-solution/" class="post-tags__link button"># Exercise solution</a><a href="../../../../tags/Serge-Lang/" class="post-tags__link button"># Serge Lang</a></div> 
 </article>
 
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../11/regular-local-ring/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            Equivalent Conditions of Regular Local Rings of Dimension 1
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
 
 
 
