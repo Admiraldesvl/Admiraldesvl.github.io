@@ -43,7 +43,7 @@
 <meta property="og:description" content="In this post we deliver the basic computation of the quadratic reciprocity law and see its importance in algebraic number theory.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-03-20T11:12:03.000Z">
-<meta property="article:modified_time" content="2025-05-10T22:19:10.356Z">
+<meta property="article:modified_time" content="2025-05-23T21:05:00.587Z">
 <meta property="article:author" content="Desvl">
 <meta property="article:tag" content="Serre">
 <meta name="twitter:card" content="summary_large_image">
@@ -237,16 +237,16 @@ p&=8k \pm 5 \implies p^2=64k^2\pm 80k +25 \implies p^2-1 = 8 \cdot (8k^2\pm10k+3
 <li>$-1$ is a square root in $\mathbf{F}_p$ if and only if $\frac{p-1}{2}$ is even, i.e., $p \equiv 1 \pmod{4}$.</li>
 <li>$2$ is a square root in $\mathbf{F}_p$ if and only if $\frac{p^2-1}{8}$ is even, i.e. $p \equiv \pm 1 \pmod{8}$.</li>
 </ul>
-<h2 id="Gauss’s-Quadratic-Reciprocity-Law"><a href="#Gauss’s-Quadratic-Reciprocity-Law" class="headerlink" title="Gauss’s Quadratic Reciprocity Law"></a>Gauss’s Quadratic Reciprocity Law</h2><p>Nevertheless, you do not want to compute $\left(\frac{37}{53}\right)$ by hand in the basic way as above. However, granted the following law, things is much easier.</p>
+<h2 id="Gauss’s-Quadratic-Reciprocity-Law"><a href="#Gauss’s-Quadratic-Reciprocity-Law" class="headerlink" title="Gauss’s Quadratic Reciprocity Law"></a>Gauss’s Quadratic Reciprocity Law</h2><p>The Legendre symbol says a lot of things, but you do not want to compute, for example $\left(\frac{37}{53}\right)$ by hand in the basic way as above. However, granted the following law, things are much easier.</p>
 <blockquote>
 <p><strong>Proposition 3 (Gauss’s Quadratic Reciprocity Law).</strong> For two distinct odd prime numbers $p$ and $\ell$, the following identity holds:</p>
 <script type="math/tex; mode=display">
 \left(\frac{\ell}{p}\right)\left(\frac{p}{\ell}\right)=(-1)^{\varepsilon(p)\varepsilon(\ell)}.</script><p>Alternatively,</p>
 <script type="math/tex; mode=display">
 \left(\frac{\ell}{p}\right)=\left(\frac{p}{\ell}\right)(-1)^{\varepsilon(\ell)\varepsilon(p)}.</script></blockquote>
-<p>Instead of computing $37^{(53-1)/2}$ modulo $53$, we obtain $\left(\frac{37}{53}\right)$ in a much easier way</p>
+<p>Instead of computing $37^{(53-1)/2}$ modulo $53$, we obtain the value of $\left(\frac{37}{53}\right)$ in a much easier way:</p>
 <script type="math/tex; mode=display">
-\left(\frac{37}{53}\right)=\left(\frac{53}{37}\right)=\left(\frac{16}{37}\right)=\left(\frac{2}{37}\right)^4=1.</script><p>In other words, there exist solutions of the equation $x^2+53y=37$. </p>
+\left(\frac{37}{53}\right)=\left(\frac{53}{37}\right)=\left(\frac{16}{37}\right)=\left(\frac{2}{37}\right)^4=1.</script><p>In other words, there exist a solution of the equation $x^2+53y=37$. </p>
 <p>The proof is carried out by Gauss sum. The proof looks contrived, but one can see a lot of important tricks. We will use corollary 1.1 frequently.</p>
 <p><em>Proof.</em> Again, let $\Omega$ be an algebraic closure of $\mathbf{F}_p$, and let $\omega \in \Omega$ be a primitive $\ell$-th root of unity. If $x \in \mathbf{F}_\ell$, then $\omega^x$ is well-defined. Thus it is legitimate to write the “Gauss sum”:</p>
 <script type="math/tex; mode=display">
@@ -309,7 +309,7 @@ x^2-a \equiv (x-\alpha)(x+\alpha)\pmod p.</script><p>This equation is interestin
 
     </div>
      
-    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-footer__meta"><p>updated at 2025-05-23</p></div> 
     <div class="post-entry__tags"><a href="../../../../tags/Serre/" class="post-tags__link button"># Serre</a></div> 
 </article>
 
