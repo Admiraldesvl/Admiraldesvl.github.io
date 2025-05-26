@@ -44,7 +44,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://desvl.xyz/img/closed-graph.png">
 <meta property="article:published_time" content="2020-11-13T21:45:17.000Z">
-<meta property="article:modified_time" content="2025-05-10T22:19:09.688Z">
+<meta property="article:modified_time" content="2025-05-26T22:16:28.449Z">
 <meta property="article:author" content="Desvl">
 <meta property="article:tag" content="The big three">
 <meta name="twitter:card" content="summary_large_image">
@@ -233,17 +233,17 @@ d((x_1,y_1),(x_2,y_2))=d_X(x_1,x_2)+d_Y(y_1,y_2).</script><p>Then it can be veri
 <p>Since $f$ is linear, the graph $G(f)$ is a subspace of $X \times Y$. Next we quote an elementary result in point-set topology, <a target="_blank" rel="noopener" href="https://proofwiki.org/wiki/Subspace_of_Complete_Metric_Space_is_Closed_iff_Complete">a subset of a complete metric space is closed if and only if it’s complete</a>, by the translate-invariance of $d$, we see $G(f)$ is an $F$-space as well. Let $p_1: X \times Y \to X$ and $p_2: X \times Y \to Y$ be the natural projections respectively (for example, $p_1(x,y)=x$). Our proof is done by verifying the properties of $p_1$ and $p_2$ on $G(f)$.</p>
 <p><em>For simplicity one can simply define $p_1$ on $G(f)$ instead of the whole space $X \times Y$, but we make it a global projection on purpose to emphasize the difference between global properties and local properties. One can also write $p_1|_{G(f)}$ to dodge confusion.</em></p>
 <hr>
-<p><strong>Claim 1.</strong> $p_1$ (with restriction on $G(f)$) defines an isomorphism between $G(f)$ and $X$. </p>
+<p><strong>Claim 1.</strong> The projection $p_1$ (with restriction on $G(f)$) defines an isomorphism between the image of $p_1$ on $G(f)$ and $X$. </p>
 <p>For $x \in X$, we see $p_1(x,f(x)) = x$ (surjectivity). If $p_1(x,f(x))=0$, we see $x=0$ and therefore $(x,f(x))=(0,0)$, hence the restriction of $p_1$ on $G$ has trivial kernel (injectivity). Further, it’s trivial that $p_1$ is linear.</p>
 <p><strong>Claim 2.</strong> $p_1$ is continuous on $G(f)$.</p>
 <p>For every sequence $(x_n)$ such that $\lim_{n \to \infty}x_n=x$, we have $\lim_{n \to \infty}f(x_n)=f(x)$ since $G(f)$ is closed,  and therefore $\lim_{n \to \infty}p_1(x_n,f(x_n)) =x$. Meanwhile $p_1(x,f(x))=x$. The continuity of $p_1$ is proved.</p>
 <p><strong>Claim 3.</strong> $p_1$ is a homeomorphism with restriction on $G(f)$.</p>
-<p>We already know that $G(f)$ is an $F$-space, so is $X$. For $p_1$ we have $p_1(G(f))=X$ is of the second category (since it’s an $F$-space and $p_1$ is one-to-one), and $p_1$ is continuous and linear on $G(f)$. By the open mapping theorem, $p_1$ is an open mapping on $G(f)$, hence is a homeomorphism thereafter.</p>
+<p>We already know that $G(f)$ is an $F$-space, so is $X$. For $p_1$ we have $p_1(G(f))=X$ is of the second category (since it’s an $F$-space and $p_1$ is one-to-one), and $p_1$ is continuous and linear on $G(f)$. By the open mapping theorem, $p_1$ is an open mapping on $G(f)$, hence is a homeomorphism.</p>
 <p><strong>Claim 4.</strong> $p_2$ is continuous.</p>
 <p>This follows the same way as the proof of claim 2 but much easier since there is no need to care about $f$.</p>
 <hr>
 <p>Now things are immediate once one realises that $f=p_2 \circ p_1|_{G(f)}^{-1}$, which implies that $f$ is continuous. $\square$</p>
-<h2 id="Applications"><a href="#Applications" class="headerlink" title="Applications"></a>Applications</h2><p>Before we go for theorem 1 at the beginning, we drop an application on Hilbert spaces.</p>
+<h2 id="Applications"><a href="#Applications" class="headerlink" title="Applications"></a>Applications</h2><p>Before we go for theorem 1 at the beginning, we mention an application on Hilbert spaces.</p>
 <blockquote>
 <p>Let $T$ be a bounded operator on the Hilbert space $L_2([0,1])$ so that if $\phi \in L_2([0,1])$ is a continuous function so is $T\phi$. Then the restriction of $T$ to $C([0,1])$ is a bounded operator of $C([0,1])$.</p>
 </blockquote>
@@ -258,7 +258,7 @@ f:(X,\lVert\cdot\rVert_1) &\to (X,\lVert\cdot\rVert_2) \\
 <script type="math/tex; mode=display">
 \lim_{n \to \infty}\lVert x_n -x \rVert_1=0,</script><p>we have</p>
 <script type="math/tex; mode=display">
-\lim_{n \to \infty} \lVert f(x_n)-x \rVert_2=\lim_{n \to \infty}\lVert x_n -x\rVert_2=\lim_{n \to \infty}\lVert f(x_n)-f(x)\rVert_2=0.</script><p>Hence $G(f)$ is closed. Therefore $f$ is continuous, hence bounded, we have some $K$ such that</p>
+\lim_{n \to \infty} \lVert f(x_n)-x \rVert_2=\lim_{n \to \infty}\lVert x_n -x\rVert_2=\lim_{n \to \infty}\lVert f(x_n)-f(x)\rVert_2=0.</script><p>Hence $G(f)$ is closed. Therefore according to the closed graph theorem, $f$ is continuous, hence bounded, we have some $K$ such that</p>
 <script type="math/tex; mode=display">
 \lVert x \rVert_2 =\lVert f(x) \rVert_1 \leq K \lVert x \rVert_1.</script><p>By defining</p>
 <script type="math/tex; mode=display">
@@ -285,7 +285,7 @@ g:(X,\lVert\cdot\rVert_2) &\to (X,\lVert\cdot\rVert_1) \\
 
     </div>
      
-    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-footer__meta"><p>updated at 2025-05-27</p></div> 
     <div class="post-entry__tags"><a href="../../../../tags/The-big-three/" class="post-tags__link button"># The big three</a></div> 
 </article>
 

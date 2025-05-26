@@ -43,7 +43,7 @@
 <meta property="og:description" content="What is an open mappingAn open map is a function between two topological spaces that maps open sets to open sets. Precisely speaking, a function $f: X \to Y$ is open if for any open set $U \subset X$,">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-08-12T20:01:50.000Z">
-<meta property="article:modified_time" content="2025-05-11T19:59:31.165Z">
+<meta property="article:modified_time" content="2025-05-26T21:05:12.019Z">
 <meta property="article:author" content="Desvl">
 <meta property="article:tag" content="The big three">
 <meta name="twitter:card" content="summary_large_image">
@@ -182,7 +182,7 @@
 <script type="math/tex; mode=display">
 B_r^X=\{x \in X:\lVert x \rVert<r\}\quad\text{and}\quad B_r^Y=\{y \in Y:\lVert y \rVert<r\}</script><p>All we need to do is show that there exists some $r&gt;0$ such that</p>
 <script type="math/tex; mode=display">
-B_r^Y \subset T(B_1^X)</script><p>Since every open set in $X$ or $Y$ can be expressed as a union of open balls. For a ball in $X$ centered at $x \in X$ with radius $r$, we can express it as $x+B_r^X$. After that, it becomes obvious that $T$ maps open set to open set.</p>
+B_r^Y \subset T(B_1^X)</script><p>Since every open set in $X$ or $Y$ can be expressed as a union of open balls. For a ball in $X$ centered at $x \in X$ with radius $r$, we can express it as $x+B_r^X$. After that, it becomes obvious that $T$ maps an open set to an open set.</p>
 <p>First we have</p>
 <script type="math/tex; mode=display">
 X=\bigcup_{n=1}^{\infty}B_n^{X}.</script><p>The surjectivity of $T$ ensures that</p>
@@ -228,7 +228,7 @@ B_{r\varepsilon}^Y + y \subset T(B_{\varepsilon}^X+x) \subset T(U)</script><p>wh
 </ul>
 <script type="math/tex; mode=display">
 T(U) \supset \delta{V}.</script><p>You may also realize that we have used a lot of basic definitions of topology. For example,  we checked the openness of $T(U)$ by using neighborhood. The set $\overline{T(B_1^X)}$ should also remind you of limit point.</p>
-<p>The difference of open mapping and continuous mapping can be viewed via the topologies of two topological vector spaces. Suppose $f: X \to Y$. If for any $U \in \tau_X$, we have $f(U) \in \tau_Y$, where $\tau_X$ and $\tau_Y$ are the topologies of $X$ and $Y$, respectively. But this has nothing to do with continuity. By continuity we mean, for any $V \in \tau_Y$, we have $f^{-1}(V) \in \tau_U$.</p>
+<p>The difference of open mapping and continuous mapping can be viewed via the topologies of two topological vector spaces. Suppose $f: X \to Y$. If for any $U \in \tau_X$, we have $f(U) \in \tau_Y$, where $\tau_X$ and $\tau_Y$ are the topologies of $X$ and $Y$, respectively. But this has nothing to do with continuity. By continuity we mean that, for any $V \in \tau_Y$, we have $f^{-1}(V) \in \tau_U$.</p>
 <p>Fortunately, this theorem can be generalized to $F$-spaces, which will be demonstrated in the following blog post of the series. A space $X$ is an $F$-space if its topology $\tau$ is induced by a complete invariant metric $d$. Still, completeness plays a critical rule.</p>
 <h2 id="The-series"><a href="#The-series" class="headerlink" title="The series"></a>The series</h2><p>Since there is no strong reason to write more posts on this topic, i.e. the three fundamental theorems of linear functional analysis, I think it’s time to make a list of the series. It’s been around half a year.</p>
 <ul>
@@ -242,7 +242,7 @@ T(U) \supset \delta{V}.</script><p>You may also realize that we have used a lot 
 
     </div>
      
-    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-footer__meta"><p>updated at 2025-05-26</p></div> 
     <div class="post-entry__tags"><a href="../../../../tags/The-big-three/" class="post-tags__link button"># The big three</a></div> 
 </article>
 

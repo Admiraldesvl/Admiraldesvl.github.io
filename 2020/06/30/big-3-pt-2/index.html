@@ -43,7 +43,7 @@
 <meta property="og:description" content="About this blog postPeople call the Banach-Steinhaus theorem the first of the big three, which sits at the foundation of linear functional analysis. None of them can go without the Baire’s category th">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-06-30T08:55:50.000Z">
-<meta property="article:modified_time" content="2025-05-11T19:58:47.098Z">
+<meta property="article:modified_time" content="2025-05-26T21:00:13.075Z">
 <meta property="article:author" content="Desvl">
 <meta property="article:tag" content="The big three">
 <meta name="twitter:card" content="summary_large_image">
@@ -197,13 +197,13 @@
 </blockquote>
 <p>Indeed, for TVS, $L \in \Lambda$ has the three conditions equivalent as well. With that being said, equicontinuous collection has the boundedness property in a uniform manner. That’s why the Banach-Steinhaus theorem is always referred to as the <em>uniform boundedness principle</em>.</p>
 <h2 id="The-Banach-Steinhaus-theorem-a-sufficient-condition-for-being-equicontinuous"><a href="#The-Banach-Steinhaus-theorem-a-sufficient-condition-for-being-equicontinuous" class="headerlink" title="The Banach-Steinhaus theorem, a sufficient condition for being equicontinuous"></a>The Banach-Steinhaus theorem, a sufficient condition for being equicontinuous</h2><h3 id="Banach-space-version"><a href="#Banach-space-version" class="headerlink" title="Banach space version"></a>Banach space version</h3><blockquote>
-<p>Suppose $X$ is a Banach space, $Y$ is a normed linear space, and ${F}$ is a collection of bounded linear transformation of $X$ into $Y$, we have two equivalent statements:</p>
+<p>Suppose that $X$ is a Banach space, and that $Y$ is a normed linear space, and that $\Lambda$ is a collection of bounded linear transformation of $X$ into $Y$, then we have two equivalent statements:</p>
 <ol>
-<li><p><strong>(The Resonance Theorem)</strong> If $\sup\limits_{L \in \Lambda}\left\Vert{L}\right\Vert=\infty$, then there exists some $x \in X$ such that $\sup\limits_{L \in {L}}\left\Vert{Lx}\right\Vert=\infty$. (In fact, these $x$ form a dense $G_\delta$.)</p>
+<li><p><strong>(The Resonance Theorem)</strong> If $\sup\limits_{L \in \Lambda}\left\Vert{L}\right\Vert=\infty$, then there exists some $x \in X$ such that $\sup\limits_{L \in {\Lambda}}\left\Vert{Lx}\right\Vert=\infty$. (In fact, these $x$ form a dense $G_\delta$.)</p>
 </li>
 <li><p><strong>(The Uniform Boundedness Principle)</strong> If $\sup\limits_{L \in {\Lambda}}\left\Vert{Lx}\right\Vert&lt;\infty$ for all $x \in X$, then we have $ \left\Vert L \right\Vert \leq M$ for all $L \in {\Lambda}$ and some $M&lt;\infty$.</p>
 </li>
-<li><strong>(A summary of 1 and 2)</strong> Either there exists an $M&lt;\infty$ such that $\lVert L \rVert \leq M$ for all $L \in {L}$, or $\sup\lVert Lx \rVert = \infty$ for all $x$ belonging to some dense $G_\delta$ in $X$.</li>
+<li><strong>(A summary of 1 and 2)</strong> Either there exists an $M&lt;\infty$ such that $\lVert L \rVert \leq M$ for all $L \in \Lambda$, or $\sup\lVert Lx \rVert = \infty$ for all $x$ belonging to some dense $G_\delta$ in $X$.</li>
 </ol>
 </blockquote>
 <h4 id="Proof"><a href="#Proof" class="headerlink" title="Proof"></a>Proof</h4><p><em>Though it would be easier if we finish the TVS version proof, it’s still a good idea to leave the formal proof without the help of TVS here. The equicontinuity of $\Lambda$ will be shown in the next section.</em> </p>
@@ -211,7 +211,7 @@
 <blockquote>
 <p><strong>(Lemma)</strong> For any $x \in X$ and $r &gt;0$, we have</p>
 <script type="math/tex; mode=display">
-\sup_{y\in B(x,r)}\lVert Lx \rVert \geq \lVert L \rVert r</script><p>where $B(x,r)=\{y \in X:\lVert x-y \rVert &lt; r\}$.</p>
+\sup_{y\in B(x,r)}\lVert Ly \rVert \geq \lVert L \rVert r</script><p>where $B(x,r)=\{y \in X:\lVert x-y \rVert &lt; r\}$.</p>
 <p><strong>(Proof of the lemma)</strong></p>
 <p>For $t \in X$ we have a simple relation</p>
 <script type="math/tex; mode=display">
@@ -248,7 +248,7 @@ V_n=\{x:\varphi(x)>n\}</script><p>we claim that each $V_n$ is open. Indeed, we h
 <script type="math/tex; mode=display">
 \lVert x \rVert - \lVert y \rVert \leq \lVert x-y \rVert</script><p>by interchanging $x$ and $y$, we get</p>
 <script type="math/tex; mode=display">
-|\lVert x \rVert - \lVert y \rVert | \leq \lVert x-y \rVert</script><p>Thus $x \mapsto \lVert Lx \rVert$ is continuous since it’s a composition of $\lVert\cdot\rVert$ and $L$. Hence $\varphi$, by the definition, is lower semicontinuous, which forces $V_n$ to be open. </p>
+|\lVert x \rVert - \lVert y \rVert | \leq \lVert x-y \rVert</script><p>Thus $x \mapsto \lVert Lx \rVert$ is continuous since it is a composition of $\lVert\cdot\rVert$ and $L$. Hence $\varphi$, by the definition, is lower semicontinuous, which forces $V_n$ to be open. </p>
 <p>If <strong>every</strong> $V_n$ is dense in $X$ (consider $\sup\lVert L \rVert=\infty$), then by BCT, $B=\bigcap_{n=1}^{\infty} V_n$ is dense in $X$. Since each $V_n$ is open, $B$ is a dense $G_\delta$. Again by the definition of $B$, we have $\varphi(x)=\infty$ for all $x \in B$.</p>
 <p>If one of these sets, namely $V_N$, fails to be dense in $X$, then there exist an $x_0 \in X - V_N$ and an $r&gt;0$ such that for $x \in B(0,r)$ we have $x_0+x \notin V_N$, which is equivalent to</p>
 <script type="math/tex; mode=display">
@@ -256,9 +256,9 @@ V_n=\{x:\varphi(x)>n\}</script><p>we claim that each $V_n$ is open. Indeed, we h
 <script type="math/tex; mode=display">
 \lVert L(x+x_0) \rVert \leq N</script><p>for all $L \in \Lambda$. Since $x=(x+x_0)-x_0$, we also have</p>
 <script type="math/tex; mode=display">
-\lVert Lx \rVert \leq \lVert L(x+x_0) \rVert+\lVert Lx_0 \rVert \leq 2N</script><p>Dividing $r$ on two sides, we got</p>
+\lVert Lx \rVert \leq \lVert L(x+x_0) \rVert+\lVert Lx_0 \rVert \leq 2N</script><p>Dividing $r$ on two sides, we get</p>
 <script type="math/tex; mode=display">
-\lVert L\frac{x}{r}\rVert \leq \frac{2N}{r}</script><p>therefore $\lVert L \rVert \leq M=\frac{2N}{r}$ as is to be shown. Again, this follows from the definition of $\lVert L \rVert$. </p>
+\lVert L\frac{x}{r}\rVert \leq \frac{2N}{r}</script><p>therefore $\lVert L \rVert \leq M=\frac{2N}{r}$ as is to be shown. Again, the inequality above follows from the definition of $\lVert L \rVert$. </p>
 <h3 id="Topological-vector-space-version"><a href="#Topological-vector-space-version" class="headerlink" title="Topological vector space version"></a>Topological vector space version</h3><blockquote>
 <p>Suppose $X$ and $Y$ are topological vector spaces, $\Lambda$ is a collection of continuous linear mapping from $X$ into $Y$, and $B$ is the set of all $x \in X$ whose orbits</p>
 <script type="math/tex; mode=display">
@@ -277,7 +277,7 @@ B\subset \bigcup_{n=1}^{\infty}nE.</script><p>If no $nE$ is of the second catego
 L(V) \subset Lx-L(E) \subset \overline{U} - \overline{U} \subset W</script><p>This proves that $\Lambda$ is equicontinuous.</p>
 <h5 id="Equicontinuity-and-uniform-boundedness"><a href="#Equicontinuity-and-uniform-boundedness" class="headerlink" title="Equicontinuity and uniform boundedness"></a>Equicontinuity and uniform boundedness</h5><p>We’ll show that $B=X$. But before that, we need another lemma, which states the connection between equicontinuity and uniform boundedness</p>
 <blockquote>
-<p><strong>(Lemma)</strong> Suppose $X$ and $Y$ are TVS, $\Gamma$ is an equicontinuous collection of linear mappings from $X$ to $Y$, and $E$ is a bounded subset of $X$. Then $Y$ has a bounded subset $F$ such that $T(E) \subset F$ for every $T \in \Gamma$.</p>
+<p><strong>(Lemma)</strong> Suppose that $X$ and $Y$ are TVS, $\Gamma$ is an collection of equicontinuous linear mappings from $X$ to $Y$, and $E$ is a bounded subset of $X$. Then $Y$ has a bounded subset $F$ such that $T(E) \subset F$ for every $T \in \Gamma$.</p>
 <p><strong>(Proof of the lemma)</strong> We’ll show that, the set</p>
 <script type="math/tex; mode=display">
 F=\bigcup_{T \in \Gamma}T(E)</script><p>is bounded. By the definition of equicontinuity, there is an neighborhood $V$ of the origin in $X$ such that $T(V) \subset W$ for all $T \in \Gamma$. Since $E$ is bounded,  there exists some $t$ such that $E \subset tV$. For these $t$, by the definition of linear functions, we have</p>
@@ -302,7 +302,7 @@ T(E) \subset T(tV)=tT(V) \subset tW</script><p>Therefore $F \subset tW$. $F$ is 
 <blockquote>
 <p>There is a periodic continuous function $f$ on $[0,1]$ such that the Fourier series</p>
 <script type="math/tex; mode=display">
-\sum_{n\in\mathbb{Z}}\hat{f}(n)e^{2\pi inx}</script><p>of $f$ diverges at $0$. Eqch $\hat{f}(n)$ is defined by</p>
+\sum_{n\in\mathbb{Z}}\hat{f}(n)e^{2\pi inx}</script><p>of $f$ diverges at $0$. Each $\hat{f}(n)$ is defined by</p>
 <script type="math/tex; mode=display">
 \hat{f}(n)=\int_{0}^{1}e^{-2\pi inx}f(x)dx</script></blockquote>
 <p>Notice that $f \mapsto \hat{f}$ is linear, and the divergence of the series at $0$ can be considered by</p>
@@ -332,7 +332,7 @@ T(E) \subset T(tV)=tT(V) \subset tW</script><p>Therefore $F \subset tW$. $F$ is 
 
     </div>
      
-    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-footer__meta"><p>updated at 2025-05-26</p></div> 
     <div class="post-entry__tags"><a href="../../../../tags/The-big-three/" class="post-tags__link button"># The big three</a></div> 
 </article>
 
