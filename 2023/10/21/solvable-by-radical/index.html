@@ -43,7 +43,7 @@
 <meta property="og:description" content="We show that a separable extension is solvable by radical iff it is solvable, i.e. it has a Galois closure with solvable Galois group. The proof is done in a general setting.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-10-21T08:39:01.000Z">
-<meta property="article:modified_time" content="2025-05-10T22:19:10.536Z">
+<meta property="article:modified_time" content="2025-05-29T22:48:55.797Z">
 <meta property="article:author" content="Desvl">
 <meta property="article:tag" content="Galois">
 <meta name="twitter:card" content="summary_large_image">
@@ -244,7 +244,7 @@ f(x)=(x-1)^2+2.</script><p>Therefore $f(x)=0$ is equivalent to $(x-1)^2=-2$. The
 <blockquote>
 <p><strong>Theorem 5.</strong> Let $E$ be a finite separable extension of $k$. Then $E$ is solvable by radicals if and only if $E/k$ is solvable.</p>
 </blockquote>
-<p> <em>Proof.</em> First of all we assume that $E/k$ is solvable. Then there exists a finite Galois solvable extension of $k$ containing $E$ and we call it $K$. Let $m$ be the product of all primes $l$ such that $l \ne \mathrm{char}k$ but $l|[K:k]$. Let $F=k(\zeta)$ where $\zeta$ is a primitive $m$-th root of unity. Then $F/k$ is abelian and is solvable by radical by definition. </p>
+<p> <em>Proof.</em> First of all we assume that $E/k$ is solvable. Then there exists a finite Galois solvable extension of $k$ containing $E$ and we call it $K$. Let $m$ be the product of all primes $l$ such that $l \ne \operatorname{char}k$ but $l|[K:k]$. Let $F=k(\zeta)$ where $\zeta$ is a primitive $m$-th root of unity. Then $F/k$ is abelian and is solvable by radical by definition. </p>
 <p>Since solvable extensions form a distinguished class, we see $KF/F$ is solvable. There is a tower of subfields between $F$ and $KF$ such that each step is cyclic of prime order, because every solvable group admits a tower of cyclic groups, and we can use Galois correspondence. By theorem 2 and 4, we see $KF/F$ is solvable by radical because extensions of prime order have been determined by these two theorems. It follows that $E/k$ is solvable by radicals: $KF/F$ is solvable by radicals, $F/k$ is solvable by radicals $\implies$ $KF/k$ is solvable by radicals $\implies$ $E/k$ is solvable by radicals because $KF \supset E \supset k$.</p>
 <hr>
 <p>The elaboration of the “if” part is as follows. In order to prove $E/k$ is solvable by radicals, we show that there is a much bigger field $KF$ containing $E$ such that $KF/k$ is solvable by radical. First of all there exists a finite Galois solvable extension $K/k$ containing $E$. Next we define a cyclotomic extension $F/k$ with the following intentions</p>
@@ -252,13 +252,13 @@ f(x)=(x-1)^2+2.</script><p>Therefore $f(x)=0$ is equivalent to $(x-1)^2=-2$. The
 <li>$F/k$ should be solvable by radicals.</li>
 <li>$F$ contains enough primitive roots of unity, so that we can use theorem 2 freely. </li>
 </ol>
-<p>To reach these two goals, we decide to put $F=k(\zeta)$ where $\zeta$ is a $m$-th root of unity and $m$ is the radical of $[K:k]$ divided by the characteristic of $k$ when necessary. This field $F$ certainly ensures that $F/k$ is solvable by radical. For the second goal, we need to take a look of the subfield between $F$ and $KF$. Let $k = K_0 \subset K_1 \subset \dots \subset K_n = K$ be a tower of field extensions such that every step $K_{i+1}/K_i$ is of prime degree [this is possible due to the solvability of $K/k$]. These prime numbers can only be factors of $[K:k]$ Then in the lifted field extension $F=K_0F \subset K_1F \subset \dots \subset K_nF=KF$ we do not introduce new prime numbers. Why do we consider prime factors of $[K:k]$? Let’s say $[K_{i+1}F:K_iF] = \ell$ is a prime number. If $\ell=\mathrm{char}k$ then we can use theorem 4. Otherwise we still have $\ell|[K:k]$ so we use theorem 2. However this theorem requires a primitive $\ell$-th root to be in $K_{i}F$. Our choice of $m$ and $\zeta$ guaranteed this to happen because $\ell|m$ and therefore a primitive $\ell$-th root of unity exists in $F$. We can make $m$ bigger but there is no necessity. The “only if” part does nearly the same thing, with an alternation of logic chain.</p>
+<p>To reach these two goals, we decide to put $F=k(\zeta)$ where $\zeta$ is a $m$-th root of unity and $m$ is the radical of $[K:k]$ divided by the characteristic of $k$ when necessary. This field $F$ certainly ensures that $F/k$ is solvable by radical. For the second goal, we need to take a look of the subfield between $F$ and $KF$. Let $k = K_0 \subset K_1 \subset \dots \subset K_n = K$ be a tower of field extensions such that every step $K_{i+1}/K_i$ is of prime degree [this is possible due to the solvability of $K/k$]. These prime numbers can only be factors of $[K:k]$ Then in the lifted field extension $F=K_0F \subset K_1F \subset \dots \subset K_nF=KF$ we do not introduce new prime numbers. Why do we consider prime factors of $[K:k]$? Let’s say $[K_{i+1}F:K_iF] = \ell$ is a prime number. If $\ell=\operatorname{char}k$ then we can use theorem 4. Otherwise we still have $\ell|[K:k]$ so we use theorem 2. However this theorem requires a primitive $\ell$-th root to be in $K_{i}F$. Our choice of $m$ and $\zeta$ guaranteed this to happen because $\ell|m$ and therefore a primitive $\ell$-th root of unity exists in $F$. We can make $m$ bigger but there is no necessity. The “only if” part does nearly the same thing, with an alternation of logic chain.</p>
 <hr>
 <p>Conversely, assume that $E/k$ is solvable by radicals. For any embedding $\sigma$ of $E$ in $E^{\mathrm{a}}$ over $k$, the extension $\sigma E/k$ is also solvable by radicals. Hence the smallest Galois extension $K$ of $E$ containing $k$, which is a composite of $E$ and its conjugates is solvable by radicals. Let $m$ be the product of all primes unequal to the characteristic dividing the degree $[K:k]$ and again let $F=k(\zeta)$ where $\zeta$ is a primitive $m$-th root of unity. It will suffice to prove that $KF$ is solvable over $F$, because it follows that $KF$ is solvable by $k$ and hence $G(K/k)$ is solvable because it is a homomorphic image of $G(KF/k)$. But $KF/F$ can be decomposed into a tower of extensions such that each step is prime degree and of the type described in theorem 2 and theorem 4. The corresponding root of unity is in the field $F$. Hence $KF/F$ is solvable, proving the theorem. $\square$</p>
 
     </div>
      
-    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-footer__meta"><p>updated at 2025-05-30</p></div> 
     <div class="post-entry__tags"><a href="../../../../tags/Galois/" class="post-tags__link button"># Galois</a></div> 
 </article>
 
