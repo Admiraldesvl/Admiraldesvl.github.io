@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>Boolean ring and algebraic numbers | Desvl&#39;s blog</title>
+
+
+    <meta name="keywords" content="Exercise solution, Atiyah-MacDonald">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="In this post, we study the Boolean ring and see how it can be used in algebraic number theory.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Boolean ring and algebraic numbers">
+<meta property="og:url" content="https://desvl.xyz/2025/10/13/boolean/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="In this post, we study the Boolean ring and see how it can be used in algebraic number theory.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-10-13T14:06:01.000Z">
+<meta property="article:modified_time" content="2025-10-13T18:03:14.889Z">
+<meta property="article:author" content="Desvl">
+<meta property="article:tag" content="Exercise solution">
+<meta property="article:tag" content="Atiyah-MacDonald">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="atom.xml" title="Desvl's blog" type="application/atom+xml">
+</head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../link-exchange/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a target="_blank" rel="noopener" href="https://desvl.substack.com/" class="navbar-menu button">Subscribe</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../link-exchange/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a target="_blank" rel="noopener" href="https://desvl.substack.com/" class="dropdown-menu button">Subscribe</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        Boolean ring and algebraic numbers
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2025/10/" class="post-meta__date button">2025-10-13</a>
+        
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/" class="button">Algebra</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Algebra/Commutative-Algebra/" class="button">Commutative Algebra</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Number-Theory/" class="button">Number Theory</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Number-Theory/Algebraic-Number-Theory/" class="button">Algebraic Number Theory</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Boolean-ring"><span class="toc-number">1.</span> <span class="toc-text">Boolean ring</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Basic-properties-of-Boolean-rings"><span class="toc-number">2.</span> <span class="toc-text">Basic properties of Boolean rings</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Boolean-ring-coming-from-a-ring-of-integers"><span class="toc-number">3.</span> <span class="toc-text">Boolean ring coming from a ring of integers.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#References"><span class="toc-number">4.</span> <span class="toc-text">References</span></a></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Boolean-ring"><span class="toc-number">1.</span> <span class="toc-text">Boolean ring</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Basic-properties-of-Boolean-rings"><span class="toc-number">2.</span> <span class="toc-text">Basic properties of Boolean rings</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Boolean-ring-coming-from-a-ring-of-integers"><span class="toc-number">3.</span> <span class="toc-text">Boolean ring coming from a ring of integers.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#References"><span class="toc-number">4.</span> <span class="toc-text">References</span></a></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h2 id="Boolean-ring"><a href="#Boolean-ring" class="headerlink" title="Boolean ring"></a>Boolean ring</h2><p>Let $B$ be a commutative ring with unity. We say that $B$ is a <strong>Boolean ring</strong> if $x^2=x$ for all $x \in B$. The name “Boolean” certainly rings a bell of the idea of bool values in programming, or in general, the <strong>Boolean algebra</strong> that is frequently used in logic, digital electronics and computer science. </p>
+<p>In this post, we will examine Boolean rings on a level of commutative algebra, followed by an explicit example in algebraic number theory.</p>
+<h2 id="Basic-properties-of-Boolean-rings"><a href="#Basic-properties-of-Boolean-rings" class="headerlink" title="Basic properties of Boolean rings"></a>Basic properties of Boolean rings</h2><p>Throughout, let $B$ be a Boolean ring.</p>
+<blockquote>
+<p><strong>Proposition 1.</strong> In the Boolean ring $B$, we have</p>
+<ol>
+<li>$2x=0$ for all $x \in B$.</li>
+<li>Every prime ideal $\mathfrak{p} \subset B$ is maximal, and $B/\mathfrak{p}$ is a field with two elements.</li>
+<li>Every finitely generated ideal in $A$ is principal.</li>
+</ol>
+</blockquote>
+<p><em>Proof.</em> For 1, notice that</p>
+<script type="math/tex; mode=display">
+2x=2x^2=(2x)^2=4x^2 \implies 2x=2x^2=(4x^2-2x^2)=(2x^2-2x^2)=0</script><p>For 2, it suffices to show that for every prime ideal $\mathfrak{p} \subset B$, we have $B/\mathfrak{p} \cong \mathbb{Z}/2\mathbb{Z}$.</p>
+<p>Pick $x \in B \setminus \mathfrak{p}$. Then in $B/\mathfrak{p}$ we have $\overline{x}^2=\overline{x}$, where $\overline{x}=x+\mathfrak{p} \in B/\mathfrak{p}$. Therefore $\overline{x}(\overline{x}-\overline{1})=0$. However, since $B/\mathfrak{p}$ is entire, we see that we must have $\overline{x}=\overline{1}$ since $x \not\in \mathfrak{p}$. Therefore there are exactly two elements in $B/\mathfrak{p}$, namely $\overline{0}$ and $\overline{1}$.</p>
+<p>For 3, we use the induction. If $\mathfrak{a}$ is generated by one element, there is nothing to prove. If $\mathfrak{a}=(x,y)$, then we set</p>
+<script type="math/tex; mode=display">
+u = x+y+xy.</script><p>This element is interesting because</p>
+<script type="math/tex; mode=display">
+ux = x^2+xy+xy=x,\, uy=xy+y+xy = y.</script><p>Therefore for all elements $a=rx+sy$, we have</p>
+<script type="math/tex; mode=display">
+a = r(ux)+s(uy)=(rx+sy)u.</script><p>Therefore we have $\mathfrak{a}=(u)=(x+y+xy)$.</p>
+<p>Suppose now we have proved that all ideals generated by $n$ elements are principal. Then for an ideal generated by $n+1$ elements, let’s say $\mathfrak{a}=(x_1,\dots,x_n,x_{n+1})$, for an element</p>
+<script type="math/tex; mode=display">
+a=a_1x_1+\dots+a_nx_n+a_{n+1}x_{n+1} \in \mathfrak{a},</script><p>there is an element $y_{n+1} \in \mathfrak{a}$ such that $a_1x_1+\dots+a_nx_n=b_{n+1}y_{n+1}$, and if we set $u_{n+1}=x_{n+1}+y_{n+1}+x_{n+1}y_{n+1}$, then </p>
+<script type="math/tex; mode=display">
+a = a_{n+1}x_{n+1}+b_{n+1}y_{n+1}=(a_{n+1}x_{n+1}+b_{n+1}y_{n+1})u_{n+1}</script><p> and therefore $\mathfrak{a}=(u_{n+1})$ as expected. $\square$</p>
+<p>Indeed, if $B$ is noetherian, then we see immediately that $\dim B = 0$, where $\dim$ denotes the Krull dimension. Besides, in this case, $B$ is automatically a PID. We should notice however $B$ is not necessarily noetherian. For example </p>
+<script type="math/tex; mode=display">
+\mathbb{Z}/2\mathbb{Z} \times \mathbb{Z}/2\mathbb{Z} \times \cdots</script><p>is Boolean but not noetherian because we can consider the chain of ideals</p>
+<script type="math/tex; mode=display">
+I_n = \underbrace{\mathbb{Z}/2\mathbb{Z} \times \cdots \times \mathbb{Z}/2\mathbb{Z}}_{n \mathrm{\,times}} \times \{0\}\times \{0\} \times \cdots</script><p>and $I_1 \subset I_2 \subset \cdots$ is not a stationary chain.</p>
+<p>Next we see the topology of $\operatorname{Spec}B$. It is required to have the basic knowledge of the Zariski topology.</p>
+<blockquote>
+<p><strong>Proposition 2.</strong> Let $X=\operatorname{Spec}B$ and $X_f=X \setminus V(f)$, where $V(f)=\{\mathfrak{p} \in X:f \in \mathfrak{p}\}$ be the basic open sets of $X$ [recall that an open subset of $X$ is quasi-compact if and only if it is a finite union of sets $X_f$]. Then </p>
+<ol>
+<li>For each $f \in B$, the set $X_f$ is both open and closed in $X$.</li>
+<li>Let $f_1,\dots,f_n \in B$, then $X_{f_1} \cup \cdots \cup X_{f_n}=X_f$ for some $f \in B$.</li>
+<li>The sets $X_f$ are the only subsets of $X$ which are both open and closed.</li>
+<li>$X$ is a compact Hausdorff space.</li>
+</ol>
+</blockquote>
+<p><em>Proof.</em> By definition $X_f$ is indeed open. To show that $X_f$ is closed, it suffices to show that $V(f)$ is always open. To do this, we use the fact that $B$ is Boolean, i.e. $f^2=f$ for all $f \in B$. We see immediately that</p>
+<script type="math/tex; mode=display">
+V(f) \cup V(1-f) = V((f)(1-f))=V(f-f^2)=V(0)=X</script><p>and on the other hand,</p>
+<script type="math/tex; mode=display">
+V(f) \cap V(1-f) = V(f,1-f)=V(1)=\varnothing.</script><p>This is to say we have $X_f = X \setminus V(f) = V(1-f)$ to be closed all the time.</p>
+<p>For 2, we can simply use the identity $X_f=V(1-f) proved above. Indeed, </p>
+<script type="math/tex; mode=display">
+X_{f_1} \cup \cdots \cup X_{f_n} = V(1-f_1) \cup \cdots \cup V(1-f_n) = V((1-f_1)\cdots(1-f_n))=V(1-F(f_1,\dots,f_n))</script><p>where $F(f_1,\dots,f_n) \in B$ is a finite sum and product of $f_1,\dots,f_n$ and is the element $f$ that we were looking for.</p>
+<p>For 3, we pick a open and closed set $Y \subset X$. Since $Y$ is open, we can write $Y = \bigcup_{i \in I}X_{f_i}$ for some index set $I$. Since $Y$ is closed in $X$, we see that $Y$ is quasi-compact, and therefore the index set $I$ can be chosen to be finite. By 2, there is therefore a $f \in B$ such that $Y=X_f$.</p>
+<p>Finally, we show that $X$ is Hausdorff. Indeed, if $\mathfrak{p},\mathfrak{q} \in X$ with $\mathfrak{p} \ne \mathfrak{q}$, then without loss of generality we can assume that there exists $x \in \mathfrak{p}$ such that $x \not\in \mathfrak{q}$. We see then $\mathfrak{p} \in V(x)$ and $\mathfrak{q} \in V(1-x)$, and both $V(x)$ and $V(1-x)$ are open, while $V(x) \cap V(1-x)=\varnothing$. $\square$</p>
+<h2 id="Boolean-ring-coming-from-a-ring-of-integers"><a href="#Boolean-ring-coming-from-a-ring-of-integers" class="headerlink" title="Boolean ring coming from a ring of integers."></a>Boolean ring coming from a ring of integers.</h2><p>Let $K$ be a number field and let $\mathcal{O}_K$ be the ring of integers of $K$. We would expect that $\mathcal{O}_K=\mathbb{Z}[x]$ for some $x \in \mathcal{O}_K$. For example, if $d \in \mathbb{Z}\setminus\{0,1\}$ is a care-free integer, and if we set $K=\mathbb{Q}(\sqrt{d})$, then</p>
+<script type="math/tex; mode=display">
+\mathcal{O}_K=\begin{cases}
+\mathbb{Z}\left[\frac{1+\sqrt{d}}{2}\right],& d\equiv 1\pmod{4}, \\
+\mathbb{Z}[\sqrt{d}],& d\equiv 2,3\pmod{4}.
+\end{cases}</script><p>So now we pose a question : if we consider $K=\mathbb{Q}(\sqrt{-7},\sqrt{17})$, then does there exist $x \in \mathcal{O}_K$ such that $\mathcal{O}_K = \mathbb{Z}[x]$?</p>
+<p>Instead of trying to find such a $x$ manually, we will solve this question with a general setting.</p>
+<blockquote>
+<p><strong>Proposition 3.</strong> Let $m,n \in \mathbb{Z}\setminus\{0,1\}$ be distinct integers, square-free, such that $m \equiv n \equiv 1 \pmod{4}$. If we put $K = \mathbb{Q}(\sqrt{m},\sqrt{n})$, then $\mathcal{O}_K = \mathbb{Z} \oplus \mathbb{Z}\alpha \oplus \mathbb{Z}\beta\oplus\mathbb{Z}\alpha\beta$, where $\alpha=\frac{1+\sqrt{n}}{2}$ and $\beta = \frac{1+\sqrt{m}}{2}$.</p>
+</blockquote>
+<p><em>Proof.</em> First of all we notice that $[K:\mathbb{Q}]=4$ and that $\{1,\alpha,\beta,\alpha\beta\}$ as well as $\{1,\sqrt{m},\sqrt{n},\sqrt{mn}\}$ are two $\mathbb{Q}$-basis of $K$. The Galois group $G(K/\mathbb{Q})$ is isomorphic to $\mathbb{Z}/2\mathbb{Z} \times \mathbb{Z}/2\mathbb{Z}$, generated by $\sigma:\sqrt{n} \mapsto -\sqrt{n}$ and $\gamma:\sqrt{m} \mapsto -\sqrt{m}$. Therefore</p>
+<script type="math/tex; mode=display">
+d(1,\alpha,\beta,\alpha\beta)=\begin{vmatrix}
+1 & \alpha & \beta &\alpha\beta \\
+1 & \sigma(\alpha) & \beta & \sigma(\alpha)\beta \\
+1 & \alpha & \gamma(\beta) &\alpha\gamma(\beta) \\
+1 & \sigma(\alpha) & \gamma(\beta) & \sigma(\alpha)\gamma(\beta)
+\end{vmatrix}^2 = m^2n^2.</script><p>We next want to show that</p>
+<script type="math/tex; mode=display">
+\Gamma=\mathbb{Z} \oplus \mathbb{Z}\alpha \oplus \mathbb{Z}\beta\oplus\mathbb{Z}\alpha\beta \subset \mathcal{O}_K \subset \Gamma'= \frac{1}{4}\left(\mathbb{Z} \oplus \mathbb{Z}\sqrt{m} \oplus \mathbb{Z}\sqrt{n}\oplus\mathbb{Z}\sqrt{mn}\right).</script><p>On one hand, $\alpha,\beta \in \mathcal{O}_K$ should be clear. Notice that</p>
+<script type="math/tex; mode=display">
+\alpha^2-\alpha=\frac{1+n+2\sqrt{n}-2\sqrt{n}-2}{4}=\frac{n-1}{4} \in \mathbb{Z}</script><p>and </p>
+<script type="math/tex; mode=display">
+\beta^2-\beta=\frac{m-1}{4} \in \mathbb{Z}.</script><p>Therefore if we put $f(X)=X^2-X-\frac{n-1}{4}$, then $f(\alpha)=0$. Likewise, if we put $g(X)=X^2-X-\frac{m-1}{4}$, then $g(\beta)=0$. The first inclusion $\mathbb{Z} \oplus \mathbb{Z}\alpha \oplus \mathbb{Z}\beta\oplus\mathbb{Z}\alpha\beta \subset \mathcal{O}_K$ is then proved. </p>
+<p>On the other hand, pick an arbitrary $x = a+b\sqrt{n}+c\sqrt{m}+d\sqrt{mn} \in \mathcal{O}_K \subset K$. We know on the first place that $a,b,c,d\in\mathbb{Q}$. However, we notice that</p>
+<script type="math/tex; mode=display">
+\operatorname{Tr}_{K/\mathbb{Q}(\sqrt{n})}(x)=2a+2b\sqrt{n}</script><p>is an algebraic integer as it is the root of a monic polynomial $(X-2a)^2-4b^2n$. At the same time, we have $2a+2b\sqrt{n}$. Therefore $2a+2b\sqrt{n} \in \mathcal{O}_{\mathbb{Q}(\sqrt{n})}=\mathbb{Z}\left[\frac{1+\sqrt{n}}{2}\right]$ (since $n\equiv 1\pmod{4}$). Therefore there exists $a’,b’\in\mathbb{Z}$ such that</p>
+<script type="math/tex; mode=display">
+2a+2b\sqrt{n}=a'+b'\frac{1+\sqrt{n}}{2}=a'+\frac{b'}{2}+\frac{b'}{2}\sqrt{n},</script><p>which implies that</p>
+<script type="math/tex; mode=display">
+4b=b'\in \mathbb{Z},\, 4a=2a'+b' \in \mathbb{Z}.</script><p>Likewise, we see</p>
+<script type="math/tex; mode=display">
+\operatorname{Tr}_{K/\mathbb{Q}(\sqrt{m})}(x)=2a+2c\sqrt{m}</script><p>and in the same way we can prove that $4c \in \mathbb{Z}$.</p>
+<p>Finally,</p>
+<script type="math/tex; mode=display">
+\operatorname{Tr}_{K/\mathbb{Q}(\sqrt{mn})}(x)=2a+2d\sqrt{mn} \in \mathbb{Z}</script><p>from which it follows that $4d \in \mathbb{Z}$. We have therefore proved that</p>
+<script type="math/tex; mode=display">
+\mathcal{O}_K \subset \frac{1}{4}\left(\mathbb{Z} \oplus \mathbb{Z}\sqrt{m} \oplus \mathbb{Z}\sqrt{n}\oplus\mathbb{Z}\sqrt{mn}\right).</script><p>Finally, since</p>
+<script type="math/tex; mode=display">
+d(1,\sqrt{m},\sqrt{n},\sqrt{mn})=\begin{vmatrix}
+1 & \sqrt{m} & \sqrt{n} &\sqrt{mn} \\
+1 & -\sqrt{m} & \sqrt{n} & -\sqrt{mn} \\
+1 & \sqrt{m} & -\sqrt{n} & -\sqrt{mn} \\
+1 & -\sqrt{m} & -\sqrt{n} & -\sqrt{mn}
+\end{vmatrix}^2=(16mn)^2,</script><p>we have</p>
+<script type="math/tex; mode=display">
+d\left(\frac{1}{4},\frac{\sqrt{m}}{4},\frac{\sqrt{n}}{4},\frac{\sqrt{mn}}{4}\right)=\frac{4^4m^2n^2}{16^4}=\frac{m^2n^2}{4^4}.</script><p>If we consider the discriminant of $\mathcal{O}_K$, noted by $\Delta_K$, then</p>
+<script type="math/tex; mode=display">
+d(1,\alpha,\beta,\alpha\beta)=[\mathcal{O}_K:\Gamma]^2\Delta_K=m^2n^2 \implies \Delta_K|m^2n^2,</script><p>and at the same time,</p>
+<script type="math/tex; mode=display">
+\Delta_K = [\Gamma':\mathcal{O}_K]^2 d\left(\frac{1}{4},\frac{\sqrt{m}}{4},\frac{\sqrt{n}}{4},\frac{\sqrt{mn}}{4}\right) = [\Gamma':\mathcal{O}_K]^2\frac{m^2n^2}{4^4} \implies m^2n^2 | 4^4\Delta_K</script><p>However, since $m^2n^2$ is impair (as $m\equiv n \equiv 1 \pmod{1}$), we can only have</p>
+<script type="math/tex; mode=display">
+\Delta_K=m^2n^2=d(1,\alpha,\beta,\alpha\beta),</script><p>which forces $\{1,\alpha,\beta,\alpha\beta\}$ to be a $\mathbb{Z}$-basis of $\mathcal{O}_K$. $\square$</p>
+<hr>
+<p>To answer our question, we restrict ourselves to the case $m \equiv n \equiv 1 \pmod{8}$. In this question we will see that the Boolean ring arises naturally.</p>
+<blockquote>
+<p><strong>Proposition 4.</strong> Let $m,n \in \mathbb{Z}\setminus\{0,1\}$ be distinct integers, square-free, such that $m \equiv n \equiv 1 \pmod{8}$. If we put $K = \mathbb{Q}(\sqrt{m},\sqrt{n})$, then there does not exist $t \in \mathcal{O}_K$ such that $\mathcal{O}_K = \mathbb{Z}[t]$.</p>
+</blockquote>
+<p><em>Proof.</em> The proposition invites us to try to write $\mathcal{O}_K$ as a polynomial ring over $\mathbb{Z}$. As one can see easily,</p>
+<script type="math/tex; mode=display">
+\mathcal{O}_K =\mathbb{Z} \oplus \mathbb{Z}\alpha \oplus \mathbb{Z}\beta\oplus\mathbb{Z}\alpha\beta \cong \mathbb{Z}[X,Y]/\left(X^2-X+\frac{1-n}{4},Y^2-Y+\frac{1-m}{4}\right)</script><p>where $\alpha=\frac{1+\sqrt{n}}{2}$ and $\beta=\frac{1+\sqrt{m}}{2}$ as above with the isomorphism induced by the map</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\mathbb{Z}[X,Y] &\to \mathcal{O}_K \\
+1 &\mapsto 1 \\
+X &\mapsto \alpha \\
+Y &\mapsto \beta
+\end{aligned}</script><p>Since in our question, $m\equiv n \equiv 1 \pmod{8}$, we see that $\frac{1-n}{4},\, \frac{1-m}{4} \in 2\mathbb{Z}$. Therefore by a modulo of $2$, we obtain</p>
+<script type="math/tex; mode=display">
+\mathcal{O}_K/2\mathcal{O}_K = \mathbf{F}_2[X,Y]/(X^2-X,Y^2-Y)</script><p>where $\mathbf{F}_2$ is the finite field of $2$ elements. Here, the ring $B=\mathcal{O}_K/2\mathcal{O}_K$ is a <strong>Boolean ring</strong>. Indeed, we can now even explicitly write down $\mathcal{O}_K/2\mathcal{O}_K$ as $\mathbf{F}_2[x,y]$ with $x^2=x$ and $y^2=y$. All elements of $\mathcal{O}_K/2\mathcal{O}_K$ can be identified as $a+bx+cy+dxy$ with $a,b,c,d\in\mathbf{F}_2$. There are $2^4=16$ elements in total, and it can be easily seen that $(a+bx+cy+dxy)^2=a+bx+cy+dxy$.</p>
+<p>Since $B\cong \mathbf{F}_2[x,y]$ is Boolean, all prime ideals are maximal. There are exactly $4$ maximal ideals:</p>
+<ol>
+<li>$(x,y-1)=(y-1+xy)$</li>
+<li>$(x-1,y)=(x-1+xy)$</li>
+<li>$(x-1,y-1)=(xy+1)$</li>
+<li>$(x,y)=(x+y+xy)$.</li>
+</ol>
+<p>For a homomorphism $\varphi:B \to \mathbf{F}_2$, we have $\varphi(0)=0$, $\varphi(1)=1$ so $\varphi$ is surjective. The kernel $\ker\varphi$ is therefore a maximal ideal. There are thus exactly $4$ homomorphisms $B \to \mathbf{F}_2$, which correspond to, sending $x$ to $0$ and $y$ to $1$, sending $x$ to $1$ and $y$ to $0$, sending $x$ and $y$ to $1$ and finally sending $x$ and $y$ to $0$, respectively.</p>
+<p>Now we show that we cannot pick $t \in \mathcal{O}_K$ such that $\mathcal{O}_K=\mathbb{Z}[t]$. To reach a contradiction, we suppose that such a $t$ exist. It follows that</p>
+<script type="math/tex; mode=display">
+\mathcal{O}_K/2\mathcal{O}_K \cong \mathbf{F}_2[t] \cong\mathbf{F}_2[X]/(P)</script><p>where $P$ is a polynomial of degree $4$. However this is absurd because for a homomorphism</p>
+<script type="math/tex; mode=display">
+\psi:\mathbf{F}_2[X]/(P) \to \mathbf{F}_2,</script><p>we can only have two possibilities: $\psi(X)=1$ or $\psi(X)=0$. However we have shown that $\mathcal{O}_K/2\mathcal{O}_K$ can be mapped onto $\mathcal{F}_2$ in $4$ ways. A contradiction. $\square$</p>
+<p>Therefore unfortunately, for the number field $K=\mathbb{Q}(\sqrt{-7},\sqrt{17})$, we cannot find $x \in \mathcal{O}_K$ such that $\mathcal{O}_K=\mathbb{Z}[x]$.</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li>M. F. Atiyah FRS, I. G. MacDonald, <em>Introduction to Commutative Algebra</em>.</li>
+</ul>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-10-13</p></div> 
+    <div class="post-entry__tags"><a href="../../../../tags/Exercise-solution/" class="post-tags__link button"># Exercise solution</a><a href="../../../../tags/Atiyah-MacDonald/" class="post-tags__link button"># Atiyah-MacDonald</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../../05/16/artin-schreier/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            Artin-Schreier Extensions
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2025/10/13/boolean/"></div>
+<script type="text/javascript">
+  var repo = "Admiraldesvl/Admiraldesvl.github.io";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "Blog Comments";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>
