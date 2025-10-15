@@ -43,7 +43,7 @@
 <meta property="og:description" content="In this post we show that the Pontryagin dual group of $\mathbb{Q}_p$ is isomorphic to itself.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-12-23T09:57:42.000Z">
-<meta property="article:modified_time" content="2025-05-10T22:19:10.290Z">
+<meta property="article:modified_time" content="2025-10-15T18:35:42.538Z">
 <meta property="article:author" content="Desvl">
 <meta property="article:tag" content="p-adic">
 <meta property="article:tag" content="Pontryagin">
@@ -168,30 +168,30 @@
 <article class="post post__with-toc content-card">
     <div class="post__header"></div>
     <div class="post__content">
-        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>Let $G$ be a locally compact abelian group (for example, $\mathbb{R}$, $\mathbb{Z}$, $\mathbb{T}$, $\mathbb{Q}_p$). Then every irreducible <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Unitary_representation">unitary representation</a> $\pi:G \to U(\mathcal{H}_\pi)$ is one dimensional, where $\mathcal{H}_\pi$ is a non-zero Hilbert space, in which case we take it as $\mathbb{C}$. It follows that $\pi(x)(z)=\xi(x)z$ for all $z \in \mathbb{C}$ where $\xi \in \operatorname{Hom}(G,\mathbb{T})$, viewing $\mathbb{T}$ as the unit circle in the complex plane. Such homomorphisms are called (unitary) <strong>characters</strong>, and we denote all characters of $G$ by $\widehat{G}$, call it the Pontryagin dual group. It should ring a bell about representation theory in finite groups. For convenience, instead of $\xi(x)$, we often write $\langle x,\xi \rangle$. We also write $\langle x,\xi\rangle\langle y,\xi \rangle=\langle x+y ,\xi\rangle$, and the following examples will remind the reader the reason.</p>
+        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>Let $G$ be a locally compact abelian group (for example, $\mathbb{R}$, $\mathbb{Z}$, $\mathbb{T}$, $\mathbb{Q}_p$). Then every irreducible <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Unitary_representation">unitary representation</a> $\pi:G \to U(\mathcal{H}_\pi)$ is one dimensional, where $\mathcal{H}_\pi$ is a non-zero Hilbert space, in which case we take it as $\mathbb{C}$. It follows that $\pi(x)(z)=\xi(x)z$ for all $z \in \mathbb{C}$ where $\xi \in \operatorname{Hom}(G,\mathbb{T})$, viewing $\mathbb{T}$ as the unit circle in the complex plane. Such homomorphisms are called (unitary) <strong>characters</strong>, and we denote all characters of $G$ by $\widehat{G}$, calling it the Pontryagin dual group. It should ring a bell of the representation theory of finite groups. For convenience, instead of $\xi(x)$, we often write $\langle x,\xi \rangle$. We also write $\langle x,\xi\rangle\langle y,\xi \rangle=\langle x+y ,\xi\rangle$. </p>
 <p>Some easily accessible examples are:</p>
 <ul>
 <li>$\widehat{\mathbb{R}} \cong \mathbb{R}$, with $\langle x,\xi \rangle = e^{2\pi i \xi x}$.</li>
 <li>$\widehat{\mathbb{T}} \cong \mathbb{Z}$, with $\langle z, n \rangle = z^n$.</li>
-<li>$\widehat{Z} \cong \mathbb{T}$, with $\langle n,z \rangle = z^n$. </li>
+<li>$\widehat{\mathbb Z} \cong \mathbb{T}$, with $\langle n,z \rangle = z^n$. </li>
 <li>$\widehat{\mathbb{Z}/k\mathbb{Z}} \cong \mathbb{Z}/k\mathbb{Z}$, with $\langle m,n\rangle =e^{2\pi i m n / k}$.</li>
 </ul>
 <h1 id="The-Dual-of-p-adic-Field"><a href="#The-Dual-of-p-adic-Field" class="headerlink" title="The Dual of p-adic Field"></a>The Dual of p-adic Field</h1><p>But we want to show that </p>
 <script type="math/tex; mode=display">
-\widehat{\mathbb{Q}}_p \cong \mathbb{Q}_p.</script><p>It is broken down into several steps. But it shall be clear that $\mathbb{Q}_p$ is a topological group with respect to addition.</p>
+\widehat{\mathbb{Q}}_p \cong \mathbb{Q}_p.</script><p>The proof is broken down into several steps. But it shall be clear that $\mathbb{Q}_p$ is a topological group with respect to addition.</p>
 <h2 id="Step-1-Find-the-simplest-character"><a href="#Step-1-Find-the-simplest-character" class="headerlink" title="Step 1 - Find the simplest character"></a>Step 1 - Find the simplest character</h2><p>Every $p$-adic number $x \in \mathbb{Q}_p$ can be written in the form </p>
 <script type="math/tex; mode=display">
-x = \sum_{j=m}^{\infty}x_jp^j</script><p>where $m \in \mathbb{Z}$, $x_j \in \{1,2,\dots,p-1\}$ for all $j$. We immediately define </p>
+x = \sum_{j=m}^{\infty}x_jp^j</script><p>where $m \in \mathbb{Z}$, $x_j \in \{1,2,\dots,p-1\}$ for all $j$. We define </p>
 <script type="math/tex; mode=display">
 \langle x,\xi_1 \rangle = \exp\left(2\pi i \sum_{j=m}^{\infty}x_jp^j\right),</script><p>and claim that $\xi_1$ is a character. Notice that the right hand side is always well-defined, because all summands when $j \ge 0$ contributes nothing as $\exp(2\pi i x_jp^j)=1$. That is to say, the right hand side can be understood as a finite product: when $m \ge 0$, i.e. $x \in \mathbb{Z}_p$, the pairing $\langle x, \xi \rangle = 1$; when $m&lt;0$ however, $\langle x,\xi_1 \rangle = \exp\left( 2\pi i \sum_{j=m}^{-1}x_jp^j\right)$. Therefore it is legitimate to write</p>
 <script type="math/tex; mode=display">
 \langle x,\xi_1 \rangle =\exp (2\pi x).</script><p>From this it follows immediately that</p>
 <script type="math/tex; mode=display">
 \langle x+y ,\xi_1 \rangle = \langle x,\xi_1 \rangle\langle y,\xi_1 \rangle.</script><p>The function $\xi_1$ is continuous because it is continuous on $\mathbb{Z}_p$, being constant. Therefore it is safe to say that $\xi_1$ is a character with kernel $\mathbb{Z}_p$. </p>
-<p>A quick thought would be, generating all characters out of $\xi_1$, something like $\xi_p$, $\xi_{1+p+p^2+\dots}$. But that might lead to a nightmare of subscripts. Instead, we try to discover as many as possible. For any $y \in \mathbb{Q}_p$, we define</p>
+<p>A quick thought would be, generating all characters out of $\xi_1$, to get something like $\xi_p$, $\xi_{1+p+p^2+\dots}$. But that approach might lead us to a nightmare of subscripts. Instead, we try to discover as many characters as possible. For any $y \in \mathbb{Q}_p$, we define</p>
 <script type="math/tex; mode=display">
-\langle x,\xi_y\rangle = \langle xy,\xi_1\rangle.</script><p>In other words, $\xi_y$ is defined by $x \mapsto \langle xy,\xi_1\rangle$. Since multiplication is continuous, we see immediately that $\xi_y$ is a character, not very more complicated than $\xi_1$. We will show that this is all we need. To do this, we need to <em>characterise</em> all characters. Characters have the same image but their kernels differ. That is where we attack the problem.</p>
-<h2 id="Step-2-Study-the-kernels-of-characters"><a href="#Step-2-Study-the-kernels-of-characters" class="headerlink" title="Step 2 - Study the kernels of characters"></a>Step 2 - Study the kernels of characters</h2><p>For $\xi_y$ above, notice that $\langle x,\xi_y\rangle=1$ if and only if $xy \in \ker\xi_1=\mathbb{Z}_p$, i.e. $|xy|_p \le 1$. Therefore</p>
+\langle x,\xi_y\rangle = \langle xy,\xi_1\rangle.</script><p>In other words, $\xi_y$ is defined by $x \mapsto \langle xy,\xi_1\rangle$. Since the multiplication is continuous, we see immediately that $\xi_y$ is a character, not very more complicated than $\xi_1$. We will show that this is all we need. To do this, we need to <em>characterise</em> all characters. Notice that have the same image but their kernels differ. So we try to characterise the characters by characterising their kernels.</p>
+<h2 id="Step-2-Study-the-kernels-of-characters"><a href="#Step-2-Study-the-kernels-of-characters" class="headerlink" title="Step 2 - Study the kernels of characters"></a>Step 2 - Study the kernels of characters</h2><p>For the $\xi_y$ above, we notice that $\langle x,\xi_y\rangle=1$ if and only if $xy \in \ker\xi_1=\mathbb{Z}_p$, i.e. $|xy|_p \le 1$. Therefore</p>
 <script type="math/tex; mode=display">
 \ker\xi_y = \{x:\|xy\|_p \le 1\}.</script><p>We expect that all characters are of the form $\xi_y$. Therefore their kernels shall be like $\ker\xi_y$ naturally. Notice that for fixed $y$, we have $|y|_p=p^m$ for some $m \in \mathbb{Z}$. As a result $\ker\xi_y = \overline{B}(0,p^{-m})$. For this reason we have the following (more obscure) argument</p>
 <blockquote>
@@ -224,17 +224,17 @@ x = \sum_{j=m}^{\infty}x_jp^j</script><p>where $m \in \mathbb{Z}$, $x_j \in \{1,
 </blockquote>
 <p><em>Proof.</em> First of all we study the algebraic isomorphism. First of all if $\xi_y=1$, then </p>
 <script type="math/tex; mode=display">
-\{x \in \mathbb{Q}_p:\|xy\|_p \le 1\}= \mathbb{Q}_p \implies y=0.</script><p>Hence the map $\Lambda$ is injective. To show that $\Lambda$ is surjective, fix $\xi \in \widehat{\mathbb{Q}}_p$. By the comment below lemma 1, there is a smallest integer $k$ such that $\langle p^j,\xi \rangle = 1$. Then one considers the character $\eta$ defined by</p>
+\{x \in \mathbb{Q}_p:\|xy\|_p \le 1\}= \mathbb{Q}_p \implies y=0.</script><p>Hence the map $\Lambda$ is injective. To show that $\Lambda$ is surjective, fix $\xi \in \widehat{\mathbb{Q}}_p$. By the comment below lemma 1, there is a smallest integer $k$ such that $\langle p^k,\xi \rangle = 1$. Then one considers the character $\eta$ defined by</p>
 <script type="math/tex; mode=display">
-\langle x,\eta \rangle = \langle p^j x,\xi \rangle.</script><p>It satisfies the condition in lemma 3, therefore there exists $z \in \mathbb{Q}_p$ such that $\eta=\xi_z$, and it follows that $\xi=\xi_{p^{-k}z}$.</p>
+\langle x,\eta \rangle = \langle p^k x,\xi \rangle.</script><p>It satisfies the condition in lemma 3, therefore there exists $z \in \mathbb{Q}_p$ such that $\eta=\xi_z$, and it follows that $\xi=\xi_{p^{-k}z}$.</p>
 <p>Next we show that $\Lambda$ is a homeomorphism. Observe the following sets</p>
 <script type="math/tex; mode=display">
-N(\ell,k)=\{\xi \in \widehat{\mathbb{Q}}_p:|\langle x,\xi\rangle-1|\le \ell^{-1}\text{ for }\|x\|_p \le p^{k}\}</script><p>ranging over $\ell \ge 1$ and $k \in \mathbb{Z}$. These sets constitute a local base at $1$ for $\widehat{\mathbb{Q}}_p$. We need to show that it corresponds to a local base of $\mathbb{Q}_p$ under the map $\Lambda$:</p>
-<p> The image of the set $\{x:|x|_p \le p^k\}$ under $\xi_1$ is $\{1\}$ if $k \le 1$ and is the group of $p^k$-th roots of unity if $k&gt;0$, and hence is contained in $\{z:|z-1|&lt;\ell^{-1}\}$ if and only if $k \le 0$. It follows that $\xi_y \in N(\ell,k)$ if and only if $|y|_p \le p^{-k}$, i.e., $y \in \overline{B}(0,p^{-k})$. We are done. $\square$</p>
+N(\ell,k)=\{\xi \in \widehat{\mathbb{Q}}_p:|\langle x,\xi\rangle-1|< \ell^{-1}\text{ for }\|x\|_p \le p^{k}\}</script><p>ranging over $\ell \ge 1$ and $k \in \mathbb{Z}$. These sets constitute a local base at $1$ for $\widehat{\mathbb{Q}}_p$. We need to show that it corresponds to a local base of $\mathbb{Q}_p$ under the map $\Lambda$:</p>
+<p> The image of the set $\{x:|x|_p \le p^k\}$ under $\xi_1$ is $\{1\}$ if $k \le 0$ and is the group of $p^k$-th roots of unity if $k&gt;0$, and hence is contained in $\{z:|z-1|&lt;\ell^{-1}\}$ if and only if $k \le 0$. It follows that $\xi_y \in N(\ell,k)$ if and only if $|y|_p \le p^{-k}$, i.e., $y \in \overline{B}(0,p^{-k})$. We are done. $\square$</p>
 
     </div>
      
-    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-footer__meta"><p>updated at 2025-10-15</p></div> 
     <div class="post-entry__tags"><a href="../../../../tags/p-adic/" class="post-tags__link button"># p-adic</a><a href="../../../../tags/Pontryagin/" class="post-tags__link button"># Pontryagin</a></div> 
 </article>
 
