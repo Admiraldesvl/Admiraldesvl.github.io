@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>On the Boyd–Deninger polynomial x+1/x+y+1/y+1, pt. I - The curve | Desvl&#39;s blog</title>
+
+
+    <meta name="keywords" content="Elliptic Curve, SageMath">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="In this post we study the Boyd-Deninger polynomial P(x,y)&#x3D;x+1&#x2F;x+y+1&#x2F;y+1. In particular, we are interested in the elliptic curve that is defined by it.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="On the Boyd–Deninger polynomial x+1&#x2F;x+y+1&#x2F;y+1, pt. I - The curve">
+<meta property="og:url" content="https://desvl.xyz/2025/12/30/boyd-deninger/index.html">
+<meta property="og:site_name" content="Desvl&#39;s blog">
+<meta property="og:description" content="In this post we study the Boyd-Deninger polynomial P(x,y)&#x3D;x+1&#x2F;x+y+1&#x2F;y+1. In particular, we are interested in the elliptic curve that is defined by it.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-12-29T23:00:00.000Z">
+<meta property="article:modified_time" content="2025-12-30T21:20:26.573Z">
+<meta property="article:author" content="Desvl">
+<meta property="article:tag" content="Elliptic Curve">
+<meta property="article:tag" content="SageMath">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="../../../../css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="../../../../css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="atom.xml" title="Desvl's blog" type="application/atom+xml">
+</head>
+
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="../../../../index.html" class="button">
+            <span class="logo__text">Desvl&#39;s Blog</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="../../../../index.html" class="navbar-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="navbar-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="navbar-menu button">Archives</a>
+                
+                    <a href="../../../../link-exchange/" class="navbar-menu button">Link Exchange</a>
+                
+                    <a target="_blank" rel="noopener" href="https://desvl.substack.com/" class="navbar-menu button">Subscribe</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="../../../../index.html" class="dropdown-menu button">Welcome</a>
+                
+                    <a href="../../../../category/" class="dropdown-menu button">Categories</a>
+                
+                    <a href="../../../../archives/" class="dropdown-menu button">Archives</a>
+                
+                    <a href="../../../../link-exchange/" class="dropdown-menu button">Link Exchange</a>
+                
+                    <a target="_blank" rel="noopener" href="https://desvl.substack.com/" class="dropdown-menu button">Subscribe</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        On the Boyd–Deninger polynomial x+1/x+y+1/y+1, pt. I - The curve
+    </h1>
+    <div class="post-title__meta">
+        <a href="../../../../archives/2025/12/" class="post-meta__date button">2025-12-30</a>
+        
+    <span class="separate-dot"></span><a href="../../../../categories/Geometry/" class="button">Geometry</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Geometry/Algebraic-Geometry/" class="button">Algebraic Geometry</a>
+
+    <span class="separate-dot"></span><a href="../../../../categories/Geometry/Elliptic-Curve/" class="button">Elliptic Curve</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-geometry-of-the-polynomial"><span class="toc-number">2.</span> <span class="toc-text">The geometry of the polynomial</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Deninger-path-of-the-polynomial"><span class="toc-number">3.</span> <span class="toc-text">The Deninger path of the polynomial</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reference"><span class="toc-number">4.</span> <span class="toc-text">Reference</span></a></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-geometry-of-the-polynomial"><span class="toc-number">2.</span> <span class="toc-text">The geometry of the polynomial</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Deninger-path-of-the-polynomial"><span class="toc-number">3.</span> <span class="toc-text">The Deninger path of the polynomial</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reference"><span class="toc-number">4.</span> <span class="toc-text">Reference</span></a></li></ol>
+    </div>
+
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Throughout, let $P(x,y)=x+\frac{1}{x}+y+\frac{1}{y}+1$. This Laurent polynomial is one of the Boyd-Deninger polynomials,  which have been extensively studied for their connections to Mahler measures and special values of $L$-functions. </p>
+<p>The polynomial $P(x,y)$ is special for several reasons. First of all, the projective closure of $P(x,y)=0$ is an elliptic curve $E$ of conductor $15$ and the curve does not admit complex multiplication (we will show that in this post). Second, this polynomial evoke Beilinson’s conjecture (we will justify in another post). As one can prove, there is a satisfyingly simple relation between the Mahler measure of $P$ and the $L$-function of the curve $E$:</p>
+<script type="math/tex; mode=display">
+m(P)=L'(E,0)= \frac{15}{4\pi^2}L(E,2).</script><p>In this post, we will do the preparation: the geometry of $P$ and $E$, and the determination of the Deninger path of $P$, an important subset of $E$, which will be useful for the future study.</p>
+<p>It is expected that the reader know the basic arithmetic of elliptic curves and the basics of projective curves. </p>
+<h2 id="The-geometry-of-the-polynomial"><a href="#The-geometry-of-the-polynomial" class="headerlink" title="The geometry of the polynomial"></a>The geometry of the polynomial</h2><p>Let $Z_P$ be the zero locus of $P(x,y)=x+\frac{1}{x}+y+\frac{1}{y}+1$ in $(\mathbb{C}^\times)^2=\operatorname{Spec}(\mathbb{C}[X_1,X_1^{-1},X_2,X_2^{-1}])$. We would like to know its properties in terms of a curve, before moving on to the study of the projective closure of $Z_P$ in $\mathbb{P}^2(\mathbb{C})$.</p>
+<blockquote>
+<p><strong>Proposition 1.1</strong> The algebraic set $Z_P$ is a smooth algebraic curve.</p>
+</blockquote>
+<p><em>Proof.</em> We notice that $\frac{\partial P}{\partial x}(x,y)=1-\frac{1}{x^2}$, $\frac{\partial P}{\partial y}(x,y)=1-\frac{1}{y^2}$. A singular point of $P$ must satisfy $\frac{\partial P}{\partial x}(x,y)=\frac{\partial P}{\partial y}(x,y)=P(x,y)=0$, and the only possible candidates of $(x,y) \in (\mathbb{C}^\times)^2$ are $(1,1)$, $(1,-1)$, $(-1,-1)$ and $(-1,1)$, where the values of $P$ are never $0$, therefore $P$ does not admit singular points. $\square$</p>
+<p>Let $E=\overline{Z_P}$ be the projective closure of $Z_P$ in $\mathbb{P}^2(\mathbb{C})$. We will show that $E$ is an elliptic curve of conductor $15$.</p>
+<blockquote>
+<p><strong>Proposition 1.2.</strong> The following statements are true:</p>
+<ol>
+<li>$E$ is a non-singular cubic defined over $\mathbb{Q}$.</li>
+<li>$E$ has a rational point, hence is an elliptic curve defined over $\mathbb{Q}$.</li>
+<li>$E \setminus Z_P$ is a subgroup of $E(\mathbb{Q})$ isomorphic to $\mathbb{Z}/4\mathbb{Z}$.</li>
+<li>$E$ has conductor $15$.</li>
+<li>$E$ does not admit complex multiplication.</li>
+</ol>
+</blockquote>
+<p>A few comments are in order before the proof. As a matter of fact we are looking at the compactification of $Z_P$, which is, according to the third point, $Z_P$ with $4$ points added. Besides, we are allowed to use the modularity theorem to construct a map $X_1(15) \to E$ to enable us to study the polynomial in the domain of modular forms. The modularity theorem is nevertheless an overkill; we can thereafter give a more explicit construction.</p>
+<p><em>Proof.</em> We notice that the homogenization of $P(x,y)$ is</p>
+<script type="math/tex; mode=display">
+\widetilde{P}(X,Y,Z)=X^2Y+YZ^2+XY^2+XZ^2+XYZ.</script><p>In other words, $E$ is the zero locus of $\widetilde{P}(X,Y,Z)$ in $\mathbb{P}^2(\mathbb{C})$. We can see indeed that $E$ is a cubic curve defined over $\mathbb{Q}$. We need to see if $E$ is smooth. To do this, we search for singular points. </p>
+<p>We have</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+\frac{\partial\widetilde{P}}{\partial X}(X,Y,Z) &=  2XY+Y^2+Z^2+YZ \\
+\frac{\partial\widetilde{P}}{\partial Y}(X,Y,Z) &=X^2+Z^2+2XY+XZ \\
+\frac{\partial\widetilde{P}}{\partial Z}(X,Y,Z) &= 2YZ + 2XZ+XY
+\end{cases}</script><p>We can verify the first statement on each affine cover $U_X=\{X \ne 0\}$, $U_Y=\{Y \ne 0\}$ and $U_Z=\{Z\ne 0\}$.</p>
+<p>On $U_X$, a singular point $[1:Y:Z]$ on $E$ satisfies</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+Y+YZ^2+Y^2+Z^2+YZ&=0 \\
+2Y+Y^2+Z^2+YZ &= 0 \\
+1+Z^2+2Y+Z&=0 \\
+2YZ+2Z+Y&=0
+\end{cases}</script><p>We will show that the system of equation has no solution. By combining the first two equations, we get</p>
+<script type="math/tex; mode=display">
+Y(Z^2-1)=0</script><p>If $Y=0$, then $2YZ+2Z+Y=0$ becomes $Z=0$, which is absurd because then $1+Z^2+2Y+Z=1=0$. Therefore we can only have $Z^2=1$, i.e. $Z=1$ or $Z=-1$. The case where $Z=1$ implies that $2Y+3=0$ and $3Y+2=0$, which is again a contradiction. Finally, the case where $Z=-1$ implies that $2Y+1=0$ and $-2-Y=0$, which is still not possible. Conclusion: the first two equations cannot hold at the same time, therefore on $U_X$ there is no singular point. The singularity on $U_Y$ and $U_Z$ is verified in the same manner so we omit the proof. To conclude, $E$ is a smooth curve, hence irreducible (see proposition 5.1 of <a target="_blank" rel="noopener" href="https://agag-gathmann.math.rptu.de/class/curves-2023/curves-2023-c5.pdf">this document</a>).</p>
+<p>To see that $E$ is an elliptic curve, we notice that $\widetilde{P}(1,0,0)=0$ so $E$ is a smooth cubic curve that admits a rational point $P_1=[1:0:0]$ thus an elliptic curve.</p>
+<p>One finds also some other simple points that lies on $E$. That is, $P_2=[0:0:1]$, $P_3=[1:-1:0]$ and $P_4=[0:1:0]$. In fact, we have $E \setminus Z_P = \{P_1,P_2,P_3,P_4\}$. To see this, we notice that $Z_P \subset U_Z$ and for all points on $Z_P$, the coordinates of $X$ and $Y$ cannot be zero. Thus $P_2 \in U_Z$ is the only point of $E \cap U_Z$ that is not on $Z_P$. On $\mathbb{P}^2(\mathbb{C}) \setminus U_Z$, the points on $E$ satisfy $X^2Y+XY^2=XY(X+Y)=0$, the only solution of which is $P_1,P_3$ and $P_4$. </p>
+<p>Moving on, we study the structure of $E \setminus Z_P$ as a group. Indeed, the unit element of $E(\mathbb{Q})$ can be set as $P_1=[1:0:0]$. To calculate the sum $P_2+P_2$, we first of all calculate the tangent line of $E$ at $P_2$. Indeed, the gradient of $\widetilde{P}$ at $P_2$ is $(1,1,0)$, therefore the tangent line is $L_2=\{X+Y=0\}$, and we have $E \cap L_2 = \{X^2Z=0\} \cap \{X+Y = 0\}=\{[1:-1:0],[0:0:1]\}$. Therefore the other point on $E$ passing through $L_2$ is $P_3=[1:-1:0]$. The point $2P_2$ is therefore the intersection of $E$ and the line containing $P_1$ and $P_3$. We notice that the line containing $P_1$ and $P_3$ is $L_{13}=\{Z=0\}$. We see that $L_{14} \cap E=\{X^2Y+XY^2=0\} \cap \{Z=0\}=\{P_1,P_3,P_4\}$, which implies that $2P_2=P_4$. </p>
+<p>We can calculate $2P_4$ in the same manner. Indeed, the tangent line of $E$ at $P_4$ is $L_4=\{X=0\}$, and $L_4 \cap E = \{YZ^2=0\} \cap \{X=0\}=\{P_4,P_2\}$. Therefore $2P_4$ is the intersection of $E$ and the line passing through $P_2$ and $P_1$, which is $L_{12}=\{Y=0\}$. We see that $L_{12} \cap E = \{XZ^2=0\}\cap \{Y=0\}=\{P_1,P_2\}$. Notice that $L_{12}$ is tangent at $P_1$ therefore we have $2P_4 = P_1$.</p>
+<p>The calculation of $P_3$ can be tricky so we circumvent it by considering $P_2+P_4$. Indeed, the line passing through $P_2$ and $P_4$ is $L_{24}=L_4=\{X=0\}$, which is tangent at $P_4$.  Therefore the sum $P_2+P_4$ is collinear with $P_1$ and $P_4$, which is exactly $P_3$ since we have shown that $L_{14} \cap E = \{P_1,P_3,P_4\}$.</p>
+<p>To conclude, with $P_1$ being chosen as the unit, we have $2P_2 = P_4$, $3P_2 = P_2+P_4 = P_3$ and $4P_2 = 2P_4 = P_1$. Therefore $E \setminus Z_P$ is a cyclic group of order $4$ generated by $P_2$ as expected.</p>
+<p>Finally, we see why the conductor of $E$ is $15$. The Weierstrass form of $E$ is $y^2 + xy + y = x^3 + x^2$. This form can be found by a change of variable $(X,Y,Z) \mapsto (X+Y+Z,-Y,-X)$ as we have</p>
+<script type="math/tex; mode=display">
+\widetilde{P}(X+Y+Z,-Y,-X)=X^{3} + X^{2} Z - X Y Z - Y^{2} Z - Y Z^{2}.</script><p>From the Weierstrass form it is easy to see that the discriminant $\Delta = -15$ and therefore the conductor $N=15$. One can simply use the first two steps of <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Tate%27s_algorithm">Tate’s algorithm</a> working on prime numbers $p=3$ and $5$. One can also simply use SageMath to carry out the calculation. The code can be found after the proof.</p>
+<p>For the last statement, as one can compute (with the help of SageMath), that $j(E)=-\frac{1}{15}$ is <strong>not</strong> an algebraic integer, therefore $E$ does not admit complex multiplication. See Theorem II.6.1. of <a target="_blank" rel="noopener" href="https://link.springer.com/book/10.1007/978-1-4612-0851-8">this book</a>. $\square$</p>
+<p>The following code block contains a minimal implementation of the elliptic curve $E$ in SageMath. If the reader does not have SageMath on their device, it is recommended to run the code on an online server like <a target="_blank" rel="noopener" href="https://sagecell.sagemath.org/">SageMathCell</a>. It is also recommended to check the graph of $P(x,y)$ with the help of for instance <a target="_blank" rel="noopener" href="https://www.geogebra.org/calculator/tfrpejdn">Geogebra</a>.</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Sage implementation on finding the Weierstrass form and the conductor</span></span><br><span class="line"><span class="comment"># SageMath version 10.6, Release Date: 2025-03-31</span></span><br><span class="line"><span class="comment"># Python version 3.12.11</span></span><br><span class="line"><span class="comment"># ========================</span></span><br><span class="line"><span class="comment"># 1. Define the polynomial and the point</span></span><br><span class="line">R.&lt;X, Y, Z&gt; = PolynomialRing(QQ, <span class="number">3</span>)</span><br><span class="line">P = X^<span class="number">2</span>*Y + X*Y^<span class="number">2</span> + X*Y*Z + X*Z^<span class="number">2</span> + Y*Z^<span class="number">2</span></span><br><span class="line">P1 = [<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>]</span><br><span class="line">E = EllipticCurve_from_cubic(P,P1)</span><br><span class="line"><span class="built_in">print</span>(E)</span><br><span class="line"><span class="comment"># === Output begins ===</span></span><br><span class="line"><span class="comment"># Scheme morphism:</span></span><br><span class="line"><span class="comment">#  From: Projective Plane Curve over Rational Field defined by X^2*Y + X*Y^2 + X*Y*Z + X*Z^2 + Y*Z^2</span></span><br><span class="line"><span class="comment">#  To:   Elliptic Curve defined by y^2 - x*y - y = x^3 + x^2 over Rational Field</span></span><br><span class="line"><span class="comment">#  Defn: Defined on coordinates by sending (X : Y : Z) to</span></span><br><span class="line"><span class="comment">#        (-Z : X : X + Y + Z)</span></span><br><span class="line"><span class="comment"># === Output ends ===</span></span><br><span class="line"><span class="comment"># 2. The change of variable that yields the Weierstrass normal form, i.e. the inverse of (X:Y:Z) -&gt; (-Z:X:X+Y+Z)</span></span><br><span class="line">total_map = E.defining_polynomials()</span><br><span class="line">M = matrix(QQ,[[p.coefficient(v) <span class="keyword">for</span> v <span class="keyword">in</span> [X,Y,Z]] <span class="keyword">for</span> p <span class="keyword">in</span> total_map])</span><br><span class="line">M_inv = M.inverse()</span><br><span class="line">new_vars = M.inverse()*vector([X,Y,Z])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;The change of variable sends (X,Y,Z) to&quot;</span>,new_vars)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;The Weierstrass normal form can be found after the change of variable of F:&quot;</span>, F(new_vars[<span class="number">0</span>],new_vars[<span class="number">1</span>],new_vars[<span class="number">2</span>]))</span><br><span class="line"><span class="comment"># === Output begins ===</span></span><br><span class="line"><span class="comment"># The change of variable sends (X,Y,Z) to (Y, X - Y + Z, -X)</span></span><br><span class="line"><span class="comment"># The Weierstrass normal form can be found after the change of variable of F: X^3 + X^2*Z + X*Y*Z - Y^2*Z + Y*Z^2</span></span><br><span class="line"><span class="comment"># === Output ends ===</span></span><br><span class="line"><span class="comment"># 3. Important values of the elliptic curve</span></span><br><span class="line">E_curve = E.codomain()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;The discriminant of E is&quot;</span>,E_curve.discriminant())</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;The j-invariant of E is&quot;</span>, E_curve.j_invariant())</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;The conductor of E is&quot;</span>, E_curve.conductor())</span><br><span class="line"><span class="comment"># === Output begins ===</span></span><br><span class="line"><span class="comment"># The discriminant of E is -15</span></span><br><span class="line"><span class="comment"># The j-invariant of E is -1/15</span></span><br><span class="line"><span class="comment"># The conductor of E is 15</span></span><br><span class="line"><span class="comment"># === Output ends ===</span></span><br></pre></td></tr></table></figure>
+<h2 id="The-Deninger-path-of-the-polynomial"><a href="#The-Deninger-path-of-the-polynomial" class="headerlink" title="The Deninger path of the polynomial"></a>The Deninger path of the polynomial</h2><p>The <strong>Deninger path</strong> of a polynomial $Q(x,y) \in \mathbb{C}[x^{\pm},y^{\pm}]$ is defined to be</p>
+<script type="math/tex; mode=display">
+\gamma(Q)=\{(x,y)\in(\mathbb{C}^{\times})^2:Q(x,y)=0,|x|=1,|y|>1\}.</script><p>The reason why we are interested in such a circle is that we want to learn the value of the Mahler measure of a polynomial, which is defined in the following manner for $Q$:</p>
+<script type="math/tex; mode=display">
+m(Q)=  \frac{1}{(2\pi i)^2}\iint_{|x|=|y|=1}\log|Q(x,y)|\frac{dx}{x}\frac{dy}{y}.</script><p>This integral is not easy to study. To make our lives easier, we try to integrate $\log|Q(x,y)|$ with one variable at a time. Let $Q^\ast(x)$ be the leading coefficient of $Q(x,y)$ viewed as a Laurent polynomial with coefficients in $\mathbb{C}[x^{\pm}]$. Then whenever $Q^\ast(x) \ne 0$, we have, by <a href="[Jensen&#39;s formula - Wikipedia](https://en.wikipedia.org/wiki/Jensen&#39;s_formula">Jensen’s formula</a>),</p>
+<script type="math/tex; mode=display">
+\frac{1}{2\pi i}\int_{|y|=1}\log|Q(x,y)|\frac{dy}{y}=\log|Q^\ast(x)|+\sum_{\substack{|y|>1 \\Q(x,y)=0}}\log|y|.</script><p>We then integrate the value above with respect to $x$, only to find</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+m(Q) &= \frac{1}{2\pi i}\int_{|x|=1}\log|Q^\ast(x)|\frac{dx}{x}+\frac{1}{2\pi i}\int_{\gamma(Q)}\log|y|\frac{dx}{x} \\
+    &= m(Q^\ast)+\frac{1}{2\pi i}\int_{\gamma(Q)}\log|y|\frac{dx}{x}
+\end{aligned}</script><p>Therefore the integration path $\gamma(Q)$ appears naturally. In this part, we want to find the Deninger path of $P(x,y)=x+\frac{1}{x}+y+\frac{1}{y}+1$.</p>
+<blockquote>
+<p><strong>Proposition 2.</strong> The Deninger path $\gamma(P)$ is given by</p>
+<script type="math/tex; mode=display">
+\gamma(P)= \left\{(e^{i\theta},Y(\theta)):\theta\in\left(-\frac{\pi}{3},\frac{\pi}{3}\right),\,Y(\theta)=-\cos\theta-\frac{1}{2}-\sqrt{\left(\cos\theta+\frac{1}{2}\right)^2-1}\right\}.</script></blockquote>
+<p><em>Proof.</em> The determination of the path is surprisingly elementary. It is routine to verify that such $(e^{i\theta},Y(\theta))$ lie on $\gamma(P)$ so it suffices to verify the inverse. Let $(x,y) \in \gamma(P)$. Since $|x|=1$, there exists $\theta \in \mathbb{R}/2\pi\mathbb{Z}$ such that $x=e^{i\theta}$. We can pick $\theta$ in such a manner that $-\pi \le \theta \le \pi$. As a result,</p>
+<script type="math/tex; mode=display">
+P(x,y)=2\cos\theta+y+\frac{1}{y}+1=0,</script><p>which implies that</p>
+<script type="math/tex; mode=display">
+y^2+(2\cos\theta+1)y+1=0,</script><p>and $y$ has to be one of the solutions. Before finding the solutions, we notice that in order that $(x,y) \in \gamma(P)$, we must have $\operatorname{Im}(y)=0$. If not, then $y \ne \overline{y}$ and both $y$ and $\overline{y}$ are roots of $y^2+(2\cos\theta+1)y+1$, which implies that $|y|^2=y\overline{y}=1$ according to Vieta’s formula. </p>
+<p>It follows that $\Delta = (2\cos\theta+1)^2-4 \ge 0$, which implies that $-\frac{\pi}{3}\le \theta \le \frac{\pi}{3}$. The boundary cases have to be excluded because if $\theta=\pm \frac{\pi}{3}$ then $2\cos\theta+1=2$ and the double solution to $y^2+2y+1=0$ is $y=1$.</p>
+<p>Therefore we must have $-\frac{\pi}{3}&lt; \theta &lt; \frac{\pi}{3}$ and solving $y^2+(2\cos\theta+1)y+1=0$ yields</p>
+<script type="math/tex; mode=display">
+y = -\sqrt{\left(\cos\theta+\frac{1}{2}\right)^2-1}-\left(\cos\theta+\frac{1}{2}\right),</script><p>and another root is omitted because its absolute value is smaller than $1$. To conclude, points on $\gamma(P)$ are exactly of the form $(e^{i\theta},Y(\theta))$. $\square$</p>
+<p>We terminate the post before it becomes way too long. In a future post, we will explain how to compute $m(P)$ using the method of modular forms. </p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>Other than the linked documents in text, this post is based on <a target="_blank" rel="noopener" href="https://www.cambridge.org/core/books/many-variations-of-mahler-measures/29DB6CD1A87B356AD304DED9ECC9F4EE">Many Variations of Mahler Measures, <em>A Lasting Symphony</em></a> by <a target="_blank" rel="noopener" href="https://perso.ens-lyon.fr/francois.brunault/">François Brunault</a> and <a target="_blank" rel="noopener" href="https://www.math.ru.nl/~zudilin/">Wadim Zudilin</a>.</p>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2025-12-30</p></div> 
+    <div class="post-entry__tags"><a href="../../../../tags/Elliptic-Curve/" class="post-tags__link button"># Elliptic Curve</a><a href="../../../../tags/SageMath/" class="post-tags__link button"># SageMath</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="../../../10/13/boolean/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            Boolean ring and algebraic numbers
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>Comments</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="utterances-container" sid="2025/12/30/boyd-deninger/"></div>
+<script type="text/javascript">
+  var repo = "Admiraldesvl/Admiraldesvl.github.io";
+  var issueTerm = "title";
+  var theme = "github-light";
+  var label = "Blog Comments";
+  (function () {
+    var container = document.getElementById("utterances-container");
+    var script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", repo);
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", theme);
+    script.setAttribute("label", label);
+    script.crossorigin = "anonymous";
+    script.async = true;
+
+    container.appendChild(script);
+  })();
+</script>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+    
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+
+    </body>
+</html>
