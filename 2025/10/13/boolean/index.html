@@ -43,7 +43,7 @@
 <meta property="og:description" content="In this post, we study the Boolean ring and see how it can be used in algebraic number theory.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-10-13T14:06:01.000Z">
-<meta property="article:modified_time" content="2025-10-13T18:05:53.440Z">
+<meta property="article:modified_time" content="2025-12-31T15:33:49.467Z">
 <meta property="article:author" content="Desvl">
 <meta property="article:tag" content="Exercise solution">
 <meta property="article:tag" content="Atiyah-MacDonald">
@@ -199,14 +199,14 @@ a = r(ux)+s(uy)=(rx+sy)u.</script><p>Therefore we have $\mathfrak{a}=(u)=(x+y+xy
 a=a_1x_1+\dots+a_nx_n+a_{n+1}x_{n+1} \in \mathfrak{a},</script><p>there is an element $y_{n+1} \in \mathfrak{a}$ such that $a_1x_1+\dots+a_nx_n=b_{n+1}y_{n+1}$, and if we set $u_{n+1}=x_{n+1}+y_{n+1}+x_{n+1}y_{n+1}$, then </p>
 <script type="math/tex; mode=display">
 a = a_{n+1}x_{n+1}+b_{n+1}y_{n+1}=(a_{n+1}x_{n+1}+b_{n+1}y_{n+1})u_{n+1}</script><p> and therefore $\mathfrak{a}=(u_{n+1})$ as expected. $\square$</p>
-<p>Indeed, if $B$ is noetherian, then we see immediately that $\dim B = 0$, where $\dim$ denotes the Krull dimension. Besides, in this case, $B$ is automatically a PID. We should notice however $B$ is not necessarily noetherian. For example </p>
+<p>Indeed, if $B$ is noetherian, then we see immediately that $\dim B = 0$, where $\dim$ denotes the Krull dimension. Besides, in this case, $B$ is automatically a PID. We should notice however a Boolean ring $B$ is not necessarily noetherian. For example </p>
 <script type="math/tex; mode=display">
 \mathbb{Z}/2\mathbb{Z} \times \mathbb{Z}/2\mathbb{Z} \times \cdots</script><p>is Boolean but not noetherian because we can consider the chain of ideals</p>
 <script type="math/tex; mode=display">
 I_n = \underbrace{\mathbb{Z}/2\mathbb{Z} \times \cdots \times \mathbb{Z}/2\mathbb{Z}}_{n \mathrm{\,times}} \times \{0\}\times \{0\} \times \cdots</script><p>and $I_1 \subset I_2 \subset \cdots$ is not a stationary chain.</p>
-<p>Next we see the topology of $\operatorname{Spec}B$. It is required to have the basic knowledge of the Zariski topology.</p>
+<p>Next we investigate the topology of $\operatorname{Spec}B$. It is required to have the basic knowledge of the Zariski topology.</p>
 <blockquote>
-<p><strong>Proposition 2.</strong> Let $X=\operatorname{Spec}B$ and $X_f=X \setminus V(f)$, where $V(f)=\{\mathfrak{p} \in X:f \in \mathfrak{p}\}$ be the basic open sets of $X$ [recall that an open subset of $X$ is quasi-compact if and only if it is a finite union of sets $X_f$]. Then </p>
+<p><strong>Proposition 2.</strong> Let $X=\operatorname{Spec}B$ and $X_f=X \setminus V(f)$, where $V(f)=\{\mathfrak{p} \in X:f \in \mathfrak{p}\}$ be the basic open sets of $X$ [recall that an open subset of $X$ is quasi-compact if and only if it is a finite union of sets $X_f$. Then </p>
 <ol>
 <li>For each $f \in B$, the set $X_f$ is both open and closed in $X$.</li>
 <li>Let $f_1,\dots,f_n \in B$, then $X_{f_1} \cup \cdots \cup X_{f_n}=X_f$ for some $f \in B$.</li>
@@ -219,7 +219,7 @@ I_n = \underbrace{\mathbb{Z}/2\mathbb{Z} \times \cdots \times \mathbb{Z}/2\mathb
 V(f) \cup V(1-f) = V((f)(1-f))=V(f-f^2)=V(0)=X</script><p>and on the other hand,</p>
 <script type="math/tex; mode=display">
 V(f) \cap V(1-f) = V(f,1-f)=V(1)=\varnothing.</script><p>This is to say we have $X_f = X \setminus V(f) = V(1-f)$ to be closed all the time.</p>
-<p>For 2, we can simply use the identity $X_f=V(1-f) proved above. Indeed, </p>
+<p>For 2, we can simply use the identity $X_f=V(1-f)$ proved above. Indeed, </p>
 <script type="math/tex; mode=display">
 X_{f_1} \cup \cdots \cup X_{f_n} = V(1-f_1) \cup \cdots \cup V(1-f_n) = V((1-f_1)\cdots(1-f_n))=V(1-F(f_1,\dots,f_n))</script><p>where $F(f_1,\dots,f_n) \in B$ is a finite sum and product of $f_1,\dots,f_n$ and is the element $f$ that we were looking for.</p>
 <p>For 3, we pick a open and closed set $Y \subset X$. Since $Y$ is open, we can write $Y = \bigcup_{i \in I}X_{f_i}$ for some index set $I$. Since $Y$ is closed in $X$, we see that $Y$ is quasi-compact, and therefore the index set $I$ can be chosen to be finite. By 2, there is therefore a $f \in B$ such that $Y=X_f$.</p>
@@ -314,7 +314,7 @@ Y &\mapsto \beta
 
     </div>
      
-    <div class="post-footer__meta"><p>updated at 2025-10-13</p></div> 
+    <div class="post-footer__meta"><p>updated at 2025-12-31</p></div> 
     <div class="post-entry__tags"><a href="../../../../tags/Exercise-solution/" class="post-tags__link button"># Exercise solution</a><a href="../../../../tags/Atiyah-MacDonald/" class="post-tags__link button"># Atiyah-MacDonald</a></div> 
 </article>
 
@@ -417,7 +417,7 @@ Y &\mapsto \beta
     
         
         <p class="footer-copyright">
-            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+            Copyright © 2019&nbsp;-&nbsp;2026 <a href="../../../../index.html">Desvl&#39;s blog</a>
         </p>
     
     

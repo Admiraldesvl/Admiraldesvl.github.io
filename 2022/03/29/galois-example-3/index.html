@@ -43,7 +43,7 @@
 <meta property="og:description" content="In this episode we focus on the rational field. What can we know about the Galois group of an irreducible polynomial with prime degree? There is a method by counting the number of nonreal roots. From">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-03-29T15:32:59.000Z">
-<meta property="article:modified_time" content="2025-05-11T20:04:56.091Z">
+<meta property="article:modified_time" content="2025-12-31T15:44:33.682Z">
 <meta property="article:author" content="Desvl">
 <meta property="article:tag" content="Examples in Galois Theory">
 <meta name="twitter:card" content="summary_large_image">
@@ -169,7 +169,7 @@
 <article class="post post__with-toc content-card">
     <div class="post__header"></div>
     <div class="post__content">
-        <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>In the <a href="/2022/03/27/galois-example-2/">previous post</a> we are convinced that the Galois group of a separable irreducible polynomial $f$ can be realised as a subgroup of the symmetric group, the elements of which permute the roots of $f$. We worked on cubic polynomials over a field with characteristic not equal to $2$ and $3$, and this definitely works with $\mathbb{Q}$. In this post we go one step further.</p>
+        <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>In the <a href="/2022/03/27/galois-example-2/">previous post</a> we are convinced that the Galois group of a separable irreducible polynomial $f$ can be realised as a subgroup of the symmetric group, the elements of which permute the roots of $f$. We worked on cubic polynomials over a field with characteristic not equal to $2$ and $3$, for example $\mathbb{Q}$. In this post we go one step further.</p>
 <p>Let $f \in \mathbb{Q}[X]$ be an irreducible polynomial of prime degree $p$. Since it is also separable (see lemma 9.12.1 on <a target="_blank" rel="noopener" href="https://stacks.math.columbia.edu/tag/09GZ">the stack project</a>), we can safely work on its Galois group $G$. One immediately wants to question the position of $\mathfrak{S}_p$. Indeed we have $G \subset \mathfrak{S}_p$. The question is, when does the equality hold? It is not likely to have an immediate answer. However, we have some interesting sufficient conditions, which will be discussed in this post.</p>
 <h2 id="Generators-of-the-Symmetric-Group"><a href="#Generators-of-the-Symmetric-Group" class="headerlink" title="Generators of the Symmetric Group"></a>Generators of the Symmetric Group</h2><p>We present some handy results in finite group theory that will be used in the main result. One may skip this section until needed. I will collapse the proof in case one wants to treat it as an exercise.</p>
 <blockquote>
@@ -203,8 +203,8 @@
 <p>It remains to prove that $G$ contains a transposition. Let $\alpha$ and $\beta$ be two nonreal roots of $f$. Since $\overline{\alpha}$ is also a root of $f$ (because coefficients of $f$ are real; if $\sum_{n=0}^{p}a_n\alpha^n=0$, then $\sum_{n=0}^{p}a_n\overline{\alpha}^n=\sum_{n=0}^{p}\overline{a_n\alpha^n}=\overline{0}=0$) we see $\beta=\overline{\alpha}$. Therefore complex conjugation over $\mathbb{Q}(\alpha)$ extends to $L$ as an element of order $2$, which is a transposition in $G$. This proves our assertion. $\square$</p>
 <p>For example, consider the polynomial</p>
 <script type="math/tex; mode=display">
-f(X)=X^5-4X+2.</script><p>With calculus one can show that it has exactly three roots, hence it has two nonreal roots. Eisenstein’s criterion shows that $f$ is irreducible. Therefore we are allowed to use proposition 1. The Galois group of $f$ is $\mathfrak{S}_5$.</p>
-<p>This also works fine when $p=2$ or $3$. The case when $p=2$ is nothing but working around a quadratic polynomial. When $f(X)$ is irreducible of degree $3$, and it has two nonreal roots, we also know that it has an irrational root. Let the roots be $a+bi,a-bi,c$ where $b \ne 0$ and $c$ is irrational. We see </p>
+f(X)=X^5-4X+2.</script><p>With calculus one can show that it has exactly three roots, hence it has two nonreal roots. Eisenstein’s criterion shows that $f$ is irreducible. Therefore we are allowed to use Proposition 1. The Galois group of $f$ is $\mathfrak{S}_5$.</p>
+<p>Proposition 1 applies to the case where $p=2$ or $3$. The case where $p=2$ is nothing but a quadratic polynomial where $\Delta&lt;0$. Suppose now $f(X)$ is irreducible of degree $3$ over $\mathbb{Q}$ with two nonreal roots. Since $f$ is of odd degree, $f$ admits a root $c\in\mathbb{R}$. As $f$ is irreducible, we must have $c \in \mathbb{R} \setminus \mathbb{Q}$. If $a+bi \in\mathbb{C}$ is one of the nonreal root of $f$ where $b \ne 0$, then $a-bi$ is also a root of $f$. We see </p>
 <script type="math/tex; mode=display">
 \sqrt\Delta=2bi(c-a-bi)(c-a+bi)=2bi[(c-a)^2+b^2] \not \in \mathbb{Q}.</script><p>Therefore the Galois group is $\mathfrak{S}_3$.</p>
 <h3 id="“Linear”-Generalisation"><a href="#“Linear”-Generalisation" class="headerlink" title="“Linear” Generalisation"></a>“Linear” Generalisation</h3><p>It is way too ambitious to restrict ourselves in one single pair of roots. Also, it seems we have ignored the alternating group $\mathfrak{A}_p$ for no reason. Oz Ben-Shimol gave us a nice way to work around this (see <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/0709.2868.pdf">arXiv:0709.2868</a>). The whole paper is not easy but the result is pretty beautiful and generalised what we said above as $p \ge 5$.</p>
@@ -220,7 +220,7 @@ p \ge k(k\log k+2\log k+3).</script><p>When $k$ is big enough, we have $k(k\log{
 
     </div>
      
-    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-footer__meta"><p>updated at 2025-12-31</p></div> 
     <div class="post-entry__tags"><a href="../../../../tags/Examples-in-Galois-Theory/" class="post-tags__link button"># Examples in Galois Theory</a></div> 
 </article>
 
@@ -323,7 +323,7 @@ p \ge k(k\log k+2\log k+3).</script><p>When $k$ is big enough, we have $k(k\log{
     
         
         <p class="footer-copyright">
-            Copyright © 2019&nbsp;-&nbsp;2025 <a href="../../../../index.html">Desvl&#39;s blog</a>
+            Copyright © 2019&nbsp;-&nbsp;2026 <a href="../../../../index.html">Desvl&#39;s blog</a>
         </p>
     
     
