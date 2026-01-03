@@ -1,0 +1,39 @@
+# Block OpenAI (ChatGPT/GPT-4)
+User-agent: GPTBot
+Disallow: /
+
+# Block OpenAI User requests
+User-agent: ChatGPT-User
+Disallow: /
+
+# Block Google Gemini & Vertex AI (Does not affect Google Search)
+User-agent: Google-Extended
+Disallow: /
+
+# Block Anthropic (Claude)
+User-agent: Claude-bot
+Disallow: /
+
+# Block Common Crawl (Used by many AI models for training)
+User-agent: CCBot
+Disallow: /
+
+# Block Perplexity AI
+User-agent: PerplexityBot
+Disallow: /
+
+# Block Meta (Llama/Meta AI)
+User-agent: FacebookBot
+Disallow: /
+
+# Block ByteDance (TikTok/Crawl for AI)
+User-agent: Bytespider
+Disallow: /
+
+# Block Amazon (AWS AI training)
+User-agent: Amazonbot
+Disallow: /
+
+# Block Apple (Apple Intelligence/Applebot-Extended)
+User-agent: Applebot-Extended
+Disallow: /
