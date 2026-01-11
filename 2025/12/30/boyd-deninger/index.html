@@ -43,7 +43,7 @@
 <meta property="og:description" content="In this post we study the Boyd-Deninger polynomial P(x,y)&#x3D;x+1&#x2F;x+y+1&#x2F;y+1. In particular, we are interested in the elliptic curve that is defined by it.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-12-29T23:00:00.000Z">
-<meta property="article:modified_time" content="2026-01-11T21:30:02.066Z">
+<meta property="article:modified_time" content="2026-01-11T22:44:50.756Z">
 <meta property="article:author" content="Desvl">
 <meta property="article:tag" content="Elliptic Curve">
 <meta property="article:tag" content="SageMath">
@@ -269,7 +269,7 @@ f(x,y)=[(y+1)-\alpha(x-1)][(y+1)-\beta(x-1)]-(x-1)^3.</script><p>As a matter of 
 <script type="math/tex; mode=display">
 f(x,y)=(y+1)^2-(\alpha+\beta)(x-1)(y+1)+\alpha\beta(x-1)^2-(x-1)^3.</script><p>If we check the coefficient of $xy$ and $x^2$, we see</p>
 <script type="math/tex; mode=display">
-\alpha+\beta=-1,\,\alpha\beta=-1</script><p>and therefore $\alpha$ and $\beta$ are the roots of the polynomial $\varphi(X)=X^2+X-1$. The discriminant of $\varphi$ is $1+4=2$. However since $\left(\dfrac{2}{3}\right)=2^{1}=-1$, we see that the solution of $\varphi(X)=0$ do not lie in $\mathbf{F}_3$. Denote $\sqrt{2}$ the element of $\mathbf{F}_9$ that satisfies $X^2-2=0$. Then without loss of generality we can put $\alpha= 1-\sqrt{2}$ and $\beta=1+\sqrt{2}$. Therefore $E(\mathbf{F}_3)$ admits a nodal singular point.</p>
+\alpha+\beta=-1,\,\alpha\beta=-1</script><p>and therefore $\alpha$ and $\beta$ are the roots of the polynomial $\varphi(X)=X^2+X-1$. The discriminant of $\varphi$ is $1+4=2$. However since $\left(\dfrac{2}{3}\right)=2^{1}=-1$, we see that the solutions of $\varphi(X)=0$ do not lie in $\mathbf{F}_3$. Denote $\sqrt{2}$ the element of $\mathbf{F}_9$ that satisfies $X^2-2=0$. Then without loss of generality we can put $\alpha= 1-\sqrt{2}$ and $\beta=1+\sqrt{2}$. Therefore $E(\mathbf{F}_3)$ admits a nodal singular point.</p>
 <p>We can do the exact same procedure with $\mathbf{F}_5$, but it is not necessary at all: it doesn’t matter where is the singular point. Let $(x_0,y_0)$ be the singular point of $E(\mathbf{F}_5)$, then</p>
 <script type="math/tex; mode=display">
 f(x,y)=(y-y_0)^2-(\alpha+\beta)(x-x_0)(y-y_0)+\alpha\beta(x-x_0)^2-(x-x_0)^3.</script><p>With exactly the same artument with the coefficients, we find that</p>
