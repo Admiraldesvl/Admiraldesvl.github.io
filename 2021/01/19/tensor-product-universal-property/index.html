@@ -47,7 +47,7 @@
 <meta property="og:image" content="https://desvl.xyz/img/tensor-functor.png">
 <meta property="og:image" content="https://desvl.xyz/img/tensor-double-chain.png">
 <meta property="article:published_time" content="2021-01-19T16:25:09.000Z">
-<meta property="article:modified_time" content="2025-05-10T22:19:10.572Z">
+<meta property="article:modified_time" content="2026-03-15T22:17:41.180Z">
 <meta property="article:author" content="Desvl">
 <meta property="article:tag" content="Universal Property">
 <meta name="twitter:card" content="summary_large_image">
@@ -184,21 +184,22 @@
 
 <p>This indeed makes $BL$ a category. If we define the morphisms from $(f,E)$ to $(g,F)$ by $\mor(f,g)$ (for simplicity we omit $E$ and $F$ since they are already determined by $f$ and $g$) we see the composition</p>
 <script type="math/tex; mode=display">
-\mor(f,g) \times \mor(h,g) \to \mor(h,f)</script><p>satisfy all axioms for a category:</p>
+\mor(g,f) \times \mor(h,g) \to \mor(h,f)</script><p>satisfy all axioms for a category:</p>
 <p><strong>CAT 1</strong> Two sets $\mor(f,g)$ and $\mor(f’,g’)$ are disjoint unless $f=f’$ and $g=g’$, in which case they are equal. If $g \neq g’$ but $f = f’$ for example, for any $h \in \mor(f,g)$, we have $g = h \circ f = h \circ f’ \neq g’$, hence $h \notin \mor(f,g)$. Other cases can be verified in the same fashion.</p>
 <p><strong>CAT 2</strong> The existence of identity morphism. For any $(f,E) \in BL$, we simply take the identity map $i:E \to E$. For $h \in \mor(f,g)$, we see $g = h \circ f = h \circ i \circ f$. For $h’ \in \mor(g,f)$, we see $f = h’ \circ g = i \circ h’ \circ g$.</p>
 <p><strong>CAT 3</strong> The law of composition is associative when defined. </p>
 <hr>
 <p>There we have a category. But what about the tensor product? It is defined to be <em>initial</em> (or <em>universally repelling</em>) object in this category. Let’s denote this object by $(\varphi,M_1 \otimes M_2)$.</p>
 <blockquote>
-<p>For any $(f,E) \in BL$, we have a unique morphism (which is a module homomorphism as well) $h:(\varphi,M_1 \otimes M_2) \to (f,E)$. For $x \in M_1$ and $y \in M_2$, we write $\varphi(x,y)=x \otimes y$. We call the existence of $h$ the <strong>universal property</strong> of $(\varphi,M_1 \otimes M_2)$.</p>
+<p>For any $(f,E) \in BL$, we have a <strong>unique</strong> morphism (which is a module homomorphism as well) $h:(\varphi,M_1 \otimes M_2) \to (f,E)$. For $x \in M_1$ and $y \in M_2$, we write $\varphi(x,y)=x \otimes y$. We call the existence of $h$ the <strong>universal property</strong> of $(\varphi,M_1 \otimes M_2)$.</p>
 </blockquote>
-<p>The tensor product is unique up to isomorphism. That is, if both $(f,E)$ and $(g,F)$ are tensor products, then $E \simeq F$ in the sense of module isomorphism. Indeed, let $h \in \mor(f,g)$ and $h’ \in \mor(g,h)$ be the unique morphisms respectively, we see $g = h \circ f$, $f = h’ \circ g$, and therefore</p>
+<p>The tensor product is unique up to isomorphism. That is, if both $(f,E)$ and $(g,F)$ are tensor products, then $E \simeq F$ in the sense of module isomorphism, and the isomorphism is <em>unique</em>. For this reason we call the isomorphism <strong>canonic</strong>.</p>
+<p>Indeed, let $h \in \mor(f,g)$ and $h’ \in \mor(g,h)$ be the unique morphisms respectively, we see $g = h \circ f$, $f = h’ \circ g$, and therefore</p>
 <script type="math/tex; mode=display">
 g = h \circ h' \circ g \\
 f = h' \circ h \circ f</script><p>Hence $h \circ h’$ is the identity of $(g,F)$ and $h’ \circ h$ is the identity of $(f,E)$. This gives $E \simeq F$.</p>
 <p>What do we get so far? For any modules that is connected to $M_1 \times M_2$ with a bilinear map, the tensor product $M_1 \oplus M_2$ of $M_1$ and $M_2$, is always able to be connected to that module with a unique module homomorphism. What if there are more than one tensor products? Never mind. All tensor products are isomorphic. </p>
-<p>But wait, does this definition make sense? Does this product even exist? How can we study the tensor product of two modules if we cannot even write it down? So far we are only working on arrows, and we don’t know what is happening inside an module. It is not a good idea to waste our time on ‘nonsenses’. We can look into it in an natural way. Indeed, if we can find a module satisfying the property we want, then we are done, since this can represent the tensor product under any circumstances. Again, all tensor products of $M_1$ and $M_2$ are isomorphic.</p>
+<p>But wait, does this definition make sense? Does this product even exist? How can we study the tensor product of two modules if we cannot even write it down? So far we are only working on arrows, and we don’t know what is happening inside an module.  Indeed, if we can find a module satisfying the property we want, then we are done, since this can represent the tensor product under any circumstances: all tensor products of $M_1$ and $M_2$ are canonically isomorphic.</p>
 <h2 id="A-natural-way-to-define-the-tensor-product"><a href="#A-natural-way-to-define-the-tensor-product" class="headerlink" title="A natural way to define the tensor product"></a>A natural way to define the tensor product</h2><p>Let $M$ be the free module generated by the set of all tuples $(x_1,x_2)$ where $x_1 \in M_1$ and $x_2 \in M_2$, and $N$ be the submodule generated by tuples of the following types:</p>
 <script type="math/tex; mode=display">
 (x_1+x_1',x_2)-(x_1,x_2)-(x_1',x_2) \\
@@ -347,7 +348,7 @@ T:L(M_1, M_1') \times L(M_2,M_2') &\to L(M_1 \otimes M_2, M_1' \otimes M_2') \\
 \end{aligned}</script>
     </div>
      
-    <div class="post-footer__meta"><p>updated at 2025-05-11</p></div> 
+    <div class="post-footer__meta"><p>updated at 2026-03-15</p></div> 
     <div class="post-entry__tags"><a href="../../../../tags/Universal-Property/" class="post-tags__link button"># Universal Property</a></div> 
 </article>
 
